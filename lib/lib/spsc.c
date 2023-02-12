@@ -13,7 +13,6 @@
 #define SPSC_VERSION 1
 
 
-//找到最接近的二进制幂数（大于n）
 static inline size_t get_next_power_of_two(const size_t n)
 {
 	size_t x = 1;
@@ -21,7 +20,6 @@ static inline size_t get_next_power_of_two(const size_t n)
 	return x;
 }
 
-//锁定队列
 static int spsc_flock(spsc_ring* ring,const char *pathname, int mode)
 {
 	char* lock_suffix = mode == READ_MODE ? ".read.lock" : ".write.lock";
@@ -52,7 +50,6 @@ static inline void spsc_funlock(spsc_ring* ring)
 	close(ring->flock_fd);
 }
 
-//申请内存
 static int spsc_create(spsc_ring* ring,const char *pathname,  const size_t size)
 {
 	int permissions = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP;
@@ -131,7 +128,6 @@ int spsc_create_sub(spsc_ring* ring,  const size_t size)
 	return 0;
 }
 
-//创建队列
 int spsc_create_pub(spsc_ring* ring, const size_t size)
 {
 	const char *pathname="test_jni";
@@ -152,7 +148,6 @@ static inline size_t _read(spsc_ring_data* data, size_t offset, char* dest, cons
 	return n;
 }
 
-//读取队列
 size_t spsc_read(spsc_ring* ring, void* dest, const size_t n)
 {
 	if (ring->mode != READ_MODE) return 0;
@@ -189,7 +184,6 @@ static inline size_t _write(spsc_ring_data* data, size_t offset, const char* src
 	return n;
 }
 
-//写入队列
 MSG_SIZE_T spsc_write(spsc_ring* ring, const void* buf, const MSG_SIZE_T n)
 {
 	if (ring->mode != WRITE_MODE) return 0;
@@ -216,7 +210,6 @@ MSG_SIZE_T spsc_write(spsc_ring* ring, const void* buf, const MSG_SIZE_T n)
 	return n;
 }
 
-//队列长度
 size_t inline spsc_size(const spsc_ring* ring)
 {
 	size_t wpos;
@@ -226,13 +219,11 @@ size_t inline spsc_size(const spsc_ring* ring)
 	return wpos - rpos;
 }
 
-//队列容量
 size_t inline spsc_capacity(const spsc_ring* ring)
 {
 	return ring->_data->_size;
 }
 
-//取消内存
 void spsc_destroy(spsc_ring* ring)
 {
 	munmap(ring->_data, sizeof(spsc_ring_data));
