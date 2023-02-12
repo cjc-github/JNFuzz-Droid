@@ -40,7 +40,6 @@
         let jnienv_addr = Java.vm.tryGetEnv().handle.readPointer();
         
         function getJAddr(func_name) {
-            // 通过函数名获取到对应的jni函数地址
             let offset = jni_struct_array.indexOf(func_name) * Process.pointerSize;
             return jnienv_addr.add(offset).readPointer();
         }
@@ -150,7 +149,6 @@
                             let jfieldID = Java.vm.tryGetEnv().getFieldId(clazz, name, sig);
                             jfieldIDs.set(`${jfieldID}`, `${name}:${sig}`);
                             console.log("***", cls_field, name, clazz, jfieldID);
-                            // 调用了getFieldId 这里不用设置 jfieldIDs
                         }
                     }
                     catch (e) {
