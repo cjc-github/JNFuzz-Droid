@@ -7,7 +7,6 @@ import xml.dom.minidom
 from utils.convertType import create_types, get_type
 
 
-# 给非apk结尾的加上apk
 def deal_apk(apk_name):
     if not apk_name.endswith(".apk"):
         os.rename(apk_name, apk_name + ".apk")
@@ -15,7 +14,6 @@ def deal_apk(apk_name):
     return apk_name
 
 
-# 列出所有的文件
 def list_all_files(file_name):
     _files = []
     list_file = os.listdir(file_name)
@@ -28,18 +26,15 @@ def list_all_files(file_name):
     return _files
 
 
-# 获取apk名字
 def get_apkname(apk_path):
     return apk_path[:-4].rsplit("/", 1)[1]
 
 
-# 创建目录
 def create_floder(folder):
     if not os.path.exists(folder):
         os.mkdir(folder)
 
 
-# 创建一个文件
 def create_script_file(folder, filename, Num):
     folder = os.path.join(folder, filename)
     if os.path.exists(folder):
@@ -51,7 +46,6 @@ def create_script_file(folder, filename, Num):
     return file
 
 
-# 删除目录
 def remove_dir(folder):
     if os.path.isdir(folder):
         for p in os.listdir(folder):
@@ -63,7 +57,6 @@ def remove_dir(folder):
             os.remove(folder)
 
 
-# 判断输入目录是否存在
 def judge_input(path):
     if os.path.exists(path):
         return True
@@ -71,7 +64,6 @@ def judge_input(path):
         return False
 
 
-# 单链表保存
 def write_to_file(tmp_list, taint_txt):
     with open(taint_txt, "w") as f:
         for i in tmp_list:
@@ -80,7 +72,6 @@ def write_to_file(tmp_list, taint_txt):
     f.close()
 
 
-# 将列表内容保存到txt文件中
 def write_tofile(tmp_lists, taint_txt):
     with open(taint_txt, "w") as f:
         for i in tmp_lists:
@@ -89,7 +80,6 @@ def write_tofile(tmp_lists, taint_txt):
     f.close()
 
 
-# 保存到reports.txt中
 def save_file(output, line):
     file_name = os.path.join(output, "report.txt")
     with open(file_name, "a") as f:
@@ -97,7 +87,6 @@ def save_file(output, line):
     f.close()
 
 
-# 保存到static_exec_time.txt
 def save_static_time(output, line):
     filename = os.path.join(output, "static_exec_time.txt")
     with open(filename, "a") as f:
@@ -147,12 +136,6 @@ def get_type_index(sink):
         return par_list
 
 
-'''
-下面是针对Android的一些静态分析
-'''
-
-
-# 判断文件是否是elf文件
 def is_ELFfile(filepath):
     if not os.path.exists(filepath):
         print(' [*] file path {} doesnot exits'.format(filepath))
@@ -172,7 +155,6 @@ def is_ELFfile(filepath):
     return False
 
 
-# 返回apk路径
 def get_so_files(decom_path, name):
     decompile_path = os.path.join(decom_path, name)
     if not os.path.exists(os.path.join(decompile_path, "lib")):
@@ -189,8 +171,6 @@ def get_so_files(decom_path, name):
                         so_files += so_path + ","
         return so_files[:-1]
 
-
-# 获取native-activity
 def get_native_activity(decom_path, name):
     decompile_path = os.path.join(decom_path, name)
     if not os.path.exists(os.path.join(decompile_path, "AndroidManifest.xml")):
@@ -212,8 +192,6 @@ def get_native_activity(decom_path, name):
         return tags[:-1]
 
 
-# 通过分析反编译的smali代码，找出native函数（静态注册和动态注册都ok）
-# 如果为android,androidx,com.google开头的目录 # 不进行分析 kotlin,soot
 def get_native_methods(decom_path, name):
     decompile_path = os.path.join(decom_path, name)
     results = ""
@@ -226,7 +204,6 @@ def get_native_methods(decom_path, name):
     return results[:-1]
 
 
-# 添加不分析的代码
 def judgethird(file):
     if file.split("/")[4] == "android":
         return False
@@ -237,14 +214,12 @@ def judgethird(file):
     return True
 
 
-# 处理smali文件，返回规范的jni函数
 def smali_folder(file_name):
     num = len(file_name.split("/"))
     # print("243",file_name)
     results = set()
     for file in list_all_files(file_name):
         file = file.replace("//", "/")
-        # 非第三方库
         if judgethird(file):
             with open(file, "r") as f:
                 lines = f.readlines()
@@ -259,27 +234,7 @@ def smali_folder(file_name):
                         results.add(method)
     return results
 
-# # 处理smali文件，返回规范的jni函数
-# def smali_folder(file_name):
-#     results = set()
-#     for file in list_all_files(file_name):
-#         file = file.replace("//", "/")
-#         # 非第三方库
-#         if judgethird(file):
-#             with open(file, "r") as f:
-#                 lines = f.readlines()
-#                 for line in lines:
-#                     if line.startswith(".method ") > 0 and line.find(" native ") > 0:
-#                         method = "L" + file.split("/", 4)[-1][:-6] + ";." + line.split(" ")[-1].replace("(", ":(")
-#                         if line.find(" static ") > 0:
-#                             method = method.strip() + " 1"
-#                         else:
-#                             method = method.strip() + " 0"
-#                         results.add(method)
-#     return results
 
-
-# 打印文本文件
 def displaytxt(file_name):
     if os.path.exists(file_name):
         with open(file_name, "r") as f:
