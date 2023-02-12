@@ -26,9 +26,7 @@ def run_command(cmd, timeout=60 * 90):
         if p.poll() is not None:
             break
         seconds_passed = time.time() - t_beginning
-        # 如果timeout存在且运行时间大于timeout
         if timeout and seconds_passed > timeout:
-            # 如果存在pid,则终止子进程
             if psutil.pid_exists(p.pid):
                 try:
                     os.killpg(p.pid, signal.SIGTERM)
@@ -38,7 +36,6 @@ def run_command(cmd, timeout=60 * 90):
     return p.stdout.read()
 
 
-# 如果i在tmp_lists中存在，则返回False
 def delete1(i, tmp_lists):
     flag = 0
     for j in tmp_lists:
@@ -49,7 +46,6 @@ def delete1(i, tmp_lists):
     return True
 
 
-# 如果jni函数一样，则返回True
 def some_sink(i, j):
     sink1 = i.split(" ===> ")[-1].split(" ")[0]
     sink2 = j.split(" ===> ")[-1].split(" ")[0]
@@ -58,15 +54,12 @@ def some_sink(i, j):
     else:
         return False
 
-
-# 复制列表
 def clone_list(tmp_list):
     # tmp_list_copy=tmp_list[:]
     tmp_list_copy = copy.deepcopy(tmp_list)
     return tmp_list_copy
 
 
-# 获取jni所有的函数
 def get_jni_methods(report_path, name):
     methods = []
     path = os.path.join(report_path, name + ".txt")
@@ -80,7 +73,6 @@ def get_jni_methods(report_path, name):
     return methods
 
 
-# Taint.txt存在
 def judge_nodeal(taint_txt):
     with open(taint_txt, "r") as f:
         lines = f.readlines()
@@ -91,14 +83,11 @@ def judge_nodeal(taint_txt):
     return False
 
 
-# 从AppData.txt中获取具体的污点路径
 def deal_taint(data_path, report_path, apk_name):
     print(" [+] get the concreate taint path.")
     taint_txt = os.path.join(data_path, apk_name, "result", "Taint.txt")
     lists = []
-    # taint.txt存在
     if os.path.exists(taint_txt) and judge_nodeal(taint_txt):
-        # 变成2维
         with open(taint_txt, "r") as f:
             lines = f.readlines()
             for i in range(int(len(lines) / 6)):
@@ -107,29 +96,15 @@ def deal_taint(data_path, report_path, apk_name):
                     tmp.append(j)
                 lists.append(tmp)
         f.close()
-
-        # 删除污点路径一样的,删除source和sink一样的
-
-        # tmp_lists = []
-        # for i in lists:
-        #     if (i not in tmp_lists) and delete1(i, tmp_lists):
-        #         tmp_lists.append(i)
-        # utils.write_tofile(tmp_lists, taint_txt)
-
-        # 获取jni函数
         jni_methods = get_jni_methods(report_path, apk_name)
 
         taint_path = []
         for i in lists:
             # eg. api_source
             str1 = i[1].split("_source: ")[1].split(">")[0]
-            # 污点路径
             path_list = re.split(r",(?![^(]*\))", i[5][13:-1])
             for n in path_list:
-                # 对JNI信息进行剪枝
                 for met in jni_methods:
-                    # if met.strip() in n and "param:" in n and "param: 0" not in n and Select_taint_path.nocomplex(
-                    # met):
                     if met.strip() in n and "param:" in n:
                         str1 = str1 + " ===> " + met.strip() + " "
                         if n.split("param: ")[1][-1] == ")":
@@ -137,29 +112,6 @@ def deal_taint(data_path, report_path, apk_name):
                         else:
                             str1 = str1 + n.split("param: ")[1]
             taint_path.append(str1 + "\n")
-        # 合并污点信息
-        # tmp_path = []
-        # tmp_taint_path = clone_list(taint_path)
-        # for i in taint_path:
-        #     for j in tmp_taint_path:
-        #         if some_sink(i, j):
-        #             # 合并
-        #             para_set = set()
-        #             for sink_para in i.rsplit(" ", 1)[1].split("|"):
-        #                 para_set.add(sink_para.rstrip())
-        #             para2 = j.split(" ===> ")[-1].split(" ")[1].strip()
-        #             para_set.add(para2.rstrip())
-        #             words = sorted(list(para_set))
-        #             wtxt = ""
-        #             for word in words:
-        #                 wtxt = wtxt + word.strip() + "|"
-        #             i = i.rsplit(" ", 1)[0] + " " + wtxt[:-1]
-        #     tmp_path.append(i)
-        # tmp_path1 = list(set(tmp_path))
-
-        # tmp_path1 = list(set(taint_path))
-        #
-
         utils.write_to_file(taint_path, taint_txt)
     else:
         print(" [+] the taint path has been done.")
@@ -178,8 +130,6 @@ class ContinueProcess:
         self.flowdroid_engine = out_path + "/flowdroid_engine"
         self.dynamic_methods = out_path + "/Dmethods"
         self.exec_time = times
-
-    # 获取动态注册函数
     def get_dynamic_methods(self):
         utils.create_floder(self.dynamic_methods)
         if not os.path.exists(os.path.join(self.dynamic_methods, self.apkname + "_Dmethods")):
@@ -192,7 +142,6 @@ class ContinueProcess:
             print(" [+] 2.0 has been processed by Angr to get the dynamic methods.\n")
 
     def custom_sink(self, name):
-        # 运行argus-saf,并将IDDG信息保存下来
         utils.create_floder(self.IDDGs_path)
         if not os.path.exists(os.path.join(self.Data_path, name)):
             cmd = "cp lib/amandroid_taint.txt lib/TaintSourcesAndSinks.txt"
@@ -243,7 +192,6 @@ class ContinueProcess:
             print(" [+] 2.1 has been processed by jn-saf.\n")
         # deal_taint_path.deal_Amandroid_taint(self.Data_path, self.apkname)
 
-    # 使用Amandriod进行分析
     def taint(self):
         print(" [+] 2.1 using the Amandroid engine")
         if not utils.judge_input(self.apkPath):
@@ -255,7 +203,6 @@ class ContinueProcess:
         self.custom_sink(self.apkname)
         # time.sleep(3)
 
-    # 使用JuCify进行分析
     def taint_jucify(self):
         print(" [+] 2.2 using the JuCify engine.")
         if not utils.judge_input(self.apkPath):
@@ -300,7 +247,6 @@ class ContinueProcess:
         else:
             print(" [+] 2.2 using the JuCify has been done.\n")
 
-    # 使用FlowDroid进行分析
     def taint_flowdroid(self):
         print(" [+] using the FlowDroid engine.")
         if not utils.judge_input(self.apkPath):
@@ -321,11 +267,9 @@ class ContinueProcess:
                 native_methods = line.replace("native_method = ", "").rstrip().split(",")
                 with open("lib/TaintFlowdroid.txt", "a") as f1:
                     for i in native_methods:
-                        # 对函数进行修改
                         sink_method = utils.changeAmdtoFlow(i.rsplit(" ", 2)[0])
                         f1.write(sink_method + " -> _SINK_\n")
             f.close()
-            # 先加入，再分析
             nowTime = datetime.now()
             print("start:", nowTime)
             cmd = "java -cp lib/soot-infoflow-cmd-jar-with-dependencies.jar soot.jimple.infoflow.cmd.MainClass -d -a " + \
@@ -377,7 +321,6 @@ class ContinueProcess:
                        os.path.join(self.Data_path, self.apkname),
                        os.path.join(self.Report_path, self.apkname + ".txt"),
                        os.path.join(self.dynamic_methods, self.apkname + "_Dmethods"), taint_txt]
-                # 删除信息
                 for i in ans:
                     utils.remove_dir(i)
                 ans = [self.Decompile_path, self.out_path, self.Report_path, self.dynamic_methods, self.Data_path,
