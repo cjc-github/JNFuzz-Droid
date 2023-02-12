@@ -12,7 +12,6 @@ from write_toc import getc, getClass_Method
 from utils import prepare_frida
 
 
-# 根据txt文件获取该路径运行过程中的jni函数
 def get_method(apk_scripts, file):
     list = []
     file_path = os.path.join(apk_scripts, file)
@@ -25,9 +24,7 @@ def get_method(apk_scripts, file):
     return list
 
 
-# 判断v是不是为i
 def judge(v, i):
-    # 这里需要对data进行一个判断，如果为重载函数，则需要判断重载函数是否符合
     if "__" in v:
         v = v.split("__")[0]
     data = v.replace("Java_", "L").replace("_1", "$")
@@ -38,8 +35,6 @@ def judge(v, i):
     else:
         return False
 
-
-# 根据污点路径来返回jni来自的so文件
 def get_solist(method_list, so_graph):
     list1 = []
     for i in method_list:
@@ -53,17 +48,13 @@ def get_solist(method_list, so_graph):
                     elif not v.startswith("Java_"):
                         if v == i:
                             list1.append(k)
-    # 去掉重复
     # list1 = list(set(list1))
     return list1
 
-
-# 复制并运行
 def copyandexec(file_path, gcc, totalsize, arch, apkname, so_list, fuzz_one):
-    # 生成server和client
     pt = file_path.split("_")[-1][:-4]
     out_path = file_path.replace("scripts", "outcome").replace("script_", "server").replace(".txt", ".c")
-    # 复制
+
     cmd = "adb shell su -c 'cd /data/local/tmp;rm -rf client server'"
     print(cmd)
     os.system(cmd)
@@ -82,7 +73,7 @@ def copyandexec(file_path, gcc, totalsize, arch, apkname, so_list, fuzz_one):
     os.system("adb push lib/examples/client /data/local/tmp")
     os.system("adb push lib/examples/server /data/local/tmp")
 
-    # 创建in，并删除out目录
+
     if totalsize != 0:
         seed = "0" * totalsize
     else:
@@ -91,8 +82,7 @@ def copyandexec(file_path, gcc, totalsize, arch, apkname, so_list, fuzz_one):
     print(cmd)
     os.system(cmd)
 
-    # 这样似乎效率变的好低,也失去了AFL的图像化界面
-    # 可以手动执行，并等待2个小时来判断执行时间
+
     # cmd1 = 'gnome-terminal -t frida-server -- bash -c "adb shell < utils_cmd/start-frida-server.txt;exec bash"'
     cmd1 = 'gnome-terminal -t frida-server -- bash -c "adb shell < utils_cmd/start-server.txt;exec bash"'
     # cmd2 = 'gnome-terminal -t Hook -- bash -c "python3 test_hook.py;exec bash"'
@@ -132,22 +122,20 @@ def copyandexec(file_path, gcc, totalsize, arch, apkname, so_list, fuzz_one):
     pid_to_kill = bash_pids.split(" ")[0]
     ans.append(pid_to_kill)
 
-    # Fuzz 时间
+    # Fuzz time
     time.sleep(60)
 
     for i in ans:
         os.kill(int(i), signal.SIGTERM)
 
-    # 运行时间
     # time.sleep(260)
-    # 结束后，我们应该删除in,out,server,client等信息
     cmd = "adb shell < utils_cmd/remove-exec.txt"
     print(" [+] kill the afl ,frida pid and ash memory.")
     # print(cmd)
     # os.system(cmd)
 
 
-# 判断不同架构so文件是否一样
+
 def judge_repeat_so(folder):
     if os.path.exists(folder):
         lst = []
@@ -180,7 +168,6 @@ class FindAvd:
         self.gcc = ""
         self.size = str(10)
 
-    # 把so文件复制到adb设备中,避免so文件的不同，所以需要先对架构文件进行对比，如果一样的话，则忽略，否则将所有的so文件均复制到tmp目录下
     def copy_sofile(self):
         if judge_repeat_so(os.path.join(self.Decompile_path, self.apkname, "lib")):
             so_path = os.path.join(self.Decompile_path, self.apkname, "lib", self.arch)
@@ -199,7 +186,7 @@ class FindAvd:
                 cmd = "adb push " + folder + "/armeabi/* /data/local/tmp"
                 os.system(cmd)
 
-    # 将其他的架构填充进来
+
     def add_other_arch(self, name):
         list1 = ["x86", "x86_64", "armeabi", "armeabi-v7a", "arm64-v8a"]
         res = []
@@ -209,7 +196,7 @@ class FindAvd:
                 res.append(so_files)
         return res
 
-    # Fuzz部分
+
     def Fuzz_apk(self, so_graph, gcc, fuzz_one):
         jn_apk = utils.deal_apk(self.name)
         os.system("adb push " + jn_apk + " /data/local/tmp/target-app.apk")
@@ -221,7 +208,7 @@ class FindAvd:
                 # if i == "script_t7.txt":
                     print(self.name, i, i, i, i, i, i, sep="\n")
                     file_path = os.path.join(apk_scripts, i)
-                    # method_list为污点路径对应的方法列表
+
                     method_list = get_method(apk_scripts, i)
                     so_list = get_solist(method_list, so_graph)
                     # print("221", method_list)
@@ -237,7 +224,7 @@ class FindAvd:
 
                         totalsize = getc(self.out_path, self.apkname, method_list, so_list, file_path, self.size,
                                          so_graph)
-                        # 修改js文件
+
                         changejs(res, file_path)
                         copyandexec(file_path, gcc, totalsize, self.arch, self.apkname, so_list, fuzz_one)
                     except Exception as e:
@@ -251,19 +238,16 @@ class FindAvd:
 
         print(" [+] Finish the Fuzz.")
 
-    # 为每个apk生成每个so包含的jni函数的文件位置
+
     def generate_jni(self, name):
-        # 提取文件为map(key,list[])
+
         so_graphs = dict()
-        # 生成文件,如果当前软件中没有该架构，则异常
         lib_folder = os.path.join(self.Decompile_path, name, "lib")
         so_files = os.path.join(self.Decompile_path, name, "lib", self.arch)
-        # 如果存在不同架构中有不同的so文件
         if not judge_repeat_so(lib_folder):
             all_so_files = self.add_other_arch(name)
         else:
             all_so_files = [so_files]
-        # 确保可以运行
         for so_files in all_so_files:
             if os.path.isdir(so_files):
                 for i in os.listdir(so_files):
@@ -281,7 +265,6 @@ class FindAvd:
                         so_graphs[key].append(line.strip())
             else:
                 print("arch not exist! error!")
-        # 处理动态注册的函数
         folder = self.dynamic_methods + os.sep + self.apkname + "_Dmethods"
         mets = dynamic_methods.get_dmethods_map(folder)
         for k in mets:
@@ -295,13 +278,12 @@ class FindAvd:
                 # so_graphs[k].append(v1[3])
         return so_graphs
 
-    # 如果arm64-v8a，armeabi-v7a,armeabi,x84,x86_64
+    # arm64-v8a，armeabi-v7a,armeabi,x84,x86_64
     def find_arch(self, fuzz_one):
         if not utils.judge_input(self.name):
             print(" [*] the input_apk is not exist.")
             exit(0)
 
-        # 将所有架构都保存起来，然后根据顺序来条件对应的架构
         print(" [+] Find the apk architecture.")
         parent_abi = os.path.join(self.Decompile_path, self.apkname, "lib")
         so_files = []
@@ -326,7 +308,6 @@ class FindAvd:
             print(" [*] The apk don't have the arm or x8r arch.")
             raise ToolsException(" [+]" + self.apkname + "\n The apk don't have the arm or x86 arch.")
 
-        # 优先顺序
         if not os.path.exists(self.out_path + "/methods"):
             os.system("mkdir " + self.out_path + "/methods")
         if not os.path.exists(self.out_path + "/methods/" + self.apkname):
@@ -335,7 +316,6 @@ class FindAvd:
         so_graph = self.generate_jni(self.apkname)
         os.system("cd lib/lib; build.sh " + self.arch)
 
-        # 如果value为空，则不进行Fuzz
         flag = 0
         for k, v in so_graph.items():
             if len(v) != 0:
