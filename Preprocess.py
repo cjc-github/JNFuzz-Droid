@@ -37,7 +37,6 @@ class Preprocess:
         else:
             print(" [+] Has been preocessed by apktool.")
 
-    # 不考虑嵌套解压
     def result(self):
         deco_path = os.path.join(self.Decompile_path, self.apkname)
         # create the lib folder
@@ -57,7 +56,6 @@ class Preprocess:
                     res = "/lib/areabi"
 
         if os.path.exists(deco_path):
-            # 主要是遍历3个目录：assets,original,res
             assets = os.path.join(deco_path, "assets")
             if os.path.exists(assets):
                 file_lists = list_all_files(assets)
@@ -78,7 +76,6 @@ class Preprocess:
                         try:
                             cmd = "unzip -o -P 123456 -q " + file + " -d " + file[:-4] + "-zip"
                             os.system(cmd)
-                            # 对zip内的数据进行分析
                             zip_files = list_all_files(file[:-4] + "-zip")
                             for zipfile in zip_files:
                                 if is_ELFfile(zipfile):
@@ -106,7 +103,6 @@ class Preprocess:
             if not os.listdir(i):
                 utils.remove_dir(i)
 
-    # 分析apktool信息
     def report(self, flag_remove):
         utils.create_floder(self.Report_path)
         apk_report = os.path.join(self.Report_path, self.apkname + ".txt")
@@ -115,7 +111,6 @@ class Preprocess:
         # get the apk informations
         if not os.path.exists(apk_report):
             os.mknod(apk_report)
-            # 添加信息
             with open(apk_report, "a") as f:
                 f.write("[apk]\n")
                 f.write("name = " + self.name + "\n")
