@@ -10,7 +10,7 @@ from Preprocess import Preprocess
 from utils import prepare_frida
 from utils import utils
 
-# 处理apk目录
+
 from utils.exception import ToolsException, HaveException
 
 
@@ -49,7 +49,7 @@ if __name__ == '__main__':
     fuzz_one = args.n
     out_folder = args.o
 
-    # 准备frida服务
+
     status = False
     status = True
     if not status:
@@ -58,7 +58,7 @@ if __name__ == '__main__':
     for apk in apk_lists:
         try:
             print(" [+] 1/4 Prepare deal the " + apk + "\n")
-            # 预处理
+
             pre_deal = Preprocess(apk, out_folder)
             pre_deal.apktool(rf)
             pre_deal.result()
@@ -89,7 +89,7 @@ if __name__ == '__main__':
             continue
 
         try:
-            # 增强
+
             if args.f:
                 print(" [+] Enhance: launch the enhance engine. For FlowDroid")
                 pre_analysis.taint_flowdroid()
@@ -109,7 +109,7 @@ if __name__ == '__main__':
 
         try:
             print(" [+] 4/4 Launch avd or devices.\n")
-            # 判断AVD或者虚拟机是否连接
+
             nowTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             print(" [+] start time:", nowTime)
             avd = FindAvd(apk, out_folder)
