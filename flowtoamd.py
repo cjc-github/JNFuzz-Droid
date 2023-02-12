@@ -1,4 +1,4 @@
-# 获取参数
+
 import os
 import xml
 from xml.dom import minidom
@@ -16,7 +16,7 @@ def get_type(ret, pars):
              "double": "D",
              "java.lang.String": "Ljava/lang/String;",
              }
-    # 返回值
+
     ret1 = ""
     flag = 0
     for i in dict1:
@@ -26,7 +26,7 @@ def get_type(ret, pars):
             ret1 = "[" * num + dict1.get(i)
     if flag == 0:
         ret1 = "L" + ret.replace(".", "/") + ";"
-    # 多个参数
+
     pars1 = ""
     if pars == "":
         pars1 = ""
@@ -85,7 +85,6 @@ if __name__ == "__main__":
                         Sources = result.childNodes[1].childNodes
                         Sink = result.childNodes[0]
                         for Source in Sources:
-                            # 对每一条leak信息进行处理
                             con_source = Source.getAttribute("Statement")
                             con_sink = Sink.getAttribute("Statement")
                             x = getcon_method(con_source)
