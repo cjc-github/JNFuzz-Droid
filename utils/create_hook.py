@@ -75,10 +75,10 @@ def printMessage(message, data):
         if message['payload'] ==1123919046:
             print("Find the taint Path")
             time.sleep(60)
-            # 保存到report.txt
+            # save to report.txt
             line = "Find the taint Path"
             utils.save_file("./", line)
-            # 关闭终端
+
             #cmd = "pgrep bash| xargs kill -s 9"
             #os.system(cmd)
     else:
@@ -86,7 +86,7 @@ def printMessage(message, data):
 
 
 devices = frida.get_usb_device()
-# 循环下面语句
+
 
 pid = devices.spawn("/data/local/tmp/server")
 
