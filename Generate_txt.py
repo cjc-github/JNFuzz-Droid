@@ -9,14 +9,13 @@ from utils import utils, convertType
 depth = 30
 
 
-# 复制列表
 def clone_list(tmp_list):
     # tmp_list_copy=tmp_list[:]
     tmp_list_copy = copy.deepcopy(tmp_list)
     return tmp_list_copy
 
 
-# 打印出图
+
 def display(graph):
     for k, v in graph.items():
         print("start---------------\n", k)
@@ -27,7 +26,7 @@ def display(graph):
         print()
 
 
-# 根据jni函数找到具体的keys
+
 def find_jni(graph, params):
     list_jni = []
     for i in graph.keys():
@@ -36,7 +35,6 @@ def find_jni(graph, params):
     return list_jni
 
 
-# 如果是由前的jni造成的，则标记为noJudge
 def isnojudge(jni_method, defin):
     for i in jni_method:
         jni = i.split(" ")[0]
@@ -46,22 +44,19 @@ def isnojudge(jni_method, defin):
     return False
 
 
-# 处理双精度浮点型
 def deal_double(value):
-    # 由于前置0可以省略，所以需要判断位数
+
     format_value = format(int(value), '#066b')
     s = 1
     if format_value[2] == '1':
         s = -1
-    # 指数部分
+
     e = format_value[3:14]
-    # 偏移值
+
     p = int(e, 2) - 1023
     if p >= 0:
-        # 指数部分求整数部分
         z = format_value[14:14 + p]
         Inter = int(z, 2) + pow(2, p)
-        # 尾数部分求小数部分
         m = format_value[14 + p:]
         list = []
         for i in m:
@@ -81,22 +76,19 @@ def deal_double(value):
     return "default"
 
 
-# 处理浮点型
+
 def deal_float(value):
-    # 由于前置0可以省略，所以需要判断位数
+
     format_value = format(int(value), '#034b')
     s = 1
     if format_value[2] == '1':
         s = -1
-    # 指数部分
+
     e = format_value[3:11]
-    # 偏移值
     p = int(e, 2) - 127
     if p >= 0:
-        # 指数部分求整数部分
         z = format_value[11:11 + p]
         Inter = int(z, 2) + pow(2, p)
-        # 尾数部分求小数部分
         m = format_value[11 + p:]
         list = []
         for i in m:
@@ -116,7 +108,6 @@ def deal_float(value):
     return "default"
 
 
-# 返回小数
 def bin2dec(b):
     d = 0
     for i, x in enumerate(b):
@@ -124,7 +115,6 @@ def bin2dec(b):
     return d
 
 
-# 根据深度遍历得到的路径+类型，然后获取初始值
 def get_value(ptype, defin):
     if ":= " in defin[-1]:
         value = defin[-1].split(":= ")[1].split(";")[0]
@@ -145,14 +135,12 @@ def get_value(ptype, defin):
                 return float(value[:-1])
             elif value.endswith("I"):
                 return deal_float(value[:-1])
-                # 浮点型的存储问题
             else:
                 return "default"
         elif ptype == "double":
             if value.endswith("F") or value.endswith("D"):
                 return float(value[:-1])
             elif value.endswith("I"):
-                # double类型的存储问题
                 return deal_float(value[:-1])
             else:
                 return "default"
@@ -284,9 +272,6 @@ def get_value(ptype, defin):
     else:
         return "default"
 
-
-# 如果不在jni中，则为false
-# 如果s存在jni路径中，则为True
 def notaintpara(methods, s, para):
     current_method = s.split("@signature")[1].split("`")[1]
     for method in methods:
@@ -298,19 +283,16 @@ def notaintpara(methods, s, para):
     return False
 
 
-# 获取每个参数的初值
-# jni_methods为所有的jni函数，jni_method为排除这个的jni函数
 '''
 jni_methods:Taint Path
 index: the jni index
 s:the jawa statement
 defin:iddg
 file:scirpt.txt
-typelist:jni参数类型
+typelist:jni type
 '''
 
 
-# 判断是否为污点
 def isFirst(jni_methods, s):
     method = jni_methods[0]
     current_method = s.split("@signature")[1].split("`")[1]
@@ -318,9 +300,6 @@ def isFirst(jni_methods, s):
         return True
     return False
 
-
-# 获取每个参数的初值
-# jni_methods为所有的jni函数，jni_method为排除这个的jni函数
 def deal_param(jni_methods, index, s, defin, file, typelist, params):
     # print("325", jni_methods)
     dpd = ""
@@ -333,7 +312,6 @@ def deal_param(jni_methods, index, s, defin, file, typelist, params):
     if int(para) > 0:
         add_data_tofile(file, "p" + para + ":{")
         ptype = typelist[0][int(para) - 1]
-        # 第二个jni函数开始，就不判断为true了
         if params == para and index == 0:
             add_data_tofile(file, "is_tainted:true, ")
             add_data_tofile(file, "value:default, ")
@@ -367,11 +345,9 @@ def deal_param(jni_methods, index, s, defin, file, typelist, params):
 #     if int(para) > 0:
 #         add_data_tofile(file, "p" + para + ":{")
 #         ptype = typelist[0][int(para) - 1]
-#         # 第一个参数
 #         if isFirst(jni_methods,s) and index == 0:
 #             add_data_tofile(file, "is_tainted:true, ")
 #             add_data_tofile(file, "value:default, ")
-#         # 第二个jni函数开始，就不判断为true了
 #         elif not notaintpara(jni_methods, s, para):
 #             add_data_tofile(file, "is_tainted:false, ")
 #             add_data_tofile(file, "value:" + str(get_value(ptype, defin)) + ", ")
@@ -392,7 +368,6 @@ def deal_param(jni_methods, index, s, defin, file, typelist, params):
 #     return dpd
 
 
-# 对函数的每个参数进行依赖分析
 def DFS(jni_method, graph, jni_fun, file, index):
     # add_data_tofile(file, "method:" + str(index + 1) + "\n{\n")
     # params = jni_fun.split("@signature")[1].split("`")[1]
@@ -400,10 +375,8 @@ def DFS(jni_method, graph, jni_fun, file, index):
     params = jni_fun.split("param:")[1].strip()
     # print("391",mtd_sig)
     add_data_tofile(file, "method:" + mtd_sig + "\n{\n")
-    # 创建参数类型
     typelist = convertType.create_types(mtd_sig)
     dpd = []
-    # 深度遍历
     set1 = set()
     # each params
     for s in find_jni(graph, jni_fun):
@@ -415,16 +388,13 @@ def DFS(jni_method, graph, jni_fun, file, index):
             if n in graph.keys():
                 nodes = graph[n]
                 # print("403", dep, n," ====> ", nodes)
-                for i in nodes[::-1]:  # 栈先进后出
+                for i in nodes[::-1]:
                     if i not in data:  # avoid loop
                         stack.append(i)
                         data.append(i)
             # else:
             #     break
 
-        # print("410",data)
-        # print("411",stack)
-        # 对jni函数参数的多次调用进行分析
         pars = s.rstrip().rsplit(";", 1)[1]
         if pars not in set1:
             # jni_method：
@@ -442,7 +412,6 @@ def DFS(jni_method, graph, jni_fun, file, index):
     return dpd
 
 
-# 为每个apk创建目录
 def create_script_folder(output, filename):
     script = os.path.join(output, "scripts")
     if not os.path.exists(script):
@@ -452,7 +421,6 @@ def create_script_folder(output, filename):
         os.mkdir(script_folder)
 
 
-# 为每条污点路径生成一个脚本文件
 def create_script_file(output, filename, Num):
     folder = os.path.join(output, "scripts", filename)
     if os.path.exists(folder):
@@ -464,7 +432,6 @@ def create_script_file(output, filename, Num):
     return file
 
 
-# 添加信息到文件中
 def add_tofile(file, data):
     with open(file, "a") as f:
         seq = "sequence:{"
@@ -476,14 +443,12 @@ def add_tofile(file, data):
     f.close()
 
 
-# 添加字符串
 def add_data_tofile(file, data):
     with open(file, "a") as f:
         f.write(data)
     f.close()
 
 
-# 获取省略信息
 def getmethod(lines):
     if "@signature" in lines:
         line = lines.split("@signature")[1].split("`")[1]
@@ -492,7 +457,6 @@ def getmethod(lines):
     return ""
 
 
-# 分析函数的定义来给出依赖关系
 def deal_dpd(methods):
     set_dep = set()
     mes = clone_list(methods)
@@ -511,7 +475,6 @@ def deal_dpd(methods):
     return set_dep
 
 
-# 判断该函数是否为static
 def judge_static(output, file, method):
     flag = 0
     report_file = os.path.join(output, "report", file + ".txt")
@@ -533,7 +496,6 @@ def judge_static(output, file, method):
         return False
 
 
-# source包括其他语句
 def judge_nosource(line):
     param = line.split(" ===> ")[0]
     if ".onActivityResult:(IILandroid/content/Intent;)V" in param:
@@ -601,7 +563,6 @@ class Generate_txt:
                     if len(i.split(" ====> ")) == 2:
                         key = i.split(" ====> ")[1].rstrip()
                         value = i.split(" ====> ")[0].rstrip()
-                        # 如果key为空，则新建列表，加入
                         if not graphs.__contains__(key):
                             graphs[key] = []
                         graphs[key].append(value)
@@ -611,41 +572,33 @@ class Generate_txt:
 
             taintpath_list = get_taintpath(self.Data_path, self.apkname)
 
-            # 根据IDDG来生成对应的jni函数信息
             taint_path = os.path.join(self.Data_path, self.apkname, "result", "Taint.txt")
-            # 创建文件script.txt文件
+
             utils.create_floder(self.Script_path)
             utils.create_floder(os.path.join(self.Script_path, self.apkname))
 
             if os.path.exists(taint_path):
                 with open(taint_path, "r") as f:
                     taint_lines = f.readlines()
-                    # 每一个文件生成一个待处理的文件
                     Num, unique_taint = 0, set()
                     for index, line in enumerate(taint_lines):
-                        # 污点路径唯一
                         if line not in unique_taint:
 
-                            # 如果污点不是我们所需要的，则不考虑
                             if judge_nosource(line):
                                 Num = Num + 1
-                                # 创建script文件
                                 files = utils.create_script_file(self.Script_path, self.apkname, Num)
                                 # print("=============634=================\n\n\n")
                                 # print(files)
                                 # print("==============636===================\n\n\n")
 
-                                # 污点信息对称
                                 taint_source = line.split(" ===> ")[0]
                                 add_data_tofile(files, taint_source + "\n")
 
-                                # 添加sequence
                                 jni_methods = line.split(" ===> ")[1:]
                                 # print("644",jni_methods)
                                 add_tofile(files, jni_methods)
                                 dpds = []
 
-                                # 根据jni信息来获取对应的IDDG信息
                                 for k, jni in enumerate(jni_methods):
                                     jni_fun = find_dgg(index, jni, taintpath_list)
                                     if jni_fun:
@@ -667,7 +620,6 @@ class Generate_txt:
         else:
             print(" [!] Can't find the apk's IDDG.")
 
-    # 优化：加上static以及对于多个jni函数进行分开
     def optimize(self):
         print(" [+] optimize the taint path.")
         scirpt_folder = self.Script_path
