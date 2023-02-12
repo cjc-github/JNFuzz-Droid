@@ -23,7 +23,6 @@ def save_outcome_set_file(pathfile, fun_set, record_num):
     file_name = os.path.join("./", "apk_outcome.txt")
     if record_num != 1:
         if len(fun_set) >= 0:
-            # 保存第一次且和之前的一样
             flist, flag = [], 0
             with open(file_name, "r") as f:
                 lines = f.readlines()
@@ -119,7 +118,6 @@ def judge(statement):
                             save_outcome_file(k, record_num[0])
 
 
-# 对打印的结果进行判断
 def printMessage(message, data):
     if message['type'] == 'send':
         judge(message['payload'])
@@ -138,7 +136,6 @@ if __name__ == "__main__":
     f.close()
 
     devices = frida.get_usb_device()
-    # 循环下面语句
 
     # spawn->resume->attach
     pid = devices.spawn("/data/local/tmp/server")
