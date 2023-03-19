@@ -1,5 +1,8 @@
 JNFuzz-Droid: a lightweight automated fuzz testing and taint analysis framework for native code.
 
+# Getting started
+
+
 **requirements**
 
 Before using JNFuzz-Droid, you must finish the following requirements:
@@ -16,8 +19,8 @@ Before using JNFuzz-Droid, you must finish the following requirements:
 python main.py options
 ```
 options:
-+ -i apk_folder:The path to the apk folder
-+ -o out_folder:The path for apk out folder
-+ -a:using Amandroid
-+ -f:using FlowDroid
-+ -t:using JNFuzz(partly supported*)
++ `-i apk_folder` :The path to the apk folder
++ `-o out_folder` :The path for apk out folder
++ `-a` :using Amandroid
++ `-f` :using FlowDroid
++ `-t` :using JNFuzz(partly supported*)
