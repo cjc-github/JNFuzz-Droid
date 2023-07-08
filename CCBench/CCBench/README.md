@@ -1,56 +1,31 @@
+# Description of CCBench
+
++ **explosion_path:** complex path constraints
++ **smt:** Unreachable paths hidden deep in conditions
++ **switch:**  Unreachable paths hidden deep in conditions
++ **while:** native code is always in a non-exit state, and we use while(1) to achieve this.
++ **math_library:** Complex path constraints, we use the return value of sqrt as the basis for judgment.
++ **condition:** cross-language  conditional constant variables 
++ **weak:** cross-language  conditional taint variables 
++ **atoll:** sensitive data being used as parameters of indirect Linux system call, and we use atoll() to achieve this.
++ **strcpy:** sensitive data being used as parameters of indirect Linux system call, and we use strcpy() to achieve this.
++ **strcpy1:** sensitive data being used as parameters of indirect Linux system call, and we use custom strcpy() to achieve this.
++ **tcp_client:**  sensitive data being used as parameters of direct Linux system call, and we use custom send() to achieve this.
++ **udp_client**:  sensitive data being used as parameters of direct Linux system call, and we use custom sendto() to achieve this.
++ **armeabi: **native code under the arm architecture, and we use the armeabi
++ **armeabi-v7a:** native code under the arm architecture, and we use the armeabi-v7a
++ **arm64-v8a:** native code under the arm architecture, and we use the arm64-v8a
++ **thread_leak:** multiple thread in native code, and we out the thread to leak data.
++ **thread_in_leak:** multiple thread in native code , and we in the thread to leak data.
++ **thread_noleak:** multiple thread in native code ,but we don't leak data
++ **native_method_overloading: **use native method overloading to resolve native function
++ **native_method_overloading1:** use native method overloading to resolve native function
++ **global_imei:** data leakage through global variables
++ **interrupt_cfg:** unrecovered reference variables after being released in JNI
++ **log_noleak:** parameter values of sink methods being constant for test existing tools.
+
+
+
 # CCBench
-  
-  
-Benchmark apps for static analyzing native world of Android applications.
 
-+ First: 2021 Nov 16 
-
-16 apps 
-
-In CCBench, native code contains __android_log_print,else
-
-In CCBench_jucify,native code contains LOG
-
-ccbench
-
-|                               | real Leak | JN-SAF | JuCify | JNFuzz-Droid |
-| ----------------------------- | --------- | ------ | ------ | ------------ |
-| condition1.apk                | √         | ×      | √      | √            |
-| explosion_path2.apk           | √         | ×      | √      | √            |
-| math_library.apk              | √         | ×      | ×      | √            |
-| smt1.apk                      | ×         | √      | ×      | ×            |
-| switch1.apk                   | ×         | √      | ×      | ×            |
-| while1.apk                    | √         | ×      | √      | √            |
-| atoll.apk                     | √         | ×      | ×      | √            |
-| strcpy.apk                    | √         | ×      | √      | √            |
-| strcpy1.apk                   | √         | ×      | ×      | √            |
-| tcp_client.apk                | √√        | ××     | √×     | √√           |
-| udp_client.apk                | √√        | ××     | √×     | √√           |
-| native_metho_overloading.apk  | √         | √      | ×      | √            |
-| native_metho_overloading1.apk | √         | ×      | √      | √            |
-| interrupt_cfg.apk             | √         | ×      | √      | √            |
-| weak.apk                      | √         | ×      | √      | √            |
-| log_noleak.apk                | ×         | ×      | √      | ×            |
-
-
-+ 2022 Nov 31
-add arm arch alone
-
-|                               | real Leak | JN-SAF | JuCify | JNFuzz-Droid |
-| ----------------------------- | --------- | ------ | ------ | ------------ |
-| armeabi.apk                   | √         | √      | √      | √            |
-| armeabi_v7a.apk               | √         | √      | √      | √            |
-| arm64_v8a.apk                 | √         | ×      | √      | √            |
-
-+ 2023 Jau 1
-add thread apk
-
-|                               | real Leak | JN-SAF | JuCify | JNFuzz-Droid |
-| ----------------------------- | --------- | ------ | ------ | ------------ |
-| thread.apk                    | √         | √      | √      | √            |
-| thread_in_leak.apk            | √         | √      | √      | √            |
-| thread_noleak.apk             | ×         | ×      | ×      | ×            |
-| global_imei.apk               | √         | √      | √      | √            |
-
-
-
+![image-20230709042217235](README.assets/image-20230709042217235.png)
