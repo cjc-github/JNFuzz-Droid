@@ -1,12 +1,8 @@
 # Note
 
-The size of the JNFuzz-Droid packaged zip file was over 100M due to exceeding Github's upload limit, so we did not include some of the large files in the packaged zip file.
-
-These file include: apktool,jucify,frida-server files and so on.  
-
-
-JNFuzz-Droid.zip requires a few files to be copied for it work successfully.
-
+Due to the JNFuzz-Droid packaged zip file exceeding Github's upload limit of 100M, we had to exclude certain large files from the zip file.
+These files, such as apktool, jucify, and frida-server, are essential for the successful operation of JNFuzz-Droid.
+Therefore, it is necessary to manually copy these files into the JNFuzz-Droid.zip in order for it to function properly.
 
 command:
 
