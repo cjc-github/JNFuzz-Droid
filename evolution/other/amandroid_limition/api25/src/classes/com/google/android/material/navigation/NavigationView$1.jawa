@@ -1,0 +1,32 @@
+record `com.google.android.material.navigation.NavigationView$1` @kind class @AccessFlag  extends `androidx.appcompat.view.menu.MenuBuilder$Callback` @kind interface {
+  `com.google.android.material.navigation.NavigationView` `com.google.android.material.navigation.NavigationView$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.navigation.NavigationView$1` v0 @kind this, `com.google.android.material.navigation.NavigationView` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/navigation/NavigationView$1;.<init>:(Lcom/google/android/material/navigation/NavigationView;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1a79f0.  v0.`com.google.android.material.navigation.NavigationView$1.this$0` @type ^`com.google.android.material.navigation.NavigationView` := v1 @kind object;
+  #L1a79f4.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1a79fa.  return @kind void;
+}
+procedure `boolean` `onMenuItemSelected`(`com.google.android.material.navigation.NavigationView$1` v1 @kind this, `androidx.appcompat.view.menu.MenuBuilder` v2 @kind object @name `menu`, `android.view.MenuItem` v3 @kind object @name `item`) @signature `Lcom/google/android/material/navigation/NavigationView$1;.onMenuItemSelected:(Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a79b8.  v0:= v1.`com.google.android.material.navigation.NavigationView$1.this$0` @type ^`com.google.android.material.navigation.NavigationView` @kind object;
+  #L1a79bc.  v0:= v0.`com.google.android.material.navigation.NavigationView.listener` @type ^`com.google.android.material.navigation.NavigationView$OnNavigationItemSelectedListener` @kind object;
+  #L1a79c0.  if v0 == 0 then goto L1a79dc;
+  #L1a79c4.  v0:= v1.`com.google.android.material.navigation.NavigationView$1.this$0` @type ^`com.google.android.material.navigation.NavigationView` @kind object;
+  #L1a79c8.  v0:= v0.`com.google.android.material.navigation.NavigationView.listener` @type ^`com.google.android.material.navigation.NavigationView$OnNavigationItemSelectedListener` @kind object;
+  #L1a79cc.  call temp:= `onNavigationItemSelected`(v0, v3) @signature `Lcom/google/android/material/navigation/NavigationView$OnNavigationItemSelectedListener;.onNavigationItemSelected:(Landroid/view/MenuItem;)Z` @kind interface;
+  #L1a79d2.  v0:= temp;
+  #L1a79d4.  if v0 == 0 then goto L1a79dc;
+  #L1a79d8.  v0:= 1I;
+  #L1a79da.  goto L1a79de;
+  #L1a79dc.  v0:= 0I;
+  #L1a79de.  return v0;
+}
+procedure `void` `onMenuModeChange`(`com.google.android.material.navigation.NavigationView$1` v0 @kind this, `androidx.appcompat.view.menu.MenuBuilder` v1 @kind object @name `menu`) @signature `Lcom/google/android/material/navigation/NavigationView$1;.onMenuModeChange:(Landroidx/appcompat/view/menu/MenuBuilder;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1a7a0c.  return @kind void;
+}

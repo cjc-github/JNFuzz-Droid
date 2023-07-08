@@ -1,0 +1,36 @@
+record `com.google.android.material.internal.CheckableImageButton$1` @kind class @AccessFlag  extends `androidx.core.view.AccessibilityDelegateCompat` @kind class {
+  `com.google.android.material.internal.CheckableImageButton` `com.google.android.material.internal.CheckableImageButton$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.CheckableImageButton$1` v0 @kind this, `com.google.android.material.internal.CheckableImageButton` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/internal/CheckableImageButton$1;.<init>:(Lcom/google/android/material/internal/CheckableImageButton;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1a26a8.  v0.`com.google.android.material.internal.CheckableImageButton$1.this$0` @type ^`com.google.android.material.internal.CheckableImageButton` := v1 @kind object;
+  #L1a26ac.  call `<init>`(v0) @signature `Landroidx/core/view/AccessibilityDelegateCompat;.<init>:()V` @kind direct;
+  #L1a26b2.  return @kind void;
+}
+procedure `void` `onInitializeAccessibilityEvent`(`com.google.android.material.internal.CheckableImageButton$1` v1 @kind this, `android.view.View` v2 @kind object @name `host`, `android.view.accessibility.AccessibilityEvent` v3 @kind object @name `event`) @signature `Lcom/google/android/material/internal/CheckableImageButton$1;.onInitializeAccessibilityEvent:(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a26c4.  call `onInitializeAccessibilityEvent`(v1, v2, v3) @signature `Landroidx/core/view/AccessibilityDelegateCompat;.onInitializeAccessibilityEvent:(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V` @kind super;
+  #L1a26ca.  v0:= v1.`com.google.android.material.internal.CheckableImageButton$1.this$0` @type ^`com.google.android.material.internal.CheckableImageButton` @kind object;
+  #L1a26ce.  call temp:= `isChecked`(v0) @signature `Lcom/google/android/material/internal/CheckableImageButton;.isChecked:()Z` @kind virtual;
+  #L1a26d4.  v0:= temp;
+  #L1a26d6.  call `setChecked`(v3, v0) @signature `Landroid/view/accessibility/AccessibilityEvent;.setChecked:(Z)V` @kind virtual;
+  #L1a26dc.  return @kind void;
+}
+procedure `void` `onInitializeAccessibilityNodeInfo`(`com.google.android.material.internal.CheckableImageButton$1` v1 @kind this, `android.view.View` v2 @kind object @name `host`, `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v3 @kind object @name `info`) @signature `Lcom/google/android/material/internal/CheckableImageButton$1;.onInitializeAccessibilityNodeInfo:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a26f0.  call `onInitializeAccessibilityNodeInfo`(v1, v2, v3) @signature `Landroidx/core/view/AccessibilityDelegateCompat;.onInitializeAccessibilityNodeInfo:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V` @kind super;
+  #L1a26f6.  v0:= v1.`com.google.android.material.internal.CheckableImageButton$1.this$0` @type ^`com.google.android.material.internal.CheckableImageButton` @kind object;
+  #L1a26fa.  call temp:= `isCheckable`(v0) @signature `Lcom/google/android/material/internal/CheckableImageButton;.isCheckable:()Z` @kind virtual;
+  #L1a2700.  v0:= temp;
+  #L1a2702.  call `setCheckable`(v3, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setCheckable:(Z)V` @kind virtual;
+  #L1a2708.  v0:= v1.`com.google.android.material.internal.CheckableImageButton$1.this$0` @type ^`com.google.android.material.internal.CheckableImageButton` @kind object;
+  #L1a270c.  call temp:= `isChecked`(v0) @signature `Lcom/google/android/material/internal/CheckableImageButton;.isChecked:()Z` @kind virtual;
+  #L1a2712.  v0:= temp;
+  #L1a2714.  call `setChecked`(v3, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setChecked:(Z)V` @kind virtual;
+  #L1a271a.  return @kind void;
+}

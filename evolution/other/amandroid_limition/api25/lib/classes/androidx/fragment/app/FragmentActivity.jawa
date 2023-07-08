@@ -1,0 +1,218 @@
+record `androidx.fragment.app.FragmentActivity` @kind class @AccessFlag PUBLIC extends `androidx.activity.ComponentActivity` @kind class, `androidx.core.app.ActivityCompat$OnRequestPermissionsResultCallback` @kind interface, `androidx.core.app.ActivityCompat$RequestPermissionsRequestCodeValidator` @kind interface {
+  `boolean` `androidx.fragment.app.FragmentActivity.mCreated` @AccessFlag ;
+  `androidx.lifecycle.LifecycleRegistry` `androidx.fragment.app.FragmentActivity.mFragmentLifecycleRegistry` @AccessFlag FINAL;
+  `androidx.fragment.app.FragmentController` `androidx.fragment.app.FragmentActivity.mFragments` @AccessFlag FINAL;
+  `int` `androidx.fragment.app.FragmentActivity.mNextCandidateRequestIndex` @AccessFlag ;
+  `androidx.collection.SparseArrayCompat` `androidx.fragment.app.FragmentActivity.mPendingFragmentActivityResults` @AccessFlag ;
+  `boolean` `androidx.fragment.app.FragmentActivity.mRequestedPermissionsFromFragment` @AccessFlag ;
+  `boolean` `androidx.fragment.app.FragmentActivity.mResumed` @AccessFlag ;
+  `boolean` `androidx.fragment.app.FragmentActivity.mStartedActivityFromFragment` @AccessFlag ;
+  `boolean` `androidx.fragment.app.FragmentActivity.mStartedIntentSenderFromFragment` @AccessFlag ;
+  `boolean` `androidx.fragment.app.FragmentActivity.mStopped` @AccessFlag ;
+}
+global `java.lang.String` `@@androidx.fragment.app.FragmentActivity.ALLOCATED_REQUEST_INDICIES_TAG` @AccessFlag STATIC_FINAL;
+global `java.lang.String` `@@androidx.fragment.app.FragmentActivity.FRAGMENTS_TAG` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.fragment.app.FragmentActivity.MAX_NUM_PENDING_FRAGMENT_ACTIVITY_RESULTS` @AccessFlag STATIC_FINAL;
+global `java.lang.String` `@@androidx.fragment.app.FragmentActivity.NEXT_CANDIDATE_REQUEST_INDEX_TAG` @AccessFlag STATIC_FINAL;
+global `java.lang.String` `@@androidx.fragment.app.FragmentActivity.REQUEST_FRAGMENT_WHO_TAG` @AccessFlag STATIC_FINAL;
+global `java.lang.String` `@@androidx.fragment.app.FragmentActivity.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`androidx.fragment.app.FragmentActivity` v1 @kind this) @signature `Landroidx/fragment/app/FragmentActivity;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.fragment.app.FragmentActivity` v1 @kind this, `int` v2 @name `contentLayoutId`) @signature `Landroidx/fragment/app/FragmentActivity;.<init>:(I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `int` `allocateRequestIndex`(`androidx.fragment.app.FragmentActivity` v4 @kind this, `androidx.fragment.app.Fragment` v5 @kind object @name `fragment`) @signature `Landroidx/fragment/app/FragmentActivity;.allocateRequestIndex:(Landroidx/fragment/app/Fragment;)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `checkForValidRequestCode`(`int` v2 @name `requestCode`) @signature `Landroidx/fragment/app/FragmentActivity;.checkForValidRequestCode:(I)V` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `void` `markFragmentsCreated`(`androidx.fragment.app.FragmentActivity` v2 @kind this) @signature `Landroidx/fragment/app/FragmentActivity;.markFragmentsCreated:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `markState`(`androidx.fragment.app.FragmentManager` v6 @kind object @name `manager`, `androidx.lifecycle.Lifecycle$State` v7 @kind object @name `state`) @signature `Landroidx/fragment/app/FragmentActivity;.markState:(Landroidx/fragment/app/FragmentManager;Landroidx/lifecycle/Lifecycle$State;)Z` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `android.view.View` `dispatchFragmentsOnCreateView`(`androidx.fragment.app.FragmentActivity` v1 @kind this, `android.view.View` v2 @kind object @name `parent`, `java.lang.String` v3 @kind object @name `name`, `android.content.Context` v4 @kind object @name `context`, `android.util.AttributeSet` v5 @kind object @name `attrs`) @signature `Landroidx/fragment/app/FragmentActivity;.dispatchFragmentsOnCreateView:(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;` @AccessFlag FINAL {
+
+  # return;
+}
+procedure `void` `dump`(`androidx.fragment.app.FragmentActivity` v2 @kind this, `java.lang.String` v3 @kind object @name `prefix`, `java.io.FileDescriptor` v4 @kind object @name `fd`, `java.io.PrintWriter` v5 @kind object @name `writer`, `java.lang.String`[] v6 @kind object @name `args`) @signature `Landroidx/fragment/app/FragmentActivity;.dump:(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.fragment.app.FragmentManager` `getSupportFragmentManager`(`androidx.fragment.app.FragmentActivity` v1 @kind this) @signature `Landroidx/fragment/app/FragmentActivity;.getSupportFragmentManager:()Landroidx/fragment/app/FragmentManager;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.loader.app.LoaderManager` `getSupportLoaderManager`(`androidx.fragment.app.FragmentActivity` v1 @kind this) @signature `Landroidx/fragment/app/FragmentActivity;.getSupportLoaderManager:()Landroidx/loader/app/LoaderManager;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onActivityResult`(`androidx.fragment.app.FragmentActivity` v6 @kind this, `int` v7 @name `requestCode`, `int` v8 @name `resultCode`, `android.content.Intent` v9 @kind object @name `data`) @signature `Landroidx/fragment/app/FragmentActivity;.onActivityResult:(IILandroid/content/Intent;)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onAttachFragment`(`androidx.fragment.app.FragmentActivity` v0 @kind this, `androidx.fragment.app.Fragment` v1 @kind object @name `fragment`) @signature `Landroidx/fragment/app/FragmentActivity;.onAttachFragment:(Landroidx/fragment/app/Fragment;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onConfigurationChanged`(`androidx.fragment.app.FragmentActivity` v1 @kind this, `android.content.res.Configuration` v2 @kind object @name `newConfig`) @signature `Landroidx/fragment/app/FragmentActivity;.onConfigurationChanged:(Landroid/content/res/Configuration;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onCreate`(`androidx.fragment.app.FragmentActivity` v7 @kind this, `android.os.Bundle` v8 @kind object @name `savedInstanceState`) @signature `Landroidx/fragment/app/FragmentActivity;.onCreate:(Landroid/os/Bundle;)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `boolean` `onCreatePanelMenu`(`androidx.fragment.app.FragmentActivity` v3 @kind this, `int` v4 @name `featureId`, `android.view.Menu` v5 @kind object @name `menu`) @signature `Landroidx/fragment/app/FragmentActivity;.onCreatePanelMenu:(ILandroid/view/Menu;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View` `onCreateView`(`androidx.fragment.app.FragmentActivity` v2 @kind this, `android.view.View` v3 @kind object @name `parent`, `java.lang.String` v4 @kind object @name `name`, `android.content.Context` v5 @kind object @name `context`, `android.util.AttributeSet` v6 @kind object @name `attrs`) @signature `Landroidx/fragment/app/FragmentActivity;.onCreateView:(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View` `onCreateView`(`androidx.fragment.app.FragmentActivity` v2 @kind this, `java.lang.String` v3 @kind object @name `name`, `android.content.Context` v4 @kind object @name `context`, `android.util.AttributeSet` v5 @kind object @name `attrs`) @signature `Landroidx/fragment/app/FragmentActivity;.onCreateView:(Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onDestroy`(`androidx.fragment.app.FragmentActivity` v2 @kind this) @signature `Landroidx/fragment/app/FragmentActivity;.onDestroy:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onLowMemory`(`androidx.fragment.app.FragmentActivity` v1 @kind this) @signature `Landroidx/fragment/app/FragmentActivity;.onLowMemory:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onMenuItemSelected`(`androidx.fragment.app.FragmentActivity` v1 @kind this, `int` v2 @name `featureId`, `android.view.MenuItem` v3 @kind object @name `item`) @signature `Landroidx/fragment/app/FragmentActivity;.onMenuItemSelected:(ILandroid/view/MenuItem;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onMultiWindowModeChanged`(`androidx.fragment.app.FragmentActivity` v1 @kind this, `boolean` v2 @name `isInMultiWindowMode`) @signature `Landroidx/fragment/app/FragmentActivity;.onMultiWindowModeChanged:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onNewIntent`(`androidx.fragment.app.FragmentActivity` v1 @kind this, `android.content.Intent` v2 @kind object @name `intent`) @signature `Landroidx/fragment/app/FragmentActivity;.onNewIntent:(Landroid/content/Intent;)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onPanelClosed`(`androidx.fragment.app.FragmentActivity` v1 @kind this, `int` v2 @name `featureId`, `android.view.Menu` v3 @kind object @name `menu`) @signature `Landroidx/fragment/app/FragmentActivity;.onPanelClosed:(ILandroid/view/Menu;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onPause`(`androidx.fragment.app.FragmentActivity` v2 @kind this) @signature `Landroidx/fragment/app/FragmentActivity;.onPause:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onPictureInPictureModeChanged`(`androidx.fragment.app.FragmentActivity` v1 @kind this, `boolean` v2 @name `isInPictureInPictureMode`) @signature `Landroidx/fragment/app/FragmentActivity;.onPictureInPictureModeChanged:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onPostResume`(`androidx.fragment.app.FragmentActivity` v0 @kind this) @signature `Landroidx/fragment/app/FragmentActivity;.onPostResume:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `boolean` `onPrepareOptionsPanel`(`androidx.fragment.app.FragmentActivity` v1 @kind this, `android.view.View` v2 @kind object @name `view`, `android.view.Menu` v3 @kind object @name `menu`) @signature `Landroidx/fragment/app/FragmentActivity;.onPrepareOptionsPanel:(Landroid/view/View;Landroid/view/Menu;)Z` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `boolean` `onPreparePanel`(`androidx.fragment.app.FragmentActivity` v2 @kind this, `int` v3 @name `featureId`, `android.view.View` v4 @kind object @name `view`, `android.view.Menu` v5 @kind object @name `menu`) @signature `Landroidx/fragment/app/FragmentActivity;.onPreparePanel:(ILandroid/view/View;Landroid/view/Menu;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onRequestPermissionsResult`(`androidx.fragment.app.FragmentActivity` v6 @kind this, `int` v7 @name `requestCode`, `java.lang.String`[] v8 @kind object @name `permissions`, `int`[] v9 @kind object @name `grantResults`) @signature `Landroidx/fragment/app/FragmentActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onResume`(`androidx.fragment.app.FragmentActivity` v1 @kind this) @signature `Landroidx/fragment/app/FragmentActivity;.onResume:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onResumeFragments`(`androidx.fragment.app.FragmentActivity` v2 @kind this) @signature `Landroidx/fragment/app/FragmentActivity;.onResumeFragments:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onSaveInstanceState`(`androidx.fragment.app.FragmentActivity` v5 @kind this, `android.os.Bundle` v6 @kind object @name `outState`) @signature `Landroidx/fragment/app/FragmentActivity;.onSaveInstanceState:(Landroid/os/Bundle;)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onStart`(`androidx.fragment.app.FragmentActivity` v2 @kind this) @signature `Landroidx/fragment/app/FragmentActivity;.onStart:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onStateNotSaved`(`androidx.fragment.app.FragmentActivity` v1 @kind this) @signature `Landroidx/fragment/app/FragmentActivity;.onStateNotSaved:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onStop`(`androidx.fragment.app.FragmentActivity` v2 @kind this) @signature `Landroidx/fragment/app/FragmentActivity;.onStop:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `requestPermissionsFromFragment`(`androidx.fragment.app.FragmentActivity` v4 @kind this, `androidx.fragment.app.Fragment` v5 @kind object @name `fragment`, `java.lang.String`[] v6 @kind object @name `permissions`, `int` v7 @name `requestCode`) @signature `Landroidx/fragment/app/FragmentActivity;.requestPermissionsFromFragment:(Landroidx/fragment/app/Fragment;[Ljava/lang/String;I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `setEnterSharedElementCallback`(`androidx.fragment.app.FragmentActivity` v0 @kind this, `androidx.core.app.SharedElementCallback` v1 @kind object @name `callback`) @signature `Landroidx/fragment/app/FragmentActivity;.setEnterSharedElementCallback:(Landroidx/core/app/SharedElementCallback;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setExitSharedElementCallback`(`androidx.fragment.app.FragmentActivity` v0 @kind this, `androidx.core.app.SharedElementCallback` v1 @kind object @name `listener`) @signature `Landroidx/fragment/app/FragmentActivity;.setExitSharedElementCallback:(Landroidx/core/app/SharedElementCallback;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `startActivityForResult`(`androidx.fragment.app.FragmentActivity` v1 @kind this, `android.content.Intent` v2 @kind object @name `intent`, `int` v3 @name `requestCode`) @signature `Landroidx/fragment/app/FragmentActivity;.startActivityForResult:(Landroid/content/Intent;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `startActivityForResult`(`androidx.fragment.app.FragmentActivity` v1 @kind this, `android.content.Intent` v2 @kind object @name `intent`, `int` v3 @name `requestCode`, `android.os.Bundle` v4 @kind object @name `options`) @signature `Landroidx/fragment/app/FragmentActivity;.startActivityForResult:(Landroid/content/Intent;ILandroid/os/Bundle;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `startActivityFromFragment`(`androidx.fragment.app.FragmentActivity` v1 @kind this, `androidx.fragment.app.Fragment` v2 @kind object @name `fragment`, `android.content.Intent` v3 @kind object @name `intent`, `int` v4 @name `requestCode`) @signature `Landroidx/fragment/app/FragmentActivity;.startActivityFromFragment:(Landroidx/fragment/app/Fragment;Landroid/content/Intent;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `startActivityFromFragment`(`androidx.fragment.app.FragmentActivity` v4 @kind this, `androidx.fragment.app.Fragment` v5 @kind object @name `fragment`, `android.content.Intent` v6 @kind object @name `intent`, `int` v7 @name `requestCode`, `android.os.Bundle` v8 @kind object @name `options`) @signature `Landroidx/fragment/app/FragmentActivity;.startActivityFromFragment:(Landroidx/fragment/app/Fragment;Landroid/content/Intent;ILandroid/os/Bundle;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `startIntentSenderForResult`(`androidx.fragment.app.FragmentActivity` v1 @kind this, `android.content.IntentSender` v2 @kind object @name `intent`, `int` v3 @name `requestCode`, `android.content.Intent` v4 @kind object @name `fillInIntent`, `int` v5 @name `flagsMask`, `int` v6 @name `flagsValues`, `int` v7 @name `extraFlags`) @signature `Landroidx/fragment/app/FragmentActivity;.startIntentSenderForResult:(Landroid/content/IntentSender;ILandroid/content/Intent;III)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `startIntentSenderForResult`(`androidx.fragment.app.FragmentActivity` v1 @kind this, `android.content.IntentSender` v2 @kind object @name `intent`, `int` v3 @name `requestCode`, `android.content.Intent` v4 @kind object @name `fillInIntent`, `int` v5 @name `flagsMask`, `int` v6 @name `flagsValues`, `int` v7 @name `extraFlags`, `android.os.Bundle` v8 @kind object @name `options`) @signature `Landroidx/fragment/app/FragmentActivity;.startIntentSenderForResult:(Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `startIntentSenderFromFragment`(`androidx.fragment.app.FragmentActivity` v12 @kind this, `androidx.fragment.app.Fragment` v13 @kind object @name `fragment`, `android.content.IntentSender` v14 @kind object @name `intent`, `int` v15 @name `requestCode`, `android.content.Intent` v16 @kind object @name `fillInIntent`, `int` v17 @name `flagsMask`, `int` v18 @name `flagsValues`, `int` v19 @name `extraFlags`, `android.os.Bundle` v20 @kind object @name `options`) @signature `Landroidx/fragment/app/FragmentActivity;.startIntentSenderFromFragment:(Landroidx/fragment/app/Fragment;Landroid/content/IntentSender;ILandroid/content/Intent;IIILandroid/os/Bundle;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `supportFinishAfterTransition`(`androidx.fragment.app.FragmentActivity` v0 @kind this) @signature `Landroidx/fragment/app/FragmentActivity;.supportFinishAfterTransition:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `supportInvalidateOptionsMenu`(`androidx.fragment.app.FragmentActivity` v0 @kind this) @signature `Landroidx/fragment/app/FragmentActivity;.supportInvalidateOptionsMenu:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `supportPostponeEnterTransition`(`androidx.fragment.app.FragmentActivity` v0 @kind this) @signature `Landroidx/fragment/app/FragmentActivity;.supportPostponeEnterTransition:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `supportStartPostponedEnterTransition`(`androidx.fragment.app.FragmentActivity` v0 @kind this) @signature `Landroidx/fragment/app/FragmentActivity;.supportStartPostponedEnterTransition:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `validateRequestPermissionsRequestCode`(`androidx.fragment.app.FragmentActivity` v1 @kind this, `int` v2 @name `requestCode`) @signature `Landroidx/fragment/app/FragmentActivity;.validateRequestPermissionsRequestCode:(I)V` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}

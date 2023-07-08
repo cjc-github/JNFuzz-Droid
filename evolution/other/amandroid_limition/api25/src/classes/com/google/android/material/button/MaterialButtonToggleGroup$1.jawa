@@ -1,0 +1,64 @@
+record `com.google.android.material.button.MaterialButtonToggleGroup$1` @kind class @AccessFlag  extends `java.util.Comparator` @kind interface {
+  `com.google.android.material.button.MaterialButtonToggleGroup` `com.google.android.material.button.MaterialButtonToggleGroup$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.button.MaterialButtonToggleGroup$1` v0 @kind this, `com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$1;.<init>:(Lcom/google/android/material/button/MaterialButtonToggleGroup;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L18b8a0.  v0.`com.google.android.material.button.MaterialButtonToggleGroup$1.this$0` @type ^`com.google.android.material.button.MaterialButtonToggleGroup` := v1 @kind object;
+  #L18b8a4.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L18b8aa.  return @kind void;
+}
+procedure `int` `compare`(`com.google.android.material.button.MaterialButtonToggleGroup$1` v4 @kind this, `com.google.android.material.button.MaterialButton` v5 @kind object @name `v1`, `com.google.android.material.button.MaterialButton` v6 @kind object @name `v2`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$1;.compare:(Lcom/google/android/material/button/MaterialButton;Lcom/google/android/material/button/MaterialButton;)I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18b7dc.  call temp:= `isChecked`(v5) @signature `Lcom/google/android/material/button/MaterialButton;.isChecked:()Z` @kind virtual;
+  #L18b7e2.  v0:= temp;
+  #L18b7e4.  call temp:= `valueOf`(v0) @signature `Ljava/lang/Boolean;.valueOf:(Z)Ljava/lang/Boolean;` @kind static;
+  #L18b7ea.  v0:= temp @kind object;
+  #L18b7ec.  call temp:= `isChecked`(v6) @signature `Lcom/google/android/material/button/MaterialButton;.isChecked:()Z` @kind virtual;
+  #L18b7f2.  v1:= temp;
+  #L18b7f4.  call temp:= `valueOf`(v1) @signature `Ljava/lang/Boolean;.valueOf:(Z)Ljava/lang/Boolean;` @kind static;
+  #L18b7fa.  v1:= temp @kind object;
+  #L18b7fc.  call temp:= `compareTo`(v0, v1) @signature `Ljava/lang/Boolean;.compareTo:(Ljava/lang/Boolean;)I` @kind virtual;
+  #L18b802.  v0:= temp;
+  #L18b804.  if v0 == 0 then goto L18b80a;
+  #L18b808.  return v0;
+  #L18b80a.  call temp:= `isPressed`(v5) @signature `Lcom/google/android/material/button/MaterialButton;.isPressed:()Z` @kind virtual;
+  #L18b810.  v1:= temp;
+  #L18b812.  call temp:= `valueOf`(v1) @signature `Ljava/lang/Boolean;.valueOf:(Z)Ljava/lang/Boolean;` @kind static;
+  #L18b818.  v1:= temp @kind object;
+  #L18b81a.  call temp:= `isPressed`(v6) @signature `Lcom/google/android/material/button/MaterialButton;.isPressed:()Z` @kind virtual;
+  #L18b820.  v2:= temp;
+  #L18b822.  call temp:= `valueOf`(v2) @signature `Ljava/lang/Boolean;.valueOf:(Z)Ljava/lang/Boolean;` @kind static;
+  #L18b828.  v2:= temp @kind object;
+  #L18b82a.  call temp:= `compareTo`(v1, v2) @signature `Ljava/lang/Boolean;.compareTo:(Ljava/lang/Boolean;)I` @kind virtual;
+  #L18b830.  v1:= temp;
+  #L18b832.  if v1 == 0 then goto L18b838;
+  #L18b836.  return v1;
+  #L18b838.  v2:= v4.`com.google.android.material.button.MaterialButtonToggleGroup$1.this$0` @type ^`com.google.android.material.button.MaterialButtonToggleGroup` @kind object;
+  #L18b83c.  call temp:= `indexOfChild`(v2, v5) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.indexOfChild:(Landroid/view/View;)I` @kind virtual;
+  #L18b842.  v2:= temp;
+  #L18b844.  call temp:= `valueOf`(v2) @signature `Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer;` @kind static;
+  #L18b84a.  v2:= temp @kind object;
+  #L18b84c.  v3:= v4.`com.google.android.material.button.MaterialButtonToggleGroup$1.this$0` @type ^`com.google.android.material.button.MaterialButtonToggleGroup` @kind object;
+  #L18b850.  call temp:= `indexOfChild`(v3, v6) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.indexOfChild:(Landroid/view/View;)I` @kind virtual;
+  #L18b856.  v3:= temp;
+  #L18b858.  call temp:= `valueOf`(v3) @signature `Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer;` @kind static;
+  #L18b85e.  v3:= temp @kind object;
+  #L18b860.  call temp:= `compareTo`(v2, v3) @signature `Ljava/lang/Integer;.compareTo:(Ljava/lang/Integer;)I` @kind virtual;
+  #L18b866.  v2:= temp;
+  #L18b868.  return v2;
+}
+procedure `int` `compare`(`com.google.android.material.button.MaterialButtonToggleGroup$1` v0 @kind this, `java.lang.Object` v1 @kind object, `java.lang.Object` v2 @kind object) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$1;.compare:(Ljava/lang/Object;Ljava/lang/Object;)I` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L18b87c.  v1:= (`com.google.android.material.button.MaterialButton`) v1 @kind object;
+  #L18b880.  v2:= (`com.google.android.material.button.MaterialButton`) v2 @kind object;
+  #L18b884.  call temp:= `compare`(v0, v1, v2) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$1;.compare:(Lcom/google/android/material/button/MaterialButton;Lcom/google/android/material/button/MaterialButton;)I` @kind virtual;
+  #L18b88a.  v1:= temp;
+  #L18b88c.  return v1;
+}

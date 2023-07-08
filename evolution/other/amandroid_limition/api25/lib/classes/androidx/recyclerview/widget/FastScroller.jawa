@@ -1,0 +1,176 @@
+record `androidx.recyclerview.widget.FastScroller` @kind class @AccessFlag  extends `androidx.recyclerview.widget.RecyclerView$ItemDecoration` @kind class, `androidx.recyclerview.widget.RecyclerView$OnItemTouchListener` @kind interface {
+  `int` `androidx.recyclerview.widget.FastScroller.mAnimationState` @AccessFlag ;
+  `int` `androidx.recyclerview.widget.FastScroller.mDragState` @AccessFlag PRIVATE;
+  `java.lang.Runnable` `androidx.recyclerview.widget.FastScroller.mHideRunnable` @AccessFlag PRIVATE_FINAL;
+  `float` `androidx.recyclerview.widget.FastScroller.mHorizontalDragX` @AccessFlag ;
+  `int`[] `androidx.recyclerview.widget.FastScroller.mHorizontalRange` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.recyclerview.widget.FastScroller.mHorizontalThumbCenterX` @AccessFlag ;
+  `android.graphics.drawable.StateListDrawable` `androidx.recyclerview.widget.FastScroller.mHorizontalThumbDrawable` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.recyclerview.widget.FastScroller.mHorizontalThumbHeight` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.recyclerview.widget.FastScroller.mHorizontalThumbWidth` @AccessFlag ;
+  `android.graphics.drawable.Drawable` `androidx.recyclerview.widget.FastScroller.mHorizontalTrackDrawable` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.recyclerview.widget.FastScroller.mHorizontalTrackHeight` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.recyclerview.widget.FastScroller.mMargin` @AccessFlag PRIVATE_FINAL;
+  `boolean` `androidx.recyclerview.widget.FastScroller.mNeedHorizontalScrollbar` @AccessFlag PRIVATE;
+  `boolean` `androidx.recyclerview.widget.FastScroller.mNeedVerticalScrollbar` @AccessFlag PRIVATE;
+  `androidx.recyclerview.widget.RecyclerView$OnScrollListener` `androidx.recyclerview.widget.FastScroller.mOnScrollListener` @AccessFlag PRIVATE_FINAL;
+  `androidx.recyclerview.widget.RecyclerView` `androidx.recyclerview.widget.FastScroller.mRecyclerView` @AccessFlag PRIVATE;
+  `int` `androidx.recyclerview.widget.FastScroller.mRecyclerViewHeight` @AccessFlag PRIVATE;
+  `int` `androidx.recyclerview.widget.FastScroller.mRecyclerViewWidth` @AccessFlag PRIVATE;
+  `int` `androidx.recyclerview.widget.FastScroller.mScrollbarMinimumRange` @AccessFlag PRIVATE_FINAL;
+  `android.animation.ValueAnimator` `androidx.recyclerview.widget.FastScroller.mShowHideAnimator` @AccessFlag FINAL;
+  `int` `androidx.recyclerview.widget.FastScroller.mState` @AccessFlag PRIVATE;
+  `float` `androidx.recyclerview.widget.FastScroller.mVerticalDragY` @AccessFlag ;
+  `int`[] `androidx.recyclerview.widget.FastScroller.mVerticalRange` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.recyclerview.widget.FastScroller.mVerticalThumbCenterY` @AccessFlag ;
+  `android.graphics.drawable.StateListDrawable` `androidx.recyclerview.widget.FastScroller.mVerticalThumbDrawable` @AccessFlag FINAL;
+  `int` `androidx.recyclerview.widget.FastScroller.mVerticalThumbHeight` @AccessFlag ;
+  `int` `androidx.recyclerview.widget.FastScroller.mVerticalThumbWidth` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.drawable.Drawable` `androidx.recyclerview.widget.FastScroller.mVerticalTrackDrawable` @AccessFlag FINAL;
+  `int` `androidx.recyclerview.widget.FastScroller.mVerticalTrackWidth` @AccessFlag PRIVATE_FINAL;
+}
+global `int` `@@androidx.recyclerview.widget.FastScroller.ANIMATION_STATE_FADING_IN` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.FastScroller.ANIMATION_STATE_FADING_OUT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.FastScroller.ANIMATION_STATE_IN` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.FastScroller.ANIMATION_STATE_OUT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.FastScroller.DRAG_NONE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.FastScroller.DRAG_X` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.FastScroller.DRAG_Y` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int`[] `@@androidx.recyclerview.widget.FastScroller.EMPTY_STATE_SET` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.FastScroller.HIDE_DELAY_AFTER_DRAGGING_MS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.FastScroller.HIDE_DELAY_AFTER_VISIBLE_MS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.FastScroller.HIDE_DURATION_MS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int`[] `@@androidx.recyclerview.widget.FastScroller.PRESSED_STATE_SET` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.FastScroller.SCROLLBAR_FULL_OPAQUE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.FastScroller.SHOW_DURATION_MS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.FastScroller.STATE_DRAGGING` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.FastScroller.STATE_HIDDEN` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.FastScroller.STATE_VISIBLE` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/recyclerview/widget/FastScroller;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.recyclerview.widget.FastScroller` v3 @kind this, `androidx.recyclerview.widget.RecyclerView` v4 @kind object @name `recyclerView`, `android.graphics.drawable.StateListDrawable` v5 @kind object @name `verticalThumbDrawable`, `android.graphics.drawable.Drawable` v6 @kind object @name `verticalTrackDrawable`, `android.graphics.drawable.StateListDrawable` v7 @kind object @name `horizontalThumbDrawable`, `android.graphics.drawable.Drawable` v8 @kind object @name `horizontalTrackDrawable`, `int` v9 @name `defaultWidth`, `int` v10 @name `scrollbarMinimumRange`, `int` v11 @name `margin`) @signature `Landroidx/recyclerview/widget/FastScroller;.<init>:(Landroidx/recyclerview/widget/RecyclerView;Landroid/graphics/drawable/StateListDrawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/StateListDrawable;Landroid/graphics/drawable/Drawable;III)V` @AccessFlag CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `cancelHide`(`androidx.recyclerview.widget.FastScroller` v2 @kind this) @signature `Landroidx/recyclerview/widget/FastScroller;.cancelHide:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `destroyCallbacks`(`androidx.recyclerview.widget.FastScroller` v2 @kind this) @signature `Landroidx/recyclerview/widget/FastScroller;.destroyCallbacks:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `drawHorizontalScrollbar`(`androidx.recyclerview.widget.FastScroller` v7 @kind this, `android.graphics.Canvas` v8 @kind object @name `canvas`) @signature `Landroidx/recyclerview/widget/FastScroller;.drawHorizontalScrollbar:(Landroid/graphics/Canvas;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `drawVerticalScrollbar`(`androidx.recyclerview.widget.FastScroller` v7 @kind this, `android.graphics.Canvas` v8 @kind object @name `canvas`) @signature `Landroidx/recyclerview/widget/FastScroller;.drawVerticalScrollbar:(Landroid/graphics/Canvas;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int`[] `getHorizontalRange`(`androidx.recyclerview.widget.FastScroller` v3 @kind this) @signature `Landroidx/recyclerview/widget/FastScroller;.getHorizontalRange:()[I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int`[] `getVerticalRange`(`androidx.recyclerview.widget.FastScroller` v3 @kind this) @signature `Landroidx/recyclerview/widget/FastScroller;.getVerticalRange:()[I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `horizontalScrollTo`(`androidx.recyclerview.widget.FastScroller` v9 @kind this, `float` v10 @name `x`) @signature `Landroidx/recyclerview/widget/FastScroller;.horizontalScrollTo:(F)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `isLayoutRTL`(`androidx.recyclerview.widget.FastScroller` v2 @kind this) @signature `Landroidx/recyclerview/widget/FastScroller;.isLayoutRTL:()Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `resetHideDelay`(`androidx.recyclerview.widget.FastScroller` v4 @kind this, `int` v5 @name `delay`) @signature `Landroidx/recyclerview/widget/FastScroller;.resetHideDelay:(I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `scrollTo`(`androidx.recyclerview.widget.FastScroller` v6 @kind this, `float` v7 @name `oldDragPos`, `float` v8 @name `newDragPos`, `int`[] v9 @kind object @name `scrollbarRange`, `int` v10 @name `scrollRange`, `int` v11 @name `scrollOffset`, `int` v12 @name `viewLength`) @signature `Landroidx/recyclerview/widget/FastScroller;.scrollTo:(FF[IIII)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `setupCallbacks`(`androidx.recyclerview.widget.FastScroller` v2 @kind this) @signature `Landroidx/recyclerview/widget/FastScroller;.setupCallbacks:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `verticalScrollTo`(`androidx.recyclerview.widget.FastScroller` v9 @kind this, `float` v10 @name `y`) @signature `Landroidx/recyclerview/widget/FastScroller;.verticalScrollTo:(F)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `attachToRecyclerView`(`androidx.recyclerview.widget.FastScroller` v1 @kind this, `androidx.recyclerview.widget.RecyclerView` v2 @kind object @name `recyclerView`) @signature `Landroidx/recyclerview/widget/FastScroller;.attachToRecyclerView:(Landroidx/recyclerview/widget/RecyclerView;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `getHorizontalThumbDrawable`(`androidx.recyclerview.widget.FastScroller` v1 @kind this) @signature `Landroidx/recyclerview/widget/FastScroller;.getHorizontalThumbDrawable:()Landroid/graphics/drawable/Drawable;` @AccessFlag  {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `getHorizontalTrackDrawable`(`androidx.recyclerview.widget.FastScroller` v1 @kind this) @signature `Landroidx/recyclerview/widget/FastScroller;.getHorizontalTrackDrawable:()Landroid/graphics/drawable/Drawable;` @AccessFlag  {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `getVerticalThumbDrawable`(`androidx.recyclerview.widget.FastScroller` v1 @kind this) @signature `Landroidx/recyclerview/widget/FastScroller;.getVerticalThumbDrawable:()Landroid/graphics/drawable/Drawable;` @AccessFlag  {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `getVerticalTrackDrawable`(`androidx.recyclerview.widget.FastScroller` v1 @kind this) @signature `Landroidx/recyclerview/widget/FastScroller;.getVerticalTrackDrawable:()Landroid/graphics/drawable/Drawable;` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `hide`(`androidx.recyclerview.widget.FastScroller` v5 @kind this, `int` v6 @name `duration`) @signature `Landroidx/recyclerview/widget/FastScroller;.hide:(I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isDragging`(`androidx.recyclerview.widget.FastScroller` v2 @kind this) @signature `Landroidx/recyclerview/widget/FastScroller;.isDragging:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isPointInsideHorizontalThumb`(`androidx.recyclerview.widget.FastScroller` v3 @kind this, `float` v4 @name `x`, `float` v5 @name `y`) @signature `Landroidx/recyclerview/widget/FastScroller;.isPointInsideHorizontalThumb:(FF)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isPointInsideVerticalThumb`(`androidx.recyclerview.widget.FastScroller` v3 @kind this, `float` v4 @name `x`, `float` v5 @name `y`) @signature `Landroidx/recyclerview/widget/FastScroller;.isPointInsideVerticalThumb:(FF)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isVisible`(`androidx.recyclerview.widget.FastScroller` v2 @kind this) @signature `Landroidx/recyclerview/widget/FastScroller;.isVisible:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onDrawOver`(`androidx.recyclerview.widget.FastScroller` v2 @kind this, `android.graphics.Canvas` v3 @kind object @name `canvas`, `androidx.recyclerview.widget.RecyclerView` v4 @kind object @name `parent`, `androidx.recyclerview.widget.RecyclerView$State` v5 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/FastScroller;.onDrawOver:(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onInterceptTouchEvent`(`androidx.recyclerview.widget.FastScroller` v5 @kind this, `androidx.recyclerview.widget.RecyclerView` v6 @kind object @name `recyclerView`, `android.view.MotionEvent` v7 @kind object @name `ev`) @signature `Landroidx/recyclerview/widget/FastScroller;.onInterceptTouchEvent:(Landroidx/recyclerview/widget/RecyclerView;Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onRequestDisallowInterceptTouchEvent`(`androidx.recyclerview.widget.FastScroller` v0 @kind this, `boolean` v1 @name `disallowIntercept`) @signature `Landroidx/recyclerview/widget/FastScroller;.onRequestDisallowInterceptTouchEvent:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onTouchEvent`(`androidx.recyclerview.widget.FastScroller` v5 @kind this, `androidx.recyclerview.widget.RecyclerView` v6 @kind object @name `recyclerView`, `android.view.MotionEvent` v7 @kind object @name `me`) @signature `Landroidx/recyclerview/widget/FastScroller;.onTouchEvent:(Landroidx/recyclerview/widget/RecyclerView;Landroid/view/MotionEvent;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `requestRedraw`(`androidx.recyclerview.widget.FastScroller` v1 @kind this) @signature `Landroidx/recyclerview/widget/FastScroller;.requestRedraw:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `setState`(`androidx.recyclerview.widget.FastScroller` v3 @kind this, `int` v4 @name `state`) @signature `Landroidx/recyclerview/widget/FastScroller;.setState:(I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `show`(`androidx.recyclerview.widget.FastScroller` v5 @kind this) @signature `Landroidx/recyclerview/widget/FastScroller;.show:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `updateScrollPosition`(`androidx.recyclerview.widget.FastScroller` v9 @kind this, `int` v10 @name `offsetX`, `int` v11 @name `offsetY`) @signature `Landroidx/recyclerview/widget/FastScroller;.updateScrollPosition:(II)V` @AccessFlag  {
+
+  # return;
+}

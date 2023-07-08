@@ -1,0 +1,36 @@
+record `com.google.android.material.datepicker.MaterialDatePicker$3` @kind class @AccessFlag  extends `com.google.android.material.datepicker.OnSelectionChangedListener` @kind interface {
+  `com.google.android.material.datepicker.MaterialDatePicker` `com.google.android.material.datepicker.MaterialDatePicker$3.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.MaterialDatePicker$3` v0 @kind this, `com.google.android.material.datepicker.MaterialDatePicker` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$3;.<init>:(Lcom/google/android/material/datepicker/MaterialDatePicker;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L198c20.  v0.`com.google.android.material.datepicker.MaterialDatePicker$3.this$0` @type ^`com.google.android.material.datepicker.MaterialDatePicker` := v1 @kind object;
+  #L198c24.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L198c2a.  return @kind void;
+}
+procedure `void` `onSelectionChanged`(`com.google.android.material.datepicker.MaterialDatePicker$3` v2 @kind this, `java.lang.Object` v3 @kind object) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$3;.onSelectionChanged:(Ljava/lang/Object;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L198c3c.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker$3.this$0` @type ^`com.google.android.material.datepicker.MaterialDatePicker` @kind object;
+  #L198c40.  call `access$200`(v0) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.access$200:(Lcom/google/android/material/datepicker/MaterialDatePicker;)V` @kind static;
+  #L198c46.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker$3.this$0` @type ^`com.google.android.material.datepicker.MaterialDatePicker` @kind object;
+  #L198c4a.  call temp:= `access$300`(v0) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.access$300:(Lcom/google/android/material/datepicker/MaterialDatePicker;)Lcom/google/android/material/datepicker/DateSelector;` @kind static;
+  #L198c50.  v0:= temp @kind object;
+  #L198c52.  call temp:= `isSelectionComplete`(v0) @signature `Lcom/google/android/material/datepicker/DateSelector;.isSelectionComplete:()Z` @kind interface;
+  #L198c58.  v0:= temp;
+  #L198c5a.  if v0 == 0 then goto L198c74;
+  #L198c5e.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker$3.this$0` @type ^`com.google.android.material.datepicker.MaterialDatePicker` @kind object;
+  #L198c62.  call temp:= `access$400`(v0) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.access$400:(Lcom/google/android/material/datepicker/MaterialDatePicker;)Landroid/widget/Button;` @kind static;
+  #L198c68.  v0:= temp @kind object;
+  #L198c6a.  v1:= 1I;
+  #L198c6c.  call `setEnabled`(v0, v1) @signature `Landroid/widget/Button;.setEnabled:(Z)V` @kind virtual;
+  #L198c72.  goto L198c88;
+  #L198c74.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker$3.this$0` @type ^`com.google.android.material.datepicker.MaterialDatePicker` @kind object;
+  #L198c78.  call temp:= `access$400`(v0) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.access$400:(Lcom/google/android/material/datepicker/MaterialDatePicker;)Landroid/widget/Button;` @kind static;
+  #L198c7e.  v0:= temp @kind object;
+  #L198c80.  v1:= 0I;
+  #L198c82.  call `setEnabled`(v0, v1) @signature `Landroid/widget/Button;.setEnabled:(Z)V` @kind virtual;
+  #L198c88.  return @kind void;
+}

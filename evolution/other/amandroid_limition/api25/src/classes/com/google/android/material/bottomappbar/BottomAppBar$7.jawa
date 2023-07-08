@@ -1,0 +1,41 @@
+record `com.google.android.material.bottomappbar.BottomAppBar$7` @kind class @AccessFlag  extends `android.animation.AnimatorListenerAdapter` @kind class {
+  `boolean` `com.google.android.material.bottomappbar.BottomAppBar$7.cancelled` @AccessFlag PUBLIC;
+  `com.google.android.material.bottomappbar.BottomAppBar` `com.google.android.material.bottomappbar.BottomAppBar$7.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `androidx.appcompat.widget.ActionMenuView` `com.google.android.material.bottomappbar.BottomAppBar$7.val$actionMenuView` @AccessFlag FINAL_SYNTHETIC;
+  `boolean` `com.google.android.material.bottomappbar.BottomAppBar$7.val$targetAttached` @AccessFlag FINAL_SYNTHETIC;
+  `int` `com.google.android.material.bottomappbar.BottomAppBar$7.val$targetMode` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomappbar.BottomAppBar$7` v0 @kind this, `com.google.android.material.bottomappbar.BottomAppBar` v1 @kind object @name `this$0`, `androidx.appcompat.widget.ActionMenuView` v2 @kind object, `int` v3 , `boolean` v4 ) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$7;.<init>:(Lcom/google/android/material/bottomappbar/BottomAppBar;Landroidx/appcompat/widget/ActionMenuView;IZ)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L184708.  v0.`com.google.android.material.bottomappbar.BottomAppBar$7.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar` := v1 @kind object;
+  #L18470c.  v0.`com.google.android.material.bottomappbar.BottomAppBar$7.val$actionMenuView` @type ^`androidx.appcompat.widget.ActionMenuView` := v2 @kind object;
+  #L184710.  v0.`com.google.android.material.bottomappbar.BottomAppBar$7.val$targetMode` @type ^`int` := v3;
+  #L184714.  v0.`com.google.android.material.bottomappbar.BottomAppBar$7.val$targetAttached` @type ^`boolean` := v4 @kind boolean;
+  #L184718.  call `<init>`(v0) @signature `Landroid/animation/AnimatorListenerAdapter;.<init>:()V` @kind direct;
+  #L18471e.  return @kind void;
+}
+procedure `void` `onAnimationCancel`(`com.google.android.material.bottomappbar.BottomAppBar$7` v1 @kind this, `android.animation.Animator` v2 @kind object @name `animation`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$7;.onAnimationCancel:(Landroid/animation/Animator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L184730.  v0:= 1I;
+  #L184732.  v1.`com.google.android.material.bottomappbar.BottomAppBar$7.cancelled` @type ^`boolean` := v0 @kind boolean;
+  #L184736.  return @kind void;
+}
+procedure `void` `onAnimationEnd`(`com.google.android.material.bottomappbar.BottomAppBar$7` v4 @kind this, `android.animation.Animator` v5 @kind object @name `animation`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$7;.onAnimationEnd:(Landroid/animation/Animator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L184748.  v0:= v4.`com.google.android.material.bottomappbar.BottomAppBar$7.cancelled` @type ^`boolean` @kind boolean;
+  #L18474c.  if v0 != 0 then goto L184766;
+  #L184750.  v0:= v4.`com.google.android.material.bottomappbar.BottomAppBar$7.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar` @kind object;
+  #L184754.  v1:= v4.`com.google.android.material.bottomappbar.BottomAppBar$7.val$actionMenuView` @type ^`androidx.appcompat.widget.ActionMenuView` @kind object;
+  #L184758.  v2:= v4.`com.google.android.material.bottomappbar.BottomAppBar$7.val$targetMode` @type ^`int`;
+  #L18475c.  v3:= v4.`com.google.android.material.bottomappbar.BottomAppBar$7.val$targetAttached` @type ^`boolean` @kind boolean;
+  #L184760.  call `access$1000`(v0, v1, v2, v3) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$1000:(Lcom/google/android/material/bottomappbar/BottomAppBar;Landroidx/appcompat/widget/ActionMenuView;IZ)V` @kind static;
+  #L184766.  return @kind void;
+}

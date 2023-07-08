@@ -1,0 +1,27 @@
+record `com.google.android.material.textfield.DropdownMenuEndIconDelegate$8` @kind class @AccessFlag  extends `android.animation.AnimatorListenerAdapter` @kind class {
+  `com.google.android.material.textfield.DropdownMenuEndIconDelegate` `com.google.android.material.textfield.DropdownMenuEndIconDelegate$8.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate$8` v0 @kind this, `com.google.android.material.textfield.DropdownMenuEndIconDelegate` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$8;.<init>:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b6968.  v0.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$8.this$0` @type ^`com.google.android.material.textfield.DropdownMenuEndIconDelegate` := v1 @kind object;
+  #L1b696c.  call `<init>`(v0) @signature `Landroid/animation/AnimatorListenerAdapter;.<init>:()V` @kind direct;
+  #L1b6972.  return @kind void;
+}
+procedure `void` `onAnimationEnd`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate$8` v2 @kind this, `android.animation.Animator` v3 @kind object @name `animation`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$8;.onAnimationEnd:(Landroid/animation/Animator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b6984.  v0:= v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$8.this$0` @type ^`com.google.android.material.textfield.DropdownMenuEndIconDelegate` @kind object;
+  #L1b6988.  v0:= v0.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.endIconView` @type ^`com.google.android.material.internal.CheckableImageButton` @kind object;
+  #L1b698c.  v1:= v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$8.this$0` @type ^`com.google.android.material.textfield.DropdownMenuEndIconDelegate` @kind object;
+  #L1b6990.  call temp:= `access$1200`(v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$1200:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)Z` @kind static;
+  #L1b6996.  v1:= temp;
+  #L1b6998.  call `setChecked`(v0, v1) @signature `Lcom/google/android/material/internal/CheckableImageButton;.setChecked:(Z)V` @kind virtual;
+  #L1b699e.  v0:= v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$8.this$0` @type ^`com.google.android.material.textfield.DropdownMenuEndIconDelegate` @kind object;
+  #L1b69a2.  call temp:= `access$1300`(v0) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$1300:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)Landroid/animation/ValueAnimator;` @kind static;
+  #L1b69a8.  v0:= temp @kind object;
+  #L1b69aa.  call `start`(v0) @signature `Landroid/animation/ValueAnimator;.start:()V` @kind virtual;
+  #L1b69b0.  return @kind void;
+}

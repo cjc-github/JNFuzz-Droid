@@ -1,0 +1,28 @@
+record `com.google.android.material.internal.TextScale$1` @kind class @AccessFlag  extends `android.animation.ValueAnimator$AnimatorUpdateListener` @kind interface {
+  `com.google.android.material.internal.TextScale` `com.google.android.material.internal.TextScale$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `android.widget.TextView` `com.google.android.material.internal.TextScale$1.val$view` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.TextScale$1` v0 @kind this, `com.google.android.material.internal.TextScale` v1 @kind object @name `this$0`, `android.widget.TextView` v2 @kind object) @signature `Lcom/google/android/material/internal/TextScale$1;.<init>:(Lcom/google/android/material/internal/TextScale;Landroid/widget/TextView;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1a6efc.  v0.`com.google.android.material.internal.TextScale$1.this$0` @type ^`com.google.android.material.internal.TextScale` := v1 @kind object;
+  #L1a6f00.  v0.`com.google.android.material.internal.TextScale$1.val$view` @type ^`android.widget.TextView` := v2 @kind object;
+  #L1a6f04.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1a6f0a.  return @kind void;
+}
+procedure `void` `onAnimationUpdate`(`com.google.android.material.internal.TextScale$1` v2 @kind this, `android.animation.ValueAnimator` v3 @kind object @name `valueAnimator`) @signature `Lcom/google/android/material/internal/TextScale$1;.onAnimationUpdate:(Landroid/animation/ValueAnimator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a6f1c.  call temp:= `getAnimatedValue`(v3) @signature `Landroid/animation/ValueAnimator;.getAnimatedValue:()Ljava/lang/Object;` @kind virtual;
+  #L1a6f22.  v0:= temp @kind object;
+  #L1a6f24.  v0:= (`java.lang.Float`) v0 @kind object;
+  #L1a6f28.  call temp:= `floatValue`(v0) @signature `Ljava/lang/Float;.floatValue:()F` @kind virtual;
+  #L1a6f2e.  v0:= temp;
+  #L1a6f30.  v1:= v2.`com.google.android.material.internal.TextScale$1.val$view` @type ^`android.widget.TextView` @kind object;
+  #L1a6f34.  call `setScaleX`(v1, v0) @signature `Landroid/widget/TextView;.setScaleX:(F)V` @kind virtual;
+  #L1a6f3a.  v1:= v2.`com.google.android.material.internal.TextScale$1.val$view` @type ^`android.widget.TextView` @kind object;
+  #L1a6f3e.  call `setScaleY`(v1, v0) @signature `Landroid/widget/TextView;.setScaleY:(F)V` @kind virtual;
+  #L1a6f44.  return @kind void;
+}

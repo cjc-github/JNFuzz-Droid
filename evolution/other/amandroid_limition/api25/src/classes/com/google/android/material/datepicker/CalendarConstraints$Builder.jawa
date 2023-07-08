@@ -1,0 +1,162 @@
+record `com.google.android.material.datepicker.CalendarConstraints$Builder` @kind class @AccessFlag PUBLIC_FINAL {
+  `long` `com.google.android.material.datepicker.CalendarConstraints$Builder.end` @AccessFlag PRIVATE;
+  `java.lang.Long` `com.google.android.material.datepicker.CalendarConstraints$Builder.openAt` @AccessFlag PRIVATE;
+  `long` `com.google.android.material.datepicker.CalendarConstraints$Builder.start` @AccessFlag PRIVATE;
+  `com.google.android.material.datepicker.CalendarConstraints$DateValidator` `com.google.android.material.datepicker.CalendarConstraints$Builder.validator` @AccessFlag PRIVATE;
+}
+global `java.lang.String` `@@com.google.android.material.datepicker.CalendarConstraints$Builder.DEEP_COPY_VALIDATOR_KEY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `long` `@@com.google.android.material.datepicker.CalendarConstraints$Builder.DEFAULT_END` @AccessFlag STATIC_FINAL;
+global `long` `@@com.google.android.material.datepicker.CalendarConstraints$Builder.DEFAULT_START` @AccessFlag STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/datepicker/CalendarConstraints$Builder;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L19639c.  
+  #L19639e.  v0:= 1900I;
+  #L1963a2.  v1:= 0I;
+  #L1963a4.  call temp:= `create`(v0, v1) @signature `Lcom/google/android/material/datepicker/Month;.create:(II)Lcom/google/android/material/datepicker/Month;` @kind static;
+  #L1963aa.  v0:= temp @kind object;
+  #L1963ac.  v0:= v0.`com.google.android.material.datepicker.Month.timeInMillis` @type ^`long` @kind wide;
+  #L1963b0.  call temp:= `canonicalYearMonthDay`(v0) @signature `Lcom/google/android/material/datepicker/UtcDates;.canonicalYearMonthDay:(J)J` @kind static;
+  #L1963b6.  v0:= temp @kind wide;
+  #L1963b8.  `@@com.google.android.material.datepicker.CalendarConstraints$Builder.DEFAULT_START` @type ^`long` := v0 @kind wide;
+  #L1963bc.  
+  #L1963be.  v0:= 2100I;
+  #L1963c2.  v1:= 11I;
+  #L1963c6.  call temp:= `create`(v0, v1) @signature `Lcom/google/android/material/datepicker/Month;.create:(II)Lcom/google/android/material/datepicker/Month;` @kind static;
+  #L1963cc.  v0:= temp @kind object;
+  #L1963ce.  v0:= v0.`com.google.android.material.datepicker.Month.timeInMillis` @type ^`long` @kind wide;
+  #L1963d2.  call temp:= `canonicalYearMonthDay`(v0) @signature `Lcom/google/android/material/datepicker/UtcDates;.canonicalYearMonthDay:(J)J` @kind static;
+  #L1963d8.  v0:= temp @kind wide;
+  #L1963da.  `@@com.google.android.material.datepicker.CalendarConstraints$Builder.DEFAULT_END` @type ^`long` := v0 @kind wide;
+  #L1963de.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.CalendarConstraints$Builder` v2 @kind this) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$Builder;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L1963f0.  call `<init>`(v2) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1963f6.  v0:= `@@com.google.android.material.datepicker.CalendarConstraints$Builder.DEFAULT_START` @type ^`long` @kind wide;
+  #L1963fa.  v2.`com.google.android.material.datepicker.CalendarConstraints$Builder.start` @type ^`long` := v0 @kind wide;
+  #L1963fe.  v0:= `@@com.google.android.material.datepicker.CalendarConstraints$Builder.DEFAULT_END` @type ^`long` @kind wide;
+  #L196402.  v2.`com.google.android.material.datepicker.CalendarConstraints$Builder.end` @type ^`long` := v0 @kind wide;
+  #L196406.  v0:= -9223372036854775808L;
+  #L19640a.  call temp:= `from`(v0) @signature `Lcom/google/android/material/datepicker/DateValidatorPointForward;.from:(J)Lcom/google/android/material/datepicker/DateValidatorPointForward;` @kind static;
+  #L196410.  v0:= temp @kind object;
+  #L196412.  v2.`com.google.android.material.datepicker.CalendarConstraints$Builder.validator` @type ^`com.google.android.material.datepicker.CalendarConstraints$DateValidator` := v0 @kind object;
+  #L196416.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.CalendarConstraints$Builder` v2 @kind this, `com.google.android.material.datepicker.CalendarConstraints` v3 @kind object @name `clone`) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$Builder;.<init>:(Lcom/google/android/material/datepicker/CalendarConstraints;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L196428.  call `<init>`(v2) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L19642e.  v0:= `@@com.google.android.material.datepicker.CalendarConstraints$Builder.DEFAULT_START` @type ^`long` @kind wide;
+  #L196432.  v2.`com.google.android.material.datepicker.CalendarConstraints$Builder.start` @type ^`long` := v0 @kind wide;
+  #L196436.  v0:= `@@com.google.android.material.datepicker.CalendarConstraints$Builder.DEFAULT_END` @type ^`long` @kind wide;
+  #L19643a.  v2.`com.google.android.material.datepicker.CalendarConstraints$Builder.end` @type ^`long` := v0 @kind wide;
+  #L19643e.  v0:= -9223372036854775808L;
+  #L196442.  call temp:= `from`(v0) @signature `Lcom/google/android/material/datepicker/DateValidatorPointForward;.from:(J)Lcom/google/android/material/datepicker/DateValidatorPointForward;` @kind static;
+  #L196448.  v0:= temp @kind object;
+  #L19644a.  v2.`com.google.android.material.datepicker.CalendarConstraints$Builder.validator` @type ^`com.google.android.material.datepicker.CalendarConstraints$DateValidator` := v0 @kind object;
+  #L19644e.  call temp:= `access$100`(v3) @signature `Lcom/google/android/material/datepicker/CalendarConstraints;.access$100:(Lcom/google/android/material/datepicker/CalendarConstraints;)Lcom/google/android/material/datepicker/Month;` @kind static;
+  #L196454.  v0:= temp @kind object;
+  #L196456.  v0:= v0.`com.google.android.material.datepicker.Month.timeInMillis` @type ^`long` @kind wide;
+  #L19645a.  v2.`com.google.android.material.datepicker.CalendarConstraints$Builder.start` @type ^`long` := v0 @kind wide;
+  #L19645e.  call temp:= `access$200`(v3) @signature `Lcom/google/android/material/datepicker/CalendarConstraints;.access$200:(Lcom/google/android/material/datepicker/CalendarConstraints;)Lcom/google/android/material/datepicker/Month;` @kind static;
+  #L196464.  v0:= temp @kind object;
+  #L196466.  v0:= v0.`com.google.android.material.datepicker.Month.timeInMillis` @type ^`long` @kind wide;
+  #L19646a.  v2.`com.google.android.material.datepicker.CalendarConstraints$Builder.end` @type ^`long` := v0 @kind wide;
+  #L19646e.  call temp:= `access$300`(v3) @signature `Lcom/google/android/material/datepicker/CalendarConstraints;.access$300:(Lcom/google/android/material/datepicker/CalendarConstraints;)Lcom/google/android/material/datepicker/Month;` @kind static;
+  #L196474.  v0:= temp @kind object;
+  #L196476.  v0:= v0.`com.google.android.material.datepicker.Month.timeInMillis` @type ^`long` @kind wide;
+  #L19647a.  call temp:= `valueOf`(v0) @signature `Ljava/lang/Long;.valueOf:(J)Ljava/lang/Long;` @kind static;
+  #L196480.  v0:= temp @kind object;
+  #L196482.  v2.`com.google.android.material.datepicker.CalendarConstraints$Builder.openAt` @type ^`java.lang.Long` := v0 @kind object;
+  #L196486.  call temp:= `access$400`(v3) @signature `Lcom/google/android/material/datepicker/CalendarConstraints;.access$400:(Lcom/google/android/material/datepicker/CalendarConstraints;)Lcom/google/android/material/datepicker/CalendarConstraints$DateValidator;` @kind static;
+  #L19648c.  v0:= temp @kind object;
+  #L19648e.  v2.`com.google.android.material.datepicker.CalendarConstraints$Builder.validator` @type ^`com.google.android.material.datepicker.CalendarConstraints$DateValidator` := v0 @kind object;
+  #L196492.  return @kind void;
+}
+procedure `com.google.android.material.datepicker.CalendarConstraints` `build`(`com.google.android.material.datepicker.CalendarConstraints$Builder` v9 @kind this) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$Builder;.build:()Lcom/google/android/material/datepicker/CalendarConstraints;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L19628c.  v0:= v9.`com.google.android.material.datepicker.CalendarConstraints$Builder.openAt` @type ^`java.lang.Long` @kind object;
+  #L196290.  if v0 != 0 then goto L1962c2;
+  #L196294.  call temp:= `thisMonthInUtcMilliseconds`() @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.thisMonthInUtcMilliseconds:()J` @kind static;
+  #L19629a.  v0:= temp @kind wide;
+  #L19629c.  v2:= v9.`com.google.android.material.datepicker.CalendarConstraints$Builder.start` @type ^`long` @kind wide;
+  #L1962a0.  v4:= lcmp(v2, v0);
+  #L1962a4.  if v4 > 0 then goto L1962b6;
+  #L1962a8.  v4:= v9.`com.google.android.material.datepicker.CalendarConstraints$Builder.end` @type ^`long` @kind wide;
+  #L1962ac.  v4:= lcmp(v0, v4);
+  #L1962b0.  if v4 > 0 then goto L1962b6;
+  #L1962b4.  v2:= v0 @kind wide;
+  #L1962b6.  call temp:= `valueOf`(v2) @signature `Ljava/lang/Long;.valueOf:(J)Ljava/lang/Long;` @kind static;
+  #L1962bc.  v2:= temp @kind object;
+  #L1962be.  v9.`com.google.android.material.datepicker.CalendarConstraints$Builder.openAt` @type ^`java.lang.Long` := v2 @kind object;
+  #L1962c2.  v0:= new `android.os.Bundle`;
+  #L1962c6.  call `<init>`(v0) @signature `Landroid/os/Bundle;.<init>:()V` @kind direct;
+  #L1962cc.  v1:= v9.`com.google.android.material.datepicker.CalendarConstraints$Builder.validator` @type ^`com.google.android.material.datepicker.CalendarConstraints$DateValidator` @kind object;
+  #L1962d0.  v2:= "DEEP_COPY_VALIDATOR_KEY" @kind object;
+  #L1962d4.  call `putParcelable`(v0, v2, v1) @signature `Landroid/os/Bundle;.putParcelable:(Ljava/lang/String;Landroid/os/Parcelable;)V` @kind virtual;
+  #L1962da.  v1:= new `com.google.android.material.datepicker.CalendarConstraints`;
+  #L1962de.  v3:= v9.`com.google.android.material.datepicker.CalendarConstraints$Builder.start` @type ^`long` @kind wide;
+  #L1962e2.  call temp:= `create`(v3) @signature `Lcom/google/android/material/datepicker/Month;.create:(J)Lcom/google/android/material/datepicker/Month;` @kind static;
+  #L1962e8.  v4:= temp @kind object;
+  #L1962ea.  v5:= v9.`com.google.android.material.datepicker.CalendarConstraints$Builder.end` @type ^`long` @kind wide;
+  #L1962ee.  call temp:= `create`(v5) @signature `Lcom/google/android/material/datepicker/Month;.create:(J)Lcom/google/android/material/datepicker/Month;` @kind static;
+  #L1962f4.  v5:= temp @kind object;
+  #L1962f6.  v3:= v9.`com.google.android.material.datepicker.CalendarConstraints$Builder.openAt` @type ^`java.lang.Long` @kind object;
+  #L1962fa.  call temp:= `longValue`(v3) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L196300.  v6:= temp @kind wide;
+  #L196302.  call temp:= `create`(v6) @signature `Lcom/google/android/material/datepicker/Month;.create:(J)Lcom/google/android/material/datepicker/Month;` @kind static;
+  #L196308.  v6:= temp @kind object;
+  #L19630a.  call temp:= `getParcelable`(v0, v2) @signature `Landroid/os/Bundle;.getParcelable:(Ljava/lang/String;)Landroid/os/Parcelable;` @kind virtual;
+  #L196310.  v2:= temp @kind object;
+  #L196312.  v7:= v2 @kind object;
+  #L196314.  v7:= (`com.google.android.material.datepicker.CalendarConstraints$DateValidator`) v7 @kind object;
+  #L196318.  v8:= 0I;
+  #L19631a.  v3:= v1 @kind object;
+  #L19631c.  call `<init>`(v3, v4, v5, v6, v7, v8) @signature `Lcom/google/android/material/datepicker/CalendarConstraints;.<init>:(Lcom/google/android/material/datepicker/Month;Lcom/google/android/material/datepicker/Month;Lcom/google/android/material/datepicker/Month;Lcom/google/android/material/datepicker/CalendarConstraints$DateValidator;Lcom/google/android/material/datepicker/CalendarConstraints$1;)V` @kind direct;
+  #L196322.  return v1 @kind object;
+}
+procedure `com.google.android.material.datepicker.CalendarConstraints$Builder` `setEnd`(`com.google.android.material.datepicker.CalendarConstraints$Builder` v0 @kind this, `long` v1 @name `month`) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$Builder;.setEnd:(J)Lcom/google/android/material/datepicker/CalendarConstraints$Builder;` @AccessFlag PUBLIC {
+    temp;
+
+  #L196334.  v0.`com.google.android.material.datepicker.CalendarConstraints$Builder.end` @type ^`long` := v1 @kind wide;
+  #L196338.  return v0 @kind object;
+}
+procedure `com.google.android.material.datepicker.CalendarConstraints$Builder` `setOpenAt`(`com.google.android.material.datepicker.CalendarConstraints$Builder` v1 @kind this, `long` v2 @name `month`) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$Builder;.setOpenAt:(J)Lcom/google/android/material/datepicker/CalendarConstraints$Builder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19634c.  call temp:= `valueOf`(v2) @signature `Ljava/lang/Long;.valueOf:(J)Ljava/lang/Long;` @kind static;
+  #L196352.  v0:= temp @kind object;
+  #L196354.  v1.`com.google.android.material.datepicker.CalendarConstraints$Builder.openAt` @type ^`java.lang.Long` := v0 @kind object;
+  #L196358.  return v1 @kind object;
+}
+procedure `com.google.android.material.datepicker.CalendarConstraints$Builder` `setStart`(`com.google.android.material.datepicker.CalendarConstraints$Builder` v0 @kind this, `long` v1 @name `month`) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$Builder;.setStart:(J)Lcom/google/android/material/datepicker/CalendarConstraints$Builder;` @AccessFlag PUBLIC {
+    temp;
+
+  #L19636c.  v0.`com.google.android.material.datepicker.CalendarConstraints$Builder.start` @type ^`long` := v1 @kind wide;
+  #L196370.  return v0 @kind object;
+}
+procedure `com.google.android.material.datepicker.CalendarConstraints$Builder` `setValidator`(`com.google.android.material.datepicker.CalendarConstraints$Builder` v0 @kind this, `com.google.android.material.datepicker.CalendarConstraints$DateValidator` v1 @kind object @name `validator`) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$Builder;.setValidator:(Lcom/google/android/material/datepicker/CalendarConstraints$DateValidator;)Lcom/google/android/material/datepicker/CalendarConstraints$Builder;` @AccessFlag PUBLIC {
+    temp;
+
+  #L196384.  v0.`com.google.android.material.datepicker.CalendarConstraints$Builder.validator` @type ^`com.google.android.material.datepicker.CalendarConstraints$DateValidator` := v1 @kind object;
+  #L196388.  return v0 @kind object;
+}

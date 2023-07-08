@@ -1,0 +1,52 @@
+record `com.google.android.material.internal.VisibilityAwareImageButton` @kind class @AccessFlag PUBLIC extends `android.widget.ImageButton` @kind class {
+  `int` `com.google.android.material.internal.VisibilityAwareImageButton.userSetVisibility` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.VisibilityAwareImageButton` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/internal/VisibilityAwareImageButton;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a7810.  v0:= 0I;
+  #L1a7812.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/internal/VisibilityAwareImageButton;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1a7818.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.VisibilityAwareImageButton` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/internal/VisibilityAwareImageButton;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a782c.  v0:= 0I;
+  #L1a782e.  call `<init>`(v1, v2, v3, v0) @signature `Lcom/google/android/material/internal/VisibilityAwareImageButton;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1a7834.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.VisibilityAwareImageButton` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`, `int` v4 @name `defStyleAttr`) @signature `Lcom/google/android/material/internal/VisibilityAwareImageButton;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a7848.  call `<init>`(v1, v2, v3, v4) @signature `Landroid/widget/ImageButton;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1a784e.  call temp:= `getVisibility`(v1) @signature `Lcom/google/android/material/internal/VisibilityAwareImageButton;.getVisibility:()I` @kind virtual;
+  #L1a7854.  v0:= temp;
+  #L1a7856.  v1.`com.google.android.material.internal.VisibilityAwareImageButton.userSetVisibility` @type ^`int` := v0;
+  #L1a785a.  return @kind void;
+}
+procedure `int` `getUserSetVisibility`(`com.google.android.material.internal.VisibilityAwareImageButton` v1 @kind this) @signature `Lcom/google/android/material/internal/VisibilityAwareImageButton;.getUserSetVisibility:()I` @AccessFlag PUBLIC_FINAL {
+    temp;
+    v0;
+
+  #L1a77f8.  v0:= v1.`com.google.android.material.internal.VisibilityAwareImageButton.userSetVisibility` @type ^`int`;
+  #L1a77fc.  return v0;
+}
+procedure `void` `internalSetVisibility`(`com.google.android.material.internal.VisibilityAwareImageButton` v0 @kind this, `int` v1 @name `visibility`, `boolean` v2 @name `fromUser`) @signature `Lcom/google/android/material/internal/VisibilityAwareImageButton;.internalSetVisibility:(IZ)V` @AccessFlag PUBLIC_FINAL {
+    temp;
+
+  #L1a786c.  call `setVisibility`(v0, v1) @signature `Landroid/widget/ImageButton;.setVisibility:(I)V` @kind super;
+  #L1a7872.  if v2 == 0 then goto L1a787a;
+  #L1a7876.  v0.`com.google.android.material.internal.VisibilityAwareImageButton.userSetVisibility` @type ^`int` := v1;
+  #L1a787a.  return @kind void;
+}
+procedure `void` `setVisibility`(`com.google.android.material.internal.VisibilityAwareImageButton` v1 @kind this, `int` v2 @name `visibility`) @signature `Lcom/google/android/material/internal/VisibilityAwareImageButton;.setVisibility:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a788c.  v0:= 1I;
+  #L1a788e.  call `internalSetVisibility`(v1, v2, v0) @signature `Lcom/google/android/material/internal/VisibilityAwareImageButton;.internalSetVisibility:(IZ)V` @kind virtual;
+  #L1a7894.  return @kind void;
+}

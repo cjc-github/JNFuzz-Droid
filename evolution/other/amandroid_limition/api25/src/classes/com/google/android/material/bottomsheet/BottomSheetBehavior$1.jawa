@@ -1,0 +1,26 @@
+record `com.google.android.material.bottomsheet.BottomSheetBehavior$1` @kind class @AccessFlag  extends `java.lang.Runnable` @kind interface {
+  `com.google.android.material.bottomsheet.BottomSheetBehavior` `com.google.android.material.bottomsheet.BottomSheetBehavior$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `android.view.View` `com.google.android.material.bottomsheet.BottomSheetBehavior$1.val$child` @AccessFlag FINAL_SYNTHETIC;
+  `int` `com.google.android.material.bottomsheet.BottomSheetBehavior$1.val$finalState` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomsheet.BottomSheetBehavior$1` v0 @kind this, `com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind object @name `this$0`, `android.view.View` v2 @kind object, `int` v3 ) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior$1;.<init>:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;Landroid/view/View;I)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L188820.  v0.`com.google.android.material.bottomsheet.BottomSheetBehavior$1.this$0` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior` := v1 @kind object;
+  #L188824.  v0.`com.google.android.material.bottomsheet.BottomSheetBehavior$1.val$child` @type ^`android.view.View` := v2 @kind object;
+  #L188828.  v0.`com.google.android.material.bottomsheet.BottomSheetBehavior$1.val$finalState` @type ^`int` := v3;
+  #L18882c.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L188832.  return @kind void;
+}
+procedure `void` `run`(`com.google.android.material.bottomsheet.BottomSheetBehavior$1` v3 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior$1;.run:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L188844.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior$1.this$0` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior` @kind object;
+  #L188848.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior$1.val$child` @type ^`android.view.View` @kind object;
+  #L18884c.  v2:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior$1.val$finalState` @type ^`int`;
+  #L188850.  call `settleToState`(v0, v1, v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.settleToState:(Landroid/view/View;I)V` @kind virtual;
+  #L188856.  return @kind void;
+}

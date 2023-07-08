@@ -1,0 +1,250 @@
+record `androidx.constraintlayout.solver.LinearSystem` @kind class @AccessFlag PUBLIC {
+  `int` `androidx.constraintlayout.solver.LinearSystem.TABLE_SIZE` @AccessFlag PRIVATE;
+  `boolean` `androidx.constraintlayout.solver.LinearSystem.graphOptimizer` @AccessFlag PUBLIC;
+  `boolean`[] `androidx.constraintlayout.solver.LinearSystem.mAlreadyTestedCandidates` @AccessFlag PRIVATE;
+  `androidx.constraintlayout.solver.Cache` `androidx.constraintlayout.solver.LinearSystem.mCache` @AccessFlag FINAL;
+  `androidx.constraintlayout.solver.LinearSystem$Row` `androidx.constraintlayout.solver.LinearSystem.mGoal` @AccessFlag PRIVATE;
+  `int` `androidx.constraintlayout.solver.LinearSystem.mMaxColumns` @AccessFlag PRIVATE;
+  `int` `androidx.constraintlayout.solver.LinearSystem.mMaxRows` @AccessFlag PRIVATE;
+  `int` `androidx.constraintlayout.solver.LinearSystem.mNumColumns` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.LinearSystem.mNumRows` @AccessFlag ;
+  `androidx.constraintlayout.solver.SolverVariable`[] `androidx.constraintlayout.solver.LinearSystem.mPoolVariables` @AccessFlag PRIVATE;
+  `int` `androidx.constraintlayout.solver.LinearSystem.mPoolVariablesCount` @AccessFlag PRIVATE;
+  `androidx.constraintlayout.solver.ArrayRow`[] `androidx.constraintlayout.solver.LinearSystem.mRows` @AccessFlag ;
+  `androidx.constraintlayout.solver.LinearSystem$Row` `androidx.constraintlayout.solver.LinearSystem.mTempGoal` @AccessFlag PRIVATE_FINAL;
+  `java.util.HashMap` `androidx.constraintlayout.solver.LinearSystem.mVariables` @AccessFlag PRIVATE;
+  `int` `androidx.constraintlayout.solver.LinearSystem.mVariablesID` @AccessFlag ;
+  `androidx.constraintlayout.solver.ArrayRow`[] `androidx.constraintlayout.solver.LinearSystem.tempClientsCopy` @AccessFlag PRIVATE;
+}
+global `boolean` `@@androidx.constraintlayout.solver.LinearSystem.DEBUG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `boolean` `@@androidx.constraintlayout.solver.LinearSystem.FULL_DEBUG` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.LinearSystem.POOL_SIZE` @AccessFlag PRIVATE_STATIC;
+global `androidx.constraintlayout.solver.Metrics` `@@androidx.constraintlayout.solver.LinearSystem.sMetrics` @AccessFlag PUBLIC_STATIC;
+procedure `void` `<clinit>`() @signature `Landroidx/constraintlayout/solver/LinearSystem;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.constraintlayout.solver.LinearSystem` v3 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.SolverVariable` `acquireSolverVariable`(`androidx.constraintlayout.solver.LinearSystem` v4 @kind this, `androidx.constraintlayout.solver.SolverVariable$Type` v5 @kind object @name `type`, `java.lang.String` v6 @kind object @name `prefix`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.acquireSolverVariable:(Landroidx/constraintlayout/solver/SolverVariable$Type;Ljava/lang/String;)Landroidx/constraintlayout/solver/SolverVariable;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `addError`(`androidx.constraintlayout.solver.LinearSystem` v1 @kind this, `androidx.constraintlayout.solver.ArrayRow` v2 @kind object @name `row`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.addError:(Landroidx/constraintlayout/solver/ArrayRow;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `addRow`(`androidx.constraintlayout.solver.LinearSystem` v3 @kind this, `androidx.constraintlayout.solver.ArrayRow` v4 @kind object @name `row`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.addRow:(Landroidx/constraintlayout/solver/ArrayRow;)V` @AccessFlag PRIVATE_FINAL {
+
+  # return;
+}
+procedure `void` `addSingleError`(`androidx.constraintlayout.solver.LinearSystem` v1 @kind this, `androidx.constraintlayout.solver.ArrayRow` v2 @kind object @name `row`, `int` v3 @name `sign`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.addSingleError:(Landroidx/constraintlayout/solver/ArrayRow;I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `computeValues`(`androidx.constraintlayout.solver.LinearSystem` v4 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.computeValues:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.ArrayRow` `createRowCentering`(`androidx.constraintlayout.solver.LinearSystem` v9 @kind object @name `linearSystem`, `androidx.constraintlayout.solver.SolverVariable` v10 @kind object @name `variableA`, `androidx.constraintlayout.solver.SolverVariable` v11 @kind object @name `variableB`, `int` v12 @name `marginA`, `float` v13 @name `bias`, `androidx.constraintlayout.solver.SolverVariable` v14 @kind object @name `variableC`, `androidx.constraintlayout.solver.SolverVariable` v15 @kind object @name `variableD`, `int` v16 @name `marginB`, `boolean` v17 @name `withError`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.createRowCentering:(Landroidx/constraintlayout/solver/LinearSystem;Landroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/SolverVariable;IFLandroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/SolverVariable;IZ)Landroidx/constraintlayout/solver/ArrayRow;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.ArrayRow` `createRowDimensionPercent`(`androidx.constraintlayout.solver.LinearSystem` v2 @kind object @name `linearSystem`, `androidx.constraintlayout.solver.SolverVariable` v3 @kind object @name `variableA`, `androidx.constraintlayout.solver.SolverVariable` v4 @kind object @name `variableB`, `androidx.constraintlayout.solver.SolverVariable` v5 @kind object @name `variableC`, `float` v6 @name `percent`, `boolean` v7 @name `withError`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.createRowDimensionPercent:(Landroidx/constraintlayout/solver/LinearSystem;Landroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/SolverVariable;FZ)Landroidx/constraintlayout/solver/ArrayRow;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.ArrayRow` `createRowEquals`(`androidx.constraintlayout.solver.LinearSystem` v2 @kind object @name `linearSystem`, `androidx.constraintlayout.solver.SolverVariable` v3 @kind object @name `variableA`, `androidx.constraintlayout.solver.SolverVariable` v4 @kind object @name `variableB`, `int` v5 @name `margin`, `boolean` v6 @name `withError`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.createRowEquals:(Landroidx/constraintlayout/solver/LinearSystem;Landroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/SolverVariable;IZ)Landroidx/constraintlayout/solver/ArrayRow;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.ArrayRow` `createRowGreaterThan`(`androidx.constraintlayout.solver.LinearSystem` v4 @kind object @name `linearSystem`, `androidx.constraintlayout.solver.SolverVariable` v5 @kind object @name `variableA`, `androidx.constraintlayout.solver.SolverVariable` v6 @kind object @name `variableB`, `int` v7 @name `margin`, `boolean` v8 @name `withError`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.createRowGreaterThan:(Landroidx/constraintlayout/solver/LinearSystem;Landroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/SolverVariable;IZ)Landroidx/constraintlayout/solver/ArrayRow;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.ArrayRow` `createRowLowerThan`(`androidx.constraintlayout.solver.LinearSystem` v4 @kind object @name `linearSystem`, `androidx.constraintlayout.solver.SolverVariable` v5 @kind object @name `variableA`, `androidx.constraintlayout.solver.SolverVariable` v6 @kind object @name `variableB`, `int` v7 @name `margin`, `boolean` v8 @name `withError`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.createRowLowerThan:(Landroidx/constraintlayout/solver/LinearSystem;Landroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/SolverVariable;IZ)Landroidx/constraintlayout/solver/ArrayRow;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.SolverVariable` `createVariable`(`androidx.constraintlayout.solver.LinearSystem` v5 @kind this, `java.lang.String` v6 @kind object @name `name`, `androidx.constraintlayout.solver.SolverVariable$Type` v7 @kind object @name `type`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.createVariable:(Ljava/lang/String;Landroidx/constraintlayout/solver/SolverVariable$Type;)Landroidx/constraintlayout/solver/SolverVariable;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `displayRows`(`androidx.constraintlayout.solver.LinearSystem` v5 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.displayRows:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `displaySolverVariables`(`androidx.constraintlayout.solver.LinearSystem` v2 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.displaySolverVariables:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `enforceBFS`(`androidx.constraintlayout.solver.LinearSystem` v17 @kind this, `androidx.constraintlayout.solver.LinearSystem$Row` v18 @kind object @name `goal`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.enforceBFS:(Landroidx/constraintlayout/solver/LinearSystem$Row;)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `java.lang.String` `getDisplaySize`(`androidx.constraintlayout.solver.LinearSystem` v4 @kind this, `int` v5 @name `n`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.getDisplaySize:(I)Ljava/lang/String;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `java.lang.String` `getDisplayStrength`(`androidx.constraintlayout.solver.LinearSystem` v1 @kind this, `int` v2 @name `strength`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.getDisplayStrength:(I)Ljava/lang/String;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.Metrics` `getMetrics`() @signature `Landroidx/constraintlayout/solver/LinearSystem;.getMetrics:()Landroidx/constraintlayout/solver/Metrics;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `increaseTableSize`(`androidx.constraintlayout.solver.LinearSystem` v5 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.increaseTableSize:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `optimize`(`androidx.constraintlayout.solver.LinearSystem` v13 @kind this, `androidx.constraintlayout.solver.LinearSystem$Row` v14 @kind object @name `goal`, `boolean` v15 @name `b`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.optimize:(Landroidx/constraintlayout/solver/LinearSystem$Row;Z)I` @AccessFlag PRIVATE_FINAL {
+
+  # return;
+}
+procedure `void` `releaseRows`(`androidx.constraintlayout.solver.LinearSystem` v4 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.releaseRows:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateRowFromVariables`(`androidx.constraintlayout.solver.LinearSystem` v2 @kind this, `androidx.constraintlayout.solver.ArrayRow` v3 @kind object @name `row`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.updateRowFromVariables:(Landroidx/constraintlayout/solver/ArrayRow;)V` @AccessFlag PRIVATE_FINAL {
+
+  # return;
+}
+procedure `void` `addCenterPoint`(`androidx.constraintlayout.solver.LinearSystem` v21 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintWidget` v22 @kind object @name `widget`, `androidx.constraintlayout.solver.widgets.ConstraintWidget` v23 @kind object @name `target`, `float` v24 @name `angle`, `int` v25 @name `radius`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.addCenterPoint:(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;Landroidx/constraintlayout/solver/widgets/ConstraintWidget;FI)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addCentering`(`androidx.constraintlayout.solver.LinearSystem` v11 @kind this, `androidx.constraintlayout.solver.SolverVariable` v12 @kind object @name `a`, `androidx.constraintlayout.solver.SolverVariable` v13 @kind object @name `b`, `int` v14 @name `m1`, `float` v15 @name `bias`, `androidx.constraintlayout.solver.SolverVariable` v16 @kind object @name `c`, `androidx.constraintlayout.solver.SolverVariable` v17 @kind object @name `d`, `int` v18 @name `m2`, `int` v19 @name `strength`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.addCentering:(Landroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/SolverVariable;IFLandroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/SolverVariable;II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addConstraint`(`androidx.constraintlayout.solver.LinearSystem` v9 @kind this, `androidx.constraintlayout.solver.ArrayRow` v10 @kind object @name `row`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.addConstraint:(Landroidx/constraintlayout/solver/ArrayRow;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.ArrayRow` `addEquality`(`androidx.constraintlayout.solver.LinearSystem` v2 @kind this, `androidx.constraintlayout.solver.SolverVariable` v3 @kind object @name `a`, `androidx.constraintlayout.solver.SolverVariable` v4 @kind object @name `b`, `int` v5 @name `margin`, `int` v6 @name `strength`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.addEquality:(Landroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/SolverVariable;II)Landroidx/constraintlayout/solver/ArrayRow;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addEquality`(`androidx.constraintlayout.solver.LinearSystem` v3 @kind this, `androidx.constraintlayout.solver.SolverVariable` v4 @kind object @name `a`, `int` v5 @name `value`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.addEquality:(Landroidx/constraintlayout/solver/SolverVariable;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addEquality`(`androidx.constraintlayout.solver.LinearSystem` v3 @kind this, `androidx.constraintlayout.solver.SolverVariable` v4 @kind object @name `a`, `int` v5 @name `value`, `int` v6 @name `strength`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.addEquality:(Landroidx/constraintlayout/solver/SolverVariable;II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addGreaterBarrier`(`androidx.constraintlayout.solver.LinearSystem` v5 @kind this, `androidx.constraintlayout.solver.SolverVariable` v6 @kind object @name `a`, `androidx.constraintlayout.solver.SolverVariable` v7 @kind object @name `b`, `boolean` v8 @name `hasMatchConstraintWidgets`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.addGreaterBarrier:(Landroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/SolverVariable;Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addGreaterThan`(`androidx.constraintlayout.solver.LinearSystem` v3 @kind this, `androidx.constraintlayout.solver.SolverVariable` v4 @kind object @name `a`, `int` v5 @name `b`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.addGreaterThan:(Landroidx/constraintlayout/solver/SolverVariable;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addGreaterThan`(`androidx.constraintlayout.solver.LinearSystem` v4 @kind this, `androidx.constraintlayout.solver.SolverVariable` v5 @kind object @name `a`, `androidx.constraintlayout.solver.SolverVariable` v6 @kind object @name `b`, `int` v7 @name `margin`, `int` v8 @name `strength`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.addGreaterThan:(Landroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/SolverVariable;II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addLowerBarrier`(`androidx.constraintlayout.solver.LinearSystem` v5 @kind this, `androidx.constraintlayout.solver.SolverVariable` v6 @kind object @name `a`, `androidx.constraintlayout.solver.SolverVariable` v7 @kind object @name `b`, `boolean` v8 @name `hasMatchConstraintWidgets`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.addLowerBarrier:(Landroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/SolverVariable;Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addLowerThan`(`androidx.constraintlayout.solver.LinearSystem` v4 @kind this, `androidx.constraintlayout.solver.SolverVariable` v5 @kind object @name `a`, `androidx.constraintlayout.solver.SolverVariable` v6 @kind object @name `b`, `int` v7 @name `margin`, `int` v8 @name `strength`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.addLowerThan:(Landroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/SolverVariable;II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addRatio`(`androidx.constraintlayout.solver.LinearSystem` v7 @kind this, `androidx.constraintlayout.solver.SolverVariable` v8 @kind object @name `a`, `androidx.constraintlayout.solver.SolverVariable` v9 @kind object @name `b`, `androidx.constraintlayout.solver.SolverVariable` v10 @kind object @name `c`, `androidx.constraintlayout.solver.SolverVariable` v11 @kind object @name `d`, `float` v12 @name `ratio`, `int` v13 @name `strength`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.addRatio:(Landroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/SolverVariable;FI)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addSingleError`(`androidx.constraintlayout.solver.LinearSystem` v2 @kind this, `androidx.constraintlayout.solver.ArrayRow` v3 @kind object @name `row`, `int` v4 @name `sign`, `int` v5 @name `strength`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.addSingleError:(Landroidx/constraintlayout/solver/ArrayRow;II)V` @AccessFlag  {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.SolverVariable` `createErrorVariable`(`androidx.constraintlayout.solver.LinearSystem` v5 @kind this, `int` v6 @name `strength`, `java.lang.String` v7 @kind object @name `prefix`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.createErrorVariable:(ILjava/lang/String;)Landroidx/constraintlayout/solver/SolverVariable;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.SolverVariable` `createExtraVariable`(`androidx.constraintlayout.solver.LinearSystem` v5 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.createExtraVariable:()Landroidx/constraintlayout/solver/SolverVariable;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.SolverVariable` `createObjectVariable`(`androidx.constraintlayout.solver.LinearSystem` v4 @kind this, `java.lang.Object` v5 @kind object @name `anchor`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.createObjectVariable:(Ljava/lang/Object;)Landroidx/constraintlayout/solver/SolverVariable;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.ArrayRow` `createRow`(`androidx.constraintlayout.solver.LinearSystem` v3 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.createRow:()Landroidx/constraintlayout/solver/ArrayRow;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.SolverVariable` `createSlackVariable`(`androidx.constraintlayout.solver.LinearSystem` v5 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.createSlackVariable:()Landroidx/constraintlayout/solver/SolverVariable;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `displayReadableRows`(`androidx.constraintlayout.solver.LinearSystem` v4 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.displayReadableRows:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `displaySystemInformations`(`androidx.constraintlayout.solver.LinearSystem` v7 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.displaySystemInformations:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `displayVariablesReadableRows`(`androidx.constraintlayout.solver.LinearSystem` v5 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.displayVariablesReadableRows:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `fillMetrics`(`androidx.constraintlayout.solver.LinearSystem` v0 @kind this, `androidx.constraintlayout.solver.Metrics` v1 @kind object @name `metrics`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.fillMetrics:(Landroidx/constraintlayout/solver/Metrics;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.Cache` `getCache`(`androidx.constraintlayout.solver.LinearSystem` v1 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.getCache:()Landroidx/constraintlayout/solver/Cache;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.LinearSystem$Row` `getGoal`(`androidx.constraintlayout.solver.LinearSystem` v1 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.getGoal:()Landroidx/constraintlayout/solver/LinearSystem$Row;` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `getMemoryUsed`(`androidx.constraintlayout.solver.LinearSystem` v4 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.getMemoryUsed:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getNumEquations`(`androidx.constraintlayout.solver.LinearSystem` v1 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.getNumEquations:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getNumVariables`(`androidx.constraintlayout.solver.LinearSystem` v1 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.getNumVariables:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getObjectVariableValue`(`androidx.constraintlayout.solver.LinearSystem` v3 @kind this, `java.lang.Object` v4 @kind object @name `anchor`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.getObjectVariableValue:(Ljava/lang/Object;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.ArrayRow` `getRow`(`androidx.constraintlayout.solver.LinearSystem` v1 @kind this, `int` v2 @name `n`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.getRow:(I)Landroidx/constraintlayout/solver/ArrayRow;` @AccessFlag  {
+
+  # return;
+}
+procedure `float` `getValueFor`(`androidx.constraintlayout.solver.LinearSystem` v2 @kind this, `java.lang.String` v3 @kind object @name `name`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.getValueFor:(Ljava/lang/String;)F` @AccessFlag  {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.SolverVariable` `getVariable`(`androidx.constraintlayout.solver.LinearSystem` v1 @kind this, `java.lang.String` v2 @kind object @name `name`, `androidx.constraintlayout.solver.SolverVariable$Type` v3 @kind object @name `type`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.getVariable:(Ljava/lang/String;Landroidx/constraintlayout/solver/SolverVariable$Type;)Landroidx/constraintlayout/solver/SolverVariable;` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `minimize`(`androidx.constraintlayout.solver.LinearSystem` v6 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.minimize:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `minimizeGoal`(`androidx.constraintlayout.solver.LinearSystem` v5 @kind this, `androidx.constraintlayout.solver.LinearSystem$Row` v6 @kind object @name `goal`) @signature `Landroidx/constraintlayout/solver/LinearSystem;.minimizeGoal:(Landroidx/constraintlayout/solver/LinearSystem$Row;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `reset`(`androidx.constraintlayout.solver.LinearSystem` v3 @kind this) @signature `Landroidx/constraintlayout/solver/LinearSystem;.reset:()V` @AccessFlag PUBLIC {
+
+  # return;
+}

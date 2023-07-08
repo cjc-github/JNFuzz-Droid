@@ -1,0 +1,88 @@
+record `com.google.android.material.shape.AdjustedCornerSize` @kind class @AccessFlag PUBLIC_FINAL extends `com.google.android.material.shape.CornerSize` @kind interface {
+  `float` `com.google.android.material.shape.AdjustedCornerSize.adjustment` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.shape.CornerSize` `com.google.android.material.shape.AdjustedCornerSize.other` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.AdjustedCornerSize` v1 @kind this, `float` v2 @name `adjustment`, `com.google.android.material.shape.CornerSize` v3 @kind object @name `other`) @signature `Lcom/google/android/material/shape/AdjustedCornerSize;.<init>:(FLcom/google/android/material/shape/CornerSize;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1aaa8c.  call `<init>`(v1) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1aaa92.  v0:= instanceof @variable v3 @type ^`com.google.android.material.shape.AdjustedCornerSize` @kind boolean;
+  #L1aaa96.  if v0 == 0 then goto L1aaab2;
+  #L1aaa9a.  v0:= v3 @kind object;
+  #L1aaa9c.  v0:= (`com.google.android.material.shape.AdjustedCornerSize`) v0 @kind object;
+  #L1aaaa0.  v3:= v0.`com.google.android.material.shape.AdjustedCornerSize.other` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L1aaaa4.  v0:= v3 @kind object;
+  #L1aaaa6.  v0:= (`com.google.android.material.shape.AdjustedCornerSize`) v0 @kind object;
+  #L1aaaaa.  v0:= v0.`com.google.android.material.shape.AdjustedCornerSize.adjustment` @type ^`float`;
+  #L1aaaae.  v2:= v2 + v0 @kind float;
+  #L1aaab0.  goto L1aaa92;
+  #L1aaab2.  v1.`com.google.android.material.shape.AdjustedCornerSize.other` @type ^`com.google.android.material.shape.CornerSize` := v3 @kind object;
+  #L1aaab6.  v1.`com.google.android.material.shape.AdjustedCornerSize.adjustment` @type ^`float` := v2;
+  #L1aaaba.  return @kind void;
+}
+procedure `boolean` `equals`(`com.google.android.material.shape.AdjustedCornerSize` v5 @kind this, `java.lang.Object` v6 @kind object @name `o`) @signature `Lcom/google/android/material/shape/AdjustedCornerSize;.equals:(Ljava/lang/Object;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1aa9cc.  v0:= 1I;
+  #L1aa9ce.  if v5 != v6 then goto L1aa9d4;
+  #L1aa9d2.  return v0;
+  #L1aa9d4.  v1:= instanceof @variable v6 @type ^`com.google.android.material.shape.AdjustedCornerSize` @kind boolean;
+  #L1aa9d8.  v2:= 0I;
+  #L1aa9da.  if v1 != 0 then goto L1aa9e0;
+  #L1aa9de.  return v2;
+  #L1aa9e0.  v1:= v6 @kind object;
+  #L1aa9e2.  v1:= (`com.google.android.material.shape.AdjustedCornerSize`) v1 @kind object;
+  #L1aa9e6.  v3:= v5.`com.google.android.material.shape.AdjustedCornerSize.other` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L1aa9ea.  v4:= v1.`com.google.android.material.shape.AdjustedCornerSize.other` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L1aa9ee.  call temp:= `equals`(v3, v4) @signature `Ljava/lang/Object;.equals:(Ljava/lang/Object;)Z` @kind virtual;
+  #L1aa9f4.  v3:= temp;
+  #L1aa9f6.  if v3 == 0 then goto L1aaa0c;
+  #L1aa9fa.  v3:= v5.`com.google.android.material.shape.AdjustedCornerSize.adjustment` @type ^`float`;
+  #L1aa9fe.  v4:= v1.`com.google.android.material.shape.AdjustedCornerSize.adjustment` @type ^`float`;
+  #L1aaa02.  v3:= fcmpl(v3, v4);
+  #L1aaa06.  if v3 != 0 then goto L1aaa0c;
+  #L1aaa0a.  goto L1aaa0e;
+  #L1aaa0c.  v0:= v2;
+  #L1aaa0e.  return v0;
+}
+procedure `float` `getCornerSize`(`com.google.android.material.shape.AdjustedCornerSize` v2 @kind this, `android.graphics.RectF` v3 @kind object @name `bounds`) @signature `Lcom/google/android/material/shape/AdjustedCornerSize;.getCornerSize:(Landroid/graphics/RectF;)F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1aaa20.  v0:= v2.`com.google.android.material.shape.AdjustedCornerSize.other` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L1aaa24.  call temp:= `getCornerSize`(v0, v3) @signature `Lcom/google/android/material/shape/CornerSize;.getCornerSize:(Landroid/graphics/RectF;)F` @kind interface;
+  #L1aaa2a.  v0:= temp;
+  #L1aaa2c.  v1:= v2.`com.google.android.material.shape.AdjustedCornerSize.adjustment` @type ^`float`;
+  #L1aaa30.  v0:= v0 + v1 @kind float;
+  #L1aaa32.  v1:= 0I;
+  #L1aaa34.  call temp:= `max`(v1, v0) @signature `Ljava/lang/Math;.max:(FF)F` @kind static;
+  #L1aaa3a.  v0:= temp;
+  #L1aaa3c.  return v0;
+}
+procedure `int` `hashCode`(`com.google.android.material.shape.AdjustedCornerSize` v3 @kind this) @signature `Lcom/google/android/material/shape/AdjustedCornerSize;.hashCode:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1aaa50.  v0:= 2I;
+  #L1aaa52.  v0:= new `java.lang.Object`[v0];
+  #L1aaa56.  v1:= v3.`com.google.android.material.shape.AdjustedCornerSize.other` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L1aaa5a.  v2:= 0I;
+  #L1aaa5c.  v0[v2]:= v1 @kind object;
+  #L1aaa60.  v1:= v3.`com.google.android.material.shape.AdjustedCornerSize.adjustment` @type ^`float`;
+  #L1aaa64.  call temp:= `valueOf`(v1) @signature `Ljava/lang/Float;.valueOf:(F)Ljava/lang/Float;` @kind static;
+  #L1aaa6a.  v1:= temp @kind object;
+  #L1aaa6c.  v2:= 1I;
+  #L1aaa6e.  v0[v2]:= v1 @kind object;
+  #L1aaa72.  call temp:= `hashCode`(v0) @signature `Ljava/util/Arrays;.hashCode:([Ljava/lang/Object;)I` @kind static;
+  #L1aaa78.  v1:= temp;
+  #L1aaa7a.  return v1;
+}

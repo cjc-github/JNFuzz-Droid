@@ -1,0 +1,127 @@
+record `com.google.android.material.internal.DescendantOffsetUtils` @kind class @AccessFlag PUBLIC {
+}
+global `java.lang.ThreadLocal` `@@com.google.android.material.internal.DescendantOffsetUtils.matrix` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.ThreadLocal` `@@com.google.android.material.internal.DescendantOffsetUtils.rectF` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/internal/DescendantOffsetUtils;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a3e58.  v0:= new `java.lang.ThreadLocal`;
+  #L1a3e5c.  call `<init>`(v0) @signature `Ljava/lang/ThreadLocal;.<init>:()V` @kind direct;
+  #L1a3e62.  `@@com.google.android.material.internal.DescendantOffsetUtils.matrix` @type ^`java.lang.ThreadLocal` := v0 @kind object;
+  #L1a3e66.  v0:= new `java.lang.ThreadLocal`;
+  #L1a3e6a.  call `<init>`(v0) @signature `Ljava/lang/ThreadLocal;.<init>:()V` @kind direct;
+  #L1a3e70.  `@@com.google.android.material.internal.DescendantOffsetUtils.rectF` @type ^`java.lang.ThreadLocal` := v0 @kind object;
+  #L1a3e74.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.DescendantOffsetUtils` v0 @kind this) @signature `Lcom/google/android/material/internal/DescendantOffsetUtils;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1a3e88.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1a3e8e.  return @kind void;
+}
+procedure `void` `getDescendantRect`(`android.view.ViewGroup` v3 @kind object @name `parent`, `android.view.View` v4 @kind object @name `descendant`, `android.graphics.Rect` v5 @kind object @name `out`) @signature `Lcom/google/android/material/internal/DescendantOffsetUtils;.getDescendantRect:(Landroid/view/ViewGroup;Landroid/view/View;Landroid/graphics/Rect;)V` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a3ea0.  call temp:= `getWidth`(v4) @signature `Landroid/view/View;.getWidth:()I` @kind virtual;
+  #L1a3ea6.  v0:= temp;
+  #L1a3ea8.  call temp:= `getHeight`(v4) @signature `Landroid/view/View;.getHeight:()I` @kind virtual;
+  #L1a3eae.  v1:= temp;
+  #L1a3eb0.  v2:= 0I;
+  #L1a3eb2.  call `set`(v5, v2, v2, v0, v1) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L1a3eb8.  call `offsetDescendantRect`(v3, v4, v5) @signature `Lcom/google/android/material/internal/DescendantOffsetUtils;.offsetDescendantRect:(Landroid/view/ViewGroup;Landroid/view/View;Landroid/graphics/Rect;)V` @kind static;
+  #L1a3ebe.  return @kind void;
+}
+procedure `void` `offsetDescendantMatrix`(`android.view.ViewParent` v4 @kind object @name `target`, `android.view.View` v5 @kind object @name `view`, `android.graphics.Matrix` v6 @kind object @name `m`) @signature `Lcom/google/android/material/internal/DescendantOffsetUtils;.offsetDescendantMatrix:(Landroid/view/ViewParent;Landroid/view/View;Landroid/graphics/Matrix;)V` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1a3ed0.  call temp:= `getParent`(v5) @signature `Landroid/view/View;.getParent:()Landroid/view/ViewParent;` @kind virtual;
+  #L1a3ed6.  v0:= temp @kind object;
+  #L1a3ed8.  v1:= instanceof @variable v0 @type ^`android.view.View` @kind boolean;
+  #L1a3edc.  if v1 == 0 then goto L1a3f0e;
+  #L1a3ee0.  if v0 == v4 then goto L1a3f0e;
+  #L1a3ee4.  v1:= v0 @kind object;
+  #L1a3ee6.  v1:= (`android.view.View`) v1 @kind object;
+  #L1a3eea.  call `offsetDescendantMatrix`(v4, v1, v6) @signature `Lcom/google/android/material/internal/DescendantOffsetUtils;.offsetDescendantMatrix:(Landroid/view/ViewParent;Landroid/view/View;Landroid/graphics/Matrix;)V` @kind static;
+  #L1a3ef0.  call temp:= `getScrollX`(v1) @signature `Landroid/view/View;.getScrollX:()I` @kind virtual;
+  #L1a3ef6.  v2:= temp;
+  #L1a3ef8.  v2:= -v2 @kind int;
+  #L1a3efa.  v2:= (`float`) v2 @kind i2f;
+  #L1a3efc.  call temp:= `getScrollY`(v1) @signature `Landroid/view/View;.getScrollY:()I` @kind virtual;
+  #L1a3f02.  v3:= temp;
+  #L1a3f04.  v3:= -v3 @kind int;
+  #L1a3f06.  v3:= (`float`) v3 @kind i2f;
+  #L1a3f08.  call temp:= `preTranslate`(v6, v2, v3) @signature `Landroid/graphics/Matrix;.preTranslate:(FF)Z` @kind virtual;
+  #L1a3f0e.  call temp:= `getLeft`(v5) @signature `Landroid/view/View;.getLeft:()I` @kind virtual;
+  #L1a3f14.  v1:= temp;
+  #L1a3f16.  v1:= (`float`) v1 @kind i2f;
+  #L1a3f18.  call temp:= `getTop`(v5) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L1a3f1e.  v2:= temp;
+  #L1a3f20.  v2:= (`float`) v2 @kind i2f;
+  #L1a3f22.  call temp:= `preTranslate`(v6, v1, v2) @signature `Landroid/graphics/Matrix;.preTranslate:(FF)Z` @kind virtual;
+  #L1a3f28.  call temp:= `getMatrix`(v5) @signature `Landroid/view/View;.getMatrix:()Landroid/graphics/Matrix;` @kind virtual;
+  #L1a3f2e.  v1:= temp @kind object;
+  #L1a3f30.  call temp:= `isIdentity`(v1) @signature `Landroid/graphics/Matrix;.isIdentity:()Z` @kind virtual;
+  #L1a3f36.  v1:= temp;
+  #L1a3f38.  if v1 != 0 then goto L1a3f4a;
+  #L1a3f3c.  call temp:= `getMatrix`(v5) @signature `Landroid/view/View;.getMatrix:()Landroid/graphics/Matrix;` @kind virtual;
+  #L1a3f42.  v1:= temp @kind object;
+  #L1a3f44.  call temp:= `preConcat`(v6, v1) @signature `Landroid/graphics/Matrix;.preConcat:(Landroid/graphics/Matrix;)Z` @kind virtual;
+  #L1a3f4a.  return @kind void;
+}
+procedure `void` `offsetDescendantRect`(`android.view.ViewGroup` v7 @kind object @name `parent`, `android.view.View` v8 @kind object @name `descendant`, `android.graphics.Rect` v9 @kind object @name `rect`) @signature `Lcom/google/android/material/internal/DescendantOffsetUtils;.offsetDescendantRect:(Landroid/view/ViewGroup;Landroid/view/View;Landroid/graphics/Rect;)V` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L1a3f5c.  v0:= `@@com.google.android.material.internal.DescendantOffsetUtils.matrix` @type ^`java.lang.ThreadLocal` @kind object;
+  #L1a3f60.  call temp:= `get`(v0) @signature `Ljava/lang/ThreadLocal;.get:()Ljava/lang/Object;` @kind virtual;
+  #L1a3f66.  v1:= temp @kind object;
+  #L1a3f68.  v1:= (`android.graphics.Matrix`) v1 @kind object;
+  #L1a3f6c.  if v1 != 0 then goto L1a3f84;
+  #L1a3f70.  v2:= new `android.graphics.Matrix`;
+  #L1a3f74.  call `<init>`(v2) @signature `Landroid/graphics/Matrix;.<init>:()V` @kind direct;
+  #L1a3f7a.  v1:= v2 @kind object;
+  #L1a3f7c.  call `set`(v0, v1) @signature `Ljava/lang/ThreadLocal;.set:(Ljava/lang/Object;)V` @kind virtual;
+  #L1a3f82.  goto L1a3f8a;
+  #L1a3f84.  call `reset`(v1) @signature `Landroid/graphics/Matrix;.reset:()V` @kind virtual;
+  #L1a3f8a.  call `offsetDescendantMatrix`(v7, v8, v1) @signature `Lcom/google/android/material/internal/DescendantOffsetUtils;.offsetDescendantMatrix:(Landroid/view/ViewParent;Landroid/view/View;Landroid/graphics/Matrix;)V` @kind static;
+  #L1a3f90.  v0:= `@@com.google.android.material.internal.DescendantOffsetUtils.rectF` @type ^`java.lang.ThreadLocal` @kind object;
+  #L1a3f94.  call temp:= `get`(v0) @signature `Ljava/lang/ThreadLocal;.get:()Ljava/lang/Object;` @kind virtual;
+  #L1a3f9a.  v2:= temp @kind object;
+  #L1a3f9c.  v2:= (`android.graphics.RectF`) v2 @kind object;
+  #L1a3fa0.  if v2 != 0 then goto L1a3fb6;
+  #L1a3fa4.  v3:= new `android.graphics.RectF`;
+  #L1a3fa8.  call `<init>`(v3) @signature `Landroid/graphics/RectF;.<init>:()V` @kind direct;
+  #L1a3fae.  v2:= v3 @kind object;
+  #L1a3fb0.  call `set`(v0, v2) @signature `Ljava/lang/ThreadLocal;.set:(Ljava/lang/Object;)V` @kind virtual;
+  #L1a3fb6.  call `set`(v2, v9) @signature `Landroid/graphics/RectF;.set:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L1a3fbc.  call temp:= `mapRect`(v1, v2) @signature `Landroid/graphics/Matrix;.mapRect:(Landroid/graphics/RectF;)Z` @kind virtual;
+  #L1a3fc2.  v0:= v2.`android.graphics.RectF.left` @type ^`float`;
+  #L1a3fc6.  v3:= 0.5F;
+  #L1a3fca.  v0:= v0 + v3 @kind float;
+  #L1a3fcc.  v0:= (`int`) v0 @kind f2i;
+  #L1a3fce.  v4:= v2.`android.graphics.RectF.top` @type ^`float`;
+  #L1a3fd2.  v4:= v4 + v3 @kind float;
+  #L1a3fd4.  v4:= (`int`) v4 @kind f2i;
+  #L1a3fd6.  v5:= v2.`android.graphics.RectF.right` @type ^`float`;
+  #L1a3fda.  v5:= v5 + v3 @kind float;
+  #L1a3fdc.  v5:= (`int`) v5 @kind f2i;
+  #L1a3fde.  v6:= v2.`android.graphics.RectF.bottom` @type ^`float`;
+  #L1a3fe2.  v6:= v6 + v3 @kind float;
+  #L1a3fe4.  v3:= (`int`) v6 @kind f2i;
+  #L1a3fe6.  call `set`(v9, v0, v4, v5, v3) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L1a3fec.  return @kind void;
+}

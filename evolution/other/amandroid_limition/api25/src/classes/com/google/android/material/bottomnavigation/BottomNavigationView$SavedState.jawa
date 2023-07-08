@@ -1,0 +1,50 @@
+record `com.google.android.material.bottomnavigation.BottomNavigationView$SavedState` @kind class @AccessFlag  extends `androidx.customview.view.AbsSavedState` @kind class {
+  `android.os.Bundle` `com.google.android.material.bottomnavigation.BottomNavigationView$SavedState.menuPresenterState` @AccessFlag ;
+}
+global `android.os.Parcelable$Creator` `@@com.google.android.material.bottomnavigation.BottomNavigationView$SavedState.CREATOR` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView$SavedState;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L187dd0.  v0:= new `com.google.android.material.bottomnavigation.BottomNavigationView$SavedState$1`;
+  #L187dd4.  call `<init>`(v0) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView$SavedState$1;.<init>:()V` @kind direct;
+  #L187dda.  `@@com.google.android.material.bottomnavigation.BottomNavigationView$SavedState.CREATOR` @type ^`android.os.Parcelable$Creator` := v0 @kind object;
+  #L187dde.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomnavigation.BottomNavigationView$SavedState` v1 @kind this, `android.os.Parcel` v2 @kind object @name `source`, `java.lang.ClassLoader` v3 @kind object @name `loader`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView$SavedState;.<init>:(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L187df0.  call `<init>`(v1, v2, v3) @signature `Landroidx/customview/view/AbsSavedState;.<init>:(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V` @kind direct;
+  #L187df6.  if v3 != 0 then goto L187e0a;
+  #L187dfa.  call temp:= `getClass`(v1) @signature `Ljava/lang/Object;.getClass:()Ljava/lang/Class;` @kind virtual;
+  #L187e00.  v0:= temp @kind object;
+  #L187e02.  call temp:= `getClassLoader`(v0) @signature `Ljava/lang/Class;.getClassLoader:()Ljava/lang/ClassLoader;` @kind virtual;
+  #L187e08.  v3:= temp @kind object;
+  #L187e0a.  call `readFromParcel`(v1, v2, v3) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView$SavedState;.readFromParcel:(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V` @kind direct;
+  #L187e10.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomnavigation.BottomNavigationView$SavedState` v0 @kind this, `android.os.Parcelable` v1 @kind object @name `superState`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView$SavedState;.<init>:(Landroid/os/Parcelable;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L187e24.  call `<init>`(v0, v1) @signature `Landroidx/customview/view/AbsSavedState;.<init>:(Landroid/os/Parcelable;)V` @kind direct;
+  #L187e2a.  return @kind void;
+}
+procedure `void` `readFromParcel`(`com.google.android.material.bottomnavigation.BottomNavigationView$SavedState` v1 @kind this, `android.os.Parcel` v2 @kind object @name `in`, `java.lang.ClassLoader` v3 @kind object @name `loader`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView$SavedState;.readFromParcel:(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L187e3c.  call temp:= `readBundle`(v2, v3) @signature `Landroid/os/Parcel;.readBundle:(Ljava/lang/ClassLoader;)Landroid/os/Bundle;` @kind virtual;
+  #L187e42.  v0:= temp @kind object;
+  #L187e44.  v1.`com.google.android.material.bottomnavigation.BottomNavigationView$SavedState.menuPresenterState` @type ^`android.os.Bundle` := v0 @kind object;
+  #L187e48.  return @kind void;
+}
+procedure `void` `writeToParcel`(`com.google.android.material.bottomnavigation.BottomNavigationView$SavedState` v1 @kind this, `android.os.Parcel` v2 @kind object @name `out`, `int` v3 @name `flags`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView$SavedState;.writeToParcel:(Landroid/os/Parcel;I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L187e5c.  call `writeToParcel`(v1, v2, v3) @signature `Landroidx/customview/view/AbsSavedState;.writeToParcel:(Landroid/os/Parcel;I)V` @kind super;
+  #L187e62.  v0:= v1.`com.google.android.material.bottomnavigation.BottomNavigationView$SavedState.menuPresenterState` @type ^`android.os.Bundle` @kind object;
+  #L187e66.  call `writeBundle`(v2, v0) @signature `Landroid/os/Parcel;.writeBundle:(Landroid/os/Bundle;)V` @kind virtual;
+  #L187e6c.  return @kind void;
+}

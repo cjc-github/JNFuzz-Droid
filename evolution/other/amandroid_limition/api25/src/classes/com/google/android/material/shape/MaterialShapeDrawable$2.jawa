@@ -1,0 +1,26 @@
+record `com.google.android.material.shape.MaterialShapeDrawable$2` @kind class @AccessFlag  extends `com.google.android.material.shape.ShapeAppearanceModel$CornerSizeUnaryOperator` @kind interface {
+  `com.google.android.material.shape.MaterialShapeDrawable` `com.google.android.material.shape.MaterialShapeDrawable$2.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `float` `com.google.android.material.shape.MaterialShapeDrawable$2.val$strokeInsetLength` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.MaterialShapeDrawable$2` v0 @kind this, `com.google.android.material.shape.MaterialShapeDrawable` v1 @kind object @name `this$0`, `float` v2 ) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable$2;.<init>:(Lcom/google/android/material/shape/MaterialShapeDrawable;F)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1aaef4.  v0.`com.google.android.material.shape.MaterialShapeDrawable$2.this$0` @type ^`com.google.android.material.shape.MaterialShapeDrawable` := v1 @kind object;
+  #L1aaef8.  v0.`com.google.android.material.shape.MaterialShapeDrawable$2.val$strokeInsetLength` @type ^`float` := v2;
+  #L1aaefc.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1aaf02.  return @kind void;
+}
+procedure `com.google.android.material.shape.CornerSize` `apply`(`com.google.android.material.shape.MaterialShapeDrawable$2` v2 @kind this, `com.google.android.material.shape.CornerSize` v3 @kind object @name `cornerSize`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable$2;.apply:(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/CornerSize;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1aaec8.  v0:= instanceof @variable v3 @type ^`com.google.android.material.shape.RelativeCornerSize` @kind boolean;
+  #L1aaecc.  if v0 == 0 then goto L1aaed4;
+  #L1aaed0.  v0:= v3 @kind object;
+  #L1aaed2.  goto L1aaee2;
+  #L1aaed4.  v0:= new `com.google.android.material.shape.AdjustedCornerSize`;
+  #L1aaed8.  v1:= v2.`com.google.android.material.shape.MaterialShapeDrawable$2.val$strokeInsetLength` @type ^`float`;
+  #L1aaedc.  call `<init>`(v0, v1, v3) @signature `Lcom/google/android/material/shape/AdjustedCornerSize;.<init>:(FLcom/google/android/material/shape/CornerSize;)V` @kind direct;
+  #L1aaee2.  return v0 @kind object;
+}

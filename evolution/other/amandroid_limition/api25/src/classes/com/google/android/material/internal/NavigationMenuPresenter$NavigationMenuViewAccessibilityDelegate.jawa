@@ -1,0 +1,26 @@
+record `com.google.android.material.internal.NavigationMenuPresenter$NavigationMenuViewAccessibilityDelegate` @kind class @AccessFlag  extends `androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate` @kind class {
+  `com.google.android.material.internal.NavigationMenuPresenter` `com.google.android.material.internal.NavigationMenuPresenter$NavigationMenuViewAccessibilityDelegate.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.NavigationMenuPresenter$NavigationMenuViewAccessibilityDelegate` v0 @kind this, `com.google.android.material.internal.NavigationMenuPresenter` v1 @kind object, `androidx.recyclerview.widget.RecyclerView` v2 @kind object @name `recyclerView`) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuViewAccessibilityDelegate;.<init>:(Lcom/google/android/material/internal/NavigationMenuPresenter;Landroidx/recyclerview/widget/RecyclerView;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1a58e8.  v0.`com.google.android.material.internal.NavigationMenuPresenter$NavigationMenuViewAccessibilityDelegate.this$0` @type ^`com.google.android.material.internal.NavigationMenuPresenter` := v1 @kind object;
+  #L1a58ec.  call `<init>`(v0, v2) @signature `Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate;.<init>:(Landroidx/recyclerview/widget/RecyclerView;)V` @kind direct;
+  #L1a58f2.  return @kind void;
+}
+procedure `void` `onInitializeAccessibilityNodeInfo`(`com.google.android.material.internal.NavigationMenuPresenter$NavigationMenuViewAccessibilityDelegate` v2 @kind this, `android.view.View` v3 @kind object @name `host`, `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v4 @kind object @name `info`) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuViewAccessibilityDelegate;.onInitializeAccessibilityNodeInfo:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a5904.  call `onInitializeAccessibilityNodeInfo`(v2, v3, v4) @signature `Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate;.onInitializeAccessibilityNodeInfo:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V` @kind super;
+  #L1a590a.  v0:= v2.`com.google.android.material.internal.NavigationMenuPresenter$NavigationMenuViewAccessibilityDelegate.this$0` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a590e.  v0:= v0.`com.google.android.material.internal.NavigationMenuPresenter.adapter` @type ^`com.google.android.material.internal.NavigationMenuPresenter$NavigationMenuAdapter` @kind object;
+  #L1a5912.  call temp:= `getRowCount`(v0) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuAdapter;.getRowCount:()I` @kind virtual;
+  #L1a5918.  v0:= temp;
+  #L1a591a.  v1:= 0I;
+  #L1a591c.  call temp:= `obtain`(v0, v1, v1) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionInfoCompat;.obtain:(IIZ)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionInfoCompat;` @kind static;
+  #L1a5922.  v0:= temp @kind object;
+  #L1a5924.  call `setCollectionInfo`(v4, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setCollectionInfo:(Ljava/lang/Object;)V` @kind virtual;
+  #L1a592a.  return @kind void;
+}

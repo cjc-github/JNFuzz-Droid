@@ -1,0 +1,217 @@
+record `com.google.android.material.behavior.SwipeDismissBehavior` @kind class @AccessFlag PUBLIC extends `androidx.coordinatorlayout.widget.CoordinatorLayout$Behavior` @kind class {
+  `float` `com.google.android.material.behavior.SwipeDismissBehavior.alphaEndSwipeDistance` @AccessFlag ;
+  `float` `com.google.android.material.behavior.SwipeDismissBehavior.alphaStartSwipeDistance` @AccessFlag ;
+  `androidx.customview.widget.ViewDragHelper$Callback` `com.google.android.material.behavior.SwipeDismissBehavior.dragCallback` @AccessFlag PRIVATE_FINAL;
+  `float` `com.google.android.material.behavior.SwipeDismissBehavior.dragDismissThreshold` @AccessFlag ;
+  `boolean` `com.google.android.material.behavior.SwipeDismissBehavior.interceptingEvents` @AccessFlag PRIVATE;
+  `com.google.android.material.behavior.SwipeDismissBehavior$OnDismissListener` `com.google.android.material.behavior.SwipeDismissBehavior.listener` @AccessFlag ;
+  `float` `com.google.android.material.behavior.SwipeDismissBehavior.sensitivity` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.behavior.SwipeDismissBehavior.sensitivitySet` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.behavior.SwipeDismissBehavior.swipeDirection` @AccessFlag ;
+  `androidx.customview.widget.ViewDragHelper` `com.google.android.material.behavior.SwipeDismissBehavior.viewDragHelper` @AccessFlag ;
+}
+global `float` `@@com.google.android.material.behavior.SwipeDismissBehavior.DEFAULT_ALPHA_END_DISTANCE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `float` `@@com.google.android.material.behavior.SwipeDismissBehavior.DEFAULT_ALPHA_START_DISTANCE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `float` `@@com.google.android.material.behavior.SwipeDismissBehavior.DEFAULT_DRAG_DISMISS_THRESHOLD` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.behavior.SwipeDismissBehavior.STATE_DRAGGING` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.behavior.SwipeDismissBehavior.STATE_IDLE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.behavior.SwipeDismissBehavior.STATE_SETTLING` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.behavior.SwipeDismissBehavior.SWIPE_DIRECTION_ANY` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.behavior.SwipeDismissBehavior.SWIPE_DIRECTION_END_TO_START` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.behavior.SwipeDismissBehavior.SWIPE_DIRECTION_START_TO_END` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.behavior.SwipeDismissBehavior` v2 @kind this) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L18427c.  call `<init>`(v2) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;.<init>:()V` @kind direct;
+  #L184282.  v0:= 0I;
+  #L184284.  v2.`com.google.android.material.behavior.SwipeDismissBehavior.sensitivity` @type ^`float` := v0;
+  #L184288.  v1:= 2I;
+  #L18428a.  v2.`com.google.android.material.behavior.SwipeDismissBehavior.swipeDirection` @type ^`int` := v1;
+  #L18428e.  v1:= 0.5F;
+  #L184292.  v2.`com.google.android.material.behavior.SwipeDismissBehavior.dragDismissThreshold` @type ^`float` := v1;
+  #L184296.  v2.`com.google.android.material.behavior.SwipeDismissBehavior.alphaStartSwipeDistance` @type ^`float` := v0;
+  #L18429a.  v2.`com.google.android.material.behavior.SwipeDismissBehavior.alphaEndSwipeDistance` @type ^`float` := v1;
+  #L18429e.  v0:= new `com.google.android.material.behavior.SwipeDismissBehavior$1`;
+  #L1842a2.  call `<init>`(v0, v2) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior$1;.<init>:(Lcom/google/android/material/behavior/SwipeDismissBehavior;)V` @kind direct;
+  #L1842a8.  v2.`com.google.android.material.behavior.SwipeDismissBehavior.dragCallback` @type ^`androidx.customview.widget.ViewDragHelper$Callback` := v0 @kind object;
+  #L1842ac.  return @kind void;
+}
+procedure `float` `clamp`(`float` v1 @name `min`, `float` v2 @name `value`, `float` v3 @name `max`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.clamp:(FFF)F` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L1841f0.  call temp:= `max`(v1, v2) @signature `Ljava/lang/Math;.max:(FF)F` @kind static;
+  #L1841f6.  v0:= temp;
+  #L1841f8.  call temp:= `min`(v0, v3) @signature `Ljava/lang/Math;.min:(FF)F` @kind static;
+  #L1841fe.  v0:= temp;
+  #L184200.  return v0;
+}
+procedure `int` `clamp`(`int` v1 @name `min`, `int` v2 @name `value`, `int` v3 @name `max`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.clamp:(III)I` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L184230.  call temp:= `max`(v1, v2) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L184236.  v0:= temp;
+  #L184238.  call temp:= `min`(v0, v3) @signature `Ljava/lang/Math;.min:(II)I` @kind static;
+  #L18423e.  v0:= temp;
+  #L184240.  return v0;
+}
+procedure `void` `ensureViewDragHelper`(`com.google.android.material.behavior.SwipeDismissBehavior` v2 @kind this, `android.view.ViewGroup` v3 @kind object @name `parent`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.ensureViewDragHelper:(Landroid/view/ViewGroup;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1842c0.  v0:= v2.`com.google.android.material.behavior.SwipeDismissBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` @kind object;
+  #L1842c4.  if v0 != 0 then goto L1842f2;
+  #L1842c8.  v0:= v2.`com.google.android.material.behavior.SwipeDismissBehavior.sensitivitySet` @type ^`boolean` @kind boolean;
+  #L1842cc.  if v0 == 0 then goto L1842e2;
+  #L1842d0.  v0:= v2.`com.google.android.material.behavior.SwipeDismissBehavior.sensitivity` @type ^`float`;
+  #L1842d4.  v1:= v2.`com.google.android.material.behavior.SwipeDismissBehavior.dragCallback` @type ^`androidx.customview.widget.ViewDragHelper$Callback` @kind object;
+  #L1842d8.  call temp:= `create`(v3, v0, v1) @signature `Landroidx/customview/widget/ViewDragHelper;.create:(Landroid/view/ViewGroup;FLandroidx/customview/widget/ViewDragHelper$Callback;)Landroidx/customview/widget/ViewDragHelper;` @kind static;
+  #L1842de.  v0:= temp @kind object;
+  #L1842e0.  goto L1842ee;
+  #L1842e2.  v0:= v2.`com.google.android.material.behavior.SwipeDismissBehavior.dragCallback` @type ^`androidx.customview.widget.ViewDragHelper$Callback` @kind object;
+  #L1842e6.  call temp:= `create`(v3, v0) @signature `Landroidx/customview/widget/ViewDragHelper;.create:(Landroid/view/ViewGroup;Landroidx/customview/widget/ViewDragHelper$Callback;)Landroidx/customview/widget/ViewDragHelper;` @kind static;
+  #L1842ec.  v0:= temp @kind object;
+  #L1842ee.  v2.`com.google.android.material.behavior.SwipeDismissBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` := v0 @kind object;
+  #L1842f2.  return @kind void;
+}
+procedure `float` `fraction`(`float` v2 @name `startValue`, `float` v3 @name `endValue`, `float` v4 @name `value`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.fraction:(FFF)F` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L184214.  v0:= v4 - v2 @kind float;
+  #L184218.  v1:= v3 - v2 @kind float;
+  #L18421c.  v0:= v0 / v1 @kind float;
+  #L18421e.  return v0;
+}
+procedure `boolean` `canSwipeDismissView`(`com.google.android.material.behavior.SwipeDismissBehavior` v1 @kind this, `android.view.View` v2 @kind object @name `view`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.canSwipeDismissView:(Landroid/view/View;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18413c.  v0:= 1I;
+  #L18413e.  return v0;
+}
+procedure `int` `getDragState`(`com.google.android.material.behavior.SwipeDismissBehavior` v1 @kind this) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.getDragState:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L184254.  v0:= v1.`com.google.android.material.behavior.SwipeDismissBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` @kind object;
+  #L184258.  if v0 == 0 then goto L184266;
+  #L18425c.  call temp:= `getViewDragState`(v0) @signature `Landroidx/customview/widget/ViewDragHelper;.getViewDragState:()I` @kind virtual;
+  #L184262.  v0:= temp;
+  #L184264.  goto L184268;
+  #L184266.  v0:= 0I;
+  #L184268.  return v0;
+}
+procedure `boolean` `onInterceptTouchEvent`(`com.google.android.material.behavior.SwipeDismissBehavior` v4 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v5 @kind object @name `parent`, `android.view.View` v6 @kind object, `android.view.MotionEvent` v7 @kind object @name `event`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.onInterceptTouchEvent:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L184150.  v0:= v4.`com.google.android.material.behavior.SwipeDismissBehavior.interceptingEvents` @type ^`boolean` @kind boolean;
+  #L184154.  call temp:= `getActionMasked`(v7) @signature `Landroid/view/MotionEvent;.getActionMasked:()I` @kind virtual;
+  #L18415a.  v1:= temp;
+  #L18415c.  v2:= 0I;
+  #L18415e.  if v1 == 0 then goto L184176;
+  #L184162.  v3:= 1I;
+  #L184164.  if v1 == v3 then goto L184170;
+  #L184168.  v3:= 3I;
+  #L18416a.  if v1 == v3 then goto L184170;
+  #L18416e.  goto L18419e;
+  #L184170.  v4.`com.google.android.material.behavior.SwipeDismissBehavior.interceptingEvents` @type ^`boolean` := v2 @kind boolean;
+  #L184174.  goto L18419e;
+  #L184176.  
+  #L184178.  call temp:= `getX`(v7) @signature `Landroid/view/MotionEvent;.getX:()F` @kind virtual;
+  #L18417e.  v1:= temp;
+  #L184180.  v1:= (`int`) v1 @kind f2i;
+  #L184182.  call temp:= `getY`(v7) @signature `Landroid/view/MotionEvent;.getY:()F` @kind virtual;
+  #L184188.  v3:= temp;
+  #L18418a.  v3:= (`int`) v3 @kind f2i;
+  #L18418c.  call temp:= `isPointInChildBounds`(v5, v6, v1, v3) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.isPointInChildBounds:(Landroid/view/View;II)Z` @kind virtual;
+  #L184192.  v1:= temp;
+  #L184194.  v4.`com.google.android.material.behavior.SwipeDismissBehavior.interceptingEvents` @type ^`boolean` := v1 @kind boolean;
+  #L184198.  v0:= v4.`com.google.android.material.behavior.SwipeDismissBehavior.interceptingEvents` @type ^`boolean` @kind boolean;
+  #L18419c.  
+  #L18419e.  if v0 == 0 then goto L1841b6;
+  #L1841a2.  call `ensureViewDragHelper`(v4, v5) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.ensureViewDragHelper:(Landroid/view/ViewGroup;)V` @kind direct;
+  #L1841a8.  v1:= v4.`com.google.android.material.behavior.SwipeDismissBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` @kind object;
+  #L1841ac.  call temp:= `shouldInterceptTouchEvent`(v1, v7) @signature `Landroidx/customview/widget/ViewDragHelper;.shouldInterceptTouchEvent:(Landroid/view/MotionEvent;)Z` @kind virtual;
+  #L1841b2.  v1:= temp;
+  #L1841b4.  return v1;
+  #L1841b6.  return v2;
+}
+procedure `boolean` `onTouchEvent`(`com.google.android.material.behavior.SwipeDismissBehavior` v1 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind object @name `parent`, `android.view.View` v3 @kind object, `android.view.MotionEvent` v4 @kind object @name `event`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.onTouchEvent:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1841c8.  v0:= v1.`com.google.android.material.behavior.SwipeDismissBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` @kind object;
+  #L1841cc.  if v0 == 0 then goto L1841da;
+  #L1841d0.  call `processTouchEvent`(v0, v4) @signature `Landroidx/customview/widget/ViewDragHelper;.processTouchEvent:(Landroid/view/MotionEvent;)V` @kind virtual;
+  #L1841d6.  v0:= 1I;
+  #L1841d8.  return v0;
+  #L1841da.  v0:= 0I;
+  #L1841dc.  return v0;
+}
+procedure `void` `setDragDismissDistance`(`com.google.android.material.behavior.SwipeDismissBehavior` v2 @kind this, `float` v3 @name `distance`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.setDragDismissDistance:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L184304.  v0:= 0I;
+  #L184306.  v1:= 1.0F;
+  #L18430a.  call temp:= `clamp`(v0, v3, v1) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.clamp:(FFF)F` @kind static;
+  #L184310.  v0:= temp;
+  #L184312.  v2.`com.google.android.material.behavior.SwipeDismissBehavior.dragDismissThreshold` @type ^`float` := v0;
+  #L184316.  return @kind void;
+}
+procedure `void` `setEndAlphaSwipeDistance`(`com.google.android.material.behavior.SwipeDismissBehavior` v2 @kind this, `float` v3 @name `fraction`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.setEndAlphaSwipeDistance:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L184328.  v0:= 0I;
+  #L18432a.  v1:= 1.0F;
+  #L18432e.  call temp:= `clamp`(v0, v3, v1) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.clamp:(FFF)F` @kind static;
+  #L184334.  v0:= temp;
+  #L184336.  v2.`com.google.android.material.behavior.SwipeDismissBehavior.alphaEndSwipeDistance` @type ^`float` := v0;
+  #L18433a.  return @kind void;
+}
+procedure `void` `setListener`(`com.google.android.material.behavior.SwipeDismissBehavior` v0 @kind this, `com.google.android.material.behavior.SwipeDismissBehavior$OnDismissListener` v1 @kind object @name `listener`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.setListener:(Lcom/google/android/material/behavior/SwipeDismissBehavior$OnDismissListener;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L18434c.  v0.`com.google.android.material.behavior.SwipeDismissBehavior.listener` @type ^`com.google.android.material.behavior.SwipeDismissBehavior$OnDismissListener` := v1 @kind object;
+  #L184350.  return @kind void;
+}
+procedure `void` `setSensitivity`(`com.google.android.material.behavior.SwipeDismissBehavior` v1 @kind this, `float` v2 @name `sensitivity`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.setSensitivity:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L184364.  v1.`com.google.android.material.behavior.SwipeDismissBehavior.sensitivity` @type ^`float` := v2;
+  #L184368.  v0:= 1I;
+  #L18436a.  v1.`com.google.android.material.behavior.SwipeDismissBehavior.sensitivitySet` @type ^`boolean` := v0 @kind boolean;
+  #L18436e.  return @kind void;
+}
+procedure `void` `setStartAlphaSwipeDistance`(`com.google.android.material.behavior.SwipeDismissBehavior` v2 @kind this, `float` v3 @name `fraction`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.setStartAlphaSwipeDistance:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L184380.  v0:= 0I;
+  #L184382.  v1:= 1.0F;
+  #L184386.  call temp:= `clamp`(v0, v3, v1) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.clamp:(FFF)F` @kind static;
+  #L18438c.  v0:= temp;
+  #L18438e.  v2.`com.google.android.material.behavior.SwipeDismissBehavior.alphaStartSwipeDistance` @type ^`float` := v0;
+  #L184392.  return @kind void;
+}
+procedure `void` `setSwipeDirection`(`com.google.android.material.behavior.SwipeDismissBehavior` v0 @kind this, `int` v1 @name `direction`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.setSwipeDirection:(I)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1843a4.  v0.`com.google.android.material.behavior.SwipeDismissBehavior.swipeDirection` @type ^`int` := v1;
+  #L1843a8.  return @kind void;
+}

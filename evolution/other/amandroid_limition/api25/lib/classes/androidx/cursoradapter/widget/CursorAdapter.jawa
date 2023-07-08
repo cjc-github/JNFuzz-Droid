@@ -1,0 +1,105 @@
+record `androidx.cursoradapter.widget.CursorAdapter` @kind class @AccessFlag PUBLIC_ABSTRACT extends `android.widget.BaseAdapter` @kind class, `android.widget.Filterable` @kind interface, `androidx.cursoradapter.widget.CursorFilter$CursorFilterClient` @kind interface {
+  `boolean` `androidx.cursoradapter.widget.CursorAdapter.mAutoRequery` @AccessFlag PROTECTED;
+  `androidx.cursoradapter.widget.CursorAdapter$ChangeObserver` `androidx.cursoradapter.widget.CursorAdapter.mChangeObserver` @AccessFlag PROTECTED;
+  `android.content.Context` `androidx.cursoradapter.widget.CursorAdapter.mContext` @AccessFlag PROTECTED;
+  `android.database.Cursor` `androidx.cursoradapter.widget.CursorAdapter.mCursor` @AccessFlag PROTECTED;
+  `androidx.cursoradapter.widget.CursorFilter` `androidx.cursoradapter.widget.CursorAdapter.mCursorFilter` @AccessFlag PROTECTED;
+  `android.database.DataSetObserver` `androidx.cursoradapter.widget.CursorAdapter.mDataSetObserver` @AccessFlag PROTECTED;
+  `boolean` `androidx.cursoradapter.widget.CursorAdapter.mDataValid` @AccessFlag PROTECTED;
+  `android.widget.FilterQueryProvider` `androidx.cursoradapter.widget.CursorAdapter.mFilterQueryProvider` @AccessFlag PROTECTED;
+  `int` `androidx.cursoradapter.widget.CursorAdapter.mRowIDColumn` @AccessFlag PROTECTED;
+}
+global `int` `@@androidx.cursoradapter.widget.CursorAdapter.FLAG_AUTO_REQUERY` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.cursoradapter.widget.CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<init>`(`androidx.cursoradapter.widget.CursorAdapter` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.database.Cursor` v3 @kind object @name `c`) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.<init>:(Landroid/content/Context;Landroid/database/Cursor;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.cursoradapter.widget.CursorAdapter` v0 @kind this, `android.content.Context` v1 @kind object @name `context`, `android.database.Cursor` v2 @kind object @name `c`, `int` v3 @name `flags`) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.<init>:(Landroid/content/Context;Landroid/database/Cursor;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.cursoradapter.widget.CursorAdapter` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.database.Cursor` v3 @kind object @name `c`, `boolean` v4 @name `autoRequery`) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.<init>:(Landroid/content/Context;Landroid/database/Cursor;Z)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `bindView`(`android.view.View` v0 @kind object, `android.content.Context` v1 @kind object, `android.database.Cursor` v2 @kind object) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.bindView:(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;)V` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `void` `changeCursor`(`androidx.cursoradapter.widget.CursorAdapter` v1 @kind this, `android.database.Cursor` v2 @kind object @name `cursor`) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.changeCursor:(Landroid/database/Cursor;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `convertToString`(`androidx.cursoradapter.widget.CursorAdapter` v1 @kind this, `android.database.Cursor` v2 @kind object @name `cursor`) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.convertToString:(Landroid/database/Cursor;)Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getCount`(`androidx.cursoradapter.widget.CursorAdapter` v1 @kind this) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.getCount:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.database.Cursor` `getCursor`(`androidx.cursoradapter.widget.CursorAdapter` v1 @kind this) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.getCursor:()Landroid/database/Cursor;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View` `getDropDownView`(`androidx.cursoradapter.widget.CursorAdapter` v3 @kind this, `int` v4 @name `position`, `android.view.View` v5 @kind object @name `convertView`, `android.view.ViewGroup` v6 @kind object @name `parent`) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.getDropDownView:(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.widget.Filter` `getFilter`(`androidx.cursoradapter.widget.CursorAdapter` v1 @kind this) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.getFilter:()Landroid/widget/Filter;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.widget.FilterQueryProvider` `getFilterQueryProvider`(`androidx.cursoradapter.widget.CursorAdapter` v1 @kind this) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.getFilterQueryProvider:()Landroid/widget/FilterQueryProvider;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.Object` `getItem`(`androidx.cursoradapter.widget.CursorAdapter` v1 @kind this, `int` v2 @name `position`) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.getItem:(I)Ljava/lang/Object;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `long` `getItemId`(`androidx.cursoradapter.widget.CursorAdapter` v3 @kind this, `int` v4 @name `position`) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.getItemId:(I)J` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View` `getView`(`androidx.cursoradapter.widget.CursorAdapter` v3 @kind this, `int` v4 @name `position`, `android.view.View` v5 @kind object @name `convertView`, `android.view.ViewGroup` v6 @kind object @name `parent`) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.getView:(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `hasStableIds`(`androidx.cursoradapter.widget.CursorAdapter` v1 @kind this) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.hasStableIds:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `init`(`androidx.cursoradapter.widget.CursorAdapter` v3 @kind this, `android.content.Context` v4 @kind object @name `context`, `android.database.Cursor` v5 @kind object @name `c`, `int` v6 @name `flags`) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.init:(Landroid/content/Context;Landroid/database/Cursor;I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `init`(`androidx.cursoradapter.widget.CursorAdapter` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.database.Cursor` v3 @kind object @name `c`, `boolean` v4 @name `autoRequery`) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.init:(Landroid/content/Context;Landroid/database/Cursor;Z)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `android.view.View` `newDropDownView`(`androidx.cursoradapter.widget.CursorAdapter` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.database.Cursor` v3 @kind object @name `cursor`, `android.view.ViewGroup` v4 @kind object @name `parent`) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.newDropDownView:(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View` `newView`(`android.content.Context` v0 @kind object, `android.database.Cursor` v1 @kind object, `android.view.ViewGroup` v2 @kind object) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.newView:(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `void` `onContentChanged`(`androidx.cursoradapter.widget.CursorAdapter` v1 @kind this) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.onContentChanged:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `android.database.Cursor` `runQueryOnBackgroundThread`(`androidx.cursoradapter.widget.CursorAdapter` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `constraint`) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.runQueryOnBackgroundThread:(Ljava/lang/CharSequence;)Landroid/database/Cursor;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setFilterQueryProvider`(`androidx.cursoradapter.widget.CursorAdapter` v0 @kind this, `android.widget.FilterQueryProvider` v1 @kind object @name `filterQueryProvider`) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.setFilterQueryProvider:(Landroid/widget/FilterQueryProvider;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.database.Cursor` `swapCursor`(`androidx.cursoradapter.widget.CursorAdapter` v2 @kind this, `android.database.Cursor` v3 @kind object @name `newCursor`) @signature `Landroidx/cursoradapter/widget/CursorAdapter;.swapCursor:(Landroid/database/Cursor;)Landroid/database/Cursor;` @AccessFlag PUBLIC {
+
+  # return;
+}

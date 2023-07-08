@@ -1,0 +1,44 @@
+record `com.google.android.material.transformation.ExpandableBehavior$1` @kind class @AccessFlag  extends `android.view.ViewTreeObserver$OnPreDrawListener` @kind interface {
+  `com.google.android.material.transformation.ExpandableBehavior` `com.google.android.material.transformation.ExpandableBehavior$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `android.view.View` `com.google.android.material.transformation.ExpandableBehavior$1.val$child` @AccessFlag FINAL_SYNTHETIC;
+  `com.google.android.material.expandable.ExpandableWidget` `com.google.android.material.transformation.ExpandableBehavior$1.val$dep` @AccessFlag FINAL_SYNTHETIC;
+  `int` `com.google.android.material.transformation.ExpandableBehavior$1.val$expectedState` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.transformation.ExpandableBehavior$1` v0 @kind this, `com.google.android.material.transformation.ExpandableBehavior` v1 @kind object @name `this$0`, `android.view.View` v2 @kind object, `int` v3 , `com.google.android.material.expandable.ExpandableWidget` v4 @kind object) @signature `Lcom/google/android/material/transformation/ExpandableBehavior$1;.<init>:(Lcom/google/android/material/transformation/ExpandableBehavior;Landroid/view/View;ILcom/google/android/material/expandable/ExpandableWidget;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1bc41c.  v0.`com.google.android.material.transformation.ExpandableBehavior$1.this$0` @type ^`com.google.android.material.transformation.ExpandableBehavior` := v1 @kind object;
+  #L1bc420.  v0.`com.google.android.material.transformation.ExpandableBehavior$1.val$child` @type ^`android.view.View` := v2 @kind object;
+  #L1bc424.  v0.`com.google.android.material.transformation.ExpandableBehavior$1.val$expectedState` @type ^`int` := v3;
+  #L1bc428.  v0.`com.google.android.material.transformation.ExpandableBehavior$1.val$dep` @type ^`com.google.android.material.expandable.ExpandableWidget` := v4 @kind object;
+  #L1bc42c.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1bc432.  return @kind void;
+}
+procedure `boolean` `onPreDraw`(`com.google.android.material.transformation.ExpandableBehavior$1` v5 @kind this) @signature `Lcom/google/android/material/transformation/ExpandableBehavior$1;.onPreDraw:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1bc3c0.  v0:= v5.`com.google.android.material.transformation.ExpandableBehavior$1.val$child` @type ^`android.view.View` @kind object;
+  #L1bc3c4.  call temp:= `getViewTreeObserver`(v0) @signature `Landroid/view/View;.getViewTreeObserver:()Landroid/view/ViewTreeObserver;` @kind virtual;
+  #L1bc3ca.  v0:= temp @kind object;
+  #L1bc3cc.  call `removeOnPreDrawListener`(v0, v5) @signature `Landroid/view/ViewTreeObserver;.removeOnPreDrawListener:(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V` @kind virtual;
+  #L1bc3d2.  v0:= v5.`com.google.android.material.transformation.ExpandableBehavior$1.this$0` @type ^`com.google.android.material.transformation.ExpandableBehavior` @kind object;
+  #L1bc3d6.  call temp:= `access$000`(v0) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.access$000:(Lcom/google/android/material/transformation/ExpandableBehavior;)I` @kind static;
+  #L1bc3dc.  v0:= temp;
+  #L1bc3de.  v1:= v5.`com.google.android.material.transformation.ExpandableBehavior$1.val$expectedState` @type ^`int`;
+  #L1bc3e2.  v2:= 0I;
+  #L1bc3e4.  if v0 != v1 then goto L1bc408;
+  #L1bc3e8.  v0:= v5.`com.google.android.material.transformation.ExpandableBehavior$1.this$0` @type ^`com.google.android.material.transformation.ExpandableBehavior` @kind object;
+  #L1bc3ec.  v1:= v5.`com.google.android.material.transformation.ExpandableBehavior$1.val$dep` @type ^`com.google.android.material.expandable.ExpandableWidget` @kind object;
+  #L1bc3f0.  v3:= v1 @kind object;
+  #L1bc3f2.  v3:= (`android.view.View`) v3 @kind object;
+  #L1bc3f6.  v4:= v5.`com.google.android.material.transformation.ExpandableBehavior$1.val$child` @type ^`android.view.View` @kind object;
+  #L1bc3fa.  call temp:= `isExpanded`(v1) @signature `Lcom/google/android/material/expandable/ExpandableWidget;.isExpanded:()Z` @kind interface;
+  #L1bc400.  v1:= temp;
+  #L1bc402.  call temp:= `onExpandedStateChange`(v0, v3, v4, v1, v2) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.onExpandedStateChange:(Landroid/view/View;Landroid/view/View;ZZ)Z` @kind virtual;
+  #L1bc408.  return v2;
+}

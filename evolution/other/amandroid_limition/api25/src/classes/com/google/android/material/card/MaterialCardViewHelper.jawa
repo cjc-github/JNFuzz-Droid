@@ -1,0 +1,1027 @@
+record `com.google.android.material.card.MaterialCardViewHelper` @kind class @AccessFlag  {
+  `com.google.android.material.shape.MaterialShapeDrawable` `com.google.android.material.card.MaterialCardViewHelper.bgDrawable` @AccessFlag PRIVATE_FINAL;
+  `boolean` `com.google.android.material.card.MaterialCardViewHelper.checkable` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `com.google.android.material.card.MaterialCardViewHelper.checkedIcon` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.card.MaterialCardViewHelper.checkedIconMargin` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.card.MaterialCardViewHelper.checkedIconSize` @AccessFlag PRIVATE_FINAL;
+  `android.content.res.ColorStateList` `com.google.android.material.card.MaterialCardViewHelper.checkedIconTint` @AccessFlag PRIVATE;
+  `android.graphics.drawable.LayerDrawable` `com.google.android.material.card.MaterialCardViewHelper.clickableForegroundDrawable` @AccessFlag PRIVATE;
+  `com.google.android.material.shape.MaterialShapeDrawable` `com.google.android.material.card.MaterialCardViewHelper.compatRippleDrawable` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `com.google.android.material.card.MaterialCardViewHelper.fgDrawable` @AccessFlag PRIVATE;
+  `com.google.android.material.shape.MaterialShapeDrawable` `com.google.android.material.card.MaterialCardViewHelper.foregroundContentDrawable` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.shape.MaterialShapeDrawable` `com.google.android.material.card.MaterialCardViewHelper.foregroundShapeDrawable` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.card.MaterialCardViewHelper.isBackgroundOverwritten` @AccessFlag PRIVATE;
+  `com.google.android.material.card.MaterialCardView` `com.google.android.material.card.MaterialCardViewHelper.materialCardView` @AccessFlag PRIVATE_FINAL;
+  `android.content.res.ColorStateList` `com.google.android.material.card.MaterialCardViewHelper.rippleColor` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `com.google.android.material.card.MaterialCardViewHelper.rippleDrawable` @AccessFlag PRIVATE;
+  `com.google.android.material.shape.ShapeAppearanceModel` `com.google.android.material.card.MaterialCardViewHelper.shapeAppearanceModel` @AccessFlag PRIVATE;
+  `android.content.res.ColorStateList` `com.google.android.material.card.MaterialCardViewHelper.strokeColor` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.card.MaterialCardViewHelper.strokeWidth` @AccessFlag PRIVATE;
+  `android.graphics.Rect` `com.google.android.material.card.MaterialCardViewHelper.userContentPadding` @AccessFlag PRIVATE_FINAL;
+}
+global `float` `@@com.google.android.material.card.MaterialCardViewHelper.CARD_VIEW_SHADOW_MULTIPLIER` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.card.MaterialCardViewHelper.CHECKED_ICON_LAYER_INDEX` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int`[] `@@com.google.android.material.card.MaterialCardViewHelper.CHECKED_STATE_SET` @AccessFlag PRIVATE_STATIC_FINAL;
+global `double` `@@com.google.android.material.card.MaterialCardViewHelper.COS_45` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.card.MaterialCardViewHelper.DEFAULT_STROKE_VALUE` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18dae8.  v0:= 1I;
+  #L18daea.  v0:= new `int`[v0];
+  #L18daee.  v1:= 0I;
+  #L18daf0.  v2:= 16842912I;
+  #L18daf6.  v0[v1]:= v2;
+  #L18dafa.  `@@com.google.android.material.card.MaterialCardViewHelper.CHECKED_STATE_SET` @type ^`int`[] := v0 @kind object;
+  #L18dafe.  v0:= 45.0D;
+  #L18db08.  call temp:= `toRadians`(v0) @signature `Ljava/lang/Math;.toRadians:(D)D` @kind static;
+  #L18db0e.  v0:= temp @kind wide;
+  #L18db10.  call temp:= `cos`(v0) @signature `Ljava/lang/Math;.cos:(D)D` @kind static;
+  #L18db16.  v0:= temp @kind wide;
+  #L18db18.  `@@com.google.android.material.card.MaterialCardViewHelper.COS_45` @type ^`double` := v0 @kind wide;
+  #L18db1c.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.card.MaterialCardViewHelper` v4 @kind this, `com.google.android.material.card.MaterialCardView` v5 @kind object @name `card`, `android.util.AttributeSet` v6 @kind object @name `attrs`, `int` v7 @name `defStyleAttr`, `int` v8 @name `defStyleRes`) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.<init>:(Lcom/google/android/material/card/MaterialCardView;Landroid/util/AttributeSet;II)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18db30.  call `<init>`(v4) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L18db36.  v0:= new `android.graphics.Rect`;
+  #L18db3a.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L18db40.  v4.`com.google.android.material.card.MaterialCardViewHelper.userContentPadding` @type ^`android.graphics.Rect` := v0 @kind object;
+  #L18db44.  v0:= 0I;
+  #L18db46.  v4.`com.google.android.material.card.MaterialCardViewHelper.isBackgroundOverwritten` @type ^`boolean` := v0 @kind boolean;
+  #L18db4a.  v4.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` := v5 @kind object;
+  #L18db4e.  v0:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L18db52.  call temp:= `getContext`(v5) @signature `Lcom/google/android/material/card/MaterialCardView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L18db58.  v1:= temp @kind object;
+  #L18db5a.  call `<init>`(v0, v1, v6, v7, v8) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;II)V` @kind direct;
+  #L18db60.  v4.`com.google.android.material.card.MaterialCardViewHelper.bgDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` := v0 @kind object;
+  #L18db64.  call temp:= `getContext`(v5) @signature `Lcom/google/android/material/card/MaterialCardView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L18db6a.  v1:= temp @kind object;
+  #L18db6c.  call `initializeElevationOverlay`(v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.initializeElevationOverlay:(Landroid/content/Context;)V` @kind virtual;
+  #L18db72.  v1:= -12303292I;
+  #L18db78.  call `setShadowColor`(v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShadowColor:(I)V` @kind virtual;
+  #L18db7e.  
+  #L18db80.  call temp:= `getShapeAppearanceModel`(v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShapeAppearanceModel:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L18db86.  v0:= temp @kind object;
+  #L18db88.  call temp:= `toBuilder`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.toBuilder:()Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L18db8e.  v0:= temp @kind object;
+  #L18db90.  
+  #L18db92.  call temp:= `getContext`(v5) @signature `Lcom/google/android/material/card/MaterialCardView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L18db98.  v1:= temp @kind object;
+  #L18db9a.  v2:= `@@com.google.android.material.R$styleable.CardView` @type ^`int`[] @kind object;
+  #L18db9e.  v3:= `@@com.google.android.material.R$style.CardView` @type ^`int`;
+  #L18dba2.  call temp:= `obtainStyledAttributes`(v1, v6, v2, v7, v3) @signature `Landroid/content/Context;.obtainStyledAttributes:(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;` @kind virtual;
+  #L18dba8.  v1:= temp @kind object;
+  #L18dbaa.  v2:= `@@com.google.android.material.R$styleable.CardView_cardCornerRadius` @type ^`int`;
+  #L18dbae.  call temp:= `hasValue`(v1, v2) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L18dbb4.  v2:= temp;
+  #L18dbb6.  if v2 == 0 then goto L18dbce;
+  #L18dbba.  v2:= `@@com.google.android.material.R$styleable.CardView_cardCornerRadius` @type ^`int`;
+  #L18dbbe.  v3:= 0I;
+  #L18dbc0.  call temp:= `getDimension`(v1, v2, v3) @signature `Landroid/content/res/TypedArray;.getDimension:(IF)F` @kind virtual;
+  #L18dbc6.  v2:= temp;
+  #L18dbc8.  call temp:= `setAllCornerSizes`(v0, v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setAllCornerSizes:(F)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L18dbce.  v2:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L18dbd2.  call `<init>`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:()V` @kind direct;
+  #L18dbd8.  v4.`com.google.android.material.card.MaterialCardViewHelper.foregroundContentDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` := v2 @kind object;
+  #L18dbdc.  call temp:= `build`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.build:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L18dbe2.  v2:= temp @kind object;
+  #L18dbe4.  call `setShapeAppearanceModel`(v4, v2) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L18dbea.  call temp:= `getResources`(v5) @signature `Lcom/google/android/material/card/MaterialCardView;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L18dbf0.  v2:= temp @kind object;
+  #L18dbf2.  v3:= `@@com.google.android.material.R$dimen.mtrl_card_checked_icon_margin` @type ^`int`;
+  #L18dbf6.  call temp:= `getDimensionPixelSize`(v2, v3) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L18dbfc.  v3:= temp;
+  #L18dbfe.  v4.`com.google.android.material.card.MaterialCardViewHelper.checkedIconMargin` @type ^`int` := v3;
+  #L18dc02.  v3:= `@@com.google.android.material.R$dimen.mtrl_card_checked_icon_size` @type ^`int`;
+  #L18dc06.  call temp:= `getDimensionPixelSize`(v2, v3) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L18dc0c.  v3:= temp;
+  #L18dc0e.  v4.`com.google.android.material.card.MaterialCardViewHelper.checkedIconSize` @type ^`int` := v3;
+  #L18dc12.  call `recycle`(v1) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L18dc18.  return @kind void;
+}
+procedure `float` `calculateActualCornerPadding`(`com.google.android.material.card.MaterialCardViewHelper` v4 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.calculateActualCornerPadding:()F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18d8a4.  v0:= v4.`com.google.android.material.card.MaterialCardViewHelper.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L18d8a8.  call temp:= `getTopLeftCorner`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getTopLeftCorner:()Lcom/google/android/material/shape/CornerTreatment;` @kind virtual;
+  #L18d8ae.  v0:= temp @kind object;
+  #L18d8b0.  v1:= v4.`com.google.android.material.card.MaterialCardViewHelper.bgDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18d8b4.  call temp:= `getTopLeftCornerResolvedSize`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getTopLeftCornerResolvedSize:()F` @kind virtual;
+  #L18d8ba.  v1:= temp;
+  #L18d8bc.  call temp:= `calculateCornerPaddingForCornerTreatment`(v4, v0, v1) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.calculateCornerPaddingForCornerTreatment:(Lcom/google/android/material/shape/CornerTreatment;F)F` @kind direct;
+  #L18d8c2.  v0:= temp;
+  #L18d8c4.  v1:= v4.`com.google.android.material.card.MaterialCardViewHelper.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L18d8c8.  call temp:= `getTopRightCorner`(v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getTopRightCorner:()Lcom/google/android/material/shape/CornerTreatment;` @kind virtual;
+  #L18d8ce.  v1:= temp @kind object;
+  #L18d8d0.  v2:= v4.`com.google.android.material.card.MaterialCardViewHelper.bgDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18d8d4.  call temp:= `getTopRightCornerResolvedSize`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getTopRightCornerResolvedSize:()F` @kind virtual;
+  #L18d8da.  v2:= temp;
+  #L18d8dc.  call temp:= `calculateCornerPaddingForCornerTreatment`(v4, v1, v2) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.calculateCornerPaddingForCornerTreatment:(Lcom/google/android/material/shape/CornerTreatment;F)F` @kind direct;
+  #L18d8e2.  v1:= temp;
+  #L18d8e4.  call temp:= `max`(v0, v1) @signature `Ljava/lang/Math;.max:(FF)F` @kind static;
+  #L18d8ea.  v0:= temp;
+  #L18d8ec.  v1:= v4.`com.google.android.material.card.MaterialCardViewHelper.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L18d8f0.  call temp:= `getBottomRightCorner`(v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getBottomRightCorner:()Lcom/google/android/material/shape/CornerTreatment;` @kind virtual;
+  #L18d8f6.  v1:= temp @kind object;
+  #L18d8f8.  v2:= v4.`com.google.android.material.card.MaterialCardViewHelper.bgDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18d8fc.  call temp:= `getBottomRightCornerResolvedSize`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBottomRightCornerResolvedSize:()F` @kind virtual;
+  #L18d902.  v2:= temp;
+  #L18d904.  call temp:= `calculateCornerPaddingForCornerTreatment`(v4, v1, v2) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.calculateCornerPaddingForCornerTreatment:(Lcom/google/android/material/shape/CornerTreatment;F)F` @kind direct;
+  #L18d90a.  v1:= temp;
+  #L18d90c.  v2:= v4.`com.google.android.material.card.MaterialCardViewHelper.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L18d910.  call temp:= `getBottomLeftCorner`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getBottomLeftCorner:()Lcom/google/android/material/shape/CornerTreatment;` @kind virtual;
+  #L18d916.  v2:= temp @kind object;
+  #L18d918.  v3:= v4.`com.google.android.material.card.MaterialCardViewHelper.bgDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18d91c.  call temp:= `getBottomLeftCornerResolvedSize`(v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBottomLeftCornerResolvedSize:()F` @kind virtual;
+  #L18d922.  v3:= temp;
+  #L18d924.  call temp:= `calculateCornerPaddingForCornerTreatment`(v4, v2, v3) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.calculateCornerPaddingForCornerTreatment:(Lcom/google/android/material/shape/CornerTreatment;F)F` @kind direct;
+  #L18d92a.  v2:= temp;
+  #L18d92c.  call temp:= `max`(v1, v2) @signature `Ljava/lang/Math;.max:(FF)F` @kind static;
+  #L18d932.  v1:= temp;
+  #L18d934.  call temp:= `max`(v0, v1) @signature `Ljava/lang/Math;.max:(FF)F` @kind static;
+  #L18d93a.  v0:= temp;
+  #L18d93c.  return v0;
+}
+procedure `float` `calculateCornerPaddingForCornerTreatment`(`com.google.android.material.card.MaterialCardViewHelper` v4 @kind this, `com.google.android.material.shape.CornerTreatment` v5 @kind object @name `treatment`, `float` v6 @name `size`) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.calculateCornerPaddingForCornerTreatment:(Lcom/google/android/material/shape/CornerTreatment;F)F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18d950.  v0:= instanceof @variable v5 @type ^`com.google.android.material.shape.RoundedCornerTreatment` @kind boolean;
+  #L18d954.  if v0 == 0 then goto L18d96a;
+  #L18d958.  v0:= 1.0D;
+  #L18d95c.  v2:= `@@com.google.android.material.card.MaterialCardViewHelper.COS_45` @type ^`double` @kind wide;
+  #L18d960.  v0:= v0 - v2 @kind double;
+  #L18d962.  v2:= (`double`) v6 @kind f2d;
+  #L18d964.  v0:= v0 * v2 @kind double;
+  #L18d966.  v0:= (`float`) v0 @kind d2f;
+  #L18d968.  return v0;
+  #L18d96a.  v0:= instanceof @variable v5 @type ^`com.google.android.material.shape.CutCornerTreatment` @kind boolean;
+  #L18d96e.  if v0 == 0 then goto L18d97c;
+  #L18d972.  v0:= 2.0F;
+  #L18d976.  v0:= v6 / v0 @kind float;
+  #L18d97a.  return v0;
+  #L18d97c.  v0:= 0I;
+  #L18d97e.  return v0;
+}
+procedure `float` `calculateHorizontalBackgroundPadding`(`com.google.android.material.card.MaterialCardViewHelper` v2 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.calculateHorizontalBackgroundPadding:()F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L18d990.  v0:= v2.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18d994.  call temp:= `getMaxCardElevation`(v0) @signature `Lcom/google/android/material/card/MaterialCardView;.getMaxCardElevation:()F` @kind virtual;
+  #L18d99a.  v0:= temp;
+  #L18d99c.  call temp:= `shouldAddCornerPaddingOutsideCardBackground`(v2) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.shouldAddCornerPaddingOutsideCardBackground:()Z` @kind direct;
+  #L18d9a2.  v1:= temp;
+  #L18d9a4.  if v1 == 0 then goto L18d9b2;
+  #L18d9a8.  call temp:= `calculateActualCornerPadding`(v2) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.calculateActualCornerPadding:()F` @kind direct;
+  #L18d9ae.  v1:= temp;
+  #L18d9b0.  goto L18d9b4;
+  #L18d9b2.  v1:= 0I;
+  #L18d9b4.  v0:= v0 + v1 @kind float;
+  #L18d9b6.  return v0;
+}
+procedure `float` `calculateVerticalBackgroundPadding`(`com.google.android.material.card.MaterialCardViewHelper` v2 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.calculateVerticalBackgroundPadding:()F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L18d9c8.  v0:= v2.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18d9cc.  call temp:= `getMaxCardElevation`(v0) @signature `Lcom/google/android/material/card/MaterialCardView;.getMaxCardElevation:()F` @kind virtual;
+  #L18d9d2.  v0:= temp;
+  #L18d9d4.  v1:= 1.5F;
+  #L18d9d8.  v0:= v0 * v1 @kind float;
+  #L18d9da.  call temp:= `shouldAddCornerPaddingOutsideCardBackground`(v2) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.shouldAddCornerPaddingOutsideCardBackground:()Z` @kind direct;
+  #L18d9e0.  v1:= temp;
+  #L18d9e2.  if v1 == 0 then goto L18d9f0;
+  #L18d9e6.  call temp:= `calculateActualCornerPadding`(v2) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.calculateActualCornerPadding:()F` @kind direct;
+  #L18d9ec.  v1:= temp;
+  #L18d9ee.  goto L18d9f2;
+  #L18d9f0.  v1:= 0I;
+  #L18d9f2.  v0:= v0 + v1 @kind float;
+  #L18d9f4.  return v0;
+}
+procedure `boolean` `canClipToOutline`(`com.google.android.material.card.MaterialCardViewHelper` v2 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.canClipToOutline:()Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L18d778.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L18d77c.  v1:= 21I;
+  #L18d780.  if v0 < v1 then goto L18d798;
+  #L18d784.  v0:= v2.`com.google.android.material.card.MaterialCardViewHelper.bgDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18d788.  call temp:= `isRoundRect`(v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.isRoundRect:()Z` @kind virtual;
+  #L18d78e.  v0:= temp;
+  #L18d790.  if v0 == 0 then goto L18d798;
+  #L18d794.  v0:= 1I;
+  #L18d796.  goto L18d79a;
+  #L18d798.  v0:= 0I;
+  #L18d79a.  return v0;
+}
+procedure `android.graphics.drawable.Drawable` `createCheckedIconLayer`(`com.google.android.material.card.MaterialCardViewHelper` v3 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.createCheckedIconLayer:()Landroid/graphics/drawable/Drawable;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18d5ac.  v0:= new `android.graphics.drawable.StateListDrawable`;
+  #L18d5b0.  call `<init>`(v0) @signature `Landroid/graphics/drawable/StateListDrawable;.<init>:()V` @kind direct;
+  #L18d5b6.  v1:= v3.`com.google.android.material.card.MaterialCardViewHelper.checkedIcon` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18d5ba.  if v1 == 0 then goto L18d5c8;
+  #L18d5be.  v2:= `@@com.google.android.material.card.MaterialCardViewHelper.CHECKED_STATE_SET` @type ^`int`[] @kind object;
+  #L18d5c2.  call `addState`(v0, v2, v1) @signature `Landroid/graphics/drawable/StateListDrawable;.addState:([ILandroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L18d5c8.  return v0 @kind object;
+}
+procedure `android.graphics.drawable.Drawable` `createCompatRippleDrawable`(`com.google.android.material.card.MaterialCardViewHelper` v4 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.createCompatRippleDrawable:()Landroid/graphics/drawable/Drawable;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18d5dc.  v0:= new `android.graphics.drawable.StateListDrawable`;
+  #L18d5e0.  call `<init>`(v0) @signature `Landroid/graphics/drawable/StateListDrawable;.<init>:()V` @kind direct;
+  #L18d5e6.  call temp:= `createForegroundShapeDrawable`(v4) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.createForegroundShapeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind direct;
+  #L18d5ec.  v1:= temp @kind object;
+  #L18d5ee.  v4.`com.google.android.material.card.MaterialCardViewHelper.compatRippleDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` := v1 @kind object;
+  #L18d5f2.  v2:= v4.`com.google.android.material.card.MaterialCardViewHelper.rippleColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18d5f6.  call `setFillColor`(v1, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L18d5fc.  v1:= 1I;
+  #L18d5fe.  v1:= new `int`[v1];
+  #L18d602.  v2:= 0I;
+  #L18d604.  v3:= 16842919I;
+  #L18d60a.  v1[v2]:= v3;
+  #L18d60e.  v2:= v4.`com.google.android.material.card.MaterialCardViewHelper.compatRippleDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18d612.  call `addState`(v0, v1, v2) @signature `Landroid/graphics/drawable/StateListDrawable;.addState:([ILandroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L18d618.  return v0 @kind object;
+}
+procedure `android.graphics.drawable.Drawable` `createForegroundRippleDrawable`(`com.google.android.material.card.MaterialCardViewHelper` v4 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.createForegroundRippleDrawable:()Landroid/graphics/drawable/Drawable;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18d62c.  v0:= `@@com.google.android.material.ripple.RippleUtils.USE_FRAMEWORK_RIPPLE` @type ^`boolean` @kind boolean;
+  #L18d630.  if v0 == 0 then goto L18d656;
+  #L18d634.  call temp:= `createForegroundShapeDrawable`(v4) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.createForegroundShapeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind direct;
+  #L18d63a.  v0:= temp @kind object;
+  #L18d63c.  v4.`com.google.android.material.card.MaterialCardViewHelper.foregroundShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` := v0 @kind object;
+  #L18d640.  v0:= new `android.graphics.drawable.RippleDrawable`;
+  #L18d644.  v1:= v4.`com.google.android.material.card.MaterialCardViewHelper.rippleColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18d648.  v2:= 0I;
+  #L18d64a.  v3:= v4.`com.google.android.material.card.MaterialCardViewHelper.foregroundShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18d64e.  call `<init>`(v0, v1, v2, v3) @signature `Landroid/graphics/drawable/RippleDrawable;.<init>:(Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V` @kind direct;
+  #L18d654.  return v0 @kind object;
+  #L18d656.  call temp:= `createCompatRippleDrawable`(v4) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.createCompatRippleDrawable:()Landroid/graphics/drawable/Drawable;` @kind direct;
+  #L18d65c.  v0:= temp @kind object;
+  #L18d65e.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.MaterialShapeDrawable` `createForegroundShapeDrawable`(`com.google.android.material.card.MaterialCardViewHelper` v2 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.createForegroundShapeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L18d854.  v0:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L18d858.  v1:= v2.`com.google.android.material.card.MaterialCardViewHelper.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L18d85c.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L18d862.  return v0 @kind object;
+}
+procedure `android.graphics.drawable.Drawable` `getClickableForeground`(`com.google.android.material.card.MaterialCardViewHelper` v5 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.getClickableForeground:()Landroid/graphics/drawable/Drawable;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L18d688.  v0:= v5.`com.google.android.material.card.MaterialCardViewHelper.rippleDrawable` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18d68c.  if v0 != 0 then goto L18d69c;
+  #L18d690.  call temp:= `createForegroundRippleDrawable`(v5) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.createForegroundRippleDrawable:()Landroid/graphics/drawable/Drawable;` @kind direct;
+  #L18d696.  v0:= temp @kind object;
+  #L18d698.  v5.`com.google.android.material.card.MaterialCardViewHelper.rippleDrawable` @type ^`android.graphics.drawable.Drawable` := v0 @kind object;
+  #L18d69c.  v0:= v5.`com.google.android.material.card.MaterialCardViewHelper.clickableForegroundDrawable` @type ^`android.graphics.drawable.LayerDrawable` @kind object;
+  #L18d6a0.  if v0 != 0 then goto L18d6e4;
+  #L18d6a4.  call temp:= `createCheckedIconLayer`(v5) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.createCheckedIconLayer:()Landroid/graphics/drawable/Drawable;` @kind direct;
+  #L18d6aa.  v0:= temp @kind object;
+  #L18d6ac.  v1:= new `android.graphics.drawable.LayerDrawable`;
+  #L18d6b0.  v2:= 3I;
+  #L18d6b2.  v2:= new `android.graphics.drawable.Drawable`[v2];
+  #L18d6b6.  v3:= 0I;
+  #L18d6b8.  v4:= v5.`com.google.android.material.card.MaterialCardViewHelper.rippleDrawable` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18d6bc.  v2[v3]:= v4 @kind object;
+  #L18d6c0.  v3:= 1I;
+  #L18d6c2.  v4:= v5.`com.google.android.material.card.MaterialCardViewHelper.foregroundContentDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18d6c6.  v2[v3]:= v4 @kind object;
+  #L18d6ca.  v3:= 2I;
+  #L18d6cc.  v2[v3]:= v0 @kind object;
+  #L18d6d0.  call `<init>`(v1, v2) @signature `Landroid/graphics/drawable/LayerDrawable;.<init>:([Landroid/graphics/drawable/Drawable;)V` @kind direct;
+  #L18d6d6.  v5.`com.google.android.material.card.MaterialCardViewHelper.clickableForegroundDrawable` @type ^`android.graphics.drawable.LayerDrawable` := v1 @kind object;
+  #L18d6da.  v2:= `@@com.google.android.material.R$id.mtrl_card_checked_layer_id` @type ^`int`;
+  #L18d6de.  call `setId`(v1, v3, v2) @signature `Landroid/graphics/drawable/LayerDrawable;.setId:(II)V` @kind virtual;
+  #L18d6e4.  v0:= v5.`com.google.android.material.card.MaterialCardViewHelper.clickableForegroundDrawable` @type ^`android.graphics.drawable.LayerDrawable` @kind object;
+  #L18d6e8.  return v0 @kind object;
+}
+procedure `float` `getParentCardViewCalculatedCornerPadding`(`com.google.android.material.card.MaterialCardViewHelper` v4 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.getParentCardViewCalculatedCornerPadding:()F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18da28.  v0:= v4.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18da2c.  call temp:= `getPreventCornerOverlap`(v0) @signature `Lcom/google/android/material/card/MaterialCardView;.getPreventCornerOverlap:()Z` @kind virtual;
+  #L18da32.  v0:= temp;
+  #L18da34.  if v0 == 0 then goto L18da72;
+  #L18da38.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L18da3c.  v1:= 21I;
+  #L18da40.  if v0 < v1 then goto L18da54;
+  #L18da44.  v0:= v4.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18da48.  call temp:= `getUseCompatPadding`(v0) @signature `Lcom/google/android/material/card/MaterialCardView;.getUseCompatPadding:()Z` @kind virtual;
+  #L18da4e.  v0:= temp;
+  #L18da50.  if v0 == 0 then goto L18da72;
+  #L18da54.  v0:= 1.0D;
+  #L18da58.  v2:= `@@com.google.android.material.card.MaterialCardViewHelper.COS_45` @type ^`double` @kind wide;
+  #L18da5c.  v0:= v0 - v2 @kind double;
+  #L18da5e.  v2:= v4.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18da62.  call temp:= `getCardViewRadius`(v2) @signature `Lcom/google/android/material/card/MaterialCardView;.getCardViewRadius:()F` @kind virtual;
+  #L18da68.  v2:= temp;
+  #L18da6a.  v2:= (`double`) v2 @kind f2d;
+  #L18da6c.  v0:= v0 * v2 @kind double;
+  #L18da6e.  v0:= (`float`) v0 @kind d2f;
+  #L18da70.  return v0;
+  #L18da72.  v0:= 0I;
+  #L18da74.  return v0;
+}
+procedure `android.graphics.drawable.Drawable` `insetDrawable`(`com.google.android.material.card.MaterialCardViewHelper` v11 @kind this, `android.graphics.drawable.Drawable` v12 @kind object @name `originalDrawable`) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.insetDrawable:(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+
+  #L18d6fc.  v0:= 0I;
+  #L18d6fe.  v1:= 0I;
+  #L18d700.  v2:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L18d704.  v3:= 21I;
+  #L18d708.  if v2 >= v3 then goto L18d710;
+  #L18d70c.  v2:= 1I;
+  #L18d70e.  goto L18d712;
+  #L18d710.  v2:= 0I;
+  #L18d712.  if v2 != 0 then goto L18d726;
+  #L18d716.  v3:= v11.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18d71a.  call temp:= `getUseCompatPadding`(v3) @signature `Lcom/google/android/material/card/MaterialCardView;.getUseCompatPadding:()Z` @kind virtual;
+  #L18d720.  v3:= temp;
+  #L18d722.  if v3 == 0 then goto L18d74e;
+  #L18d726.  call temp:= `calculateVerticalBackgroundPadding`(v11) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.calculateVerticalBackgroundPadding:()F` @kind direct;
+  #L18d72c.  v3:= temp;
+  #L18d72e.  v3:= (`double`) v3 @kind f2d;
+  #L18d730.  call temp:= `ceil`(v3) @signature `Ljava/lang/Math;.ceil:(D)D` @kind static;
+  #L18d736.  v3:= temp @kind wide;
+  #L18d738.  v0:= (`int`) v3 @kind d2i;
+  #L18d73a.  call temp:= `calculateHorizontalBackgroundPadding`(v11) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.calculateHorizontalBackgroundPadding:()F` @kind direct;
+  #L18d740.  v3:= temp;
+  #L18d742.  v3:= (`double`) v3 @kind f2d;
+  #L18d744.  call temp:= `ceil`(v3) @signature `Ljava/lang/Math;.ceil:(D)D` @kind static;
+  #L18d74a.  v3:= temp @kind wide;
+  #L18d74c.  v1:= (`int`) v3 @kind d2i;
+  #L18d74e.  v10:= new `com.google.android.material.card.MaterialCardViewHelper$1`;
+  #L18d752.  v3:= v10 @kind object;
+  #L18d754.  v4:= v11 @kind object;
+  #L18d756.  v5:= v12 @kind object;
+  #L18d758.  v6:= v1;
+  #L18d75a.  v7:= v0;
+  #L18d75c.  v8:= v1;
+  #L18d75e.  v9:= v0;
+  #L18d760.  call `<init>`(v3, v4, v5, v6, v7, v8, v9) @signature `Lcom/google/android/material/card/MaterialCardViewHelper$1;.<init>:(Lcom/google/android/material/card/MaterialCardViewHelper;Landroid/graphics/drawable/Drawable;IIII)V` @kind direct;
+  #L18d766.  return v10 @kind object;
+}
+procedure `boolean` `shouldAddCornerPaddingInsideCardBackground`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.shouldAddCornerPaddingInsideCardBackground:()Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L18d7dc.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18d7e0.  call temp:= `getPreventCornerOverlap`(v0) @signature `Lcom/google/android/material/card/MaterialCardView;.getPreventCornerOverlap:()Z` @kind virtual;
+  #L18d7e6.  v0:= temp;
+  #L18d7e8.  if v0 == 0 then goto L18d7fc;
+  #L18d7ec.  call temp:= `canClipToOutline`(v1) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.canClipToOutline:()Z` @kind direct;
+  #L18d7f2.  v0:= temp;
+  #L18d7f4.  if v0 != 0 then goto L18d7fc;
+  #L18d7f8.  v0:= 1I;
+  #L18d7fa.  goto L18d7fe;
+  #L18d7fc.  v0:= 0I;
+  #L18d7fe.  return v0;
+}
+procedure `boolean` `shouldAddCornerPaddingOutsideCardBackground`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.shouldAddCornerPaddingOutsideCardBackground:()Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L18d810.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18d814.  call temp:= `getPreventCornerOverlap`(v0) @signature `Lcom/google/android/material/card/MaterialCardView;.getPreventCornerOverlap:()Z` @kind virtual;
+  #L18d81a.  v0:= temp;
+  #L18d81c.  if v0 == 0 then goto L18d840;
+  #L18d820.  call temp:= `canClipToOutline`(v1) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.canClipToOutline:()Z` @kind direct;
+  #L18d826.  v0:= temp;
+  #L18d828.  if v0 == 0 then goto L18d840;
+  #L18d82c.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18d830.  call temp:= `getUseCompatPadding`(v0) @signature `Lcom/google/android/material/card/MaterialCardView;.getUseCompatPadding:()Z` @kind virtual;
+  #L18d836.  v0:= temp;
+  #L18d838.  if v0 == 0 then goto L18d840;
+  #L18d83c.  v0:= 1I;
+  #L18d83e.  goto L18d842;
+  #L18d840.  v0:= 0I;
+  #L18d842.  return v0;
+}
+procedure `void` `updateInsetForeground`(`com.google.android.material.card.MaterialCardViewHelper` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `insetForeground`) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.updateInsetForeground:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L18e180.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L18e184.  v1:= 23I;
+  #L18e188.  if v0 < v1 then goto L18e1b8;
+  #L18e18c.  v0:= v2.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18e190.  call temp:= `getForeground`(v0) @signature `Lcom/google/android/material/card/MaterialCardView;.getForeground:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L18e196.  v0:= temp @kind object;
+  #L18e198.  v0:= instanceof @variable v0 @type ^`android.graphics.drawable.InsetDrawable` @kind boolean;
+  #L18e19c.  if v0 == 0 then goto L18e1b8;
+  #L18e1a0.  v0:= v2.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18e1a4.  call temp:= `getForeground`(v0) @signature `Lcom/google/android/material/card/MaterialCardView;.getForeground:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L18e1aa.  v0:= temp @kind object;
+  #L18e1ac.  v0:= (`android.graphics.drawable.InsetDrawable`) v0 @kind object;
+  #L18e1b0.  call `setDrawable`(v0, v3) @signature `Landroid/graphics/drawable/InsetDrawable;.setDrawable:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L18e1b6.  goto L18e1ca;
+  #L18e1b8.  v0:= v2.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18e1bc.  call temp:= `insetDrawable`(v2, v3) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.insetDrawable:(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;` @kind direct;
+  #L18e1c2.  v1:= temp @kind object;
+  #L18e1c4.  call `setForeground`(v0, v1) @signature `Lcom/google/android/material/card/MaterialCardView;.setForeground:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L18e1ca.  return @kind void;
+}
+procedure `void` `updateRippleColor`(`com.google.android.material.card.MaterialCardViewHelper` v2 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.updateRippleColor:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L18e228.  v0:= `@@com.google.android.material.ripple.RippleUtils.USE_FRAMEWORK_RIPPLE` @type ^`boolean` @kind boolean;
+  #L18e22c.  if v0 == 0 then goto L18e248;
+  #L18e230.  v0:= v2.`com.google.android.material.card.MaterialCardViewHelper.rippleDrawable` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18e234.  if v0 == 0 then goto L18e248;
+  #L18e238.  v0:= (`android.graphics.drawable.RippleDrawable`) v0 @kind object;
+  #L18e23c.  v1:= v2.`com.google.android.material.card.MaterialCardViewHelper.rippleColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18e240.  call `setColor`(v0, v1) @signature `Landroid/graphics/drawable/RippleDrawable;.setColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L18e246.  goto L18e25a;
+  #L18e248.  v0:= v2.`com.google.android.material.card.MaterialCardViewHelper.compatRippleDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18e24c.  if v0 == 0 then goto L18e25a;
+  #L18e250.  v1:= v2.`com.google.android.material.card.MaterialCardViewHelper.rippleColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18e254.  call `setFillColor`(v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L18e25a.  return @kind void;
+}
+procedure `void` `forceRippleRedraw`(`com.google.android.material.card.MaterialCardViewHelper` v7 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.forceRippleRedraw:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L18dc2c.  v0:= v7.`com.google.android.material.card.MaterialCardViewHelper.rippleDrawable` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18dc30.  if v0 == 0 then goto L18dc70;
+  #L18dc34.  call temp:= `getBounds`(v0) @signature `Landroid/graphics/drawable/Drawable;.getBounds:()Landroid/graphics/Rect;` @kind virtual;
+  #L18dc3a.  v0:= temp @kind object;
+  #L18dc3c.  v1:= v0.`android.graphics.Rect.bottom` @type ^`int`;
+  #L18dc40.  v2:= v7.`com.google.android.material.card.MaterialCardViewHelper.rippleDrawable` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18dc44.  v3:= v0.`android.graphics.Rect.left` @type ^`int`;
+  #L18dc48.  v4:= v0.`android.graphics.Rect.top` @type ^`int`;
+  #L18dc4c.  v5:= v0.`android.graphics.Rect.right` @type ^`int`;
+  #L18dc50.  v6:= v1 + -1;
+  #L18dc54.  call `setBounds`(v2, v3, v4, v5, v6) @signature `Landroid/graphics/drawable/Drawable;.setBounds:(IIII)V` @kind virtual;
+  #L18dc5a.  v2:= v7.`com.google.android.material.card.MaterialCardViewHelper.rippleDrawable` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18dc5e.  v3:= v0.`android.graphics.Rect.left` @type ^`int`;
+  #L18dc62.  v4:= v0.`android.graphics.Rect.top` @type ^`int`;
+  #L18dc66.  v5:= v0.`android.graphics.Rect.right` @type ^`int`;
+  #L18dc6a.  call `setBounds`(v2, v3, v4, v5, v1) @signature `Landroid/graphics/drawable/Drawable;.setBounds:(IIII)V` @kind virtual;
+  #L18dc70.  return @kind void;
+}
+procedure `com.google.android.material.shape.MaterialShapeDrawable` `getBackground`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.getBackground:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18d874.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.bgDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18d878.  return v0 @kind object;
+}
+procedure `android.content.res.ColorStateList` `getCardBackgroundColor`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.getCardBackgroundColor:()Landroid/content/res/ColorStateList;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18d52c.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.bgDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18d530.  call temp:= `getFillColor`(v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getFillColor:()Landroid/content/res/ColorStateList;` @kind virtual;
+  #L18d536.  v0:= temp @kind object;
+  #L18d538.  return v0 @kind object;
+}
+procedure `android.graphics.drawable.Drawable` `getCheckedIcon`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.getCheckedIcon:()Landroid/graphics/drawable/Drawable;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18d670.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.checkedIcon` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18d674.  return v0 @kind object;
+}
+procedure `android.content.res.ColorStateList` `getCheckedIconTint`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.getCheckedIconTint:()Landroid/content/res/ColorStateList;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18d54c.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.checkedIconTint` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18d550.  return v0 @kind object;
+}
+procedure `float` `getCornerRadius`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.getCornerRadius:()F` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18da08.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.bgDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18da0c.  call temp:= `getTopLeftCornerResolvedSize`(v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getTopLeftCornerResolvedSize:()F` @kind virtual;
+  #L18da12.  v0:= temp;
+  #L18da14.  return v0;
+}
+procedure `float` `getProgress`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.getProgress:()F` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18da88.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.bgDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18da8c.  call temp:= `getInterpolation`(v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getInterpolation:()F` @kind virtual;
+  #L18da92.  v0:= temp;
+  #L18da94.  return v0;
+}
+procedure `android.content.res.ColorStateList` `getRippleColor`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.getRippleColor:()Landroid/content/res/ColorStateList;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18d564.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.rippleColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18d568.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.ShapeAppearanceModel` `getShapeAppearanceModel`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.getShapeAppearanceModel:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18d88c.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L18d890.  return v0 @kind object;
+}
+procedure `int` `getStrokeColor`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.getStrokeColor:()I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18daa8.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.strokeColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18daac.  if v0 != 0 then goto L18dab4;
+  #L18dab0.  v0:= -1I;
+  #L18dab2.  goto L18dabc;
+  #L18dab4.  call temp:= `getDefaultColor`(v0) @signature `Landroid/content/res/ColorStateList;.getDefaultColor:()I` @kind virtual;
+  #L18daba.  v0:= temp;
+  #L18dabc.  return v0;
+}
+procedure `android.content.res.ColorStateList` `getStrokeColorStateList`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.getStrokeColorStateList:()Landroid/content/res/ColorStateList;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18d57c.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.strokeColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18d580.  return v0 @kind object;
+}
+procedure `int` `getStrokeWidth`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.getStrokeWidth:()I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18dad0.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.strokeWidth` @type ^`int`;
+  #L18dad4.  return v0;
+}
+procedure `android.graphics.Rect` `getUserContentPadding`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.getUserContentPadding:()Landroid/graphics/Rect;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18d594.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.userContentPadding` @type ^`android.graphics.Rect` @kind object;
+  #L18d598.  return v0 @kind object;
+}
+procedure `boolean` `isBackgroundOverwritten`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.isBackgroundOverwritten:()Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18d7ac.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.isBackgroundOverwritten` @type ^`boolean` @kind boolean;
+  #L18d7b0.  return v0;
+}
+procedure `boolean` `isCheckable`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.isCheckable:()Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18d7c4.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.checkable` @type ^`boolean` @kind boolean;
+  #L18d7c8.  return v0;
+}
+procedure `void` `loadFromAttributes`(`com.google.android.material.card.MaterialCardViewHelper` v3 @kind this, `android.content.res.TypedArray` v4 @kind object @name `attributes`) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.loadFromAttributes:(Landroid/content/res/TypedArray;)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18dc84.  v0:= v3.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18dc88.  call temp:= `getContext`(v0) @signature `Lcom/google/android/material/card/MaterialCardView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L18dc8e.  v0:= temp @kind object;
+  #L18dc90.  v1:= `@@com.google.android.material.R$styleable.MaterialCardView_strokeColor` @type ^`int`;
+  #L18dc94.  call temp:= `getColorStateList`(v0, v4, v1) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L18dc9a.  v0:= temp @kind object;
+  #L18dc9c.  v3.`com.google.android.material.card.MaterialCardViewHelper.strokeColor` @type ^`android.content.res.ColorStateList` := v0 @kind object;
+  #L18dca0.  if v0 != 0 then goto L18dcb2;
+  #L18dca4.  v0:= -1I;
+  #L18dca6.  call temp:= `valueOf`(v0) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L18dcac.  v0:= temp @kind object;
+  #L18dcae.  v3.`com.google.android.material.card.MaterialCardViewHelper.strokeColor` @type ^`android.content.res.ColorStateList` := v0 @kind object;
+  #L18dcb2.  v0:= `@@com.google.android.material.R$styleable.MaterialCardView_strokeWidth` @type ^`int`;
+  #L18dcb6.  v1:= 0I;
+  #L18dcb8.  call temp:= `getDimensionPixelSize`(v4, v0, v1) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L18dcbe.  v0:= temp;
+  #L18dcc0.  v3.`com.google.android.material.card.MaterialCardViewHelper.strokeWidth` @type ^`int` := v0;
+  #L18dcc4.  v0:= `@@com.google.android.material.R$styleable.MaterialCardView_android_checkable` @type ^`int`;
+  #L18dcc8.  call temp:= `getBoolean`(v4, v0, v1) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L18dcce.  v0:= temp;
+  #L18dcd0.  v3.`com.google.android.material.card.MaterialCardViewHelper.checkable` @type ^`boolean` := v0 @kind boolean;
+  #L18dcd4.  v2:= v3.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18dcd8.  call `setLongClickable`(v2, v0) @signature `Lcom/google/android/material/card/MaterialCardView;.setLongClickable:(Z)V` @kind virtual;
+  #L18dcde.  v0:= v3.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18dce2.  call temp:= `getContext`(v0) @signature `Lcom/google/android/material/card/MaterialCardView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L18dce8.  v0:= temp @kind object;
+  #L18dcea.  v2:= `@@com.google.android.material.R$styleable.MaterialCardView_checkedIconTint` @type ^`int`;
+  #L18dcee.  call temp:= `getColorStateList`(v0, v4, v2) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L18dcf4.  v0:= temp @kind object;
+  #L18dcf6.  v3.`com.google.android.material.card.MaterialCardViewHelper.checkedIconTint` @type ^`android.content.res.ColorStateList` := v0 @kind object;
+  #L18dcfa.  v0:= v3.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18dcfe.  call temp:= `getContext`(v0) @signature `Lcom/google/android/material/card/MaterialCardView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L18dd04.  v0:= temp @kind object;
+  #L18dd06.  v2:= `@@com.google.android.material.R$styleable.MaterialCardView_checkedIcon` @type ^`int`;
+  #L18dd0a.  call temp:= `getDrawable`(v0, v4, v2) @signature `Lcom/google/android/material/resources/MaterialResources;.getDrawable:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/graphics/drawable/Drawable;` @kind static;
+  #L18dd10.  v0:= temp @kind object;
+  #L18dd12.  call `setCheckedIcon`(v3, v0) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.setCheckedIcon:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L18dd18.  v0:= v3.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18dd1c.  call temp:= `getContext`(v0) @signature `Lcom/google/android/material/card/MaterialCardView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L18dd22.  v0:= temp @kind object;
+  #L18dd24.  v2:= `@@com.google.android.material.R$styleable.MaterialCardView_rippleColor` @type ^`int`;
+  #L18dd28.  call temp:= `getColorStateList`(v0, v4, v2) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L18dd2e.  v0:= temp @kind object;
+  #L18dd30.  v3.`com.google.android.material.card.MaterialCardViewHelper.rippleColor` @type ^`android.content.res.ColorStateList` := v0 @kind object;
+  #L18dd34.  if v0 != 0 then goto L18dd54;
+  #L18dd38.  v0:= v3.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18dd3c.  v2:= `@@com.google.android.material.R$attr.colorControlHighlight` @type ^`int`;
+  #L18dd40.  call temp:= `getColor`(v0, v2) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/view/View;I)I` @kind static;
+  #L18dd46.  v0:= temp;
+  #L18dd48.  call temp:= `valueOf`(v0) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L18dd4e.  v0:= temp @kind object;
+  #L18dd50.  v3.`com.google.android.material.card.MaterialCardViewHelper.rippleColor` @type ^`android.content.res.ColorStateList` := v0 @kind object;
+  #L18dd54.  v0:= v3.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18dd58.  call temp:= `getContext`(v0) @signature `Lcom/google/android/material/card/MaterialCardView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L18dd5e.  v0:= temp @kind object;
+  #L18dd60.  v2:= `@@com.google.android.material.R$styleable.MaterialCardView_cardForegroundColor` @type ^`int`;
+  #L18dd64.  call temp:= `getColorStateList`(v0, v4, v2) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L18dd6a.  v0:= temp @kind object;
+  #L18dd6c.  v2:= v3.`com.google.android.material.card.MaterialCardViewHelper.foregroundContentDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18dd70.  if v0 != 0 then goto L18dd7e;
+  #L18dd74.  call temp:= `valueOf`(v1) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L18dd7a.  v1:= temp @kind object;
+  #L18dd7c.  goto L18dd80;
+  #L18dd7e.  v1:= v0 @kind object;
+  #L18dd80.  call `setFillColor`(v2, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L18dd86.  call `updateRippleColor`(v3) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.updateRippleColor:()V` @kind direct;
+  #L18dd8c.  call `updateElevation`(v3) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.updateElevation:()V` @kind virtual;
+  #L18dd92.  call `updateStroke`(v3) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.updateStroke:()V` @kind virtual;
+  #L18dd98.  v1:= v3.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18dd9c.  v2:= v3.`com.google.android.material.card.MaterialCardViewHelper.bgDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18dda0.  call temp:= `insetDrawable`(v3, v2) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.insetDrawable:(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;` @kind direct;
+  #L18dda6.  v2:= temp @kind object;
+  #L18dda8.  call `setBackgroundInternal`(v1, v2) @signature `Lcom/google/android/material/card/MaterialCardView;.setBackgroundInternal:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L18ddae.  v1:= v3.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18ddb2.  call temp:= `isClickable`(v1) @signature `Lcom/google/android/material/card/MaterialCardView;.isClickable:()Z` @kind virtual;
+  #L18ddb8.  v1:= temp;
+  #L18ddba.  if v1 == 0 then goto L18ddc8;
+  #L18ddbe.  call temp:= `getClickableForeground`(v3) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.getClickableForeground:()Landroid/graphics/drawable/Drawable;` @kind direct;
+  #L18ddc4.  v1:= temp @kind object;
+  #L18ddc6.  goto L18ddcc;
+  #L18ddc8.  v1:= v3.`com.google.android.material.card.MaterialCardViewHelper.foregroundContentDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18ddcc.  v3.`com.google.android.material.card.MaterialCardViewHelper.fgDrawable` @type ^`android.graphics.drawable.Drawable` := v1 @kind object;
+  #L18ddd0.  v2:= v3.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18ddd4.  call temp:= `insetDrawable`(v3, v1) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.insetDrawable:(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;` @kind direct;
+  #L18ddda.  v1:= temp @kind object;
+  #L18dddc.  call `setForeground`(v2, v1) @signature `Lcom/google/android/material/card/MaterialCardView;.setForeground:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L18dde2.  return @kind void;
+}
+procedure `void` `onMeasure`(`com.google.android.material.card.MaterialCardViewHelper` v9 @kind this, `int` v10 @name `measuredWidth`, `int` v11 @name `measuredHeight`) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.onMeasure:(II)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L18ddf4.  v0:= v9.`com.google.android.material.card.MaterialCardViewHelper.clickableForegroundDrawable` @type ^`android.graphics.drawable.LayerDrawable` @kind object;
+  #L18ddf8.  if v0 == 0 then goto L18de42;
+  #L18ddfc.  v0:= v9.`com.google.android.material.card.MaterialCardViewHelper.checkedIconMargin` @type ^`int`;
+  #L18de00.  v1:= v10 - v0 @kind int;
+  #L18de04.  v2:= v9.`com.google.android.material.card.MaterialCardViewHelper.checkedIconSize` @type ^`int`;
+  #L18de08.  v1:= v1 - v2 @kind int;
+  #L18de0a.  v0:= v11 - v0 @kind int;
+  #L18de0e.  v0:= v0 - v2 @kind int;
+  #L18de10.  v2:= v9.`com.google.android.material.card.MaterialCardViewHelper.checkedIconMargin` @type ^`int`;
+  #L18de14.  v3:= v9.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18de18.  call temp:= `getLayoutDirection`(v3) @signature `Landroidx/core/view/ViewCompat;.getLayoutDirection:(Landroid/view/View;)I` @kind static;
+  #L18de1e.  v3:= temp;
+  #L18de20.  v4:= 1I;
+  #L18de22.  if v3 != v4 then goto L18de2c;
+  #L18de26.  v3:= v2;
+  #L18de28.  v2:= v1;
+  #L18de2a.  v1:= v3;
+  #L18de2c.  v3:= v9.`com.google.android.material.card.MaterialCardViewHelper.clickableForegroundDrawable` @type ^`android.graphics.drawable.LayerDrawable` @kind object;
+  #L18de30.  v4:= 2I;
+  #L18de32.  v6:= v9.`com.google.android.material.card.MaterialCardViewHelper.checkedIconMargin` @type ^`int`;
+  #L18de36.  v5:= v1;
+  #L18de38.  v7:= v2;
+  #L18de3a.  v8:= v0;
+  #L18de3c.  call `setLayerInset`(v3, v4, v5, v6, v7, v8) @signature `Landroid/graphics/drawable/LayerDrawable;.setLayerInset:(IIIII)V` @kind virtual;
+  #L18de42.  return @kind void;
+}
+procedure `void` `setBackgroundOverwritten`(`com.google.android.material.card.MaterialCardViewHelper` v0 @kind this, `boolean` v1 @name `isBackgroundOverwritten`) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.setBackgroundOverwritten:(Z)V` @AccessFlag  {
+    temp;
+
+  #L18de54.  v0.`com.google.android.material.card.MaterialCardViewHelper.isBackgroundOverwritten` @type ^`boolean` := v1 @kind boolean;
+  #L18de58.  return @kind void;
+}
+procedure `void` `setCardBackgroundColor`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `color`) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.setCardBackgroundColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18de6c.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.bgDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18de70.  call `setFillColor`(v0, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L18de76.  return @kind void;
+}
+procedure `void` `setCheckable`(`com.google.android.material.card.MaterialCardViewHelper` v0 @kind this, `boolean` v1 @name `checkable`) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.setCheckable:(Z)V` @AccessFlag  {
+    temp;
+
+  #L18de88.  v0.`com.google.android.material.card.MaterialCardViewHelper.checkable` @type ^`boolean` := v1 @kind boolean;
+  #L18de8c.  return @kind void;
+}
+procedure `void` `setCheckedIcon`(`com.google.android.material.card.MaterialCardViewHelper` v3 @kind this, `android.graphics.drawable.Drawable` v4 @kind object @name `checkedIcon`) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.setCheckedIcon:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18dea0.  v3.`com.google.android.material.card.MaterialCardViewHelper.checkedIcon` @type ^`android.graphics.drawable.Drawable` := v4 @kind object;
+  #L18dea4.  if v4 == 0 then goto L18dec6;
+  #L18dea8.  call temp:= `mutate`(v4) @signature `Landroid/graphics/drawable/Drawable;.mutate:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L18deae.  v0:= temp @kind object;
+  #L18deb0.  call temp:= `wrap`(v0) @signature `Landroidx/core/graphics/drawable/DrawableCompat;.wrap:(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;` @kind static;
+  #L18deb6.  v0:= temp @kind object;
+  #L18deb8.  v3.`com.google.android.material.card.MaterialCardViewHelper.checkedIcon` @type ^`android.graphics.drawable.Drawable` := v0 @kind object;
+  #L18debc.  v1:= v3.`com.google.android.material.card.MaterialCardViewHelper.checkedIconTint` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18dec0.  call `setTintList`(v0, v1) @signature `Landroidx/core/graphics/drawable/DrawableCompat;.setTintList:(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V` @kind static;
+  #L18dec6.  v0:= v3.`com.google.android.material.card.MaterialCardViewHelper.clickableForegroundDrawable` @type ^`android.graphics.drawable.LayerDrawable` @kind object;
+  #L18deca.  if v0 == 0 then goto L18dee4;
+  #L18dece.  call temp:= `createCheckedIconLayer`(v3) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.createCheckedIconLayer:()Landroid/graphics/drawable/Drawable;` @kind direct;
+  #L18ded4.  v0:= temp @kind object;
+  #L18ded6.  v1:= v3.`com.google.android.material.card.MaterialCardViewHelper.clickableForegroundDrawable` @type ^`android.graphics.drawable.LayerDrawable` @kind object;
+  #L18deda.  v2:= `@@com.google.android.material.R$id.mtrl_card_checked_layer_id` @type ^`int`;
+  #L18dede.  call temp:= `setDrawableByLayerId`(v1, v2, v0) @signature `Landroid/graphics/drawable/LayerDrawable;.setDrawableByLayerId:(ILandroid/graphics/drawable/Drawable;)Z` @kind virtual;
+  #L18dee4.  return @kind void;
+}
+procedure `void` `setCheckedIconTint`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `checkedIconTint`) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.setCheckedIconTint:(Landroid/content/res/ColorStateList;)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18def8.  v1.`com.google.android.material.card.MaterialCardViewHelper.checkedIconTint` @type ^`android.content.res.ColorStateList` := v2 @kind object;
+  #L18defc.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.checkedIcon` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18df00.  if v0 == 0 then goto L18df0a;
+  #L18df04.  call `setTintList`(v0, v2) @signature `Landroidx/core/graphics/drawable/DrawableCompat;.setTintList:(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V` @kind static;
+  #L18df0a.  return @kind void;
+}
+procedure `void` `setCornerRadius`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this, `float` v2 @name `cornerRadius`) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.setCornerRadius:(F)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18df1c.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L18df20.  call temp:= `withCornerSize`(v0, v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.withCornerSize:(F)Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L18df26.  v0:= temp @kind object;
+  #L18df28.  call `setShapeAppearanceModel`(v1, v0) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L18df2e.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.fgDrawable` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18df32.  call `invalidateSelf`(v0) @signature `Landroid/graphics/drawable/Drawable;.invalidateSelf:()V` @kind virtual;
+  #L18df38.  call temp:= `shouldAddCornerPaddingOutsideCardBackground`(v1) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.shouldAddCornerPaddingOutsideCardBackground:()Z` @kind direct;
+  #L18df3e.  v0:= temp;
+  #L18df40.  if v0 != 0 then goto L18df50;
+  #L18df44.  call temp:= `shouldAddCornerPaddingInsideCardBackground`(v1) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.shouldAddCornerPaddingInsideCardBackground:()Z` @kind direct;
+  #L18df4a.  v0:= temp;
+  #L18df4c.  if v0 == 0 then goto L18df56;
+  #L18df50.  call `updateContentPadding`(v1) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.updateContentPadding:()V` @kind virtual;
+  #L18df56.  call temp:= `shouldAddCornerPaddingOutsideCardBackground`(v1) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.shouldAddCornerPaddingOutsideCardBackground:()Z` @kind direct;
+  #L18df5c.  v0:= temp;
+  #L18df5e.  if v0 == 0 then goto L18df68;
+  #L18df62.  call `updateInsets`(v1) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.updateInsets:()V` @kind virtual;
+  #L18df68.  return @kind void;
+}
+procedure `void` `setProgress`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this, `float` v2 @name `progress`) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.setProgress:(F)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18df7c.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.bgDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18df80.  call `setInterpolation`(v0, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setInterpolation:(F)V` @kind virtual;
+  #L18df86.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.foregroundContentDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18df8a.  if v0 == 0 then goto L18df94;
+  #L18df8e.  call `setInterpolation`(v0, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setInterpolation:(F)V` @kind virtual;
+  #L18df94.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.foregroundShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18df98.  if v0 == 0 then goto L18dfa2;
+  #L18df9c.  call `setInterpolation`(v0, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setInterpolation:(F)V` @kind virtual;
+  #L18dfa2.  return @kind void;
+}
+procedure `void` `setRippleColor`(`com.google.android.material.card.MaterialCardViewHelper` v0 @kind this, `android.content.res.ColorStateList` v1 @kind object @name `rippleColor`) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.setRippleColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag  {
+    temp;
+
+  #L18dfb4.  v0.`com.google.android.material.card.MaterialCardViewHelper.rippleColor` @type ^`android.content.res.ColorStateList` := v1 @kind object;
+  #L18dfb8.  call `updateRippleColor`(v0) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.updateRippleColor:()V` @kind direct;
+  #L18dfbe.  return @kind void;
+}
+procedure `void` `setShapeAppearanceModel`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this, `com.google.android.material.shape.ShapeAppearanceModel` v2 @kind object @name `shapeAppearanceModel`) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18dfd0.  v1.`com.google.android.material.card.MaterialCardViewHelper.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` := v2 @kind object;
+  #L18dfd4.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.bgDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18dfd8.  call `setShapeAppearanceModel`(v0, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L18dfde.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.foregroundContentDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18dfe2.  if v0 == 0 then goto L18dfec;
+  #L18dfe6.  call `setShapeAppearanceModel`(v0, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L18dfec.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.foregroundShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18dff0.  if v0 == 0 then goto L18dffa;
+  #L18dff4.  call `setShapeAppearanceModel`(v0, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L18dffa.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.compatRippleDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18dffe.  if v0 == 0 then goto L18e008;
+  #L18e002.  call `setShapeAppearanceModel`(v0, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L18e008.  return @kind void;
+}
+procedure `void` `setStrokeColor`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `strokeColor`) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.setStrokeColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18e01c.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.strokeColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18e020.  if v0 != v2 then goto L18e026;
+  #L18e024.  return @kind void;
+  #L18e026.  v1.`com.google.android.material.card.MaterialCardViewHelper.strokeColor` @type ^`android.content.res.ColorStateList` := v2 @kind object;
+  #L18e02a.  call `updateStroke`(v1) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.updateStroke:()V` @kind virtual;
+  #L18e030.  return @kind void;
+}
+procedure `void` `setStrokeWidth`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this, `int` v2 @name `strokeWidth`) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.setStrokeWidth:(I)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18e044.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.strokeWidth` @type ^`int`;
+  #L18e048.  if v2 != v0 then goto L18e04e;
+  #L18e04c.  return @kind void;
+  #L18e04e.  v1.`com.google.android.material.card.MaterialCardViewHelper.strokeWidth` @type ^`int` := v2;
+  #L18e052.  call `updateStroke`(v1) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.updateStroke:()V` @kind virtual;
+  #L18e058.  return @kind void;
+}
+procedure `void` `setUserContentPadding`(`com.google.android.material.card.MaterialCardViewHelper` v1 @kind this, `int` v2 @name `left`, `int` v3 @name `top`, `int` v4 @name `right`, `int` v5 @name `bottom`) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.setUserContentPadding:(IIII)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18e06c.  v0:= v1.`com.google.android.material.card.MaterialCardViewHelper.userContentPadding` @type ^`android.graphics.Rect` @kind object;
+  #L18e070.  call `set`(v0, v2, v3, v4, v5) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L18e076.  call `updateContentPadding`(v1) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.updateContentPadding:()V` @kind virtual;
+  #L18e07c.  return @kind void;
+}
+procedure `void` `updateClickable`(`com.google.android.material.card.MaterialCardViewHelper` v2 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.updateClickable:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L18e090.  v0:= v2.`com.google.android.material.card.MaterialCardViewHelper.fgDrawable` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18e094.  v1:= v2.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18e098.  call temp:= `isClickable`(v1) @signature `Lcom/google/android/material/card/MaterialCardView;.isClickable:()Z` @kind virtual;
+  #L18e09e.  v1:= temp;
+  #L18e0a0.  if v1 == 0 then goto L18e0ae;
+  #L18e0a4.  call temp:= `getClickableForeground`(v2) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.getClickableForeground:()Landroid/graphics/drawable/Drawable;` @kind direct;
+  #L18e0aa.  v1:= temp @kind object;
+  #L18e0ac.  goto L18e0b2;
+  #L18e0ae.  v1:= v2.`com.google.android.material.card.MaterialCardViewHelper.foregroundContentDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18e0b2.  v2.`com.google.android.material.card.MaterialCardViewHelper.fgDrawable` @type ^`android.graphics.drawable.Drawable` := v1 @kind object;
+  #L18e0b6.  if v0 == v1 then goto L18e0c0;
+  #L18e0ba.  call `updateInsetForeground`(v2, v1) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.updateInsetForeground:(Landroid/graphics/drawable/Drawable;)V` @kind direct;
+  #L18e0c0.  return @kind void;
+}
+procedure `void` `updateContentPadding`(`com.google.android.material.card.MaterialCardViewHelper` v7 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.updateContentPadding:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L18e0d4.  
+  #L18e0d6.  call temp:= `shouldAddCornerPaddingInsideCardBackground`(v7) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.shouldAddCornerPaddingInsideCardBackground:()Z` @kind direct;
+  #L18e0dc.  v0:= temp;
+  #L18e0de.  if v0 != 0 then goto L18e0f4;
+  #L18e0e2.  call temp:= `shouldAddCornerPaddingOutsideCardBackground`(v7) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.shouldAddCornerPaddingOutsideCardBackground:()Z` @kind direct;
+  #L18e0e8.  v0:= temp;
+  #L18e0ea.  if v0 == 0 then goto L18e0f0;
+  #L18e0ee.  goto L18e0f4;
+  #L18e0f0.  v0:= 0I;
+  #L18e0f2.  goto L18e0f6;
+  #L18e0f4.  v0:= 1I;
+  #L18e0f6.  if v0 == 0 then goto L18e104;
+  #L18e0fa.  call temp:= `calculateActualCornerPadding`(v7) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.calculateActualCornerPadding:()F` @kind direct;
+  #L18e100.  v1:= temp;
+  #L18e102.  goto L18e106;
+  #L18e104.  v1:= 0I;
+  #L18e106.  call temp:= `getParentCardViewCalculatedCornerPadding`(v7) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.getParentCardViewCalculatedCornerPadding:()F` @kind direct;
+  #L18e10c.  v2:= temp;
+  #L18e10e.  v1:= v1 - v2 @kind float;
+  #L18e110.  v1:= (`int`) v1 @kind f2i;
+  #L18e112.  v2:= v7.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18e116.  v3:= v7.`com.google.android.material.card.MaterialCardViewHelper.userContentPadding` @type ^`android.graphics.Rect` @kind object;
+  #L18e11a.  v3:= v3.`android.graphics.Rect.left` @type ^`int`;
+  #L18e11e.  v3:= v3 + v1 @kind int;
+  #L18e120.  v4:= v7.`com.google.android.material.card.MaterialCardViewHelper.userContentPadding` @type ^`android.graphics.Rect` @kind object;
+  #L18e124.  v4:= v4.`android.graphics.Rect.top` @type ^`int`;
+  #L18e128.  v4:= v4 + v1 @kind int;
+  #L18e12a.  v5:= v7.`com.google.android.material.card.MaterialCardViewHelper.userContentPadding` @type ^`android.graphics.Rect` @kind object;
+  #L18e12e.  v5:= v5.`android.graphics.Rect.right` @type ^`int`;
+  #L18e132.  v5:= v5 + v1 @kind int;
+  #L18e134.  v6:= v7.`com.google.android.material.card.MaterialCardViewHelper.userContentPadding` @type ^`android.graphics.Rect` @kind object;
+  #L18e138.  v6:= v6.`android.graphics.Rect.bottom` @type ^`int`;
+  #L18e13c.  v6:= v6 + v1 @kind int;
+  #L18e13e.  call `setAncestorContentPadding`(v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/card/MaterialCardView;.setAncestorContentPadding:(IIII)V` @kind virtual;
+  #L18e144.  return @kind void;
+}
+procedure `void` `updateElevation`(`com.google.android.material.card.MaterialCardViewHelper` v2 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.updateElevation:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L18e158.  v0:= v2.`com.google.android.material.card.MaterialCardViewHelper.bgDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18e15c.  v1:= v2.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18e160.  call temp:= `getCardElevation`(v1) @signature `Lcom/google/android/material/card/MaterialCardView;.getCardElevation:()F` @kind virtual;
+  #L18e166.  v1:= temp;
+  #L18e168.  call `setElevation`(v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setElevation:(F)V` @kind virtual;
+  #L18e16e.  return @kind void;
+}
+procedure `void` `updateInsets`(`com.google.android.material.card.MaterialCardViewHelper` v2 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.updateInsets:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L18e1dc.  call temp:= `isBackgroundOverwritten`(v2) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.isBackgroundOverwritten:()Z` @kind virtual;
+  #L18e1e2.  v0:= temp;
+  #L18e1e4.  if v0 != 0 then goto L18e1fe;
+  #L18e1e8.  v0:= v2.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18e1ec.  v1:= v2.`com.google.android.material.card.MaterialCardViewHelper.bgDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18e1f0.  call temp:= `insetDrawable`(v2, v1) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.insetDrawable:(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;` @kind direct;
+  #L18e1f6.  v1:= temp @kind object;
+  #L18e1f8.  call `setBackgroundInternal`(v0, v1) @signature `Lcom/google/android/material/card/MaterialCardView;.setBackgroundInternal:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L18e1fe.  v0:= v2.`com.google.android.material.card.MaterialCardViewHelper.materialCardView` @type ^`com.google.android.material.card.MaterialCardView` @kind object;
+  #L18e202.  v1:= v2.`com.google.android.material.card.MaterialCardViewHelper.fgDrawable` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18e206.  call temp:= `insetDrawable`(v2, v1) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.insetDrawable:(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;` @kind direct;
+  #L18e20c.  v1:= temp @kind object;
+  #L18e20e.  call `setForeground`(v0, v1) @signature `Lcom/google/android/material/card/MaterialCardView;.setForeground:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L18e214.  return @kind void;
+}
+procedure `void` `updateStroke`(`com.google.android.material.card.MaterialCardViewHelper` v3 @kind this) @signature `Lcom/google/android/material/card/MaterialCardViewHelper;.updateStroke:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18e26c.  v0:= v3.`com.google.android.material.card.MaterialCardViewHelper.foregroundContentDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18e270.  v1:= v3.`com.google.android.material.card.MaterialCardViewHelper.strokeWidth` @type ^`int`;
+  #L18e274.  v1:= (`float`) v1 @kind i2f;
+  #L18e276.  v2:= v3.`com.google.android.material.card.MaterialCardViewHelper.strokeColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18e27a.  call `setStroke`(v0, v1, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setStroke:(FLandroid/content/res/ColorStateList;)V` @kind virtual;
+  #L18e280.  return @kind void;
+}

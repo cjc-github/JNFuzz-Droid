@@ -1,0 +1,34 @@
+record `com.google.android.material.transformation.FabTransformationBehavior$3` @kind class @AccessFlag  extends `android.animation.AnimatorListenerAdapter` @kind class {
+  `com.google.android.material.transformation.FabTransformationBehavior` `com.google.android.material.transformation.FabTransformationBehavior$3.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `com.google.android.material.circularreveal.CircularRevealWidget` `com.google.android.material.transformation.FabTransformationBehavior$3.val$circularRevealChild` @AccessFlag FINAL_SYNTHETIC;
+  `android.graphics.drawable.Drawable` `com.google.android.material.transformation.FabTransformationBehavior$3.val$icon` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.transformation.FabTransformationBehavior$3` v0 @kind this, `com.google.android.material.transformation.FabTransformationBehavior` v1 @kind object @name `this$0`, `com.google.android.material.circularreveal.CircularRevealWidget` v2 @kind object, `android.graphics.drawable.Drawable` v3 @kind object) @signature `Lcom/google/android/material/transformation/FabTransformationBehavior$3;.<init>:(Lcom/google/android/material/transformation/FabTransformationBehavior;Lcom/google/android/material/circularreveal/CircularRevealWidget;Landroid/graphics/drawable/Drawable;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1bc828.  v0.`com.google.android.material.transformation.FabTransformationBehavior$3.this$0` @type ^`com.google.android.material.transformation.FabTransformationBehavior` := v1 @kind object;
+  #L1bc82c.  v0.`com.google.android.material.transformation.FabTransformationBehavior$3.val$circularRevealChild` @type ^`com.google.android.material.circularreveal.CircularRevealWidget` := v2 @kind object;
+  #L1bc830.  v0.`com.google.android.material.transformation.FabTransformationBehavior$3.val$icon` @type ^`android.graphics.drawable.Drawable` := v3 @kind object;
+  #L1bc834.  call `<init>`(v0) @signature `Landroid/animation/AnimatorListenerAdapter;.<init>:()V` @kind direct;
+  #L1bc83a.  return @kind void;
+}
+procedure `void` `onAnimationEnd`(`com.google.android.material.transformation.FabTransformationBehavior$3` v2 @kind this, `android.animation.Animator` v3 @kind object @name `animation`) @signature `Lcom/google/android/material/transformation/FabTransformationBehavior$3;.onAnimationEnd:(Landroid/animation/Animator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1bc84c.  v0:= v2.`com.google.android.material.transformation.FabTransformationBehavior$3.val$circularRevealChild` @type ^`com.google.android.material.circularreveal.CircularRevealWidget` @kind object;
+  #L1bc850.  v1:= 0I;
+  #L1bc852.  call `setCircularRevealOverlayDrawable`(v0, v1) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget;.setCircularRevealOverlayDrawable:(Landroid/graphics/drawable/Drawable;)V` @kind interface;
+  #L1bc858.  return @kind void;
+}
+procedure `void` `onAnimationStart`(`com.google.android.material.transformation.FabTransformationBehavior$3` v2 @kind this, `android.animation.Animator` v3 @kind object @name `animation`) @signature `Lcom/google/android/material/transformation/FabTransformationBehavior$3;.onAnimationStart:(Landroid/animation/Animator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1bc86c.  v0:= v2.`com.google.android.material.transformation.FabTransformationBehavior$3.val$circularRevealChild` @type ^`com.google.android.material.circularreveal.CircularRevealWidget` @kind object;
+  #L1bc870.  v1:= v2.`com.google.android.material.transformation.FabTransformationBehavior$3.val$icon` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1bc874.  call `setCircularRevealOverlayDrawable`(v0, v1) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget;.setCircularRevealOverlayDrawable:(Landroid/graphics/drawable/Drawable;)V` @kind interface;
+  #L1bc87a.  return @kind void;
+}

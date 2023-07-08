@@ -1,0 +1,1439 @@
+record `com.google.android.material.appbar.CollapsingToolbarLayout` @kind class @AccessFlag PUBLIC extends `android.widget.FrameLayout` @kind class {
+  `com.google.android.material.internal.CollapsingTextHelper` `com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @AccessFlag FINAL;
+  `boolean` `com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTitleEnabled` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `com.google.android.material.appbar.CollapsingToolbarLayout.contentScrim` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.appbar.CollapsingToolbarLayout.currentOffset` @AccessFlag ;
+  `boolean` `com.google.android.material.appbar.CollapsingToolbarLayout.drawCollapsingTitle` @AccessFlag PRIVATE;
+  `android.view.View` `com.google.android.material.appbar.CollapsingToolbarLayout.dummyView` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginBottom` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginEnd` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginStart` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginTop` @AccessFlag PRIVATE;
+  `androidx.core.view.WindowInsetsCompat` `com.google.android.material.appbar.CollapsingToolbarLayout.lastInsets` @AccessFlag ;
+  `com.google.android.material.appbar.AppBarLayout$OnOffsetChangedListener` `com.google.android.material.appbar.CollapsingToolbarLayout.onOffsetChangedListener` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.appbar.CollapsingToolbarLayout.refreshToolbar` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.appbar.CollapsingToolbarLayout.scrimAlpha` @AccessFlag PRIVATE;
+  `long` `com.google.android.material.appbar.CollapsingToolbarLayout.scrimAnimationDuration` @AccessFlag PRIVATE;
+  `android.animation.ValueAnimator` `com.google.android.material.appbar.CollapsingToolbarLayout.scrimAnimator` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.appbar.CollapsingToolbarLayout.scrimVisibleHeightTrigger` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.appbar.CollapsingToolbarLayout.scrimsAreShown` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `com.google.android.material.appbar.CollapsingToolbarLayout.statusBarScrim` @AccessFlag ;
+  `android.graphics.Rect` `com.google.android.material.appbar.CollapsingToolbarLayout.tmpRect` @AccessFlag PRIVATE_FINAL;
+  `androidx.appcompat.widget.Toolbar` `com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @AccessFlag PRIVATE;
+  `android.view.View` `com.google.android.material.appbar.CollapsingToolbarLayout.toolbarDirectChild` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.appbar.CollapsingToolbarLayout.toolbarId` @AccessFlag PRIVATE;
+}
+global `int` `@@com.google.android.material.appbar.CollapsingToolbarLayout.DEFAULT_SCRIM_ANIMATION_DURATION` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L180a94.  v0:= 0I;
+  #L180a96.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L180a9c.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L180ab0.  v0:= 0I;
+  #L180ab2.  call `<init>`(v1, v2, v3, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L180ab8.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.CollapsingToolbarLayout` v10 @kind this, `android.content.Context` v11 @kind object @name `context`, `android.util.AttributeSet` v12 @kind object @name `attrs`, `int` v13 @name `defStyleAttr`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+
+  #L180acc.  call `<init>`(v10, v11, v12, v13) @signature `Landroid/widget/FrameLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L180ad2.  v0:= 1I;
+  #L180ad4.  v10.`com.google.android.material.appbar.CollapsingToolbarLayout.refreshToolbar` @type ^`boolean` := v0 @kind boolean;
+  #L180ad8.  v1:= new `android.graphics.Rect`;
+  #L180adc.  call `<init>`(v1) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L180ae2.  v10.`com.google.android.material.appbar.CollapsingToolbarLayout.tmpRect` @type ^`android.graphics.Rect` := v1 @kind object;
+  #L180ae6.  v1:= -1I;
+  #L180ae8.  v10.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimVisibleHeightTrigger` @type ^`int` := v1;
+  #L180aec.  v2:= new `com.google.android.material.internal.CollapsingTextHelper`;
+  #L180af0.  call `<init>`(v2, v10) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.<init>:(Landroid/view/View;)V` @kind direct;
+  #L180af6.  v10.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` := v2 @kind object;
+  #L180afa.  v3:= `@@com.google.android.material.animation.AnimationUtils.DECELERATE_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L180afe.  call `setTextSizeInterpolator`(v2, v3) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setTextSizeInterpolator:(Landroid/animation/TimeInterpolator;)V` @kind virtual;
+  #L180b04.  v6:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout` @type ^`int`[] @kind object;
+  #L180b08.  v8:= `@@com.google.android.material.R$style.Widget_Design_CollapsingToolbar` @type ^`int`;
+  #L180b0c.  v3:= 0I;
+  #L180b0e.  v9:= new `int`[v3];
+  #L180b12.  v4:= v11 @kind object;
+  #L180b14.  v5:= v12 @kind object;
+  #L180b16.  v7:= v13;
+  #L180b18.  call temp:= `obtainStyledAttributes`(v4, v5, v6, v7, v8, v9) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainStyledAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;` @kind static;
+  #L180b1e.  v4:= temp @kind object;
+  #L180b20.  v5:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_expandedTitleGravity` @type ^`int`;
+  #L180b24.  v6:= 8388691I;
+  #L180b2a.  call temp:= `getInt`(v4, v5, v6) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L180b30.  v5:= temp;
+  #L180b32.  call `setExpandedTextGravity`(v2, v5) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedTextGravity:(I)V` @kind virtual;
+  #L180b38.  v5:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_collapsedTitleGravity` @type ^`int`;
+  #L180b3c.  v6:= 8388627I;
+  #L180b42.  call temp:= `getInt`(v4, v5, v6) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L180b48.  v5:= temp;
+  #L180b4a.  call `setCollapsedTextGravity`(v2, v5) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedTextGravity:(I)V` @kind virtual;
+  #L180b50.  v5:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_expandedTitleMargin` @type ^`int`;
+  #L180b54.  call temp:= `getDimensionPixelSize`(v4, v5, v3) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L180b5a.  v5:= temp;
+  #L180b5c.  v10.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginBottom` @type ^`int` := v5;
+  #L180b60.  v10.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginEnd` @type ^`int` := v5;
+  #L180b64.  v10.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginTop` @type ^`int` := v5;
+  #L180b68.  v10.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginStart` @type ^`int` := v5;
+  #L180b6c.  v5:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_expandedTitleMarginStart` @type ^`int`;
+  #L180b70.  call temp:= `hasValue`(v4, v5) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L180b76.  v5:= temp;
+  #L180b78.  if v5 == 0 then goto L180b8c;
+  #L180b7c.  v5:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_expandedTitleMarginStart` @type ^`int`;
+  #L180b80.  call temp:= `getDimensionPixelSize`(v4, v5, v3) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L180b86.  v5:= temp;
+  #L180b88.  v10.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginStart` @type ^`int` := v5;
+  #L180b8c.  v5:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_expandedTitleMarginEnd` @type ^`int`;
+  #L180b90.  call temp:= `hasValue`(v4, v5) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L180b96.  v5:= temp;
+  #L180b98.  if v5 == 0 then goto L180bac;
+  #L180b9c.  v5:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_expandedTitleMarginEnd` @type ^`int`;
+  #L180ba0.  call temp:= `getDimensionPixelSize`(v4, v5, v3) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L180ba6.  v5:= temp;
+  #L180ba8.  v10.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginEnd` @type ^`int` := v5;
+  #L180bac.  v5:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_expandedTitleMarginTop` @type ^`int`;
+  #L180bb0.  call temp:= `hasValue`(v4, v5) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L180bb6.  v5:= temp;
+  #L180bb8.  if v5 == 0 then goto L180bcc;
+  #L180bbc.  v5:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_expandedTitleMarginTop` @type ^`int`;
+  #L180bc0.  call temp:= `getDimensionPixelSize`(v4, v5, v3) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L180bc6.  v5:= temp;
+  #L180bc8.  v10.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginTop` @type ^`int` := v5;
+  #L180bcc.  v5:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_expandedTitleMarginBottom` @type ^`int`;
+  #L180bd0.  call temp:= `hasValue`(v4, v5) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L180bd6.  v5:= temp;
+  #L180bd8.  if v5 == 0 then goto L180bec;
+  #L180bdc.  v5:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_expandedTitleMarginBottom` @type ^`int`;
+  #L180be0.  call temp:= `getDimensionPixelSize`(v4, v5, v3) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L180be6.  v5:= temp;
+  #L180be8.  v10.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginBottom` @type ^`int` := v5;
+  #L180bec.  v5:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_titleEnabled` @type ^`int`;
+  #L180bf0.  call temp:= `getBoolean`(v4, v5, v0) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L180bf6.  v0:= temp;
+  #L180bf8.  v10.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTitleEnabled` @type ^`boolean` := v0 @kind boolean;
+  #L180bfc.  v0:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_title` @type ^`int`;
+  #L180c00.  call temp:= `getText`(v4, v0) @signature `Landroid/content/res/TypedArray;.getText:(I)Ljava/lang/CharSequence;` @kind virtual;
+  #L180c06.  v0:= temp @kind object;
+  #L180c08.  call `setTitle`(v10, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setTitle:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L180c0e.  v0:= `@@com.google.android.material.R$style.TextAppearance_Design_CollapsingToolbar_Expanded` @type ^`int`;
+  #L180c12.  call `setExpandedTextAppearance`(v2, v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedTextAppearance:(I)V` @kind virtual;
+  #L180c18.  v0:= `@@androidx.appcompat.R$style.TextAppearance_AppCompat_Widget_ActionBar_Title` @type ^`int`;
+  #L180c1c.  call `setCollapsedTextAppearance`(v2, v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedTextAppearance:(I)V` @kind virtual;
+  #L180c22.  v0:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_expandedTitleTextAppearance` @type ^`int`;
+  #L180c26.  call temp:= `hasValue`(v4, v0) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L180c2c.  v0:= temp;
+  #L180c2e.  if v0 == 0 then goto L180c44;
+  #L180c32.  v0:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_expandedTitleTextAppearance` @type ^`int`;
+  #L180c36.  call temp:= `getResourceId`(v4, v0, v3) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L180c3c.  v0:= temp;
+  #L180c3e.  call `setExpandedTextAppearance`(v2, v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedTextAppearance:(I)V` @kind virtual;
+  #L180c44.  v0:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance` @type ^`int`;
+  #L180c48.  call temp:= `hasValue`(v4, v0) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L180c4e.  v0:= temp;
+  #L180c50.  if v0 == 0 then goto L180c66;
+  #L180c54.  v0:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance` @type ^`int`;
+  #L180c58.  call temp:= `getResourceId`(v4, v0, v3) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L180c5e.  v0:= temp;
+  #L180c60.  call `setCollapsedTextAppearance`(v2, v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedTextAppearance:(I)V` @kind virtual;
+  #L180c66.  v0:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_scrimVisibleHeightTrigger` @type ^`int`;
+  #L180c6a.  call temp:= `getDimensionPixelSize`(v4, v0, v1) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L180c70.  v0:= temp;
+  #L180c72.  v10.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimVisibleHeightTrigger` @type ^`int` := v0;
+  #L180c76.  v0:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_scrimAnimationDuration` @type ^`int`;
+  #L180c7a.  v2:= 600I;
+  #L180c7e.  call temp:= `getInt`(v4, v0, v2) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L180c84.  v0:= temp;
+  #L180c86.  v5:= (`long`) v0 @kind i2l;
+  #L180c88.  v10.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAnimationDuration` @type ^`long` := v5 @kind wide;
+  #L180c8c.  v0:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_contentScrim` @type ^`int`;
+  #L180c90.  call temp:= `getDrawable`(v4, v0) @signature `Landroid/content/res/TypedArray;.getDrawable:(I)Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L180c96.  v0:= temp @kind object;
+  #L180c98.  call `setContentScrim`(v10, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setContentScrim:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L180c9e.  v0:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_statusBarScrim` @type ^`int`;
+  #L180ca2.  call temp:= `getDrawable`(v4, v0) @signature `Landroid/content/res/TypedArray;.getDrawable:(I)Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L180ca8.  v0:= temp @kind object;
+  #L180caa.  call `setStatusBarScrim`(v10, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setStatusBarScrim:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L180cb0.  v0:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_toolbarId` @type ^`int`;
+  #L180cb4.  call temp:= `getResourceId`(v4, v0, v1) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L180cba.  v0:= temp;
+  #L180cbc.  v10.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbarId` @type ^`int` := v0;
+  #L180cc0.  call `recycle`(v4) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L180cc6.  call `setWillNotDraw`(v10, v3) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setWillNotDraw:(Z)V` @kind virtual;
+  #L180ccc.  v0:= new `com.google.android.material.appbar.CollapsingToolbarLayout$1`;
+  #L180cd0.  call `<init>`(v0, v10) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$1;.<init>:(Lcom/google/android/material/appbar/CollapsingToolbarLayout;)V` @kind direct;
+  #L180cd6.  call `setOnApplyWindowInsetsListener`(v10, v0) @signature `Landroidx/core/view/ViewCompat;.setOnApplyWindowInsetsListener:(Landroid/view/View;Landroidx/core/view/OnApplyWindowInsetsListener;)V` @kind static;
+  #L180cdc.  return @kind void;
+}
+procedure `void` `animateScrim`(`com.google.android.material.appbar.CollapsingToolbarLayout` v4 @kind this, `int` v5 @name `targetAlpha`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.animateScrim:(I)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L180cf0.  call `ensureToolbar`(v4) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.ensureToolbar:()V` @kind direct;
+  #L180cf6.  v0:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L180cfa.  if v0 != 0 then goto L180d48;
+  #L180cfe.  v0:= new `android.animation.ValueAnimator`;
+  #L180d02.  call `<init>`(v0) @signature `Landroid/animation/ValueAnimator;.<init>:()V` @kind direct;
+  #L180d08.  v4.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAnimator` @type ^`android.animation.ValueAnimator` := v0 @kind object;
+  #L180d0c.  v1:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAnimationDuration` @type ^`long` @kind wide;
+  #L180d10.  call temp:= `setDuration`(v0, v1) @signature `Landroid/animation/ValueAnimator;.setDuration:(J)Landroid/animation/ValueAnimator;` @kind virtual;
+  #L180d16.  v0:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L180d1a.  v1:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAlpha` @type ^`int`;
+  #L180d1e.  if v5 <= v1 then goto L180d28;
+  #L180d22.  v1:= `@@com.google.android.material.animation.AnimationUtils.FAST_OUT_LINEAR_IN_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L180d26.  goto L180d2c;
+  #L180d28.  v1:= `@@com.google.android.material.animation.AnimationUtils.LINEAR_OUT_SLOW_IN_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L180d2c.  call `setInterpolator`(v0, v1) @signature `Landroid/animation/ValueAnimator;.setInterpolator:(Landroid/animation/TimeInterpolator;)V` @kind virtual;
+  #L180d32.  v0:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L180d36.  v1:= new `com.google.android.material.appbar.CollapsingToolbarLayout$2`;
+  #L180d3a.  call `<init>`(v1, v4) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$2;.<init>:(Lcom/google/android/material/appbar/CollapsingToolbarLayout;)V` @kind direct;
+  #L180d40.  call `addUpdateListener`(v0, v1) @signature `Landroid/animation/ValueAnimator;.addUpdateListener:(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V` @kind virtual;
+  #L180d46.  goto L180d5e;
+  #L180d48.  call temp:= `isRunning`(v0) @signature `Landroid/animation/ValueAnimator;.isRunning:()Z` @kind virtual;
+  #L180d4e.  v0:= temp;
+  #L180d50.  if v0 == 0 then goto L180d5e;
+  #L180d54.  v0:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L180d58.  call `cancel`(v0) @signature `Landroid/animation/ValueAnimator;.cancel:()V` @kind virtual;
+  #L180d5e.  v0:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L180d62.  v1:= 2I;
+  #L180d64.  v1:= new `int`[v1];
+  #L180d68.  v2:= 0I;
+  #L180d6a.  v3:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAlpha` @type ^`int`;
+  #L180d6e.  v1[v2]:= v3;
+  #L180d72.  v2:= 1I;
+  #L180d74.  v1[v2]:= v5;
+  #L180d78.  call `setIntValues`(v0, v1) @signature `Landroid/animation/ValueAnimator;.setIntValues:([I)V` @kind virtual;
+  #L180d7e.  v0:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L180d82.  call `start`(v0) @signature `Landroid/animation/ValueAnimator;.start:()V` @kind virtual;
+  #L180d88.  return @kind void;
+}
+procedure `void` `ensureToolbar`(`com.google.android.material.appbar.CollapsingToolbarLayout` v5 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.ensureToolbar:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L180ef0.  v0:= v5.`com.google.android.material.appbar.CollapsingToolbarLayout.refreshToolbar` @type ^`boolean` @kind boolean;
+  #L180ef4.  if v0 != 0 then goto L180efa;
+  #L180ef8.  return @kind void;
+  #L180efa.  v0:= 0I;
+  #L180efc.  v5.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` := v0 @kind object;
+  #L180f00.  v5.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbarDirectChild` @type ^`android.view.View` := v0 @kind object;
+  #L180f04.  v0:= v5.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbarId` @type ^`int`;
+  #L180f08.  v1:= -1I;
+  #L180f0a.  if v0 == v1 then goto L180f2e;
+  #L180f0e.  call temp:= `findViewById`(v5, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L180f14.  v0:= temp @kind object;
+  #L180f16.  v0:= (`androidx.appcompat.widget.Toolbar`) v0 @kind object;
+  #L180f1a.  v5.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` := v0 @kind object;
+  #L180f1e.  if v0 == 0 then goto L180f2e;
+  #L180f22.  call temp:= `findDirectChild`(v5, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.findDirectChild:(Landroid/view/View;)Landroid/view/View;` @kind direct;
+  #L180f28.  v0:= temp @kind object;
+  #L180f2a.  v5.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbarDirectChild` @type ^`android.view.View` := v0 @kind object;
+  #L180f2e.  v0:= v5.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` @kind object;
+  #L180f32.  if v0 != 0 then goto L180f68;
+  #L180f36.  v0:= 0I;
+  #L180f38.  v1:= 0I;
+  #L180f3a.  call temp:= `getChildCount`(v5) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getChildCount:()I` @kind virtual;
+  #L180f40.  v2:= temp;
+  #L180f42.  if v1 >= v2 then goto L180f64;
+  #L180f46.  call temp:= `getChildAt`(v5, v1) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L180f4c.  v3:= temp @kind object;
+  #L180f4e.  v4:= instanceof @variable v3 @type ^`androidx.appcompat.widget.Toolbar` @kind boolean;
+  #L180f52.  if v4 == 0 then goto L180f5e;
+  #L180f56.  v0:= v3 @kind object;
+  #L180f58.  v0:= (`androidx.appcompat.widget.Toolbar`) v0 @kind object;
+  #L180f5c.  goto L180f64;
+  #L180f5e.  v1:= v1 + 1;
+  #L180f62.  goto L180f42;
+  #L180f64.  v5.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` := v0 @kind object;
+  #L180f68.  call `updateDummyView`(v5) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.updateDummyView:()V` @kind direct;
+  #L180f6e.  v0:= 0I;
+  #L180f70.  v5.`com.google.android.material.appbar.CollapsingToolbarLayout.refreshToolbar` @type ^`boolean` := v0 @kind boolean;
+  #L180f74.  return @kind void;
+}
+procedure `android.view.View` `findDirectChild`(`com.google.android.material.appbar.CollapsingToolbarLayout` v3 @kind this, `android.view.View` v4 @kind object @name `descendant`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.findDirectChild:(Landroid/view/View;)Landroid/view/View;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L180610.  v0:= v4 @kind object;
+  #L180612.  call temp:= `getParent`(v4) @signature `Landroid/view/View;.getParent:()Landroid/view/ViewParent;` @kind virtual;
+  #L180618.  v1:= temp @kind object;
+  #L18061a.  if v1 == v3 then goto L18063a;
+  #L18061e.  if v1 == 0 then goto L18063a;
+  #L180622.  v2:= instanceof @variable v1 @type ^`android.view.View` @kind boolean;
+  #L180626.  if v2 == 0 then goto L180630;
+  #L18062a.  v0:= v1 @kind object;
+  #L18062c.  v0:= (`android.view.View`) v0 @kind object;
+  #L180630.  call temp:= `getParent`(v1) @signature `Landroid/view/ViewParent;.getParent:()Landroid/view/ViewParent;` @kind interface;
+  #L180636.  v1:= temp @kind object;
+  #L180638.  goto L18061a;
+  #L18063a.  return v0 @kind object;
+}
+procedure `int` `getHeightWithMargins`(`android.view.View` v4 @kind object @name `view`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getHeightWithMargins:(Landroid/view/View;)I` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L180948.  call temp:= `getLayoutParams`(v4) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L18094e.  v0:= temp @kind object;
+  #L180950.  v1:= instanceof @variable v0 @type ^`android.view.ViewGroup$MarginLayoutParams` @kind boolean;
+  #L180954.  if v1 == 0 then goto L180974;
+  #L180958.  v1:= v0 @kind object;
+  #L18095a.  v1:= (`android.view.ViewGroup$MarginLayoutParams`) v1 @kind object;
+  #L18095e.  call temp:= `getHeight`(v4) @signature `Landroid/view/View;.getHeight:()I` @kind virtual;
+  #L180964.  v2:= temp;
+  #L180966.  v3:= v1.`android.view.ViewGroup$MarginLayoutParams.topMargin` @type ^`int`;
+  #L18096a.  v2:= v2 + v3 @kind int;
+  #L18096c.  v3:= v1.`android.view.ViewGroup$MarginLayoutParams.bottomMargin` @type ^`int`;
+  #L180970.  v2:= v2 + v3 @kind int;
+  #L180972.  return v2;
+  #L180974.  call temp:= `getHeight`(v4) @signature `Landroid/view/View;.getHeight:()I` @kind virtual;
+  #L18097a.  v1:= temp;
+  #L18097c.  return v1;
+}
+procedure `com.google.android.material.appbar.ViewOffsetHelper` `getViewOffsetHelper`(`android.view.View` v2 @kind object @name `view`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getViewOffsetHelper:(Landroid/view/View;)Lcom/google/android/material/appbar/ViewOffsetHelper;` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L18086c.  v0:= `@@com.google.android.material.R$id.view_offset_helper` @type ^`int`;
+  #L180870.  call temp:= `getTag`(v2, v0) @signature `Landroid/view/View;.getTag:(I)Ljava/lang/Object;` @kind virtual;
+  #L180876.  v0:= temp @kind object;
+  #L180878.  v0:= (`com.google.android.material.appbar.ViewOffsetHelper`) v0 @kind object;
+  #L18087c.  if v0 != 0 then goto L180896;
+  #L180880.  v1:= new `com.google.android.material.appbar.ViewOffsetHelper`;
+  #L180884.  call `<init>`(v1, v2) @signature `Lcom/google/android/material/appbar/ViewOffsetHelper;.<init>:(Landroid/view/View;)V` @kind direct;
+  #L18088a.  v0:= v1 @kind object;
+  #L18088c.  v1:= `@@com.google.android.material.R$id.view_offset_helper` @type ^`int`;
+  #L180890.  call `setTag`(v2, v1, v0) @signature `Landroid/view/View;.setTag:(ILjava/lang/Object;)V` @kind virtual;
+  #L180896.  return v0 @kind object;
+}
+procedure `boolean` `isToolbarChild`(`com.google.android.material.appbar.CollapsingToolbarLayout` v3 @kind this, `android.view.View` v4 @kind object @name `child`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.isToolbarChild:(Landroid/view/View;)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1807dc.  v0:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbarDirectChild` @type ^`android.view.View` @kind object;
+  #L1807e0.  v1:= 1I;
+  #L1807e2.  v2:= 0I;
+  #L1807e4.  if v0 == 0 then goto L1807f4;
+  #L1807e8.  if v0 != v3 then goto L1807ee;
+  #L1807ec.  goto L1807f4;
+  #L1807ee.  if v4 != v0 then goto L1807fe;
+  #L1807f2.  goto L1807fc;
+  #L1807f4.  v0:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` @kind object;
+  #L1807f8.  if v4 != v0 then goto L1807fe;
+  #L1807fc.  goto L180800;
+  #L1807fe.  v1:= v2;
+  #L180800.  return v1;
+}
+procedure `void` `updateContentDescriptionFromTitle`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.updateContentDescriptionFromTitle:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L18183c.  call temp:= `getTitle`(v1) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getTitle:()Ljava/lang/CharSequence;` @kind virtual;
+  #L181842.  v0:= temp @kind object;
+  #L181844.  call `setContentDescription`(v1, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setContentDescription:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L18184a.  return @kind void;
+}
+procedure `void` `updateDummyView`(`com.google.android.material.appbar.CollapsingToolbarLayout` v3 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.updateDummyView:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18185c.  v0:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTitleEnabled` @type ^`boolean` @kind boolean;
+  #L181860.  if v0 != 0 then goto L18188c;
+  #L181864.  v0:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.dummyView` @type ^`android.view.View` @kind object;
+  #L181868.  if v0 == 0 then goto L18188c;
+  #L18186c.  call temp:= `getParent`(v0) @signature `Landroid/view/View;.getParent:()Landroid/view/ViewParent;` @kind virtual;
+  #L181872.  v0:= temp @kind object;
+  #L181874.  v1:= instanceof @variable v0 @type ^`android.view.ViewGroup` @kind boolean;
+  #L181878.  if v1 == 0 then goto L18188c;
+  #L18187c.  v1:= v0 @kind object;
+  #L18187e.  v1:= (`android.view.ViewGroup`) v1 @kind object;
+  #L181882.  v2:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.dummyView` @type ^`android.view.View` @kind object;
+  #L181886.  call `removeView`(v1, v2) @signature `Landroid/view/ViewGroup;.removeView:(Landroid/view/View;)V` @kind virtual;
+  #L18188c.  v0:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTitleEnabled` @type ^`boolean` @kind boolean;
+  #L181890.  if v0 == 0 then goto L1818da;
+  #L181894.  v0:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` @kind object;
+  #L181898.  if v0 == 0 then goto L1818da;
+  #L18189c.  v0:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.dummyView` @type ^`android.view.View` @kind object;
+  #L1818a0.  if v0 != 0 then goto L1818ba;
+  #L1818a4.  v0:= new `android.view.View`;
+  #L1818a8.  call temp:= `getContext`(v3) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1818ae.  v1:= temp @kind object;
+  #L1818b0.  call `<init>`(v0, v1) @signature `Landroid/view/View;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L1818b6.  v3.`com.google.android.material.appbar.CollapsingToolbarLayout.dummyView` @type ^`android.view.View` := v0 @kind object;
+  #L1818ba.  v0:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.dummyView` @type ^`android.view.View` @kind object;
+  #L1818be.  call temp:= `getParent`(v0) @signature `Landroid/view/View;.getParent:()Landroid/view/ViewParent;` @kind virtual;
+  #L1818c4.  v0:= temp @kind object;
+  #L1818c6.  if v0 != 0 then goto L1818da;
+  #L1818ca.  v0:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` @kind object;
+  #L1818ce.  v1:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.dummyView` @type ^`android.view.View` @kind object;
+  #L1818d2.  v2:= -1I;
+  #L1818d4.  call `addView`(v0, v1, v2, v2) @signature `Landroidx/appcompat/widget/Toolbar;.addView:(Landroid/view/View;II)V` @kind virtual;
+  #L1818da.  return @kind void;
+}
+procedure `boolean` `checkLayoutParams`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `android.view.ViewGroup$LayoutParams` v2 @kind object @name `p`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.checkLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)Z` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L180740.  v0:= instanceof @variable v2 @type ^`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams` @kind boolean;
+  #L180744.  return v0;
+}
+procedure `void` `draw`(`com.google.android.material.appbar.CollapsingToolbarLayout` v6 @kind this, `android.graphics.Canvas` v7 @kind object @name `canvas`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.draw:(Landroid/graphics/Canvas;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L180d9c.  call `draw`(v6, v7) @signature `Landroid/widget/FrameLayout;.draw:(Landroid/graphics/Canvas;)V` @kind super;
+  #L180da2.  call `ensureToolbar`(v6) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.ensureToolbar:()V` @kind direct;
+  #L180da8.  v0:= v6.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` @kind object;
+  #L180dac.  if v0 != 0 then goto L180ddc;
+  #L180db0.  v0:= v6.`com.google.android.material.appbar.CollapsingToolbarLayout.contentScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L180db4.  if v0 == 0 then goto L180ddc;
+  #L180db8.  v1:= v6.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAlpha` @type ^`int`;
+  #L180dbc.  if v1 <= 0 then goto L180ddc;
+  #L180dc0.  call temp:= `mutate`(v0) @signature `Landroid/graphics/drawable/Drawable;.mutate:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L180dc6.  v0:= temp @kind object;
+  #L180dc8.  v1:= v6.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAlpha` @type ^`int`;
+  #L180dcc.  call `setAlpha`(v0, v1) @signature `Landroid/graphics/drawable/Drawable;.setAlpha:(I)V` @kind virtual;
+  #L180dd2.  v0:= v6.`com.google.android.material.appbar.CollapsingToolbarLayout.contentScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L180dd6.  call `draw`(v0, v7) @signature `Landroid/graphics/drawable/Drawable;.draw:(Landroid/graphics/Canvas;)V` @kind virtual;
+  #L180ddc.  v0:= v6.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTitleEnabled` @type ^`boolean` @kind boolean;
+  #L180de0.  if v0 == 0 then goto L180df6;
+  #L180de4.  v0:= v6.`com.google.android.material.appbar.CollapsingToolbarLayout.drawCollapsingTitle` @type ^`boolean` @kind boolean;
+  #L180de8.  if v0 == 0 then goto L180df6;
+  #L180dec.  v0:= v6.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L180df0.  call `draw`(v0, v7) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.draw:(Landroid/graphics/Canvas;)V` @kind virtual;
+  #L180df6.  v0:= v6.`com.google.android.material.appbar.CollapsingToolbarLayout.statusBarScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L180dfa.  if v0 == 0 then goto L180e60;
+  #L180dfe.  v0:= v6.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAlpha` @type ^`int`;
+  #L180e02.  if v0 <= 0 then goto L180e60;
+  #L180e06.  v0:= v6.`com.google.android.material.appbar.CollapsingToolbarLayout.lastInsets` @type ^`androidx.core.view.WindowInsetsCompat` @kind object;
+  #L180e0a.  v1:= 0I;
+  #L180e0c.  if v0 == 0 then goto L180e1a;
+  #L180e10.  call temp:= `getSystemWindowInsetTop`(v0) @signature `Landroidx/core/view/WindowInsetsCompat;.getSystemWindowInsetTop:()I` @kind virtual;
+  #L180e16.  v0:= temp;
+  #L180e18.  goto L180e1c;
+  #L180e1a.  v0:= v1;
+  #L180e1c.  if v0 <= 0 then goto L180e60;
+  #L180e20.  v2:= v6.`com.google.android.material.appbar.CollapsingToolbarLayout.statusBarScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L180e24.  v3:= v6.`com.google.android.material.appbar.CollapsingToolbarLayout.currentOffset` @type ^`int`;
+  #L180e28.  v3:= -v3 @kind int;
+  #L180e2a.  call temp:= `getWidth`(v6) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getWidth:()I` @kind virtual;
+  #L180e30.  v4:= temp;
+  #L180e32.  v5:= v6.`com.google.android.material.appbar.CollapsingToolbarLayout.currentOffset` @type ^`int`;
+  #L180e36.  v5:= v0 - v5 @kind int;
+  #L180e3a.  call `setBounds`(v2, v1, v3, v4, v5) @signature `Landroid/graphics/drawable/Drawable;.setBounds:(IIII)V` @kind virtual;
+  #L180e40.  v1:= v6.`com.google.android.material.appbar.CollapsingToolbarLayout.statusBarScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L180e44.  call temp:= `mutate`(v1) @signature `Landroid/graphics/drawable/Drawable;.mutate:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L180e4a.  v1:= temp @kind object;
+  #L180e4c.  v2:= v6.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAlpha` @type ^`int`;
+  #L180e50.  call `setAlpha`(v1, v2) @signature `Landroid/graphics/drawable/Drawable;.setAlpha:(I)V` @kind virtual;
+  #L180e56.  v1:= v6.`com.google.android.material.appbar.CollapsingToolbarLayout.statusBarScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L180e5a.  call `draw`(v1, v7) @signature `Landroid/graphics/drawable/Drawable;.draw:(Landroid/graphics/Canvas;)V` @kind virtual;
+  #L180e60.  return @kind void;
+}
+procedure `boolean` `drawChild`(`com.google.android.material.appbar.CollapsingToolbarLayout` v3 @kind this, `android.graphics.Canvas` v4 @kind object @name `canvas`, `android.view.View` v5 @kind object @name `child`, `long` v6 @name `drawingTime`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.drawChild:(Landroid/graphics/Canvas;Landroid/view/View;J)Z` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L180758.  v0:= 0I;
+  #L18075a.  v1:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.contentScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18075e.  if v1 == 0 then goto L180798;
+  #L180762.  v1:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAlpha` @type ^`int`;
+  #L180766.  if v1 <= 0 then goto L180798;
+  #L18076a.  call temp:= `isToolbarChild`(v3, v5) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.isToolbarChild:(Landroid/view/View;)Z` @kind direct;
+  #L180770.  v1:= temp;
+  #L180772.  if v1 == 0 then goto L180798;
+  #L180776.  v1:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.contentScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18077a.  call temp:= `mutate`(v1) @signature `Landroid/graphics/drawable/Drawable;.mutate:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L180780.  v1:= temp @kind object;
+  #L180782.  v2:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAlpha` @type ^`int`;
+  #L180786.  call `setAlpha`(v1, v2) @signature `Landroid/graphics/drawable/Drawable;.setAlpha:(I)V` @kind virtual;
+  #L18078c.  v1:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.contentScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L180790.  call `draw`(v1, v4) @signature `Landroid/graphics/drawable/Drawable;.draw:(Landroid/graphics/Canvas;)V` @kind virtual;
+  #L180796.  v0:= 1I;
+  #L180798.  call temp:= `drawChild`(v3, v4, v5, v6) @signature `Landroid/widget/FrameLayout;.drawChild:(Landroid/graphics/Canvas;Landroid/view/View;J)Z` @kind super;
+  #L18079e.  v1:= temp;
+  #L1807a0.  if v1 != 0 then goto L1807ae;
+  #L1807a4.  if v0 == 0 then goto L1807aa;
+  #L1807a8.  goto L1807ae;
+  #L1807aa.  v1:= 0I;
+  #L1807ac.  goto L1807b0;
+  #L1807ae.  v1:= 1I;
+  #L1807b0.  return v1;
+}
+procedure `void` `drawableStateChanged`(`com.google.android.material.appbar.CollapsingToolbarLayout` v4 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.drawableStateChanged:()V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L180e74.  call `drawableStateChanged`(v4) @signature `Landroid/widget/FrameLayout;.drawableStateChanged:()V` @kind super;
+  #L180e7a.  call temp:= `getDrawableState`(v4) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getDrawableState:()[I` @kind virtual;
+  #L180e80.  v0:= temp @kind object;
+  #L180e82.  v1:= 0I;
+  #L180e84.  v2:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.statusBarScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L180e88.  if v2 == 0 then goto L180ea2;
+  #L180e8c.  call temp:= `isStateful`(v2) @signature `Landroid/graphics/drawable/Drawable;.isStateful:()Z` @kind virtual;
+  #L180e92.  v3:= temp;
+  #L180e94.  if v3 == 0 then goto L180ea2;
+  #L180e98.  call temp:= `setState`(v2, v0) @signature `Landroid/graphics/drawable/Drawable;.setState:([I)Z` @kind virtual;
+  #L180e9e.  v3:= temp;
+  #L180ea0.  v1:= v1 ^| v3 @kind int;
+  #L180ea2.  v2:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.contentScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L180ea6.  if v2 == 0 then goto L180ec0;
+  #L180eaa.  call temp:= `isStateful`(v2) @signature `Landroid/graphics/drawable/Drawable;.isStateful:()Z` @kind virtual;
+  #L180eb0.  v3:= temp;
+  #L180eb2.  if v3 == 0 then goto L180ec0;
+  #L180eb6.  call temp:= `setState`(v2, v0) @signature `Landroid/graphics/drawable/Drawable;.setState:([I)Z` @kind virtual;
+  #L180ebc.  v3:= temp;
+  #L180ebe.  v1:= v1 ^| v3 @kind int;
+  #L180ec0.  v3:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L180ec4.  if v3 == 0 then goto L180ed2;
+  #L180ec8.  call temp:= `setState`(v3, v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setState:([I)Z` @kind virtual;
+  #L180ece.  v3:= temp;
+  #L180ed0.  v1:= v1 ^| v3 @kind int;
+  #L180ed2.  if v1 == 0 then goto L180edc;
+  #L180ed6.  call `invalidate`(v4) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.invalidate:()V` @kind virtual;
+  #L180edc.  return @kind void;
+}
+procedure `android.view.ViewGroup$LayoutParams` `generateDefaultLayoutParams`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.generateDefaultLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @AccessFlag PROTECTED_SYNTHETIC {
+    temp;
+    v0;
+
+  #L18064c.  call temp:= `generateDefaultLayoutParams`(v1) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.generateDefaultLayoutParams:()Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;` @kind virtual;
+  #L180652.  v0:= temp @kind object;
+  #L180654.  return v0 @kind object;
+}
+procedure `android.widget.FrameLayout$LayoutParams` `generateDefaultLayoutParams`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.generateDefaultLayoutParams:()Landroid/widget/FrameLayout$LayoutParams;` @AccessFlag PROTECTED_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1806a0.  call temp:= `generateDefaultLayoutParams`(v1) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.generateDefaultLayoutParams:()Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;` @kind virtual;
+  #L1806a6.  v0:= temp @kind object;
+  #L1806a8.  return v0 @kind object;
+}
+procedure `com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams` `generateDefaultLayoutParams`(`com.google.android.material.appbar.CollapsingToolbarLayout` v2 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.generateDefaultLayoutParams:()Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L18084c.  v0:= new `com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams`;
+  #L180850.  v1:= -1I;
+  #L180852.  call `<init>`(v0, v1, v1) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;.<init>:(II)V` @kind direct;
+  #L180858.  return v0 @kind object;
+}
+procedure `android.view.ViewGroup$LayoutParams` `generateLayoutParams`(`com.google.android.material.appbar.CollapsingToolbarLayout` v0 @kind this, `android.util.AttributeSet` v1 @kind object) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.generateLayoutParams:(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L180668.  call temp:= `generateLayoutParams`(v0, v1) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.generateLayoutParams:(Landroid/util/AttributeSet;)Landroid/widget/FrameLayout$LayoutParams;` @kind virtual;
+  #L18066e.  v1:= temp @kind object;
+  #L180670.  return v1 @kind object;
+}
+procedure `android.view.ViewGroup$LayoutParams` `generateLayoutParams`(`com.google.android.material.appbar.CollapsingToolbarLayout` v0 @kind this, `android.view.ViewGroup$LayoutParams` v1 @kind object) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.generateLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;` @AccessFlag PROTECTED_SYNTHETIC {
+    temp;
+
+  #L180684.  call temp:= `generateLayoutParams`(v0, v1) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.generateLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)Landroid/widget/FrameLayout$LayoutParams;` @kind virtual;
+  #L18068a.  v1:= temp @kind object;
+  #L18068c.  return v1 @kind object;
+}
+procedure `android.widget.FrameLayout$LayoutParams` `generateLayoutParams`(`com.google.android.material.appbar.CollapsingToolbarLayout` v2 @kind this, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.generateLayoutParams:(Landroid/util/AttributeSet;)Landroid/widget/FrameLayout$LayoutParams;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1806bc.  v0:= new `com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams`;
+  #L1806c0.  call temp:= `getContext`(v2) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1806c6.  v1:= temp @kind object;
+  #L1806c8.  call `<init>`(v0, v1, v3) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1806ce.  return v0 @kind object;
+}
+procedure `android.widget.FrameLayout$LayoutParams` `generateLayoutParams`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `android.view.ViewGroup$LayoutParams` v2 @kind object @name `p`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.generateLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)Landroid/widget/FrameLayout$LayoutParams;` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L1806e0.  v0:= new `com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams`;
+  #L1806e4.  call `<init>`(v0, v2) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;.<init>:(Landroid/view/ViewGroup$LayoutParams;)V` @kind direct;
+  #L1806ea.  return v0 @kind object;
+}
+procedure `int` `getCollapsedTitleGravity`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getCollapsedTitleGravity:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1808a8.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L1808ac.  call temp:= `getCollapsedTextGravity`(v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCollapsedTextGravity:()I` @kind virtual;
+  #L1808b2.  v0:= temp;
+  #L1808b4.  return v0;
+}
+procedure `android.graphics.Typeface` `getCollapsedTitleTypeface`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getCollapsedTitleTypeface:()Landroid/graphics/Typeface;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1805a0.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L1805a4.  call temp:= `getCollapsedTypeface`(v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCollapsedTypeface:()Landroid/graphics/Typeface;` @kind virtual;
+  #L1805aa.  v0:= temp @kind object;
+  #L1805ac.  return v0 @kind object;
+}
+procedure `android.graphics.drawable.Drawable` `getContentScrim`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getContentScrim:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1805e0.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.contentScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1805e4.  return v0 @kind object;
+}
+procedure `int` `getExpandedTitleGravity`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getExpandedTitleGravity:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1808c8.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L1808cc.  call temp:= `getExpandedTextGravity`(v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getExpandedTextGravity:()I` @kind virtual;
+  #L1808d2.  v0:= temp;
+  #L1808d4.  return v0;
+}
+procedure `int` `getExpandedTitleMarginBottom`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getExpandedTitleMarginBottom:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1808e8.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginBottom` @type ^`int`;
+  #L1808ec.  return v0;
+}
+procedure `int` `getExpandedTitleMarginEnd`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getExpandedTitleMarginEnd:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L180900.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginEnd` @type ^`int`;
+  #L180904.  return v0;
+}
+procedure `int` `getExpandedTitleMarginStart`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getExpandedTitleMarginStart:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L180918.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginStart` @type ^`int`;
+  #L18091c.  return v0;
+}
+procedure `int` `getExpandedTitleMarginTop`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getExpandedTitleMarginTop:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L180930.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginTop` @type ^`int`;
+  #L180934.  return v0;
+}
+procedure `android.graphics.Typeface` `getExpandedTitleTypeface`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getExpandedTitleTypeface:()Landroid/graphics/Typeface;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1805c0.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L1805c4.  call temp:= `getExpandedTypeface`(v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getExpandedTypeface:()Landroid/graphics/Typeface;` @kind virtual;
+  #L1805ca.  v0:= temp @kind object;
+  #L1805cc.  return v0 @kind object;
+}
+procedure `int` `getMaxOffsetForPinChild`(`com.google.android.material.appbar.CollapsingToolbarLayout` v4 @kind this, `android.view.View` v5 @kind object @name `child`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getMaxOffsetForPinChild:(Landroid/view/View;)I` @AccessFlag FINAL {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L180990.  call temp:= `getViewOffsetHelper`(v5) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getViewOffsetHelper:(Landroid/view/View;)Lcom/google/android/material/appbar/ViewOffsetHelper;` @kind static;
+  #L180996.  v0:= temp @kind object;
+  #L180998.  call temp:= `getLayoutParams`(v5) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L18099e.  v1:= temp @kind object;
+  #L1809a0.  v1:= (`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams`) v1 @kind object;
+  #L1809a4.  call temp:= `getHeight`(v4) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getHeight:()I` @kind virtual;
+  #L1809aa.  v2:= temp;
+  #L1809ac.  call temp:= `getLayoutTop`(v0) @signature `Lcom/google/android/material/appbar/ViewOffsetHelper;.getLayoutTop:()I` @kind virtual;
+  #L1809b2.  v3:= temp;
+  #L1809b4.  v2:= v2 - v3 @kind int;
+  #L1809b6.  call temp:= `getHeight`(v5) @signature `Landroid/view/View;.getHeight:()I` @kind virtual;
+  #L1809bc.  v3:= temp;
+  #L1809be.  v2:= v2 - v3 @kind int;
+  #L1809c0.  v3:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.bottomMargin` @type ^`int`;
+  #L1809c4.  v2:= v2 - v3 @kind int;
+  #L1809c6.  return v2;
+}
+procedure `int` `getScrimAlpha`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getScrimAlpha:()I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1809d8.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAlpha` @type ^`int`;
+  #L1809dc.  return v0;
+}
+procedure `long` `getScrimAnimationDuration`(`com.google.android.material.appbar.CollapsingToolbarLayout` v2 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getScrimAnimationDuration:()J` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L180a7c.  v0:= v2.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAnimationDuration` @type ^`long` @kind wide;
+  #L180a80.  return v0 @kind wide;
+}
+procedure `int` `getScrimVisibleHeightTrigger`(`com.google.android.material.appbar.CollapsingToolbarLayout` v4 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getScrimVisibleHeightTrigger:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1809f0.  v0:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimVisibleHeightTrigger` @type ^`int`;
+  #L1809f4.  if v0 < 0 then goto L1809fa;
+  #L1809f8.  return v0;
+  #L1809fa.  v0:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.lastInsets` @type ^`androidx.core.view.WindowInsetsCompat` @kind object;
+  #L1809fe.  if v0 == 0 then goto L180a0c;
+  #L180a02.  call temp:= `getSystemWindowInsetTop`(v0) @signature `Landroidx/core/view/WindowInsetsCompat;.getSystemWindowInsetTop:()I` @kind virtual;
+  #L180a08.  v0:= temp;
+  #L180a0a.  goto L180a0e;
+  #L180a0c.  v0:= 0I;
+  #L180a0e.  call temp:= `getMinimumHeight`(v4) @signature `Landroidx/core/view/ViewCompat;.getMinimumHeight:(Landroid/view/View;)I` @kind static;
+  #L180a14.  v1:= temp;
+  #L180a16.  if v1 <= 0 then goto L180a32;
+  #L180a1a.  v2:= v1 * 2;
+  #L180a1e.  v2:= v2 + v0 @kind int;
+  #L180a20.  call temp:= `getHeight`(v4) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getHeight:()I` @kind virtual;
+  #L180a26.  v3:= temp;
+  #L180a28.  call temp:= `min`(v2, v3) @signature `Ljava/lang/Math;.min:(II)I` @kind static;
+  #L180a2e.  v2:= temp;
+  #L180a30.  return v2;
+  #L180a32.  call temp:= `getHeight`(v4) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getHeight:()I` @kind virtual;
+  #L180a38.  v2:= temp;
+  #L180a3a.  v2:= v2 / 3;
+  #L180a3e.  return v2;
+}
+procedure `android.graphics.drawable.Drawable` `getStatusBarScrim`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getStatusBarScrim:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1805f8.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.statusBarScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1805fc.  return v0 @kind object;
+}
+procedure `java.lang.CharSequence` `getTitle`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getTitle:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L180a50.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTitleEnabled` @type ^`boolean` @kind boolean;
+  #L180a54.  if v0 == 0 then goto L180a66;
+  #L180a58.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L180a5c.  call temp:= `getText`(v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getText:()Ljava/lang/CharSequence;` @kind virtual;
+  #L180a62.  v0:= temp @kind object;
+  #L180a64.  goto L180a68;
+  #L180a66.  v0:= 0I;
+  #L180a68.  return v0 @kind object;
+}
+procedure `boolean` `isTitleEnabled`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.isTitleEnabled:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1807c4.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTitleEnabled` @type ^`boolean` @kind boolean;
+  #L1807c8.  return v0;
+}
+procedure `void` `onAttachedToWindow`(`com.google.android.material.appbar.CollapsingToolbarLayout` v3 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.onAttachedToWindow:()V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L180f88.  call `onAttachedToWindow`(v3) @signature `Landroid/widget/FrameLayout;.onAttachedToWindow:()V` @kind super;
+  #L180f8e.  call temp:= `getParent`(v3) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getParent:()Landroid/view/ViewParent;` @kind virtual;
+  #L180f94.  v0:= temp @kind object;
+  #L180f96.  v1:= instanceof @variable v0 @type ^`com.google.android.material.appbar.AppBarLayout` @kind boolean;
+  #L180f9a.  if v1 == 0 then goto L180fde;
+  #L180f9e.  v1:= v0 @kind object;
+  #L180fa0.  v1:= (`android.view.View`) v1 @kind object;
+  #L180fa4.  call temp:= `getFitsSystemWindows`(v1) @signature `Landroidx/core/view/ViewCompat;.getFitsSystemWindows:(Landroid/view/View;)Z` @kind static;
+  #L180faa.  v1:= temp;
+  #L180fac.  call `setFitsSystemWindows`(v3, v1) @signature `Landroidx/core/view/ViewCompat;.setFitsSystemWindows:(Landroid/view/View;Z)V` @kind static;
+  #L180fb2.  v1:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.onOffsetChangedListener` @type ^`com.google.android.material.appbar.AppBarLayout$OnOffsetChangedListener` @kind object;
+  #L180fb6.  if v1 != 0 then goto L180fc8;
+  #L180fba.  v1:= new `com.google.android.material.appbar.CollapsingToolbarLayout$OffsetUpdateListener`;
+  #L180fbe.  call `<init>`(v1, v3) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$OffsetUpdateListener;.<init>:(Lcom/google/android/material/appbar/CollapsingToolbarLayout;)V` @kind direct;
+  #L180fc4.  v3.`com.google.android.material.appbar.CollapsingToolbarLayout.onOffsetChangedListener` @type ^`com.google.android.material.appbar.AppBarLayout$OnOffsetChangedListener` := v1 @kind object;
+  #L180fc8.  v1:= v0 @kind object;
+  #L180fca.  v1:= (`com.google.android.material.appbar.AppBarLayout`) v1 @kind object;
+  #L180fce.  v2:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.onOffsetChangedListener` @type ^`com.google.android.material.appbar.AppBarLayout$OnOffsetChangedListener` @kind object;
+  #L180fd2.  call `addOnOffsetChangedListener`(v1, v2) @signature `Lcom/google/android/material/appbar/AppBarLayout;.addOnOffsetChangedListener:(Lcom/google/android/material/appbar/AppBarLayout$OnOffsetChangedListener;)V` @kind virtual;
+  #L180fd8.  call `requestApplyInsets`(v3) @signature `Landroidx/core/view/ViewCompat;.requestApplyInsets:(Landroid/view/View;)V` @kind static;
+  #L180fde.  return @kind void;
+}
+procedure `void` `onDetachedFromWindow`(`com.google.android.material.appbar.CollapsingToolbarLayout` v3 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.onDetachedFromWindow:()V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L180ff0.  call temp:= `getParent`(v3) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getParent:()Landroid/view/ViewParent;` @kind virtual;
+  #L180ff6.  v0:= temp @kind object;
+  #L180ff8.  v1:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.onOffsetChangedListener` @type ^`com.google.android.material.appbar.AppBarLayout$OnOffsetChangedListener` @kind object;
+  #L180ffc.  if v1 == 0 then goto L181014;
+  #L181000.  v2:= instanceof @variable v0 @type ^`com.google.android.material.appbar.AppBarLayout` @kind boolean;
+  #L181004.  if v2 == 0 then goto L181014;
+  #L181008.  v2:= v0 @kind object;
+  #L18100a.  v2:= (`com.google.android.material.appbar.AppBarLayout`) v2 @kind object;
+  #L18100e.  call `removeOnOffsetChangedListener`(v2, v1) @signature `Lcom/google/android/material/appbar/AppBarLayout;.removeOnOffsetChangedListener:(Lcom/google/android/material/appbar/AppBarLayout$OnOffsetChangedListener;)V` @kind virtual;
+  #L181014.  call `onDetachedFromWindow`(v3) @signature `Landroid/widget/FrameLayout;.onDetachedFromWindow:()V` @kind super;
+  #L18101a.  return @kind void;
+}
+procedure `void` `onLayout`(`com.google.android.material.appbar.CollapsingToolbarLayout` v8 @kind this, `boolean` v9 @name `changed`, `int` v10 @name `left`, `int` v11 @name `top`, `int` v12 @name `right`, `int` v13 @name `bottom`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.onLayout:(ZIIII)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L18102c.  call `onLayout`(v8, v9, v10, v11, v12, v13) @signature `Landroid/widget/FrameLayout;.onLayout:(ZIIII)V` @kind super;
+  #L181032.  v0:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.lastInsets` @type ^`androidx.core.view.WindowInsetsCompat` @kind object;
+  #L181036.  if v0 == 0 then goto L18107c;
+  #L18103a.  call temp:= `getSystemWindowInsetTop`(v0) @signature `Landroidx/core/view/WindowInsetsCompat;.getSystemWindowInsetTop:()I` @kind virtual;
+  #L181040.  v0:= temp;
+  #L181042.  v1:= 0I;
+  #L181044.  call temp:= `getChildCount`(v8) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getChildCount:()I` @kind virtual;
+  #L18104a.  v2:= temp;
+  #L18104c.  if v1 >= v2 then goto L18107c;
+  #L181050.  call temp:= `getChildAt`(v8, v1) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L181056.  v3:= temp @kind object;
+  #L181058.  call temp:= `getFitsSystemWindows`(v3) @signature `Landroidx/core/view/ViewCompat;.getFitsSystemWindows:(Landroid/view/View;)Z` @kind static;
+  #L18105e.  v4:= temp;
+  #L181060.  if v4 != 0 then goto L181076;
+  #L181064.  call temp:= `getTop`(v3) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L18106a.  v4:= temp;
+  #L18106c.  if v4 >= v0 then goto L181076;
+  #L181070.  call `offsetTopAndBottom`(v3, v0) @signature `Landroidx/core/view/ViewCompat;.offsetTopAndBottom:(Landroid/view/View;I)V` @kind static;
+  #L181076.  v1:= v1 + 1;
+  #L18107a.  goto L18104c;
+  #L18107c.  v0:= 0I;
+  #L18107e.  call temp:= `getChildCount`(v8) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getChildCount:()I` @kind virtual;
+  #L181084.  v1:= temp;
+  #L181086.  if v0 >= v1 then goto L1810a6;
+  #L18108a.  call temp:= `getChildAt`(v8, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L181090.  v2:= temp @kind object;
+  #L181092.  call temp:= `getViewOffsetHelper`(v2) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getViewOffsetHelper:(Landroid/view/View;)Lcom/google/android/material/appbar/ViewOffsetHelper;` @kind static;
+  #L181098.  v2:= temp @kind object;
+  #L18109a.  call `onViewLayout`(v2) @signature `Lcom/google/android/material/appbar/ViewOffsetHelper;.onViewLayout:()V` @kind virtual;
+  #L1810a0.  v0:= v0 + 1;
+  #L1810a4.  goto L181086;
+  #L1810a6.  v0:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTitleEnabled` @type ^`boolean` @kind boolean;
+  #L1810aa.  if v0 == 0 then goto L1811f4;
+  #L1810ae.  v0:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.dummyView` @type ^`android.view.View` @kind object;
+  #L1810b2.  if v0 == 0 then goto L1811f4;
+  #L1810b6.  
+  #L1810b8.  call temp:= `isAttachedToWindow`(v0) @signature `Landroidx/core/view/ViewCompat;.isAttachedToWindow:(Landroid/view/View;)Z` @kind static;
+  #L1810be.  v0:= temp;
+  #L1810c0.  v1:= 0I;
+  #L1810c2.  v2:= 1I;
+  #L1810c4.  if v0 == 0 then goto L1810dc;
+  #L1810c8.  v0:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.dummyView` @type ^`android.view.View` @kind object;
+  #L1810cc.  call temp:= `getVisibility`(v0) @signature `Landroid/view/View;.getVisibility:()I` @kind virtual;
+  #L1810d2.  v0:= temp;
+  #L1810d4.  if v0 != 0 then goto L1810dc;
+  #L1810d8.  v0:= v2;
+  #L1810da.  goto L1810de;
+  #L1810dc.  v0:= v1;
+  #L1810de.  v8.`com.google.android.material.appbar.CollapsingToolbarLayout.drawCollapsingTitle` @type ^`boolean` := v0 @kind boolean;
+  #L1810e2.  if v0 == 0 then goto L1811f4;
+  #L1810e6.  
+  #L1810e8.  call temp:= `getLayoutDirection`(v8) @signature `Landroidx/core/view/ViewCompat;.getLayoutDirection:(Landroid/view/View;)I` @kind static;
+  #L1810ee.  v0:= temp;
+  #L1810f0.  if v0 != v2 then goto L1810f6;
+  #L1810f4.  v1:= v2;
+  #L1810f6.  v0:= v1;
+  #L1810f8.  v1:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbarDirectChild` @type ^`android.view.View` @kind object;
+  #L1810fc.  if v1 == 0 then goto L181102;
+  #L181100.  goto L181106;
+  #L181102.  v1:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` @kind object;
+  #L181106.  call temp:= `getMaxOffsetForPinChild`(v8, v1) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getMaxOffsetForPinChild:(Landroid/view/View;)I` @kind virtual;
+  #L18110c.  v1:= temp;
+  #L18110e.  v2:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.dummyView` @type ^`android.view.View` @kind object;
+  #L181112.  v3:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.tmpRect` @type ^`android.graphics.Rect` @kind object;
+  #L181116.  call `getDescendantRect`(v8, v2, v3) @signature `Lcom/google/android/material/internal/DescendantOffsetUtils;.getDescendantRect:(Landroid/view/ViewGroup;Landroid/view/View;Landroid/graphics/Rect;)V` @kind static;
+  #L18111c.  v2:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L181120.  v3:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.tmpRect` @type ^`android.graphics.Rect` @kind object;
+  #L181124.  v3:= v3.`android.graphics.Rect.left` @type ^`int`;
+  #L181128.  if v0 == 0 then goto L18113a;
+  #L18112c.  v4:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` @kind object;
+  #L181130.  call temp:= `getTitleMarginEnd`(v4) @signature `Landroidx/appcompat/widget/Toolbar;.getTitleMarginEnd:()I` @kind virtual;
+  #L181136.  v4:= temp;
+  #L181138.  goto L181146;
+  #L18113a.  v4:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` @kind object;
+  #L18113e.  call temp:= `getTitleMarginStart`(v4) @signature `Landroidx/appcompat/widget/Toolbar;.getTitleMarginStart:()I` @kind virtual;
+  #L181144.  v4:= temp;
+  #L181146.  v3:= v3 + v4 @kind int;
+  #L181148.  v4:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.tmpRect` @type ^`android.graphics.Rect` @kind object;
+  #L18114c.  v4:= v4.`android.graphics.Rect.top` @type ^`int`;
+  #L181150.  v4:= v4 + v1 @kind int;
+  #L181152.  v5:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` @kind object;
+  #L181156.  call temp:= `getTitleMarginTop`(v5) @signature `Landroidx/appcompat/widget/Toolbar;.getTitleMarginTop:()I` @kind virtual;
+  #L18115c.  v5:= temp;
+  #L18115e.  v4:= v4 + v5 @kind int;
+  #L181160.  v5:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.tmpRect` @type ^`android.graphics.Rect` @kind object;
+  #L181164.  v5:= v5.`android.graphics.Rect.right` @type ^`int`;
+  #L181168.  if v0 == 0 then goto L18117a;
+  #L18116c.  v6:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` @kind object;
+  #L181170.  call temp:= `getTitleMarginStart`(v6) @signature `Landroidx/appcompat/widget/Toolbar;.getTitleMarginStart:()I` @kind virtual;
+  #L181176.  v6:= temp;
+  #L181178.  goto L181186;
+  #L18117a.  v6:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` @kind object;
+  #L18117e.  call temp:= `getTitleMarginEnd`(v6) @signature `Landroidx/appcompat/widget/Toolbar;.getTitleMarginEnd:()I` @kind virtual;
+  #L181184.  v6:= temp;
+  #L181186.  v5:= v5 + v6 @kind int;
+  #L181188.  v6:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.tmpRect` @type ^`android.graphics.Rect` @kind object;
+  #L18118c.  v6:= v6.`android.graphics.Rect.bottom` @type ^`int`;
+  #L181190.  v6:= v6 + v1 @kind int;
+  #L181192.  v7:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` @kind object;
+  #L181196.  call temp:= `getTitleMarginBottom`(v7) @signature `Landroidx/appcompat/widget/Toolbar;.getTitleMarginBottom:()I` @kind virtual;
+  #L18119c.  v7:= temp;
+  #L18119e.  v6:= v6 - v7 @kind int;
+  #L1811a0.  call `setCollapsedBounds`(v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedBounds:(IIII)V` @kind virtual;
+  #L1811a6.  v2:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L1811aa.  if v0 == 0 then goto L1811b4;
+  #L1811ae.  v3:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginEnd` @type ^`int`;
+  #L1811b2.  goto L1811b8;
+  #L1811b4.  v3:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginStart` @type ^`int`;
+  #L1811b8.  v4:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.tmpRect` @type ^`android.graphics.Rect` @kind object;
+  #L1811bc.  v4:= v4.`android.graphics.Rect.top` @type ^`int`;
+  #L1811c0.  v5:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginTop` @type ^`int`;
+  #L1811c4.  v4:= v4 + v5 @kind int;
+  #L1811c6.  v5:= v12 - v10 @kind int;
+  #L1811ca.  if v0 == 0 then goto L1811d4;
+  #L1811ce.  v6:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginStart` @type ^`int`;
+  #L1811d2.  goto L1811d8;
+  #L1811d4.  v6:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginEnd` @type ^`int`;
+  #L1811d8.  v5:= v5 - v6 @kind int;
+  #L1811da.  v6:= v13 - v11 @kind int;
+  #L1811de.  v7:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginBottom` @type ^`int`;
+  #L1811e2.  v6:= v6 - v7 @kind int;
+  #L1811e4.  call `setExpandedBounds`(v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedBounds:(IIII)V` @kind virtual;
+  #L1811ea.  v2:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L1811ee.  call `recalculate`(v2) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.recalculate:()V` @kind virtual;
+  #L1811f4.  v0:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` @kind object;
+  #L1811f8.  if v0 == 0 then goto L18125e;
+  #L1811fc.  v0:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTitleEnabled` @type ^`boolean` @kind boolean;
+  #L181200.  if v0 == 0 then goto L18122e;
+  #L181204.  v0:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L181208.  call temp:= `getText`(v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getText:()Ljava/lang/CharSequence;` @kind virtual;
+  #L18120e.  v0:= temp @kind object;
+  #L181210.  call temp:= `isEmpty`(v0) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L181216.  v0:= temp;
+  #L181218.  if v0 == 0 then goto L18122e;
+  #L18121c.  v0:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` @kind object;
+  #L181220.  call temp:= `getTitle`(v0) @signature `Landroidx/appcompat/widget/Toolbar;.getTitle:()Ljava/lang/CharSequence;` @kind virtual;
+  #L181226.  v0:= temp @kind object;
+  #L181228.  call `setTitle`(v8, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setTitle:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L18122e.  v0:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbarDirectChild` @type ^`android.view.View` @kind object;
+  #L181232.  if v0 == 0 then goto L18124c;
+  #L181236.  if v0 != v8 then goto L18123c;
+  #L18123a.  goto L18124c;
+  #L18123c.  call temp:= `getHeightWithMargins`(v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getHeightWithMargins:(Landroid/view/View;)I` @kind static;
+  #L181242.  v0:= temp;
+  #L181244.  call `setMinimumHeight`(v8, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setMinimumHeight:(I)V` @kind virtual;
+  #L18124a.  goto L18125e;
+  #L18124c.  v0:= v8.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` @kind object;
+  #L181250.  call temp:= `getHeightWithMargins`(v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getHeightWithMargins:(Landroid/view/View;)I` @kind static;
+  #L181256.  v0:= temp;
+  #L181258.  call `setMinimumHeight`(v8, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setMinimumHeight:(I)V` @kind virtual;
+  #L18125e.  call `updateScrimVisibility`(v8) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.updateScrimVisibility:()V` @kind virtual;
+  #L181264.  v0:= 0I;
+  #L181266.  call temp:= `getChildCount`(v8) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getChildCount:()I` @kind virtual;
+  #L18126c.  v1:= temp;
+  #L18126e.  if v0 >= v1 then goto L18128e;
+  #L181272.  call temp:= `getChildAt`(v8, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L181278.  v2:= temp @kind object;
+  #L18127a.  call temp:= `getViewOffsetHelper`(v2) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getViewOffsetHelper:(Landroid/view/View;)Lcom/google/android/material/appbar/ViewOffsetHelper;` @kind static;
+  #L181280.  v2:= temp @kind object;
+  #L181282.  call `applyOffsets`(v2) @signature `Lcom/google/android/material/appbar/ViewOffsetHelper;.applyOffsets:()V` @kind virtual;
+  #L181288.  v0:= v0 + 1;
+  #L18128c.  goto L18126e;
+  #L18128e.  return @kind void;
+}
+procedure `void` `onMeasure`(`com.google.android.material.appbar.CollapsingToolbarLayout` v4 @kind this, `int` v5 @name `widthMeasureSpec`, `int` v6 @name `heightMeasureSpec`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.onMeasure:(II)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1812a0.  call `ensureToolbar`(v4) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.ensureToolbar:()V` @kind direct;
+  #L1812a6.  call `onMeasure`(v4, v5, v6) @signature `Landroid/widget/FrameLayout;.onMeasure:(II)V` @kind super;
+  #L1812ac.  call temp:= `getMode`(v6) @signature `Landroid/view/View$MeasureSpec;.getMode:(I)I` @kind static;
+  #L1812b2.  v0:= temp;
+  #L1812b4.  v1:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.lastInsets` @type ^`androidx.core.view.WindowInsetsCompat` @kind object;
+  #L1812b8.  if v1 == 0 then goto L1812c6;
+  #L1812bc.  call temp:= `getSystemWindowInsetTop`(v1) @signature `Landroidx/core/view/WindowInsetsCompat;.getSystemWindowInsetTop:()I` @kind virtual;
+  #L1812c2.  v1:= temp;
+  #L1812c4.  goto L1812c8;
+  #L1812c6.  v1:= 0I;
+  #L1812c8.  if v0 != 0 then goto L1812ee;
+  #L1812cc.  if v1 <= 0 then goto L1812ee;
+  #L1812d0.  
+  #L1812d2.  call temp:= `getMeasuredHeight`(v4) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getMeasuredHeight:()I` @kind virtual;
+  #L1812d8.  v2:= temp;
+  #L1812da.  v2:= v2 + v1 @kind int;
+  #L1812dc.  v3:= 2.0F;
+  #L1812e0.  call temp:= `makeMeasureSpec`(v2, v3) @signature `Landroid/view/View$MeasureSpec;.makeMeasureSpec:(II)I` @kind static;
+  #L1812e6.  v6:= temp;
+  #L1812e8.  call `onMeasure`(v4, v5, v6) @signature `Landroid/widget/FrameLayout;.onMeasure:(II)V` @kind super;
+  #L1812ee.  return @kind void;
+}
+procedure `void` `onSizeChanged`(`com.google.android.material.appbar.CollapsingToolbarLayout` v2 @kind this, `int` v3 @name `w`, `int` v4 @name `h`, `int` v5 @name `oldw`, `int` v6 @name `oldh`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.onSizeChanged:(IIII)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L181300.  call `onSizeChanged`(v2, v3, v4, v5, v6) @signature `Landroid/widget/FrameLayout;.onSizeChanged:(IIII)V` @kind super;
+  #L181306.  v0:= v2.`com.google.android.material.appbar.CollapsingToolbarLayout.contentScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18130a.  if v0 == 0 then goto L181316;
+  #L18130e.  v1:= 0I;
+  #L181310.  call `setBounds`(v0, v1, v1, v3, v4) @signature `Landroid/graphics/drawable/Drawable;.setBounds:(IIII)V` @kind virtual;
+  #L181316.  return @kind void;
+}
+procedure `androidx.core.view.WindowInsetsCompat` `onWindowInsetChanged`(`com.google.android.material.appbar.CollapsingToolbarLayout` v2 @kind this, `androidx.core.view.WindowInsetsCompat` v3 @kind object @name `insets`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.onWindowInsetChanged:(Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L1806fc.  v0:= 0I;
+  #L1806fe.  call temp:= `getFitsSystemWindows`(v2) @signature `Landroidx/core/view/ViewCompat;.getFitsSystemWindows:(Landroid/view/View;)Z` @kind static;
+  #L180704.  v1:= temp;
+  #L180706.  if v1 == 0 then goto L18070c;
+  #L18070a.  v0:= v3 @kind object;
+  #L18070c.  v1:= v2.`com.google.android.material.appbar.CollapsingToolbarLayout.lastInsets` @type ^`androidx.core.view.WindowInsetsCompat` @kind object;
+  #L180710.  call temp:= `equals`(v1, v0) @signature `Landroidx/core/util/ObjectsCompat;.equals:(Ljava/lang/Object;Ljava/lang/Object;)Z` @kind static;
+  #L180716.  v1:= temp;
+  #L180718.  if v1 != 0 then goto L180726;
+  #L18071c.  v2.`com.google.android.material.appbar.CollapsingToolbarLayout.lastInsets` @type ^`androidx.core.view.WindowInsetsCompat` := v0 @kind object;
+  #L180720.  call `requestLayout`(v2) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.requestLayout:()V` @kind virtual;
+  #L180726.  call temp:= `consumeSystemWindowInsets`(v3) @signature `Landroidx/core/view/WindowInsetsCompat;.consumeSystemWindowInsets:()Landroidx/core/view/WindowInsetsCompat;` @kind virtual;
+  #L18072c.  v1:= temp @kind object;
+  #L18072e.  return v1 @kind object;
+}
+procedure `void` `setCollapsedTitleGravity`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `int` v2 @name `gravity`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setCollapsedTitleGravity:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L181328.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L18132c.  call `setCollapsedTextGravity`(v0, v2) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedTextGravity:(I)V` @kind virtual;
+  #L181332.  return @kind void;
+}
+procedure `void` `setCollapsedTitleTextAppearance`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `int` v2 @name `resId`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setCollapsedTitleTextAppearance:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L181344.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L181348.  call `setCollapsedTextAppearance`(v0, v2) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedTextAppearance:(I)V` @kind virtual;
+  #L18134e.  return @kind void;
+}
+procedure `void` `setCollapsedTitleTextColor`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `int` v2 @name `color`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setCollapsedTitleTextColor:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18137c.  call temp:= `valueOf`(v2) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L181382.  v0:= temp @kind object;
+  #L181384.  call `setCollapsedTitleTextColor`(v1, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setCollapsedTitleTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L18138a.  return @kind void;
+}
+procedure `void` `setCollapsedTitleTextColor`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `colors`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setCollapsedTitleTextColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L181360.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L181364.  call `setCollapsedTextColor`(v0, v2) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L18136a.  return @kind void;
+}
+procedure `void` `setCollapsedTitleTypeface`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `android.graphics.Typeface` v2 @kind object @name `typeface`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setCollapsedTitleTypeface:(Landroid/graphics/Typeface;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18139c.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L1813a0.  call `setCollapsedTypeface`(v0, v2) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedTypeface:(Landroid/graphics/Typeface;)V` @kind virtual;
+  #L1813a6.  return @kind void;
+}
+procedure `void` `setContentScrim`(`com.google.android.material.appbar.CollapsingToolbarLayout` v4 @kind this, `android.graphics.drawable.Drawable` v5 @kind object @name `drawable`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setContentScrim:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1813b8.  v0:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.contentScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1813bc.  if v0 == v5 then goto L181416;
+  #L1813c0.  v1:= 0I;
+  #L1813c2.  if v0 == 0 then goto L1813cc;
+  #L1813c6.  call `setCallback`(v0, v1) @signature `Landroid/graphics/drawable/Drawable;.setCallback:(Landroid/graphics/drawable/Drawable$Callback;)V` @kind virtual;
+  #L1813cc.  if v5 == 0 then goto L1813d8;
+  #L1813d0.  call temp:= `mutate`(v5) @signature `Landroid/graphics/drawable/Drawable;.mutate:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1813d6.  v1:= temp @kind object;
+  #L1813d8.  v4.`com.google.android.material.appbar.CollapsingToolbarLayout.contentScrim` @type ^`android.graphics.drawable.Drawable` := v1 @kind object;
+  #L1813dc.  if v1 == 0 then goto L181410;
+  #L1813e0.  call temp:= `getWidth`(v4) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getWidth:()I` @kind virtual;
+  #L1813e6.  v0:= temp;
+  #L1813e8.  call temp:= `getHeight`(v4) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getHeight:()I` @kind virtual;
+  #L1813ee.  v2:= temp;
+  #L1813f0.  v3:= 0I;
+  #L1813f2.  call `setBounds`(v1, v3, v3, v0, v2) @signature `Landroid/graphics/drawable/Drawable;.setBounds:(IIII)V` @kind virtual;
+  #L1813f8.  v0:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.contentScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1813fc.  call `setCallback`(v0, v4) @signature `Landroid/graphics/drawable/Drawable;.setCallback:(Landroid/graphics/drawable/Drawable$Callback;)V` @kind virtual;
+  #L181402.  v0:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.contentScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L181406.  v1:= v4.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAlpha` @type ^`int`;
+  #L18140a.  call `setAlpha`(v0, v1) @signature `Landroid/graphics/drawable/Drawable;.setAlpha:(I)V` @kind virtual;
+  #L181410.  call `postInvalidateOnAnimation`(v4) @signature `Landroidx/core/view/ViewCompat;.postInvalidateOnAnimation:(Landroid/view/View;)V` @kind static;
+  #L181416.  return @kind void;
+}
+procedure `void` `setContentScrimColor`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `int` v2 @name `color`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setContentScrimColor:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L181428.  v0:= new `android.graphics.drawable.ColorDrawable`;
+  #L18142c.  call `<init>`(v0, v2) @signature `Landroid/graphics/drawable/ColorDrawable;.<init>:(I)V` @kind direct;
+  #L181432.  call `setContentScrim`(v1, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setContentScrim:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L181438.  return @kind void;
+}
+procedure `void` `setContentScrimResource`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `int` v2 @name `resId`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setContentScrimResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18144c.  call temp:= `getContext`(v1) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L181452.  v0:= temp @kind object;
+  #L181454.  call temp:= `getDrawable`(v0, v2) @signature `Landroidx/core/content/ContextCompat;.getDrawable:(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;` @kind static;
+  #L18145a.  v0:= temp @kind object;
+  #L18145c.  call `setContentScrim`(v1, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setContentScrim:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L181462.  return @kind void;
+}
+procedure `void` `setExpandedTitleColor`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `int` v2 @name `color`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setExpandedTitleColor:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L181474.  call temp:= `valueOf`(v2) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L18147a.  v0:= temp @kind object;
+  #L18147c.  call `setExpandedTitleTextColor`(v1, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setExpandedTitleTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L181482.  return @kind void;
+}
+procedure `void` `setExpandedTitleGravity`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `int` v2 @name `gravity`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setExpandedTitleGravity:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L181494.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L181498.  call `setExpandedTextGravity`(v0, v2) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedTextGravity:(I)V` @kind virtual;
+  #L18149e.  return @kind void;
+}
+procedure `void` `setExpandedTitleMargin`(`com.google.android.material.appbar.CollapsingToolbarLayout` v0 @kind this, `int` v1 @name `start`, `int` v2 @name `top`, `int` v3 @name `end`, `int` v4 @name `bottom`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setExpandedTitleMargin:(IIII)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1814b0.  v0.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginStart` @type ^`int` := v1;
+  #L1814b4.  v0.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginTop` @type ^`int` := v2;
+  #L1814b8.  v0.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginEnd` @type ^`int` := v3;
+  #L1814bc.  v0.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginBottom` @type ^`int` := v4;
+  #L1814c0.  call `requestLayout`(v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.requestLayout:()V` @kind virtual;
+  #L1814c6.  return @kind void;
+}
+procedure `void` `setExpandedTitleMarginBottom`(`com.google.android.material.appbar.CollapsingToolbarLayout` v0 @kind this, `int` v1 @name `margin`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setExpandedTitleMarginBottom:(I)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1814d8.  v0.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginBottom` @type ^`int` := v1;
+  #L1814dc.  call `requestLayout`(v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.requestLayout:()V` @kind virtual;
+  #L1814e2.  return @kind void;
+}
+procedure `void` `setExpandedTitleMarginEnd`(`com.google.android.material.appbar.CollapsingToolbarLayout` v0 @kind this, `int` v1 @name `margin`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setExpandedTitleMarginEnd:(I)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1814f4.  v0.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginEnd` @type ^`int` := v1;
+  #L1814f8.  call `requestLayout`(v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.requestLayout:()V` @kind virtual;
+  #L1814fe.  return @kind void;
+}
+procedure `void` `setExpandedTitleMarginStart`(`com.google.android.material.appbar.CollapsingToolbarLayout` v0 @kind this, `int` v1 @name `margin`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setExpandedTitleMarginStart:(I)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L181510.  v0.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginStart` @type ^`int` := v1;
+  #L181514.  call `requestLayout`(v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.requestLayout:()V` @kind virtual;
+  #L18151a.  return @kind void;
+}
+procedure `void` `setExpandedTitleMarginTop`(`com.google.android.material.appbar.CollapsingToolbarLayout` v0 @kind this, `int` v1 @name `margin`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setExpandedTitleMarginTop:(I)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L18152c.  v0.`com.google.android.material.appbar.CollapsingToolbarLayout.expandedMarginTop` @type ^`int` := v1;
+  #L181530.  call `requestLayout`(v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.requestLayout:()V` @kind virtual;
+  #L181536.  return @kind void;
+}
+procedure `void` `setExpandedTitleTextAppearance`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `int` v2 @name `resId`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setExpandedTitleTextAppearance:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L181548.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L18154c.  call `setExpandedTextAppearance`(v0, v2) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedTextAppearance:(I)V` @kind virtual;
+  #L181552.  return @kind void;
+}
+procedure `void` `setExpandedTitleTextColor`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `colors`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setExpandedTitleTextColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L181564.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L181568.  call `setExpandedTextColor`(v0, v2) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L18156e.  return @kind void;
+}
+procedure `void` `setExpandedTitleTypeface`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `android.graphics.Typeface` v2 @kind object @name `typeface`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setExpandedTitleTypeface:(Landroid/graphics/Typeface;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L181580.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L181584.  call `setExpandedTypeface`(v0, v2) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedTypeface:(Landroid/graphics/Typeface;)V` @kind virtual;
+  #L18158a.  return @kind void;
+}
+procedure `void` `setScrimAlpha`(`com.google.android.material.appbar.CollapsingToolbarLayout` v2 @kind this, `int` v3 @name `alpha`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setScrimAlpha:(I)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L18159c.  v0:= v2.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAlpha` @type ^`int`;
+  #L1815a0.  if v3 == v0 then goto L1815c4;
+  #L1815a4.  v0:= v2.`com.google.android.material.appbar.CollapsingToolbarLayout.contentScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1815a8.  if v0 == 0 then goto L1815ba;
+  #L1815ac.  v1:= v2.`com.google.android.material.appbar.CollapsingToolbarLayout.toolbar` @type ^`androidx.appcompat.widget.Toolbar` @kind object;
+  #L1815b0.  if v1 == 0 then goto L1815ba;
+  #L1815b4.  call `postInvalidateOnAnimation`(v1) @signature `Landroidx/core/view/ViewCompat;.postInvalidateOnAnimation:(Landroid/view/View;)V` @kind static;
+  #L1815ba.  v2.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAlpha` @type ^`int` := v3;
+  #L1815be.  call `postInvalidateOnAnimation`(v2) @signature `Landroidx/core/view/ViewCompat;.postInvalidateOnAnimation:(Landroid/view/View;)V` @kind static;
+  #L1815c4.  return @kind void;
+}
+procedure `void` `setScrimAnimationDuration`(`com.google.android.material.appbar.CollapsingToolbarLayout` v0 @kind this, `long` v1 @name `duration`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setScrimAnimationDuration:(J)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1815d8.  v0.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAnimationDuration` @type ^`long` := v1 @kind wide;
+  #L1815dc.  return @kind void;
+}
+procedure `void` `setScrimVisibleHeightTrigger`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `int` v2 @name `height`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setScrimVisibleHeightTrigger:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1815f0.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimVisibleHeightTrigger` @type ^`int`;
+  #L1815f4.  if v0 == v2 then goto L181602;
+  #L1815f8.  v1.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimVisibleHeightTrigger` @type ^`int` := v2;
+  #L1815fc.  call `updateScrimVisibility`(v1) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.updateScrimVisibility:()V` @kind virtual;
+  #L181602.  return @kind void;
+}
+procedure `void` `setScrimsShown`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `boolean` v2 @name `shown`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setScrimsShown:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L181614.  call temp:= `isLaidOut`(v1) @signature `Landroidx/core/view/ViewCompat;.isLaidOut:(Landroid/view/View;)Z` @kind static;
+  #L18161a.  v0:= temp;
+  #L18161c.  if v0 == 0 then goto L181630;
+  #L181620.  call temp:= `isInEditMode`(v1) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.isInEditMode:()Z` @kind virtual;
+  #L181626.  v0:= temp;
+  #L181628.  if v0 != 0 then goto L181630;
+  #L18162c.  v0:= 1I;
+  #L18162e.  goto L181632;
+  #L181630.  v0:= 0I;
+  #L181632.  call `setScrimsShown`(v1, v2, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setScrimsShown:(ZZ)V` @kind virtual;
+  #L181638.  return @kind void;
+}
+procedure `void` `setScrimsShown`(`com.google.android.material.appbar.CollapsingToolbarLayout` v2 @kind this, `boolean` v3 @name `shown`, `boolean` v4 @name `animate`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setScrimsShown:(ZZ)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L18164c.  v0:= v2.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimsAreShown` @type ^`boolean` @kind boolean;
+  #L181650.  if v0 == v3 then goto L181680;
+  #L181654.  v0:= 255I;
+  #L181658.  v1:= 0I;
+  #L18165a.  if v4 == 0 then goto L18166e;
+  #L18165e.  if v3 == 0 then goto L181664;
+  #L181662.  goto L181666;
+  #L181664.  v0:= v1;
+  #L181666.  call `animateScrim`(v2, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.animateScrim:(I)V` @kind direct;
+  #L18166c.  goto L18167c;
+  #L18166e.  if v3 == 0 then goto L181674;
+  #L181672.  goto L181676;
+  #L181674.  v0:= v1;
+  #L181676.  call `setScrimAlpha`(v2, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setScrimAlpha:(I)V` @kind virtual;
+  #L18167c.  v2.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimsAreShown` @type ^`boolean` := v3 @kind boolean;
+  #L181680.  return @kind void;
+}
+procedure `void` `setStatusBarScrim`(`com.google.android.material.appbar.CollapsingToolbarLayout` v3 @kind this, `android.graphics.drawable.Drawable` v4 @kind object @name `drawable`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setStatusBarScrim:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L181694.  v0:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.statusBarScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L181698.  if v0 == v4 then goto L181728;
+  #L18169c.  v1:= 0I;
+  #L18169e.  if v0 == 0 then goto L1816a8;
+  #L1816a2.  call `setCallback`(v0, v1) @signature `Landroid/graphics/drawable/Drawable;.setCallback:(Landroid/graphics/drawable/Drawable$Callback;)V` @kind virtual;
+  #L1816a8.  if v4 == 0 then goto L1816b4;
+  #L1816ac.  call temp:= `mutate`(v4) @signature `Landroid/graphics/drawable/Drawable;.mutate:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1816b2.  v1:= temp @kind object;
+  #L1816b4.  v3.`com.google.android.material.appbar.CollapsingToolbarLayout.statusBarScrim` @type ^`android.graphics.drawable.Drawable` := v1 @kind object;
+  #L1816b8.  if v1 == 0 then goto L181722;
+  #L1816bc.  call temp:= `isStateful`(v1) @signature `Landroid/graphics/drawable/Drawable;.isStateful:()Z` @kind virtual;
+  #L1816c2.  v0:= temp;
+  #L1816c4.  if v0 == 0 then goto L1816da;
+  #L1816c8.  v0:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.statusBarScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1816cc.  call temp:= `getDrawableState`(v3) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getDrawableState:()[I` @kind virtual;
+  #L1816d2.  v1:= temp @kind object;
+  #L1816d4.  call temp:= `setState`(v0, v1) @signature `Landroid/graphics/drawable/Drawable;.setState:([I)Z` @kind virtual;
+  #L1816da.  v0:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.statusBarScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1816de.  call temp:= `getLayoutDirection`(v3) @signature `Landroidx/core/view/ViewCompat;.getLayoutDirection:(Landroid/view/View;)I` @kind static;
+  #L1816e4.  v1:= temp;
+  #L1816e6.  call temp:= `setLayoutDirection`(v0, v1) @signature `Landroidx/core/graphics/drawable/DrawableCompat;.setLayoutDirection:(Landroid/graphics/drawable/Drawable;I)Z` @kind static;
+  #L1816ec.  v0:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.statusBarScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1816f0.  call temp:= `getVisibility`(v3) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getVisibility:()I` @kind virtual;
+  #L1816f6.  v1:= temp;
+  #L1816f8.  v2:= 0I;
+  #L1816fa.  if v1 != 0 then goto L181702;
+  #L1816fe.  v1:= 1I;
+  #L181700.  goto L181704;
+  #L181702.  v1:= v2;
+  #L181704.  call temp:= `setVisible`(v0, v1, v2) @signature `Landroid/graphics/drawable/Drawable;.setVisible:(ZZ)Z` @kind virtual;
+  #L18170a.  v0:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.statusBarScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18170e.  call `setCallback`(v0, v3) @signature `Landroid/graphics/drawable/Drawable;.setCallback:(Landroid/graphics/drawable/Drawable$Callback;)V` @kind virtual;
+  #L181714.  v0:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.statusBarScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L181718.  v1:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.scrimAlpha` @type ^`int`;
+  #L18171c.  call `setAlpha`(v0, v1) @signature `Landroid/graphics/drawable/Drawable;.setAlpha:(I)V` @kind virtual;
+  #L181722.  call `postInvalidateOnAnimation`(v3) @signature `Landroidx/core/view/ViewCompat;.postInvalidateOnAnimation:(Landroid/view/View;)V` @kind static;
+  #L181728.  return @kind void;
+}
+procedure `void` `setStatusBarScrimColor`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `int` v2 @name `color`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setStatusBarScrimColor:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18173c.  v0:= new `android.graphics.drawable.ColorDrawable`;
+  #L181740.  call `<init>`(v0, v2) @signature `Landroid/graphics/drawable/ColorDrawable;.<init>:(I)V` @kind direct;
+  #L181746.  call `setStatusBarScrim`(v1, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setStatusBarScrim:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L18174c.  return @kind void;
+}
+procedure `void` `setStatusBarScrimResource`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `int` v2 @name `resId`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setStatusBarScrimResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L181760.  call temp:= `getContext`(v1) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L181766.  v0:= temp @kind object;
+  #L181768.  call temp:= `getDrawable`(v0, v2) @signature `Landroidx/core/content/ContextCompat;.getDrawable:(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;` @kind static;
+  #L18176e.  v0:= temp @kind object;
+  #L181770.  call `setStatusBarScrim`(v1, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setStatusBarScrim:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L181776.  return @kind void;
+}
+procedure `void` `setTitle`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `title`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setTitle:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L181788.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L18178c.  call `setText`(v0, v2) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L181792.  call `updateContentDescriptionFromTitle`(v1) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.updateContentDescriptionFromTitle:()V` @kind direct;
+  #L181798.  return @kind void;
+}
+procedure `void` `setTitleEnabled`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `boolean` v2 @name `enabled`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setTitleEnabled:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1817ac.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTitleEnabled` @type ^`boolean` @kind boolean;
+  #L1817b0.  if v2 == v0 then goto L1817ca;
+  #L1817b4.  v1.`com.google.android.material.appbar.CollapsingToolbarLayout.collapsingTitleEnabled` @type ^`boolean` := v2 @kind boolean;
+  #L1817b8.  call `updateContentDescriptionFromTitle`(v1) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.updateContentDescriptionFromTitle:()V` @kind direct;
+  #L1817be.  call `updateDummyView`(v1) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.updateDummyView:()V` @kind direct;
+  #L1817c4.  call `requestLayout`(v1) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.requestLayout:()V` @kind virtual;
+  #L1817ca.  return @kind void;
+}
+procedure `void` `setVisibility`(`com.google.android.material.appbar.CollapsingToolbarLayout` v3 @kind this, `int` v4 @name `visibility`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setVisibility:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1817dc.  call `setVisibility`(v3, v4) @signature `Landroid/widget/FrameLayout;.setVisibility:(I)V` @kind super;
+  #L1817e2.  v0:= 0I;
+  #L1817e4.  if v4 != 0 then goto L1817ec;
+  #L1817e8.  v1:= 1I;
+  #L1817ea.  goto L1817ee;
+  #L1817ec.  v1:= v0;
+  #L1817ee.  v2:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.statusBarScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1817f2.  if v2 == 0 then goto L18180c;
+  #L1817f6.  call temp:= `isVisible`(v2) @signature `Landroid/graphics/drawable/Drawable;.isVisible:()Z` @kind virtual;
+  #L1817fc.  v2:= temp;
+  #L1817fe.  if v2 == v1 then goto L18180c;
+  #L181802.  v2:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.statusBarScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L181806.  call temp:= `setVisible`(v2, v1, v0) @signature `Landroid/graphics/drawable/Drawable;.setVisible:(ZZ)Z` @kind virtual;
+  #L18180c.  v2:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.contentScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L181810.  if v2 == 0 then goto L18182a;
+  #L181814.  call temp:= `isVisible`(v2) @signature `Landroid/graphics/drawable/Drawable;.isVisible:()Z` @kind virtual;
+  #L18181a.  v2:= temp;
+  #L18181c.  if v2 == v1 then goto L18182a;
+  #L181820.  v2:= v3.`com.google.android.material.appbar.CollapsingToolbarLayout.contentScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L181824.  call temp:= `setVisible`(v2, v1, v0) @signature `Landroid/graphics/drawable/Drawable;.setVisible:(ZZ)Z` @kind virtual;
+  #L18182a.  return @kind void;
+}
+procedure `void` `updateScrimVisibility`(`com.google.android.material.appbar.CollapsingToolbarLayout` v2 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.updateScrimVisibility:()V` @AccessFlag FINAL {
+    temp;
+    v0;
+    v1;
+
+  #L1818ec.  v0:= v2.`com.google.android.material.appbar.CollapsingToolbarLayout.contentScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1818f0.  if v0 != 0 then goto L1818fc;
+  #L1818f4.  v0:= v2.`com.google.android.material.appbar.CollapsingToolbarLayout.statusBarScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1818f8.  if v0 == 0 then goto L181922;
+  #L1818fc.  call temp:= `getHeight`(v2) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getHeight:()I` @kind virtual;
+  #L181902.  v0:= temp;
+  #L181904.  v1:= v2.`com.google.android.material.appbar.CollapsingToolbarLayout.currentOffset` @type ^`int`;
+  #L181908.  v0:= v0 + v1 @kind int;
+  #L18190a.  call temp:= `getScrimVisibleHeightTrigger`(v2) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.getScrimVisibleHeightTrigger:()I` @kind virtual;
+  #L181910.  v1:= temp;
+  #L181912.  if v0 >= v1 then goto L18191a;
+  #L181916.  v0:= 1I;
+  #L181918.  goto L18191c;
+  #L18191a.  v0:= 0I;
+  #L18191c.  call `setScrimsShown`(v2, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setScrimsShown:(Z)V` @kind virtual;
+  #L181922.  return @kind void;
+}
+procedure `boolean` `verifyDrawable`(`com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `who`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.verifyDrawable:(Landroid/graphics/drawable/Drawable;)Z` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L180814.  call temp:= `verifyDrawable`(v1, v2) @signature `Landroid/widget/FrameLayout;.verifyDrawable:(Landroid/graphics/drawable/Drawable;)Z` @kind super;
+  #L18081a.  v0:= temp;
+  #L18081c.  if v0 != 0 then goto L180836;
+  #L180820.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.contentScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L180824.  if v2 == v0 then goto L180836;
+  #L180828.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout.statusBarScrim` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18082c.  if v2 != v0 then goto L180832;
+  #L180830.  goto L180836;
+  #L180832.  v0:= 0I;
+  #L180834.  goto L180838;
+  #L180836.  v0:= 1I;
+  #L180838.  return v0;
+}

@@ -1,0 +1,44 @@
+record `com.google.android.material.bottomsheet.BottomSheetDialog$2` @kind class @AccessFlag  extends `androidx.core.view.AccessibilityDelegateCompat` @kind class {
+  `com.google.android.material.bottomsheet.BottomSheetDialog` `com.google.android.material.bottomsheet.BottomSheetDialog$2.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomsheet.BottomSheetDialog$2` v0 @kind this, `com.google.android.material.bottomsheet.BottomSheetDialog` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog$2;.<init>:(Lcom/google/android/material/bottomsheet/BottomSheetDialog;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L18a7f8.  v0.`com.google.android.material.bottomsheet.BottomSheetDialog$2.this$0` @type ^`com.google.android.material.bottomsheet.BottomSheetDialog` := v1 @kind object;
+  #L18a7fc.  call `<init>`(v0) @signature `Landroidx/core/view/AccessibilityDelegateCompat;.<init>:()V` @kind direct;
+  #L18a802.  return @kind void;
+}
+procedure `void` `onInitializeAccessibilityNodeInfo`(`com.google.android.material.bottomsheet.BottomSheetDialog$2` v1 @kind this, `android.view.View` v2 @kind object @name `host`, `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v3 @kind object @name `info`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog$2;.onInitializeAccessibilityNodeInfo:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18a814.  call `onInitializeAccessibilityNodeInfo`(v1, v2, v3) @signature `Landroidx/core/view/AccessibilityDelegateCompat;.onInitializeAccessibilityNodeInfo:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V` @kind super;
+  #L18a81a.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetDialog$2.this$0` @type ^`com.google.android.material.bottomsheet.BottomSheetDialog` @kind object;
+  #L18a81e.  v0:= v0.`com.google.android.material.bottomsheet.BottomSheetDialog.cancelable` @type ^`boolean` @kind boolean;
+  #L18a822.  if v0 == 0 then goto L18a83a;
+  #L18a826.  v0:= 1048576I;
+  #L18a82a.  call `addAction`(v3, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.addAction:(I)V` @kind virtual;
+  #L18a830.  v0:= 1I;
+  #L18a832.  call `setDismissable`(v3, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setDismissable:(Z)V` @kind virtual;
+  #L18a838.  goto L18a842;
+  #L18a83a.  v0:= 0I;
+  #L18a83c.  call `setDismissable`(v3, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setDismissable:(Z)V` @kind virtual;
+  #L18a842.  return @kind void;
+}
+procedure `boolean` `performAccessibilityAction`(`com.google.android.material.bottomsheet.BottomSheetDialog$2` v1 @kind this, `android.view.View` v2 @kind object @name `host`, `int` v3 @name `action`, `android.os.Bundle` v4 @kind object @name `args`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog$2;.performAccessibilityAction:(Landroid/view/View;ILandroid/os/Bundle;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18a7bc.  v0:= 1048576I;
+  #L18a7c0.  if v3 != v0 then goto L18a7de;
+  #L18a7c4.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetDialog$2.this$0` @type ^`com.google.android.material.bottomsheet.BottomSheetDialog` @kind object;
+  #L18a7c8.  v0:= v0.`com.google.android.material.bottomsheet.BottomSheetDialog.cancelable` @type ^`boolean` @kind boolean;
+  #L18a7cc.  if v0 == 0 then goto L18a7de;
+  #L18a7d0.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetDialog$2.this$0` @type ^`com.google.android.material.bottomsheet.BottomSheetDialog` @kind object;
+  #L18a7d4.  call `cancel`(v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.cancel:()V` @kind virtual;
+  #L18a7da.  v0:= 1I;
+  #L18a7dc.  return v0;
+  #L18a7de.  call temp:= `performAccessibilityAction`(v1, v2, v3, v4) @signature `Landroidx/core/view/AccessibilityDelegateCompat;.performAccessibilityAction:(Landroid/view/View;ILandroid/os/Bundle;)Z` @kind super;
+  #L18a7e4.  v0:= temp;
+  #L18a7e6.  return v0;
+}

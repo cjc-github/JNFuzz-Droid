@@ -1,0 +1,28 @@
+record `com.google.android.material.shape.CornerTreatment` @kind class @AccessFlag PUBLIC {
+}
+procedure `void` `<init>`(`com.google.android.material.shape.CornerTreatment` v0 @kind this) @signature `Lcom/google/android/material/shape/CornerTreatment;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1aaacc.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1aaad2.  return @kind void;
+}
+procedure `void` `getCornerPath`(`com.google.android.material.shape.CornerTreatment` v0 @kind this, `float` v1 @name `angle`, `float` v2 @name `interpolation`, `com.google.android.material.shape.ShapePath` v3 @kind object @name `shapePath`) @signature `Lcom/google/android/material/shape/CornerTreatment;.getCornerPath:(FFLcom/google/android/material/shape/ShapePath;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1aab1c.  return @kind void;
+}
+procedure `void` `getCornerPath`(`com.google.android.material.shape.CornerTreatment` v0 @kind this, `com.google.android.material.shape.ShapePath` v1 @kind object @name `shapePath`, `float` v2 @name `angle`, `float` v3 @name `interpolation`, `float` v4 @name `radius`) @signature `Lcom/google/android/material/shape/CornerTreatment;.getCornerPath:(Lcom/google/android/material/shape/ShapePath;FFF)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1aab04.  call `getCornerPath`(v0, v2, v3, v1) @signature `Lcom/google/android/material/shape/CornerTreatment;.getCornerPath:(FFLcom/google/android/material/shape/ShapePath;)V` @kind virtual;
+  #L1aab0a.  return @kind void;
+}
+procedure `void` `getCornerPath`(`com.google.android.material.shape.CornerTreatment` v1 @kind this, `com.google.android.material.shape.ShapePath` v2 @kind object @name `shapePath`, `float` v3 @name `angle`, `float` v4 @name `interpolation`, `android.graphics.RectF` v5 @kind object @name `bounds`, `com.google.android.material.shape.CornerSize` v6 @kind object @name `size`) @signature `Lcom/google/android/material/shape/CornerTreatment;.getCornerPath:(Lcom/google/android/material/shape/ShapePath;FFLandroid/graphics/RectF;Lcom/google/android/material/shape/CornerSize;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1aaae4.  call temp:= `getCornerSize`(v6, v5) @signature `Lcom/google/android/material/shape/CornerSize;.getCornerSize:(Landroid/graphics/RectF;)F` @kind interface;
+  #L1aaaea.  v0:= temp;
+  #L1aaaec.  call `getCornerPath`(v1, v2, v3, v4, v0) @signature `Lcom/google/android/material/shape/CornerTreatment;.getCornerPath:(Lcom/google/android/material/shape/ShapePath;FFF)V` @kind virtual;
+  #L1aaaf2.  return @kind void;
+}

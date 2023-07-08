@@ -1,0 +1,415 @@
+record `androidx.drawerlayout.widget.DrawerLayout` @kind class @AccessFlag PUBLIC extends `android.view.ViewGroup` @kind class {
+  `androidx.drawerlayout.widget.DrawerLayout$ChildAccessibilityDelegate` `androidx.drawerlayout.widget.DrawerLayout.mChildAccessibilityDelegate` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.Rect` `androidx.drawerlayout.widget.DrawerLayout.mChildHitRect` @AccessFlag PRIVATE;
+  `android.graphics.Matrix` `androidx.drawerlayout.widget.DrawerLayout.mChildInvertedMatrix` @AccessFlag PRIVATE;
+  `boolean` `androidx.drawerlayout.widget.DrawerLayout.mChildrenCanceledTouch` @AccessFlag PRIVATE;
+  `boolean` `androidx.drawerlayout.widget.DrawerLayout.mDisallowInterceptRequested` @AccessFlag PRIVATE;
+  `boolean` `androidx.drawerlayout.widget.DrawerLayout.mDrawStatusBarBackground` @AccessFlag PRIVATE;
+  `float` `androidx.drawerlayout.widget.DrawerLayout.mDrawerElevation` @AccessFlag PRIVATE;
+  `int` `androidx.drawerlayout.widget.DrawerLayout.mDrawerState` @AccessFlag PRIVATE;
+  `boolean` `androidx.drawerlayout.widget.DrawerLayout.mFirstLayout` @AccessFlag PRIVATE;
+  `boolean` `androidx.drawerlayout.widget.DrawerLayout.mInLayout` @AccessFlag PRIVATE;
+  `float` `androidx.drawerlayout.widget.DrawerLayout.mInitialMotionX` @AccessFlag PRIVATE;
+  `float` `androidx.drawerlayout.widget.DrawerLayout.mInitialMotionY` @AccessFlag PRIVATE;
+  `java.lang.Object` `androidx.drawerlayout.widget.DrawerLayout.mLastInsets` @AccessFlag PRIVATE;
+  `androidx.drawerlayout.widget.DrawerLayout$ViewDragCallback` `androidx.drawerlayout.widget.DrawerLayout.mLeftCallback` @AccessFlag PRIVATE_FINAL;
+  `androidx.customview.widget.ViewDragHelper` `androidx.drawerlayout.widget.DrawerLayout.mLeftDragger` @AccessFlag PRIVATE_FINAL;
+  `androidx.drawerlayout.widget.DrawerLayout$DrawerListener` `androidx.drawerlayout.widget.DrawerLayout.mListener` @AccessFlag PRIVATE;
+  `java.util.List` `androidx.drawerlayout.widget.DrawerLayout.mListeners` @AccessFlag PRIVATE;
+  `int` `androidx.drawerlayout.widget.DrawerLayout.mLockModeEnd` @AccessFlag PRIVATE;
+  `int` `androidx.drawerlayout.widget.DrawerLayout.mLockModeLeft` @AccessFlag PRIVATE;
+  `int` `androidx.drawerlayout.widget.DrawerLayout.mLockModeRight` @AccessFlag PRIVATE;
+  `int` `androidx.drawerlayout.widget.DrawerLayout.mLockModeStart` @AccessFlag PRIVATE;
+  `int` `androidx.drawerlayout.widget.DrawerLayout.mMinDrawerMargin` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.drawerlayout.widget.DrawerLayout.mNonDrawerViews` @AccessFlag PRIVATE_FINAL;
+  `androidx.drawerlayout.widget.DrawerLayout$ViewDragCallback` `androidx.drawerlayout.widget.DrawerLayout.mRightCallback` @AccessFlag PRIVATE_FINAL;
+  `androidx.customview.widget.ViewDragHelper` `androidx.drawerlayout.widget.DrawerLayout.mRightDragger` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.drawerlayout.widget.DrawerLayout.mScrimColor` @AccessFlag PRIVATE;
+  `float` `androidx.drawerlayout.widget.DrawerLayout.mScrimOpacity` @AccessFlag PRIVATE;
+  `android.graphics.Paint` `androidx.drawerlayout.widget.DrawerLayout.mScrimPaint` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `androidx.drawerlayout.widget.DrawerLayout.mShadowEnd` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `androidx.drawerlayout.widget.DrawerLayout.mShadowLeft` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `androidx.drawerlayout.widget.DrawerLayout.mShadowLeftResolved` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `androidx.drawerlayout.widget.DrawerLayout.mShadowRight` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `androidx.drawerlayout.widget.DrawerLayout.mShadowRightResolved` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `androidx.drawerlayout.widget.DrawerLayout.mShadowStart` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `androidx.drawerlayout.widget.DrawerLayout.mStatusBarBackground` @AccessFlag PRIVATE;
+  `java.lang.CharSequence` `androidx.drawerlayout.widget.DrawerLayout.mTitleLeft` @AccessFlag PRIVATE;
+  `java.lang.CharSequence` `androidx.drawerlayout.widget.DrawerLayout.mTitleRight` @AccessFlag PRIVATE;
+}
+global `boolean` `@@androidx.drawerlayout.widget.DrawerLayout.ALLOW_EDGE_LOCK` @AccessFlag PRIVATE_STATIC_FINAL;
+global `boolean` `@@androidx.drawerlayout.widget.DrawerLayout.CAN_HIDE_DESCENDANTS` @AccessFlag STATIC_FINAL;
+global `boolean` `@@androidx.drawerlayout.widget.DrawerLayout.CHILDREN_DISALLOW_INTERCEPT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.drawerlayout.widget.DrawerLayout.DEFAULT_SCRIM_COLOR` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.drawerlayout.widget.DrawerLayout.DRAWER_ELEVATION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int`[] `@@androidx.drawerlayout.widget.DrawerLayout.LAYOUT_ATTRS` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_CLOSED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_LOCKED_OPEN` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_UNDEFINED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_UNLOCKED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.drawerlayout.widget.DrawerLayout.MIN_DRAWER_MARGIN` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.drawerlayout.widget.DrawerLayout.MIN_FLING_VELOCITY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.drawerlayout.widget.DrawerLayout.PEEK_DELAY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `boolean` `@@androidx.drawerlayout.widget.DrawerLayout.SET_DRAWER_SHADOW_FROM_ELEVATION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.drawerlayout.widget.DrawerLayout.STATE_DRAGGING` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.drawerlayout.widget.DrawerLayout.STATE_IDLE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.drawerlayout.widget.DrawerLayout.STATE_SETTLING` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.drawerlayout.widget.DrawerLayout.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int`[] `@@androidx.drawerlayout.widget.DrawerLayout.THEME_ATTRS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `float` `@@androidx.drawerlayout.widget.DrawerLayout.TOUCH_SLOP_SENSITIVITY` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/drawerlayout/widget/DrawerLayout;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.drawerlayout.widget.DrawerLayout` v8 @kind this, `android.content.Context` v9 @kind object @name `context`, `android.util.AttributeSet` v10 @kind object @name `attrs`, `int` v11 @name `defStyle`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `boolean` `dispatchTransformedGenericPointerEvent`(`androidx.drawerlayout.widget.DrawerLayout` v6 @kind this, `android.view.MotionEvent` v7 @kind object @name `event`, `android.view.View` v8 @kind object @name `child`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.dispatchTransformedGenericPointerEvent:(Landroid/view/MotionEvent;Landroid/view/View;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.view.MotionEvent` `getTransformedMotionEvent`(`androidx.drawerlayout.widget.DrawerLayout` v5 @kind this, `android.view.MotionEvent` v6 @kind object @name `event`, `android.view.View` v7 @kind object @name `child`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.getTransformedMotionEvent:(Landroid/view/MotionEvent;Landroid/view/View;)Landroid/view/MotionEvent;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `java.lang.String` `gravityToString`(`int` v2 @name `gravity`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.gravityToString:(I)Ljava/lang/String;` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `boolean` `hasOpaqueBackground`(`android.view.View` v4 @kind object @name `v`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.hasOpaqueBackground:(Landroid/view/View;)Z` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `boolean` `hasPeekingDrawer`(`androidx.drawerlayout.widget.DrawerLayout` v4 @kind this) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.hasPeekingDrawer:()Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `hasVisibleDrawer`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.hasVisibleDrawer:()Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `includeChildForAccessibility`(`android.view.View` v2 @kind object @name `child`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.includeChildForAccessibility:(Landroid/view/View;)Z` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `boolean` `isInBoundsOfChild`(`androidx.drawerlayout.widget.DrawerLayout` v3 @kind this, `float` v4 @name `x`, `float` v5 @name `y`, `android.view.View` v6 @kind object @name `child`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.isInBoundsOfChild:(FFLandroid/view/View;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `mirror`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `drawable`, `int` v3 @name `layoutDirection`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.mirror:(Landroid/graphics/drawable/Drawable;I)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `resolveLeftShadow`(`androidx.drawerlayout.widget.DrawerLayout` v2 @kind this) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.resolveLeftShadow:()Landroid/graphics/drawable/Drawable;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `resolveRightShadow`(`androidx.drawerlayout.widget.DrawerLayout` v2 @kind this) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.resolveRightShadow:()Landroid/graphics/drawable/Drawable;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `resolveShadowDrawables`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.resolveShadowDrawables:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateChildrenImportantForAccessibility`(`androidx.drawerlayout.widget.DrawerLayout` v4 @kind this, `android.view.View` v5 @kind object @name `drawerView`, `boolean` v6 @name `isDrawerOpen`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.updateChildrenImportantForAccessibility:(Landroid/view/View;Z)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `addDrawerListener`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `androidx.drawerlayout.widget.DrawerLayout$DrawerListener` v2 @kind object @name `listener`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.addDrawerListener:(Landroidx/drawerlayout/widget/DrawerLayout$DrawerListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addFocusables`(`androidx.drawerlayout.widget.DrawerLayout` v6 @kind this, `java.util.ArrayList` v7 @kind object, `int` v8 @name `direction`, `int` v9 @name `focusableMode`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.addFocusables:(Ljava/util/ArrayList;II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addView`(`androidx.drawerlayout.widget.DrawerLayout` v2 @kind this, `android.view.View` v3 @kind object @name `child`, `int` v4 @name `index`, `android.view.ViewGroup$LayoutParams` v5 @kind object @name `params`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.addView:(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `cancelChildViewTouch`(`androidx.drawerlayout.widget.DrawerLayout` v11 @kind this) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.cancelChildViewTouch:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `checkDrawerViewAbsoluteGravity`(`androidx.drawerlayout.widget.DrawerLayout` v2 @kind this, `android.view.View` v3 @kind object @name `drawerView`, `int` v4 @name `checkFor`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.checkDrawerViewAbsoluteGravity:(Landroid/view/View;I)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `checkLayoutParams`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `android.view.ViewGroup$LayoutParams` v2 @kind object @name `p`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.checkLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)Z` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `closeDrawer`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `int` v2 @name `gravity`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.closeDrawer:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `closeDrawer`(`androidx.drawerlayout.widget.DrawerLayout` v4 @kind this, `int` v5 @name `gravity`, `boolean` v6 @name `animate`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.closeDrawer:(IZ)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `closeDrawer`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `android.view.View` v2 @kind object @name `drawerView`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.closeDrawer:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `closeDrawer`(`androidx.drawerlayout.widget.DrawerLayout` v4 @kind this, `android.view.View` v5 @kind object @name `drawerView`, `boolean` v6 @name `animate`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.closeDrawer:(Landroid/view/View;Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `closeDrawers`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.closeDrawers:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `closeDrawers`(`androidx.drawerlayout.widget.DrawerLayout` v9 @kind this, `boolean` v10 @name `peekingOnly`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.closeDrawers:(Z)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `computeScroll`(`androidx.drawerlayout.widget.DrawerLayout` v5 @kind this) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.computeScroll:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `dispatchGenericMotionEvent`(`androidx.drawerlayout.widget.DrawerLayout` v6 @kind this, `android.view.MotionEvent` v7 @kind object @name `event`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.dispatchGenericMotionEvent:(Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `dispatchOnDrawerClosed`(`androidx.drawerlayout.widget.DrawerLayout` v5 @kind this, `android.view.View` v6 @kind object @name `drawerView`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.dispatchOnDrawerClosed:(Landroid/view/View;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `dispatchOnDrawerOpened`(`androidx.drawerlayout.widget.DrawerLayout` v5 @kind this, `android.view.View` v6 @kind object @name `drawerView`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.dispatchOnDrawerOpened:(Landroid/view/View;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `dispatchOnDrawerSlide`(`androidx.drawerlayout.widget.DrawerLayout` v3 @kind this, `android.view.View` v4 @kind object @name `drawerView`, `float` v5 @name `slideOffset`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.dispatchOnDrawerSlide:(Landroid/view/View;F)V` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `drawChild`(`androidx.drawerlayout.widget.DrawerLayout` v19 @kind this, `android.graphics.Canvas` v20 @kind object @name `canvas`, `android.view.View` v21 @kind object @name `child`, `long` v22 @name `drawingTime`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.drawChild:(Landroid/graphics/Canvas;Landroid/view/View;J)Z` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `android.view.View` `findDrawerWithGravity`(`androidx.drawerlayout.widget.DrawerLayout` v6 @kind this, `int` v7 @name `gravity`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.findDrawerWithGravity:(I)Landroid/view/View;` @AccessFlag  {
+
+  # return;
+}
+procedure `android.view.View` `findOpenDrawer`(`androidx.drawerlayout.widget.DrawerLayout` v6 @kind this) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.findOpenDrawer:()Landroid/view/View;` @AccessFlag  {
+
+  # return;
+}
+procedure `android.view.View` `findVisibleDrawer`(`androidx.drawerlayout.widget.DrawerLayout` v4 @kind this) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.findVisibleDrawer:()Landroid/view/View;` @AccessFlag  {
+
+  # return;
+}
+procedure `android.view.ViewGroup$LayoutParams` `generateDefaultLayoutParams`(`androidx.drawerlayout.widget.DrawerLayout` v2 @kind this) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.generateDefaultLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `android.view.ViewGroup$LayoutParams` `generateLayoutParams`(`androidx.drawerlayout.widget.DrawerLayout` v2 @kind this, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.generateLayoutParams:(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.ViewGroup$LayoutParams` `generateLayoutParams`(`androidx.drawerlayout.widget.DrawerLayout` v2 @kind this, `android.view.ViewGroup$LayoutParams` v3 @kind object @name `p`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.generateLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `float` `getDrawerElevation`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.getDrawerElevation:()F` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getDrawerLockMode`(`androidx.drawerlayout.widget.DrawerLayout` v3 @kind this, `int` v4 @name `edgeGravity`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.getDrawerLockMode:(I)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getDrawerLockMode`(`androidx.drawerlayout.widget.DrawerLayout` v3 @kind this, `android.view.View` v4 @kind object @name `drawerView`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.getDrawerLockMode:(Landroid/view/View;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getDrawerTitle`(`androidx.drawerlayout.widget.DrawerLayout` v2 @kind this, `int` v3 @name `edgeGravity`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.getDrawerTitle:(I)Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getDrawerViewAbsoluteGravity`(`androidx.drawerlayout.widget.DrawerLayout` v2 @kind this, `android.view.View` v3 @kind object @name `drawerView`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.getDrawerViewAbsoluteGravity:(Landroid/view/View;)I` @AccessFlag  {
+
+  # return;
+}
+procedure `float` `getDrawerViewOffset`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `android.view.View` v2 @kind object @name `drawerView`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.getDrawerViewOffset:(Landroid/view/View;)F` @AccessFlag  {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `getStatusBarBackgroundDrawable`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.getStatusBarBackgroundDrawable:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isContentView`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `android.view.View` v2 @kind object @name `child`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.isContentView:(Landroid/view/View;)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isDrawerOpen`(`androidx.drawerlayout.widget.DrawerLayout` v2 @kind this, `int` v3 @name `drawerGravity`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.isDrawerOpen:(I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isDrawerOpen`(`androidx.drawerlayout.widget.DrawerLayout` v3 @kind this, `android.view.View` v4 @kind object @name `drawer`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.isDrawerOpen:(Landroid/view/View;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isDrawerView`(`androidx.drawerlayout.widget.DrawerLayout` v4 @kind this, `android.view.View` v5 @kind object @name `child`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.isDrawerView:(Landroid/view/View;)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isDrawerVisible`(`androidx.drawerlayout.widget.DrawerLayout` v2 @kind this, `int` v3 @name `drawerGravity`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.isDrawerVisible:(I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isDrawerVisible`(`androidx.drawerlayout.widget.DrawerLayout` v3 @kind this, `android.view.View` v4 @kind object @name `drawer`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.isDrawerVisible:(Landroid/view/View;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `moveDrawerToOffset`(`androidx.drawerlayout.widget.DrawerLayout` v6 @kind this, `android.view.View` v7 @kind object @name `drawerView`, `float` v8 @name `slideOffset`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.moveDrawerToOffset:(Landroid/view/View;F)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onAttachedToWindow`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.onAttachedToWindow:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onDetachedFromWindow`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.onDetachedFromWindow:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onDraw`(`androidx.drawerlayout.widget.DrawerLayout` v4 @kind this, `android.graphics.Canvas` v5 @kind object @name `c`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.onDraw:(Landroid/graphics/Canvas;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onInterceptTouchEvent`(`androidx.drawerlayout.widget.DrawerLayout` v10 @kind this, `android.view.MotionEvent` v11 @kind object @name `ev`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.onInterceptTouchEvent:(Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onKeyDown`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `int` v2 @name `keyCode`, `android.view.KeyEvent` v3 @kind object @name `event`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.onKeyDown:(ILandroid/view/KeyEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onKeyUp`(`androidx.drawerlayout.widget.DrawerLayout` v2 @kind this, `int` v3 @name `keyCode`, `android.view.KeyEvent` v4 @kind object @name `event`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.onKeyUp:(ILandroid/view/KeyEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onLayout`(`androidx.drawerlayout.widget.DrawerLayout` v16 @kind this, `boolean` v17 @name `changed`, `int` v18 @name `l`, `int` v19 @name `t`, `int` v20 @name `r`, `int` v21 @name `b`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.onLayout:(ZIIII)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onMeasure`(`androidx.drawerlayout.widget.DrawerLayout` v20 @kind this, `int` v21 @name `widthMeasureSpec`, `int` v22 @name `heightMeasureSpec`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.onMeasure:(II)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onRestoreInstanceState`(`androidx.drawerlayout.widget.DrawerLayout` v4 @kind this, `android.os.Parcelable` v5 @kind object @name `state`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.onRestoreInstanceState:(Landroid/os/Parcelable;)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onRtlPropertiesChanged`(`androidx.drawerlayout.widget.DrawerLayout` v0 @kind this, `int` v1 @name `layoutDirection`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.onRtlPropertiesChanged:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.os.Parcelable` `onSaveInstanceState`(`androidx.drawerlayout.widget.DrawerLayout` v11 @kind this) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.onSaveInstanceState:()Landroid/os/Parcelable;` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `boolean` `onTouchEvent`(`androidx.drawerlayout.widget.DrawerLayout` v14 @kind this, `android.view.MotionEvent` v15 @kind object @name `ev`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.onTouchEvent:(Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `openDrawer`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `int` v2 @name `gravity`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.openDrawer:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `openDrawer`(`androidx.drawerlayout.widget.DrawerLayout` v4 @kind this, `int` v5 @name `gravity`, `boolean` v6 @name `animate`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.openDrawer:(IZ)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `openDrawer`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `android.view.View` v2 @kind object @name `drawerView`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.openDrawer:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `openDrawer`(`androidx.drawerlayout.widget.DrawerLayout` v4 @kind this, `android.view.View` v5 @kind object @name `drawerView`, `boolean` v6 @name `animate`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.openDrawer:(Landroid/view/View;Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `removeDrawerListener`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `androidx.drawerlayout.widget.DrawerLayout$DrawerListener` v2 @kind object @name `listener`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.removeDrawerListener:(Landroidx/drawerlayout/widget/DrawerLayout$DrawerListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `requestDisallowInterceptTouchEvent`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `boolean` v2 @name `disallowIntercept`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.requestDisallowInterceptTouchEvent:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `requestLayout`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.requestLayout:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setChildInsets`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `java.lang.Object` v2 @kind object @name `insets`, `boolean` v3 @name `draw`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.setChildInsets:(Ljava/lang/Object;Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDrawerElevation`(`androidx.drawerlayout.widget.DrawerLayout` v3 @kind this, `float` v4 @name `elevation`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.setDrawerElevation:(F)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDrawerListener`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `androidx.drawerlayout.widget.DrawerLayout$DrawerListener` v2 @kind object @name `listener`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.setDrawerListener:(Landroidx/drawerlayout/widget/DrawerLayout$DrawerListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDrawerLockMode`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `int` v2 @name `lockMode`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.setDrawerLockMode:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDrawerLockMode`(`androidx.drawerlayout.widget.DrawerLayout` v3 @kind this, `int` v4 @name `lockMode`, `int` v5 @name `edgeGravity`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.setDrawerLockMode:(II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDrawerLockMode`(`androidx.drawerlayout.widget.DrawerLayout` v3 @kind this, `int` v4 @name `lockMode`, `android.view.View` v5 @kind object @name `drawerView`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.setDrawerLockMode:(ILandroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDrawerShadow`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `int` v2 @name `resId`, `int` v3 @name `gravity`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.setDrawerShadow:(II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDrawerShadow`(`androidx.drawerlayout.widget.DrawerLayout` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `shadowDrawable`, `int` v4 @name `gravity`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.setDrawerShadow:(Landroid/graphics/drawable/Drawable;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDrawerTitle`(`androidx.drawerlayout.widget.DrawerLayout` v2 @kind this, `int` v3 @name `edgeGravity`, `java.lang.CharSequence` v4 @kind object @name `title`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.setDrawerTitle:(ILjava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDrawerViewOffset`(`androidx.drawerlayout.widget.DrawerLayout` v2 @kind this, `android.view.View` v3 @kind object @name `drawerView`, `float` v4 @name `slideOffset`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.setDrawerViewOffset:(Landroid/view/View;F)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `setScrimColor`(`androidx.drawerlayout.widget.DrawerLayout` v0 @kind this, `int` v1 @name `color`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.setScrimColor:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setStatusBarBackground`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.setStatusBarBackground:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setStatusBarBackground`(`androidx.drawerlayout.widget.DrawerLayout` v0 @kind this, `android.graphics.drawable.Drawable` v1 @kind object @name `bg`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.setStatusBarBackground:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setStatusBarBackgroundColor`(`androidx.drawerlayout.widget.DrawerLayout` v1 @kind this, `int` v2 @name `color`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.setStatusBarBackgroundColor:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `updateDrawerState`(`androidx.drawerlayout.widget.DrawerLayout` v6 @kind this, `int` v7 @name `forGravity`, `int` v8 @name `activeState`, `android.view.View` v9 @kind object @name `activeDrawer`) @signature `Landroidx/drawerlayout/widget/DrawerLayout;.updateDrawerState:(IILandroid/view/View;)V` @AccessFlag  {
+
+  # return;
+}

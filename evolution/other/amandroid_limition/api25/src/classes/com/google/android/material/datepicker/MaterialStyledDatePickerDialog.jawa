@@ -1,0 +1,130 @@
+record `com.google.android.material.datepicker.MaterialStyledDatePickerDialog` @kind class @AccessFlag PUBLIC extends `android.app.DatePickerDialog` @kind class {
+  `android.graphics.drawable.Drawable` `com.google.android.material.datepicker.MaterialStyledDatePickerDialog.background` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.Rect` `com.google.android.material.datepicker.MaterialStyledDatePickerDialog.backgroundInsets` @AccessFlag PRIVATE_FINAL;
+}
+global `int` `@@com.google.android.material.datepicker.MaterialStyledDatePickerDialog.DEF_STYLE_ATTR` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.datepicker.MaterialStyledDatePickerDialog.DEF_STYLE_RES` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/datepicker/MaterialStyledDatePickerDialog;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L199a5c.  v0:= `@@com.google.android.material.R$style.MaterialAlertDialog_MaterialComponents_Picker_Date_Spinner` @type ^`int`;
+  #L199a60.  `@@com.google.android.material.datepicker.MaterialStyledDatePickerDialog.DEF_STYLE_RES` @type ^`int` := v0;
+  #L199a64.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.MaterialStyledDatePickerDialog` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/datepicker/MaterialStyledDatePickerDialog;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L199a78.  v0:= 0I;
+  #L199a7a.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/datepicker/MaterialStyledDatePickerDialog;.<init>:(Landroid/content/Context;I)V` @kind direct;
+  #L199a80.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.MaterialStyledDatePickerDialog` v7 @kind this, `android.content.Context` v8 @kind object @name `context`, `int` v9 @name `themeResId`) @signature `Lcom/google/android/material/datepicker/MaterialStyledDatePickerDialog;.<init>:(Landroid/content/Context;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L199abc.  v3:= 0I;
+  #L199abe.  v4:= -1I;
+  #L199ac0.  v5:= -1I;
+  #L199ac2.  v6:= -1I;
+  #L199ac4.  v0:= v7 @kind object;
+  #L199ac6.  v1:= v8 @kind object;
+  #L199ac8.  v2:= v9;
+  #L199aca.  call `<init>`(v0, v1, v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/datepicker/MaterialStyledDatePickerDialog;.<init>:(Landroid/content/Context;ILandroid/app/DatePickerDialog$OnDateSetListener;III)V` @kind direct;
+  #L199ad0.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.MaterialStyledDatePickerDialog` v6 @kind this, `android.content.Context` v7 @kind object @name `context`, `int` v8 @name `themeResId`, `android.app.DatePickerDialog$OnDateSetListener` v9 @kind object @name `listener`, `int` v10 @name `year`, `int` v11 @name `monthOfYear`, `int` v12 @name `dayOfMonth`) @signature `Lcom/google/android/material/datepicker/MaterialStyledDatePickerDialog;.<init>:(Landroid/content/Context;ILandroid/app/DatePickerDialog$OnDateSetListener;III)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L199ae4.  call `<init>`(v6, v7, v8, v9, v10, v11, v12) @signature `Landroid/app/DatePickerDialog;.<init>:(Landroid/content/Context;ILandroid/app/DatePickerDialog$OnDateSetListener;III)V` @kind direct;
+  #L199aea.  call temp:= `getContext`(v6) @signature `Lcom/google/android/material/datepicker/MaterialStyledDatePickerDialog;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L199af0.  v7:= temp @kind object;
+  #L199af2.  
+  #L199af4.  call temp:= `getContext`(v6) @signature `Lcom/google/android/material/datepicker/MaterialStyledDatePickerDialog;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L199afa.  v0:= temp @kind object;
+  #L199afc.  v1:= `@@com.google.android.material.R$attr.colorSurface` @type ^`int`;
+  #L199b00.  call temp:= `getClass`(v6) @signature `Ljava/lang/Object;.getClass:()Ljava/lang/Class;` @kind virtual;
+  #L199b06.  v2:= temp @kind object;
+  #L199b08.  call temp:= `getCanonicalName`(v2) @signature `Ljava/lang/Class;.getCanonicalName:()Ljava/lang/String;` @kind virtual;
+  #L199b0e.  v2:= temp @kind object;
+  #L199b10.  call temp:= `resolveOrThrow`(v0, v1, v2) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolveOrThrow:(Landroid/content/Context;ILjava/lang/String;)I` @kind static;
+  #L199b16.  v0:= temp;
+  #L199b18.  v1:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L199b1c.  v2:= `@@com.google.android.material.datepicker.MaterialStyledDatePickerDialog.DEF_STYLE_RES` @type ^`int`;
+  #L199b20.  v3:= 0I;
+  #L199b22.  v4:= 16843612I;
+  #L199b28.  call `<init>`(v1, v7, v3, v4, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;II)V` @kind direct;
+  #L199b2e.  v3:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L199b32.  v5:= 21I;
+  #L199b36.  if v3 < v5 then goto L199b4a;
+  #L199b3a.  call temp:= `valueOf`(v0) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L199b40.  v3:= temp @kind object;
+  #L199b42.  call `setFillColor`(v1, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L199b48.  goto L199b5a;
+  #L199b4a.  v3:= 0I;
+  #L199b4c.  call temp:= `valueOf`(v3) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L199b52.  v3:= temp @kind object;
+  #L199b54.  call `setFillColor`(v1, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L199b5a.  
+  #L199b5c.  call temp:= `getDialogBackgroundInsets`(v7, v4, v2) @signature `Lcom/google/android/material/dialog/MaterialDialogs;.getDialogBackgroundInsets:(Landroid/content/Context;II)Landroid/graphics/Rect;` @kind static;
+  #L199b62.  v2:= temp @kind object;
+  #L199b64.  v6.`com.google.android.material.datepicker.MaterialStyledDatePickerDialog.backgroundInsets` @type ^`android.graphics.Rect` := v2 @kind object;
+  #L199b68.  call temp:= `insetDrawable`(v1, v2) @signature `Lcom/google/android/material/dialog/MaterialDialogs;.insetDrawable:(Landroid/graphics/drawable/Drawable;Landroid/graphics/Rect;)Landroid/graphics/drawable/InsetDrawable;` @kind static;
+  #L199b6e.  v2:= temp @kind object;
+  #L199b70.  v6.`com.google.android.material.datepicker.MaterialStyledDatePickerDialog.background` @type ^`android.graphics.drawable.Drawable` := v2 @kind object;
+  #L199b74.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.MaterialStyledDatePickerDialog` v7 @kind this, `android.content.Context` v8 @kind object @name `context`, `android.app.DatePickerDialog$OnDateSetListener` v9 @kind object @name `listener`, `int` v10 @name `year`, `int` v11 @name `month`, `int` v12 @name `dayOfMonth`) @signature `Lcom/google/android/material/datepicker/MaterialStyledDatePickerDialog;.<init>:(Landroid/content/Context;Landroid/app/DatePickerDialog$OnDateSetListener;III)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L199a94.  v2:= 0I;
+  #L199a96.  v0:= v7 @kind object;
+  #L199a98.  v1:= v8 @kind object;
+  #L199a9a.  v3:= v9 @kind object;
+  #L199a9c.  v4:= v10;
+  #L199a9e.  v5:= v11;
+  #L199aa0.  v6:= v12;
+  #L199aa2.  call `<init>`(v0, v1, v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/datepicker/MaterialStyledDatePickerDialog;.<init>:(Landroid/content/Context;ILandroid/app/DatePickerDialog$OnDateSetListener;III)V` @kind direct;
+  #L199aa8.  return @kind void;
+}
+procedure `void` `onCreate`(`com.google.android.material.datepicker.MaterialStyledDatePickerDialog` v3 @kind this, `android.os.Bundle` v4 @kind object @name `savedInstanceState`) @signature `Lcom/google/android/material/datepicker/MaterialStyledDatePickerDialog;.onCreate:(Landroid/os/Bundle;)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L199b88.  call `onCreate`(v3, v4) @signature `Landroid/app/DatePickerDialog;.onCreate:(Landroid/os/Bundle;)V` @kind super;
+  #L199b8e.  call temp:= `getWindow`(v3) @signature `Lcom/google/android/material/datepicker/MaterialStyledDatePickerDialog;.getWindow:()Landroid/view/Window;` @kind virtual;
+  #L199b94.  v0:= temp @kind object;
+  #L199b96.  v1:= v3.`com.google.android.material.datepicker.MaterialStyledDatePickerDialog.background` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L199b9a.  call `setBackgroundDrawable`(v0, v1) @signature `Landroid/view/Window;.setBackgroundDrawable:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L199ba0.  call temp:= `getWindow`(v3) @signature `Lcom/google/android/material/datepicker/MaterialStyledDatePickerDialog;.getWindow:()Landroid/view/Window;` @kind virtual;
+  #L199ba6.  v0:= temp @kind object;
+  #L199ba8.  call temp:= `getDecorView`(v0) @signature `Landroid/view/Window;.getDecorView:()Landroid/view/View;` @kind virtual;
+  #L199bae.  v0:= temp @kind object;
+  #L199bb0.  v1:= new `com.google.android.material.dialog.InsetDialogOnTouchListener`;
+  #L199bb4.  v2:= v3.`com.google.android.material.datepicker.MaterialStyledDatePickerDialog.backgroundInsets` @type ^`android.graphics.Rect` @kind object;
+  #L199bb8.  call `<init>`(v1, v3, v2) @signature `Lcom/google/android/material/dialog/InsetDialogOnTouchListener;.<init>:(Landroid/app/Dialog;Landroid/graphics/Rect;)V` @kind direct;
+  #L199bbe.  call `setOnTouchListener`(v0, v1) @signature `Landroid/view/View;.setOnTouchListener:(Landroid/view/View$OnTouchListener;)V` @kind virtual;
+  #L199bc4.  return @kind void;
+}

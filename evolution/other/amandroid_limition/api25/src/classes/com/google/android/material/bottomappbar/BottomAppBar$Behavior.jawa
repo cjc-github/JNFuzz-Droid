@@ -1,0 +1,135 @@
+record `com.google.android.material.bottomappbar.BottomAppBar$Behavior` @kind class @AccessFlag PUBLIC extends `com.google.android.material.behavior.HideBottomViewOnScrollBehavior` @kind class {
+  `android.graphics.Rect` `com.google.android.material.bottomappbar.BottomAppBar$Behavior.fabContentRect` @AccessFlag PRIVATE_FINAL;
+  `android.view.View$OnLayoutChangeListener` `com.google.android.material.bottomappbar.BottomAppBar$Behavior.fabLayoutListener` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.bottomappbar.BottomAppBar$Behavior.originalBottomMargin` @AccessFlag PRIVATE;
+  `java.lang.ref.WeakReference` `com.google.android.material.bottomappbar.BottomAppBar$Behavior.viewRef` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomappbar.BottomAppBar$Behavior` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L184a0c.  call `<init>`(v1) @signature `Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;.<init>:()V` @kind direct;
+  #L184a12.  v0:= new `com.google.android.material.bottomappbar.BottomAppBar$Behavior$1`;
+  #L184a16.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior$1;.<init>:(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)V` @kind direct;
+  #L184a1c.  v1.`com.google.android.material.bottomappbar.BottomAppBar$Behavior.fabLayoutListener` @type ^`android.view.View$OnLayoutChangeListener` := v0 @kind object;
+  #L184a20.  v0:= new `android.graphics.Rect`;
+  #L184a24.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L184a2a.  v1.`com.google.android.material.bottomappbar.BottomAppBar$Behavior.fabContentRect` @type ^`android.graphics.Rect` := v0 @kind object;
+  #L184a2e.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomappbar.BottomAppBar$Behavior` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L184a40.  call `<init>`(v1, v2, v3) @signature `Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L184a46.  v0:= new `com.google.android.material.bottomappbar.BottomAppBar$Behavior$1`;
+  #L184a4a.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior$1;.<init>:(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)V` @kind direct;
+  #L184a50.  v1.`com.google.android.material.bottomappbar.BottomAppBar$Behavior.fabLayoutListener` @type ^`android.view.View$OnLayoutChangeListener` := v0 @kind object;
+  #L184a54.  v0:= new `android.graphics.Rect`;
+  #L184a58.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L184a5e.  v1.`com.google.android.material.bottomappbar.BottomAppBar$Behavior.fabContentRect` @type ^`android.graphics.Rect` := v0 @kind object;
+  #L184a62.  return @kind void;
+}
+procedure `java.lang.ref.WeakReference` `access$1300`(`com.google.android.material.bottomappbar.BottomAppBar$Behavior` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.access$1300:(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)Ljava/lang/ref/WeakReference;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1849f4.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar$Behavior.viewRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L1849f8.  return v0 @kind object;
+}
+procedure `android.graphics.Rect` `access$1400`(`com.google.android.material.bottomappbar.BottomAppBar$Behavior` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.access$1400:(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)Landroid/graphics/Rect;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1848c0.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar$Behavior.fabContentRect` @type ^`android.graphics.Rect` @kind object;
+  #L1848c4.  return v0 @kind object;
+}
+procedure `int` `access$1500`(`com.google.android.material.bottomappbar.BottomAppBar$Behavior` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.access$1500:(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)I` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1849dc.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar$Behavior.originalBottomMargin` @type ^`int`;
+  #L1849e0.  return v0;
+}
+procedure `boolean` `onLayoutChild`(`com.google.android.material.bottomappbar.BottomAppBar$Behavior` v0 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind object, `android.view.View` v2 @kind object, `int` v3 ) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.onLayoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)Z` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L1848d8.  v2:= (`com.google.android.material.bottomappbar.BottomAppBar`) v2 @kind object;
+  #L1848dc.  call temp:= `onLayoutChild`(v0, v1, v2, v3) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.onLayoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/bottomappbar/BottomAppBar;I)Z` @kind virtual;
+  #L1848e2.  v1:= temp;
+  #L1848e4.  return v1;
+}
+procedure `boolean` `onLayoutChild`(`com.google.android.material.bottomappbar.BottomAppBar$Behavior` v4 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v5 @kind object @name `parent`, `com.google.android.material.bottomappbar.BottomAppBar` v6 @kind object @name `child`, `int` v7 @name `layoutDirection`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.onLayoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/bottomappbar/BottomAppBar;I)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1848f8.  v0:= new `java.lang.ref.WeakReference`;
+  #L1848fc.  call `<init>`(v0, v6) @signature `Ljava/lang/ref/WeakReference;.<init>:(Ljava/lang/Object;)V` @kind direct;
+  #L184902.  v4.`com.google.android.material.bottomappbar.BottomAppBar$Behavior.viewRef` @type ^`java.lang.ref.WeakReference` := v0 @kind object;
+  #L184906.  call temp:= `access$1700`(v6) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$1700:(Lcom/google/android/material/bottomappbar/BottomAppBar;)Landroid/view/View;` @kind static;
+  #L18490c.  v0:= temp @kind object;
+  #L18490e.  if v0 == 0 then goto L184960;
+  #L184912.  call temp:= `isLaidOut`(v0) @signature `Landroidx/core/view/ViewCompat;.isLaidOut:(Landroid/view/View;)Z` @kind static;
+  #L184918.  v1:= temp;
+  #L18491a.  if v1 != 0 then goto L184960;
+  #L18491e.  
+  #L184920.  call temp:= `getLayoutParams`(v0) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L184926.  v1:= temp @kind object;
+  #L184928.  v1:= (`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams`) v1 @kind object;
+  #L18492c.  v2:= 49I;
+  #L184930.  v1.`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams.anchorGravity` @type ^`int` := v2;
+  #L184934.  v2:= v1.`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams.bottomMargin` @type ^`int`;
+  #L184938.  v4.`com.google.android.material.bottomappbar.BottomAppBar$Behavior.originalBottomMargin` @type ^`int` := v2;
+  #L18493c.  v2:= instanceof @variable v0 @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind boolean;
+  #L184940.  if v2 == 0 then goto L18495a;
+  #L184944.  v2:= v0 @kind object;
+  #L184946.  v2:= (`com.google.android.material.floatingactionbutton.FloatingActionButton`) v2 @kind object;
+  #L18494a.  v3:= v4.`com.google.android.material.bottomappbar.BottomAppBar$Behavior.fabLayoutListener` @type ^`android.view.View$OnLayoutChangeListener` @kind object;
+  #L18494e.  call `addOnLayoutChangeListener`(v2, v3) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.addOnLayoutChangeListener:(Landroid/view/View$OnLayoutChangeListener;)V` @kind virtual;
+  #L184954.  call `access$1800`(v6, v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$1800:(Lcom/google/android/material/bottomappbar/BottomAppBar;Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V` @kind static;
+  #L18495a.  call `access$1900`(v6) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$1900:(Lcom/google/android/material/bottomappbar/BottomAppBar;)V` @kind static;
+  #L184960.  call `onLayoutChild`(v5, v6, v7) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onLayoutChild:(Landroid/view/View;I)V` @kind virtual;
+  #L184966.  call temp:= `onLayoutChild`(v4, v5, v6, v7) @signature `Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;.onLayoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)Z` @kind super;
+  #L18496c.  v1:= temp;
+  #L18496e.  return v1;
+}
+procedure `boolean` `onStartNestedScroll`(`com.google.android.material.bottomappbar.BottomAppBar$Behavior` v7 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v8 @kind object, `android.view.View` v9 @kind object, `android.view.View` v10 @kind object, `android.view.View` v11 @kind object, `int` v12 , `int` v13 ) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.onStartNestedScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;Landroid/view/View;II)Z` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L184980.  v2:= v9 @kind object;
+  #L184982.  v2:= (`com.google.android.material.bottomappbar.BottomAppBar`) v2 @kind object;
+  #L184986.  v0:= v7 @kind object;
+  #L184988.  v1:= v8 @kind object;
+  #L18498a.  v3:= v10 @kind object;
+  #L18498c.  v4:= v11 @kind object;
+  #L18498e.  v5:= v12;
+  #L184990.  v6:= v13;
+  #L184992.  call temp:= `onStartNestedScroll`(v0, v1, v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.onStartNestedScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/bottomappbar/BottomAppBar;Landroid/view/View;Landroid/view/View;II)Z` @kind virtual;
+  #L184998.  v8:= temp;
+  #L18499a.  return v8;
+}
+procedure `boolean` `onStartNestedScroll`(`com.google.android.material.bottomappbar.BottomAppBar$Behavior` v1 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind object @name `coordinatorLayout`, `com.google.android.material.bottomappbar.BottomAppBar` v3 @kind object @name `child`, `android.view.View` v4 @kind object @name `directTargetChild`, `android.view.View` v5 @kind object @name `target`, `int` v6 @name `axes`, `int` v7 @name `type`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.onStartNestedScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/bottomappbar/BottomAppBar;Landroid/view/View;Landroid/view/View;II)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1849ac.  call temp:= `getHideOnScroll`(v3) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getHideOnScroll:()Z` @kind virtual;
+  #L1849b2.  v0:= temp;
+  #L1849b4.  if v0 == 0 then goto L1849c8;
+  #L1849b8.  call temp:= `onStartNestedScroll`(v1, v2, v3, v4, v5, v6, v7) @signature `Lcom/google/android/material/behavior/HideBottomViewOnScrollBehavior;.onStartNestedScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;Landroid/view/View;II)Z` @kind super;
+  #L1849be.  v0:= temp;
+  #L1849c0.  if v0 == 0 then goto L1849c8;
+  #L1849c4.  v0:= 1I;
+  #L1849c6.  goto L1849ca;
+  #L1849c8.  v0:= 0I;
+  #L1849ca.  return v0;
+}

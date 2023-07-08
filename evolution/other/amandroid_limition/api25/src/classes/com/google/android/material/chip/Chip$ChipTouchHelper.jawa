@@ -1,0 +1,184 @@
+record `com.google.android.material.chip.Chip$ChipTouchHelper` @kind class @AccessFlag  extends `androidx.customview.widget.ExploreByTouchHelper` @kind class {
+  `com.google.android.material.chip.Chip` `com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.chip.Chip$ChipTouchHelper` v0 @kind this, `com.google.android.material.chip.Chip` v1 @kind object, `com.google.android.material.chip.Chip` v2 @kind object @name `view`) @signature `Lcom/google/android/material/chip/Chip$ChipTouchHelper;.<init>:(Lcom/google/android/material/chip/Chip;Lcom/google/android/material/chip/Chip;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L18ef80.  v0.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` := v1 @kind object;
+  #L18ef84.  call `<init>`(v0, v2) @signature `Landroidx/customview/widget/ExploreByTouchHelper;.<init>:(Landroid/view/View;)V` @kind direct;
+  #L18ef8a.  return @kind void;
+}
+procedure `int` `getVirtualViewAt`(`com.google.android.material.chip.Chip$ChipTouchHelper` v1 @kind this, `float` v2 @name `x`, `float` v3 @name `y`) @signature `Lcom/google/android/material/chip/Chip$ChipTouchHelper;.getVirtualViewAt:(FF)I` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L18ef40.  v0:= v1.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18ef44.  call temp:= `access$100`(v0) @signature `Lcom/google/android/material/chip/Chip;.access$100:(Lcom/google/android/material/chip/Chip;)Z` @kind static;
+  #L18ef4a.  v0:= temp;
+  #L18ef4c.  if v0 == 0 then goto L18ef6c;
+  #L18ef50.  v0:= v1.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18ef54.  call temp:= `access$200`(v0) @signature `Lcom/google/android/material/chip/Chip;.access$200:(Lcom/google/android/material/chip/Chip;)Landroid/graphics/RectF;` @kind static;
+  #L18ef5a.  v0:= temp @kind object;
+  #L18ef5c.  call temp:= `contains`(v0, v2, v3) @signature `Landroid/graphics/RectF;.contains:(FF)Z` @kind virtual;
+  #L18ef62.  v0:= temp;
+  #L18ef64.  if v0 == 0 then goto L18ef6c;
+  #L18ef68.  v0:= 1I;
+  #L18ef6a.  goto L18ef6e;
+  #L18ef6c.  v0:= 0I;
+  #L18ef6e.  return v0;
+}
+procedure `void` `getVisibleVirtualViews`(`com.google.android.material.chip.Chip$ChipTouchHelper` v1 @kind this, `java.util.List` v2 @kind object) @signature `Lcom/google/android/material/chip/Chip$ChipTouchHelper;.getVisibleVirtualViews:(Ljava/util/List;)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L18ef9c.  v0:= 0I;
+  #L18ef9e.  call temp:= `valueOf`(v0) @signature `Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer;` @kind static;
+  #L18efa4.  v0:= temp @kind object;
+  #L18efa6.  call temp:= `add`(v2, v0) @signature `Ljava/util/List;.add:(Ljava/lang/Object;)Z` @kind interface;
+  #L18efac.  v0:= v1.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18efb0.  call temp:= `access$100`(v0) @signature `Lcom/google/android/material/chip/Chip;.access$100:(Lcom/google/android/material/chip/Chip;)Z` @kind static;
+  #L18efb6.  v0:= temp;
+  #L18efb8.  if v0 == 0 then goto L18efdc;
+  #L18efbc.  v0:= v1.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18efc0.  call temp:= `isCloseIconVisible`(v0) @signature `Lcom/google/android/material/chip/Chip;.isCloseIconVisible:()Z` @kind virtual;
+  #L18efc6.  v0:= temp;
+  #L18efc8.  if v0 == 0 then goto L18efdc;
+  #L18efcc.  v0:= 1I;
+  #L18efce.  call temp:= `valueOf`(v0) @signature `Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer;` @kind static;
+  #L18efd4.  v0:= temp @kind object;
+  #L18efd6.  call temp:= `add`(v2, v0) @signature `Ljava/util/List;.add:(Ljava/lang/Object;)Z` @kind interface;
+  #L18efdc.  return @kind void;
+}
+procedure `boolean` `onPerformActionForVirtualView`(`com.google.android.material.chip.Chip$ChipTouchHelper` v1 @kind this, `int` v2 @name `virtualViewId`, `int` v3 @name `action`, `android.os.Bundle` v4 @kind object @name `arguments`) @signature `Lcom/google/android/material/chip/Chip$ChipTouchHelper;.onPerformActionForVirtualView:(IILandroid/os/Bundle;)Z` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L18eefc.  v0:= 16I;
+  #L18ef00.  if v3 != v0 then goto L18ef2a;
+  #L18ef04.  if v2 != 0 then goto L18ef16;
+  #L18ef08.  v0:= v1.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18ef0c.  call temp:= `performClick`(v0) @signature `Lcom/google/android/material/chip/Chip;.performClick:()Z` @kind virtual;
+  #L18ef12.  v0:= temp;
+  #L18ef14.  return v0;
+  #L18ef16.  v0:= 1I;
+  #L18ef18.  if v2 != v0 then goto L18ef2a;
+  #L18ef1c.  v0:= v1.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18ef20.  call temp:= `performCloseIconClick`(v0) @signature `Lcom/google/android/material/chip/Chip;.performCloseIconClick:()Z` @kind virtual;
+  #L18ef26.  v0:= temp;
+  #L18ef28.  return v0;
+  #L18ef2a.  v0:= 0I;
+  #L18ef2c.  return v0;
+}
+procedure `void` `onPopulateNodeForHost`(`com.google.android.material.chip.Chip$ChipTouchHelper` v3 @kind this, `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v4 @kind object @name `node`) @signature `Lcom/google/android/material/chip/Chip$ChipTouchHelper;.onPopulateNodeForHost:(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18eff0.  v0:= v3.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18eff4.  call temp:= `isCheckable`(v0) @signature `Lcom/google/android/material/chip/Chip;.isCheckable:()Z` @kind virtual;
+  #L18effa.  v0:= temp;
+  #L18effc.  call `setCheckable`(v4, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setCheckable:(Z)V` @kind virtual;
+  #L18f002.  v0:= v3.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18f006.  call temp:= `isClickable`(v0) @signature `Lcom/google/android/material/chip/Chip;.isClickable:()Z` @kind virtual;
+  #L18f00c.  v0:= temp;
+  #L18f00e.  call `setClickable`(v4, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setClickable:(Z)V` @kind virtual;
+  #L18f014.  v0:= v3.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18f018.  call temp:= `isCheckable`(v0) @signature `Lcom/google/android/material/chip/Chip;.isCheckable:()Z` @kind virtual;
+  #L18f01e.  v0:= temp;
+  #L18f020.  if v0 != 0 then goto L18f042;
+  #L18f024.  v0:= v3.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18f028.  call temp:= `isClickable`(v0) @signature `Lcom/google/android/material/chip/Chip;.isClickable:()Z` @kind virtual;
+  #L18f02e.  v0:= temp;
+  #L18f030.  if v0 == 0 then goto L18f036;
+  #L18f034.  goto L18f042;
+  #L18f036.  v0:= "android.view.View" @kind object;
+  #L18f03a.  call `setClassName`(v4, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setClassName:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L18f040.  goto L18f062;
+  #L18f042.  v0:= v3.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18f046.  call temp:= `isCheckable`(v0) @signature `Lcom/google/android/material/chip/Chip;.isCheckable:()Z` @kind virtual;
+  #L18f04c.  v0:= temp;
+  #L18f04e.  if v0 == 0 then goto L18f058;
+  #L18f052.  v0:= "android.widget.CompoundButton" @kind object;
+  #L18f056.  goto L18f05c;
+  #L18f058.  v0:= "android.widget.Button" @kind object;
+  #L18f05c.  call `setClassName`(v4, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setClassName:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L18f062.  v0:= v3.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18f066.  call temp:= `getText`(v0) @signature `Lcom/google/android/material/chip/Chip;.getText:()Ljava/lang/CharSequence;` @kind virtual;
+  #L18f06c.  v0:= temp @kind object;
+  #L18f06e.  v1:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L18f072.  v2:= 23I;
+  #L18f076.  if v1 < v2 then goto L18f082;
+  #L18f07a.  call `setText`(v4, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L18f080.  goto L18f088;
+  #L18f082.  call `setContentDescription`(v4, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setContentDescription:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L18f088.  return @kind void;
+}
+procedure `void` `onPopulateNodeForVirtualView`(`com.google.android.material.chip.Chip$ChipTouchHelper` v8 @kind this, `int` v9 @name `virtualViewId`, `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v10 @kind object @name `node`) @signature `Lcom/google/android/material/chip/Chip$ChipTouchHelper;.onPopulateNodeForVirtualView:(ILandroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L18f09c.  v0:= "" @kind object;
+  #L18f0a0.  v1:= 1I;
+  #L18f0a2.  if v9 != v1 then goto L18f138;
+  #L18f0a6.  v2:= v8.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18f0aa.  call temp:= `getCloseIconContentDescription`(v2) @signature `Lcom/google/android/material/chip/Chip;.getCloseIconContentDescription:()Ljava/lang/CharSequence;` @kind virtual;
+  #L18f0b0.  v2:= temp @kind object;
+  #L18f0b2.  if v2 == 0 then goto L18f0be;
+  #L18f0b6.  call `setContentDescription`(v10, v2) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setContentDescription:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L18f0bc.  goto L18f108;
+  #L18f0be.  v3:= v8.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18f0c2.  call temp:= `getText`(v3) @signature `Lcom/google/android/material/chip/Chip;.getText:()Ljava/lang/CharSequence;` @kind virtual;
+  #L18f0c8.  v3:= temp @kind object;
+  #L18f0ca.  v4:= v8.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18f0ce.  call temp:= `getContext`(v4) @signature `Lcom/google/android/material/chip/Chip;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L18f0d4.  v4:= temp @kind object;
+  #L18f0d6.  v5:= `@@com.google.android.material.R$string.mtrl_chip_close_icon_content_description` @type ^`int`;
+  #L18f0da.  v1:= new `java.lang.Object`[v1];
+  #L18f0de.  v6:= 0I;
+  #L18f0e0.  call temp:= `isEmpty`(v3) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L18f0e6.  v7:= temp;
+  #L18f0e8.  if v7 != 0 then goto L18f0ee;
+  #L18f0ec.  v0:= v3 @kind object;
+  #L18f0ee.  v1[v6]:= v0 @kind object;
+  #L18f0f2.  call temp:= `getString`(v4, v5, v1) @signature `Landroid/content/Context;.getString:(I[Ljava/lang/Object;)Ljava/lang/String;` @kind virtual;
+  #L18f0f8.  v0:= temp @kind object;
+  #L18f0fa.  call temp:= `trim`(v0) @signature `Ljava/lang/String;.trim:()Ljava/lang/String;` @kind virtual;
+  #L18f100.  v0:= temp @kind object;
+  #L18f102.  call `setContentDescription`(v10, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setContentDescription:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L18f108.  v0:= v8.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18f10c.  call temp:= `access$400`(v0) @signature `Lcom/google/android/material/chip/Chip;.access$400:(Lcom/google/android/material/chip/Chip;)Landroid/graphics/Rect;` @kind static;
+  #L18f112.  v0:= temp @kind object;
+  #L18f114.  call `setBoundsInParent`(v10, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setBoundsInParent:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L18f11a.  v0:= `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat.ACTION_CLICK` @type ^`androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat` @kind object;
+  #L18f11e.  call `addAction`(v10, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.addAction:(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;)V` @kind virtual;
+  #L18f124.  v0:= v8.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18f128.  call temp:= `isEnabled`(v0) @signature `Lcom/google/android/material/chip/Chip;.isEnabled:()Z` @kind virtual;
+  #L18f12e.  v0:= temp;
+  #L18f130.  call `setEnabled`(v10, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setEnabled:(Z)V` @kind virtual;
+  #L18f136.  goto L18f14c;
+  #L18f138.  call `setContentDescription`(v10, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setContentDescription:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L18f13e.  call temp:= `access$500`() @signature `Lcom/google/android/material/chip/Chip;.access$500:()Landroid/graphics/Rect;` @kind static;
+  #L18f144.  v0:= temp @kind object;
+  #L18f146.  call `setBoundsInParent`(v10, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setBoundsInParent:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L18f14c.  return @kind void;
+}
+procedure `void` `onVirtualViewKeyboardFocusChanged`(`com.google.android.material.chip.Chip$ChipTouchHelper` v1 @kind this, `int` v2 @name `virtualViewId`, `boolean` v3 @name `hasFocus`) @signature `Lcom/google/android/material/chip/Chip$ChipTouchHelper;.onVirtualViewKeyboardFocusChanged:(IZ)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L18f160.  v0:= 1I;
+  #L18f162.  if v2 != v0 then goto L18f17a;
+  #L18f166.  v0:= v1.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18f16a.  call temp:= `access$302`(v0, v3) @signature `Lcom/google/android/material/chip/Chip;.access$302:(Lcom/google/android/material/chip/Chip;Z)Z` @kind static;
+  #L18f170.  v0:= v1.`com.google.android.material.chip.Chip$ChipTouchHelper.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18f174.  call `refreshDrawableState`(v0) @signature `Lcom/google/android/material/chip/Chip;.refreshDrawableState:()V` @kind virtual;
+  #L18f17a.  return @kind void;
+}

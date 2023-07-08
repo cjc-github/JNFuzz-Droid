@@ -1,0 +1,35 @@
+record `com.google.android.material.textfield.DropdownMenuEndIconDelegate$5` @kind class @AccessFlag  extends `android.view.View$OnTouchListener` @kind interface {
+  `com.google.android.material.textfield.DropdownMenuEndIconDelegate` `com.google.android.material.textfield.DropdownMenuEndIconDelegate$5.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `android.widget.AutoCompleteTextView` `com.google.android.material.textfield.DropdownMenuEndIconDelegate$5.val$editText` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate$5` v0 @kind this, `com.google.android.material.textfield.DropdownMenuEndIconDelegate` v1 @kind object @name `this$0`, `android.widget.AutoCompleteTextView` v2 @kind object) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$5;.<init>:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Landroid/widget/AutoCompleteTextView;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b6898.  v0.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$5.this$0` @type ^`com.google.android.material.textfield.DropdownMenuEndIconDelegate` := v1 @kind object;
+  #L1b689c.  v0.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$5.val$editText` @type ^`android.widget.AutoCompleteTextView` := v2 @kind object;
+  #L1b68a0.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b68a6.  return @kind void;
+}
+procedure `boolean` `onTouch`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate$5` v3 @kind this, `android.view.View` v4 @kind object @name `v`, `android.view.MotionEvent` v5 @kind object @name `event`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$5;.onTouch:(Landroid/view/View;Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b6848.  call temp:= `getAction`(v5) @signature `Landroid/view/MotionEvent;.getAction:()I` @kind virtual;
+  #L1b684e.  v0:= temp;
+  #L1b6850.  v1:= 0I;
+  #L1b6852.  v2:= 1I;
+  #L1b6854.  if v0 != v2 then goto L1b6886;
+  #L1b6858.  v0:= v3.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$5.this$0` @type ^`com.google.android.material.textfield.DropdownMenuEndIconDelegate` @kind object;
+  #L1b685c.  call temp:= `access$1000`(v0) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$1000:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)Z` @kind static;
+  #L1b6862.  v0:= temp;
+  #L1b6864.  if v0 == 0 then goto L1b6872;
+  #L1b6868.  v0:= v3.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$5.this$0` @type ^`com.google.android.material.textfield.DropdownMenuEndIconDelegate` @kind object;
+  #L1b686c.  call temp:= `access$202`(v0, v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$202:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Z)Z` @kind static;
+  #L1b6872.  v0:= v3.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$5.this$0` @type ^`com.google.android.material.textfield.DropdownMenuEndIconDelegate` @kind object;
+  #L1b6876.  v2:= v3.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$5.val$editText` @type ^`android.widget.AutoCompleteTextView` @kind object;
+  #L1b687a.  call `access$400`(v0, v2) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$400:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Landroid/widget/AutoCompleteTextView;)V` @kind static;
+  #L1b6880.  call temp:= `performClick`(v4) @signature `Landroid/view/View;.performClick:()Z` @kind virtual;
+  #L1b6886.  return v1;
+}

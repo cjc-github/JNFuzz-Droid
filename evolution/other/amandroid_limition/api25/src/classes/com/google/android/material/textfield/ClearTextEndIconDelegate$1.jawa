@@ -1,0 +1,51 @@
+record `com.google.android.material.textfield.ClearTextEndIconDelegate$1` @kind class @AccessFlag  extends `android.text.TextWatcher` @kind interface {
+  `com.google.android.material.textfield.ClearTextEndIconDelegate` `com.google.android.material.textfield.ClearTextEndIconDelegate$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.ClearTextEndIconDelegate$1` v0 @kind this, `com.google.android.material.textfield.ClearTextEndIconDelegate` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/textfield/ClearTextEndIconDelegate$1;.<init>:(Lcom/google/android/material/textfield/ClearTextEndIconDelegate;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b5d90.  v0.`com.google.android.material.textfield.ClearTextEndIconDelegate$1.this$0` @type ^`com.google.android.material.textfield.ClearTextEndIconDelegate` := v1 @kind object;
+  #L1b5d94.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b5d9a.  return @kind void;
+}
+procedure `void` `afterTextChanged`(`com.google.android.material.textfield.ClearTextEndIconDelegate$1` v1 @kind this, `android.text.Editable` v2 @kind object @name `s`) @signature `Lcom/google/android/material/textfield/ClearTextEndIconDelegate$1;.afterTextChanged:(Landroid/text/Editable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b5dac.  call temp:= `access$000`(v2) @signature `Lcom/google/android/material/textfield/ClearTextEndIconDelegate;.access$000:(Landroid/text/Editable;)Z` @kind static;
+  #L1b5db2.  v0:= temp;
+  #L1b5db4.  if v0 == 0 then goto L1b5df2;
+  #L1b5db8.  v0:= v1.`com.google.android.material.textfield.ClearTextEndIconDelegate$1.this$0` @type ^`com.google.android.material.textfield.ClearTextEndIconDelegate` @kind object;
+  #L1b5dbc.  v0:= v0.`com.google.android.material.textfield.ClearTextEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b5dc0.  call temp:= `isEndIconVisible`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.isEndIconVisible:()Z` @kind virtual;
+  #L1b5dc6.  v0:= temp;
+  #L1b5dc8.  if v0 != 0 then goto L1b5e16;
+  #L1b5dcc.  v0:= v1.`com.google.android.material.textfield.ClearTextEndIconDelegate$1.this$0` @type ^`com.google.android.material.textfield.ClearTextEndIconDelegate` @kind object;
+  #L1b5dd0.  call temp:= `access$100`(v0) @signature `Lcom/google/android/material/textfield/ClearTextEndIconDelegate;.access$100:(Lcom/google/android/material/textfield/ClearTextEndIconDelegate;)Landroid/animation/ValueAnimator;` @kind static;
+  #L1b5dd6.  v0:= temp @kind object;
+  #L1b5dd8.  call `cancel`(v0) @signature `Landroid/animation/ValueAnimator;.cancel:()V` @kind virtual;
+  #L1b5dde.  v0:= v1.`com.google.android.material.textfield.ClearTextEndIconDelegate$1.this$0` @type ^`com.google.android.material.textfield.ClearTextEndIconDelegate` @kind object;
+  #L1b5de2.  call temp:= `access$200`(v0) @signature `Lcom/google/android/material/textfield/ClearTextEndIconDelegate;.access$200:(Lcom/google/android/material/textfield/ClearTextEndIconDelegate;)Landroid/animation/AnimatorSet;` @kind static;
+  #L1b5de8.  v0:= temp @kind object;
+  #L1b5dea.  call `start`(v0) @signature `Landroid/animation/AnimatorSet;.start:()V` @kind virtual;
+  #L1b5df0.  goto L1b5e16;
+  #L1b5df2.  v0:= v1.`com.google.android.material.textfield.ClearTextEndIconDelegate$1.this$0` @type ^`com.google.android.material.textfield.ClearTextEndIconDelegate` @kind object;
+  #L1b5df6.  call temp:= `access$200`(v0) @signature `Lcom/google/android/material/textfield/ClearTextEndIconDelegate;.access$200:(Lcom/google/android/material/textfield/ClearTextEndIconDelegate;)Landroid/animation/AnimatorSet;` @kind static;
+  #L1b5dfc.  v0:= temp @kind object;
+  #L1b5dfe.  call `cancel`(v0) @signature `Landroid/animation/AnimatorSet;.cancel:()V` @kind virtual;
+  #L1b5e04.  v0:= v1.`com.google.android.material.textfield.ClearTextEndIconDelegate$1.this$0` @type ^`com.google.android.material.textfield.ClearTextEndIconDelegate` @kind object;
+  #L1b5e08.  call temp:= `access$100`(v0) @signature `Lcom/google/android/material/textfield/ClearTextEndIconDelegate;.access$100:(Lcom/google/android/material/textfield/ClearTextEndIconDelegate;)Landroid/animation/ValueAnimator;` @kind static;
+  #L1b5e0e.  v0:= temp @kind object;
+  #L1b5e10.  call `start`(v0) @signature `Landroid/animation/ValueAnimator;.start:()V` @kind virtual;
+  #L1b5e16.  return @kind void;
+}
+procedure `void` `beforeTextChanged`(`com.google.android.material.textfield.ClearTextEndIconDelegate$1` v0 @kind this, `java.lang.CharSequence` v1 @kind object @name `s`, `int` v2 @name `start`, `int` v3 @name `count`, `int` v4 @name `after`) @signature `Lcom/google/android/material/textfield/ClearTextEndIconDelegate$1;.beforeTextChanged:(Ljava/lang/CharSequence;III)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b5e28.  return @kind void;
+}
+procedure `void` `onTextChanged`(`com.google.android.material.textfield.ClearTextEndIconDelegate$1` v0 @kind this, `java.lang.CharSequence` v1 @kind object @name `s`, `int` v2 @name `start`, `int` v3 @name `before`, `int` v4 @name `count`) @signature `Lcom/google/android/material/textfield/ClearTextEndIconDelegate$1;.onTextChanged:(Ljava/lang/CharSequence;III)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b5e3c.  return @kind void;
+}

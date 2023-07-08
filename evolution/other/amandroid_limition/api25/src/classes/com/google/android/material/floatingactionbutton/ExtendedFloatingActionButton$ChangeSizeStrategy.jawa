@@ -1,0 +1,179 @@
+record `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy` @kind class @AccessFlag  extends `com.google.android.material.floatingactionbutton.BaseMotionStrategy` @kind class {
+  `boolean` `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.extending` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$Size` `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.size` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy` v0 @kind this, `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` v1 @kind object @name `this$0`, `com.google.android.material.floatingactionbutton.AnimatorTracker` v2 @kind object @name `animatorTracker`, `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$Size` v3 @kind object @name `size`, `boolean` v4 @name `extending`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ChangeSizeStrategy;.<init>:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;Lcom/google/android/material/floatingactionbutton/AnimatorTracker;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$Size;Z)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L19df24.  v0.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.this$0` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` := v1 @kind object;
+  #L19df28.  call `<init>`(v0, v1, v2) @signature `Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;.<init>:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;Lcom/google/android/material/floatingactionbutton/AnimatorTracker;)V` @kind direct;
+  #L19df2e.  v0.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.size` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$Size` := v3 @kind object;
+  #L19df32.  v0.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.extending` @type ^`boolean` := v4 @kind boolean;
+  #L19df36.  return @kind void;
+}
+procedure `android.animation.AnimatorSet` `createAnimator`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy` v9 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ChangeSizeStrategy;.createAnimator:()Landroid/animation/AnimatorSet;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L19ddec.  call temp:= `getCurrentMotionSpec`(v9) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ChangeSizeStrategy;.getCurrentMotionSpec:()Lcom/google/android/material/animation/MotionSpec;` @kind virtual;
+  #L19ddf2.  v0:= temp @kind object;
+  #L19ddf4.  v1:= "width" @kind object;
+  #L19ddf8.  call temp:= `hasPropertyValues`(v0, v1) @signature `Lcom/google/android/material/animation/MotionSpec;.hasPropertyValues:(Ljava/lang/String;)Z` @kind virtual;
+  #L19ddfe.  v2:= temp;
+  #L19de00.  v3:= 1I;
+  #L19de02.  v4:= 2I;
+  #L19de04.  v5:= 0I;
+  #L19de06.  if v2 == 0 then goto L19de4a;
+  #L19de0a.  call temp:= `getPropertyValues`(v0, v1) @signature `Lcom/google/android/material/animation/MotionSpec;.getPropertyValues:(Ljava/lang/String;)[Landroid/animation/PropertyValuesHolder;` @kind virtual;
+  #L19de10.  v2:= temp @kind object;
+  #L19de12.  v6:= v2[v5] @kind object;
+  #L19de16.  v7:= new `float`[v4];
+  #L19de1a.  v8:= v9.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.this$0` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` @kind object;
+  #L19de1e.  call temp:= `getWidth`(v8) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.getWidth:()I` @kind virtual;
+  #L19de24.  v8:= temp;
+  #L19de26.  v8:= (`float`) v8 @kind i2f;
+  #L19de28.  v7[v5]:= v8;
+  #L19de2c.  v8:= v9.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.size` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$Size` @kind object;
+  #L19de30.  call temp:= `getWidth`(v8) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$Size;.getWidth:()I` @kind interface;
+  #L19de36.  v8:= temp;
+  #L19de38.  v8:= (`float`) v8 @kind i2f;
+  #L19de3a.  v7[v3]:= v8;
+  #L19de3e.  call `setFloatValues`(v6, v7) @signature `Landroid/animation/PropertyValuesHolder;.setFloatValues:([F)V` @kind virtual;
+  #L19de44.  call `setPropertyValues`(v0, v1, v2) @signature `Lcom/google/android/material/animation/MotionSpec;.setPropertyValues:(Ljava/lang/String;[Landroid/animation/PropertyValuesHolder;)V` @kind virtual;
+  #L19de4a.  v1:= "height" @kind object;
+  #L19de4e.  call temp:= `hasPropertyValues`(v0, v1) @signature `Lcom/google/android/material/animation/MotionSpec;.hasPropertyValues:(Ljava/lang/String;)Z` @kind virtual;
+  #L19de54.  v2:= temp;
+  #L19de56.  if v2 == 0 then goto L19de9a;
+  #L19de5a.  call temp:= `getPropertyValues`(v0, v1) @signature `Lcom/google/android/material/animation/MotionSpec;.getPropertyValues:(Ljava/lang/String;)[Landroid/animation/PropertyValuesHolder;` @kind virtual;
+  #L19de60.  v2:= temp @kind object;
+  #L19de62.  v6:= v2[v5] @kind object;
+  #L19de66.  v4:= new `float`[v4];
+  #L19de6a.  v7:= v9.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.this$0` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` @kind object;
+  #L19de6e.  call temp:= `getHeight`(v7) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.getHeight:()I` @kind virtual;
+  #L19de74.  v7:= temp;
+  #L19de76.  v7:= (`float`) v7 @kind i2f;
+  #L19de78.  v4[v5]:= v7;
+  #L19de7c.  v5:= v9.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.size` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$Size` @kind object;
+  #L19de80.  call temp:= `getHeight`(v5) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$Size;.getHeight:()I` @kind interface;
+  #L19de86.  v5:= temp;
+  #L19de88.  v5:= (`float`) v5 @kind i2f;
+  #L19de8a.  v4[v3]:= v5;
+  #L19de8e.  call `setFloatValues`(v6, v4) @signature `Landroid/animation/PropertyValuesHolder;.setFloatValues:([F)V` @kind virtual;
+  #L19de94.  call `setPropertyValues`(v0, v1, v2) @signature `Lcom/google/android/material/animation/MotionSpec;.setPropertyValues:(Ljava/lang/String;[Landroid/animation/PropertyValuesHolder;)V` @kind virtual;
+  #L19de9a.  call temp:= `createAnimator`(v9, v0) @signature `Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;.createAnimator:(Lcom/google/android/material/animation/MotionSpec;)Landroid/animation/AnimatorSet;` @kind super;
+  #L19dea0.  v1:= temp @kind object;
+  #L19dea2.  return v1 @kind object;
+}
+procedure `int` `getDefaultMotionSpecResource`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy` v1 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ChangeSizeStrategy;.getDefaultMotionSpecResource:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19df0c.  v0:= `@@com.google.android.material.R$animator.mtrl_extended_fab_change_size_motion_spec` @type ^`int`;
+  #L19df10.  return v0;
+}
+procedure `void` `onAnimationEnd`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy` v2 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ChangeSizeStrategy;.onAnimationEnd:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19df48.  call `onAnimationEnd`(v2) @signature `Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;.onAnimationEnd:()V` @kind super;
+  #L19df4e.  v0:= v2.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.this$0` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` @kind object;
+  #L19df52.  v1:= 0I;
+  #L19df54.  call `setHorizontallyScrolling`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.setHorizontallyScrolling:(Z)V` @kind virtual;
+  #L19df5a.  return @kind void;
+}
+procedure `void` `onAnimationStart`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy` v2 @kind this, `android.animation.Animator` v3 @kind object @name `animator`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ChangeSizeStrategy;.onAnimationStart:(Landroid/animation/Animator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19df6c.  call `onAnimationStart`(v2, v3) @signature `Lcom/google/android/material/floatingactionbutton/BaseMotionStrategy;.onAnimationStart:(Landroid/animation/Animator;)V` @kind super;
+  #L19df72.  v0:= v2.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.this$0` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` @kind object;
+  #L19df76.  v1:= v2.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.extending` @type ^`boolean` @kind boolean;
+  #L19df7a.  call temp:= `access$602`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.access$602:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;Z)Z` @kind static;
+  #L19df80.  v0:= v2.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.this$0` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` @kind object;
+  #L19df84.  v1:= 1I;
+  #L19df86.  call `setHorizontallyScrolling`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.setHorizontallyScrolling:(Z)V` @kind virtual;
+  #L19df8c.  return @kind void;
+}
+procedure `void` `onChange`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy` v1 @kind this, `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$OnChangedCallback` v2 @kind object @name `callback`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ChangeSizeStrategy;.onChange:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$OnChangedCallback;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19dfa0.  if v2 != 0 then goto L19dfa6;
+  #L19dfa4.  return @kind void;
+  #L19dfa6.  v0:= v1.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.extending` @type ^`boolean` @kind boolean;
+  #L19dfaa.  if v0 == 0 then goto L19dfba;
+  #L19dfae.  v0:= v1.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.this$0` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` @kind object;
+  #L19dfb2.  call `onExtended`(v2, v0) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$OnChangedCallback;.onExtended:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)V` @kind virtual;
+  #L19dfb8.  goto L19dfc4;
+  #L19dfba.  v0:= v1.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.this$0` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` @kind object;
+  #L19dfbe.  call `onShrunken`(v2, v0) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$OnChangedCallback;.onShrunken:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)V` @kind virtual;
+  #L19dfc4.  return @kind void;
+}
+procedure `void` `performNow`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy` v3 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ChangeSizeStrategy;.performNow:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L19dfd8.  v0:= v3.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.this$0` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` @kind object;
+  #L19dfdc.  v1:= v3.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.extending` @type ^`boolean` @kind boolean;
+  #L19dfe0.  call temp:= `access$602`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.access$602:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;Z)Z` @kind static;
+  #L19dfe6.  v0:= v3.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.this$0` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` @kind object;
+  #L19dfea.  call temp:= `getLayoutParams`(v0) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L19dff0.  v0:= temp @kind object;
+  #L19dff2.  if v0 != 0 then goto L19dff8;
+  #L19dff6.  return @kind void;
+  #L19dff8.  v1:= v3.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.extending` @type ^`boolean` @kind boolean;
+  #L19dffc.  if v1 == 0 then goto L19e00c;
+  #L19e000.  v1:= v3.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.this$0` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` @kind object;
+  #L19e004.  v2:= 0I;
+  #L19e006.  call `measure`(v1, v2, v2) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.measure:(II)V` @kind virtual;
+  #L19e00c.  v1:= v3.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.size` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$Size` @kind object;
+  #L19e010.  call temp:= `getWidth`(v1) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$Size;.getWidth:()I` @kind interface;
+  #L19e016.  v1:= temp;
+  #L19e018.  v0.`android.view.ViewGroup$LayoutParams.width` @type ^`int` := v1;
+  #L19e01c.  v1:= v3.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.size` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$Size` @kind object;
+  #L19e020.  call temp:= `getHeight`(v1) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$Size;.getHeight:()I` @kind interface;
+  #L19e026.  v1:= temp;
+  #L19e028.  v0.`android.view.ViewGroup$LayoutParams.height` @type ^`int` := v1;
+  #L19e02c.  v1:= v3.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.this$0` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` @kind object;
+  #L19e030.  call `requestLayout`(v1) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.requestLayout:()V` @kind virtual;
+  #L19e036.  return @kind void;
+}
+procedure `boolean` `shouldCancel`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy` v2 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ChangeSizeStrategy;.shouldCancel:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19deb4.  v0:= v2.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.extending` @type ^`boolean` @kind boolean;
+  #L19deb8.  v1:= v2.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.this$0` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` @kind object;
+  #L19debc.  call temp:= `access$600`(v1) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.access$600:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)Z` @kind static;
+  #L19dec2.  v1:= temp;
+  #L19dec4.  if v0 == v1 then goto L19def6;
+  #L19dec8.  v0:= v2.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.this$0` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` @kind object;
+  #L19decc.  call temp:= `getIcon`(v0) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.getIcon:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L19ded2.  v0:= temp @kind object;
+  #L19ded4.  if v0 == 0 then goto L19def6;
+  #L19ded8.  v0:= v2.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ChangeSizeStrategy.this$0` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` @kind object;
+  #L19dedc.  call temp:= `getText`(v0) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.getText:()Ljava/lang/CharSequence;` @kind virtual;
+  #L19dee2.  v0:= temp @kind object;
+  #L19dee4.  call temp:= `isEmpty`(v0) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L19deea.  v0:= temp;
+  #L19deec.  if v0 == 0 then goto L19def2;
+  #L19def0.  goto L19def6;
+  #L19def2.  v0:= 0I;
+  #L19def4.  goto L19def8;
+  #L19def6.  v0:= 1I;
+  #L19def8.  return v0;
+}

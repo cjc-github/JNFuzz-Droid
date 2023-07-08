@@ -1,0 +1,414 @@
+record `com.google.android.material.datepicker.UtcDates` @kind class @AccessFlag  {
+}
+global `java.lang.String` `@@com.google.android.material.datepicker.UtcDates.UTC` @AccessFlag STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.datepicker.UtcDates` v0 @kind this) @signature `Lcom/google/android/material/datepicker/UtcDates;.<init>:()V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+
+  #L19bc98.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L19bc9e.  return @kind void;
+}
+procedure `long` `canonicalYearMonthDay`(`long` v4 @name `rawDate`) @signature `Lcom/google/android/material/datepicker/UtcDates;.canonicalYearMonthDay:(J)J` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L19bc68.  call temp:= `getUtcCalendar`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getUtcCalendar:()Ljava/util/Calendar;` @kind static;
+  #L19bc6e.  v0:= temp @kind object;
+  #L19bc70.  call `setTimeInMillis`(v0, v4) @signature `Ljava/util/Calendar;.setTimeInMillis:(J)V` @kind virtual;
+  #L19bc76.  call temp:= `getDayCopy`(v0) @signature `Lcom/google/android/material/datepicker/UtcDates;.getDayCopy:(Ljava/util/Calendar;)Ljava/util/Calendar;` @kind static;
+  #L19bc7c.  v1:= temp @kind object;
+  #L19bc7e.  call temp:= `getTimeInMillis`(v1) @signature `Ljava/util/Calendar;.getTimeInMillis:()J` @kind virtual;
+  #L19bc84.  v2:= temp @kind wide;
+  #L19bc86.  return v2 @kind wide;
+}
+procedure `int` `findCharactersInDateFormatPattern`(`java.lang.String` v3 @kind object @name `pattern`, `java.lang.String` v4 @kind object @name `characterSequence`, `int` v5 @name `increment`, `int` v6 @name `initialPosition`) @signature `Lcom/google/android/material/datepicker/UtcDates;.findCharactersInDateFormatPattern:(Ljava/lang/String;Ljava/lang/String;II)I` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L19b818.  v0:= v6;
+  #L19b81a.  if v0 < 0 then goto L19b876;
+  #L19b81e.  call temp:= `length`(v3) @signature `Ljava/lang/String;.length:()I` @kind virtual;
+  #L19b824.  v1:= temp;
+  #L19b826.  if v0 >= v1 then goto L19b876;
+  #L19b82a.  call temp:= `charAt`(v3, v0) @signature `Ljava/lang/String;.charAt:(I)C` @kind virtual;
+  #L19b830.  v1:= temp;
+  #L19b832.  call temp:= `indexOf`(v4, v1) @signature `Ljava/lang/String;.indexOf:(I)I` @kind virtual;
+  #L19b838.  v1:= temp;
+  #L19b83a.  v2:= -1I;
+  #L19b83c.  if v1 != v2 then goto L19b876;
+  #L19b840.  call temp:= `charAt`(v3, v0) @signature `Ljava/lang/String;.charAt:(I)C` @kind virtual;
+  #L19b846.  v1:= temp;
+  #L19b848.  v2:= 39I;
+  #L19b84c.  if v1 != v2 then goto L19b872;
+  #L19b850.  v0:= v0 + v5 @kind int;
+  #L19b852.  if v0 < 0 then goto L19b872;
+  #L19b856.  call temp:= `length`(v3) @signature `Ljava/lang/String;.length:()I` @kind virtual;
+  #L19b85c.  v1:= temp;
+  #L19b85e.  if v0 >= v1 then goto L19b872;
+  #L19b862.  call temp:= `charAt`(v3, v0) @signature `Ljava/lang/String;.charAt:(I)C` @kind virtual;
+  #L19b868.  v1:= temp;
+  #L19b86a.  if v1 == v2 then goto L19b872;
+  #L19b86e.  v0:= v0 + v5 @kind int;
+  #L19b870.  goto L19b852;
+  #L19b872.  v0:= v0 + v5 @kind int;
+  #L19b874.  goto L19b81a;
+  #L19b876.  return v0;
+}
+procedure `android.icu.text.DateFormat` `getAbbrMonthDayFormat`(`java.util.Locale` v1 @kind object @name `locale`) @signature `Lcom/google/android/material/datepicker/UtcDates;.getAbbrMonthDayFormat:(Ljava/util/Locale;)Landroid/icu/text/DateFormat;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L19b74c.  v0:= "MMMd" @kind object;
+  #L19b750.  call temp:= `getAndroidFormat`(v0, v1) @signature `Lcom/google/android/material/datepicker/UtcDates;.getAndroidFormat:(Ljava/lang/String;Ljava/util/Locale;)Landroid/icu/text/DateFormat;` @kind static;
+  #L19b756.  v0:= temp @kind object;
+  #L19b758.  return v0 @kind object;
+}
+procedure `android.icu.text.DateFormat` `getAbbrMonthWeekdayDayFormat`(`java.util.Locale` v1 @kind object @name `locale`) @signature `Lcom/google/android/material/datepicker/UtcDates;.getAbbrMonthWeekdayDayFormat:(Ljava/util/Locale;)Landroid/icu/text/DateFormat;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L19b76c.  v0:= "MMMEd" @kind object;
+  #L19b770.  call temp:= `getAndroidFormat`(v0, v1) @signature `Lcom/google/android/material/datepicker/UtcDates;.getAndroidFormat:(Ljava/lang/String;Ljava/util/Locale;)Landroid/icu/text/DateFormat;` @kind static;
+  #L19b776.  v0:= temp @kind object;
+  #L19b778.  return v0 @kind object;
+}
+procedure `android.icu.text.DateFormat` `getAndroidFormat`(`java.lang.String` v2 @kind object @name `pattern`, `java.util.Locale` v3 @kind object @name `locale`) @signature `Lcom/google/android/material/datepicker/UtcDates;.getAndroidFormat:(Ljava/lang/String;Ljava/util/Locale;)Landroid/icu/text/DateFormat;` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L19b78c.  
+  #L19b78e.  call temp:= `getInstanceForSkeleton`(v2, v3) @signature `Landroid/icu/text/DateFormat;.getInstanceForSkeleton:(Ljava/lang/String;Ljava/util/Locale;)Landroid/icu/text/DateFormat;` @kind static;
+  #L19b794.  v0:= temp @kind object;
+  #L19b796.  call temp:= `getUtcAndroidTimeZone`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getUtcAndroidTimeZone:()Landroid/icu/util/TimeZone;` @kind static;
+  #L19b79c.  v1:= temp @kind object;
+  #L19b79e.  call `setTimeZone`(v0, v1) @signature `Landroid/icu/text/DateFormat;.setTimeZone:(Landroid/icu/util/TimeZone;)V` @kind virtual;
+  #L19b7a4.  return v0 @kind object;
+}
+procedure `java.util.Calendar` `getDayCopy`(`java.util.Calendar` v5 @kind object @name `rawCalendar`) @signature `Lcom/google/android/material/datepicker/UtcDates;.getDayCopy:(Ljava/util/Calendar;)Ljava/util/Calendar;` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L19bb84.  call temp:= `getUtcCalendarOf`(v5) @signature `Lcom/google/android/material/datepicker/UtcDates;.getUtcCalendarOf:(Ljava/util/Calendar;)Ljava/util/Calendar;` @kind static;
+  #L19bb8a.  v0:= temp @kind object;
+  #L19bb8c.  call temp:= `getUtcCalendar`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getUtcCalendar:()Ljava/util/Calendar;` @kind static;
+  #L19bb92.  v1:= temp @kind object;
+  #L19bb94.  
+  #L19bb96.  v2:= 1I;
+  #L19bb98.  call temp:= `get`(v0, v2) @signature `Ljava/util/Calendar;.get:(I)I` @kind virtual;
+  #L19bb9e.  v2:= temp;
+  #L19bba0.  v3:= 2I;
+  #L19bba2.  call temp:= `get`(v0, v3) @signature `Ljava/util/Calendar;.get:(I)I` @kind virtual;
+  #L19bba8.  v3:= temp;
+  #L19bbaa.  v4:= 5I;
+  #L19bbac.  call temp:= `get`(v0, v4) @signature `Ljava/util/Calendar;.get:(I)I` @kind virtual;
+  #L19bbb2.  v4:= temp;
+  #L19bbb4.  call `set`(v1, v2, v3, v4) @signature `Ljava/util/Calendar;.set:(III)V` @kind virtual;
+  #L19bbba.  return v1 @kind object;
+}
+procedure `java.text.DateFormat` `getFormat`(`int` v2 @name `style`, `java.util.Locale` v3 @kind object @name `locale`) @signature `Lcom/google/android/material/datepicker/UtcDates;.getFormat:(ILjava/util/Locale;)Ljava/text/DateFormat;` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L19b984.  call temp:= `getDateInstance`(v2, v3) @signature `Ljava/text/DateFormat;.getDateInstance:(ILjava/util/Locale;)Ljava/text/DateFormat;` @kind static;
+  #L19b98a.  v0:= temp @kind object;
+  #L19b98c.  call temp:= `getTimeZone`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getTimeZone:()Ljava/util/TimeZone;` @kind static;
+  #L19b992.  v1:= temp @kind object;
+  #L19b994.  call `setTimeZone`(v0, v1) @signature `Ljava/text/DateFormat;.setTimeZone:(Ljava/util/TimeZone;)V` @kind virtual;
+  #L19b99a.  return v0 @kind object;
+}
+procedure `java.text.DateFormat` `getFullFormat`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getFullFormat:()Ljava/text/DateFormat;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L19b9ac.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L19b9b2.  v0:= temp @kind object;
+  #L19b9b4.  call temp:= `getFullFormat`(v0) @signature `Lcom/google/android/material/datepicker/UtcDates;.getFullFormat:(Ljava/util/Locale;)Ljava/text/DateFormat;` @kind static;
+  #L19b9ba.  v0:= temp @kind object;
+  #L19b9bc.  return v0 @kind object;
+}
+procedure `java.text.DateFormat` `getFullFormat`(`java.util.Locale` v1 @kind object @name `locale`) @signature `Lcom/google/android/material/datepicker/UtcDates;.getFullFormat:(Ljava/util/Locale;)Ljava/text/DateFormat;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L19b9d0.  v0:= 0I;
+  #L19b9d2.  call temp:= `getFormat`(v0, v1) @signature `Lcom/google/android/material/datepicker/UtcDates;.getFormat:(ILjava/util/Locale;)Ljava/text/DateFormat;` @kind static;
+  #L19b9d8.  v0:= temp @kind object;
+  #L19b9da.  return v0 @kind object;
+}
+procedure `java.text.DateFormat` `getMediumFormat`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getMediumFormat:()Ljava/text/DateFormat;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L19b9ec.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L19b9f2.  v0:= temp @kind object;
+  #L19b9f4.  call temp:= `getMediumFormat`(v0) @signature `Lcom/google/android/material/datepicker/UtcDates;.getMediumFormat:(Ljava/util/Locale;)Ljava/text/DateFormat;` @kind static;
+  #L19b9fa.  v0:= temp @kind object;
+  #L19b9fc.  return v0 @kind object;
+}
+procedure `java.text.DateFormat` `getMediumFormat`(`java.util.Locale` v1 @kind object @name `locale`) @signature `Lcom/google/android/material/datepicker/UtcDates;.getMediumFormat:(Ljava/util/Locale;)Ljava/text/DateFormat;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L19ba10.  v0:= 2I;
+  #L19ba12.  call temp:= `getFormat`(v0, v1) @signature `Lcom/google/android/material/datepicker/UtcDates;.getFormat:(ILjava/util/Locale;)Ljava/text/DateFormat;` @kind static;
+  #L19ba18.  v0:= temp @kind object;
+  #L19ba1a.  return v0 @kind object;
+}
+procedure `java.text.DateFormat` `getMediumNoYear`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getMediumNoYear:()Ljava/text/DateFormat;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L19ba2c.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L19ba32.  v0:= temp @kind object;
+  #L19ba34.  call temp:= `getMediumNoYear`(v0) @signature `Lcom/google/android/material/datepicker/UtcDates;.getMediumNoYear:(Ljava/util/Locale;)Ljava/text/DateFormat;` @kind static;
+  #L19ba3a.  v0:= temp @kind object;
+  #L19ba3c.  return v0 @kind object;
+}
+procedure `java.text.DateFormat` `getMediumNoYear`(`java.util.Locale` v2 @kind object @name `locale`) @signature `Lcom/google/android/material/datepicker/UtcDates;.getMediumNoYear:(Ljava/util/Locale;)Ljava/text/DateFormat;` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L19ba50.  call temp:= `getMediumFormat`(v2) @signature `Lcom/google/android/material/datepicker/UtcDates;.getMediumFormat:(Ljava/util/Locale;)Ljava/text/DateFormat;` @kind static;
+  #L19ba56.  v0:= temp @kind object;
+  #L19ba58.  v0:= (`java.text.SimpleDateFormat`) v0 @kind object;
+  #L19ba5c.  call temp:= `toPattern`(v0) @signature `Ljava/text/SimpleDateFormat;.toPattern:()Ljava/lang/String;` @kind virtual;
+  #L19ba62.  v1:= temp @kind object;
+  #L19ba64.  call temp:= `removeYearFromDateFormatPattern`(v1) @signature `Lcom/google/android/material/datepicker/UtcDates;.removeYearFromDateFormatPattern:(Ljava/lang/String;)Ljava/lang/String;` @kind static;
+  #L19ba6a.  v1:= temp @kind object;
+  #L19ba6c.  call `applyPattern`(v0, v1) @signature `Ljava/text/SimpleDateFormat;.applyPattern:(Ljava/lang/String;)V` @kind virtual;
+  #L19ba72.  return v0 @kind object;
+}
+procedure `java.text.SimpleDateFormat` `getSimpleFormat`(`java.lang.String` v1 @kind object @name `pattern`) @signature `Lcom/google/android/material/datepicker/UtcDates;.getSimpleFormat:(Ljava/lang/String;)Ljava/text/SimpleDateFormat;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L19ba84.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L19ba8a.  v0:= temp @kind object;
+  #L19ba8c.  call temp:= `getSimpleFormat`(v1, v0) @signature `Lcom/google/android/material/datepicker/UtcDates;.getSimpleFormat:(Ljava/lang/String;Ljava/util/Locale;)Ljava/text/SimpleDateFormat;` @kind static;
+  #L19ba92.  v0:= temp @kind object;
+  #L19ba94.  return v0 @kind object;
+}
+procedure `java.text.SimpleDateFormat` `getSimpleFormat`(`java.lang.String` v2 @kind object @name `pattern`, `java.util.Locale` v3 @kind object @name `locale`) @signature `Lcom/google/android/material/datepicker/UtcDates;.getSimpleFormat:(Ljava/lang/String;Ljava/util/Locale;)Ljava/text/SimpleDateFormat;` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L19baa8.  v0:= new `java.text.SimpleDateFormat`;
+  #L19baac.  call `<init>`(v0, v2, v3) @signature `Ljava/text/SimpleDateFormat;.<init>:(Ljava/lang/String;Ljava/util/Locale;)V` @kind direct;
+  #L19bab2.  call temp:= `getTimeZone`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getTimeZone:()Ljava/util/TimeZone;` @kind static;
+  #L19bab8.  v1:= temp @kind object;
+  #L19baba.  call `setTimeZone`(v0, v1) @signature `Ljava/text/SimpleDateFormat;.setTimeZone:(Ljava/util/TimeZone;)V` @kind virtual;
+  #L19bac0.  return v0 @kind object;
+}
+procedure `java.text.SimpleDateFormat` `getTextInputFormat`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getTextInputFormat:()Ljava/text/SimpleDateFormat;` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L19bad4.  
+  #L19bad6.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L19badc.  v0:= temp @kind object;
+  #L19bade.  v1:= 3I;
+  #L19bae0.  call temp:= `getDateInstance`(v1, v0) @signature `Ljava/text/DateFormat;.getDateInstance:(ILjava/util/Locale;)Ljava/text/DateFormat;` @kind static;
+  #L19bae6.  v0:= temp @kind object;
+  #L19bae8.  v0:= (`java.text.SimpleDateFormat`) v0 @kind object;
+  #L19baec.  call temp:= `toLocalizedPattern`(v0) @signature `Ljava/text/SimpleDateFormat;.toLocalizedPattern:()Ljava/lang/String;` @kind virtual;
+  #L19baf2.  v0:= temp @kind object;
+  #L19baf4.  v1:= "\\s+" @kind object;
+  #L19baf8.  v2:= "" @kind object;
+  #L19bafc.  call temp:= `replaceAll`(v0, v1, v2) @signature `Ljava/lang/String;.replaceAll:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;` @kind virtual;
+  #L19bb02.  v0:= temp @kind object;
+  #L19bb04.  v1:= new `java.text.SimpleDateFormat`;
+  #L19bb08.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L19bb0e.  v2:= temp @kind object;
+  #L19bb10.  call `<init>`(v1, v0, v2) @signature `Ljava/text/SimpleDateFormat;.<init>:(Ljava/lang/String;Ljava/util/Locale;)V` @kind direct;
+  #L19bb16.  call temp:= `getTimeZone`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getTimeZone:()Ljava/util/TimeZone;` @kind static;
+  #L19bb1c.  v2:= temp @kind object;
+  #L19bb1e.  call `setTimeZone`(v1, v2) @signature `Ljava/text/SimpleDateFormat;.setTimeZone:(Ljava/util/TimeZone;)V` @kind virtual;
+  #L19bb24.  v2:= 0I;
+  #L19bb26.  call `setLenient`(v1, v2) @signature `Ljava/text/SimpleDateFormat;.setLenient:(Z)V` @kind virtual;
+  #L19bb2c.  return v1 @kind object;
+}
+procedure `java.lang.String` `getTextInputHint`(`android.content.res.Resources` v6 @kind object @name `res`, `java.text.SimpleDateFormat` v7 @kind object @name `format`) @signature `Lcom/google/android/material/datepicker/UtcDates;.getTextInputHint:(Landroid/content/res/Resources;Ljava/text/SimpleDateFormat;)Ljava/lang/String;` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L19b888.  call temp:= `toLocalizedPattern`(v7) @signature `Ljava/text/SimpleDateFormat;.toLocalizedPattern:()Ljava/lang/String;` @kind virtual;
+  #L19b88e.  v0:= temp @kind object;
+  #L19b890.  v1:= `@@com.google.android.material.R$string.mtrl_picker_text_input_year_abbr` @type ^`int`;
+  #L19b894.  call temp:= `getString`(v6, v1) @signature `Landroid/content/res/Resources;.getString:(I)Ljava/lang/String;` @kind virtual;
+  #L19b89a.  v1:= temp @kind object;
+  #L19b89c.  v2:= `@@com.google.android.material.R$string.mtrl_picker_text_input_month_abbr` @type ^`int`;
+  #L19b8a0.  call temp:= `getString`(v6, v2) @signature `Landroid/content/res/Resources;.getString:(I)Ljava/lang/String;` @kind virtual;
+  #L19b8a6.  v2:= temp @kind object;
+  #L19b8a8.  v3:= `@@com.google.android.material.R$string.mtrl_picker_text_input_day_abbr` @type ^`int`;
+  #L19b8ac.  call temp:= `getString`(v6, v3) @signature `Landroid/content/res/Resources;.getString:(I)Ljava/lang/String;` @kind virtual;
+  #L19b8b2.  v3:= temp @kind object;
+  #L19b8b4.  v4:= "d" @kind object;
+  #L19b8b8.  call temp:= `replaceAll`(v0, v4, v3) @signature `Ljava/lang/String;.replaceAll:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;` @kind virtual;
+  #L19b8be.  v4:= temp @kind object;
+  #L19b8c0.  v5:= "M" @kind object;
+  #L19b8c4.  call temp:= `replaceAll`(v4, v5, v2) @signature `Ljava/lang/String;.replaceAll:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;` @kind virtual;
+  #L19b8ca.  v4:= temp @kind object;
+  #L19b8cc.  v5:= "y" @kind object;
+  #L19b8d0.  call temp:= `replaceAll`(v4, v5, v1) @signature `Ljava/lang/String;.replaceAll:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;` @kind virtual;
+  #L19b8d6.  v4:= temp @kind object;
+  #L19b8d8.  return v4 @kind object;
+}
+procedure `java.util.TimeZone` `getTimeZone`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getTimeZone:()Ljava/util/TimeZone;` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+
+  #L19bc48.  v0:= "UTC" @kind object;
+  #L19bc4c.  call temp:= `getTimeZone`(v0) @signature `Ljava/util/TimeZone;.getTimeZone:(Ljava/lang/String;)Ljava/util/TimeZone;` @kind static;
+  #L19bc52.  v0:= temp @kind object;
+  #L19bc54.  return v0 @kind object;
+}
+procedure `java.util.Calendar` `getTodayCalendar`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getTodayCalendar:()Ljava/util/Calendar;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L19bbcc.  call temp:= `getInstance`() @signature `Ljava/util/Calendar;.getInstance:()Ljava/util/Calendar;` @kind static;
+  #L19bbd2.  v0:= temp @kind object;
+  #L19bbd4.  call temp:= `getDayCopy`(v0) @signature `Lcom/google/android/material/datepicker/UtcDates;.getDayCopy:(Ljava/util/Calendar;)Ljava/util/Calendar;` @kind static;
+  #L19bbda.  v0:= temp @kind object;
+  #L19bbdc.  return v0 @kind object;
+}
+procedure `android.icu.util.TimeZone` `getUtcAndroidTimeZone`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getUtcAndroidTimeZone:()Landroid/icu/util/TimeZone;` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+
+  #L19b7f8.  v0:= "UTC" @kind object;
+  #L19b7fc.  call temp:= `getTimeZone`(v0) @signature `Landroid/icu/util/TimeZone;.getTimeZone:(Ljava/lang/String;)Landroid/icu/util/TimeZone;` @kind static;
+  #L19b802.  v0:= temp @kind object;
+  #L19b804.  return v0 @kind object;
+}
+procedure `java.util.Calendar` `getUtcCalendar`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getUtcCalendar:()Ljava/util/Calendar;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L19bbf0.  v0:= 0I;
+  #L19bbf2.  call temp:= `getUtcCalendarOf`(v0) @signature `Lcom/google/android/material/datepicker/UtcDates;.getUtcCalendarOf:(Ljava/util/Calendar;)Ljava/util/Calendar;` @kind static;
+  #L19bbf8.  v0:= temp @kind object;
+  #L19bbfa.  return v0 @kind object;
+}
+procedure `java.util.Calendar` `getUtcCalendarOf`(`java.util.Calendar` v3 @kind object @name `rawCalendar`) @signature `Lcom/google/android/material/datepicker/UtcDates;.getUtcCalendarOf:(Ljava/util/Calendar;)Ljava/util/Calendar;` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L19bc0c.  call temp:= `getTimeZone`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getTimeZone:()Ljava/util/TimeZone;` @kind static;
+  #L19bc12.  v0:= temp @kind object;
+  #L19bc14.  call temp:= `getInstance`(v0) @signature `Ljava/util/Calendar;.getInstance:(Ljava/util/TimeZone;)Ljava/util/Calendar;` @kind static;
+  #L19bc1a.  v0:= temp @kind object;
+  #L19bc1c.  if v3 != 0 then goto L19bc28;
+  #L19bc20.  call `clear`(v0) @signature `Ljava/util/Calendar;.clear:()V` @kind virtual;
+  #L19bc26.  goto L19bc36;
+  #L19bc28.  call temp:= `getTimeInMillis`(v3) @signature `Ljava/util/Calendar;.getTimeInMillis:()J` @kind virtual;
+  #L19bc2e.  v1:= temp @kind wide;
+  #L19bc30.  call `setTimeInMillis`(v0, v1) @signature `Ljava/util/Calendar;.setTimeInMillis:(J)V` @kind virtual;
+  #L19bc36.  return v0 @kind object;
+}
+procedure `android.icu.text.DateFormat` `getYearAbbrMonthDayFormat`(`java.util.Locale` v1 @kind object @name `locale`) @signature `Lcom/google/android/material/datepicker/UtcDates;.getYearAbbrMonthDayFormat:(Ljava/util/Locale;)Landroid/icu/text/DateFormat;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L19b7b8.  v0:= "yMMMd" @kind object;
+  #L19b7bc.  call temp:= `getAndroidFormat`(v0, v1) @signature `Lcom/google/android/material/datepicker/UtcDates;.getAndroidFormat:(Ljava/lang/String;Ljava/util/Locale;)Landroid/icu/text/DateFormat;` @kind static;
+  #L19b7c2.  v0:= temp @kind object;
+  #L19b7c4.  return v0 @kind object;
+}
+procedure `android.icu.text.DateFormat` `getYearAbbrMonthWeekdayDayFormat`(`java.util.Locale` v1 @kind object @name `locale`) @signature `Lcom/google/android/material/datepicker/UtcDates;.getYearAbbrMonthWeekdayDayFormat:(Ljava/util/Locale;)Landroid/icu/text/DateFormat;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L19b7d8.  v0:= "yMMMEd" @kind object;
+  #L19b7dc.  call temp:= `getAndroidFormat`(v0, v1) @signature `Lcom/google/android/material/datepicker/UtcDates;.getAndroidFormat:(Ljava/lang/String;Ljava/util/Locale;)Landroid/icu/text/DateFormat;` @kind static;
+  #L19b7e2.  v0:= temp @kind object;
+  #L19b7e4.  return v0 @kind object;
+}
+procedure `java.text.SimpleDateFormat` `getYearMonthFormat`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getYearMonthFormat:()Ljava/text/SimpleDateFormat;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L19bb40.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L19bb46.  v0:= temp @kind object;
+  #L19bb48.  call temp:= `getYearMonthFormat`(v0) @signature `Lcom/google/android/material/datepicker/UtcDates;.getYearMonthFormat:(Ljava/util/Locale;)Ljava/text/SimpleDateFormat;` @kind static;
+  #L19bb4e.  v0:= temp @kind object;
+  #L19bb50.  return v0 @kind object;
+}
+procedure `java.text.SimpleDateFormat` `getYearMonthFormat`(`java.util.Locale` v1 @kind object @name `locale`) @signature `Lcom/google/android/material/datepicker/UtcDates;.getYearMonthFormat:(Ljava/util/Locale;)Ljava/text/SimpleDateFormat;` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+
+  #L19bb64.  v0:= "MMMM, yyyy" @kind object;
+  #L19bb68.  call temp:= `getSimpleFormat`(v0, v1) @signature `Lcom/google/android/material/datepicker/UtcDates;.getSimpleFormat:(Ljava/lang/String;Ljava/util/Locale;)Ljava/text/SimpleDateFormat;` @kind static;
+  #L19bb6e.  v0:= temp @kind object;
+  #L19bb70.  return v0 @kind object;
+}
+procedure `java.lang.String` `removeYearFromDateFormatPattern`(`java.lang.String` v7 @kind object @name `pattern`) @signature `Lcom/google/android/material/datepicker/UtcDates;.removeYearFromDateFormatPattern:(Ljava/lang/String;)Ljava/lang/String;` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L19b8ec.  v0:= "yY" @kind object;
+  #L19b8f0.  v1:= 1I;
+  #L19b8f2.  v2:= 0I;
+  #L19b8f4.  call temp:= `findCharactersInDateFormatPattern`(v7, v0, v1, v2) @signature `Lcom/google/android/material/datepicker/UtcDates;.findCharactersInDateFormatPattern:(Ljava/lang/String;Ljava/lang/String;II)I` @kind static;
+  #L19b8fa.  v2:= temp;
+  #L19b8fc.  call temp:= `length`(v7) @signature `Ljava/lang/String;.length:()I` @kind virtual;
+  #L19b902.  v3:= temp;
+  #L19b904.  if v2 < v3 then goto L19b90a;
+  #L19b908.  return v7 @kind object;
+  #L19b90a.  v3:= "EMd" @kind object;
+  #L19b90e.  
+  #L19b910.  call temp:= `findCharactersInDateFormatPattern`(v7, v3, v1, v2) @signature `Lcom/google/android/material/datepicker/UtcDates;.findCharactersInDateFormatPattern:(Ljava/lang/String;Ljava/lang/String;II)I` @kind static;
+  #L19b916.  v4:= temp;
+  #L19b918.  call temp:= `length`(v7) @signature `Ljava/lang/String;.length:()I` @kind virtual;
+  #L19b91e.  v5:= temp;
+  #L19b920.  if v4 >= v5 then goto L19b94a;
+  #L19b924.  v5:= new `java.lang.StringBuilder`;
+  #L19b928.  call `<init>`(v5) @signature `Ljava/lang/StringBuilder;.<init>:()V` @kind direct;
+  #L19b92e.  call temp:= `append`(v5, v3) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L19b934.  v5:= temp @kind object;
+  #L19b936.  v6:= "," @kind object;
+  #L19b93a.  call temp:= `append`(v5, v6) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L19b940.  v5:= temp @kind object;
+  #L19b942.  call temp:= `toString`(v5) @signature `Ljava/lang/StringBuilder;.toString:()Ljava/lang/String;` @kind virtual;
+  #L19b948.  v3:= temp @kind object;
+  #L19b94a.  v5:= -1I;
+  #L19b94c.  call temp:= `findCharactersInDateFormatPattern`(v7, v3, v5, v2) @signature `Lcom/google/android/material/datepicker/UtcDates;.findCharactersInDateFormatPattern:(Ljava/lang/String;Ljava/lang/String;II)I` @kind static;
+  #L19b952.  v5:= temp;
+  #L19b954.  v5:= v5 + v1 @kind int;
+  #L19b956.  call temp:= `substring`(v7, v5, v4) @signature `Ljava/lang/String;.substring:(II)Ljava/lang/String;` @kind virtual;
+  #L19b95c.  v1:= temp @kind object;
+  #L19b95e.  v6:= " " @kind object;
+  #L19b962.  call temp:= `replace`(v7, v1, v6) @signature `Ljava/lang/String;.replace:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;` @kind virtual;
+  #L19b968.  v6:= temp @kind object;
+  #L19b96a.  call temp:= `trim`(v6) @signature `Ljava/lang/String;.trim:()Ljava/lang/String;` @kind virtual;
+  #L19b970.  v6:= temp @kind object;
+  #L19b972.  return v6 @kind object;
+}

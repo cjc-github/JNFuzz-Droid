@@ -1,0 +1,36 @@
+record `com.google.android.material.bottomnavigation.BottomNavigationMenuView$1` @kind class @AccessFlag  extends `android.view.View$OnClickListener` @kind interface {
+  `com.google.android.material.bottomnavigation.BottomNavigationMenuView` `com.google.android.material.bottomnavigation.BottomNavigationMenuView$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView$1` v0 @kind this, `com.google.android.material.bottomnavigation.BottomNavigationMenuView` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView$1;.<init>:(Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L18691c.  v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView$1.this$0` @type ^`com.google.android.material.bottomnavigation.BottomNavigationMenuView` := v1 @kind object;
+  #L186920.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L186926.  return @kind void;
+}
+procedure `void` `onClick`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView$1` v5 @kind this, `android.view.View` v6 @kind object @name `v`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView$1;.onClick:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L186938.  v0:= v6 @kind object;
+  #L18693a.  v0:= (`com.google.android.material.bottomnavigation.BottomNavigationItemView`) v0 @kind object;
+  #L18693e.  call temp:= `getItemData`(v0) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.getItemData:()Landroidx/appcompat/view/menu/MenuItemImpl;` @kind virtual;
+  #L186944.  v1:= temp @kind object;
+  #L186946.  v2:= v5.`com.google.android.material.bottomnavigation.BottomNavigationMenuView$1.this$0` @type ^`com.google.android.material.bottomnavigation.BottomNavigationMenuView` @kind object;
+  #L18694a.  call temp:= `access$100`(v2) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.access$100:(Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;)Landroidx/appcompat/view/menu/MenuBuilder;` @kind static;
+  #L186950.  v2:= temp @kind object;
+  #L186952.  v3:= v5.`com.google.android.material.bottomnavigation.BottomNavigationMenuView$1.this$0` @type ^`com.google.android.material.bottomnavigation.BottomNavigationMenuView` @kind object;
+  #L186956.  call temp:= `access$000`(v3) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.access$000:(Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;)Lcom/google/android/material/bottomnavigation/BottomNavigationPresenter;` @kind static;
+  #L18695c.  v3:= temp @kind object;
+  #L18695e.  v4:= 0I;
+  #L186960.  call temp:= `performItemAction`(v2, v1, v3, v4) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.performItemAction:(Landroid/view/MenuItem;Landroidx/appcompat/view/menu/MenuPresenter;I)Z` @kind virtual;
+  #L186966.  v2:= temp;
+  #L186968.  if v2 != 0 then goto L186974;
+  #L18696c.  v2:= 1I;
+  #L18696e.  call temp:= `setChecked`(v1, v2) @signature `Landroid/view/MenuItem;.setChecked:(Z)Landroid/view/MenuItem;` @kind interface;
+  #L186974.  return @kind void;
+}

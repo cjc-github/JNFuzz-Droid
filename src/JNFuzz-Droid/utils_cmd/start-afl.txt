@@ -1,0 +1,5 @@
+su
+cd /data/local/tmp/
+echo " [+] start afl"
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/data/local/tmp
+./afl-fuzz -i in -o out -n ./client

@@ -1,0 +1,188 @@
+record `com.google.android.material.internal.BaselineLayout` @kind class @AccessFlag PUBLIC extends `android.view.ViewGroup` @kind class {
+  `int` `com.google.android.material.internal.BaselineLayout.baseline` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.BaselineLayout` v2 @kind this, `android.content.Context` v3 @kind object @name `context`) @signature `Lcom/google/android/material/internal/BaselineLayout;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L1a2484.  v0:= 0I;
+  #L1a2486.  v1:= 0I;
+  #L1a2488.  call `<init>`(v2, v3, v0, v1) @signature `Landroid/view/ViewGroup;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1a248e.  v0:= -1I;
+  #L1a2490.  v2.`com.google.android.material.internal.BaselineLayout.baseline` @type ^`int` := v0;
+  #L1a2494.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.BaselineLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/internal/BaselineLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a24a8.  v0:= 0I;
+  #L1a24aa.  call `<init>`(v1, v2, v3, v0) @signature `Landroid/view/ViewGroup;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1a24b0.  v0:= -1I;
+  #L1a24b2.  v1.`com.google.android.material.internal.BaselineLayout.baseline` @type ^`int` := v0;
+  #L1a24b6.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.BaselineLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`, `int` v4 @name `defStyleAttr`) @signature `Lcom/google/android/material/internal/BaselineLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a24c8.  call `<init>`(v1, v2, v3, v4) @signature `Landroid/view/ViewGroup;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1a24ce.  v0:= -1I;
+  #L1a24d0.  v1.`com.google.android.material.internal.BaselineLayout.baseline` @type ^`int` := v0;
+  #L1a24d4.  return @kind void;
+}
+procedure `int` `getBaseline`(`com.google.android.material.internal.BaselineLayout` v1 @kind this) @signature `Lcom/google/android/material/internal/BaselineLayout;.getBaseline:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a246c.  v0:= v1.`com.google.android.material.internal.BaselineLayout.baseline` @type ^`int`;
+  #L1a2470.  return v0;
+}
+procedure `void` `onLayout`(`com.google.android.material.internal.BaselineLayout` v14 @kind this, `boolean` v15 @name `changed`, `int` v16 @name `left`, `int` v17 @name `top`, `int` v18 @name `right`, `int` v19 @name `bottom`) @signature `Lcom/google/android/material/internal/BaselineLayout;.onLayout:(ZIIII)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+    v12;
+    v13;
+
+  #L1a24e8.  v0:= v14 @kind object;
+  #L1a24ea.  call temp:= `getChildCount`(v14) @signature `Lcom/google/android/material/internal/BaselineLayout;.getChildCount:()I` @kind virtual;
+  #L1a24f0.  v1:= temp;
+  #L1a24f2.  call temp:= `getPaddingLeft`(v14) @signature `Lcom/google/android/material/internal/BaselineLayout;.getPaddingLeft:()I` @kind virtual;
+  #L1a24f8.  v2:= temp;
+  #L1a24fa.  v3:= v18 - v16 @kind int;
+  #L1a24fe.  call temp:= `getPaddingRight`(v14) @signature `Lcom/google/android/material/internal/BaselineLayout;.getPaddingRight:()I` @kind virtual;
+  #L1a2504.  v4:= temp;
+  #L1a2506.  v3:= v3 - v4 @kind int;
+  #L1a2508.  v4:= v3 - v2 @kind int;
+  #L1a250c.  call temp:= `getPaddingTop`(v14) @signature `Lcom/google/android/material/internal/BaselineLayout;.getPaddingTop:()I` @kind virtual;
+  #L1a2512.  v5:= temp;
+  #L1a2514.  v6:= 0I;
+  #L1a2516.  if v6 >= v1 then goto L1a258c;
+  #L1a251a.  call temp:= `getChildAt`(v14, v6) @signature `Lcom/google/android/material/internal/BaselineLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1a2520.  v7:= temp @kind object;
+  #L1a2522.  call temp:= `getVisibility`(v7) @signature `Landroid/view/View;.getVisibility:()I` @kind virtual;
+  #L1a2528.  v8:= temp;
+  #L1a252a.  v9:= 8I;
+  #L1a252e.  if v8 != v9 then goto L1a2534;
+  #L1a2532.  goto L1a2586;
+  #L1a2534.  call temp:= `getMeasuredWidth`(v7) @signature `Landroid/view/View;.getMeasuredWidth:()I` @kind virtual;
+  #L1a253a.  v8:= temp;
+  #L1a253c.  call temp:= `getMeasuredHeight`(v7) @signature `Landroid/view/View;.getMeasuredHeight:()I` @kind virtual;
+  #L1a2542.  v9:= temp;
+  #L1a2544.  v10:= v4 - v8 @kind int;
+  #L1a2548.  v10:= v10 / 2;
+  #L1a254c.  v10:= v10 + v2 @kind int;
+  #L1a254e.  v11:= v0.`com.google.android.material.internal.BaselineLayout.baseline` @type ^`int`;
+  #L1a2552.  v12:= -1I;
+  #L1a2554.  if v11 == v12 then goto L1a2576;
+  #L1a2558.  call temp:= `getBaseline`(v7) @signature `Landroid/view/View;.getBaseline:()I` @kind virtual;
+  #L1a255e.  v11:= temp;
+  #L1a2560.  if v11 == v12 then goto L1a2576;
+  #L1a2564.  v11:= v0.`com.google.android.material.internal.BaselineLayout.baseline` @type ^`int`;
+  #L1a2568.  v11:= v11 + v5 @kind int;
+  #L1a256a.  call temp:= `getBaseline`(v7) @signature `Landroid/view/View;.getBaseline:()I` @kind virtual;
+  #L1a2570.  v12:= temp;
+  #L1a2572.  v11:= v11 - v12 @kind int;
+  #L1a2574.  goto L1a2578;
+  #L1a2576.  v11:= v5;
+  #L1a2578.  v12:= v10 + v8 @kind int;
+  #L1a257c.  v13:= v11 + v9 @kind int;
+  #L1a2580.  call `layout`(v7, v10, v11, v12, v13) @signature `Landroid/view/View;.layout:(IIII)V` @kind virtual;
+  #L1a2586.  v6:= v6 + 1;
+  #L1a258a.  goto L1a2516;
+  #L1a258c.  return @kind void;
+}
+procedure `void` `onMeasure`(`com.google.android.material.internal.BaselineLayout` v11 @kind this, `int` v12 @name `widthMeasureSpec`, `int` v13 @name `heightMeasureSpec`) @signature `Lcom/google/android/material/internal/BaselineLayout;.onMeasure:(II)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+
+  #L1a25a0.  call temp:= `getChildCount`(v11) @signature `Lcom/google/android/material/internal/BaselineLayout;.getChildCount:()I` @kind virtual;
+  #L1a25a6.  v0:= temp;
+  #L1a25a8.  v1:= 0I;
+  #L1a25aa.  v2:= 0I;
+  #L1a25ac.  v3:= -1I;
+  #L1a25ae.  v4:= -1I;
+  #L1a25b0.  v5:= 0I;
+  #L1a25b2.  v6:= 0I;
+  #L1a25b4.  v7:= -1I;
+  #L1a25b6.  if v6 >= v0 then goto L1a2636;
+  #L1a25ba.  call temp:= `getChildAt`(v11, v6) @signature `Lcom/google/android/material/internal/BaselineLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1a25c0.  v8:= temp @kind object;
+  #L1a25c2.  call temp:= `getVisibility`(v8) @signature `Landroid/view/View;.getVisibility:()I` @kind virtual;
+  #L1a25c8.  v9:= temp;
+  #L1a25ca.  v10:= 8I;
+  #L1a25ce.  if v9 != v10 then goto L1a25d4;
+  #L1a25d2.  goto L1a2630;
+  #L1a25d4.  call `measureChild`(v11, v8, v12, v13) @signature `Lcom/google/android/material/internal/BaselineLayout;.measureChild:(Landroid/view/View;II)V` @kind virtual;
+  #L1a25da.  call temp:= `getBaseline`(v8) @signature `Landroid/view/View;.getBaseline:()I` @kind virtual;
+  #L1a25e0.  v9:= temp;
+  #L1a25e2.  if v9 == v7 then goto L1a2600;
+  #L1a25e6.  call temp:= `max`(v3, v9) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L1a25ec.  v3:= temp;
+  #L1a25ee.  call temp:= `getMeasuredHeight`(v8) @signature `Landroid/view/View;.getMeasuredHeight:()I` @kind virtual;
+  #L1a25f4.  v7:= temp;
+  #L1a25f6.  v7:= v7 - v9 @kind int;
+  #L1a25f8.  call temp:= `max`(v4, v7) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L1a25fe.  v4:= temp;
+  #L1a2600.  call temp:= `getMeasuredWidth`(v8) @signature `Landroid/view/View;.getMeasuredWidth:()I` @kind virtual;
+  #L1a2606.  v7:= temp;
+  #L1a2608.  call temp:= `max`(v1, v7) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L1a260e.  v1:= temp;
+  #L1a2610.  call temp:= `getMeasuredHeight`(v8) @signature `Landroid/view/View;.getMeasuredHeight:()I` @kind virtual;
+  #L1a2616.  v7:= temp;
+  #L1a2618.  call temp:= `max`(v2, v7) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L1a261e.  v2:= temp;
+  #L1a2620.  call temp:= `getMeasuredState`(v8) @signature `Landroid/view/View;.getMeasuredState:()I` @kind virtual;
+  #L1a2626.  v7:= temp;
+  #L1a2628.  call temp:= `combineMeasuredStates`(v5, v7) @signature `Landroid/view/View;.combineMeasuredStates:(II)I` @kind static;
+  #L1a262e.  v5:= temp;
+  #L1a2630.  v6:= v6 + 1;
+  #L1a2634.  goto L1a25b4;
+  #L1a2636.  if v3 == v7 then goto L1a265a;
+  #L1a263a.  call temp:= `getPaddingBottom`(v11) @signature `Lcom/google/android/material/internal/BaselineLayout;.getPaddingBottom:()I` @kind virtual;
+  #L1a2640.  v6:= temp;
+  #L1a2642.  call temp:= `max`(v4, v6) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L1a2648.  v4:= temp;
+  #L1a264a.  v6:= v3 + v4 @kind int;
+  #L1a264e.  call temp:= `max`(v2, v6) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L1a2654.  v2:= temp;
+  #L1a2656.  v11.`com.google.android.material.internal.BaselineLayout.baseline` @type ^`int` := v3;
+  #L1a265a.  call temp:= `getSuggestedMinimumHeight`(v11) @signature `Lcom/google/android/material/internal/BaselineLayout;.getSuggestedMinimumHeight:()I` @kind virtual;
+  #L1a2660.  v6:= temp;
+  #L1a2662.  call temp:= `max`(v2, v6) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L1a2668.  v2:= temp;
+  #L1a266a.  call temp:= `getSuggestedMinimumWidth`(v11) @signature `Lcom/google/android/material/internal/BaselineLayout;.getSuggestedMinimumWidth:()I` @kind virtual;
+  #L1a2670.  v6:= temp;
+  #L1a2672.  call temp:= `max`(v1, v6) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L1a2678.  v1:= temp;
+  #L1a267a.  
+  #L1a267c.  call temp:= `resolveSizeAndState`(v1, v12, v5) @signature `Landroid/view/View;.resolveSizeAndState:(III)I` @kind static;
+  #L1a2682.  v6:= temp;
+  #L1a2684.  v7:= v5 ^< 16;
+  #L1a2688.  call temp:= `resolveSizeAndState`(v2, v13, v7) @signature `Landroid/view/View;.resolveSizeAndState:(III)I` @kind static;
+  #L1a268e.  v7:= temp;
+  #L1a2690.  call `setMeasuredDimension`(v11, v6, v7) @signature `Lcom/google/android/material/internal/BaselineLayout;.setMeasuredDimension:(II)V` @kind virtual;
+  #L1a2696.  return @kind void;
+}

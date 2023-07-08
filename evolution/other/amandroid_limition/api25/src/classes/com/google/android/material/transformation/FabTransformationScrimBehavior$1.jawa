@@ -1,0 +1,38 @@
+record `com.google.android.material.transformation.FabTransformationScrimBehavior$1` @kind class @AccessFlag  extends `android.animation.AnimatorListenerAdapter` @kind class {
+  `com.google.android.material.transformation.FabTransformationScrimBehavior` `com.google.android.material.transformation.FabTransformationScrimBehavior$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `android.view.View` `com.google.android.material.transformation.FabTransformationScrimBehavior$1.val$child` @AccessFlag FINAL_SYNTHETIC;
+  `boolean` `com.google.android.material.transformation.FabTransformationScrimBehavior$1.val$expanded` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.transformation.FabTransformationScrimBehavior$1` v0 @kind this, `com.google.android.material.transformation.FabTransformationScrimBehavior` v1 @kind object @name `this$0`, `boolean` v2 , `android.view.View` v3 @kind object) @signature `Lcom/google/android/material/transformation/FabTransformationScrimBehavior$1;.<init>:(Lcom/google/android/material/transformation/FabTransformationScrimBehavior;ZLandroid/view/View;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1bd6f0.  v0.`com.google.android.material.transformation.FabTransformationScrimBehavior$1.this$0` @type ^`com.google.android.material.transformation.FabTransformationScrimBehavior` := v1 @kind object;
+  #L1bd6f4.  v0.`com.google.android.material.transformation.FabTransformationScrimBehavior$1.val$expanded` @type ^`boolean` := v2 @kind boolean;
+  #L1bd6f8.  v0.`com.google.android.material.transformation.FabTransformationScrimBehavior$1.val$child` @type ^`android.view.View` := v3 @kind object;
+  #L1bd6fc.  call `<init>`(v0) @signature `Landroid/animation/AnimatorListenerAdapter;.<init>:()V` @kind direct;
+  #L1bd702.  return @kind void;
+}
+procedure `void` `onAnimationEnd`(`com.google.android.material.transformation.FabTransformationScrimBehavior$1` v2 @kind this, `android.animation.Animator` v3 @kind object @name `animation`) @signature `Lcom/google/android/material/transformation/FabTransformationScrimBehavior$1;.onAnimationEnd:(Landroid/animation/Animator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1bd714.  v0:= v2.`com.google.android.material.transformation.FabTransformationScrimBehavior$1.val$expanded` @type ^`boolean` @kind boolean;
+  #L1bd718.  if v0 != 0 then goto L1bd728;
+  #L1bd71c.  v0:= v2.`com.google.android.material.transformation.FabTransformationScrimBehavior$1.val$child` @type ^`android.view.View` @kind object;
+  #L1bd720.  v1:= 4I;
+  #L1bd722.  call `setVisibility`(v0, v1) @signature `Landroid/view/View;.setVisibility:(I)V` @kind virtual;
+  #L1bd728.  return @kind void;
+}
+procedure `void` `onAnimationStart`(`com.google.android.material.transformation.FabTransformationScrimBehavior$1` v2 @kind this, `android.animation.Animator` v3 @kind object @name `animation`) @signature `Lcom/google/android/material/transformation/FabTransformationScrimBehavior$1;.onAnimationStart:(Landroid/animation/Animator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1bd73c.  v0:= v2.`com.google.android.material.transformation.FabTransformationScrimBehavior$1.val$expanded` @type ^`boolean` @kind boolean;
+  #L1bd740.  if v0 == 0 then goto L1bd750;
+  #L1bd744.  v0:= v2.`com.google.android.material.transformation.FabTransformationScrimBehavior$1.val$child` @type ^`android.view.View` @kind object;
+  #L1bd748.  v1:= 0I;
+  #L1bd74a.  call `setVisibility`(v0, v1) @signature `Landroid/view/View;.setVisibility:(I)V` @kind virtual;
+  #L1bd750.  return @kind void;
+}

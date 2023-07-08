@@ -1,0 +1,23 @@
+record `com.google.android.material.bottomnavigation.BottomNavigationView$2` @kind class @AccessFlag  extends `com.google.android.material.internal.ViewUtils$OnApplyWindowInsetsListener` @kind interface {
+  `com.google.android.material.bottomnavigation.BottomNavigationView` `com.google.android.material.bottomnavigation.BottomNavigationView$2.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomnavigation.BottomNavigationView$2` v0 @kind this, `com.google.android.material.bottomnavigation.BottomNavigationView` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView$2;.<init>:(Lcom/google/android/material/bottomnavigation/BottomNavigationView;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L187cf4.  v0.`com.google.android.material.bottomnavigation.BottomNavigationView$2.this$0` @type ^`com.google.android.material.bottomnavigation.BottomNavigationView` := v1 @kind object;
+  #L187cf8.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L187cfe.  return @kind void;
+}
+procedure `androidx.core.view.WindowInsetsCompat` `onApplyWindowInsets`(`com.google.android.material.bottomnavigation.BottomNavigationView$2` v2 @kind this, `android.view.View` v3 @kind object @name `view`, `androidx.core.view.WindowInsetsCompat` v4 @kind object @name `insets`, `com.google.android.material.internal.ViewUtils$RelativePadding` v5 @kind object @name `initialPadding`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView$2;.onApplyWindowInsets:(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;Lcom/google/android/material/internal/ViewUtils$RelativePadding;)Landroidx/core/view/WindowInsetsCompat;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L187cc8.  v0:= v5.`com.google.android.material.internal.ViewUtils$RelativePadding.bottom` @type ^`int`;
+  #L187ccc.  call temp:= `getSystemWindowInsetBottom`(v4) @signature `Landroidx/core/view/WindowInsetsCompat;.getSystemWindowInsetBottom:()I` @kind virtual;
+  #L187cd2.  v1:= temp;
+  #L187cd4.  v0:= v0 + v1 @kind int;
+  #L187cd6.  v5.`com.google.android.material.internal.ViewUtils$RelativePadding.bottom` @type ^`int` := v0;
+  #L187cda.  call `applyToView`(v5, v3) @signature `Lcom/google/android/material/internal/ViewUtils$RelativePadding;.applyToView:(Landroid/view/View;)V` @kind virtual;
+  #L187ce0.  return v4 @kind object;
+}

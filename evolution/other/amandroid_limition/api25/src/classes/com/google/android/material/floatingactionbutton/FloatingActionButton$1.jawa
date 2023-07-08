@@ -1,0 +1,32 @@
+record `com.google.android.material.floatingactionbutton.FloatingActionButton$1` @kind class @AccessFlag  extends `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$InternalVisibilityChangedListener` @kind interface {
+  `com.google.android.material.floatingactionbutton.FloatingActionButton` `com.google.android.material.floatingactionbutton.FloatingActionButton$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `com.google.android.material.floatingactionbutton.FloatingActionButton$OnVisibilityChangedListener` `com.google.android.material.floatingactionbutton.FloatingActionButton$1.val$listener` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.floatingactionbutton.FloatingActionButton$1` v0 @kind this, `com.google.android.material.floatingactionbutton.FloatingActionButton` v1 @kind object @name `this$0`, `com.google.android.material.floatingactionbutton.FloatingActionButton$OnVisibilityChangedListener` v2 @kind object) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton$1;.<init>:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;Lcom/google/android/material/floatingactionbutton/FloatingActionButton$OnVisibilityChangedListener;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L19f070.  v0.`com.google.android.material.floatingactionbutton.FloatingActionButton$1.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` := v1 @kind object;
+  #L19f074.  v0.`com.google.android.material.floatingactionbutton.FloatingActionButton$1.val$listener` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton$OnVisibilityChangedListener` := v2 @kind object;
+  #L19f078.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L19f07e.  return @kind void;
+}
+procedure `void` `onHidden`(`com.google.android.material.floatingactionbutton.FloatingActionButton$1` v2 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton$1;.onHidden:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19f090.  v0:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButton$1.val$listener` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton$OnVisibilityChangedListener` @kind object;
+  #L19f094.  v1:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButton$1.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19f098.  call `onHidden`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton$OnVisibilityChangedListener;.onHidden:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V` @kind virtual;
+  #L19f09e.  return @kind void;
+}
+procedure `void` `onShown`(`com.google.android.material.floatingactionbutton.FloatingActionButton$1` v2 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton$1;.onShown:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19f0b0.  v0:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButton$1.val$listener` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton$OnVisibilityChangedListener` @kind object;
+  #L19f0b4.  v1:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButton$1.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19f0b8.  call `onShown`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton$OnVisibilityChangedListener;.onShown:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V` @kind virtual;
+  #L19f0be.  return @kind void;
+}

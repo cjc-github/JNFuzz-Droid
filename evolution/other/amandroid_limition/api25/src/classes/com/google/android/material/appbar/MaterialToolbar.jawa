@@ -1,0 +1,86 @@
+record `com.google.android.material.appbar.MaterialToolbar` @kind class @AccessFlag PUBLIC extends `androidx.appcompat.widget.Toolbar` @kind class {
+}
+global `int` `@@com.google.android.material.appbar.MaterialToolbar.DEF_STYLE_RES` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/appbar/MaterialToolbar;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L182258.  v0:= `@@com.google.android.material.R$style.Widget_MaterialComponents_Toolbar` @type ^`int`;
+  #L18225c.  `@@com.google.android.material.appbar.MaterialToolbar.DEF_STYLE_RES` @type ^`int` := v0;
+  #L182260.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.MaterialToolbar` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/appbar/MaterialToolbar;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L182274.  v0:= 0I;
+  #L182276.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/appbar/MaterialToolbar;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L18227c.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.MaterialToolbar` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/appbar/MaterialToolbar;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L182290.  v0:= `@@com.google.android.material.R$attr.toolbarStyle` @type ^`int`;
+  #L182294.  call `<init>`(v1, v2, v3, v0) @signature `Lcom/google/android/material/appbar/MaterialToolbar;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L18229a.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.MaterialToolbar` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`, `int` v4 @name `defStyleAttr`) @signature `Lcom/google/android/material/appbar/MaterialToolbar;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1822ac.  v0:= `@@com.google.android.material.appbar.MaterialToolbar.DEF_STYLE_RES` @type ^`int`;
+  #L1822b0.  call temp:= `createThemedContext`(v2, v3, v4, v0) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.createThemedContext:(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/content/Context;` @kind static;
+  #L1822b6.  v0:= temp @kind object;
+  #L1822b8.  call `<init>`(v1, v0, v3, v4) @signature `Landroidx/appcompat/widget/Toolbar;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1822be.  call temp:= `getContext`(v1) @signature `Lcom/google/android/material/appbar/MaterialToolbar;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1822c4.  v2:= temp @kind object;
+  #L1822c6.  call `initBackground`(v1, v2) @signature `Lcom/google/android/material/appbar/MaterialToolbar;.initBackground:(Landroid/content/Context;)V` @kind direct;
+  #L1822cc.  return @kind void;
+}
+procedure `void` `initBackground`(`com.google.android.material.appbar.MaterialToolbar` v4 @kind this, `android.content.Context` v5 @kind object @name `context`) @signature `Lcom/google/android/material/appbar/MaterialToolbar;.initBackground:(Landroid/content/Context;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1822e0.  call temp:= `getBackground`(v4) @signature `Lcom/google/android/material/appbar/MaterialToolbar;.getBackground:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1822e6.  v0:= temp @kind object;
+  #L1822e8.  if v0 == 0 then goto L1822f6;
+  #L1822ec.  v1:= instanceof @variable v0 @type ^`android.graphics.drawable.ColorDrawable` @kind boolean;
+  #L1822f0.  if v1 != 0 then goto L1822f6;
+  #L1822f4.  return @kind void;
+  #L1822f6.  v1:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L1822fa.  call `<init>`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:()V` @kind direct;
+  #L182300.  if v0 == 0 then goto L182314;
+  #L182304.  v2:= v0 @kind object;
+  #L182306.  v2:= (`android.graphics.drawable.ColorDrawable`) v2 @kind object;
+  #L18230a.  call temp:= `getColor`(v2) @signature `Landroid/graphics/drawable/ColorDrawable;.getColor:()I` @kind virtual;
+  #L182310.  v2:= temp;
+  #L182312.  goto L182316;
+  #L182314.  v2:= 0I;
+  #L182316.  call temp:= `valueOf`(v2) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L18231c.  v3:= temp @kind object;
+  #L18231e.  call `setFillColor`(v1, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L182324.  call `initializeElevationOverlay`(v1, v5) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.initializeElevationOverlay:(Landroid/content/Context;)V` @kind virtual;
+  #L18232a.  call temp:= `getElevation`(v4) @signature `Landroidx/core/view/ViewCompat;.getElevation:(Landroid/view/View;)F` @kind static;
+  #L182330.  v3:= temp;
+  #L182332.  call `setElevation`(v1, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setElevation:(F)V` @kind virtual;
+  #L182338.  call `setBackground`(v4, v1) @signature `Landroidx/core/view/ViewCompat;.setBackground:(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V` @kind static;
+  #L18233e.  return @kind void;
+}
+procedure `void` `onAttachedToWindow`(`com.google.android.material.appbar.MaterialToolbar` v0 @kind this) @signature `Lcom/google/android/material/appbar/MaterialToolbar;.onAttachedToWindow:()V` @AccessFlag PROTECTED {
+    temp;
+
+  #L182350.  call `onAttachedToWindow`(v0) @signature `Landroidx/appcompat/widget/Toolbar;.onAttachedToWindow:()V` @kind super;
+  #L182356.  call `setParentAbsoluteElevation`(v0) @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.setParentAbsoluteElevation:(Landroid/view/View;)V` @kind static;
+  #L18235c.  return @kind void;
+}
+procedure `void` `setElevation`(`com.google.android.material.appbar.MaterialToolbar` v0 @kind this, `float` v1 @name `elevation`) @signature `Lcom/google/android/material/appbar/MaterialToolbar;.setElevation:(F)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L182370.  call `setElevation`(v0, v1) @signature `Landroidx/appcompat/widget/Toolbar;.setElevation:(F)V` @kind super;
+  #L182376.  call `setElevation`(v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.setElevation:(Landroid/view/View;F)V` @kind static;
+  #L18237c.  return @kind void;
+}

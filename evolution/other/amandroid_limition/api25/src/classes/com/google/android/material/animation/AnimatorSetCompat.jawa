@@ -1,0 +1,50 @@
+record `com.google.android.material.animation.AnimatorSetCompat` @kind class @AccessFlag PUBLIC {
+}
+procedure `void` `<init>`(`com.google.android.material.animation.AnimatorSetCompat` v0 @kind this) @signature `Lcom/google/android/material/animation/AnimatorSetCompat;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L17ca1c.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L17ca22.  return @kind void;
+}
+procedure `void` `playTogether`(`android.animation.AnimatorSet` v9 @kind object @name `animatorSet`, `java.util.List` v10 @kind object) @signature `Lcom/google/android/material/animation/AnimatorSetCompat;.playTogether:(Landroid/animation/AnimatorSet;Ljava/util/List;)V` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L17ca34.  v0:= 0L;
+  #L17ca38.  v2:= 0I;
+  #L17ca3a.  call temp:= `size`(v10) @signature `Ljava/util/List;.size:()I` @kind interface;
+  #L17ca40.  v3:= temp;
+  #L17ca42.  if v2 >= v3 then goto L17ca72;
+  #L17ca46.  call temp:= `get`(v10, v2) @signature `Ljava/util/List;.get:(I)Ljava/lang/Object;` @kind interface;
+  #L17ca4c.  v4:= temp @kind object;
+  #L17ca4e.  v4:= (`android.animation.Animator`) v4 @kind object;
+  #L17ca52.  call temp:= `getStartDelay`(v4) @signature `Landroid/animation/Animator;.getStartDelay:()J` @kind virtual;
+  #L17ca58.  v5:= temp @kind wide;
+  #L17ca5a.  call temp:= `getDuration`(v4) @signature `Landroid/animation/Animator;.getDuration:()J` @kind virtual;
+  #L17ca60.  v7:= temp @kind wide;
+  #L17ca62.  v5:= v5 + v7 @kind long;
+  #L17ca64.  call temp:= `max`(v0, v5) @signature `Ljava/lang/Math;.max:(JJ)J` @kind static;
+  #L17ca6a.  v0:= temp @kind wide;
+  #L17ca6c.  v2:= v2 + 1;
+  #L17ca70.  goto L17ca42;
+  #L17ca72.  v2:= 2I;
+  #L17ca74.  v2:= new `int`[v2];
+  #L17ca78.  goto L17ca9c;
+  #L17ca7e.  call temp:= `ofInt`(v2) @signature `Landroid/animation/ValueAnimator;.ofInt:([I)Landroid/animation/ValueAnimator;` @kind static;
+  #L17ca84.  v2:= temp @kind object;
+  #L17ca86.  call temp:= `setDuration`(v2, v0) @signature `Landroid/animation/Animator;.setDuration:(J)Landroid/animation/Animator;` @kind virtual;
+  #L17ca8c.  v3:= 0I;
+  #L17ca8e.  call `add`(v10, v3, v2) @signature `Ljava/util/List;.add:(ILjava/lang/Object;)V` @kind interface;
+  #L17ca94.  call `playTogether`(v9, v10) @signature `Landroid/animation/AnimatorSet;.playTogether:(Ljava/util/Collection;)V` @kind virtual;
+  #L17ca9a.  return @kind void;
+  #L17ca9c.  v2:= (0I, 0I) @kind object;
+  #L17caab.  goto L17ca7e;
+}

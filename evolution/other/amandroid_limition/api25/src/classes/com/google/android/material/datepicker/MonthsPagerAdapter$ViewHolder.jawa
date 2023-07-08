@@ -1,0 +1,27 @@
+record `com.google.android.material.datepicker.MonthsPagerAdapter$ViewHolder` @kind class @AccessFlag PUBLIC extends `androidx.recyclerview.widget.RecyclerView$ViewHolder` @kind class {
+  `com.google.android.material.datepicker.MaterialCalendarGridView` `com.google.android.material.datepicker.MonthsPagerAdapter$ViewHolder.monthGrid` @AccessFlag FINAL;
+  `android.widget.TextView` `com.google.android.material.datepicker.MonthsPagerAdapter$ViewHolder.monthTitle` @AccessFlag FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.MonthsPagerAdapter$ViewHolder` v2 @kind this, `android.widget.LinearLayout` v3 @kind object @name `container`, `boolean` v4 @name `showLabel`) @signature `Lcom/google/android/material/datepicker/MonthsPagerAdapter$ViewHolder;.<init>:(Landroid/widget/LinearLayout;Z)V` @AccessFlag CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L19a544.  call `<init>`(v2, v3) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.<init>:(Landroid/view/View;)V` @kind direct;
+  #L19a54a.  v0:= `@@com.google.android.material.R$id.month_title` @type ^`int`;
+  #L19a54e.  call temp:= `findViewById`(v3, v0) @signature `Landroid/widget/LinearLayout;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L19a554.  v0:= temp @kind object;
+  #L19a556.  v0:= (`android.widget.TextView`) v0 @kind object;
+  #L19a55a.  v2.`com.google.android.material.datepicker.MonthsPagerAdapter$ViewHolder.monthTitle` @type ^`android.widget.TextView` := v0 @kind object;
+  #L19a55e.  v1:= 1I;
+  #L19a560.  call `setAccessibilityHeading`(v0, v1) @signature `Landroidx/core/view/ViewCompat;.setAccessibilityHeading:(Landroid/view/View;Z)V` @kind static;
+  #L19a566.  v1:= `@@com.google.android.material.R$id.month_grid` @type ^`int`;
+  #L19a56a.  call temp:= `findViewById`(v3, v1) @signature `Landroid/widget/LinearLayout;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L19a570.  v1:= temp @kind object;
+  #L19a572.  v1:= (`com.google.android.material.datepicker.MaterialCalendarGridView`) v1 @kind object;
+  #L19a576.  v2.`com.google.android.material.datepicker.MonthsPagerAdapter$ViewHolder.monthGrid` @type ^`com.google.android.material.datepicker.MaterialCalendarGridView` := v1 @kind object;
+  #L19a57a.  if v4 != 0 then goto L19a588;
+  #L19a57e.  v1:= 8I;
+  #L19a582.  call `setVisibility`(v0, v1) @signature `Landroid/widget/TextView;.setVisibility:(I)V` @kind virtual;
+  #L19a588.  return @kind void;
+}

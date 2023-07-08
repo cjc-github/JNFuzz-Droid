@@ -1,0 +1,85 @@
+record `com.google.android.material.internal.ParcelableSparseBooleanArray` @kind class @AccessFlag PUBLIC extends `android.util.SparseBooleanArray` @kind class, `android.os.Parcelable` @kind interface {
+}
+global `android.os.Parcelable$Creator` `@@com.google.android.material.internal.ParcelableSparseBooleanArray.CREATOR` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/internal/ParcelableSparseBooleanArray;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a6440.  v0:= new `com.google.android.material.internal.ParcelableSparseBooleanArray$1`;
+  #L1a6444.  call `<init>`(v0) @signature `Lcom/google/android/material/internal/ParcelableSparseBooleanArray$1;.<init>:()V` @kind direct;
+  #L1a644a.  `@@com.google.android.material.internal.ParcelableSparseBooleanArray.CREATOR` @type ^`android.os.Parcelable$Creator` := v0 @kind object;
+  #L1a644e.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.ParcelableSparseBooleanArray` v0 @kind this) @signature `Lcom/google/android/material/internal/ParcelableSparseBooleanArray;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1a6460.  call `<init>`(v0) @signature `Landroid/util/SparseBooleanArray;.<init>:()V` @kind direct;
+  #L1a6466.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.ParcelableSparseBooleanArray` v0 @kind this, `int` v1 @name `initialCapacity`) @signature `Lcom/google/android/material/internal/ParcelableSparseBooleanArray;.<init>:(I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1a64c4.  call `<init>`(v0, v1) @signature `Landroid/util/SparseBooleanArray;.<init>:(I)V` @kind direct;
+  #L1a64ca.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.ParcelableSparseBooleanArray` v3 @kind this, `android.util.SparseBooleanArray` v4 @kind object @name `sparseBooleanArray`) @signature `Lcom/google/android/material/internal/ParcelableSparseBooleanArray;.<init>:(Landroid/util/SparseBooleanArray;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a6478.  call temp:= `size`(v4) @signature `Landroid/util/SparseBooleanArray;.size:()I` @kind virtual;
+  #L1a647e.  v0:= temp;
+  #L1a6480.  call `<init>`(v3, v0) @signature `Landroid/util/SparseBooleanArray;.<init>:(I)V` @kind direct;
+  #L1a6486.  v0:= 0I;
+  #L1a6488.  call temp:= `size`(v4) @signature `Landroid/util/SparseBooleanArray;.size:()I` @kind virtual;
+  #L1a648e.  v1:= temp;
+  #L1a6490.  if v0 >= v1 then goto L1a64b0;
+  #L1a6494.  call temp:= `keyAt`(v4, v0) @signature `Landroid/util/SparseBooleanArray;.keyAt:(I)I` @kind virtual;
+  #L1a649a.  v1:= temp;
+  #L1a649c.  call temp:= `valueAt`(v4, v0) @signature `Landroid/util/SparseBooleanArray;.valueAt:(I)Z` @kind virtual;
+  #L1a64a2.  v2:= temp;
+  #L1a64a4.  call `put`(v3, v1, v2) @signature `Lcom/google/android/material/internal/ParcelableSparseBooleanArray;.put:(IZ)V` @kind virtual;
+  #L1a64aa.  v0:= v0 + 1;
+  #L1a64ae.  goto L1a6488;
+  #L1a64b0.  return @kind void;
+}
+procedure `int` `describeContents`(`com.google.android.material.internal.ParcelableSparseBooleanArray` v1 @kind this) @signature `Lcom/google/android/material/internal/ParcelableSparseBooleanArray;.describeContents:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a642c.  v0:= 0I;
+  #L1a642e.  return v0;
+}
+procedure `void` `writeToParcel`(`com.google.android.material.internal.ParcelableSparseBooleanArray` v4 @kind this, `android.os.Parcel` v5 @kind object @name `dest`, `int` v6 @name `flags`) @signature `Lcom/google/android/material/internal/ParcelableSparseBooleanArray;.writeToParcel:(Landroid/os/Parcel;I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1a64dc.  call temp:= `size`(v4) @signature `Lcom/google/android/material/internal/ParcelableSparseBooleanArray;.size:()I` @kind virtual;
+  #L1a64e2.  v0:= temp;
+  #L1a64e4.  v0:= new `int`[v0];
+  #L1a64e8.  call temp:= `size`(v4) @signature `Lcom/google/android/material/internal/ParcelableSparseBooleanArray;.size:()I` @kind virtual;
+  #L1a64ee.  v1:= temp;
+  #L1a64f0.  v1:= new `boolean`[v1];
+  #L1a64f4.  v2:= 0I;
+  #L1a64f6.  call temp:= `size`(v4) @signature `Lcom/google/android/material/internal/ParcelableSparseBooleanArray;.size:()I` @kind virtual;
+  #L1a64fc.  v3:= temp;
+  #L1a64fe.  if v2 >= v3 then goto L1a6520;
+  #L1a6502.  call temp:= `keyAt`(v4, v2) @signature `Lcom/google/android/material/internal/ParcelableSparseBooleanArray;.keyAt:(I)I` @kind virtual;
+  #L1a6508.  v3:= temp;
+  #L1a650a.  v0[v2]:= v3;
+  #L1a650e.  call temp:= `valueAt`(v4, v2) @signature `Lcom/google/android/material/internal/ParcelableSparseBooleanArray;.valueAt:(I)Z` @kind virtual;
+  #L1a6514.  v3:= temp;
+  #L1a6516.  v1[v2]:= v3 @kind boolean;
+  #L1a651a.  v2:= v2 + 1;
+  #L1a651e.  goto L1a64f6;
+  #L1a6520.  call temp:= `size`(v4) @signature `Lcom/google/android/material/internal/ParcelableSparseBooleanArray;.size:()I` @kind virtual;
+  #L1a6526.  v2:= temp;
+  #L1a6528.  call `writeInt`(v5, v2) @signature `Landroid/os/Parcel;.writeInt:(I)V` @kind virtual;
+  #L1a652e.  call `writeIntArray`(v5, v0) @signature `Landroid/os/Parcel;.writeIntArray:([I)V` @kind virtual;
+  #L1a6534.  call `writeBooleanArray`(v5, v1) @signature `Landroid/os/Parcel;.writeBooleanArray:([Z)V` @kind virtual;
+  #L1a653a.  return @kind void;
+}

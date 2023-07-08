@@ -1,0 +1,50 @@
+record `com.google.android.material.animation.ImageMatrixProperty` @kind class @AccessFlag PUBLIC extends `android.util.Property` @kind class {
+  `android.graphics.Matrix` `com.google.android.material.animation.ImageMatrixProperty.matrix` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.animation.ImageMatrixProperty` v2 @kind this) @signature `Lcom/google/android/material/animation/ImageMatrixProperty;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L17cf28.  v0:= constclass @type ^`android.graphics.Matrix` @kind object;
+  #L17cf2c.  v1:= "imageMatrixProperty" @kind object;
+  #L17cf30.  call `<init>`(v2, v0, v1) @signature `Landroid/util/Property;.<init>:(Ljava/lang/Class;Ljava/lang/String;)V` @kind direct;
+  #L17cf36.  v0:= new `android.graphics.Matrix`;
+  #L17cf3a.  call `<init>`(v0) @signature `Landroid/graphics/Matrix;.<init>:()V` @kind direct;
+  #L17cf40.  v2.`com.google.android.material.animation.ImageMatrixProperty.matrix` @type ^`android.graphics.Matrix` := v0 @kind object;
+  #L17cf44.  return @kind void;
+}
+procedure `android.graphics.Matrix` `get`(`com.google.android.material.animation.ImageMatrixProperty` v2 @kind this, `android.widget.ImageView` v3 @kind object @name `object`) @signature `Lcom/google/android/material/animation/ImageMatrixProperty;.get:(Landroid/widget/ImageView;)Landroid/graphics/Matrix;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L17cee0.  v0:= v2.`com.google.android.material.animation.ImageMatrixProperty.matrix` @type ^`android.graphics.Matrix` @kind object;
+  #L17cee4.  call temp:= `getImageMatrix`(v3) @signature `Landroid/widget/ImageView;.getImageMatrix:()Landroid/graphics/Matrix;` @kind virtual;
+  #L17ceea.  v1:= temp @kind object;
+  #L17ceec.  call `set`(v0, v1) @signature `Landroid/graphics/Matrix;.set:(Landroid/graphics/Matrix;)V` @kind virtual;
+  #L17cef2.  v0:= v2.`com.google.android.material.animation.ImageMatrixProperty.matrix` @type ^`android.graphics.Matrix` @kind object;
+  #L17cef6.  return v0 @kind object;
+}
+procedure `java.lang.Object` `get`(`com.google.android.material.animation.ImageMatrixProperty` v0 @kind this, `java.lang.Object` v1 @kind object) @signature `Lcom/google/android/material/animation/ImageMatrixProperty;.get:(Ljava/lang/Object;)Ljava/lang/Object;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L17cf08.  v1:= (`android.widget.ImageView`) v1 @kind object;
+  #L17cf0c.  call temp:= `get`(v0, v1) @signature `Lcom/google/android/material/animation/ImageMatrixProperty;.get:(Landroid/widget/ImageView;)Landroid/graphics/Matrix;` @kind virtual;
+  #L17cf12.  v1:= temp @kind object;
+  #L17cf14.  return v1 @kind object;
+}
+procedure `void` `set`(`com.google.android.material.animation.ImageMatrixProperty` v0 @kind this, `android.widget.ImageView` v1 @kind object @name `object`, `android.graphics.Matrix` v2 @kind object @name `value`) @signature `Lcom/google/android/material/animation/ImageMatrixProperty;.set:(Landroid/widget/ImageView;Landroid/graphics/Matrix;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L17cf58.  call `setImageMatrix`(v1, v2) @signature `Landroid/widget/ImageView;.setImageMatrix:(Landroid/graphics/Matrix;)V` @kind virtual;
+  #L17cf5e.  return @kind void;
+}
+procedure `void` `set`(`com.google.android.material.animation.ImageMatrixProperty` v0 @kind this, `java.lang.Object` v1 @kind object, `java.lang.Object` v2 @kind object) @signature `Lcom/google/android/material/animation/ImageMatrixProperty;.set:(Ljava/lang/Object;Ljava/lang/Object;)V` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L17cf70.  v1:= (`android.widget.ImageView`) v1 @kind object;
+  #L17cf74.  v2:= (`android.graphics.Matrix`) v2 @kind object;
+  #L17cf78.  call `set`(v0, v1, v2) @signature `Lcom/google/android/material/animation/ImageMatrixProperty;.set:(Landroid/widget/ImageView;Landroid/graphics/Matrix;)V` @kind virtual;
+  #L17cf7e.  return @kind void;
+}

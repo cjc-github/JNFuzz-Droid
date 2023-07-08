@@ -1,0 +1,157 @@
+record `com.google.android.material.appbar.ViewOffsetBehavior` @kind class @AccessFlag  extends `androidx.coordinatorlayout.widget.CoordinatorLayout$Behavior` @kind class {
+  `int` `com.google.android.material.appbar.ViewOffsetBehavior.tempLeftRightOffset` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.appbar.ViewOffsetBehavior.tempTopBottomOffset` @AccessFlag PRIVATE;
+  `com.google.android.material.appbar.ViewOffsetHelper` `com.google.android.material.appbar.ViewOffsetBehavior.viewOffsetHelper` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.ViewOffsetBehavior` v1 @kind this) @signature `Lcom/google/android/material/appbar/ViewOffsetBehavior;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L182504.  call `<init>`(v1) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;.<init>:()V` @kind direct;
+  #L18250a.  v0:= 0I;
+  #L18250c.  v1.`com.google.android.material.appbar.ViewOffsetBehavior.tempTopBottomOffset` @type ^`int` := v0;
+  #L182510.  v1.`com.google.android.material.appbar.ViewOffsetBehavior.tempLeftRightOffset` @type ^`int` := v0;
+  #L182514.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.ViewOffsetBehavior` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/appbar/ViewOffsetBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L182528.  call `<init>`(v1, v2, v3) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L18252e.  v0:= 0I;
+  #L182530.  v1.`com.google.android.material.appbar.ViewOffsetBehavior.tempTopBottomOffset` @type ^`int` := v0;
+  #L182534.  v1.`com.google.android.material.appbar.ViewOffsetBehavior.tempLeftRightOffset` @type ^`int` := v0;
+  #L182538.  return @kind void;
+}
+procedure `int` `getLeftAndRightOffset`(`com.google.android.material.appbar.ViewOffsetBehavior` v1 @kind this) @signature `Lcom/google/android/material/appbar/ViewOffsetBehavior;.getLeftAndRightOffset:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1824b4.  v0:= v1.`com.google.android.material.appbar.ViewOffsetBehavior.viewOffsetHelper` @type ^`com.google.android.material.appbar.ViewOffsetHelper` @kind object;
+  #L1824b8.  if v0 == 0 then goto L1824c6;
+  #L1824bc.  call temp:= `getLeftAndRightOffset`(v0) @signature `Lcom/google/android/material/appbar/ViewOffsetHelper;.getLeftAndRightOffset:()I` @kind virtual;
+  #L1824c2.  v0:= temp;
+  #L1824c4.  goto L1824c8;
+  #L1824c6.  v0:= 0I;
+  #L1824c8.  return v0;
+}
+procedure `int` `getTopAndBottomOffset`(`com.google.android.material.appbar.ViewOffsetBehavior` v1 @kind this) @signature `Lcom/google/android/material/appbar/ViewOffsetBehavior;.getTopAndBottomOffset:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1824dc.  v0:= v1.`com.google.android.material.appbar.ViewOffsetBehavior.viewOffsetHelper` @type ^`com.google.android.material.appbar.ViewOffsetHelper` @kind object;
+  #L1824e0.  if v0 == 0 then goto L1824ee;
+  #L1824e4.  call temp:= `getTopAndBottomOffset`(v0) @signature `Lcom/google/android/material/appbar/ViewOffsetHelper;.getTopAndBottomOffset:()I` @kind virtual;
+  #L1824ea.  v0:= temp;
+  #L1824ec.  goto L1824f0;
+  #L1824ee.  v0:= 0I;
+  #L1824f0.  return v0;
+}
+procedure `boolean` `isHorizontalOffsetEnabled`(`com.google.android.material.appbar.ViewOffsetBehavior` v1 @kind this) @signature `Lcom/google/android/material/appbar/ViewOffsetBehavior;.isHorizontalOffsetEnabled:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L182390.  v0:= v1.`com.google.android.material.appbar.ViewOffsetBehavior.viewOffsetHelper` @type ^`com.google.android.material.appbar.ViewOffsetHelper` @kind object;
+  #L182394.  if v0 == 0 then goto L1823a8;
+  #L182398.  call temp:= `isHorizontalOffsetEnabled`(v0) @signature `Lcom/google/android/material/appbar/ViewOffsetHelper;.isHorizontalOffsetEnabled:()Z` @kind virtual;
+  #L18239e.  v0:= temp;
+  #L1823a0.  if v0 == 0 then goto L1823a8;
+  #L1823a4.  v0:= 1I;
+  #L1823a6.  goto L1823aa;
+  #L1823a8.  v0:= 0I;
+  #L1823aa.  return v0;
+}
+procedure `boolean` `isVerticalOffsetEnabled`(`com.google.android.material.appbar.ViewOffsetBehavior` v1 @kind this) @signature `Lcom/google/android/material/appbar/ViewOffsetBehavior;.isVerticalOffsetEnabled:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1823bc.  v0:= v1.`com.google.android.material.appbar.ViewOffsetBehavior.viewOffsetHelper` @type ^`com.google.android.material.appbar.ViewOffsetHelper` @kind object;
+  #L1823c0.  if v0 == 0 then goto L1823d4;
+  #L1823c4.  call temp:= `isVerticalOffsetEnabled`(v0) @signature `Lcom/google/android/material/appbar/ViewOffsetHelper;.isVerticalOffsetEnabled:()Z` @kind virtual;
+  #L1823ca.  v0:= temp;
+  #L1823cc.  if v0 == 0 then goto L1823d4;
+  #L1823d0.  v0:= 1I;
+  #L1823d2.  goto L1823d6;
+  #L1823d4.  v0:= 0I;
+  #L1823d6.  return v0;
+}
+procedure `void` `layoutChild`(`com.google.android.material.appbar.ViewOffsetBehavior` v0 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind object @name `parent`, `android.view.View` v2 @kind object, `int` v3 @name `layoutDirection`) @signature `Lcom/google/android/material/appbar/ViewOffsetBehavior;.layoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)V` @AccessFlag PROTECTED {
+    temp;
+
+  #L18254c.  call `onLayoutChild`(v1, v2, v3) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onLayoutChild:(Landroid/view/View;I)V` @kind virtual;
+  #L182552.  return @kind void;
+}
+procedure `boolean` `onLayoutChild`(`com.google.android.material.appbar.ViewOffsetBehavior` v3 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v4 @kind object @name `parent`, `android.view.View` v5 @kind object, `int` v6 @name `layoutDirection`) @signature `Lcom/google/android/material/appbar/ViewOffsetBehavior;.onLayoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1823e8.  call `layoutChild`(v3, v4, v5, v6) @signature `Lcom/google/android/material/appbar/ViewOffsetBehavior;.layoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)V` @kind virtual;
+  #L1823ee.  v0:= v3.`com.google.android.material.appbar.ViewOffsetBehavior.viewOffsetHelper` @type ^`com.google.android.material.appbar.ViewOffsetHelper` @kind object;
+  #L1823f2.  if v0 != 0 then goto L182404;
+  #L1823f6.  v0:= new `com.google.android.material.appbar.ViewOffsetHelper`;
+  #L1823fa.  call `<init>`(v0, v5) @signature `Lcom/google/android/material/appbar/ViewOffsetHelper;.<init>:(Landroid/view/View;)V` @kind direct;
+  #L182400.  v3.`com.google.android.material.appbar.ViewOffsetBehavior.viewOffsetHelper` @type ^`com.google.android.material.appbar.ViewOffsetHelper` := v0 @kind object;
+  #L182404.  v0:= v3.`com.google.android.material.appbar.ViewOffsetBehavior.viewOffsetHelper` @type ^`com.google.android.material.appbar.ViewOffsetHelper` @kind object;
+  #L182408.  call `onViewLayout`(v0) @signature `Lcom/google/android/material/appbar/ViewOffsetHelper;.onViewLayout:()V` @kind virtual;
+  #L18240e.  v0:= v3.`com.google.android.material.appbar.ViewOffsetBehavior.viewOffsetHelper` @type ^`com.google.android.material.appbar.ViewOffsetHelper` @kind object;
+  #L182412.  call `applyOffsets`(v0) @signature `Lcom/google/android/material/appbar/ViewOffsetHelper;.applyOffsets:()V` @kind virtual;
+  #L182418.  v0:= v3.`com.google.android.material.appbar.ViewOffsetBehavior.tempTopBottomOffset` @type ^`int`;
+  #L18241c.  v1:= 0I;
+  #L18241e.  if v0 == 0 then goto L182430;
+  #L182422.  v2:= v3.`com.google.android.material.appbar.ViewOffsetBehavior.viewOffsetHelper` @type ^`com.google.android.material.appbar.ViewOffsetHelper` @kind object;
+  #L182426.  call temp:= `setTopAndBottomOffset`(v2, v0) @signature `Lcom/google/android/material/appbar/ViewOffsetHelper;.setTopAndBottomOffset:(I)Z` @kind virtual;
+  #L18242c.  v3.`com.google.android.material.appbar.ViewOffsetBehavior.tempTopBottomOffset` @type ^`int` := v1;
+  #L182430.  v0:= v3.`com.google.android.material.appbar.ViewOffsetBehavior.tempLeftRightOffset` @type ^`int`;
+  #L182434.  if v0 == 0 then goto L182446;
+  #L182438.  v2:= v3.`com.google.android.material.appbar.ViewOffsetBehavior.viewOffsetHelper` @type ^`com.google.android.material.appbar.ViewOffsetHelper` @kind object;
+  #L18243c.  call temp:= `setLeftAndRightOffset`(v2, v0) @signature `Lcom/google/android/material/appbar/ViewOffsetHelper;.setLeftAndRightOffset:(I)Z` @kind virtual;
+  #L182442.  v3.`com.google.android.material.appbar.ViewOffsetBehavior.tempLeftRightOffset` @type ^`int` := v1;
+  #L182446.  v0:= 1I;
+  #L182448.  return v0;
+}
+procedure `void` `setHorizontalOffsetEnabled`(`com.google.android.material.appbar.ViewOffsetBehavior` v1 @kind this, `boolean` v2 @name `horizontalOffsetEnabled`) @signature `Lcom/google/android/material/appbar/ViewOffsetBehavior;.setHorizontalOffsetEnabled:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L182564.  v0:= v1.`com.google.android.material.appbar.ViewOffsetBehavior.viewOffsetHelper` @type ^`com.google.android.material.appbar.ViewOffsetHelper` @kind object;
+  #L182568.  if v0 == 0 then goto L182572;
+  #L18256c.  call `setHorizontalOffsetEnabled`(v0, v2) @signature `Lcom/google/android/material/appbar/ViewOffsetHelper;.setHorizontalOffsetEnabled:(Z)V` @kind virtual;
+  #L182572.  return @kind void;
+}
+procedure `boolean` `setLeftAndRightOffset`(`com.google.android.material.appbar.ViewOffsetBehavior` v1 @kind this, `int` v2 @name `offset`) @signature `Lcom/google/android/material/appbar/ViewOffsetBehavior;.setLeftAndRightOffset:(I)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18245c.  v0:= v1.`com.google.android.material.appbar.ViewOffsetBehavior.viewOffsetHelper` @type ^`com.google.android.material.appbar.ViewOffsetHelper` @kind object;
+  #L182460.  if v0 == 0 then goto L18246e;
+  #L182464.  call temp:= `setLeftAndRightOffset`(v0, v2) @signature `Lcom/google/android/material/appbar/ViewOffsetHelper;.setLeftAndRightOffset:(I)Z` @kind virtual;
+  #L18246a.  v0:= temp;
+  #L18246c.  return v0;
+  #L18246e.  v1.`com.google.android.material.appbar.ViewOffsetBehavior.tempLeftRightOffset` @type ^`int` := v2;
+  #L182472.  v0:= 0I;
+  #L182474.  return v0;
+}
+procedure `boolean` `setTopAndBottomOffset`(`com.google.android.material.appbar.ViewOffsetBehavior` v1 @kind this, `int` v2 @name `offset`) @signature `Lcom/google/android/material/appbar/ViewOffsetBehavior;.setTopAndBottomOffset:(I)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L182488.  v0:= v1.`com.google.android.material.appbar.ViewOffsetBehavior.viewOffsetHelper` @type ^`com.google.android.material.appbar.ViewOffsetHelper` @kind object;
+  #L18248c.  if v0 == 0 then goto L18249a;
+  #L182490.  call temp:= `setTopAndBottomOffset`(v0, v2) @signature `Lcom/google/android/material/appbar/ViewOffsetHelper;.setTopAndBottomOffset:(I)Z` @kind virtual;
+  #L182496.  v0:= temp;
+  #L182498.  return v0;
+  #L18249a.  v1.`com.google.android.material.appbar.ViewOffsetBehavior.tempTopBottomOffset` @type ^`int` := v2;
+  #L18249e.  v0:= 0I;
+  #L1824a0.  return v0;
+}
+procedure `void` `setVerticalOffsetEnabled`(`com.google.android.material.appbar.ViewOffsetBehavior` v1 @kind this, `boolean` v2 @name `verticalOffsetEnabled`) @signature `Lcom/google/android/material/appbar/ViewOffsetBehavior;.setVerticalOffsetEnabled:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L182584.  v0:= v1.`com.google.android.material.appbar.ViewOffsetBehavior.viewOffsetHelper` @type ^`com.google.android.material.appbar.ViewOffsetHelper` @kind object;
+  #L182588.  if v0 == 0 then goto L182592;
+  #L18258c.  call `setVerticalOffsetEnabled`(v0, v2) @signature `Lcom/google/android/material/appbar/ViewOffsetHelper;.setVerticalOffsetEnabled:(Z)V` @kind virtual;
+  #L182592.  return @kind void;
+}

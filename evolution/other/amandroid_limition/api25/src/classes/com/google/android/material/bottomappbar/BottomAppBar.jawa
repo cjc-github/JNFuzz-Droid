@@ -1,0 +1,1126 @@
+record `com.google.android.material.bottomappbar.BottomAppBar` @kind class @AccessFlag PUBLIC extends `androidx.appcompat.widget.Toolbar` @kind class, `androidx.coordinatorlayout.widget.CoordinatorLayout$AttachedBehavior` @kind interface {
+  `int` `com.google.android.material.bottomappbar.BottomAppBar.animatingModeChangeCounter` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `com.google.android.material.bottomappbar.BottomAppBar.animationListeners` @AccessFlag PRIVATE;
+  `com.google.android.material.bottomappbar.BottomAppBar$Behavior` `com.google.android.material.bottomappbar.BottomAppBar.behavior` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.bottomappbar.BottomAppBar.bottomInset` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.bottomappbar.BottomAppBar.fabAlignmentMode` @AccessFlag PRIVATE;
+  `android.animation.AnimatorListenerAdapter` `com.google.android.material.bottomappbar.BottomAppBar.fabAnimationListener` @AccessFlag ;
+  `int` `com.google.android.material.bottomappbar.BottomAppBar.fabAnimationMode` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.bottomappbar.BottomAppBar.fabAttached` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.bottomappbar.BottomAppBar.fabOffsetEndMode` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.animation.TransformationCallback` `com.google.android.material.bottomappbar.BottomAppBar.fabTransformationCallback` @AccessFlag ;
+  `boolean` `com.google.android.material.bottomappbar.BottomAppBar.hideOnScroll` @AccessFlag PRIVATE;
+  `com.google.android.material.shape.MaterialShapeDrawable` `com.google.android.material.bottomappbar.BottomAppBar.materialShapeDrawable` @AccessFlag PRIVATE_FINAL;
+  `android.animation.Animator` `com.google.android.material.bottomappbar.BottomAppBar.menuAnimator` @AccessFlag PRIVATE;
+  `android.animation.Animator` `com.google.android.material.bottomappbar.BottomAppBar.modeAnimator` @AccessFlag PRIVATE;
+}
+global `long` `@@com.google.android.material.bottomappbar.BottomAppBar.ANIMATION_DURATION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomappbar.BottomAppBar.DEF_STYLE_RES` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomappbar.BottomAppBar.FAB_ALIGNMENT_MODE_CENTER` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomappbar.BottomAppBar.FAB_ALIGNMENT_MODE_END` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomappbar.BottomAppBar.FAB_ANIMATION_MODE_SCALE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomappbar.BottomAppBar.FAB_ANIMATION_MODE_SLIDE` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1853dc.  v0:= `@@com.google.android.material.R$style.Widget_MaterialComponents_BottomAppBar` @type ^`int`;
+  #L1853e0.  `@@com.google.android.material.bottomappbar.BottomAppBar.DEF_STYLE_RES` @type ^`int` := v0;
+  #L1853e4.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomappbar.BottomAppBar` v2 @kind this, `android.content.Context` v3 @kind object @name `context`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L1853f8.  v0:= 0I;
+  #L1853fa.  v1:= 0I;
+  #L1853fc.  call `<init>`(v2, v3, v0, v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L185402.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L185414.  v0:= `@@com.google.android.material.R$attr.bottomAppBarStyle` @type ^`int`;
+  #L185418.  call `<init>`(v1, v2, v3, v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L18541e.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomappbar.BottomAppBar` v10 @kind this, `android.content.Context` v11 @kind object @name `context`, `android.util.AttributeSet` v12 @kind object @name `attrs`, `int` v13 @name `defStyleAttr`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+
+  #L185430.  v4:= `@@com.google.android.material.bottomappbar.BottomAppBar.DEF_STYLE_RES` @type ^`int`;
+  #L185434.  call temp:= `createThemedContext`(v11, v12, v13, v4) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.createThemedContext:(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/content/Context;` @kind static;
+  #L18543a.  v0:= temp @kind object;
+  #L18543c.  call `<init>`(v10, v0, v12, v13) @signature `Landroidx/appcompat/widget/Toolbar;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L185442.  v6:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L185446.  call `<init>`(v6) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:()V` @kind direct;
+  #L18544c.  v10.`com.google.android.material.bottomappbar.BottomAppBar.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` := v6 @kind object;
+  #L185450.  v7:= 0I;
+  #L185452.  v10.`com.google.android.material.bottomappbar.BottomAppBar.animatingModeChangeCounter` @type ^`int` := v7;
+  #L185456.  v0:= 1I;
+  #L185458.  v10.`com.google.android.material.bottomappbar.BottomAppBar.fabAttached` @type ^`boolean` := v0 @kind boolean;
+  #L18545c.  v0:= new `com.google.android.material.bottomappbar.BottomAppBar$1`;
+  #L185460.  call `<init>`(v0, v10) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$1;.<init>:(Lcom/google/android/material/bottomappbar/BottomAppBar;)V` @kind direct;
+  #L185466.  v10.`com.google.android.material.bottomappbar.BottomAppBar.fabAnimationListener` @type ^`android.animation.AnimatorListenerAdapter` := v0 @kind object;
+  #L18546a.  v0:= new `com.google.android.material.bottomappbar.BottomAppBar$2`;
+  #L18546e.  call `<init>`(v0, v10) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$2;.<init>:(Lcom/google/android/material/bottomappbar/BottomAppBar;)V` @kind direct;
+  #L185474.  v10.`com.google.android.material.bottomappbar.BottomAppBar.fabTransformationCallback` @type ^`com.google.android.material.animation.TransformationCallback` := v0 @kind object;
+  #L185478.  call temp:= `getContext`(v10) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L18547e.  v11:= temp @kind object;
+  #L185480.  v2:= `@@com.google.android.material.R$styleable.BottomAppBar` @type ^`int`[] @kind object;
+  #L185484.  v5:= new `int`[v7];
+  #L185488.  v0:= v11 @kind object;
+  #L18548a.  v1:= v12 @kind object;
+  #L18548c.  v3:= v13;
+  #L18548e.  call temp:= `obtainStyledAttributes`(v0, v1, v2, v3, v4, v5) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainStyledAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;` @kind static;
+  #L185494.  v0:= temp @kind object;
+  #L185496.  v1:= `@@com.google.android.material.R$styleable.BottomAppBar_backgroundTint` @type ^`int`;
+  #L18549a.  call temp:= `getColorStateList`(v11, v0, v1) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1854a0.  v1:= temp @kind object;
+  #L1854a2.  v2:= `@@com.google.android.material.R$styleable.BottomAppBar_elevation` @type ^`int`;
+  #L1854a6.  call temp:= `getDimensionPixelSize`(v0, v2, v7) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1854ac.  v2:= temp;
+  #L1854ae.  v3:= `@@com.google.android.material.R$styleable.BottomAppBar_fabCradleMargin` @type ^`int`;
+  #L1854b2.  call temp:= `getDimensionPixelOffset`(v0, v3, v7) @signature `Landroid/content/res/TypedArray;.getDimensionPixelOffset:(II)I` @kind virtual;
+  #L1854b8.  v3:= temp;
+  #L1854ba.  v3:= (`float`) v3 @kind i2f;
+  #L1854bc.  v4:= `@@com.google.android.material.R$styleable.BottomAppBar_fabCradleRoundedCornerRadius` @type ^`int`;
+  #L1854c0.  call temp:= `getDimensionPixelOffset`(v0, v4, v7) @signature `Landroid/content/res/TypedArray;.getDimensionPixelOffset:(II)I` @kind virtual;
+  #L1854c6.  v4:= temp;
+  #L1854c8.  v4:= (`float`) v4 @kind i2f;
+  #L1854ca.  v5:= `@@com.google.android.material.R$styleable.BottomAppBar_fabCradleVerticalOffset` @type ^`int`;
+  #L1854ce.  call temp:= `getDimensionPixelOffset`(v0, v5, v7) @signature `Landroid/content/res/TypedArray;.getDimensionPixelOffset:(II)I` @kind virtual;
+  #L1854d4.  v5:= temp;
+  #L1854d6.  v5:= (`float`) v5 @kind i2f;
+  #L1854d8.  v8:= `@@com.google.android.material.R$styleable.BottomAppBar_fabAlignmentMode` @type ^`int`;
+  #L1854dc.  call temp:= `getInt`(v0, v8, v7) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L1854e2.  v8:= temp;
+  #L1854e4.  v10.`com.google.android.material.bottomappbar.BottomAppBar.fabAlignmentMode` @type ^`int` := v8;
+  #L1854e8.  v8:= `@@com.google.android.material.R$styleable.BottomAppBar_fabAnimationMode` @type ^`int`;
+  #L1854ec.  call temp:= `getInt`(v0, v8, v7) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L1854f2.  v8:= temp;
+  #L1854f4.  v10.`com.google.android.material.bottomappbar.BottomAppBar.fabAnimationMode` @type ^`int` := v8;
+  #L1854f8.  v8:= `@@com.google.android.material.R$styleable.BottomAppBar_hideOnScroll` @type ^`int`;
+  #L1854fc.  call temp:= `getBoolean`(v0, v8, v7) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L185502.  v7:= temp;
+  #L185504.  v10.`com.google.android.material.bottomappbar.BottomAppBar.hideOnScroll` @type ^`boolean` := v7 @kind boolean;
+  #L185508.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L18550e.  
+  #L185510.  call temp:= `getResources`(v10) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L185516.  v7:= temp @kind object;
+  #L185518.  v8:= `@@com.google.android.material.R$dimen.mtrl_bottomappbar_fabOffsetEndMode` @type ^`int`;
+  #L18551c.  call temp:= `getDimensionPixelOffset`(v7, v8) @signature `Landroid/content/res/Resources;.getDimensionPixelOffset:(I)I` @kind virtual;
+  #L185522.  v7:= temp;
+  #L185524.  v10.`com.google.android.material.bottomappbar.BottomAppBar.fabOffsetEndMode` @type ^`int` := v7;
+  #L185528.  v7:= new `com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment`;
+  #L18552c.  call `<init>`(v7, v3, v4, v5) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.<init>:(FFF)V` @kind direct;
+  #L185532.  call temp:= `builder`() @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.builder:()Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind static;
+  #L185538.  v8:= temp @kind object;
+  #L18553a.  call temp:= `setTopEdge`(v8, v7) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setTopEdge:(Lcom/google/android/material/shape/EdgeTreatment;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L185540.  v8:= temp @kind object;
+  #L185542.  call temp:= `build`(v8) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.build:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L185548.  v8:= temp @kind object;
+  #L18554a.  call `setShapeAppearanceModel`(v6, v8) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L185550.  v9:= 2I;
+  #L185552.  call `setShadowCompatibilityMode`(v6, v9) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShadowCompatibilityMode:(I)V` @kind virtual;
+  #L185558.  v9:= `@@android.graphics.Paint$Style.FILL` @type ^`android.graphics.Paint$Style` @kind object;
+  #L18555c.  call `setPaintStyle`(v6, v9) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setPaintStyle:(Landroid/graphics/Paint$Style;)V` @kind virtual;
+  #L185562.  call `initializeElevationOverlay`(v6, v11) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.initializeElevationOverlay:(Landroid/content/Context;)V` @kind virtual;
+  #L185568.  v9:= (`float`) v2 @kind i2f;
+  #L18556a.  call `setElevation`(v10, v9) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setElevation:(F)V` @kind virtual;
+  #L185570.  call `setTintList`(v6, v1) @signature `Landroidx/core/graphics/drawable/DrawableCompat;.setTintList:(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V` @kind static;
+  #L185576.  call `setBackground`(v10, v6) @signature `Landroidx/core/view/ViewCompat;.setBackground:(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V` @kind static;
+  #L18557c.  v6:= new `com.google.android.material.bottomappbar.BottomAppBar$3`;
+  #L185580.  call `<init>`(v6, v10) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$3;.<init>:(Lcom/google/android/material/bottomappbar/BottomAppBar;)V` @kind direct;
+  #L185586.  call `doOnApplyWindowInsets`(v10, v6) @signature `Lcom/google/android/material/internal/ViewUtils;.doOnApplyWindowInsets:(Landroid/view/View;Lcom/google/android/material/internal/ViewUtils$OnApplyWindowInsetsListener;)V` @kind static;
+  #L18558c.  return @kind void;
+}
+procedure `int` `access$000`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$000:(Lcom/google/android/material/bottomappbar/BottomAppBar;)I` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L185268.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.fabAlignmentMode` @type ^`int`;
+  #L18526c.  return v0;
+}
+procedure `boolean` `access$100`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$100:(Lcom/google/android/material/bottomappbar/BottomAppBar;)Z` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L184fb4.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.fabAttached` @type ^`boolean` @kind boolean;
+  #L184fb8.  return v0;
+}
+procedure `void` `access$1000`(`com.google.android.material.bottomappbar.BottomAppBar` v0 @kind object @name `x0`, `androidx.appcompat.widget.ActionMenuView` v1 @kind object @name `x1`, `int` v2 @name `x2`, `boolean` v3 @name `x3`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$1000:(Lcom/google/android/material/bottomappbar/BottomAppBar;Landroidx/appcompat/widget/ActionMenuView;IZ)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1855a0.  call `translateActionMenuView`(v0, v1, v2, v3) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.translateActionMenuView:(Landroidx/appcompat/widget/ActionMenuView;IZ)V` @kind direct;
+  #L1855a6.  return @kind void;
+}
+procedure `com.google.android.material.floatingactionbutton.FloatingActionButton` `access$1100`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$1100:(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/floatingactionbutton/FloatingActionButton;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1850d4.  call temp:= `findDependentFab`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.findDependentFab:()Lcom/google/android/material/floatingactionbutton/FloatingActionButton;` @kind direct;
+  #L1850da.  v0:= temp @kind object;
+  #L1850dc.  return v0 @kind object;
+}
+procedure `float` `access$1200`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$1200:(Lcom/google/android/material/bottomappbar/BottomAppBar;)F` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L185134.  call temp:= `getFabTranslationX`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getFabTranslationX:()F` @kind direct;
+  #L18513a.  v0:= temp;
+  #L18513c.  return v0;
+}
+procedure `int` `access$1600`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$1600:(Lcom/google/android/material/bottomappbar/BottomAppBar;)I` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L185280.  call temp:= `getBottomInset`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getBottomInset:()I` @kind direct;
+  #L185286.  v0:= temp;
+  #L185288.  return v0;
+}
+procedure `android.view.View` `access$1700`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$1700:(Lcom/google/android/material/bottomappbar/BottomAppBar;)Landroid/view/View;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L184ecc.  call temp:= `findDependentView`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.findDependentView:()Landroid/view/View;` @kind direct;
+  #L184ed2.  v0:= temp @kind object;
+  #L184ed4.  return v0 @kind object;
+}
+procedure `void` `access$1800`(`com.google.android.material.bottomappbar.BottomAppBar` v0 @kind object @name `x0`, `com.google.android.material.floatingactionbutton.FloatingActionButton` v1 @kind object @name `x1`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$1800:(Lcom/google/android/material/bottomappbar/BottomAppBar;Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1855b8.  call `addFabAnimationListeners`(v0, v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.addFabAnimationListeners:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V` @kind direct;
+  #L1855be.  return @kind void;
+}
+procedure `void` `access$1900`(`com.google.android.material.bottomappbar.BottomAppBar` v0 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$1900:(Lcom/google/android/material/bottomappbar/BottomAppBar;)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1855d0.  call `setCutoutState`(v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setCutoutState:()V` @kind direct;
+  #L1855d6.  return @kind void;
+}
+procedure `void` `access$200`(`com.google.android.material.bottomappbar.BottomAppBar` v0 @kind object @name `x0`, `int` v1 @name `x1`, `boolean` v2 @name `x2`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$200:(Lcom/google/android/material/bottomappbar/BottomAppBar;IZ)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1855e8.  call `maybeAnimateMenuView`(v0, v1, v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.maybeAnimateMenuView:(IZ)V` @kind direct;
+  #L1855ee.  return @kind void;
+}
+procedure `com.google.android.material.shape.MaterialShapeDrawable` `access$300`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$300:(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/shape/MaterialShapeDrawable;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L18511c.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L185120.  return v0 @kind object;
+}
+procedure `com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment` `access$400`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$400:(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L18508c.  call temp:= `getTopEdgeTreatment`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getTopEdgeTreatment:()Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;` @kind direct;
+  #L185092.  v0:= temp @kind object;
+  #L185094.  return v0 @kind object;
+}
+procedure `int` `access$502`(`com.google.android.material.bottomappbar.BottomAppBar` v0 @kind object @name `x0`, `int` v1 @name `x1`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$502:(Lcom/google/android/material/bottomappbar/BottomAppBar;I)I` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L18529c.  v0.`com.google.android.material.bottomappbar.BottomAppBar.bottomInset` @type ^`int` := v1;
+  #L1852a0.  return v1;
+}
+procedure `void` `access$600`(`com.google.android.material.bottomappbar.BottomAppBar` v0 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$600:(Lcom/google/android/material/bottomappbar/BottomAppBar;)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L185600.  call `dispatchAnimationStart`(v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.dispatchAnimationStart:()V` @kind direct;
+  #L185606.  return @kind void;
+}
+procedure `void` `access$700`(`com.google.android.material.bottomappbar.BottomAppBar` v0 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$700:(Lcom/google/android/material/bottomappbar/BottomAppBar;)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L185618.  call `dispatchAnimationEnd`(v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.dispatchAnimationEnd:()V` @kind direct;
+  #L18561e.  return @kind void;
+}
+procedure `float` `access$800`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind object @name `x0`, `int` v2 @name `x1`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$800:(Lcom/google/android/material/bottomappbar/BottomAppBar;I)F` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L185150.  call temp:= `getFabTranslationX`(v1, v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getFabTranslationX:(I)F` @kind direct;
+  #L185156.  v0:= temp;
+  #L185158.  return v0;
+}
+procedure `android.animation.Animator` `access$902`(`com.google.android.material.bottomappbar.BottomAppBar` v0 @kind object @name `x0`, `android.animation.Animator` v1 @kind object @name `x1`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$902:(Lcom/google/android/material/bottomappbar/BottomAppBar;Landroid/animation/Animator;)Landroid/animation/Animator;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L184e60.  v0.`com.google.android.material.bottomappbar.BottomAppBar.menuAnimator` @type ^`android.animation.Animator` := v1 @kind object;
+  #L184e64.  return v1 @kind object;
+}
+procedure `void` `addFabAnimationListeners`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this, `com.google.android.material.floatingactionbutton.FloatingActionButton` v2 @kind object @name `fab`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.addFabAnimationListeners:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L185664.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.fabAnimationListener` @type ^`android.animation.AnimatorListenerAdapter` @kind object;
+  #L185668.  call `addOnHideAnimationListener`(v2, v0) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.addOnHideAnimationListener:(Landroid/animation/Animator$AnimatorListener;)V` @kind virtual;
+  #L18566e.  v0:= new `com.google.android.material.bottomappbar.BottomAppBar$8`;
+  #L185672.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$8;.<init>:(Lcom/google/android/material/bottomappbar/BottomAppBar;)V` @kind direct;
+  #L185678.  call `addOnShowAnimationListener`(v2, v0) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.addOnShowAnimationListener:(Landroid/animation/Animator$AnimatorListener;)V` @kind virtual;
+  #L18567e.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.fabTransformationCallback` @type ^`com.google.android.material.animation.TransformationCallback` @kind object;
+  #L185682.  call `addTransformationCallback`(v2, v0) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.addTransformationCallback:(Lcom/google/android/material/animation/TransformationCallback;)V` @kind virtual;
+  #L185688.  return @kind void;
+}
+procedure `void` `cancelAnimations`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.cancelAnimations:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L18569c.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.menuAnimator` @type ^`android.animation.Animator` @kind object;
+  #L1856a0.  if v0 == 0 then goto L1856aa;
+  #L1856a4.  call `cancel`(v0) @signature `Landroid/animation/Animator;.cancel:()V` @kind virtual;
+  #L1856aa.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.modeAnimator` @type ^`android.animation.Animator` @kind object;
+  #L1856ae.  if v0 == 0 then goto L1856b8;
+  #L1856b2.  call `cancel`(v0) @signature `Landroid/animation/Animator;.cancel:()V` @kind virtual;
+  #L1856b8.  return @kind void;
+}
+procedure `void` `createFabTranslationXAnimation`(`com.google.android.material.bottomappbar.BottomAppBar` v4 @kind this, `int` v5 @name `targetMode`, `java.util.List` v6 @kind object) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.createFabTranslationXAnimation:(ILjava/util/List;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L185710.  
+  #L185712.  call temp:= `findDependentFab`(v4) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.findDependentFab:()Lcom/google/android/material/floatingactionbutton/FloatingActionButton;` @kind direct;
+  #L185718.  v0:= temp @kind object;
+  #L18571a.  v1:= 1I;
+  #L18571c.  v1:= new `float`[v1];
+  #L185720.  call temp:= `getFabTranslationX`(v4, v5) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getFabTranslationX:(I)F` @kind direct;
+  #L185726.  v2:= temp;
+  #L185728.  v3:= 0I;
+  #L18572a.  v1[v3]:= v2;
+  #L18572e.  v2:= "translationX" @kind object;
+  #L185732.  call temp:= `ofFloat`(v0, v2, v1) @signature `Landroid/animation/ObjectAnimator;.ofFloat:(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;` @kind static;
+  #L185738.  v0:= temp @kind object;
+  #L18573a.  v1:= 300L;
+  #L18573e.  call temp:= `setDuration`(v0, v1) @signature `Landroid/animation/ObjectAnimator;.setDuration:(J)Landroid/animation/ObjectAnimator;` @kind virtual;
+  #L185744.  call temp:= `add`(v6, v0) @signature `Ljava/util/List;.add:(Ljava/lang/Object;)Z` @kind interface;
+  #L18574a.  return @kind void;
+}
+procedure `void` `createMenuViewTranslationAnimation`(`com.google.android.material.bottomappbar.BottomAppBar` v9 @kind this, `int` v10 @name `targetMode`, `boolean` v11 @name `targetAttached`, `java.util.List` v12 @kind object) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.createMenuViewTranslationAnimation:(IZLjava/util/List;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L18575c.  call temp:= `getActionMenuView`(v9) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getActionMenuView:()Landroidx/appcompat/widget/ActionMenuView;` @kind direct;
+  #L185762.  v0:= temp @kind object;
+  #L185764.  if v0 != 0 then goto L18576a;
+  #L185768.  return @kind void;
+  #L18576a.  v1:= 1I;
+  #L18576c.  v2:= new `float`[v1];
+  #L185770.  v3:= 0I;
+  #L185772.  v4:= 1.0F;
+  #L185776.  v2[v3]:= v4;
+  #L18577a.  v5:= "alpha" @kind object;
+  #L18577e.  call temp:= `ofFloat`(v0, v5, v2) @signature `Landroid/animation/ObjectAnimator;.ofFloat:(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;` @kind static;
+  #L185784.  v2:= temp @kind object;
+  #L185786.  
+  #L185788.  call temp:= `getTranslationX`(v0) @signature `Landroidx/appcompat/widget/ActionMenuView;.getTranslationX:()F` @kind virtual;
+  #L18578e.  v6:= temp;
+  #L185790.  call temp:= `getActionMenuViewTranslationX`(v9, v0, v10, v11) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getActionMenuViewTranslationX:(Landroidx/appcompat/widget/ActionMenuView;IZ)I` @kind virtual;
+  #L185796.  v7:= temp;
+  #L185798.  v7:= (`float`) v7 @kind i2f;
+  #L18579a.  v6:= v6 - v7 @kind float;
+  #L18579c.  call temp:= `abs`(v6) @signature `Ljava/lang/Math;.abs:(F)F` @kind static;
+  #L1857a2.  v7:= temp;
+  #L1857a4.  v7:= fcmpl(v7, v4);
+  #L1857a8.  if v7 <= 0 then goto L1857fe;
+  #L1857ac.  v4:= new `float`[v1];
+  #L1857b0.  v7:= 0I;
+  #L1857b2.  v4[v3]:= v7;
+  #L1857b6.  call temp:= `ofFloat`(v0, v5, v4) @signature `Landroid/animation/ObjectAnimator;.ofFloat:(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;` @kind static;
+  #L1857bc.  v4:= temp @kind object;
+  #L1857be.  v5:= new `com.google.android.material.bottomappbar.BottomAppBar$7`;
+  #L1857c2.  call `<init>`(v5, v9, v0, v10, v11) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$7;.<init>:(Lcom/google/android/material/bottomappbar/BottomAppBar;Landroidx/appcompat/widget/ActionMenuView;IZ)V` @kind direct;
+  #L1857c8.  call `addListener`(v4, v5) @signature `Landroid/animation/Animator;.addListener:(Landroid/animation/Animator$AnimatorListener;)V` @kind virtual;
+  #L1857ce.  v5:= new `android.animation.AnimatorSet`;
+  #L1857d2.  call `<init>`(v5) @signature `Landroid/animation/AnimatorSet;.<init>:()V` @kind direct;
+  #L1857d8.  v7:= 150L;
+  #L1857dc.  call temp:= `setDuration`(v5, v7) @signature `Landroid/animation/AnimatorSet;.setDuration:(J)Landroid/animation/AnimatorSet;` @kind virtual;
+  #L1857e2.  v7:= 2I;
+  #L1857e4.  v7:= new `android.animation.Animator`[v7];
+  #L1857e8.  v7[v3]:= v4 @kind object;
+  #L1857ec.  v7[v1]:= v2 @kind object;
+  #L1857f0.  call `playSequentially`(v5, v7) @signature `Landroid/animation/AnimatorSet;.playSequentially:([Landroid/animation/Animator;)V` @kind virtual;
+  #L1857f6.  call temp:= `add`(v12, v5) @signature `Ljava/util/List;.add:(Ljava/lang/Object;)Z` @kind interface;
+  #L1857fc.  goto L185816;
+  #L1857fe.  call temp:= `getAlpha`(v0) @signature `Landroidx/appcompat/widget/ActionMenuView;.getAlpha:()F` @kind virtual;
+  #L185804.  v1:= temp;
+  #L185806.  v1:= fcmpg(v1, v4);
+  #L18580a.  if v1 >= 0 then goto L185816;
+  #L18580e.  call temp:= `add`(v12, v2) @signature `Ljava/util/List;.add:(Ljava/lang/Object;)Z` @kind interface;
+  #L185814.  goto L185818;
+  #L185816.  
+  #L185818.  return @kind void;
+}
+procedure `void` `dispatchAnimationEnd`(`com.google.android.material.bottomappbar.BottomAppBar` v2 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.dispatchAnimationEnd:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L18582c.  v0:= v2.`com.google.android.material.bottomappbar.BottomAppBar.animatingModeChangeCounter` @type ^`int`;
+  #L185830.  v0:= v0 + -1;
+  #L185834.  v2.`com.google.android.material.bottomappbar.BottomAppBar.animatingModeChangeCounter` @type ^`int` := v0;
+  #L185838.  if v0 != 0 then goto L18586c;
+  #L18583c.  v0:= v2.`com.google.android.material.bottomappbar.BottomAppBar.animationListeners` @type ^`java.util.ArrayList` @kind object;
+  #L185840.  if v0 == 0 then goto L18586c;
+  #L185844.  call temp:= `iterator`(v0) @signature `Ljava/util/ArrayList;.iterator:()Ljava/util/Iterator;` @kind virtual;
+  #L18584a.  v0:= temp @kind object;
+  #L18584c.  call temp:= `hasNext`(v0) @signature `Ljava/util/Iterator;.hasNext:()Z` @kind interface;
+  #L185852.  v1:= temp;
+  #L185854.  if v1 == 0 then goto L18586c;
+  #L185858.  call temp:= `next`(v0) @signature `Ljava/util/Iterator;.next:()Ljava/lang/Object;` @kind interface;
+  #L18585e.  v1:= temp @kind object;
+  #L185860.  v1:= (`com.google.android.material.bottomappbar.BottomAppBar$AnimationListener`) v1 @kind object;
+  #L185864.  call `onAnimationEnd`(v1, v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$AnimationListener;.onAnimationEnd:(Lcom/google/android/material/bottomappbar/BottomAppBar;)V` @kind interface;
+  #L18586a.  goto L18584c;
+  #L18586c.  return @kind void;
+}
+procedure `void` `dispatchAnimationStart`(`com.google.android.material.bottomappbar.BottomAppBar` v2 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.dispatchAnimationStart:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L185880.  v0:= v2.`com.google.android.material.bottomappbar.BottomAppBar.animatingModeChangeCounter` @type ^`int`;
+  #L185884.  v1:= v0 + 1;
+  #L185888.  v2.`com.google.android.material.bottomappbar.BottomAppBar.animatingModeChangeCounter` @type ^`int` := v1;
+  #L18588c.  if v0 != 0 then goto L1858c0;
+  #L185890.  v0:= v2.`com.google.android.material.bottomappbar.BottomAppBar.animationListeners` @type ^`java.util.ArrayList` @kind object;
+  #L185894.  if v0 == 0 then goto L1858c0;
+  #L185898.  call temp:= `iterator`(v0) @signature `Ljava/util/ArrayList;.iterator:()Ljava/util/Iterator;` @kind virtual;
+  #L18589e.  v0:= temp @kind object;
+  #L1858a0.  call temp:= `hasNext`(v0) @signature `Ljava/util/Iterator;.hasNext:()Z` @kind interface;
+  #L1858a6.  v1:= temp;
+  #L1858a8.  if v1 == 0 then goto L1858c0;
+  #L1858ac.  call temp:= `next`(v0) @signature `Ljava/util/Iterator;.next:()Ljava/lang/Object;` @kind interface;
+  #L1858b2.  v1:= temp @kind object;
+  #L1858b4.  v1:= (`com.google.android.material.bottomappbar.BottomAppBar$AnimationListener`) v1 @kind object;
+  #L1858b8.  call `onAnimationStart`(v1, v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$AnimationListener;.onAnimationStart:(Lcom/google/android/material/bottomappbar/BottomAppBar;)V` @kind interface;
+  #L1858be.  goto L1858a0;
+  #L1858c0.  return @kind void;
+}
+procedure `com.google.android.material.floatingactionbutton.FloatingActionButton` `findDependentFab`(`com.google.android.material.bottomappbar.BottomAppBar` v2 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.findDependentFab:()Lcom/google/android/material/floatingactionbutton/FloatingActionButton;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1850f0.  call temp:= `findDependentView`(v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.findDependentView:()Landroid/view/View;` @kind direct;
+  #L1850f6.  v0:= temp @kind object;
+  #L1850f8.  v1:= instanceof @variable v0 @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind boolean;
+  #L1850fc.  if v1 == 0 then goto L185108;
+  #L185100.  v1:= v0 @kind object;
+  #L185102.  v1:= (`com.google.android.material.floatingactionbutton.FloatingActionButton`) v1 @kind object;
+  #L185106.  goto L18510a;
+  #L185108.  v1:= 0I;
+  #L18510a.  return v1 @kind object;
+}
+procedure `android.view.View` `findDependentView`(`com.google.android.material.bottomappbar.BottomAppBar` v5 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.findDependentView:()Landroid/view/View;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L184ee8.  call temp:= `getParent`(v5) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getParent:()Landroid/view/ViewParent;` @kind virtual;
+  #L184eee.  v0:= temp @kind object;
+  #L184ef0.  v0:= instanceof @variable v0 @type ^`androidx.coordinatorlayout.widget.CoordinatorLayout` @kind boolean;
+  #L184ef4.  v1:= 0I;
+  #L184ef6.  if v0 != 0 then goto L184efc;
+  #L184efa.  return v1 @kind object;
+  #L184efc.  call temp:= `getParent`(v5) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getParent:()Landroid/view/ViewParent;` @kind virtual;
+  #L184f02.  v0:= temp @kind object;
+  #L184f04.  v0:= (`androidx.coordinatorlayout.widget.CoordinatorLayout`) v0 @kind object;
+  #L184f08.  call temp:= `getDependents`(v0, v5) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getDependents:(Landroid/view/View;)Ljava/util/List;` @kind virtual;
+  #L184f0e.  v0:= temp @kind object;
+  #L184f10.  call temp:= `iterator`(v0) @signature `Ljava/util/List;.iterator:()Ljava/util/Iterator;` @kind interface;
+  #L184f16.  v2:= temp @kind object;
+  #L184f18.  call temp:= `hasNext`(v2) @signature `Ljava/util/Iterator;.hasNext:()Z` @kind interface;
+  #L184f1e.  v3:= temp;
+  #L184f20.  if v3 == 0 then goto L184f46;
+  #L184f24.  call temp:= `next`(v2) @signature `Ljava/util/Iterator;.next:()Ljava/lang/Object;` @kind interface;
+  #L184f2a.  v3:= temp @kind object;
+  #L184f2c.  v3:= (`android.view.View`) v3 @kind object;
+  #L184f30.  v4:= instanceof @variable v3 @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind boolean;
+  #L184f34.  if v4 != 0 then goto L184f44;
+  #L184f38.  v4:= instanceof @variable v3 @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` @kind boolean;
+  #L184f3c.  if v4 == 0 then goto L184f42;
+  #L184f40.  goto L184f44;
+  #L184f42.  goto L184f18;
+  #L184f44.  return v3 @kind object;
+  #L184f46.  return v1 @kind object;
+}
+procedure `androidx.appcompat.widget.ActionMenuView` `getActionMenuView`(`com.google.android.material.bottomappbar.BottomAppBar` v3 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getActionMenuView:()Landroidx/appcompat/widget/ActionMenuView;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L184f58.  v0:= 0I;
+  #L184f5a.  call temp:= `getChildCount`(v3) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getChildCount:()I` @kind virtual;
+  #L184f60.  v1:= temp;
+  #L184f62.  if v0 >= v1 then goto L184f84;
+  #L184f66.  call temp:= `getChildAt`(v3, v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L184f6c.  v1:= temp @kind object;
+  #L184f6e.  v2:= instanceof @variable v1 @type ^`androidx.appcompat.widget.ActionMenuView` @kind boolean;
+  #L184f72.  if v2 == 0 then goto L184f7e;
+  #L184f76.  v2:= v1 @kind object;
+  #L184f78.  v2:= (`androidx.appcompat.widget.ActionMenuView`) v2 @kind object;
+  #L184f7c.  return v2 @kind object;
+  #L184f7e.  v0:= v0 + 1;
+  #L184f82.  goto L184f5a;
+  #L184f84.  v0:= 0I;
+  #L184f86.  return v0 @kind object;
+}
+procedure `int` `getBottomInset`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getBottomInset:()I` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L185394.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.bottomInset` @type ^`int`;
+  #L185398.  return v0;
+}
+procedure `float` `getFabTranslationX`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getFabTranslationX:()F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1851d8.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.fabAlignmentMode` @type ^`int`;
+  #L1851dc.  call temp:= `getFabTranslationX`(v1, v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getFabTranslationX:(I)F` @kind direct;
+  #L1851e2.  v0:= temp;
+  #L1851e4.  return v0;
+}
+procedure `float` `getFabTranslationX`(`com.google.android.material.bottomappbar.BottomAppBar` v4 @kind this, `int` v5 @name `fabAlignmentMode`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getFabTranslationX:(I)F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1851f8.  call temp:= `getLayoutDirection`(v4) @signature `Landroidx/core/view/ViewCompat;.getLayoutDirection:(Landroid/view/View;)I` @kind static;
+  #L1851fe.  v0:= temp;
+  #L185200.  v1:= 1I;
+  #L185202.  if v0 != v1 then goto L18520a;
+  #L185206.  v0:= v1;
+  #L185208.  goto L18520c;
+  #L18520a.  v0:= 0I;
+  #L18520c.  if v5 != v1 then goto L18522e;
+  #L185210.  call temp:= `getMeasuredWidth`(v4) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getMeasuredWidth:()I` @kind virtual;
+  #L185216.  v2:= temp;
+  #L185218.  v2:= v2 / 2;
+  #L18521c.  v3:= v4.`com.google.android.material.bottomappbar.BottomAppBar.fabOffsetEndMode` @type ^`int`;
+  #L185220.  v2:= v2 - v3 @kind int;
+  #L185222.  if v0 == 0 then goto L185228;
+  #L185226.  v1:= -1I;
+  #L185228.  v2:= v2 * v1 @kind int;
+  #L18522a.  v1:= (`float`) v2 @kind i2f;
+  #L18522c.  goto L185230;
+  #L18522e.  v1:= 0I;
+  #L185230.  return v1;
+}
+procedure `float` `getFabTranslationY`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getFabTranslationY:()F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L185244.  call temp:= `getTopEdgeTreatment`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getTopEdgeTreatment:()Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;` @kind direct;
+  #L18524a.  v0:= temp @kind object;
+  #L18524c.  call temp:= `getCradleVerticalOffset`(v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.getCradleVerticalOffset:()F` @kind virtual;
+  #L185252.  v0:= temp;
+  #L185254.  v0:= -v0 @kind float;
+  #L185256.  return v0;
+}
+procedure `com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment` `getTopEdgeTreatment`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getTopEdgeTreatment:()Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1850a8.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L1850ac.  call temp:= `getShapeAppearanceModel`(v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShapeAppearanceModel:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L1850b2.  v0:= temp @kind object;
+  #L1850b4.  call temp:= `getTopEdge`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getTopEdge:()Lcom/google/android/material/shape/EdgeTreatment;` @kind virtual;
+  #L1850ba.  v0:= temp @kind object;
+  #L1850bc.  v0:= (`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment`) v0 @kind object;
+  #L1850c0.  return v0 @kind object;
+}
+procedure `boolean` `isFabVisibleOrWillBeShown`(`com.google.android.material.bottomappbar.BottomAppBar` v2 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.isFabVisibleOrWillBeShown:()Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L184fe4.  call temp:= `findDependentFab`(v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.findDependentFab:()Lcom/google/android/material/floatingactionbutton/FloatingActionButton;` @kind direct;
+  #L184fea.  v0:= temp @kind object;
+  #L184fec.  if v0 == 0 then goto L185000;
+  #L184ff0.  call temp:= `isOrWillBeShown`(v0) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.isOrWillBeShown:()Z` @kind virtual;
+  #L184ff6.  v1:= temp;
+  #L184ff8.  if v1 == 0 then goto L185000;
+  #L184ffc.  v1:= 1I;
+  #L184ffe.  goto L185002;
+  #L185000.  v1:= 0I;
+  #L185002.  return v1;
+}
+procedure `void` `maybeAnimateMenuView`(`com.google.android.material.bottomappbar.BottomAppBar` v3 @kind this, `int` v4 @name `targetMode`, `boolean` v5 @name `newFabAttached`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.maybeAnimateMenuView:(IZ)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1858d4.  call temp:= `isLaidOut`(v3) @signature `Landroidx/core/view/ViewCompat;.isLaidOut:(Landroid/view/View;)Z` @kind static;
+  #L1858da.  v0:= temp;
+  #L1858dc.  if v0 != 0 then goto L1858e2;
+  #L1858e0.  return @kind void;
+  #L1858e2.  v0:= v3.`com.google.android.material.bottomappbar.BottomAppBar.menuAnimator` @type ^`android.animation.Animator` @kind object;
+  #L1858e6.  if v0 == 0 then goto L1858f0;
+  #L1858ea.  call `cancel`(v0) @signature `Landroid/animation/Animator;.cancel:()V` @kind virtual;
+  #L1858f0.  v0:= new `java.util.ArrayList`;
+  #L1858f4.  call `<init>`(v0) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L1858fa.  call temp:= `isFabVisibleOrWillBeShown`(v3) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.isFabVisibleOrWillBeShown:()Z` @kind direct;
+  #L185900.  v1:= temp;
+  #L185902.  if v1 != 0 then goto L18590a;
+  #L185906.  v4:= 0I;
+  #L185908.  v5:= 0I;
+  #L18590a.  call `createMenuViewTranslationAnimation`(v3, v4, v5, v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.createMenuViewTranslationAnimation:(IZLjava/util/List;)V` @kind direct;
+  #L185910.  v1:= new `android.animation.AnimatorSet`;
+  #L185914.  call `<init>`(v1) @signature `Landroid/animation/AnimatorSet;.<init>:()V` @kind direct;
+  #L18591a.  call `playTogether`(v1, v0) @signature `Landroid/animation/AnimatorSet;.playTogether:(Ljava/util/Collection;)V` @kind virtual;
+  #L185920.  v3.`com.google.android.material.bottomappbar.BottomAppBar.menuAnimator` @type ^`android.animation.Animator` := v1 @kind object;
+  #L185924.  v2:= new `com.google.android.material.bottomappbar.BottomAppBar$6`;
+  #L185928.  call `<init>`(v2, v3) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$6;.<init>:(Lcom/google/android/material/bottomappbar/BottomAppBar;)V` @kind direct;
+  #L18592e.  call `addListener`(v1, v2) @signature `Landroid/animation/Animator;.addListener:(Landroid/animation/Animator$AnimatorListener;)V` @kind virtual;
+  #L185934.  v2:= v3.`com.google.android.material.bottomappbar.BottomAppBar.menuAnimator` @type ^`android.animation.Animator` @kind object;
+  #L185938.  call `start`(v2) @signature `Landroid/animation/Animator;.start:()V` @kind virtual;
+  #L18593e.  return @kind void;
+}
+procedure `void` `maybeAnimateModeChange`(`com.google.android.material.bottomappbar.BottomAppBar` v3 @kind this, `int` v4 @name `targetMode`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.maybeAnimateModeChange:(I)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L185950.  v0:= v3.`com.google.android.material.bottomappbar.BottomAppBar.fabAlignmentMode` @type ^`int`;
+  #L185954.  if v0 == v4 then goto L1859c6;
+  #L185958.  call temp:= `isLaidOut`(v3) @signature `Landroidx/core/view/ViewCompat;.isLaidOut:(Landroid/view/View;)Z` @kind static;
+  #L18595e.  v0:= temp;
+  #L185960.  if v0 != 0 then goto L185966;
+  #L185964.  goto L1859c6;
+  #L185966.  v0:= v3.`com.google.android.material.bottomappbar.BottomAppBar.modeAnimator` @type ^`android.animation.Animator` @kind object;
+  #L18596a.  if v0 == 0 then goto L185974;
+  #L18596e.  call `cancel`(v0) @signature `Landroid/animation/Animator;.cancel:()V` @kind virtual;
+  #L185974.  v0:= new `java.util.ArrayList`;
+  #L185978.  call `<init>`(v0) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L18597e.  v1:= v3.`com.google.android.material.bottomappbar.BottomAppBar.fabAnimationMode` @type ^`int`;
+  #L185982.  v2:= 1I;
+  #L185984.  if v1 != v2 then goto L185990;
+  #L185988.  call `createFabTranslationXAnimation`(v3, v4, v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.createFabTranslationXAnimation:(ILjava/util/List;)V` @kind direct;
+  #L18598e.  goto L185996;
+  #L185990.  call `createFabDefaultXAnimation`(v3, v4, v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.createFabDefaultXAnimation:(ILjava/util/List;)V` @kind virtual;
+  #L185996.  v1:= new `android.animation.AnimatorSet`;
+  #L18599a.  call `<init>`(v1) @signature `Landroid/animation/AnimatorSet;.<init>:()V` @kind direct;
+  #L1859a0.  call `playTogether`(v1, v0) @signature `Landroid/animation/AnimatorSet;.playTogether:(Ljava/util/Collection;)V` @kind virtual;
+  #L1859a6.  v3.`com.google.android.material.bottomappbar.BottomAppBar.modeAnimator` @type ^`android.animation.Animator` := v1 @kind object;
+  #L1859aa.  v2:= new `com.google.android.material.bottomappbar.BottomAppBar$4`;
+  #L1859ae.  call `<init>`(v2, v3) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$4;.<init>:(Lcom/google/android/material/bottomappbar/BottomAppBar;)V` @kind direct;
+  #L1859b4.  call `addListener`(v1, v2) @signature `Landroid/animation/Animator;.addListener:(Landroid/animation/Animator$AnimatorListener;)V` @kind virtual;
+  #L1859ba.  v2:= v3.`com.google.android.material.bottomappbar.BottomAppBar.modeAnimator` @type ^`android.animation.Animator` @kind object;
+  #L1859be.  call `start`(v2) @signature `Landroid/animation/Animator;.start:()V` @kind virtual;
+  #L1859c4.  return @kind void;
+  #L1859c6.  return @kind void;
+}
+procedure `void` `setActionMenuViewPosition`(`com.google.android.material.bottomappbar.BottomAppBar` v3 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setActionMenuViewPosition:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L185b24.  call temp:= `getActionMenuView`(v3) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getActionMenuView:()Landroidx/appcompat/widget/ActionMenuView;` @kind direct;
+  #L185b2a.  v0:= temp @kind object;
+  #L185b2c.  if v0 == 0 then goto L185b5e;
+  #L185b30.  v1:= 1.0F;
+  #L185b34.  call `setAlpha`(v0, v1) @signature `Landroidx/appcompat/widget/ActionMenuView;.setAlpha:(F)V` @kind virtual;
+  #L185b3a.  call temp:= `isFabVisibleOrWillBeShown`(v3) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.isFabVisibleOrWillBeShown:()Z` @kind direct;
+  #L185b40.  v1:= temp;
+  #L185b42.  if v1 != 0 then goto L185b50;
+  #L185b46.  v1:= 0I;
+  #L185b48.  call `translateActionMenuView`(v3, v0, v1, v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.translateActionMenuView:(Landroidx/appcompat/widget/ActionMenuView;IZ)V` @kind direct;
+  #L185b4e.  goto L185b5e;
+  #L185b50.  v1:= v3.`com.google.android.material.bottomappbar.BottomAppBar.fabAlignmentMode` @type ^`int`;
+  #L185b54.  v2:= v3.`com.google.android.material.bottomappbar.BottomAppBar.fabAttached` @type ^`boolean` @kind boolean;
+  #L185b58.  call `translateActionMenuView`(v3, v0, v1, v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.translateActionMenuView:(Landroidx/appcompat/widget/ActionMenuView;IZ)V` @kind direct;
+  #L185b5e.  return @kind void;
+}
+procedure `void` `setCutoutState`(`com.google.android.material.bottomappbar.BottomAppBar` v3 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setCutoutState:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L185bcc.  call temp:= `getTopEdgeTreatment`(v3) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getTopEdgeTreatment:()Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;` @kind direct;
+  #L185bd2.  v0:= temp @kind object;
+  #L185bd4.  call temp:= `getFabTranslationX`(v3) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getFabTranslationX:()F` @kind direct;
+  #L185bda.  v1:= temp;
+  #L185bdc.  call `setHorizontalOffset`(v0, v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.setHorizontalOffset:(F)V` @kind virtual;
+  #L185be2.  call temp:= `findDependentView`(v3) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.findDependentView:()Landroid/view/View;` @kind direct;
+  #L185be8.  v0:= temp @kind object;
+  #L185bea.  v1:= v3.`com.google.android.material.bottomappbar.BottomAppBar.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L185bee.  v2:= v3.`com.google.android.material.bottomappbar.BottomAppBar.fabAttached` @type ^`boolean` @kind boolean;
+  #L185bf2.  if v2 == 0 then goto L185c08;
+  #L185bf6.  call temp:= `isFabVisibleOrWillBeShown`(v3) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.isFabVisibleOrWillBeShown:()Z` @kind direct;
+  #L185bfc.  v2:= temp;
+  #L185bfe.  if v2 == 0 then goto L185c08;
+  #L185c02.  v2:= 1.0F;
+  #L185c06.  goto L185c0a;
+  #L185c08.  v2:= 0I;
+  #L185c0a.  call `setInterpolation`(v1, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setInterpolation:(F)V` @kind virtual;
+  #L185c10.  if v0 == 0 then goto L185c30;
+  #L185c14.  call temp:= `getFabTranslationY`(v3) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getFabTranslationY:()F` @kind direct;
+  #L185c1a.  v1:= temp;
+  #L185c1c.  call `setTranslationY`(v0, v1) @signature `Landroid/view/View;.setTranslationY:(F)V` @kind virtual;
+  #L185c22.  call temp:= `getFabTranslationX`(v3) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getFabTranslationX:()F` @kind direct;
+  #L185c28.  v1:= temp;
+  #L185c2a.  call `setTranslationX`(v0, v1) @signature `Landroid/view/View;.setTranslationX:(F)V` @kind virtual;
+  #L185c30.  return @kind void;
+}
+procedure `void` `translateActionMenuView`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this, `androidx.appcompat.widget.ActionMenuView` v2 @kind object @name `actionMenuView`, `int` v3 @name `fabAlignmentMode`, `boolean` v4 @name `fabAttached`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.translateActionMenuView:(Landroidx/appcompat/widget/ActionMenuView;IZ)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L185d80.  
+  #L185d82.  call temp:= `getActionMenuViewTranslationX`(v1, v2, v3, v4) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getActionMenuViewTranslationX:(Landroidx/appcompat/widget/ActionMenuView;IZ)I` @kind virtual;
+  #L185d88.  v0:= temp;
+  #L185d8a.  v0:= (`float`) v0 @kind i2f;
+  #L185d8c.  call `setTranslationX`(v2, v0) @signature `Landroidx/appcompat/widget/ActionMenuView;.setTranslationX:(F)V` @kind virtual;
+  #L185d92.  return @kind void;
+}
+procedure `void` `addAnimationListener`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this, `com.google.android.material.bottomappbar.BottomAppBar$AnimationListener` v2 @kind object @name `listener`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.addAnimationListener:(Lcom/google/android/material/bottomappbar/BottomAppBar$AnimationListener;)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L185630.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.animationListeners` @type ^`java.util.ArrayList` @kind object;
+  #L185634.  if v0 != 0 then goto L185646;
+  #L185638.  v0:= new `java.util.ArrayList`;
+  #L18563c.  call `<init>`(v0) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L185642.  v1.`com.google.android.material.bottomappbar.BottomAppBar.animationListeners` @type ^`java.util.ArrayList` := v0 @kind object;
+  #L185646.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.animationListeners` @type ^`java.util.ArrayList` @kind object;
+  #L18564a.  call temp:= `add`(v0, v2) @signature `Ljava/util/ArrayList;.add:(Ljava/lang/Object;)Z` @kind virtual;
+  #L185650.  return @kind void;
+}
+procedure `void` `createFabDefaultXAnimation`(`com.google.android.material.bottomappbar.BottomAppBar` v2 @kind this, `int` v3 @name `targetMode`, `java.util.List` v4 @kind object) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.createFabDefaultXAnimation:(ILjava/util/List;)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L1856cc.  call temp:= `findDependentFab`(v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.findDependentFab:()Lcom/google/android/material/floatingactionbutton/FloatingActionButton;` @kind direct;
+  #L1856d2.  v0:= temp @kind object;
+  #L1856d4.  if v0 == 0 then goto L1856fe;
+  #L1856d8.  call temp:= `isOrWillBeHidden`(v0) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.isOrWillBeHidden:()Z` @kind virtual;
+  #L1856de.  v1:= temp;
+  #L1856e0.  if v1 == 0 then goto L1856e6;
+  #L1856e4.  goto L1856fe;
+  #L1856e6.  call `dispatchAnimationStart`(v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.dispatchAnimationStart:()V` @kind direct;
+  #L1856ec.  v1:= new `com.google.android.material.bottomappbar.BottomAppBar$5`;
+  #L1856f0.  call `<init>`(v1, v2, v3) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$5;.<init>:(Lcom/google/android/material/bottomappbar/BottomAppBar;I)V` @kind direct;
+  #L1856f6.  call `hide`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.hide:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton$OnVisibilityChangedListener;)V` @kind virtual;
+  #L1856fc.  return @kind void;
+  #L1856fe.  return @kind void;
+}
+procedure `int` `getActionMenuViewTranslationX`(`com.google.android.material.bottomappbar.BottomAppBar` v8 @kind this, `androidx.appcompat.widget.ActionMenuView` v9 @kind object @name `actionMenuView`, `int` v10 @name `fabAlignmentMode`, `boolean` v11 @name `fabAttached`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getActionMenuViewTranslationX:(Landroidx/appcompat/widget/ActionMenuView;IZ)I` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L1852b4.  call temp:= `getLayoutDirection`(v8) @signature `Landroidx/core/view/ViewCompat;.getLayoutDirection:(Landroid/view/View;)I` @kind static;
+  #L1852ba.  v0:= temp;
+  #L1852bc.  v1:= 0I;
+  #L1852be.  v2:= 1I;
+  #L1852c0.  if v0 != v2 then goto L1852c8;
+  #L1852c4.  v0:= v2;
+  #L1852c6.  goto L1852ca;
+  #L1852c8.  v0:= v1;
+  #L1852ca.  if v0 == 0 then goto L1852d8;
+  #L1852ce.  call temp:= `getMeasuredWidth`(v8) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getMeasuredWidth:()I` @kind virtual;
+  #L1852d4.  v3:= temp;
+  #L1852d6.  goto L1852da;
+  #L1852d8.  v3:= v1;
+  #L1852da.  v4:= 0I;
+  #L1852dc.  call temp:= `getChildCount`(v8) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getChildCount:()I` @kind virtual;
+  #L1852e2.  v5:= temp;
+  #L1852e4.  if v4 >= v5 then goto L18535c;
+  #L1852e8.  call temp:= `getChildAt`(v8, v4) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1852ee.  v5:= temp @kind object;
+  #L1852f0.  
+  #L1852f2.  call temp:= `getLayoutParams`(v5) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L1852f8.  v6:= temp @kind object;
+  #L1852fa.  v6:= instanceof @variable v6 @type ^`androidx.appcompat.widget.Toolbar$LayoutParams` @kind boolean;
+  #L1852fe.  if v6 == 0 then goto L185328;
+  #L185302.  call temp:= `getLayoutParams`(v5) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L185308.  v6:= temp @kind object;
+  #L18530a.  v6:= (`androidx.appcompat.widget.Toolbar$LayoutParams`) v6 @kind object;
+  #L18530e.  v6:= v6.`androidx.appcompat.widget.Toolbar$LayoutParams.gravity` @type ^`int`;
+  #L185312.  v7:= 8388615I;
+  #L185318.  v6:= v6 ^& v7 @kind int;
+  #L18531a.  v7:= 8388611I;
+  #L185320.  if v6 != v7 then goto L185328;
+  #L185324.  v6:= v2;
+  #L185326.  goto L18532a;
+  #L185328.  v6:= v1;
+  #L18532a.  if v6 == 0 then goto L185356;
+  #L18532e.  if v0 == 0 then goto L185344;
+  #L185332.  call temp:= `getLeft`(v5) @signature `Landroid/view/View;.getLeft:()I` @kind virtual;
+  #L185338.  v7:= temp;
+  #L18533a.  call temp:= `min`(v3, v7) @signature `Ljava/lang/Math;.min:(II)I` @kind static;
+  #L185340.  v7:= temp;
+  #L185342.  goto L185354;
+  #L185344.  call temp:= `getRight`(v5) @signature `Landroid/view/View;.getRight:()I` @kind virtual;
+  #L18534a.  v7:= temp;
+  #L18534c.  call temp:= `max`(v3, v7) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L185352.  v7:= temp;
+  #L185354.  v3:= v7;
+  #L185356.  v4:= v4 + 1;
+  #L18535a.  goto L1852dc;
+  #L18535c.  if v0 == 0 then goto L18536a;
+  #L185360.  call temp:= `getRight`(v9) @signature `Landroidx/appcompat/widget/ActionMenuView;.getRight:()I` @kind virtual;
+  #L185366.  v4:= temp;
+  #L185368.  goto L185372;
+  #L18536a.  call temp:= `getLeft`(v9) @signature `Landroidx/appcompat/widget/ActionMenuView;.getLeft:()I` @kind virtual;
+  #L185370.  v4:= temp;
+  #L185372.  v5:= v3 - v4 @kind int;
+  #L185376.  if v10 != v2 then goto L185380;
+  #L18537a.  if v11 == 0 then goto L185380;
+  #L18537e.  v1:= v5;
+  #L185380.  return v1;
+}
+procedure `android.content.res.ColorStateList` `getBackgroundTint`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getBackgroundTint:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L184e78.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L184e7c.  call temp:= `getTintList`(v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getTintList:()Landroid/content/res/ColorStateList;` @kind virtual;
+  #L184e82.  v0:= temp @kind object;
+  #L184e84.  return v0 @kind object;
+}
+procedure `androidx.coordinatorlayout.widget.CoordinatorLayout$Behavior` `getBehavior`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getBehavior:()Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L184f98.  call temp:= `getBehavior`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getBehavior:()Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;` @kind virtual;
+  #L184f9e.  v0:= temp @kind object;
+  #L184fa0.  return v0 @kind object;
+}
+procedure `com.google.android.material.bottomappbar.BottomAppBar$Behavior` `getBehavior`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getBehavior:()Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L185060.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.behavior` @type ^`com.google.android.material.bottomappbar.BottomAppBar$Behavior` @kind object;
+  #L185064.  if v0 != 0 then goto L185076;
+  #L185068.  v0:= new `com.google.android.material.bottomappbar.BottomAppBar$Behavior`;
+  #L18506c.  call `<init>`(v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.<init>:()V` @kind direct;
+  #L185072.  v1.`com.google.android.material.bottomappbar.BottomAppBar.behavior` @type ^`com.google.android.material.bottomappbar.BottomAppBar$Behavior` := v0 @kind object;
+  #L185076.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.behavior` @type ^`com.google.android.material.bottomappbar.BottomAppBar$Behavior` @kind object;
+  #L18507a.  return v0 @kind object;
+}
+procedure `float` `getCradleVerticalOffset`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getCradleVerticalOffset:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18516c.  call temp:= `getTopEdgeTreatment`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getTopEdgeTreatment:()Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;` @kind direct;
+  #L185172.  v0:= temp @kind object;
+  #L185174.  call temp:= `getCradleVerticalOffset`(v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.getCradleVerticalOffset:()F` @kind virtual;
+  #L18517a.  v0:= temp;
+  #L18517c.  return v0;
+}
+procedure `int` `getFabAlignmentMode`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getFabAlignmentMode:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1853ac.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.fabAlignmentMode` @type ^`int`;
+  #L1853b0.  return v0;
+}
+procedure `int` `getFabAnimationMode`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getFabAnimationMode:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1853c4.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.fabAnimationMode` @type ^`int`;
+  #L1853c8.  return v0;
+}
+procedure `float` `getFabCradleMargin`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getFabCradleMargin:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L185190.  call temp:= `getTopEdgeTreatment`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getTopEdgeTreatment:()Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;` @kind direct;
+  #L185196.  v0:= temp @kind object;
+  #L185198.  call temp:= `getFabCradleMargin`(v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.getFabCradleMargin:()F` @kind virtual;
+  #L18519e.  v0:= temp;
+  #L1851a0.  return v0;
+}
+procedure `float` `getFabCradleRoundedCornerRadius`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getFabCradleRoundedCornerRadius:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1851b4.  call temp:= `getTopEdgeTreatment`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getTopEdgeTreatment:()Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;` @kind direct;
+  #L1851ba.  v0:= temp @kind object;
+  #L1851bc.  call temp:= `getFabCradleRoundedCornerRadius`(v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.getFabCradleRoundedCornerRadius:()F` @kind virtual;
+  #L1851c2.  v0:= temp;
+  #L1851c4.  return v0;
+}
+procedure `boolean` `getHideOnScroll`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getHideOnScroll:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L184fcc.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.hideOnScroll` @type ^`boolean` @kind boolean;
+  #L184fd0.  return v0;
+}
+procedure `void` `onAttachedToWindow`(`com.google.android.material.bottomappbar.BottomAppBar` v2 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.onAttachedToWindow:()V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L1859d8.  call `onAttachedToWindow`(v2) @signature `Landroidx/appcompat/widget/Toolbar;.onAttachedToWindow:()V` @kind super;
+  #L1859de.  v0:= v2.`com.google.android.material.bottomappbar.BottomAppBar.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L1859e2.  call `setParentAbsoluteElevation`(v2, v0) @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.setParentAbsoluteElevation:(Landroid/view/View;Lcom/google/android/material/shape/MaterialShapeDrawable;)V` @kind static;
+  #L1859e8.  call temp:= `getParent`(v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getParent:()Landroid/view/ViewParent;` @kind virtual;
+  #L1859ee.  v0:= temp @kind object;
+  #L1859f0.  v0:= instanceof @variable v0 @type ^`android.view.ViewGroup` @kind boolean;
+  #L1859f4.  if v0 == 0 then goto L185a0c;
+  #L1859f8.  call temp:= `getParent`(v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getParent:()Landroid/view/ViewParent;` @kind virtual;
+  #L1859fe.  v0:= temp @kind object;
+  #L185a00.  v0:= (`android.view.ViewGroup`) v0 @kind object;
+  #L185a04.  v1:= 0I;
+  #L185a06.  call `setClipChildren`(v0, v1) @signature `Landroid/view/ViewGroup;.setClipChildren:(Z)V` @kind virtual;
+  #L185a0c.  return @kind void;
+}
+procedure `void` `onLayout`(`com.google.android.material.bottomappbar.BottomAppBar` v0 @kind this, `boolean` v1 @name `changed`, `int` v2 @name `l`, `int` v3 @name `t`, `int` v4 @name `r`, `int` v5 @name `b`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.onLayout:(ZIIII)V` @AccessFlag PROTECTED {
+    temp;
+
+  #L185a20.  call `onLayout`(v0, v1, v2, v3, v4, v5) @signature `Landroidx/appcompat/widget/Toolbar;.onLayout:(ZIIII)V` @kind super;
+  #L185a26.  if v1 == 0 then goto L185a36;
+  #L185a2a.  call `cancelAnimations`(v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.cancelAnimations:()V` @kind direct;
+  #L185a30.  call `setCutoutState`(v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setCutoutState:()V` @kind direct;
+  #L185a36.  call `setActionMenuViewPosition`(v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setActionMenuViewPosition:()V` @kind direct;
+  #L185a3c.  return @kind void;
+}
+procedure `void` `onRestoreInstanceState`(`com.google.android.material.bottomappbar.BottomAppBar` v2 @kind this, `android.os.Parcelable` v3 @kind object @name `state`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.onRestoreInstanceState:(Landroid/os/Parcelable;)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L185a50.  v0:= instanceof @variable v3 @type ^`com.google.android.material.bottomappbar.BottomAppBar$SavedState` @kind boolean;
+  #L185a54.  if v0 != 0 then goto L185a60;
+  #L185a58.  call `onRestoreInstanceState`(v2, v3) @signature `Landroidx/appcompat/widget/Toolbar;.onRestoreInstanceState:(Landroid/os/Parcelable;)V` @kind super;
+  #L185a5e.  return @kind void;
+  #L185a60.  v0:= v3 @kind object;
+  #L185a62.  v0:= (`com.google.android.material.bottomappbar.BottomAppBar$SavedState`) v0 @kind object;
+  #L185a66.  call temp:= `getSuperState`(v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$SavedState;.getSuperState:()Landroid/os/Parcelable;` @kind virtual;
+  #L185a6c.  v1:= temp @kind object;
+  #L185a6e.  call `onRestoreInstanceState`(v2, v1) @signature `Landroidx/appcompat/widget/Toolbar;.onRestoreInstanceState:(Landroid/os/Parcelable;)V` @kind super;
+  #L185a74.  v1:= v0.`com.google.android.material.bottomappbar.BottomAppBar$SavedState.fabAlignmentMode` @type ^`int`;
+  #L185a78.  v2.`com.google.android.material.bottomappbar.BottomAppBar.fabAlignmentMode` @type ^`int` := v1;
+  #L185a7c.  v1:= v0.`com.google.android.material.bottomappbar.BottomAppBar$SavedState.fabAttached` @type ^`boolean` @kind boolean;
+  #L185a80.  v2.`com.google.android.material.bottomappbar.BottomAppBar.fabAttached` @type ^`boolean` := v1 @kind boolean;
+  #L185a84.  return @kind void;
+}
+procedure `android.os.Parcelable` `onSaveInstanceState`(`com.google.android.material.bottomappbar.BottomAppBar` v3 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.onSaveInstanceState:()Landroid/os/Parcelable;` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L184e98.  call temp:= `onSaveInstanceState`(v3) @signature `Landroidx/appcompat/widget/Toolbar;.onSaveInstanceState:()Landroid/os/Parcelable;` @kind super;
+  #L184e9e.  v0:= temp @kind object;
+  #L184ea0.  v1:= new `com.google.android.material.bottomappbar.BottomAppBar$SavedState`;
+  #L184ea4.  call `<init>`(v1, v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$SavedState;.<init>:(Landroid/os/Parcelable;)V` @kind direct;
+  #L184eaa.  v2:= v3.`com.google.android.material.bottomappbar.BottomAppBar.fabAlignmentMode` @type ^`int`;
+  #L184eae.  v1.`com.google.android.material.bottomappbar.BottomAppBar$SavedState.fabAlignmentMode` @type ^`int` := v2;
+  #L184eb2.  v2:= v3.`com.google.android.material.bottomappbar.BottomAppBar.fabAttached` @type ^`boolean` @kind boolean;
+  #L184eb6.  v1.`com.google.android.material.bottomappbar.BottomAppBar$SavedState.fabAttached` @type ^`boolean` := v2 @kind boolean;
+  #L184eba.  return v1 @kind object;
+}
+procedure `void` `performHide`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.performHide:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L185a98.  call temp:= `getBehavior`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getBehavior:()Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;` @kind virtual;
+  #L185a9e.  v0:= temp @kind object;
+  #L185aa0.  call `slideDown`(v0, v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.slideDown:(Landroid/view/View;)V` @kind virtual;
+  #L185aa6.  return @kind void;
+}
+procedure `void` `performShow`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.performShow:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L185ab8.  call temp:= `getBehavior`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getBehavior:()Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;` @kind virtual;
+  #L185abe.  v0:= temp @kind object;
+  #L185ac0.  call `slideUp`(v0, v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.slideUp:(Landroid/view/View;)V` @kind virtual;
+  #L185ac6.  return @kind void;
+}
+procedure `void` `removeAnimationListener`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this, `com.google.android.material.bottomappbar.BottomAppBar$AnimationListener` v2 @kind object @name `listener`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.removeAnimationListener:(Lcom/google/android/material/bottomappbar/BottomAppBar$AnimationListener;)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L185ad8.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.animationListeners` @type ^`java.util.ArrayList` @kind object;
+  #L185adc.  if v0 != 0 then goto L185ae2;
+  #L185ae0.  return @kind void;
+  #L185ae2.  call temp:= `remove`(v0, v2) @signature `Ljava/util/ArrayList;.remove:(Ljava/lang/Object;)Z` @kind virtual;
+  #L185ae8.  return @kind void;
+}
+procedure `void` `replaceMenu`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this, `int` v2 @name `newMenu`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.replaceMenu:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L185afc.  call temp:= `getMenu`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getMenu:()Landroid/view/Menu;` @kind virtual;
+  #L185b02.  v0:= temp @kind object;
+  #L185b04.  call `clear`(v0) @signature `Landroid/view/Menu;.clear:()V` @kind interface;
+  #L185b0a.  call `inflateMenu`(v1, v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.inflateMenu:(I)V` @kind virtual;
+  #L185b10.  return @kind void;
+}
+procedure `void` `setBackgroundTint`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `backgroundTint`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setBackgroundTint:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L185b70.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L185b74.  call `setTintList`(v0, v2) @signature `Landroidx/core/graphics/drawable/DrawableCompat;.setTintList:(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V` @kind static;
+  #L185b7a.  return @kind void;
+}
+procedure `void` `setCradleVerticalOffset`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this, `float` v2 @name `verticalOffset`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setCradleVerticalOffset:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L185b8c.  call temp:= `getCradleVerticalOffset`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getCradleVerticalOffset:()F` @kind virtual;
+  #L185b92.  v0:= temp;
+  #L185b94.  v0:= fcmpl(v2, v0);
+  #L185b98.  if v0 == 0 then goto L185bba;
+  #L185b9c.  call temp:= `getTopEdgeTreatment`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getTopEdgeTreatment:()Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;` @kind direct;
+  #L185ba2.  v0:= temp @kind object;
+  #L185ba4.  call `setCradleVerticalOffset`(v0, v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.setCradleVerticalOffset:(F)V` @kind virtual;
+  #L185baa.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L185bae.  call `invalidateSelf`(v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L185bb4.  call `setCutoutState`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setCutoutState:()V` @kind direct;
+  #L185bba.  return @kind void;
+}
+procedure `void` `setElevation`(`com.google.android.material.bottomappbar.BottomAppBar` v2 @kind this, `float` v3 @name `elevation`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setElevation:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L185c44.  v0:= v2.`com.google.android.material.bottomappbar.BottomAppBar.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L185c48.  call `setElevation`(v0, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setElevation:(F)V` @kind virtual;
+  #L185c4e.  v0:= v2.`com.google.android.material.bottomappbar.BottomAppBar.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L185c52.  call temp:= `getShadowRadius`(v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShadowRadius:()I` @kind virtual;
+  #L185c58.  v0:= temp;
+  #L185c5a.  v1:= v2.`com.google.android.material.bottomappbar.BottomAppBar.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L185c5e.  call temp:= `getShadowOffsetY`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShadowOffsetY:()I` @kind virtual;
+  #L185c64.  v1:= temp;
+  #L185c66.  v0:= v0 - v1 @kind int;
+  #L185c68.  call temp:= `getBehavior`(v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getBehavior:()Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;` @kind virtual;
+  #L185c6e.  v1:= temp @kind object;
+  #L185c70.  call `setAdditionalHiddenOffsetY`(v1, v2, v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.setAdditionalHiddenOffsetY:(Landroid/view/View;I)V` @kind virtual;
+  #L185c76.  return @kind void;
+}
+procedure `void` `setFabAlignmentMode`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this, `int` v2 @name `fabAlignmentMode`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setFabAlignmentMode:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L185c88.  call `maybeAnimateModeChange`(v1, v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.maybeAnimateModeChange:(I)V` @kind direct;
+  #L185c8e.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.fabAttached` @type ^`boolean` @kind boolean;
+  #L185c92.  call `maybeAnimateMenuView`(v1, v2, v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.maybeAnimateMenuView:(IZ)V` @kind direct;
+  #L185c98.  v1.`com.google.android.material.bottomappbar.BottomAppBar.fabAlignmentMode` @type ^`int` := v2;
+  #L185c9c.  return @kind void;
+}
+procedure `void` `setFabAnimationMode`(`com.google.android.material.bottomappbar.BottomAppBar` v0 @kind this, `int` v1 @name `fabAnimationMode`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setFabAnimationMode:(I)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L185cb0.  v0.`com.google.android.material.bottomappbar.BottomAppBar.fabAnimationMode` @type ^`int` := v1;
+  #L185cb4.  return @kind void;
+}
+procedure `void` `setFabCradleMargin`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this, `float` v2 @name `cradleMargin`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setFabCradleMargin:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L185cc8.  call temp:= `getFabCradleMargin`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getFabCradleMargin:()F` @kind virtual;
+  #L185cce.  v0:= temp;
+  #L185cd0.  v0:= fcmpl(v2, v0);
+  #L185cd4.  if v0 == 0 then goto L185cf0;
+  #L185cd8.  call temp:= `getTopEdgeTreatment`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getTopEdgeTreatment:()Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;` @kind direct;
+  #L185cde.  v0:= temp @kind object;
+  #L185ce0.  call `setFabCradleMargin`(v0, v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.setFabCradleMargin:(F)V` @kind virtual;
+  #L185ce6.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L185cea.  call `invalidateSelf`(v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L185cf0.  return @kind void;
+}
+procedure `void` `setFabCradleRoundedCornerRadius`(`com.google.android.material.bottomappbar.BottomAppBar` v1 @kind this, `float` v2 @name `roundedCornerRadius`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setFabCradleRoundedCornerRadius:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L185d04.  call temp:= `getFabCradleRoundedCornerRadius`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getFabCradleRoundedCornerRadius:()F` @kind virtual;
+  #L185d0a.  v0:= temp;
+  #L185d0c.  v0:= fcmpl(v2, v0);
+  #L185d10.  if v0 == 0 then goto L185d2c;
+  #L185d14.  call temp:= `getTopEdgeTreatment`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getTopEdgeTreatment:()Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;` @kind direct;
+  #L185d1a.  v0:= temp @kind object;
+  #L185d1c.  call `setFabCradleRoundedCornerRadius`(v0, v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.setFabCradleRoundedCornerRadius:(F)V` @kind virtual;
+  #L185d22.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L185d26.  call `invalidateSelf`(v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L185d2c.  return @kind void;
+}
+procedure `boolean` `setFabDiameter`(`com.google.android.material.bottomappbar.BottomAppBar` v2 @kind this, `int` v3 @name `diameter`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setFabDiameter:(I)Z` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L185014.  v0:= (`float`) v3 @kind i2f;
+  #L185016.  call temp:= `getTopEdgeTreatment`(v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getTopEdgeTreatment:()Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;` @kind direct;
+  #L18501c.  v1:= temp @kind object;
+  #L18501e.  call temp:= `getFabDiameter`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.getFabDiameter:()F` @kind virtual;
+  #L185024.  v1:= temp;
+  #L185026.  v0:= fcmpl(v0, v1);
+  #L18502a.  if v0 == 0 then goto L18504c;
+  #L18502e.  call temp:= `getTopEdgeTreatment`(v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getTopEdgeTreatment:()Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;` @kind direct;
+  #L185034.  v0:= temp @kind object;
+  #L185036.  v1:= (`float`) v3 @kind i2f;
+  #L185038.  call `setFabDiameter`(v0, v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.setFabDiameter:(F)V` @kind virtual;
+  #L18503e.  v0:= v2.`com.google.android.material.bottomappbar.BottomAppBar.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L185042.  call `invalidateSelf`(v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L185048.  v0:= 1I;
+  #L18504a.  return v0;
+  #L18504c.  v0:= 0I;
+  #L18504e.  return v0;
+}
+procedure `void` `setHideOnScroll`(`com.google.android.material.bottomappbar.BottomAppBar` v0 @kind this, `boolean` v1 @name `hide`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setHideOnScroll:(Z)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L185d40.  v0.`com.google.android.material.bottomappbar.BottomAppBar.hideOnScroll` @type ^`boolean` := v1 @kind boolean;
+  #L185d44.  return @kind void;
+}
+procedure `void` `setSubtitle`(`com.google.android.material.bottomappbar.BottomAppBar` v0 @kind this, `java.lang.CharSequence` v1 @kind object @name `subtitle`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setSubtitle:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L185d58.  return @kind void;
+}
+procedure `void` `setTitle`(`com.google.android.material.bottomappbar.BottomAppBar` v0 @kind this, `java.lang.CharSequence` v1 @kind object @name `title`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setTitle:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L185d6c.  return @kind void;
+}

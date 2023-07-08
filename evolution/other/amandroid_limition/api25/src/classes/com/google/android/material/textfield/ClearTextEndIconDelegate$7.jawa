@@ -1,0 +1,28 @@
+record `com.google.android.material.textfield.ClearTextEndIconDelegate$7` @kind class @AccessFlag  extends `android.animation.ValueAnimator$AnimatorUpdateListener` @kind interface {
+  `com.google.android.material.textfield.ClearTextEndIconDelegate` `com.google.android.material.textfield.ClearTextEndIconDelegate$7.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.ClearTextEndIconDelegate$7` v0 @kind this, `com.google.android.material.textfield.ClearTextEndIconDelegate` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/textfield/ClearTextEndIconDelegate$7;.<init>:(Lcom/google/android/material/textfield/ClearTextEndIconDelegate;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b5fe0.  v0.`com.google.android.material.textfield.ClearTextEndIconDelegate$7.this$0` @type ^`com.google.android.material.textfield.ClearTextEndIconDelegate` := v1 @kind object;
+  #L1b5fe4.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b5fea.  return @kind void;
+}
+procedure `void` `onAnimationUpdate`(`com.google.android.material.textfield.ClearTextEndIconDelegate$7` v2 @kind this, `android.animation.ValueAnimator` v3 @kind object @name `animation`) @signature `Lcom/google/android/material/textfield/ClearTextEndIconDelegate$7;.onAnimationUpdate:(Landroid/animation/ValueAnimator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b5ffc.  call temp:= `getAnimatedValue`(v3) @signature `Landroid/animation/ValueAnimator;.getAnimatedValue:()Ljava/lang/Object;` @kind virtual;
+  #L1b6002.  v0:= temp @kind object;
+  #L1b6004.  v0:= (`java.lang.Float`) v0 @kind object;
+  #L1b6008.  call temp:= `floatValue`(v0) @signature `Ljava/lang/Float;.floatValue:()F` @kind virtual;
+  #L1b600e.  v0:= temp;
+  #L1b6010.  v1:= v2.`com.google.android.material.textfield.ClearTextEndIconDelegate$7.this$0` @type ^`com.google.android.material.textfield.ClearTextEndIconDelegate` @kind object;
+  #L1b6014.  v1:= v1.`com.google.android.material.textfield.ClearTextEndIconDelegate.endIconView` @type ^`com.google.android.material.internal.CheckableImageButton` @kind object;
+  #L1b6018.  call `setScaleX`(v1, v0) @signature `Lcom/google/android/material/internal/CheckableImageButton;.setScaleX:(F)V` @kind virtual;
+  #L1b601e.  v1:= v2.`com.google.android.material.textfield.ClearTextEndIconDelegate$7.this$0` @type ^`com.google.android.material.textfield.ClearTextEndIconDelegate` @kind object;
+  #L1b6022.  v1:= v1.`com.google.android.material.textfield.ClearTextEndIconDelegate.endIconView` @type ^`com.google.android.material.internal.CheckableImageButton` @kind object;
+  #L1b6026.  call `setScaleY`(v1, v0) @signature `Lcom/google/android/material/internal/CheckableImageButton;.setScaleY:(F)V` @kind virtual;
+  #L1b602c.  return @kind void;
+}

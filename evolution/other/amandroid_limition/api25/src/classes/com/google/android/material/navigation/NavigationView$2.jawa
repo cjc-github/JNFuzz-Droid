@@ -1,0 +1,82 @@
+record `com.google.android.material.navigation.NavigationView$2` @kind class @AccessFlag  extends `android.view.ViewTreeObserver$OnGlobalLayoutListener` @kind interface {
+  `com.google.android.material.navigation.NavigationView` `com.google.android.material.navigation.NavigationView$2.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.navigation.NavigationView$2` v0 @kind this, `com.google.android.material.navigation.NavigationView` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/navigation/NavigationView$2;.<init>:(Lcom/google/android/material/navigation/NavigationView;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1a7a20.  v0.`com.google.android.material.navigation.NavigationView$2.this$0` @type ^`com.google.android.material.navigation.NavigationView` := v1 @kind object;
+  #L1a7a24.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1a7a2a.  return @kind void;
+}
+procedure `void` `onGlobalLayout`(`com.google.android.material.navigation.NavigationView$2` v7 @kind this) @signature `Lcom/google/android/material/navigation/NavigationView$2;.onGlobalLayout:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L1a7a3c.  v0:= v7.`com.google.android.material.navigation.NavigationView$2.this$0` @type ^`com.google.android.material.navigation.NavigationView` @kind object;
+  #L1a7a40.  call temp:= `access$000`(v0) @signature `Lcom/google/android/material/navigation/NavigationView;.access$000:(Lcom/google/android/material/navigation/NavigationView;)[I` @kind static;
+  #L1a7a46.  v1:= temp @kind object;
+  #L1a7a48.  call `getLocationOnScreen`(v0, v1) @signature `Lcom/google/android/material/navigation/NavigationView;.getLocationOnScreen:([I)V` @kind virtual;
+  #L1a7a4e.  v0:= v7.`com.google.android.material.navigation.NavigationView$2.this$0` @type ^`com.google.android.material.navigation.NavigationView` @kind object;
+  #L1a7a52.  call temp:= `access$000`(v0) @signature `Lcom/google/android/material/navigation/NavigationView;.access$000:(Lcom/google/android/material/navigation/NavigationView;)[I` @kind static;
+  #L1a7a58.  v0:= temp @kind object;
+  #L1a7a5a.  v1:= 1I;
+  #L1a7a5c.  v0:= v0[v1];
+  #L1a7a60.  v2:= 0I;
+  #L1a7a62.  if v0 != 0 then goto L1a7a6a;
+  #L1a7a66.  v0:= v1;
+  #L1a7a68.  goto L1a7a6c;
+  #L1a7a6a.  v0:= v2;
+  #L1a7a6c.  v3:= v7.`com.google.android.material.navigation.NavigationView$2.this$0` @type ^`com.google.android.material.navigation.NavigationView` @kind object;
+  #L1a7a70.  call temp:= `access$100`(v3) @signature `Lcom/google/android/material/navigation/NavigationView;.access$100:(Lcom/google/android/material/navigation/NavigationView;)Lcom/google/android/material/internal/NavigationMenuPresenter;` @kind static;
+  #L1a7a76.  v3:= temp @kind object;
+  #L1a7a78.  call `setBehindStatusBar`(v3, v0) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setBehindStatusBar:(Z)V` @kind virtual;
+  #L1a7a7e.  v3:= v7.`com.google.android.material.navigation.NavigationView$2.this$0` @type ^`com.google.android.material.navigation.NavigationView` @kind object;
+  #L1a7a82.  call `setDrawTopInsetForeground`(v3, v0) @signature `Lcom/google/android/material/navigation/NavigationView;.setDrawTopInsetForeground:(Z)V` @kind virtual;
+  #L1a7a88.  v3:= v7.`com.google.android.material.navigation.NavigationView$2.this$0` @type ^`com.google.android.material.navigation.NavigationView` @kind object;
+  #L1a7a8c.  call temp:= `getContext`(v3) @signature `Lcom/google/android/material/navigation/NavigationView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1a7a92.  v3:= temp @kind object;
+  #L1a7a94.  v4:= instanceof @variable v3 @type ^`android.app.Activity` @kind boolean;
+  #L1a7a98.  if v4 == 0 then goto L1a7b18;
+  #L1a7a9c.  v4:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1a7aa0.  v5:= 21I;
+  #L1a7aa4.  if v4 < v5 then goto L1a7b18;
+  #L1a7aa8.  v4:= v3 @kind object;
+  #L1a7aaa.  v4:= (`android.app.Activity`) v4 @kind object;
+  #L1a7aae.  v5:= 16908290I;
+  #L1a7ab4.  call temp:= `findViewById`(v4, v5) @signature `Landroid/app/Activity;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L1a7aba.  v4:= temp @kind object;
+  #L1a7abc.  call temp:= `getHeight`(v4) @signature `Landroid/view/View;.getHeight:()I` @kind virtual;
+  #L1a7ac2.  v4:= temp;
+  #L1a7ac4.  v5:= v7.`com.google.android.material.navigation.NavigationView$2.this$0` @type ^`com.google.android.material.navigation.NavigationView` @kind object;
+  #L1a7ac8.  call temp:= `getHeight`(v5) @signature `Lcom/google/android/material/navigation/NavigationView;.getHeight:()I` @kind virtual;
+  #L1a7ace.  v5:= temp;
+  #L1a7ad0.  if v4 != v5 then goto L1a7ad8;
+  #L1a7ad4.  v4:= v1;
+  #L1a7ad6.  goto L1a7ada;
+  #L1a7ad8.  v4:= v2;
+  #L1a7ada.  v5:= v3 @kind object;
+  #L1a7adc.  v5:= (`android.app.Activity`) v5 @kind object;
+  #L1a7ae0.  call temp:= `getWindow`(v5) @signature `Landroid/app/Activity;.getWindow:()Landroid/view/Window;` @kind virtual;
+  #L1a7ae6.  v5:= temp @kind object;
+  #L1a7ae8.  call temp:= `getNavigationBarColor`(v5) @signature `Landroid/view/Window;.getNavigationBarColor:()I` @kind virtual;
+  #L1a7aee.  v5:= temp;
+  #L1a7af0.  call temp:= `alpha`(v5) @signature `Landroid/graphics/Color;.alpha:(I)I` @kind static;
+  #L1a7af6.  v5:= temp;
+  #L1a7af8.  if v5 == 0 then goto L1a7b00;
+  #L1a7afc.  v5:= v1;
+  #L1a7afe.  goto L1a7b02;
+  #L1a7b00.  v5:= v2;
+  #L1a7b02.  v6:= v7.`com.google.android.material.navigation.NavigationView$2.this$0` @type ^`com.google.android.material.navigation.NavigationView` @kind object;
+  #L1a7b06.  if v4 == 0 then goto L1a7b10;
+  #L1a7b0a.  if v5 == 0 then goto L1a7b10;
+  #L1a7b0e.  goto L1a7b12;
+  #L1a7b10.  v1:= v2;
+  #L1a7b12.  call `setDrawBottomInsetForeground`(v6, v1) @signature `Lcom/google/android/material/navigation/NavigationView;.setDrawBottomInsetForeground:(Z)V` @kind virtual;
+  #L1a7b18.  return @kind void;
+}

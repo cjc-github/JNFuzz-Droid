@@ -1,0 +1,210 @@
+record `com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment` @kind class @AccessFlag PUBLIC extends `com.google.android.material.shape.EdgeTreatment` @kind class, `java.lang.Cloneable` @kind interface {
+  `float` `com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.cradleVerticalOffset` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.fabDiameter` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.fabMargin` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.horizontalOffset` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.roundedCornerRadius` @AccessFlag PRIVATE;
+}
+global `int` `@@com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.ANGLE_LEFT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.ANGLE_UP` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.ARC_HALF` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.ARC_QUARTER` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment` v2 @kind this, `float` v3 @name `fabMargin`, `float` v4 @name `roundedCornerRadius`, `float` v5 @name `cradleVerticalOffset`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.<init>:(FFF)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L184c4c.  call `<init>`(v2) @signature `Lcom/google/android/material/shape/EdgeTreatment;.<init>:()V` @kind direct;
+  #L184c52.  v2.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.fabMargin` @type ^`float` := v3;
+  #L184c56.  v2.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.roundedCornerRadius` @type ^`float` := v4;
+  #L184c5a.  v2.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.cradleVerticalOffset` @type ^`float` := v5;
+  #L184c5e.  v0:= 0I;
+  #L184c60.  v1:= fcmpg(v5, v0);
+  #L184c64.  if v1 < 0 then goto L184c6e;
+  #L184c68.  v2.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.horizontalOffset` @type ^`float` := v0;
+  #L184c6c.  return @kind void;
+  #L184c6e.  v0:= new `java.lang.IllegalArgumentException`;
+  #L184c72.  v1:= "cradleVerticalOffset must be positive." @kind object;
+  #L184c76.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L184c7c.  throw v0;
+}
+procedure `float` `getCradleVerticalOffset`(`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.getCradleVerticalOffset:()F` @AccessFlag  {
+    temp;
+    v0;
+
+  #L184bd4.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.cradleVerticalOffset` @type ^`float`;
+  #L184bd8.  return v0;
+}
+procedure `void` `getEdgePath`(`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment` v26 @kind this, `float` v27 @name `length`, `float` v28 @name `center`, `float` v29 @name `interpolation`, `com.google.android.material.shape.ShapePath` v30 @kind object @name `shapePath`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.getEdgePath:(FFFLcom/google/android/material/shape/ShapePath;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+    v12;
+    v13;
+    v14;
+    v15;
+    v16;
+    v17;
+    v18;
+    v19;
+    v20;
+    v21;
+    v22;
+    v23;
+    v24;
+    v25;
+
+  #L184c90.  v0:= v26 @kind object;
+  #L184c94.  v1:= v27;
+  #L184c98.  v9:= v30 @kind object;
+  #L184c9c.  v2:= v0.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.fabDiameter` @type ^`float`;
+  #L184ca0.  v10:= 0I;
+  #L184ca2.  v3:= fcmpl(v2, v10);
+  #L184ca6.  if v3 != 0 then goto L184cb2;
+  #L184caa.  call `lineTo`(v9, v1, v10) @signature `Lcom/google/android/material/shape/ShapePath;.lineTo:(FF)V` @kind virtual;
+  #L184cb0.  return @kind void;
+  #L184cb2.  v3:= v0.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.fabMargin` @type ^`float`;
+  #L184cb6.  v11:= 2.0F;
+  #L184cba.  v3:= v3 * v11 @kind float;
+  #L184cbc.  v12:= v3 + v2 @kind float;
+  #L184cc0.  v13:= v12 / v11 @kind float;
+  #L184cc4.  v2:= v0.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.roundedCornerRadius` @type ^`float`;
+  #L184cc8.  v14:= v29 * v2 @kind float;
+  #L184ccc.  v2:= v0.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.horizontalOffset` @type ^`float`;
+  #L184cd0.  v15:= v28 + v2 @kind float;
+  #L184cd4.  v2:= v0.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.cradleVerticalOffset` @type ^`float`;
+  #L184cd8.  v2:= v2 * v29 @kind float;
+  #L184cdc.  v3:= 1.0F;
+  #L184ce0.  v4:= v3 - v29 @kind float;
+  #L184ce4.  v4:= v4 * v13 @kind float;
+  #L184ce6.  v16:= v2 + v4 @kind float;
+  #L184cea.  v17:= v16 / v13 @kind float;
+  #L184cee.  v2:= fcmpl(v17, v3);
+  #L184cf2.  if v2 < 0 then goto L184cfe;
+  #L184cf6.  call `lineTo`(v9, v1, v10) @signature `Lcom/google/android/material/shape/ShapePath;.lineTo:(FF)V` @kind virtual;
+  #L184cfc.  return @kind void;
+  #L184cfe.  v18:= v13 + v14 @kind float;
+  #L184d02.  v19:= v18 * v18 @kind float;
+  #L184d06.  v20:= v16 + v14 @kind float;
+  #L184d0a.  v2:= v20 * v20 @kind float;
+  #L184d0e.  v2:= v19 - v2 @kind float;
+  #L184d12.  v2:= (`double`) v2 @kind f2d;
+  #L184d14.  call temp:= `sqrt`(v2) @signature `Ljava/lang/Math;.sqrt:(D)D` @kind static;
+  #L184d1a.  v2:= temp @kind wide;
+  #L184d1c.  v8:= (`float`) v2 @kind d2f;
+  #L184d1e.  v7:= v15 - v8 @kind float;
+  #L184d22.  v21:= v15 + v8 @kind float;
+  #L184d26.  v2:= v8 / v20 @kind float;
+  #L184d2a.  v2:= (`double`) v2 @kind f2d;
+  #L184d2c.  call temp:= `atan`(v2) @signature `Ljava/lang/Math;.atan:(D)D` @kind static;
+  #L184d32.  v2:= temp @kind wide;
+  #L184d34.  call temp:= `toDegrees`(v2) @signature `Ljava/lang/Math;.toDegrees:(D)D` @kind static;
+  #L184d3a.  v2:= temp @kind wide;
+  #L184d3c.  v6:= (`float`) v2 @kind d2f;
+  #L184d3e.  v2:= 90.0F;
+  #L184d42.  v22:= v2 - v6 @kind float;
+  #L184d46.  call `lineTo`(v9, v7, v10) @signature `Lcom/google/android/material/shape/ShapePath;.lineTo:(FF)V` @kind virtual;
+  #L184d4c.  v3:= v7 - v14 @kind float;
+  #L184d50.  v4:= 0I;
+  #L184d52.  v5:= v7 + v14 @kind float;
+  #L184d56.  v23:= v14 * v11 @kind float;
+  #L184d5a.  v24:= 270.0F;
+  #L184d5e.  v2:= v30 @kind object;
+  #L184d62.  v25:= v6;
+  #L184d66.  v6:= v23;
+  #L184d6a.  v23:= v7;
+  #L184d6e.  v7:= v24;
+  #L184d72.  v24:= v8;
+  #L184d76.  v8:= v25;
+  #L184d7a.  call `addArc`(v2, v3, v4, v5, v6, v7, v8) @signature `Lcom/google/android/material/shape/ShapePath;.addArc:(FFFFFF)V` @kind virtual;
+  #L184d80.  v3:= v15 - v13 @kind float;
+  #L184d84.  v2:= -v13 @kind float;
+  #L184d86.  v4:= v2 - v16 @kind float;
+  #L184d8a.  v5:= v15 + v13 @kind float;
+  #L184d8e.  v6:= v13 - v16 @kind float;
+  #L184d92.  v2:= 180.0F;
+  #L184d96.  v7:= v2 - v22 @kind float;
+  #L184d9a.  v8:= v22 * v11 @kind float;
+  #L184d9e.  v8:= v8 - v2 @kind float;
+  #L184da0.  v2:= v30 @kind object;
+  #L184da4.  call `addArc`(v2, v3, v4, v5, v6, v7, v8) @signature `Lcom/google/android/material/shape/ShapePath;.addArc:(FFFFFF)V` @kind virtual;
+  #L184daa.  v3:= v21 - v14 @kind float;
+  #L184dae.  v4:= 0I;
+  #L184db0.  v5:= v21 + v14 @kind float;
+  #L184db4.  v6:= v14 * v11 @kind float;
+  #L184db8.  v2:= 270.0F;
+  #L184dbc.  v7:= v2 - v25 @kind float;
+  #L184dc0.  v2:= v30 @kind object;
+  #L184dc4.  v8:= v25;
+  #L184dc8.  call `addArc`(v2, v3, v4, v5, v6, v7, v8) @signature `Lcom/google/android/material/shape/ShapePath;.addArc:(FFFFFF)V` @kind virtual;
+  #L184dce.  call `lineTo`(v9, v1, v10) @signature `Lcom/google/android/material/shape/ShapePath;.lineTo:(FF)V` @kind virtual;
+  #L184dd4.  return @kind void;
+}
+procedure `float` `getFabCradleMargin`(`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.getFabCradleMargin:()F` @AccessFlag  {
+    temp;
+    v0;
+
+  #L184bec.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.fabMargin` @type ^`float`;
+  #L184bf0.  return v0;
+}
+procedure `float` `getFabCradleRoundedCornerRadius`(`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.getFabCradleRoundedCornerRadius:()F` @AccessFlag  {
+    temp;
+    v0;
+
+  #L184c04.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.roundedCornerRadius` @type ^`float`;
+  #L184c08.  return v0;
+}
+procedure `float` `getFabDiameter`(`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.getFabDiameter:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L184c1c.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.fabDiameter` @type ^`float`;
+  #L184c20.  return v0;
+}
+procedure `float` `getHorizontalOffset`(`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment` v1 @kind this) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.getHorizontalOffset:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L184c34.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.horizontalOffset` @type ^`float`;
+  #L184c38.  return v0;
+}
+procedure `void` `setCradleVerticalOffset`(`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment` v0 @kind this, `float` v1 @name `cradleVerticalOffset`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.setCradleVerticalOffset:(F)V` @AccessFlag  {
+    temp;
+
+  #L184de8.  v0.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.cradleVerticalOffset` @type ^`float` := v1;
+  #L184dec.  return @kind void;
+}
+procedure `void` `setFabCradleMargin`(`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment` v0 @kind this, `float` v1 @name `fabMargin`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.setFabCradleMargin:(F)V` @AccessFlag  {
+    temp;
+
+  #L184e00.  v0.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.fabMargin` @type ^`float` := v1;
+  #L184e04.  return @kind void;
+}
+procedure `void` `setFabCradleRoundedCornerRadius`(`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment` v0 @kind this, `float` v1 @name `roundedCornerRadius`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.setFabCradleRoundedCornerRadius:(F)V` @AccessFlag  {
+    temp;
+
+  #L184e18.  v0.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.roundedCornerRadius` @type ^`float` := v1;
+  #L184e1c.  return @kind void;
+}
+procedure `void` `setFabDiameter`(`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment` v0 @kind this, `float` v1 @name `fabDiameter`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.setFabDiameter:(F)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L184e30.  v0.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.fabDiameter` @type ^`float` := v1;
+  #L184e34.  return @kind void;
+}
+procedure `void` `setHorizontalOffset`(`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment` v0 @kind this, `float` v1 @name `horizontalOffset`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.setHorizontalOffset:(F)V` @AccessFlag  {
+    temp;
+
+  #L184e48.  v0.`com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment.horizontalOffset` @type ^`float` := v1;
+  #L184e4c.  return @kind void;
+}

@@ -1,0 +1,32 @@
+record `com.google.android.material.button.MaterialButtonToggleGroup$PressedStateTracker` @kind class @AccessFlag  extends `com.google.android.material.button.MaterialButton$OnPressedChangeListener` @kind interface {
+  `com.google.android.material.button.MaterialButtonToggleGroup` `com.google.android.material.button.MaterialButtonToggleGroup$PressedStateTracker.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.button.MaterialButtonToggleGroup$PressedStateTracker` v0 @kind this, `com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind object) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$PressedStateTracker;.<init>:(Lcom/google/android/material/button/MaterialButtonToggleGroup;)V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+
+  #L18bab8.  v0.`com.google.android.material.button.MaterialButtonToggleGroup$PressedStateTracker.this$0` @type ^`com.google.android.material.button.MaterialButtonToggleGroup` := v1 @kind object;
+  #L18babc.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L18bac2.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.button.MaterialButtonToggleGroup$PressedStateTracker` v0 @kind this, `com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind object @name `x0`, `com.google.android.material.button.MaterialButtonToggleGroup$1` v2 @kind object @name `x1`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$PressedStateTracker;.<init>:(Lcom/google/android/material/button/MaterialButtonToggleGroup;Lcom/google/android/material/button/MaterialButtonToggleGroup$1;)V` @AccessFlag SYNTHETIC_CONSTRUCTOR {
+    temp;
+
+  #L18bad4.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$PressedStateTracker;.<init>:(Lcom/google/android/material/button/MaterialButtonToggleGroup;)V` @kind direct;
+  #L18bada.  return @kind void;
+}
+procedure `void` `onPressedChanged`(`com.google.android.material.button.MaterialButtonToggleGroup$PressedStateTracker` v3 @kind this, `com.google.android.material.button.MaterialButton` v4 @kind object @name `button`, `boolean` v5 @name `isPressed`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$PressedStateTracker;.onPressedChanged:(Lcom/google/android/material/button/MaterialButton;Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18baec.  v0:= v3.`com.google.android.material.button.MaterialButtonToggleGroup$PressedStateTracker.this$0` @type ^`com.google.android.material.button.MaterialButtonToggleGroup` @kind object;
+  #L18baf0.  call temp:= `getId`(v4) @signature `Lcom/google/android/material/button/MaterialButton;.getId:()I` @kind virtual;
+  #L18baf6.  v1:= temp;
+  #L18baf8.  call temp:= `isChecked`(v4) @signature `Lcom/google/android/material/button/MaterialButton;.isChecked:()Z` @kind virtual;
+  #L18bafe.  v2:= temp;
+  #L18bb00.  call `access$600`(v0, v1, v2) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.access$600:(Lcom/google/android/material/button/MaterialButtonToggleGroup;IZ)V` @kind static;
+  #L18bb06.  v0:= v3.`com.google.android.material.button.MaterialButtonToggleGroup$PressedStateTracker.this$0` @type ^`com.google.android.material.button.MaterialButtonToggleGroup` @kind object;
+  #L18bb0a.  call `invalidate`(v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.invalidate:()V` @kind virtual;
+  #L18bb10.  return @kind void;
+}

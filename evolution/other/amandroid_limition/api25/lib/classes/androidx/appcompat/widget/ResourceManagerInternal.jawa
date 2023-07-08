@@ -1,0 +1,128 @@
+record `androidx.appcompat.widget.ResourceManagerInternal` @kind class @AccessFlag PUBLIC_FINAL {
+  `androidx.collection.ArrayMap` `androidx.appcompat.widget.ResourceManagerInternal.mDelegates` @AccessFlag PRIVATE;
+  `java.util.WeakHashMap` `androidx.appcompat.widget.ResourceManagerInternal.mDrawableCaches` @AccessFlag PRIVATE_FINAL;
+  `boolean` `androidx.appcompat.widget.ResourceManagerInternal.mHasCheckedVectorDrawableSetup` @AccessFlag PRIVATE;
+  `androidx.appcompat.widget.ResourceManagerInternal$ResourceManagerHooks` `androidx.appcompat.widget.ResourceManagerInternal.mHooks` @AccessFlag PRIVATE;
+  `androidx.collection.SparseArrayCompat` `androidx.appcompat.widget.ResourceManagerInternal.mKnownDrawableIdTags` @AccessFlag PRIVATE;
+  `java.util.WeakHashMap` `androidx.appcompat.widget.ResourceManagerInternal.mTintLists` @AccessFlag PRIVATE;
+  `android.util.TypedValue` `androidx.appcompat.widget.ResourceManagerInternal.mTypedValue` @AccessFlag PRIVATE;
+}
+global `androidx.appcompat.widget.ResourceManagerInternal$ColorFilterLruCache` `@@androidx.appcompat.widget.ResourceManagerInternal.COLOR_FILTER_CACHE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `boolean` `@@androidx.appcompat.widget.ResourceManagerInternal.DEBUG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `android.graphics.PorterDuff$Mode` `@@androidx.appcompat.widget.ResourceManagerInternal.DEFAULT_MODE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `androidx.appcompat.widget.ResourceManagerInternal` `@@androidx.appcompat.widget.ResourceManagerInternal.INSTANCE` @AccessFlag PRIVATE_STATIC;
+global `java.lang.String` `@@androidx.appcompat.widget.ResourceManagerInternal.PLATFORM_VD_CLAZZ` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.appcompat.widget.ResourceManagerInternal.SKIP_DRAWABLE_TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.appcompat.widget.ResourceManagerInternal.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.widget.ResourceManagerInternal` v2 @kind this) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `addDelegate`(`androidx.appcompat.widget.ResourceManagerInternal` v1 @kind this, `java.lang.String` v2 @kind object @name `tagName`, `androidx.appcompat.widget.ResourceManagerInternal$InflateDelegate` v3 @kind object @name `delegate`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.addDelegate:(Ljava/lang/String;Landroidx/appcompat/widget/ResourceManagerInternal$InflateDelegate;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `addDrawableToCache`(`androidx.appcompat.widget.ResourceManagerInternal` v3 @kind this, `android.content.Context` v4 @kind object @name `context`, `long` v5 @name `key`, `android.graphics.drawable.Drawable` v7 @kind object @name `drawable`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.addDrawableToCache:(Landroid/content/Context;JLandroid/graphics/drawable/Drawable;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `addTintListToCache`(`androidx.appcompat.widget.ResourceManagerInternal` v2 @kind this, `android.content.Context` v3 @kind object @name `context`, `int` v4 @name `resId`, `android.content.res.ColorStateList` v5 @kind object @name `tintList`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.addTintListToCache:(Landroid/content/Context;ILandroid/content/res/ColorStateList;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `arrayContains`(`int`[] v4 @kind object @name `array`, `int` v5 @name `value`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.arrayContains:([II)Z` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `checkVectorDrawableSetup`(`androidx.appcompat.widget.ResourceManagerInternal` v3 @kind this, `android.content.Context` v4 @kind object @name `context`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.checkVectorDrawableSetup:(Landroid/content/Context;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `long` `createCacheKey`(`android.util.TypedValue` v4 @kind object @name `tv`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.createCacheKey:(Landroid/util/TypedValue;)J` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `createDrawableIfNeeded`(`androidx.appcompat.widget.ResourceManagerInternal` v5 @kind this, `android.content.Context` v6 @kind object @name `context`, `int` v7 @name `resId`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.createDrawableIfNeeded:(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.graphics.PorterDuffColorFilter` `createTintFilter`(`android.content.res.ColorStateList` v2 @kind object @name `tint`, `android.graphics.PorterDuff$Mode` v3 @kind object @name `tintMode`, `int`[] v4 @kind object @name `state`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.createTintFilter:(Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;[I)Landroid/graphics/PorterDuffColorFilter;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `androidx.appcompat.widget.ResourceManagerInternal` `get`() @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.get:()Landroidx/appcompat/widget/ResourceManagerInternal;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `getCachedDrawable`(`androidx.appcompat.widget.ResourceManagerInternal` v4 @kind this, `android.content.Context` v5 @kind object @name `context`, `long` v6 @name `key`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.getCachedDrawable:(Landroid/content/Context;J)Landroid/graphics/drawable/Drawable;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.graphics.PorterDuffColorFilter` `getPorterDuffColorFilter`(`int` v4 @name `color`, `android.graphics.PorterDuff$Mode` v5 @kind object @name `mode`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.getPorterDuffColorFilter:(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `android.content.res.ColorStateList` `getTintListFromCache`(`androidx.appcompat.widget.ResourceManagerInternal` v2 @kind this, `android.content.Context` v3 @kind object @name `context`, `int` v4 @name `resId`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.getTintListFromCache:(Landroid/content/Context;I)Landroid/content/res/ColorStateList;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `installDefaultInflateDelegates`(`androidx.appcompat.widget.ResourceManagerInternal` v2 @kind object @name `manager`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.installDefaultInflateDelegates:(Landroidx/appcompat/widget/ResourceManagerInternal;)V` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `boolean` `isVectorDrawable`(`android.graphics.drawable.Drawable` v2 @kind object @name `d`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.isVectorDrawable:(Landroid/graphics/drawable/Drawable;)Z` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `loadDrawableFromDelegates`(`androidx.appcompat.widget.ResourceManagerInternal` v12 @kind this, `android.content.Context` v13 @kind object @name `context`, `int` v14 @name `resId`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.loadDrawableFromDelegates:(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `removeDelegate`(`androidx.appcompat.widget.ResourceManagerInternal` v1 @kind this, `java.lang.String` v2 @kind object @name `tagName`, `androidx.appcompat.widget.ResourceManagerInternal$InflateDelegate` v3 @kind object @name `delegate`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.removeDelegate:(Ljava/lang/String;Landroidx/appcompat/widget/ResourceManagerInternal$InflateDelegate;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `tintDrawable`(`androidx.appcompat.widget.ResourceManagerInternal` v2 @kind this, `android.content.Context` v3 @kind object @name `context`, `int` v4 @name `resId`, `boolean` v5 @name `failIfNotKnown`, `android.graphics.drawable.Drawable` v6 @kind object @name `drawable`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.tintDrawable:(Landroid/content/Context;IZLandroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `tintDrawable`(`android.graphics.drawable.Drawable` v2 @kind object @name `drawable`, `androidx.appcompat.widget.TintInfo` v3 @kind object @name `tint`, `int`[] v4 @kind object @name `state`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.tintDrawable:(Landroid/graphics/drawable/Drawable;Landroidx/appcompat/widget/TintInfo;[I)V` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `getDrawable`(`androidx.appcompat.widget.ResourceManagerInternal` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `int` v3 @name `resId`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.getDrawable:(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `getDrawable`(`androidx.appcompat.widget.ResourceManagerInternal` v2 @kind this, `android.content.Context` v3 @kind object @name `context`, `int` v4 @name `resId`, `boolean` v5 @name `failIfNotKnown`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.getDrawable:(Landroid/content/Context;IZ)Landroid/graphics/drawable/Drawable;` @AccessFlag  {
+
+  # return;
+}
+procedure `android.content.res.ColorStateList` `getTintList`(`androidx.appcompat.widget.ResourceManagerInternal` v2 @kind this, `android.content.Context` v3 @kind object @name `context`, `int` v4 @name `resId`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.getTintList:(Landroid/content/Context;I)Landroid/content/res/ColorStateList;` @AccessFlag  {
+
+  # return;
+}
+procedure `android.graphics.PorterDuff$Mode` `getTintMode`(`androidx.appcompat.widget.ResourceManagerInternal` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.getTintMode:(I)Landroid/graphics/PorterDuff$Mode;` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onConfigurationChanged`(`androidx.appcompat.widget.ResourceManagerInternal` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.onConfigurationChanged:(Landroid/content/Context;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `onDrawableLoadedFromResources`(`androidx.appcompat.widget.ResourceManagerInternal` v2 @kind this, `android.content.Context` v3 @kind object @name `context`, `androidx.appcompat.widget.VectorEnabledTintResources` v4 @kind object @name `resources`, `int` v5 @name `resId`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.onDrawableLoadedFromResources:(Landroid/content/Context;Landroidx/appcompat/widget/VectorEnabledTintResources;I)Landroid/graphics/drawable/Drawable;` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `setHooks`(`androidx.appcompat.widget.ResourceManagerInternal` v0 @kind this, `androidx.appcompat.widget.ResourceManagerInternal$ResourceManagerHooks` v1 @kind object @name `hooks`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.setHooks:(Landroidx/appcompat/widget/ResourceManagerInternal$ResourceManagerHooks;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `tintDrawableUsingColorFilter`(`androidx.appcompat.widget.ResourceManagerInternal` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `int` v3 @name `resId`, `android.graphics.drawable.Drawable` v4 @kind object @name `drawable`) @signature `Landroidx/appcompat/widget/ResourceManagerInternal;.tintDrawableUsingColorFilter:(Landroid/content/Context;ILandroid/graphics/drawable/Drawable;)Z` @AccessFlag  {
+
+  # return;
+}

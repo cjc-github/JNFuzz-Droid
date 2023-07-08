@@ -1,0 +1,74 @@
+record `com.google.android.material.bottomappbar.BottomAppBar$Behavior$1` @kind class @AccessFlag  extends `android.view.View$OnLayoutChangeListener` @kind interface {
+  `com.google.android.material.bottomappbar.BottomAppBar$Behavior` `com.google.android.material.bottomappbar.BottomAppBar$Behavior$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomappbar.BottomAppBar$Behavior$1` v0 @kind this, `com.google.android.material.bottomappbar.BottomAppBar$Behavior` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior$1;.<init>:(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1847d8.  v0.`com.google.android.material.bottomappbar.BottomAppBar$Behavior$1.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar$Behavior` := v1 @kind object;
+  #L1847dc.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1847e2.  return @kind void;
+}
+procedure `void` `onLayoutChange`(`com.google.android.material.bottomappbar.BottomAppBar$Behavior$1` v10 @kind this, `android.view.View` v11 @kind object @name `v`, `int` v12 @name `left`, `int` v13 @name `top`, `int` v14 @name `right`, `int` v15 @name `bottom`, `int` v16 @name `oldLeft`, `int` v17 @name `oldTop`, `int` v18 @name `oldRight`, `int` v19 @name `oldBottom`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior$1;.onLayoutChange:(Landroid/view/View;IIIIIIII)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+
+  #L1847f4.  v0:= v10 @kind object;
+  #L1847f6.  v1:= v11 @kind object;
+  #L1847f8.  v2:= v0.`com.google.android.material.bottomappbar.BottomAppBar$Behavior$1.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar$Behavior` @kind object;
+  #L1847fc.  call temp:= `access$1300`(v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.access$1300:(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)Ljava/lang/ref/WeakReference;` @kind static;
+  #L184802.  v2:= temp @kind object;
+  #L184804.  call temp:= `get`(v2) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L18480a.  v2:= temp @kind object;
+  #L18480c.  v2:= (`com.google.android.material.bottomappbar.BottomAppBar`) v2 @kind object;
+  #L184810.  if v2 == 0 then goto L1848a6;
+  #L184814.  v3:= instanceof @variable v1 @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind boolean;
+  #L184818.  if v3 != 0 then goto L18481e;
+  #L18481c.  goto L1848a6;
+  #L18481e.  v3:= v1 @kind object;
+  #L184820.  v3:= (`com.google.android.material.floatingactionbutton.FloatingActionButton`) v3 @kind object;
+  #L184824.  v4:= v0.`com.google.android.material.bottomappbar.BottomAppBar$Behavior$1.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar$Behavior` @kind object;
+  #L184828.  call temp:= `access$1400`(v4) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.access$1400:(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)Landroid/graphics/Rect;` @kind static;
+  #L18482e.  v4:= temp @kind object;
+  #L184830.  call `getMeasuredContentRect`(v3, v4) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.getMeasuredContentRect:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L184836.  v4:= v0.`com.google.android.material.bottomappbar.BottomAppBar$Behavior$1.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar$Behavior` @kind object;
+  #L18483a.  call temp:= `access$1400`(v4) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.access$1400:(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)Landroid/graphics/Rect;` @kind static;
+  #L184840.  v4:= temp @kind object;
+  #L184842.  call temp:= `height`(v4) @signature `Landroid/graphics/Rect;.height:()I` @kind virtual;
+  #L184848.  v4:= temp;
+  #L18484a.  call temp:= `setFabDiameter`(v2, v4) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.setFabDiameter:(I)Z` @kind virtual;
+  #L184850.  
+  #L184852.  call temp:= `getLayoutParams`(v11) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L184858.  v5:= temp @kind object;
+  #L18485a.  v5:= (`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams`) v5 @kind object;
+  #L18485e.  v6:= v0.`com.google.android.material.bottomappbar.BottomAppBar$Behavior$1.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar$Behavior` @kind object;
+  #L184862.  call temp:= `access$1500`(v6) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;.access$1500:(Lcom/google/android/material/bottomappbar/BottomAppBar$Behavior;)I` @kind static;
+  #L184868.  v6:= temp;
+  #L18486a.  if v6 != 0 then goto L1848a4;
+  #L18486e.  call temp:= `getMeasuredHeight`(v3) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.getMeasuredHeight:()I` @kind virtual;
+  #L184874.  v6:= temp;
+  #L184876.  v6:= v6 - v4 @kind int;
+  #L184878.  v6:= v6 / 2;
+  #L18487c.  
+  #L18487e.  call temp:= `getResources`(v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L184884.  v7:= temp @kind object;
+  #L184886.  v8:= `@@com.google.android.material.R$dimen.mtrl_bottomappbar_fab_bottom_margin` @type ^`int`;
+  #L18488a.  call temp:= `getDimensionPixelOffset`(v7, v8) @signature `Landroid/content/res/Resources;.getDimensionPixelOffset:(I)I` @kind virtual;
+  #L184890.  v7:= temp;
+  #L184892.  v8:= v7 - v6 @kind int;
+  #L184896.  call temp:= `access$1600`(v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$1600:(Lcom/google/android/material/bottomappbar/BottomAppBar;)I` @kind static;
+  #L18489c.  v9:= temp;
+  #L18489e.  v9:= v9 + v8 @kind int;
+  #L1848a0.  v5.`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams.bottomMargin` @type ^`int` := v9;
+  #L1848a4.  return @kind void;
+  #L1848a6.  call `removeOnLayoutChangeListener`(v11, v10) @signature `Landroid/view/View;.removeOnLayoutChangeListener:(Landroid/view/View$OnLayoutChangeListener;)V` @kind virtual;
+  #L1848ac.  return @kind void;
+}

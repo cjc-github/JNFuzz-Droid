@@ -1,0 +1,26 @@
+record `com.google.android.material.tabs.TabLayout$PagerAdapterObserver` @kind class @AccessFlag  extends `android.database.DataSetObserver` @kind class {
+  `com.google.android.material.tabs.TabLayout` `com.google.android.material.tabs.TabLayout$PagerAdapterObserver.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.tabs.TabLayout$PagerAdapterObserver` v0 @kind this, `com.google.android.material.tabs.TabLayout` v1 @kind object) @signature `Lcom/google/android/material/tabs/TabLayout$PagerAdapterObserver;.<init>:(Lcom/google/android/material/tabs/TabLayout;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b2094.  v0.`com.google.android.material.tabs.TabLayout$PagerAdapterObserver.this$0` @type ^`com.google.android.material.tabs.TabLayout` := v1 @kind object;
+  #L1b2098.  call `<init>`(v0) @signature `Landroid/database/DataSetObserver;.<init>:()V` @kind direct;
+  #L1b209e.  return @kind void;
+}
+procedure `void` `onChanged`(`com.google.android.material.tabs.TabLayout$PagerAdapterObserver` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout$PagerAdapterObserver;.onChanged:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b20b0.  v0:= v1.`com.google.android.material.tabs.TabLayout$PagerAdapterObserver.this$0` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b20b4.  call `populateFromPagerAdapter`(v0) @signature `Lcom/google/android/material/tabs/TabLayout;.populateFromPagerAdapter:()V` @kind virtual;
+  #L1b20ba.  return @kind void;
+}
+procedure `void` `onInvalidated`(`com.google.android.material.tabs.TabLayout$PagerAdapterObserver` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout$PagerAdapterObserver;.onInvalidated:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b20cc.  v0:= v1.`com.google.android.material.tabs.TabLayout$PagerAdapterObserver.this$0` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b20d0.  call `populateFromPagerAdapter`(v0) @signature `Lcom/google/android/material/tabs/TabLayout;.populateFromPagerAdapter:()V` @kind virtual;
+  #L1b20d6.  return @kind void;
+}

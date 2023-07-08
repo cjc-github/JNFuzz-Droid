@@ -1,0 +1,49 @@
+record `com.google.android.material.datepicker.MaterialCalendar$2` @kind class @AccessFlag  extends `com.google.android.material.datepicker.SmoothCalendarLayoutManager` @kind class {
+  `com.google.android.material.datepicker.MaterialCalendar` `com.google.android.material.datepicker.MaterialCalendar$2.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `int` `com.google.android.material.datepicker.MaterialCalendar$2.val$orientation` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.MaterialCalendar$2` v0 @kind this, `com.google.android.material.datepicker.MaterialCalendar` v1 @kind object @name `this$0`, `android.content.Context` v2 @kind object @name `context`, `int` v3 @name `orientation`, `boolean` v4 @name `reverseLayout`, `int` v5 ) @signature `Lcom/google/android/material/datepicker/MaterialCalendar$2;.<init>:(Lcom/google/android/material/datepicker/MaterialCalendar;Landroid/content/Context;IZI)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L197600.  v0.`com.google.android.material.datepicker.MaterialCalendar$2.this$0` @type ^`com.google.android.material.datepicker.MaterialCalendar` := v1 @kind object;
+  #L197604.  v0.`com.google.android.material.datepicker.MaterialCalendar$2.val$orientation` @type ^`int` := v5;
+  #L197608.  call `<init>`(v0, v2, v3, v4) @signature `Lcom/google/android/material/datepicker/SmoothCalendarLayoutManager;.<init>:(Landroid/content/Context;IZ)V` @kind direct;
+  #L19760e.  return @kind void;
+}
+procedure `void` `calculateExtraLayoutSpace`(`com.google.android.material.datepicker.MaterialCalendar$2` v3 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v4 @kind object @name `state`, `int`[] v5 @kind object @name `ints`) @signature `Lcom/google/android/material/datepicker/MaterialCalendar$2;.calculateExtraLayoutSpace:(Landroidx/recyclerview/widget/RecyclerView$State;[I)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L197620.  v0:= v3.`com.google.android.material.datepicker.MaterialCalendar$2.val$orientation` @type ^`int`;
+  #L197624.  v1:= 1I;
+  #L197626.  v2:= 0I;
+  #L197628.  if v0 != 0 then goto L19765e;
+  #L19762c.  v0:= v3.`com.google.android.material.datepicker.MaterialCalendar$2.this$0` @type ^`com.google.android.material.datepicker.MaterialCalendar` @kind object;
+  #L197630.  call temp:= `access$000`(v0) @signature `Lcom/google/android/material/datepicker/MaterialCalendar;.access$000:(Lcom/google/android/material/datepicker/MaterialCalendar;)Landroidx/recyclerview/widget/RecyclerView;` @kind static;
+  #L197636.  v0:= temp @kind object;
+  #L197638.  call temp:= `getWidth`(v0) @signature `Landroidx/recyclerview/widget/RecyclerView;.getWidth:()I` @kind virtual;
+  #L19763e.  v0:= temp;
+  #L197640.  v5[v2]:= v0;
+  #L197644.  v0:= v3.`com.google.android.material.datepicker.MaterialCalendar$2.this$0` @type ^`com.google.android.material.datepicker.MaterialCalendar` @kind object;
+  #L197648.  call temp:= `access$000`(v0) @signature `Lcom/google/android/material/datepicker/MaterialCalendar;.access$000:(Lcom/google/android/material/datepicker/MaterialCalendar;)Landroidx/recyclerview/widget/RecyclerView;` @kind static;
+  #L19764e.  v0:= temp @kind object;
+  #L197650.  call temp:= `getWidth`(v0) @signature `Landroidx/recyclerview/widget/RecyclerView;.getWidth:()I` @kind virtual;
+  #L197656.  v0:= temp;
+  #L197658.  v5[v1]:= v0;
+  #L19765c.  goto L19768e;
+  #L19765e.  v0:= v3.`com.google.android.material.datepicker.MaterialCalendar$2.this$0` @type ^`com.google.android.material.datepicker.MaterialCalendar` @kind object;
+  #L197662.  call temp:= `access$000`(v0) @signature `Lcom/google/android/material/datepicker/MaterialCalendar;.access$000:(Lcom/google/android/material/datepicker/MaterialCalendar;)Landroidx/recyclerview/widget/RecyclerView;` @kind static;
+  #L197668.  v0:= temp @kind object;
+  #L19766a.  call temp:= `getHeight`(v0) @signature `Landroidx/recyclerview/widget/RecyclerView;.getHeight:()I` @kind virtual;
+  #L197670.  v0:= temp;
+  #L197672.  v5[v2]:= v0;
+  #L197676.  v0:= v3.`com.google.android.material.datepicker.MaterialCalendar$2.this$0` @type ^`com.google.android.material.datepicker.MaterialCalendar` @kind object;
+  #L19767a.  call temp:= `access$000`(v0) @signature `Lcom/google/android/material/datepicker/MaterialCalendar;.access$000:(Lcom/google/android/material/datepicker/MaterialCalendar;)Landroidx/recyclerview/widget/RecyclerView;` @kind static;
+  #L197680.  v0:= temp @kind object;
+  #L197682.  call temp:= `getHeight`(v0) @signature `Landroidx/recyclerview/widget/RecyclerView;.getHeight:()I` @kind virtual;
+  #L197688.  v0:= temp;
+  #L19768a.  v5[v1]:= v0;
+  #L19768e.  return @kind void;
+}

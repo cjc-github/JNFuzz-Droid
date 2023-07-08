@@ -1,0 +1,112 @@
+record `com.google.android.material.button.MaterialButtonToggleGroup$CornerData` @kind class @AccessFlag  {
+  `com.google.android.material.shape.CornerSize` `com.google.android.material.button.MaterialButtonToggleGroup$CornerData.bottomLeft` @AccessFlag ;
+  `com.google.android.material.shape.CornerSize` `com.google.android.material.button.MaterialButtonToggleGroup$CornerData.bottomRight` @AccessFlag ;
+  `com.google.android.material.shape.CornerSize` `com.google.android.material.button.MaterialButtonToggleGroup$CornerData.topLeft` @AccessFlag ;
+  `com.google.android.material.shape.CornerSize` `com.google.android.material.button.MaterialButtonToggleGroup$CornerData.topRight` @AccessFlag ;
+}
+global `com.google.android.material.shape.CornerSize` `@@com.google.android.material.button.MaterialButtonToggleGroup$CornerData.noCorner` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L18ba6c.  v0:= new `com.google.android.material.shape.AbsoluteCornerSize`;
+  #L18ba70.  v1:= 0I;
+  #L18ba72.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/shape/AbsoluteCornerSize;.<init>:(F)V` @kind direct;
+  #L18ba78.  `@@com.google.android.material.button.MaterialButtonToggleGroup$CornerData.noCorner` @type ^`com.google.android.material.shape.CornerSize` := v0 @kind object;
+  #L18ba7c.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.button.MaterialButtonToggleGroup$CornerData` v0 @kind this, `com.google.android.material.shape.CornerSize` v1 @kind object @name `topLeft`, `com.google.android.material.shape.CornerSize` v2 @kind object @name `bottomLeft`, `com.google.android.material.shape.CornerSize` v3 @kind object @name `topRight`, `com.google.android.material.shape.CornerSize` v4 @kind object @name `bottomRight`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.<init>:(Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L18ba90.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L18ba96.  v0.`com.google.android.material.button.MaterialButtonToggleGroup$CornerData.topLeft` @type ^`com.google.android.material.shape.CornerSize` := v1 @kind object;
+  #L18ba9a.  v0.`com.google.android.material.button.MaterialButtonToggleGroup$CornerData.topRight` @type ^`com.google.android.material.shape.CornerSize` := v3 @kind object;
+  #L18ba9e.  v0.`com.google.android.material.button.MaterialButtonToggleGroup$CornerData.bottomRight` @type ^`com.google.android.material.shape.CornerSize` := v4 @kind object;
+  #L18baa2.  v0.`com.google.android.material.button.MaterialButtonToggleGroup$CornerData.bottomLeft` @type ^`com.google.android.material.shape.CornerSize` := v2 @kind object;
+  #L18baa6.  return @kind void;
+}
+procedure `com.google.android.material.button.MaterialButtonToggleGroup$CornerData` `bottom`(`com.google.android.material.button.MaterialButtonToggleGroup$CornerData` v4 @kind object @name `orig`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.bottom:(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18b96c.  v0:= new `com.google.android.material.button.MaterialButtonToggleGroup$CornerData`;
+  #L18b970.  v1:= `@@com.google.android.material.button.MaterialButtonToggleGroup$CornerData.noCorner` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L18b974.  v2:= v4.`com.google.android.material.button.MaterialButtonToggleGroup$CornerData.bottomLeft` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L18b978.  v3:= v4.`com.google.android.material.button.MaterialButtonToggleGroup$CornerData.bottomRight` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L18b97c.  call `<init>`(v0, v1, v2, v1, v3) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.<init>:(Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;)V` @kind direct;
+  #L18b982.  return v0 @kind object;
+}
+procedure `com.google.android.material.button.MaterialButtonToggleGroup$CornerData` `end`(`com.google.android.material.button.MaterialButtonToggleGroup$CornerData` v1 @kind object @name `orig`, `android.view.View` v2 @kind object @name `view`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.end:(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;Landroid/view/View;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L18b994.  call temp:= `isLayoutRtl`(v2) @signature `Lcom/google/android/material/internal/ViewUtils;.isLayoutRtl:(Landroid/view/View;)Z` @kind static;
+  #L18b99a.  v0:= temp;
+  #L18b99c.  if v0 == 0 then goto L18b9aa;
+  #L18b9a0.  call temp:= `left`(v1) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.left:(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;` @kind static;
+  #L18b9a6.  v0:= temp @kind object;
+  #L18b9a8.  goto L18b9b2;
+  #L18b9aa.  call temp:= `right`(v1) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.right:(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;` @kind static;
+  #L18b9b0.  v0:= temp @kind object;
+  #L18b9b2.  return v0 @kind object;
+}
+procedure `com.google.android.material.button.MaterialButtonToggleGroup$CornerData` `left`(`com.google.android.material.button.MaterialButtonToggleGroup$CornerData` v4 @kind object @name `orig`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.left:(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18b9c4.  v0:= new `com.google.android.material.button.MaterialButtonToggleGroup$CornerData`;
+  #L18b9c8.  v1:= v4.`com.google.android.material.button.MaterialButtonToggleGroup$CornerData.topLeft` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L18b9cc.  v2:= v4.`com.google.android.material.button.MaterialButtonToggleGroup$CornerData.bottomLeft` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L18b9d0.  v3:= `@@com.google.android.material.button.MaterialButtonToggleGroup$CornerData.noCorner` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L18b9d4.  call `<init>`(v0, v1, v2, v3, v3) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.<init>:(Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;)V` @kind direct;
+  #L18b9da.  return v0 @kind object;
+}
+procedure `com.google.android.material.button.MaterialButtonToggleGroup$CornerData` `right`(`com.google.android.material.button.MaterialButtonToggleGroup$CornerData` v4 @kind object @name `orig`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.right:(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18b9ec.  v0:= new `com.google.android.material.button.MaterialButtonToggleGroup$CornerData`;
+  #L18b9f0.  v1:= `@@com.google.android.material.button.MaterialButtonToggleGroup$CornerData.noCorner` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L18b9f4.  v2:= v4.`com.google.android.material.button.MaterialButtonToggleGroup$CornerData.topRight` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L18b9f8.  v3:= v4.`com.google.android.material.button.MaterialButtonToggleGroup$CornerData.bottomRight` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L18b9fc.  call `<init>`(v0, v1, v1, v2, v3) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.<init>:(Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;)V` @kind direct;
+  #L18ba02.  return v0 @kind object;
+}
+procedure `com.google.android.material.button.MaterialButtonToggleGroup$CornerData` `start`(`com.google.android.material.button.MaterialButtonToggleGroup$CornerData` v1 @kind object @name `orig`, `android.view.View` v2 @kind object @name `view`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.start:(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;Landroid/view/View;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L18ba14.  call temp:= `isLayoutRtl`(v2) @signature `Lcom/google/android/material/internal/ViewUtils;.isLayoutRtl:(Landroid/view/View;)Z` @kind static;
+  #L18ba1a.  v0:= temp;
+  #L18ba1c.  if v0 == 0 then goto L18ba2a;
+  #L18ba20.  call temp:= `right`(v1) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.right:(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;` @kind static;
+  #L18ba26.  v0:= temp @kind object;
+  #L18ba28.  goto L18ba32;
+  #L18ba2a.  call temp:= `left`(v1) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.left:(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;` @kind static;
+  #L18ba30.  v0:= temp @kind object;
+  #L18ba32.  return v0 @kind object;
+}
+procedure `com.google.android.material.button.MaterialButtonToggleGroup$CornerData` `top`(`com.google.android.material.button.MaterialButtonToggleGroup$CornerData` v4 @kind object @name `orig`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.top:(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18ba44.  v0:= new `com.google.android.material.button.MaterialButtonToggleGroup$CornerData`;
+  #L18ba48.  v1:= v4.`com.google.android.material.button.MaterialButtonToggleGroup$CornerData.topLeft` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L18ba4c.  v2:= `@@com.google.android.material.button.MaterialButtonToggleGroup$CornerData.noCorner` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L18ba50.  v3:= v4.`com.google.android.material.button.MaterialButtonToggleGroup$CornerData.topRight` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L18ba54.  call `<init>`(v0, v1, v2, v3, v2) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.<init>:(Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;)V` @kind direct;
+  #L18ba5a.  return v0 @kind object;
+}

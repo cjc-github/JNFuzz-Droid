@@ -1,0 +1,63 @@
+record `com.google.android.material.snackbar.Snackbar$SnackbarLayout` @kind class @AccessFlag PUBLIC_FINAL extends `com.google.android.material.snackbar.BaseTransientBottomBar$SnackbarBaseLayout` @kind class {
+}
+procedure `void` `<init>`(`com.google.android.material.snackbar.Snackbar$SnackbarLayout` v0 @kind this, `android.content.Context` v1 @kind object @name `context`) @signature `Lcom/google/android/material/snackbar/Snackbar$SnackbarLayout;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1b0aa4.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L1b0aaa.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.snackbar.Snackbar$SnackbarLayout` v0 @kind this, `android.content.Context` v1 @kind object @name `context`, `android.util.AttributeSet` v2 @kind object @name `attrs`) @signature `Lcom/google/android/material/snackbar/Snackbar$SnackbarLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1b0abc.  call `<init>`(v0, v1, v2) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1b0ac2.  return @kind void;
+}
+procedure `void` `onMeasure`(`com.google.android.material.snackbar.Snackbar$SnackbarLayout` v7 @kind this, `int` v8 @name `widthMeasureSpec`, `int` v9 @name `heightMeasureSpec`) @signature `Lcom/google/android/material/snackbar/Snackbar$SnackbarLayout;.onMeasure:(II)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L1b0ad4.  call `onMeasure`(v7, v8, v9) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;.onMeasure:(II)V` @kind super;
+  #L1b0ada.  call temp:= `getChildCount`(v7) @signature `Lcom/google/android/material/snackbar/Snackbar$SnackbarLayout;.getChildCount:()I` @kind virtual;
+  #L1b0ae0.  v0:= temp;
+  #L1b0ae2.  call temp:= `getMeasuredWidth`(v7) @signature `Lcom/google/android/material/snackbar/Snackbar$SnackbarLayout;.getMeasuredWidth:()I` @kind virtual;
+  #L1b0ae8.  v1:= temp;
+  #L1b0aea.  call temp:= `getPaddingLeft`(v7) @signature `Lcom/google/android/material/snackbar/Snackbar$SnackbarLayout;.getPaddingLeft:()I` @kind virtual;
+  #L1b0af0.  v2:= temp;
+  #L1b0af2.  v1:= v1 - v2 @kind int;
+  #L1b0af4.  call temp:= `getPaddingRight`(v7) @signature `Lcom/google/android/material/snackbar/Snackbar$SnackbarLayout;.getPaddingRight:()I` @kind virtual;
+  #L1b0afa.  v2:= temp;
+  #L1b0afc.  v1:= v1 - v2 @kind int;
+  #L1b0afe.  v2:= 0I;
+  #L1b0b00.  if v2 >= v0 then goto L1b0b48;
+  #L1b0b04.  call temp:= `getChildAt`(v7, v2) @signature `Lcom/google/android/material/snackbar/Snackbar$SnackbarLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1b0b0a.  v3:= temp @kind object;
+  #L1b0b0c.  call temp:= `getLayoutParams`(v3) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L1b0b12.  v4:= temp @kind object;
+  #L1b0b14.  v4:= v4.`android.view.ViewGroup$LayoutParams.width` @type ^`int`;
+  #L1b0b18.  v5:= -1I;
+  #L1b0b1a.  if v4 != v5 then goto L1b0b42;
+  #L1b0b1e.  
+  #L1b0b20.  v4:= 2.0F;
+  #L1b0b24.  call temp:= `makeMeasureSpec`(v1, v4) @signature `Landroid/view/View$MeasureSpec;.makeMeasureSpec:(II)I` @kind static;
+  #L1b0b2a.  v5:= temp;
+  #L1b0b2c.  call temp:= `getMeasuredHeight`(v3) @signature `Landroid/view/View;.getMeasuredHeight:()I` @kind virtual;
+  #L1b0b32.  v6:= temp;
+  #L1b0b34.  call temp:= `makeMeasureSpec`(v6, v4) @signature `Landroid/view/View$MeasureSpec;.makeMeasureSpec:(II)I` @kind static;
+  #L1b0b3a.  v4:= temp;
+  #L1b0b3c.  call `measure`(v3, v5, v4) @signature `Landroid/view/View;.measure:(II)V` @kind virtual;
+  #L1b0b42.  v2:= v2 + 1;
+  #L1b0b46.  goto L1b0b00;
+  #L1b0b48.  return @kind void;
+}
+procedure `void` `setOnClickListener`(`com.google.android.material.snackbar.Snackbar$SnackbarLayout` v0 @kind this, `android.view.View$OnClickListener` v1 @kind object) @signature `Lcom/google/android/material/snackbar/Snackbar$SnackbarLayout;.setOnClickListener:(Landroid/view/View$OnClickListener;)V` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L1b0b5c.  call `setOnClickListener`(v0, v1) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;.setOnClickListener:(Landroid/view/View$OnClickListener;)V` @kind super;
+  #L1b0b62.  return @kind void;
+}

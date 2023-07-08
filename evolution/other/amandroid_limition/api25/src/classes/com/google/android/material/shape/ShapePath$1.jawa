@@ -1,0 +1,34 @@
+record `com.google.android.material.shape.ShapePath$1` @kind class @AccessFlag  extends `com.google.android.material.shape.ShapePath$ShadowCompatOperation` @kind class {
+  `com.google.android.material.shape.ShapePath` `com.google.android.material.shape.ShapePath$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `java.util.List` `com.google.android.material.shape.ShapePath$1.val$operations` @AccessFlag FINAL_SYNTHETIC;
+  `android.graphics.Matrix` `com.google.android.material.shape.ShapePath$1.val$transform` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.ShapePath$1` v0 @kind this, `com.google.android.material.shape.ShapePath` v1 @kind object @name `this$0`, `java.util.List` v2 @kind object, `android.graphics.Matrix` v3 @kind object) @signature `Lcom/google/android/material/shape/ShapePath$1;.<init>:(Lcom/google/android/material/shape/ShapePath;Ljava/util/List;Landroid/graphics/Matrix;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1ae134.  v0.`com.google.android.material.shape.ShapePath$1.this$0` @type ^`com.google.android.material.shape.ShapePath` := v1 @kind object;
+  #L1ae138.  v0.`com.google.android.material.shape.ShapePath$1.val$operations` @type ^`java.util.List` := v2 @kind object;
+  #L1ae13c.  v0.`com.google.android.material.shape.ShapePath$1.val$transform` @type ^`android.graphics.Matrix` := v3 @kind object;
+  #L1ae140.  call `<init>`(v0) @signature `Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;.<init>:()V` @kind direct;
+  #L1ae146.  return @kind void;
+}
+procedure `void` `draw`(`com.google.android.material.shape.ShapePath$1` v3 @kind this, `android.graphics.Matrix` v4 @kind object @name `matrix`, `com.google.android.material.shadow.ShadowRenderer` v5 @kind object @name `shadowRenderer`, `int` v6 @name `shadowElevation`, `android.graphics.Canvas` v7 @kind object @name `canvas`) @signature `Lcom/google/android/material/shape/ShapePath$1;.draw:(Landroid/graphics/Matrix;Lcom/google/android/material/shadow/ShadowRenderer;ILandroid/graphics/Canvas;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1ae158.  v0:= v3.`com.google.android.material.shape.ShapePath$1.val$operations` @type ^`java.util.List` @kind object;
+  #L1ae15c.  call temp:= `iterator`(v0) @signature `Ljava/util/List;.iterator:()Ljava/util/Iterator;` @kind interface;
+  #L1ae162.  v0:= temp @kind object;
+  #L1ae164.  call temp:= `hasNext`(v0) @signature `Ljava/util/Iterator;.hasNext:()Z` @kind interface;
+  #L1ae16a.  v1:= temp;
+  #L1ae16c.  if v1 == 0 then goto L1ae188;
+  #L1ae170.  call temp:= `next`(v0) @signature `Ljava/util/Iterator;.next:()Ljava/lang/Object;` @kind interface;
+  #L1ae176.  v1:= temp @kind object;
+  #L1ae178.  v1:= (`com.google.android.material.shape.ShapePath$ShadowCompatOperation`) v1 @kind object;
+  #L1ae17c.  v2:= v3.`com.google.android.material.shape.ShapePath$1.val$transform` @type ^`android.graphics.Matrix` @kind object;
+  #L1ae180.  call `draw`(v1, v2, v5, v6, v7) @signature `Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;.draw:(Landroid/graphics/Matrix;Lcom/google/android/material/shadow/ShadowRenderer;ILandroid/graphics/Canvas;)V` @kind virtual;
+  #L1ae186.  goto L1ae164;
+  #L1ae188.  return @kind void;
+}

@@ -1,0 +1,839 @@
+record `com.google.android.material.textfield.IndicatorViewController` @kind class @AccessFlag FINAL {
+  `android.animation.Animator` `com.google.android.material.textfield.IndicatorViewController.captionAnimator` @AccessFlag PRIVATE;
+  `android.widget.FrameLayout` `com.google.android.material.textfield.IndicatorViewController.captionArea` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.textfield.IndicatorViewController.captionDisplayed` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.textfield.IndicatorViewController.captionToShow` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.textfield.IndicatorViewController.captionTranslationYPx` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.textfield.IndicatorViewController.captionViewsAdded` @AccessFlag PRIVATE;
+  `android.content.Context` `com.google.android.material.textfield.IndicatorViewController.context` @AccessFlag PRIVATE_FINAL;
+  `boolean` `com.google.android.material.textfield.IndicatorViewController.errorEnabled` @AccessFlag PRIVATE;
+  `java.lang.CharSequence` `com.google.android.material.textfield.IndicatorViewController.errorText` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.textfield.IndicatorViewController.errorTextAppearance` @AccessFlag PRIVATE;
+  `android.widget.TextView` `com.google.android.material.textfield.IndicatorViewController.errorView` @AccessFlag PRIVATE;
+  `android.content.res.ColorStateList` `com.google.android.material.textfield.IndicatorViewController.errorViewTextColor` @AccessFlag PRIVATE;
+  `java.lang.CharSequence` `com.google.android.material.textfield.IndicatorViewController.helperText` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.textfield.IndicatorViewController.helperTextEnabled` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.textfield.IndicatorViewController.helperTextTextAppearance` @AccessFlag PRIVATE;
+  `android.widget.TextView` `com.google.android.material.textfield.IndicatorViewController.helperTextView` @AccessFlag PRIVATE;
+  `android.content.res.ColorStateList` `com.google.android.material.textfield.IndicatorViewController.helperTextViewTextColor` @AccessFlag PRIVATE;
+  `android.widget.LinearLayout` `com.google.android.material.textfield.IndicatorViewController.indicatorArea` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.textfield.IndicatorViewController.indicatorsAdded` @AccessFlag PRIVATE;
+  `com.google.android.material.textfield.TextInputLayout` `com.google.android.material.textfield.IndicatorViewController.textInputView` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.Typeface` `com.google.android.material.textfield.IndicatorViewController.typeface` @AccessFlag PRIVATE;
+}
+global `int` `@@com.google.android.material.textfield.IndicatorViewController.CAPTION_OPACITY_FADE_ANIMATION_DURATION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.textfield.IndicatorViewController.CAPTION_STATE_ERROR` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.textfield.IndicatorViewController.CAPTION_STATE_HELPER_TEXT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.textfield.IndicatorViewController.CAPTION_STATE_NONE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.textfield.IndicatorViewController.CAPTION_TRANSLATE_Y_ANIMATION_DURATION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.textfield.IndicatorViewController.COUNTER_INDEX` @AccessFlag STATIC_FINAL;
+global `int` `@@com.google.android.material.textfield.IndicatorViewController.ERROR_INDEX` @AccessFlag STATIC_FINAL;
+global `int` `@@com.google.android.material.textfield.IndicatorViewController.HELPER_INDEX` @AccessFlag STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.textfield.IndicatorViewController` v2 @kind this, `com.google.android.material.textfield.TextInputLayout` v3 @kind object @name `textInputView`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.<init>:(Lcom/google/android/material/textfield/TextInputLayout;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L1b7734.  call `<init>`(v2) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b773a.  call temp:= `getContext`(v3) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1b7740.  v0:= temp @kind object;
+  #L1b7742.  v2.`com.google.android.material.textfield.IndicatorViewController.context` @type ^`android.content.Context` := v0 @kind object;
+  #L1b7746.  v2.`com.google.android.material.textfield.IndicatorViewController.textInputView` @type ^`com.google.android.material.textfield.TextInputLayout` := v3 @kind object;
+  #L1b774a.  
+  #L1b774c.  call temp:= `getResources`(v0) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1b7752.  v0:= temp @kind object;
+  #L1b7754.  v1:= `@@com.google.android.material.R$dimen.design_textinput_caption_translate_y` @type ^`int`;
+  #L1b7758.  call temp:= `getDimensionPixelSize`(v0, v1) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L1b775e.  v0:= temp;
+  #L1b7760.  v0:= (`float`) v0 @kind i2f;
+  #L1b7762.  v2.`com.google.android.material.textfield.IndicatorViewController.captionTranslationYPx` @type ^`float` := v0;
+  #L1b7766.  return @kind void;
+}
+procedure `int` `access$002`(`com.google.android.material.textfield.IndicatorViewController` v0 @kind object @name `x0`, `int` v1 @name `x1`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.access$002:(Lcom/google/android/material/textfield/IndicatorViewController;I)I` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1b769c.  v0.`com.google.android.material.textfield.IndicatorViewController.captionDisplayed` @type ^`int` := v1;
+  #L1b76a0.  return v1;
+}
+procedure `android.animation.Animator` `access$102`(`com.google.android.material.textfield.IndicatorViewController` v0 @kind object @name `x0`, `android.animation.Animator` v1 @kind object @name `x1`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.access$102:(Lcom/google/android/material/textfield/IndicatorViewController;Landroid/animation/Animator;)Landroid/animation/Animator;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1b7390.  v0.`com.google.android.material.textfield.IndicatorViewController.captionAnimator` @type ^`android.animation.Animator` := v1 @kind object;
+  #L1b7394.  return v1 @kind object;
+}
+procedure `android.widget.TextView` `access$200`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.access$200:(Lcom/google/android/material/textfield/IndicatorViewController;)Landroid/widget/TextView;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1b7490.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` @kind object;
+  #L1b7494.  return v0 @kind object;
+}
+procedure `boolean` `canAdjustIndicatorPadding`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.canAdjustIndicatorPadding:()Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1b74d4.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.indicatorArea` @type ^`android.widget.LinearLayout` @kind object;
+  #L1b74d8.  if v0 == 0 then goto L1b74f0;
+  #L1b74dc.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.textInputView` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b74e0.  call temp:= `getEditText`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getEditText:()Landroid/widget/EditText;` @kind virtual;
+  #L1b74e6.  v0:= temp @kind object;
+  #L1b74e8.  if v0 == 0 then goto L1b74f0;
+  #L1b74ec.  v0:= 1I;
+  #L1b74ee.  goto L1b74f2;
+  #L1b74f0.  v0:= 0I;
+  #L1b74f2.  return v0;
+}
+procedure `void` `createCaptionAnimators`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this, `java.util.List` v2 @kind object, `boolean` v3 @name `captionEnabled`, `android.widget.TextView` v4 @kind object @name `captionView`, `int` v5 @name `captionState`, `int` v6 @name `captionToHide`, `int` v7 @name `captionToShow`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.createCaptionAnimators:(Ljava/util/List;ZLandroid/widget/TextView;III)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1b78ec.  if v4 == 0 then goto L1b792a;
+  #L1b78f0.  if v3 != 0 then goto L1b78f6;
+  #L1b78f4.  goto L1b792a;
+  #L1b78f6.  if v5 == v7 then goto L1b78fe;
+  #L1b78fa.  if v5 != v6 then goto L1b7928;
+  #L1b78fe.  if v7 != v5 then goto L1b7906;
+  #L1b7902.  v0:= 1I;
+  #L1b7904.  goto L1b7908;
+  #L1b7906.  v0:= 0I;
+  #L1b7908.  call temp:= `createCaptionOpacityAnimator`(v1, v4, v0) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.createCaptionOpacityAnimator:(Landroid/widget/TextView;Z)Landroid/animation/ObjectAnimator;` @kind direct;
+  #L1b790e.  v0:= temp @kind object;
+  #L1b7910.  call temp:= `add`(v2, v0) @signature `Ljava/util/List;.add:(Ljava/lang/Object;)Z` @kind interface;
+  #L1b7916.  if v7 != v5 then goto L1b7928;
+  #L1b791a.  call temp:= `createCaptionTranslationYAnimator`(v1, v4) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.createCaptionTranslationYAnimator:(Landroid/widget/TextView;)Landroid/animation/ObjectAnimator;` @kind direct;
+  #L1b7920.  v0:= temp @kind object;
+  #L1b7922.  call temp:= `add`(v2, v0) @signature `Ljava/util/List;.add:(Ljava/lang/Object;)Z` @kind interface;
+  #L1b7928.  return @kind void;
+  #L1b792a.  return @kind void;
+}
+procedure `android.animation.ObjectAnimator` `createCaptionOpacityAnimator`(`com.google.android.material.textfield.IndicatorViewController` v4 @kind this, `android.widget.TextView` v5 @kind object @name `captionView`, `boolean` v6 @name `display`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.createCaptionOpacityAnimator:(Landroid/widget/TextView;Z)Landroid/animation/ObjectAnimator;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b73a8.  if v6 == 0 then goto L1b73b2;
+  #L1b73ac.  v0:= 1.0F;
+  #L1b73b0.  goto L1b73b4;
+  #L1b73b2.  v0:= 0I;
+  #L1b73b4.  v1:= `@@android.view.View.ALPHA` @type ^`android.util.Property` @kind object;
+  #L1b73b8.  v2:= 1I;
+  #L1b73ba.  v2:= new `float`[v2];
+  #L1b73be.  v3:= 0I;
+  #L1b73c0.  v2[v3]:= v0;
+  #L1b73c4.  call temp:= `ofFloat`(v5, v1, v2) @signature `Landroid/animation/ObjectAnimator;.ofFloat:(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;` @kind static;
+  #L1b73ca.  v1:= temp @kind object;
+  #L1b73cc.  v2:= 167L;
+  #L1b73d0.  call temp:= `setDuration`(v1, v2) @signature `Landroid/animation/ObjectAnimator;.setDuration:(J)Landroid/animation/ObjectAnimator;` @kind virtual;
+  #L1b73d6.  v2:= `@@com.google.android.material.animation.AnimationUtils.LINEAR_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L1b73da.  call `setInterpolator`(v1, v2) @signature `Landroid/animation/ObjectAnimator;.setInterpolator:(Landroid/animation/TimeInterpolator;)V` @kind virtual;
+  #L1b73e0.  return v1 @kind object;
+}
+procedure `android.animation.ObjectAnimator` `createCaptionTranslationYAnimator`(`com.google.android.material.textfield.IndicatorViewController` v4 @kind this, `android.widget.TextView` v5 @kind object @name `captionView`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.createCaptionTranslationYAnimator:(Landroid/widget/TextView;)Landroid/animation/ObjectAnimator;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b73f4.  v0:= `@@android.view.View.TRANSLATION_Y` @type ^`android.util.Property` @kind object;
+  #L1b73f8.  v1:= 2I;
+  #L1b73fa.  v1:= new `float`[v1];
+  #L1b73fe.  v2:= v4.`com.google.android.material.textfield.IndicatorViewController.captionTranslationYPx` @type ^`float`;
+  #L1b7402.  v2:= -v2 @kind float;
+  #L1b7404.  v3:= 0I;
+  #L1b7406.  v1[v3]:= v2;
+  #L1b740a.  v2:= 1I;
+  #L1b740c.  v3:= 0I;
+  #L1b740e.  v1[v2]:= v3;
+  #L1b7412.  call temp:= `ofFloat`(v5, v0, v1) @signature `Landroid/animation/ObjectAnimator;.ofFloat:(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;` @kind static;
+  #L1b7418.  v0:= temp @kind object;
+  #L1b741a.  v1:= 217L;
+  #L1b741e.  call temp:= `setDuration`(v0, v1) @signature `Landroid/animation/ObjectAnimator;.setDuration:(J)Landroid/animation/ObjectAnimator;` @kind virtual;
+  #L1b7424.  v1:= `@@com.google.android.material.animation.AnimationUtils.LINEAR_OUT_SLOW_IN_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L1b7428.  call `setInterpolator`(v0, v1) @signature `Landroid/animation/ObjectAnimator;.setInterpolator:(Landroid/animation/TimeInterpolator;)V` @kind virtual;
+  #L1b742e.  return v0 @kind object;
+}
+procedure `android.widget.TextView` `getCaptionViewFromDisplayState`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this, `int` v2 @name `captionDisplayState`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.getCaptionViewFromDisplayState:(I)Landroid/widget/TextView;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1b74a8.  v0:= 1I;
+  #L1b74aa.  if v2 == v0 then goto L1b74be;
+  #L1b74ae.  v0:= 2I;
+  #L1b74b0.  if v2 == v0 then goto L1b74b8;
+  #L1b74b4.  v0:= 0I;
+  #L1b74b6.  return v0 @kind object;
+  #L1b74b8.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.helperTextView` @type ^`android.widget.TextView` @kind object;
+  #L1b74bc.  return v0 @kind object;
+  #L1b74be.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` @kind object;
+  #L1b74c2.  return v0 @kind object;
+}
+procedure `boolean` `isCaptionStateError`(`com.google.android.material.textfield.IndicatorViewController` v2 @kind this, `int` v3 @name `captionState`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.isCaptionStateError:(I)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b7584.  v0:= 1I;
+  #L1b7586.  if v3 != v0 then goto L1b75a4;
+  #L1b758a.  v1:= v2.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` @kind object;
+  #L1b758e.  if v1 == 0 then goto L1b75a4;
+  #L1b7592.  v1:= v2.`com.google.android.material.textfield.IndicatorViewController.errorText` @type ^`java.lang.CharSequence` @kind object;
+  #L1b7596.  call temp:= `isEmpty`(v1) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L1b759c.  v1:= temp;
+  #L1b759e.  if v1 != 0 then goto L1b75a4;
+  #L1b75a2.  goto L1b75a6;
+  #L1b75a4.  v0:= 0I;
+  #L1b75a6.  return v0;
+}
+procedure `boolean` `isCaptionStateHelperText`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this, `int` v2 @name `captionState`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.isCaptionStateHelperText:(I)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1b75b8.  v0:= 2I;
+  #L1b75ba.  if v2 != v0 then goto L1b75da;
+  #L1b75be.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.helperTextView` @type ^`android.widget.TextView` @kind object;
+  #L1b75c2.  if v0 == 0 then goto L1b75da;
+  #L1b75c6.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.helperText` @type ^`java.lang.CharSequence` @kind object;
+  #L1b75ca.  call temp:= `isEmpty`(v0) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L1b75d0.  v0:= temp;
+  #L1b75d2.  if v0 != 0 then goto L1b75da;
+  #L1b75d6.  v0:= 1I;
+  #L1b75d8.  goto L1b75dc;
+  #L1b75da.  v0:= 0I;
+  #L1b75dc.  return v0;
+}
+procedure `void` `setCaptionViewVisibilities`(`com.google.android.material.textfield.IndicatorViewController` v2 @kind this, `int` v3 @name `captionToHide`, `int` v4 @name `captionToShow`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setCaptionViewVisibilities:(II)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b7a54.  if v3 != v4 then goto L1b7a5a;
+  #L1b7a58.  return @kind void;
+  #L1b7a5a.  if v4 == 0 then goto L1b7a7c;
+  #L1b7a5e.  call temp:= `getCaptionViewFromDisplayState`(v2, v4) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.getCaptionViewFromDisplayState:(I)Landroid/widget/TextView;` @kind direct;
+  #L1b7a64.  v0:= temp @kind object;
+  #L1b7a66.  if v0 == 0 then goto L1b7a7c;
+  #L1b7a6a.  v1:= 0I;
+  #L1b7a6c.  call `setVisibility`(v0, v1) @signature `Landroid/widget/TextView;.setVisibility:(I)V` @kind virtual;
+  #L1b7a72.  v1:= 1.0F;
+  #L1b7a76.  call `setAlpha`(v0, v1) @signature `Landroid/widget/TextView;.setAlpha:(F)V` @kind virtual;
+  #L1b7a7c.  if v3 == 0 then goto L1b7aa2;
+  #L1b7a80.  call temp:= `getCaptionViewFromDisplayState`(v2, v3) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.getCaptionViewFromDisplayState:(I)Landroid/widget/TextView;` @kind direct;
+  #L1b7a86.  v0:= temp @kind object;
+  #L1b7a88.  if v0 == 0 then goto L1b7aa2;
+  #L1b7a8c.  v1:= 4I;
+  #L1b7a8e.  call `setVisibility`(v0, v1) @signature `Landroid/widget/TextView;.setVisibility:(I)V` @kind virtual;
+  #L1b7a94.  v1:= 1I;
+  #L1b7a96.  if v3 != v1 then goto L1b7aa2;
+  #L1b7a9a.  v1:= 0I;
+  #L1b7a9c.  call `setText`(v0, v1) @signature `Landroid/widget/TextView;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1b7aa2.  v2.`com.google.android.material.textfield.IndicatorViewController.captionDisplayed` @type ^`int` := v4;
+  #L1b7aa6.  return @kind void;
+}
+procedure `void` `setTextViewTypeface`(`com.google.android.material.textfield.IndicatorViewController` v0 @kind this, `android.widget.TextView` v1 @kind object @name `captionView`, `android.graphics.Typeface` v2 @kind object @name `typeface`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setTextViewTypeface:(Landroid/widget/TextView;Landroid/graphics/Typeface;)V` @AccessFlag PRIVATE {
+    temp;
+
+  #L1b7ccc.  if v1 == 0 then goto L1b7cd6;
+  #L1b7cd0.  call `setTypeface`(v1, v2) @signature `Landroid/widget/TextView;.setTypeface:(Landroid/graphics/Typeface;)V` @kind virtual;
+  #L1b7cd6.  return @kind void;
+}
+procedure `void` `setViewGroupGoneIfEmpty`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this, `android.view.ViewGroup` v2 @kind object @name `viewGroup`, `int` v3 @name `indicatorsAdded`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setViewGroupGoneIfEmpty:(Landroid/view/ViewGroup;I)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1b7d1c.  if v3 != 0 then goto L1b7d2a;
+  #L1b7d20.  v0:= 8I;
+  #L1b7d24.  call `setVisibility`(v2, v0) @signature `Landroid/view/ViewGroup;.setVisibility:(I)V` @kind virtual;
+  #L1b7d2a.  return @kind void;
+}
+procedure `boolean` `shouldAnimateCaptionView`(`com.google.android.material.textfield.IndicatorViewController` v2 @kind this, `android.widget.TextView` v3 @kind object @name `captionView`, `java.lang.CharSequence` v4 @kind object @name `captionText`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.shouldAnimateCaptionView:(Landroid/widget/TextView;Ljava/lang/CharSequence;)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b7640.  v0:= v2.`com.google.android.material.textfield.IndicatorViewController.textInputView` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b7644.  call temp:= `isLaidOut`(v0) @signature `Landroidx/core/view/ViewCompat;.isLaidOut:(Landroid/view/View;)Z` @kind static;
+  #L1b764a.  v0:= temp;
+  #L1b764c.  if v0 == 0 then goto L1b7688;
+  #L1b7650.  v0:= v2.`com.google.android.material.textfield.IndicatorViewController.textInputView` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b7654.  call temp:= `isEnabled`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.isEnabled:()Z` @kind virtual;
+  #L1b765a.  v0:= temp;
+  #L1b765c.  if v0 == 0 then goto L1b7688;
+  #L1b7660.  v0:= v2.`com.google.android.material.textfield.IndicatorViewController.captionToShow` @type ^`int`;
+  #L1b7664.  v1:= v2.`com.google.android.material.textfield.IndicatorViewController.captionDisplayed` @type ^`int`;
+  #L1b7668.  if v0 != v1 then goto L1b7684;
+  #L1b766c.  if v3 == 0 then goto L1b7684;
+  #L1b7670.  call temp:= `getText`(v3) @signature `Landroid/widget/TextView;.getText:()Ljava/lang/CharSequence;` @kind virtual;
+  #L1b7676.  v0:= temp @kind object;
+  #L1b7678.  call temp:= `equals`(v0, v4) @signature `Landroid/text/TextUtils;.equals:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z` @kind static;
+  #L1b767e.  v0:= temp;
+  #L1b7680.  if v0 != 0 then goto L1b7688;
+  #L1b7684.  v0:= 1I;
+  #L1b7686.  goto L1b768a;
+  #L1b7688.  v0:= 0I;
+  #L1b768a.  return v0;
+}
+procedure `void` `updateCaptionViewsVisibility`(`com.google.android.material.textfield.IndicatorViewController` v14 @kind this, `int` v15 @name `captionToHide`, `int` v16 @name `captionToShow`, `boolean` v17 @name `animate`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.updateCaptionViewsVisibility:(IIZ)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+    v12;
+    v13;
+
+  #L1b7dd4.  v7:= v14 @kind object;
+  #L1b7dd6.  v8:= v17;
+  #L1b7dda.  if v8 == 0 then goto L1b7e64;
+  #L1b7dde.  v0:= new `android.animation.AnimatorSet`;
+  #L1b7de2.  call `<init>`(v0) @signature `Landroid/animation/AnimatorSet;.<init>:()V` @kind direct;
+  #L1b7de8.  v9:= v0 @kind object;
+  #L1b7dea.  v7.`com.google.android.material.textfield.IndicatorViewController.captionAnimator` @type ^`android.animation.Animator` := v9 @kind object;
+  #L1b7dee.  v0:= new `java.util.ArrayList`;
+  #L1b7df2.  call `<init>`(v0) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L1b7df8.  v10:= v0 @kind object;
+  #L1b7dfa.  v2:= v7.`com.google.android.material.textfield.IndicatorViewController.helperTextEnabled` @type ^`boolean` @kind boolean;
+  #L1b7dfe.  v3:= v7.`com.google.android.material.textfield.IndicatorViewController.helperTextView` @type ^`android.widget.TextView` @kind object;
+  #L1b7e02.  v4:= 2I;
+  #L1b7e04.  v0:= v14 @kind object;
+  #L1b7e06.  v1:= v10 @kind object;
+  #L1b7e08.  v5:= v15;
+  #L1b7e0a.  v6:= v16;
+  #L1b7e0e.  call `createCaptionAnimators`(v0, v1, v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.createCaptionAnimators:(Ljava/util/List;ZLandroid/widget/TextView;III)V` @kind direct;
+  #L1b7e14.  v2:= v7.`com.google.android.material.textfield.IndicatorViewController.errorEnabled` @type ^`boolean` @kind boolean;
+  #L1b7e18.  v3:= v7.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` @kind object;
+  #L1b7e1c.  v4:= 1I;
+  #L1b7e1e.  call `createCaptionAnimators`(v0, v1, v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.createCaptionAnimators:(Ljava/util/List;ZLandroid/widget/TextView;III)V` @kind direct;
+  #L1b7e24.  call `playTogether`(v9, v10) @signature `Lcom/google/android/material/animation/AnimatorSetCompat;.playTogether:(Landroid/animation/AnimatorSet;Ljava/util/List;)V` @kind static;
+  #L1b7e2a.  call temp:= `getCaptionViewFromDisplayState`(v14, v15) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.getCaptionViewFromDisplayState:(I)Landroid/widget/TextView;` @kind direct;
+  #L1b7e30.  v6:= temp @kind object;
+  #L1b7e32.  v11:= v16;
+  #L1b7e36.  call temp:= `getCaptionViewFromDisplayState`(v14, v11) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.getCaptionViewFromDisplayState:(I)Landroid/widget/TextView;` @kind direct;
+  #L1b7e3c.  v12:= temp @kind object;
+  #L1b7e3e.  v13:= new `com.google.android.material.textfield.IndicatorViewController$1`;
+  #L1b7e42.  v0:= v13 @kind object;
+  #L1b7e44.  v1:= v14 @kind object;
+  #L1b7e46.  v2:= v16;
+  #L1b7e4a.  v3:= v6 @kind object;
+  #L1b7e4c.  v4:= v15;
+  #L1b7e4e.  v5:= v12 @kind object;
+  #L1b7e50.  call `<init>`(v0, v1, v2, v3, v4, v5) @signature `Lcom/google/android/material/textfield/IndicatorViewController$1;.<init>:(Lcom/google/android/material/textfield/IndicatorViewController;ILandroid/widget/TextView;ILandroid/widget/TextView;)V` @kind direct;
+  #L1b7e56.  call `addListener`(v9, v13) @signature `Landroid/animation/AnimatorSet;.addListener:(Landroid/animation/Animator$AnimatorListener;)V` @kind virtual;
+  #L1b7e5c.  call `start`(v9) @signature `Landroid/animation/AnimatorSet;.start:()V` @kind virtual;
+  #L1b7e62.  goto L1b7e6e;
+  #L1b7e64.  v11:= v16;
+  #L1b7e68.  call `setCaptionViewVisibilities`(v14, v15, v16) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setCaptionViewVisibilities:(II)V` @kind direct;
+  #L1b7e6e.  v0:= v7.`com.google.android.material.textfield.IndicatorViewController.textInputView` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b7e72.  call `updateEditTextBackground`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.updateEditTextBackground:()V` @kind virtual;
+  #L1b7e78.  v0:= v7.`com.google.android.material.textfield.IndicatorViewController.textInputView` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b7e7c.  call `updateLabelState`(v0, v8) @signature `Lcom/google/android/material/textfield/TextInputLayout;.updateLabelState:(Z)V` @kind virtual;
+  #L1b7e82.  v0:= v7.`com.google.android.material.textfield.IndicatorViewController.textInputView` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b7e86.  call `updateTextInputBoxState`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.updateTextInputBoxState:()V` @kind virtual;
+  #L1b7e8c.  return @kind void;
+}
+procedure `void` `addIndicator`(`com.google.android.material.textfield.IndicatorViewController` v6 @kind this, `android.widget.TextView` v7 @kind object @name `indicator`, `int` v8 @name `index`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.addIndicator:(Landroid/widget/TextView;I)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1b7778.  v0:= v6.`com.google.android.material.textfield.IndicatorViewController.indicatorArea` @type ^`android.widget.LinearLayout` @kind object;
+  #L1b777c.  v1:= 0I;
+  #L1b777e.  if v0 != 0 then goto L1b7816;
+  #L1b7782.  v0:= v6.`com.google.android.material.textfield.IndicatorViewController.captionArea` @type ^`android.widget.FrameLayout` @kind object;
+  #L1b7786.  if v0 != 0 then goto L1b7816;
+  #L1b778a.  v0:= new `android.widget.LinearLayout`;
+  #L1b778e.  v2:= v6.`com.google.android.material.textfield.IndicatorViewController.context` @type ^`android.content.Context` @kind object;
+  #L1b7792.  call `<init>`(v0, v2) @signature `Landroid/widget/LinearLayout;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L1b7798.  v6.`com.google.android.material.textfield.IndicatorViewController.indicatorArea` @type ^`android.widget.LinearLayout` := v0 @kind object;
+  #L1b779c.  call `setOrientation`(v0, v1) @signature `Landroid/widget/LinearLayout;.setOrientation:(I)V` @kind virtual;
+  #L1b77a2.  v0:= v6.`com.google.android.material.textfield.IndicatorViewController.textInputView` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b77a6.  v2:= v6.`com.google.android.material.textfield.IndicatorViewController.indicatorArea` @type ^`android.widget.LinearLayout` @kind object;
+  #L1b77aa.  v3:= -1I;
+  #L1b77ac.  v4:= -2I;
+  #L1b77ae.  call `addView`(v0, v2, v3, v4) @signature `Lcom/google/android/material/textfield/TextInputLayout;.addView:(Landroid/view/View;II)V` @kind virtual;
+  #L1b77b4.  v0:= new `android.widget.FrameLayout`;
+  #L1b77b8.  v2:= v6.`com.google.android.material.textfield.IndicatorViewController.context` @type ^`android.content.Context` @kind object;
+  #L1b77bc.  call `<init>`(v0, v2) @signature `Landroid/widget/FrameLayout;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L1b77c2.  v6.`com.google.android.material.textfield.IndicatorViewController.captionArea` @type ^`android.widget.FrameLayout` := v0 @kind object;
+  #L1b77c6.  v2:= v6.`com.google.android.material.textfield.IndicatorViewController.indicatorArea` @type ^`android.widget.LinearLayout` @kind object;
+  #L1b77ca.  v5:= new `android.widget.FrameLayout$LayoutParams`;
+  #L1b77ce.  call `<init>`(v5, v4, v4) @signature `Landroid/widget/FrameLayout$LayoutParams;.<init>:(II)V` @kind direct;
+  #L1b77d4.  call `addView`(v2, v0, v3, v5) @signature `Landroid/widget/LinearLayout;.addView:(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V` @kind virtual;
+  #L1b77da.  v0:= new `android.widget.Space`;
+  #L1b77de.  v2:= v6.`com.google.android.material.textfield.IndicatorViewController.context` @type ^`android.content.Context` @kind object;
+  #L1b77e2.  call `<init>`(v0, v2) @signature `Landroid/widget/Space;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L1b77e8.  v2:= new `android.widget.LinearLayout$LayoutParams`;
+  #L1b77ec.  v3:= 1.0F;
+  #L1b77f0.  call `<init>`(v2, v1, v1, v3) @signature `Landroid/widget/LinearLayout$LayoutParams;.<init>:(IIF)V` @kind direct;
+  #L1b77f6.  v3:= v6.`com.google.android.material.textfield.IndicatorViewController.indicatorArea` @type ^`android.widget.LinearLayout` @kind object;
+  #L1b77fa.  call `addView`(v3, v0, v2) @signature `Landroid/widget/LinearLayout;.addView:(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V` @kind virtual;
+  #L1b7800.  v3:= v6.`com.google.android.material.textfield.IndicatorViewController.textInputView` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b7804.  call temp:= `getEditText`(v3) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getEditText:()Landroid/widget/EditText;` @kind virtual;
+  #L1b780a.  v3:= temp @kind object;
+  #L1b780c.  if v3 == 0 then goto L1b7816;
+  #L1b7810.  call `adjustIndicatorPadding`(v6) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.adjustIndicatorPadding:()V` @kind virtual;
+  #L1b7816.  call temp:= `isCaptionView`(v6, v8) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.isCaptionView:(I)Z` @kind virtual;
+  #L1b781c.  v0:= temp;
+  #L1b781e.  if v0 == 0 then goto L1b7844;
+  #L1b7822.  v0:= v6.`com.google.android.material.textfield.IndicatorViewController.captionArea` @type ^`android.widget.FrameLayout` @kind object;
+  #L1b7826.  call `setVisibility`(v0, v1) @signature `Landroid/widget/FrameLayout;.setVisibility:(I)V` @kind virtual;
+  #L1b782c.  v0:= v6.`com.google.android.material.textfield.IndicatorViewController.captionArea` @type ^`android.widget.FrameLayout` @kind object;
+  #L1b7830.  call `addView`(v0, v7) @signature `Landroid/widget/FrameLayout;.addView:(Landroid/view/View;)V` @kind virtual;
+  #L1b7836.  v0:= v6.`com.google.android.material.textfield.IndicatorViewController.captionViewsAdded` @type ^`int`;
+  #L1b783a.  v0:= v0 + 1;
+  #L1b783e.  v6.`com.google.android.material.textfield.IndicatorViewController.captionViewsAdded` @type ^`int` := v0;
+  #L1b7842.  goto L1b784e;
+  #L1b7844.  v0:= v6.`com.google.android.material.textfield.IndicatorViewController.indicatorArea` @type ^`android.widget.LinearLayout` @kind object;
+  #L1b7848.  call `addView`(v0, v7, v8) @signature `Landroid/widget/LinearLayout;.addView:(Landroid/view/View;I)V` @kind virtual;
+  #L1b784e.  v0:= v6.`com.google.android.material.textfield.IndicatorViewController.indicatorArea` @type ^`android.widget.LinearLayout` @kind object;
+  #L1b7852.  call `setVisibility`(v0, v1) @signature `Landroid/widget/LinearLayout;.setVisibility:(I)V` @kind virtual;
+  #L1b7858.  v0:= v6.`com.google.android.material.textfield.IndicatorViewController.indicatorsAdded` @type ^`int`;
+  #L1b785c.  v0:= v0 + 1;
+  #L1b7860.  v6.`com.google.android.material.textfield.IndicatorViewController.indicatorsAdded` @type ^`int` := v0;
+  #L1b7864.  return @kind void;
+}
+procedure `void` `adjustIndicatorPadding`(`com.google.android.material.textfield.IndicatorViewController` v4 @kind this) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.adjustIndicatorPadding:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b7878.  call temp:= `canAdjustIndicatorPadding`(v4) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.canAdjustIndicatorPadding:()Z` @kind direct;
+  #L1b787e.  v0:= temp;
+  #L1b7880.  if v0 == 0 then goto L1b78b8;
+  #L1b7884.  v0:= v4.`com.google.android.material.textfield.IndicatorViewController.indicatorArea` @type ^`android.widget.LinearLayout` @kind object;
+  #L1b7888.  v1:= v4.`com.google.android.material.textfield.IndicatorViewController.textInputView` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b788c.  call temp:= `getEditText`(v1) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getEditText:()Landroid/widget/EditText;` @kind virtual;
+  #L1b7892.  v1:= temp @kind object;
+  #L1b7894.  call temp:= `getPaddingStart`(v1) @signature `Landroidx/core/view/ViewCompat;.getPaddingStart:(Landroid/view/View;)I` @kind static;
+  #L1b789a.  v1:= temp;
+  #L1b789c.  v2:= v4.`com.google.android.material.textfield.IndicatorViewController.textInputView` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b78a0.  call temp:= `getEditText`(v2) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getEditText:()Landroid/widget/EditText;` @kind virtual;
+  #L1b78a6.  v2:= temp @kind object;
+  #L1b78a8.  call temp:= `getPaddingEnd`(v2) @signature `Landroidx/core/view/ViewCompat;.getPaddingEnd:(Landroid/view/View;)I` @kind static;
+  #L1b78ae.  v2:= temp;
+  #L1b78b0.  v3:= 0I;
+  #L1b78b2.  call `setPaddingRelative`(v0, v1, v3, v2, v3) @signature `Landroidx/core/view/ViewCompat;.setPaddingRelative:(Landroid/view/View;IIII)V` @kind static;
+  #L1b78b8.  return @kind void;
+}
+procedure `void` `cancelCaptionAnimator`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.cancelCaptionAnimator:()V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b78cc.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.captionAnimator` @type ^`android.animation.Animator` @kind object;
+  #L1b78d0.  if v0 == 0 then goto L1b78da;
+  #L1b78d4.  call `cancel`(v0) @signature `Landroid/animation/Animator;.cancel:()V` @kind virtual;
+  #L1b78da.  return @kind void;
+}
+procedure `boolean` `errorIsDisplayed`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.errorIsDisplayed:()Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b7504.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.captionDisplayed` @type ^`int`;
+  #L1b7508.  call temp:= `isCaptionStateError`(v1, v0) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.isCaptionStateError:(I)Z` @kind direct;
+  #L1b750e.  v0:= temp;
+  #L1b7510.  return v0;
+}
+procedure `boolean` `errorShouldBeShown`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.errorShouldBeShown:()Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b7524.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.captionToShow` @type ^`int`;
+  #L1b7528.  call temp:= `isCaptionStateError`(v1, v0) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.isCaptionStateError:(I)Z` @kind direct;
+  #L1b752e.  v0:= temp;
+  #L1b7530.  return v0;
+}
+procedure `java.lang.CharSequence` `getErrorText`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.getErrorText:()Ljava/lang/CharSequence;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b7704.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.errorText` @type ^`java.lang.CharSequence` @kind object;
+  #L1b7708.  return v0 @kind object;
+}
+procedure `int` `getErrorViewCurrentTextColor`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.getErrorViewCurrentTextColor:()I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b76b4.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` @kind object;
+  #L1b76b8.  if v0 == 0 then goto L1b76c6;
+  #L1b76bc.  call temp:= `getCurrentTextColor`(v0) @signature `Landroid/widget/TextView;.getCurrentTextColor:()I` @kind virtual;
+  #L1b76c2.  v0:= temp;
+  #L1b76c4.  goto L1b76c8;
+  #L1b76c6.  v0:= -1I;
+  #L1b76c8.  return v0;
+}
+procedure `android.content.res.ColorStateList` `getErrorViewTextColors`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.getErrorViewTextColors:()Landroid/content/res/ColorStateList;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b7440.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` @kind object;
+  #L1b7444.  if v0 == 0 then goto L1b7452;
+  #L1b7448.  call temp:= `getTextColors`(v0) @signature `Landroid/widget/TextView;.getTextColors:()Landroid/content/res/ColorStateList;` @kind virtual;
+  #L1b744e.  v0:= temp @kind object;
+  #L1b7450.  goto L1b7454;
+  #L1b7452.  v0:= 0I;
+  #L1b7454.  return v0 @kind object;
+}
+procedure `java.lang.CharSequence` `getHelperText`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.getHelperText:()Ljava/lang/CharSequence;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b771c.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.helperText` @type ^`java.lang.CharSequence` @kind object;
+  #L1b7720.  return v0 @kind object;
+}
+procedure `android.content.res.ColorStateList` `getHelperTextViewColors`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.getHelperTextViewColors:()Landroid/content/res/ColorStateList;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b7468.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.helperTextView` @type ^`android.widget.TextView` @kind object;
+  #L1b746c.  if v0 == 0 then goto L1b747a;
+  #L1b7470.  call temp:= `getTextColors`(v0) @signature `Landroid/widget/TextView;.getTextColors:()Landroid/content/res/ColorStateList;` @kind virtual;
+  #L1b7476.  v0:= temp @kind object;
+  #L1b7478.  goto L1b747c;
+  #L1b747a.  v0:= 0I;
+  #L1b747c.  return v0 @kind object;
+}
+procedure `int` `getHelperTextViewCurrentTextColor`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.getHelperTextViewCurrentTextColor:()I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b76dc.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.helperTextView` @type ^`android.widget.TextView` @kind object;
+  #L1b76e0.  if v0 == 0 then goto L1b76ee;
+  #L1b76e4.  call temp:= `getCurrentTextColor`(v0) @signature `Landroid/widget/TextView;.getCurrentTextColor:()I` @kind virtual;
+  #L1b76ea.  v0:= temp;
+  #L1b76ec.  goto L1b76f0;
+  #L1b76ee.  v0:= -1I;
+  #L1b76f0.  return v0;
+}
+procedure `boolean` `helperTextIsDisplayed`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.helperTextIsDisplayed:()Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b7544.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.captionDisplayed` @type ^`int`;
+  #L1b7548.  call temp:= `isCaptionStateHelperText`(v1, v0) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.isCaptionStateHelperText:(I)Z` @kind direct;
+  #L1b754e.  v0:= temp;
+  #L1b7550.  return v0;
+}
+procedure `boolean` `helperTextShouldBeShown`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.helperTextShouldBeShown:()Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b7564.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.captionToShow` @type ^`int`;
+  #L1b7568.  call temp:= `isCaptionStateHelperText`(v1, v0) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.isCaptionStateHelperText:(I)Z` @kind direct;
+  #L1b756e.  v0:= temp;
+  #L1b7570.  return v0;
+}
+procedure `void` `hideError`(`com.google.android.material.textfield.IndicatorViewController` v4 @kind this) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.hideError:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b793c.  v0:= 0I;
+  #L1b793e.  v4.`com.google.android.material.textfield.IndicatorViewController.errorText` @type ^`java.lang.CharSequence` := v0 @kind object;
+  #L1b7942.  call `cancelCaptionAnimator`(v4) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.cancelCaptionAnimator:()V` @kind virtual;
+  #L1b7948.  v1:= v4.`com.google.android.material.textfield.IndicatorViewController.captionDisplayed` @type ^`int`;
+  #L1b794c.  v2:= 1I;
+  #L1b794e.  if v1 != v2 then goto L1b7978;
+  #L1b7952.  v1:= v4.`com.google.android.material.textfield.IndicatorViewController.helperTextEnabled` @type ^`boolean` @kind boolean;
+  #L1b7956.  if v1 == 0 then goto L1b7972;
+  #L1b795a.  v1:= v4.`com.google.android.material.textfield.IndicatorViewController.helperText` @type ^`java.lang.CharSequence` @kind object;
+  #L1b795e.  call temp:= `isEmpty`(v1) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L1b7964.  v1:= temp;
+  #L1b7966.  if v1 != 0 then goto L1b7972;
+  #L1b796a.  v1:= 2I;
+  #L1b796c.  v4.`com.google.android.material.textfield.IndicatorViewController.captionToShow` @type ^`int` := v1;
+  #L1b7970.  goto L1b7978;
+  #L1b7972.  v1:= 0I;
+  #L1b7974.  v4.`com.google.android.material.textfield.IndicatorViewController.captionToShow` @type ^`int` := v1;
+  #L1b7978.  v1:= v4.`com.google.android.material.textfield.IndicatorViewController.captionDisplayed` @type ^`int`;
+  #L1b797c.  v2:= v4.`com.google.android.material.textfield.IndicatorViewController.captionToShow` @type ^`int`;
+  #L1b7980.  v3:= v4.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` @kind object;
+  #L1b7984.  call temp:= `shouldAnimateCaptionView`(v4, v3, v0) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.shouldAnimateCaptionView:(Landroid/widget/TextView;Ljava/lang/CharSequence;)Z` @kind direct;
+  #L1b798a.  v0:= temp;
+  #L1b798c.  call `updateCaptionViewsVisibility`(v4, v1, v2, v0) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.updateCaptionViewsVisibility:(IIZ)V` @kind direct;
+  #L1b7992.  return @kind void;
+}
+procedure `void` `hideHelperText`(`com.google.android.material.textfield.IndicatorViewController` v4 @kind this) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.hideHelperText:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b79a4.  call `cancelCaptionAnimator`(v4) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.cancelCaptionAnimator:()V` @kind virtual;
+  #L1b79aa.  v0:= v4.`com.google.android.material.textfield.IndicatorViewController.captionDisplayed` @type ^`int`;
+  #L1b79ae.  v1:= 2I;
+  #L1b79b0.  if v0 != v1 then goto L1b79ba;
+  #L1b79b4.  v1:= 0I;
+  #L1b79b6.  v4.`com.google.android.material.textfield.IndicatorViewController.captionToShow` @type ^`int` := v1;
+  #L1b79ba.  v1:= v4.`com.google.android.material.textfield.IndicatorViewController.captionToShow` @type ^`int`;
+  #L1b79be.  v2:= v4.`com.google.android.material.textfield.IndicatorViewController.helperTextView` @type ^`android.widget.TextView` @kind object;
+  #L1b79c2.  v3:= 0I;
+  #L1b79c4.  call temp:= `shouldAnimateCaptionView`(v4, v2, v3) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.shouldAnimateCaptionView:(Landroid/widget/TextView;Ljava/lang/CharSequence;)Z` @kind direct;
+  #L1b79ca.  v2:= temp;
+  #L1b79cc.  call `updateCaptionViewsVisibility`(v4, v0, v1, v2) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.updateCaptionViewsVisibility:(IIZ)V` @kind direct;
+  #L1b79d2.  return @kind void;
+}
+procedure `boolean` `isCaptionView`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this, `int` v2 @name `index`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.isCaptionView:(I)Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b75f0.  v0:= 1I;
+  #L1b75f2.  if v2 == 0 then goto L1b75fe;
+  #L1b75f6.  if v2 != v0 then goto L1b75fc;
+  #L1b75fa.  goto L1b75fe;
+  #L1b75fc.  v0:= 0I;
+  #L1b75fe.  return v0;
+}
+procedure `boolean` `isErrorEnabled`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.isErrorEnabled:()Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b7610.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.errorEnabled` @type ^`boolean` @kind boolean;
+  #L1b7614.  return v0;
+}
+procedure `boolean` `isHelperTextEnabled`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.isHelperTextEnabled:()Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b7628.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.helperTextEnabled` @type ^`boolean` @kind boolean;
+  #L1b762c.  return v0;
+}
+procedure `void` `removeIndicator`(`com.google.android.material.textfield.IndicatorViewController` v2 @kind this, `android.widget.TextView` v3 @kind object @name `indicator`, `int` v4 @name `index`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.removeIndicator:(Landroid/widget/TextView;I)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L1b79e4.  v0:= v2.`com.google.android.material.textfield.IndicatorViewController.indicatorArea` @type ^`android.widget.LinearLayout` @kind object;
+  #L1b79e8.  if v0 != 0 then goto L1b79ee;
+  #L1b79ec.  return @kind void;
+  #L1b79ee.  call temp:= `isCaptionView`(v2, v4) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.isCaptionView:(I)Z` @kind virtual;
+  #L1b79f4.  v0:= temp;
+  #L1b79f6.  if v0 == 0 then goto L1b7a20;
+  #L1b79fa.  v0:= v2.`com.google.android.material.textfield.IndicatorViewController.captionArea` @type ^`android.widget.FrameLayout` @kind object;
+  #L1b79fe.  if v0 == 0 then goto L1b7a20;
+  #L1b7a02.  v1:= v2.`com.google.android.material.textfield.IndicatorViewController.captionViewsAdded` @type ^`int`;
+  #L1b7a06.  v1:= v1 + -1;
+  #L1b7a0a.  v2.`com.google.android.material.textfield.IndicatorViewController.captionViewsAdded` @type ^`int` := v1;
+  #L1b7a0e.  call `setViewGroupGoneIfEmpty`(v2, v0, v1) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setViewGroupGoneIfEmpty:(Landroid/view/ViewGroup;I)V` @kind direct;
+  #L1b7a14.  v0:= v2.`com.google.android.material.textfield.IndicatorViewController.captionArea` @type ^`android.widget.FrameLayout` @kind object;
+  #L1b7a18.  call `removeView`(v0, v3) @signature `Landroid/widget/FrameLayout;.removeView:(Landroid/view/View;)V` @kind virtual;
+  #L1b7a1e.  goto L1b7a2a;
+  #L1b7a20.  v0:= v2.`com.google.android.material.textfield.IndicatorViewController.indicatorArea` @type ^`android.widget.LinearLayout` @kind object;
+  #L1b7a24.  call `removeView`(v0, v3) @signature `Landroid/widget/LinearLayout;.removeView:(Landroid/view/View;)V` @kind virtual;
+  #L1b7a2a.  v0:= v2.`com.google.android.material.textfield.IndicatorViewController.indicatorsAdded` @type ^`int`;
+  #L1b7a2e.  v0:= v0 + -1;
+  #L1b7a32.  v2.`com.google.android.material.textfield.IndicatorViewController.indicatorsAdded` @type ^`int` := v0;
+  #L1b7a36.  v1:= v2.`com.google.android.material.textfield.IndicatorViewController.indicatorArea` @type ^`android.widget.LinearLayout` @kind object;
+  #L1b7a3a.  call `setViewGroupGoneIfEmpty`(v2, v1, v0) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setViewGroupGoneIfEmpty:(Landroid/view/ViewGroup;I)V` @kind direct;
+  #L1b7a40.  return @kind void;
+}
+procedure `void` `setErrorEnabled`(`com.google.android.material.textfield.IndicatorViewController` v3 @kind this, `boolean` v4 @name `enabled`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setErrorEnabled:(Z)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b7ab8.  v0:= v3.`com.google.android.material.textfield.IndicatorViewController.errorEnabled` @type ^`boolean` @kind boolean;
+  #L1b7abc.  if v0 != v4 then goto L1b7ac2;
+  #L1b7ac0.  return @kind void;
+  #L1b7ac2.  call `cancelCaptionAnimator`(v3) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.cancelCaptionAnimator:()V` @kind virtual;
+  #L1b7ac8.  v0:= 0I;
+  #L1b7aca.  if v4 == 0 then goto L1b7b34;
+  #L1b7ace.  v1:= new `androidx.appcompat.widget.AppCompatTextView`;
+  #L1b7ad2.  v2:= v3.`com.google.android.material.textfield.IndicatorViewController.context` @type ^`android.content.Context` @kind object;
+  #L1b7ad6.  call `<init>`(v1, v2) @signature `Landroidx/appcompat/widget/AppCompatTextView;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L1b7adc.  v3.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` := v1 @kind object;
+  #L1b7ae0.  v2:= `@@com.google.android.material.R$id.textinput_error` @type ^`int`;
+  #L1b7ae4.  call `setId`(v1, v2) @signature `Landroid/widget/TextView;.setId:(I)V` @kind virtual;
+  #L1b7aea.  v1:= v3.`com.google.android.material.textfield.IndicatorViewController.typeface` @type ^`android.graphics.Typeface` @kind object;
+  #L1b7aee.  if v1 == 0 then goto L1b7afc;
+  #L1b7af2.  v2:= v3.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` @kind object;
+  #L1b7af6.  call `setTypeface`(v2, v1) @signature `Landroid/widget/TextView;.setTypeface:(Landroid/graphics/Typeface;)V` @kind virtual;
+  #L1b7afc.  v1:= v3.`com.google.android.material.textfield.IndicatorViewController.errorTextAppearance` @type ^`int`;
+  #L1b7b00.  call `setErrorTextAppearance`(v3, v1) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setErrorTextAppearance:(I)V` @kind virtual;
+  #L1b7b06.  v1:= v3.`com.google.android.material.textfield.IndicatorViewController.errorViewTextColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1b7b0a.  call `setErrorViewTextColor`(v3, v1) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setErrorViewTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1b7b10.  v1:= v3.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` @kind object;
+  #L1b7b14.  v2:= 4I;
+  #L1b7b16.  call `setVisibility`(v1, v2) @signature `Landroid/widget/TextView;.setVisibility:(I)V` @kind virtual;
+  #L1b7b1c.  v1:= v3.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` @kind object;
+  #L1b7b20.  v2:= 1I;
+  #L1b7b22.  call `setAccessibilityLiveRegion`(v1, v2) @signature `Landroidx/core/view/ViewCompat;.setAccessibilityLiveRegion:(Landroid/view/View;I)V` @kind static;
+  #L1b7b28.  v1:= v3.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` @kind object;
+  #L1b7b2c.  call `addIndicator`(v3, v1, v0) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.addIndicator:(Landroid/widget/TextView;I)V` @kind virtual;
+  #L1b7b32.  goto L1b7b5e;
+  #L1b7b34.  call `hideError`(v3) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.hideError:()V` @kind virtual;
+  #L1b7b3a.  v1:= v3.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` @kind object;
+  #L1b7b3e.  call `removeIndicator`(v3, v1, v0) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.removeIndicator:(Landroid/widget/TextView;I)V` @kind virtual;
+  #L1b7b44.  v0:= 0I;
+  #L1b7b46.  v3.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` := v0 @kind object;
+  #L1b7b4a.  v0:= v3.`com.google.android.material.textfield.IndicatorViewController.textInputView` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b7b4e.  call `updateEditTextBackground`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.updateEditTextBackground:()V` @kind virtual;
+  #L1b7b54.  v0:= v3.`com.google.android.material.textfield.IndicatorViewController.textInputView` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b7b58.  call `updateTextInputBoxState`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.updateTextInputBoxState:()V` @kind virtual;
+  #L1b7b5e.  v3.`com.google.android.material.textfield.IndicatorViewController.errorEnabled` @type ^`boolean` := v4 @kind boolean;
+  #L1b7b62.  return @kind void;
+}
+procedure `void` `setErrorTextAppearance`(`com.google.android.material.textfield.IndicatorViewController` v2 @kind this, `int` v3 @name `resId`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setErrorTextAppearance:(I)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L1b7b74.  v2.`com.google.android.material.textfield.IndicatorViewController.errorTextAppearance` @type ^`int` := v3;
+  #L1b7b78.  v0:= v2.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` @kind object;
+  #L1b7b7c.  if v0 == 0 then goto L1b7b8a;
+  #L1b7b80.  v1:= v2.`com.google.android.material.textfield.IndicatorViewController.textInputView` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b7b84.  call `setTextAppearanceCompatWithErrorFallback`(v1, v0, v3) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setTextAppearanceCompatWithErrorFallback:(Landroid/widget/TextView;I)V` @kind virtual;
+  #L1b7b8a.  return @kind void;
+}
+procedure `void` `setErrorViewTextColor`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `errorViewTextColor`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setErrorViewTextColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b7b9c.  v1.`com.google.android.material.textfield.IndicatorViewController.errorViewTextColor` @type ^`android.content.res.ColorStateList` := v2 @kind object;
+  #L1b7ba0.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` @kind object;
+  #L1b7ba4.  if v0 == 0 then goto L1b7bb2;
+  #L1b7ba8.  if v2 == 0 then goto L1b7bb2;
+  #L1b7bac.  call `setTextColor`(v0, v2) @signature `Landroid/widget/TextView;.setTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1b7bb2.  return @kind void;
+}
+procedure `void` `setHelperTextAppearance`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this, `int` v2 @name `resId`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setHelperTextAppearance:(I)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b7bc4.  v1.`com.google.android.material.textfield.IndicatorViewController.helperTextTextAppearance` @type ^`int` := v2;
+  #L1b7bc8.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.helperTextView` @type ^`android.widget.TextView` @kind object;
+  #L1b7bcc.  if v0 == 0 then goto L1b7bd6;
+  #L1b7bd0.  call `setTextAppearance`(v0, v2) @signature `Landroidx/core/widget/TextViewCompat;.setTextAppearance:(Landroid/widget/TextView;I)V` @kind static;
+  #L1b7bd6.  return @kind void;
+}
+procedure `void` `setHelperTextEnabled`(`com.google.android.material.textfield.IndicatorViewController` v3 @kind this, `boolean` v4 @name `enabled`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setHelperTextEnabled:(Z)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b7be8.  v0:= v3.`com.google.android.material.textfield.IndicatorViewController.helperTextEnabled` @type ^`boolean` @kind boolean;
+  #L1b7bec.  if v0 != v4 then goto L1b7bf2;
+  #L1b7bf0.  return @kind void;
+  #L1b7bf2.  call `cancelCaptionAnimator`(v3) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.cancelCaptionAnimator:()V` @kind virtual;
+  #L1b7bf8.  v0:= 1I;
+  #L1b7bfa.  if v4 == 0 then goto L1b7c62;
+  #L1b7bfe.  v1:= new `androidx.appcompat.widget.AppCompatTextView`;
+  #L1b7c02.  v2:= v3.`com.google.android.material.textfield.IndicatorViewController.context` @type ^`android.content.Context` @kind object;
+  #L1b7c06.  call `<init>`(v1, v2) @signature `Landroidx/appcompat/widget/AppCompatTextView;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L1b7c0c.  v3.`com.google.android.material.textfield.IndicatorViewController.helperTextView` @type ^`android.widget.TextView` := v1 @kind object;
+  #L1b7c10.  v2:= `@@com.google.android.material.R$id.textinput_helper_text` @type ^`int`;
+  #L1b7c14.  call `setId`(v1, v2) @signature `Landroid/widget/TextView;.setId:(I)V` @kind virtual;
+  #L1b7c1a.  v1:= v3.`com.google.android.material.textfield.IndicatorViewController.typeface` @type ^`android.graphics.Typeface` @kind object;
+  #L1b7c1e.  if v1 == 0 then goto L1b7c2c;
+  #L1b7c22.  v2:= v3.`com.google.android.material.textfield.IndicatorViewController.helperTextView` @type ^`android.widget.TextView` @kind object;
+  #L1b7c26.  call `setTypeface`(v2, v1) @signature `Landroid/widget/TextView;.setTypeface:(Landroid/graphics/Typeface;)V` @kind virtual;
+  #L1b7c2c.  v1:= v3.`com.google.android.material.textfield.IndicatorViewController.helperTextView` @type ^`android.widget.TextView` @kind object;
+  #L1b7c30.  v2:= 4I;
+  #L1b7c32.  call `setVisibility`(v1, v2) @signature `Landroid/widget/TextView;.setVisibility:(I)V` @kind virtual;
+  #L1b7c38.  v1:= v3.`com.google.android.material.textfield.IndicatorViewController.helperTextView` @type ^`android.widget.TextView` @kind object;
+  #L1b7c3c.  call `setAccessibilityLiveRegion`(v1, v0) @signature `Landroidx/core/view/ViewCompat;.setAccessibilityLiveRegion:(Landroid/view/View;I)V` @kind static;
+  #L1b7c42.  v1:= v3.`com.google.android.material.textfield.IndicatorViewController.helperTextTextAppearance` @type ^`int`;
+  #L1b7c46.  call `setHelperTextAppearance`(v3, v1) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setHelperTextAppearance:(I)V` @kind virtual;
+  #L1b7c4c.  v1:= v3.`com.google.android.material.textfield.IndicatorViewController.helperTextViewTextColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1b7c50.  call `setHelperTextViewTextColor`(v3, v1) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setHelperTextViewTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1b7c56.  v1:= v3.`com.google.android.material.textfield.IndicatorViewController.helperTextView` @type ^`android.widget.TextView` @kind object;
+  #L1b7c5a.  call `addIndicator`(v3, v1, v0) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.addIndicator:(Landroid/widget/TextView;I)V` @kind virtual;
+  #L1b7c60.  goto L1b7c8c;
+  #L1b7c62.  call `hideHelperText`(v3) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.hideHelperText:()V` @kind virtual;
+  #L1b7c68.  v1:= v3.`com.google.android.material.textfield.IndicatorViewController.helperTextView` @type ^`android.widget.TextView` @kind object;
+  #L1b7c6c.  call `removeIndicator`(v3, v1, v0) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.removeIndicator:(Landroid/widget/TextView;I)V` @kind virtual;
+  #L1b7c72.  v0:= 0I;
+  #L1b7c74.  v3.`com.google.android.material.textfield.IndicatorViewController.helperTextView` @type ^`android.widget.TextView` := v0 @kind object;
+  #L1b7c78.  v0:= v3.`com.google.android.material.textfield.IndicatorViewController.textInputView` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b7c7c.  call `updateEditTextBackground`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.updateEditTextBackground:()V` @kind virtual;
+  #L1b7c82.  v0:= v3.`com.google.android.material.textfield.IndicatorViewController.textInputView` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b7c86.  call `updateTextInputBoxState`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.updateTextInputBoxState:()V` @kind virtual;
+  #L1b7c8c.  v3.`com.google.android.material.textfield.IndicatorViewController.helperTextEnabled` @type ^`boolean` := v4 @kind boolean;
+  #L1b7c90.  return @kind void;
+}
+procedure `void` `setHelperTextViewTextColor`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `helperTextViewTextColor`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setHelperTextViewTextColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b7ca4.  v1.`com.google.android.material.textfield.IndicatorViewController.helperTextViewTextColor` @type ^`android.content.res.ColorStateList` := v2 @kind object;
+  #L1b7ca8.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.helperTextView` @type ^`android.widget.TextView` @kind object;
+  #L1b7cac.  if v0 == 0 then goto L1b7cba;
+  #L1b7cb0.  if v2 == 0 then goto L1b7cba;
+  #L1b7cb4.  call `setTextColor`(v0, v2) @signature `Landroid/widget/TextView;.setTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1b7cba.  return @kind void;
+}
+procedure `void` `setTypefaces`(`com.google.android.material.textfield.IndicatorViewController` v1 @kind this, `android.graphics.Typeface` v2 @kind object @name `typeface`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setTypefaces:(Landroid/graphics/Typeface;)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b7ce8.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.typeface` @type ^`android.graphics.Typeface` @kind object;
+  #L1b7cec.  if v2 == v0 then goto L1b7d08;
+  #L1b7cf0.  v1.`com.google.android.material.textfield.IndicatorViewController.typeface` @type ^`android.graphics.Typeface` := v2 @kind object;
+  #L1b7cf4.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` @kind object;
+  #L1b7cf8.  call `setTextViewTypeface`(v1, v0, v2) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setTextViewTypeface:(Landroid/widget/TextView;Landroid/graphics/Typeface;)V` @kind direct;
+  #L1b7cfe.  v0:= v1.`com.google.android.material.textfield.IndicatorViewController.helperTextView` @type ^`android.widget.TextView` @kind object;
+  #L1b7d02.  call `setTextViewTypeface`(v1, v0, v2) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.setTextViewTypeface:(Landroid/widget/TextView;Landroid/graphics/Typeface;)V` @kind direct;
+  #L1b7d08.  return @kind void;
+}
+procedure `void` `showError`(`com.google.android.material.textfield.IndicatorViewController` v3 @kind this, `java.lang.CharSequence` v4 @kind object @name `errorText`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.showError:(Ljava/lang/CharSequence;)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b7d3c.  call `cancelCaptionAnimator`(v3) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.cancelCaptionAnimator:()V` @kind virtual;
+  #L1b7d42.  v3.`com.google.android.material.textfield.IndicatorViewController.errorText` @type ^`java.lang.CharSequence` := v4 @kind object;
+  #L1b7d46.  v0:= v3.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` @kind object;
+  #L1b7d4a.  call `setText`(v0, v4) @signature `Landroid/widget/TextView;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1b7d50.  v0:= v3.`com.google.android.material.textfield.IndicatorViewController.captionDisplayed` @type ^`int`;
+  #L1b7d54.  v1:= 1I;
+  #L1b7d56.  if v0 == v1 then goto L1b7d5e;
+  #L1b7d5a.  v3.`com.google.android.material.textfield.IndicatorViewController.captionToShow` @type ^`int` := v1;
+  #L1b7d5e.  v1:= v3.`com.google.android.material.textfield.IndicatorViewController.captionToShow` @type ^`int`;
+  #L1b7d62.  v2:= v3.`com.google.android.material.textfield.IndicatorViewController.errorView` @type ^`android.widget.TextView` @kind object;
+  #L1b7d66.  call temp:= `shouldAnimateCaptionView`(v3, v2, v4) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.shouldAnimateCaptionView:(Landroid/widget/TextView;Ljava/lang/CharSequence;)Z` @kind direct;
+  #L1b7d6c.  v2:= temp;
+  #L1b7d6e.  call `updateCaptionViewsVisibility`(v3, v0, v1, v2) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.updateCaptionViewsVisibility:(IIZ)V` @kind direct;
+  #L1b7d74.  return @kind void;
+}
+procedure `void` `showHelper`(`com.google.android.material.textfield.IndicatorViewController` v3 @kind this, `java.lang.CharSequence` v4 @kind object @name `helperText`) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.showHelper:(Ljava/lang/CharSequence;)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b7d88.  call `cancelCaptionAnimator`(v3) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.cancelCaptionAnimator:()V` @kind virtual;
+  #L1b7d8e.  v3.`com.google.android.material.textfield.IndicatorViewController.helperText` @type ^`java.lang.CharSequence` := v4 @kind object;
+  #L1b7d92.  v0:= v3.`com.google.android.material.textfield.IndicatorViewController.helperTextView` @type ^`android.widget.TextView` @kind object;
+  #L1b7d96.  call `setText`(v0, v4) @signature `Landroid/widget/TextView;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1b7d9c.  v0:= v3.`com.google.android.material.textfield.IndicatorViewController.captionDisplayed` @type ^`int`;
+  #L1b7da0.  v1:= 2I;
+  #L1b7da2.  if v0 == v1 then goto L1b7daa;
+  #L1b7da6.  v3.`com.google.android.material.textfield.IndicatorViewController.captionToShow` @type ^`int` := v1;
+  #L1b7daa.  v1:= v3.`com.google.android.material.textfield.IndicatorViewController.captionToShow` @type ^`int`;
+  #L1b7dae.  v2:= v3.`com.google.android.material.textfield.IndicatorViewController.helperTextView` @type ^`android.widget.TextView` @kind object;
+  #L1b7db2.  call temp:= `shouldAnimateCaptionView`(v3, v2, v4) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.shouldAnimateCaptionView:(Landroid/widget/TextView;Ljava/lang/CharSequence;)Z` @kind direct;
+  #L1b7db8.  v2:= temp;
+  #L1b7dba.  call `updateCaptionViewsVisibility`(v3, v0, v1, v2) @signature `Lcom/google/android/material/textfield/IndicatorViewController;.updateCaptionViewsVisibility:(IIZ)V` @kind direct;
+  #L1b7dc0.  return @kind void;
+}

@@ -1,0 +1,46 @@
+record `com.google.android.material.bottomnavigation.BottomNavigationMenu` @kind class @AccessFlag PUBLIC_FINAL extends `androidx.appcompat.view.menu.MenuBuilder` @kind class {
+}
+global `int` `@@com.google.android.material.bottomnavigation.BottomNavigationMenu.MAX_ITEM_COUNT` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.bottomnavigation.BottomNavigationMenu` v0 @kind this, `android.content.Context` v1 @kind object @name `context`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenu;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1878c4.  call `<init>`(v0, v1) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L1878ca.  return @kind void;
+}
+procedure `android.view.MenuItem` `addInternal`(`com.google.android.material.bottomnavigation.BottomNavigationMenu` v3 @kind this, `int` v4 @name `group`, `int` v5 @name `id`, `int` v6 @name `categoryOrder`, `java.lang.CharSequence` v7 @kind object @name `title`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenu;.addInternal:(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L187848.  call temp:= `size`(v3) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenu;.size:()I` @kind virtual;
+  #L18784e.  v0:= temp;
+  #L187850.  v1:= 1I;
+  #L187852.  v0:= v0 + v1 @kind int;
+  #L187854.  v2:= 5I;
+  #L187856.  if v0 > v2 then goto L187884;
+  #L18785a.  call `stopDispatchingItemsChanged`(v3) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenu;.stopDispatchingItemsChanged:()V` @kind virtual;
+  #L187860.  call temp:= `addInternal`(v3, v4, v5, v6, v7) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.addInternal:(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;` @kind super;
+  #L187866.  v0:= temp @kind object;
+  #L187868.  v2:= instanceof @variable v0 @type ^`androidx.appcompat.view.menu.MenuItemImpl` @kind boolean;
+  #L18786c.  if v2 == 0 then goto L18787c;
+  #L187870.  v2:= v0 @kind object;
+  #L187872.  v2:= (`androidx.appcompat.view.menu.MenuItemImpl`) v2 @kind object;
+  #L187876.  call `setExclusiveCheckable`(v2, v1) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setExclusiveCheckable:(Z)V` @kind virtual;
+  #L18787c.  call `startDispatchingItemsChanged`(v3) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenu;.startDispatchingItemsChanged:()V` @kind virtual;
+  #L187882.  return v0 @kind object;
+  #L187884.  v0:= new `java.lang.IllegalArgumentException`;
+  #L187888.  v1:= "Maximum number of items supported by BottomNavigationView is 5. Limit can be checked with BottomNavigationView#getMaxItemCount()" @kind object;
+  #L18788c.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L187892.  throw v0;
+}
+procedure `android.view.SubMenu` `addSubMenu`(`com.google.android.material.bottomnavigation.BottomNavigationMenu` v2 @kind this, `int` v3 @name `group`, `int` v4 @name `id`, `int` v5 @name `categoryOrder`, `java.lang.CharSequence` v6 @kind object @name `title`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenu;.addSubMenu:(IIILjava/lang/CharSequence;)Landroid/view/SubMenu;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1878a4.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L1878a8.  v1:= "BottomNavigationView does not support submenus" @kind object;
+  #L1878ac.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1878b2.  throw v0;
+}

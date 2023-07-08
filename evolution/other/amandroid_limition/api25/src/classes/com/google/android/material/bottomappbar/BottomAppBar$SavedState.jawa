@@ -1,0 +1,48 @@
+record `com.google.android.material.bottomappbar.BottomAppBar$SavedState` @kind class @AccessFlag  extends `androidx.customview.view.AbsSavedState` @kind class {
+  `int` `com.google.android.material.bottomappbar.BottomAppBar$SavedState.fabAlignmentMode` @AccessFlag ;
+  `boolean` `com.google.android.material.bottomappbar.BottomAppBar$SavedState.fabAttached` @AccessFlag ;
+}
+global `android.os.Parcelable$Creator` `@@com.google.android.material.bottomappbar.BottomAppBar$SavedState.CREATOR` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$SavedState;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L184b34.  v0:= new `com.google.android.material.bottomappbar.BottomAppBar$SavedState$1`;
+  #L184b38.  call `<init>`(v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$SavedState$1;.<init>:()V` @kind direct;
+  #L184b3e.  `@@com.google.android.material.bottomappbar.BottomAppBar$SavedState.CREATOR` @type ^`android.os.Parcelable$Creator` := v0 @kind object;
+  #L184b42.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomappbar.BottomAppBar$SavedState` v1 @kind this, `android.os.Parcel` v2 @kind object @name `in`, `java.lang.ClassLoader` v3 @kind object @name `loader`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$SavedState;.<init>:(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L184b54.  call `<init>`(v1, v2, v3) @signature `Landroidx/customview/view/AbsSavedState;.<init>:(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V` @kind direct;
+  #L184b5a.  call temp:= `readInt`(v2) @signature `Landroid/os/Parcel;.readInt:()I` @kind virtual;
+  #L184b60.  v0:= temp;
+  #L184b62.  v1.`com.google.android.material.bottomappbar.BottomAppBar$SavedState.fabAlignmentMode` @type ^`int` := v0;
+  #L184b66.  call temp:= `readInt`(v2) @signature `Landroid/os/Parcel;.readInt:()I` @kind virtual;
+  #L184b6c.  v0:= temp;
+  #L184b6e.  if v0 == 0 then goto L184b76;
+  #L184b72.  v0:= 1I;
+  #L184b74.  goto L184b78;
+  #L184b76.  v0:= 0I;
+  #L184b78.  v1.`com.google.android.material.bottomappbar.BottomAppBar$SavedState.fabAttached` @type ^`boolean` := v0 @kind boolean;
+  #L184b7c.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomappbar.BottomAppBar$SavedState` v0 @kind this, `android.os.Parcelable` v1 @kind object @name `superState`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$SavedState;.<init>:(Landroid/os/Parcelable;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L184b90.  call `<init>`(v0, v1) @signature `Landroidx/customview/view/AbsSavedState;.<init>:(Landroid/os/Parcelable;)V` @kind direct;
+  #L184b96.  return @kind void;
+}
+procedure `void` `writeToParcel`(`com.google.android.material.bottomappbar.BottomAppBar$SavedState` v1 @kind this, `android.os.Parcel` v2 @kind object @name `out`, `int` v3 @name `flags`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$SavedState;.writeToParcel:(Landroid/os/Parcel;I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L184ba8.  call `writeToParcel`(v1, v2, v3) @signature `Landroidx/customview/view/AbsSavedState;.writeToParcel:(Landroid/os/Parcel;I)V` @kind super;
+  #L184bae.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar$SavedState.fabAlignmentMode` @type ^`int`;
+  #L184bb2.  call `writeInt`(v2, v0) @signature `Landroid/os/Parcel;.writeInt:(I)V` @kind virtual;
+  #L184bb8.  v0:= v1.`com.google.android.material.bottomappbar.BottomAppBar$SavedState.fabAttached` @type ^`boolean` @kind boolean;
+  #L184bbc.  call `writeInt`(v2, v0) @signature `Landroid/os/Parcel;.writeInt:(I)V` @kind virtual;
+  #L184bc2.  return @kind void;
+}

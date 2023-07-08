@@ -1,0 +1,74 @@
+record `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl` @kind class @AccessFlag ABSTRACT extends `android.animation.AnimatorListenerAdapter` @kind class, `android.animation.ValueAnimator$AnimatorUpdateListener` @kind interface {
+  `float` `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl.shadowSizeEnd` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl.shadowSizeStart` @AccessFlag PRIVATE;
+  `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `boolean` `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl.validValues` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl` v0 @kind this, `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` v1 @kind object) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$ShadowAnimatorImpl;.<init>:(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;)V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+
+  #L19fb90.  v0.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` := v1 @kind object;
+  #L19fb94.  call `<init>`(v0) @signature `Landroid/animation/AnimatorListenerAdapter;.<init>:()V` @kind direct;
+  #L19fb9a.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl` v0 @kind this, `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` v1 @kind object @name `x0`, `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$1` v2 @kind object @name `x1`) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$ShadowAnimatorImpl;.<init>:(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$1;)V` @AccessFlag SYNTHETIC_CONSTRUCTOR {
+    temp;
+
+  #L19fbac.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$ShadowAnimatorImpl;.<init>:(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;)V` @kind direct;
+  #L19fbb2.  return @kind void;
+}
+procedure `float` `getTargetShadowSize`() @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$ShadowAnimatorImpl;.getTargetShadowSize:()F` @AccessFlag PROTECTED_ABSTRACT {
+
+  # return;
+}
+procedure `void` `onAnimationEnd`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl` v2 @kind this, `android.animation.Animator` v3 @kind object @name `animator`) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$ShadowAnimatorImpl;.onAnimationEnd:(Landroid/animation/Animator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19fbc4.  v0:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` @kind object;
+  #L19fbc8.  v1:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl.shadowSizeEnd` @type ^`float`;
+  #L19fbcc.  v1:= (`int`) v1 @kind f2i;
+  #L19fbce.  v1:= (`float`) v1 @kind i2f;
+  #L19fbd0.  call `updateShapeElevation`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;.updateShapeElevation:(F)V` @kind virtual;
+  #L19fbd6.  v0:= 0I;
+  #L19fbd8.  v2.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl.validValues` @type ^`boolean` := v0 @kind boolean;
+  #L19fbdc.  return @kind void;
+}
+procedure `void` `onAnimationUpdate`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl` v4 @kind this, `android.animation.ValueAnimator` v5 @kind object @name `animator`) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$ShadowAnimatorImpl;.onAnimationUpdate:(Landroid/animation/ValueAnimator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L19fbf0.  v0:= v4.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl.validValues` @type ^`boolean` @kind boolean;
+  #L19fbf4.  if v0 != 0 then goto L19fc2e;
+  #L19fbf8.  v0:= v4.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` @kind object;
+  #L19fbfc.  v0:= v0.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.shapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L19fc00.  if v0 != 0 then goto L19fc08;
+  #L19fc04.  v0:= 0I;
+  #L19fc06.  goto L19fc18;
+  #L19fc08.  v0:= v4.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` @kind object;
+  #L19fc0c.  v0:= v0.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.shapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L19fc10.  call temp:= `getElevation`(v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getElevation:()F` @kind virtual;
+  #L19fc16.  v0:= temp;
+  #L19fc18.  v4.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl.shadowSizeStart` @type ^`float` := v0;
+  #L19fc1c.  call temp:= `getTargetShadowSize`(v4) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$ShadowAnimatorImpl;.getTargetShadowSize:()F` @kind virtual;
+  #L19fc22.  v0:= temp;
+  #L19fc24.  v4.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl.shadowSizeEnd` @type ^`float` := v0;
+  #L19fc28.  v0:= 1I;
+  #L19fc2a.  v4.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl.validValues` @type ^`boolean` := v0 @kind boolean;
+  #L19fc2e.  v0:= v4.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` @kind object;
+  #L19fc32.  v1:= v4.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl.shadowSizeStart` @type ^`float`;
+  #L19fc36.  v2:= v4.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$ShadowAnimatorImpl.shadowSizeEnd` @type ^`float`;
+  #L19fc3a.  v2:= v2 - v1 @kind float;
+  #L19fc3c.  call temp:= `getAnimatedFraction`(v5) @signature `Landroid/animation/ValueAnimator;.getAnimatedFraction:()F` @kind virtual;
+  #L19fc42.  v3:= temp;
+  #L19fc44.  v2:= v2 * v3 @kind float;
+  #L19fc46.  v1:= v1 + v2 @kind float;
+  #L19fc48.  v1:= (`int`) v1 @kind f2i;
+  #L19fc4a.  v1:= (`float`) v1 @kind i2f;
+  #L19fc4c.  call `updateShapeElevation`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;.updateShapeElevation:(F)V` @kind virtual;
+  #L19fc52.  return @kind void;
+}

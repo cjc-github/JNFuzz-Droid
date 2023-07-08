@@ -1,0 +1,170 @@
+record `com.google.android.material.animation.ArgbEvaluatorCompat` @kind class @AccessFlag PUBLIC extends `android.animation.TypeEvaluator` @kind interface {
+}
+global `com.google.android.material.animation.ArgbEvaluatorCompat` `@@com.google.android.material.animation.ArgbEvaluatorCompat.instance` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/animation/ArgbEvaluatorCompat;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L17cc7c.  v0:= new `com.google.android.material.animation.ArgbEvaluatorCompat`;
+  #L17cc80.  call `<init>`(v0) @signature `Lcom/google/android/material/animation/ArgbEvaluatorCompat;.<init>:()V` @kind direct;
+  #L17cc86.  `@@com.google.android.material.animation.ArgbEvaluatorCompat.instance` @type ^`com.google.android.material.animation.ArgbEvaluatorCompat` := v0 @kind object;
+  #L17cc8a.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.animation.ArgbEvaluatorCompat` v0 @kind this) @signature `Lcom/google/android/material/animation/ArgbEvaluatorCompat;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L17cc9c.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L17cca2.  return @kind void;
+}
+procedure `com.google.android.material.animation.ArgbEvaluatorCompat` `getInstance`() @signature `Lcom/google/android/material/animation/ArgbEvaluatorCompat;.getInstance:()Lcom/google/android/material/animation/ArgbEvaluatorCompat;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L17cabc.  v0:= `@@com.google.android.material.animation.ArgbEvaluatorCompat.instance` @type ^`com.google.android.material.animation.ArgbEvaluatorCompat` @kind object;
+  #L17cac0.  return v0 @kind object;
+}
+procedure `java.lang.Integer` `evaluate`(`com.google.android.material.animation.ArgbEvaluatorCompat` v18 @kind this, `float` v19 @name `fraction`, `java.lang.Integer` v20 @kind object @name `startValue`, `java.lang.Integer` v21 @kind object @name `endValue`) @signature `Lcom/google/android/material/animation/ArgbEvaluatorCompat;.evaluate:(FLjava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Integer;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+    v12;
+    v13;
+    v14;
+    v15;
+    v16;
+    v17;
+
+  #L17cad4.  call temp:= `intValue`(v20) @signature `Ljava/lang/Integer;.intValue:()I` @kind virtual;
+  #L17cada.  v0:= temp;
+  #L17cadc.  v1:= v0 ^> 24;
+  #L17cae0.  v1:= v1 ^& 255;
+  #L17cae4.  v1:= (`float`) v1 @kind i2f;
+  #L17cae6.  v2:= 255.0F;
+  #L17caea.  v1:= v1 / v2 @kind float;
+  #L17caec.  v3:= v0 ^> 16;
+  #L17caf0.  v3:= v3 ^& 255;
+  #L17caf4.  v3:= (`float`) v3 @kind i2f;
+  #L17caf6.  v3:= v3 / v2 @kind float;
+  #L17caf8.  v4:= v0 ^> 8;
+  #L17cafc.  v4:= v4 ^& 255;
+  #L17cb00.  v4:= (`float`) v4 @kind i2f;
+  #L17cb02.  v4:= v4 / v2 @kind float;
+  #L17cb04.  v5:= v0 ^& 255;
+  #L17cb08.  v5:= (`float`) v5 @kind i2f;
+  #L17cb0a.  v5:= v5 / v2 @kind float;
+  #L17cb0c.  call temp:= `intValue`(v21) @signature `Ljava/lang/Integer;.intValue:()I` @kind virtual;
+  #L17cb12.  v6:= temp;
+  #L17cb14.  v7:= v6 ^> 24;
+  #L17cb18.  v7:= v7 ^& 255;
+  #L17cb1c.  v7:= (`float`) v7 @kind i2f;
+  #L17cb1e.  v7:= v7 / v2 @kind float;
+  #L17cb20.  v8:= v6 ^> 16;
+  #L17cb24.  v8:= v8 ^& 255;
+  #L17cb28.  v8:= (`float`) v8 @kind i2f;
+  #L17cb2a.  v8:= v8 / v2 @kind float;
+  #L17cb2c.  v9:= v6 ^> 8;
+  #L17cb30.  v9:= v9 ^& 255;
+  #L17cb34.  v9:= (`float`) v9 @kind i2f;
+  #L17cb36.  v9:= v9 / v2 @kind float;
+  #L17cb38.  v10:= v6 ^& 255;
+  #L17cb3c.  v10:= (`float`) v10 @kind i2f;
+  #L17cb3e.  v10:= v10 / v2 @kind float;
+  #L17cb40.  v11:= (`double`) v3 @kind f2d;
+  #L17cb42.  v13:= 2.2D;
+  #L17cb4c.  call temp:= `pow`(v11, v13) @signature `Ljava/lang/Math;.pow:(DD)D` @kind static;
+  #L17cb52.  v11:= temp @kind wide;
+  #L17cb54.  v3:= (`float`) v11 @kind d2f;
+  #L17cb56.  v11:= (`double`) v4 @kind f2d;
+  #L17cb58.  call temp:= `pow`(v11, v13) @signature `Ljava/lang/Math;.pow:(DD)D` @kind static;
+  #L17cb5e.  v11:= temp @kind wide;
+  #L17cb60.  v4:= (`float`) v11 @kind d2f;
+  #L17cb62.  v11:= (`double`) v5 @kind f2d;
+  #L17cb64.  call temp:= `pow`(v11, v13) @signature `Ljava/lang/Math;.pow:(DD)D` @kind static;
+  #L17cb6a.  v11:= temp @kind wide;
+  #L17cb6c.  v5:= (`float`) v11 @kind d2f;
+  #L17cb6e.  v11:= (`double`) v8 @kind f2d;
+  #L17cb70.  call temp:= `pow`(v11, v13) @signature `Ljava/lang/Math;.pow:(DD)D` @kind static;
+  #L17cb76.  v11:= temp @kind wide;
+  #L17cb78.  v8:= (`float`) v11 @kind d2f;
+  #L17cb7a.  v11:= (`double`) v9 @kind f2d;
+  #L17cb7c.  call temp:= `pow`(v11, v13) @signature `Ljava/lang/Math;.pow:(DD)D` @kind static;
+  #L17cb82.  v11:= temp @kind wide;
+  #L17cb84.  v9:= (`float`) v11 @kind d2f;
+  #L17cb86.  v11:= (`double`) v10 @kind f2d;
+  #L17cb88.  call temp:= `pow`(v11, v13) @signature `Ljava/lang/Math;.pow:(DD)D` @kind static;
+  #L17cb8e.  v11:= temp @kind wide;
+  #L17cb90.  v10:= (`float`) v11 @kind d2f;
+  #L17cb92.  v11:= v7 - v1 @kind float;
+  #L17cb96.  v11:= v11 * v19 @kind float;
+  #L17cb9a.  v11:= v11 + v1 @kind float;
+  #L17cb9c.  v12:= v8 - v3 @kind float;
+  #L17cba0.  v12:= v12 * v19 @kind float;
+  #L17cba4.  v12:= v12 + v3 @kind float;
+  #L17cba6.  v13:= v9 - v4 @kind float;
+  #L17cbaa.  v13:= v13 * v19 @kind float;
+  #L17cbae.  v13:= v13 + v4 @kind float;
+  #L17cbb0.  v14:= v10 - v5 @kind float;
+  #L17cbb4.  v14:= v14 * v19 @kind float;
+  #L17cbb8.  v14:= v14 + v5 @kind float;
+  #L17cbba.  v11:= v11 * v2 @kind float;
+  #L17cbbc.  v15:= v3;
+  #L17cbbe.  v2:= (`double`) v12 @kind f2d;
+  #L17cbc0.  v16:= v0;
+  #L17cbc4.  v17:= v1;
+  #L17cbc8.  v0:= 0.45454545454545453D;
+  #L17cbd2.  call temp:= `pow`(v2, v0) @signature `Ljava/lang/Math;.pow:(DD)D` @kind static;
+  #L17cbd8.  v2:= temp @kind wide;
+  #L17cbda.  v2:= (`float`) v2 @kind d2f;
+  #L17cbdc.  v3:= 255.0F;
+  #L17cbe0.  v2:= v2 * v3 @kind float;
+  #L17cbe2.  v12:= v4;
+  #L17cbe4.  v3:= (`double`) v13 @kind f2d;
+  #L17cbe6.  call temp:= `pow`(v3, v0) @signature `Ljava/lang/Math;.pow:(DD)D` @kind static;
+  #L17cbec.  v3:= temp @kind wide;
+  #L17cbee.  v3:= (`float`) v3 @kind d2f;
+  #L17cbf0.  v4:= 255.0F;
+  #L17cbf4.  v3:= v3 * v4 @kind float;
+  #L17cbf6.  v13:= v5;
+  #L17cbf8.  v4:= (`double`) v14 @kind f2d;
+  #L17cbfa.  call temp:= `pow`(v4, v0) @signature `Ljava/lang/Math;.pow:(DD)D` @kind static;
+  #L17cc00.  v0:= temp @kind wide;
+  #L17cc02.  v0:= (`float`) v0 @kind d2f;
+  #L17cc04.  v1:= 255.0F;
+  #L17cc08.  v0:= v0 * v1 @kind float;
+  #L17cc0a.  call temp:= `round`(v11) @signature `Ljava/lang/Math;.round:(F)I` @kind static;
+  #L17cc10.  v1:= temp;
+  #L17cc12.  v1:= v1 ^< 24;
+  #L17cc16.  call temp:= `round`(v2) @signature `Ljava/lang/Math;.round:(F)I` @kind static;
+  #L17cc1c.  v4:= temp;
+  #L17cc1e.  v4:= v4 ^< 16;
+  #L17cc22.  v1:= v1 ^| v4 @kind int;
+  #L17cc24.  call temp:= `round`(v3) @signature `Ljava/lang/Math;.round:(F)I` @kind static;
+  #L17cc2a.  v4:= temp;
+  #L17cc2c.  v4:= v4 ^< 8;
+  #L17cc30.  v1:= v1 ^| v4 @kind int;
+  #L17cc32.  call temp:= `round`(v0) @signature `Ljava/lang/Math;.round:(F)I` @kind static;
+  #L17cc38.  v4:= temp;
+  #L17cc3a.  v1:= v1 ^| v4 @kind int;
+  #L17cc3c.  call temp:= `valueOf`(v1) @signature `Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer;` @kind static;
+  #L17cc42.  v1:= temp @kind object;
+  #L17cc44.  return v1 @kind object;
+}
+procedure `java.lang.Object` `evaluate`(`com.google.android.material.animation.ArgbEvaluatorCompat` v0 @kind this, `float` v1 , `java.lang.Object` v2 @kind object, `java.lang.Object` v3 @kind object) @signature `Lcom/google/android/material/animation/ArgbEvaluatorCompat;.evaluate:(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L17cc58.  v2:= (`java.lang.Integer`) v2 @kind object;
+  #L17cc5c.  v3:= (`java.lang.Integer`) v3 @kind object;
+  #L17cc60.  call temp:= `evaluate`(v0, v1, v2, v3) @signature `Lcom/google/android/material/animation/ArgbEvaluatorCompat;.evaluate:(FLjava/lang/Integer;Ljava/lang/Integer;)Ljava/lang/Integer;` @kind virtual;
+  #L17cc66.  v1:= temp @kind object;
+  #L17cc68.  return v1 @kind object;
+}

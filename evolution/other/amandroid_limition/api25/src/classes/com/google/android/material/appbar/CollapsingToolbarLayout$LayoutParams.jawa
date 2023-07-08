@@ -1,0 +1,115 @@
+record `com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams` @kind class @AccessFlag PUBLIC extends `android.widget.FrameLayout$LayoutParams` @kind class {
+  `int` `com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.collapseMode` @AccessFlag ;
+  `float` `com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.parallaxMult` @AccessFlag ;
+}
+global `int` `@@com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.COLLAPSE_MODE_OFF` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.COLLAPSE_MODE_PARALLAX` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.COLLAPSE_MODE_PIN` @AccessFlag PUBLIC_STATIC_FINAL;
+global `float` `@@com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.DEFAULT_PARALLAX_MULTIPLIER` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams` v1 @kind this, `int` v2 @name `width`, `int` v3 @name `height`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;.<init>:(II)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1803e8.  call `<init>`(v1, v2, v3) @signature `Landroid/widget/FrameLayout$LayoutParams;.<init>:(II)V` @kind direct;
+  #L1803ee.  v0:= 0I;
+  #L1803f0.  v1.`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.collapseMode` @type ^`int` := v0;
+  #L1803f4.  v0:= 0.5F;
+  #L1803f8.  v1.`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.parallaxMult` @type ^`float` := v0;
+  #L1803fc.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams` v1 @kind this, `int` v2 @name `width`, `int` v3 @name `height`, `int` v4 @name `gravity`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;.<init>:(III)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L180410.  call `<init>`(v1, v2, v3, v4) @signature `Landroid/widget/FrameLayout$LayoutParams;.<init>:(III)V` @kind direct;
+  #L180416.  v0:= 0I;
+  #L180418.  v1.`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.collapseMode` @type ^`int` := v0;
+  #L18041c.  v0:= 0.5F;
+  #L180420.  v1.`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.parallaxMult` @type ^`float` := v0;
+  #L180424.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams` v4 @kind this, `android.content.Context` v5 @kind object @name `c`, `android.util.AttributeSet` v6 @kind object @name `attrs`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L180314.  call `<init>`(v4, v5, v6) @signature `Landroid/widget/FrameLayout$LayoutParams;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L18031a.  v0:= 0I;
+  #L18031c.  v4.`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.collapseMode` @type ^`int` := v0;
+  #L180320.  v1:= 0.5F;
+  #L180324.  v4.`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.parallaxMult` @type ^`float` := v1;
+  #L180328.  v2:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_Layout` @type ^`int`[] @kind object;
+  #L18032c.  call temp:= `obtainStyledAttributes`(v5, v6, v2) @signature `Landroid/content/Context;.obtainStyledAttributes:(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;` @kind virtual;
+  #L180332.  v2:= temp @kind object;
+  #L180334.  v3:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_Layout_layout_collapseMode` @type ^`int`;
+  #L180338.  call temp:= `getInt`(v2, v3, v0) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L18033e.  v0:= temp;
+  #L180340.  v4.`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.collapseMode` @type ^`int` := v0;
+  #L180344.  v0:= `@@com.google.android.material.R$styleable.CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier` @type ^`int`;
+  #L180348.  call temp:= `getFloat`(v2, v0, v1) @signature `Landroid/content/res/TypedArray;.getFloat:(IF)F` @kind virtual;
+  #L18034e.  v0:= temp;
+  #L180350.  call `setParallaxMultiplier`(v4, v0) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;.setParallaxMultiplier:(F)V` @kind virtual;
+  #L180356.  call `recycle`(v2) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L18035c.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams` v1 @kind this, `android.view.ViewGroup$LayoutParams` v2 @kind object @name `p`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;.<init>:(Landroid/view/ViewGroup$LayoutParams;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L180370.  call `<init>`(v1, v2) @signature `Landroid/widget/FrameLayout$LayoutParams;.<init>:(Landroid/view/ViewGroup$LayoutParams;)V` @kind direct;
+  #L180376.  v0:= 0I;
+  #L180378.  v1.`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.collapseMode` @type ^`int` := v0;
+  #L18037c.  v0:= 0.5F;
+  #L180380.  v1.`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.parallaxMult` @type ^`float` := v0;
+  #L180384.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams` v1 @kind this, `android.view.ViewGroup$MarginLayoutParams` v2 @kind object @name `source`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;.<init>:(Landroid/view/ViewGroup$MarginLayoutParams;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L180398.  call `<init>`(v1, v2) @signature `Landroid/widget/FrameLayout$LayoutParams;.<init>:(Landroid/view/ViewGroup$MarginLayoutParams;)V` @kind direct;
+  #L18039e.  v0:= 0I;
+  #L1803a0.  v1.`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.collapseMode` @type ^`int` := v0;
+  #L1803a4.  v0:= 0.5F;
+  #L1803a8.  v1.`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.parallaxMult` @type ^`float` := v0;
+  #L1803ac.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams` v1 @kind this, `android.widget.FrameLayout$LayoutParams` v2 @kind object @name `source`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;.<init>:(Landroid/widget/FrameLayout$LayoutParams;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1803c0.  call `<init>`(v1, v2) @signature `Landroid/widget/FrameLayout$LayoutParams;.<init>:(Landroid/widget/FrameLayout$LayoutParams;)V` @kind direct;
+  #L1803c6.  v0:= 0I;
+  #L1803c8.  v1.`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.collapseMode` @type ^`int` := v0;
+  #L1803cc.  v0:= 0.5F;
+  #L1803d0.  v1.`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.parallaxMult` @type ^`float` := v0;
+  #L1803d4.  return @kind void;
+}
+procedure `int` `getCollapseMode`(`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams` v1 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;.getCollapseMode:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1802fc.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.collapseMode` @type ^`int`;
+  #L180300.  return v0;
+}
+procedure `float` `getParallaxMultiplier`(`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams` v1 @kind this) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;.getParallaxMultiplier:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1802e4.  v0:= v1.`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.parallaxMult` @type ^`float`;
+  #L1802e8.  return v0;
+}
+procedure `void` `setCollapseMode`(`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams` v0 @kind this, `int` v1 @name `collapseMode`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;.setCollapseMode:(I)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L180438.  v0.`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.collapseMode` @type ^`int` := v1;
+  #L18043c.  return @kind void;
+}
+procedure `void` `setParallaxMultiplier`(`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams` v0 @kind this, `float` v1 @name `multiplier`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$LayoutParams;.setParallaxMultiplier:(F)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L180450.  v0.`com.google.android.material.appbar.CollapsingToolbarLayout$LayoutParams.parallaxMult` @type ^`float` := v1;
+  #L180454.  return @kind void;
+}

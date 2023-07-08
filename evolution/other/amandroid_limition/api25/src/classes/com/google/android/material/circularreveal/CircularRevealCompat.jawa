@@ -1,0 +1,106 @@
+record `com.google.android.material.circularreveal.CircularRevealCompat` @kind class @AccessFlag PUBLIC_FINAL {
+}
+procedure `void` `<init>`(`com.google.android.material.circularreveal.CircularRevealCompat` v0 @kind this) @signature `Lcom/google/android/material/circularreveal/CircularRevealCompat;.<init>:()V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+
+  #L194b94.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L194b9a.  return @kind void;
+}
+procedure `android.animation.Animator` `createCircularReveal`(`com.google.android.material.circularreveal.CircularRevealWidget` v8 @kind object @name `view`, `float` v9 @name `centerX`, `float` v10 @name `centerY`, `float` v11 @name `endRadius`) @signature `Lcom/google/android/material/circularreveal/CircularRevealCompat;.createCircularReveal:(Lcom/google/android/material/circularreveal/CircularRevealWidget;FFF)Landroid/animation/Animator;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L194a5c.  v0:= `@@com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealProperty.CIRCULAR_REVEAL` @type ^`android.util.Property` @kind object;
+  #L194a60.  v1:= `@@com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealEvaluator.CIRCULAR_REVEAL` @type ^`android.animation.TypeEvaluator` @kind object;
+  #L194a64.  v2:= 1I;
+  #L194a66.  v3:= new `com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo`[v2];
+  #L194a6a.  v4:= new `com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo`;
+  #L194a6e.  call `<init>`(v4, v9, v10, v11) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;.<init>:(FFF)V` @kind direct;
+  #L194a74.  v5:= 0I;
+  #L194a76.  v3[v5]:= v4 @kind object;
+  #L194a7a.  call temp:= `ofObject`(v8, v0, v1, v3) @signature `Landroid/animation/ObjectAnimator;.ofObject:(Ljava/lang/Object;Landroid/util/Property;Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ObjectAnimator;` @kind static;
+  #L194a80.  v0:= temp @kind object;
+  #L194a82.  v1:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L194a86.  v3:= 21I;
+  #L194a8a.  if v1 < v3 then goto L194ae0;
+  #L194a8e.  call temp:= `getRevealInfo`(v8) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget;.getRevealInfo:()Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;` @kind interface;
+  #L194a94.  v1:= temp @kind object;
+  #L194a96.  if v1 == 0 then goto L194ad0;
+  #L194a9a.  v3:= v1.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.radius` @type ^`float`;
+  #L194a9e.  v4:= v8 @kind object;
+  #L194aa0.  v4:= (`android.view.View`) v4 @kind object;
+  #L194aa4.  v6:= (`int`) v9 @kind f2i;
+  #L194aa6.  v7:= (`int`) v10 @kind f2i;
+  #L194aa8.  call temp:= `createCircularReveal`(v4, v6, v7, v3, v11) @signature `Landroid/view/ViewAnimationUtils;.createCircularReveal:(Landroid/view/View;IIFF)Landroid/animation/Animator;` @kind static;
+  #L194aae.  v4:= temp @kind object;
+  #L194ab0.  v6:= new `android.animation.AnimatorSet`;
+  #L194ab4.  call `<init>`(v6) @signature `Landroid/animation/AnimatorSet;.<init>:()V` @kind direct;
+  #L194aba.  v7:= 2I;
+  #L194abc.  v7:= new `android.animation.Animator`[v7];
+  #L194ac0.  v7[v5]:= v0 @kind object;
+  #L194ac4.  v7[v2]:= v4 @kind object;
+  #L194ac8.  call `playTogether`(v6, v7) @signature `Landroid/animation/AnimatorSet;.playTogether:([Landroid/animation/Animator;)V` @kind virtual;
+  #L194ace.  return v6 @kind object;
+  #L194ad0.  v2:= new `java.lang.IllegalStateException`;
+  #L194ad4.  v3:= "Caller must set a non-null RevealInfo before calling this." @kind object;
+  #L194ad8.  call `<init>`(v2, v3) @signature `Ljava/lang/IllegalStateException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L194ade.  throw v2;
+  #L194ae0.  return v0 @kind object;
+}
+procedure `android.animation.Animator` `createCircularReveal`(`com.google.android.material.circularreveal.CircularRevealWidget` v7 @kind object @name `view`, `float` v8 @name `centerX`, `float` v9 @name `centerY`, `float` v10 @name `startRadius`, `float` v11 @name `endRadius`) @signature `Lcom/google/android/material/circularreveal/CircularRevealCompat;.createCircularReveal:(Lcom/google/android/material/circularreveal/CircularRevealWidget;FFFF)Landroid/animation/Animator;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L194af4.  v0:= `@@com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealProperty.CIRCULAR_REVEAL` @type ^`android.util.Property` @kind object;
+  #L194af8.  v1:= `@@com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealEvaluator.CIRCULAR_REVEAL` @type ^`android.animation.TypeEvaluator` @kind object;
+  #L194afc.  v2:= 2I;
+  #L194afe.  v3:= new `com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo`[v2];
+  #L194b02.  v4:= new `com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo`;
+  #L194b06.  call `<init>`(v4, v8, v9, v10) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;.<init>:(FFF)V` @kind direct;
+  #L194b0c.  v5:= 0I;
+  #L194b0e.  v3[v5]:= v4 @kind object;
+  #L194b12.  v4:= new `com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo`;
+  #L194b16.  call `<init>`(v4, v8, v9, v11) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;.<init>:(FFF)V` @kind direct;
+  #L194b1c.  v6:= 1I;
+  #L194b1e.  v3[v6]:= v4 @kind object;
+  #L194b22.  call temp:= `ofObject`(v7, v0, v1, v3) @signature `Landroid/animation/ObjectAnimator;.ofObject:(Ljava/lang/Object;Landroid/util/Property;Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ObjectAnimator;` @kind static;
+  #L194b28.  v0:= temp @kind object;
+  #L194b2a.  v1:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L194b2e.  v3:= 21I;
+  #L194b32.  if v1 < v3 then goto L194b66;
+  #L194b36.  v1:= v7 @kind object;
+  #L194b38.  v1:= (`android.view.View`) v1 @kind object;
+  #L194b3c.  v3:= (`int`) v8 @kind f2i;
+  #L194b3e.  v4:= (`int`) v9 @kind f2i;
+  #L194b40.  call temp:= `createCircularReveal`(v1, v3, v4, v10, v11) @signature `Landroid/view/ViewAnimationUtils;.createCircularReveal:(Landroid/view/View;IIFF)Landroid/animation/Animator;` @kind static;
+  #L194b46.  v1:= temp @kind object;
+  #L194b48.  v3:= new `android.animation.AnimatorSet`;
+  #L194b4c.  call `<init>`(v3) @signature `Landroid/animation/AnimatorSet;.<init>:()V` @kind direct;
+  #L194b52.  v2:= new `android.animation.Animator`[v2];
+  #L194b56.  v2[v5]:= v0 @kind object;
+  #L194b5a.  v2[v6]:= v1 @kind object;
+  #L194b5e.  call `playTogether`(v3, v2) @signature `Landroid/animation/AnimatorSet;.playTogether:([Landroid/animation/Animator;)V` @kind virtual;
+  #L194b64.  return v3 @kind object;
+  #L194b66.  return v0 @kind object;
+}
+procedure `android.animation.Animator$AnimatorListener` `createCircularRevealListener`(`com.google.android.material.circularreveal.CircularRevealWidget` v1 @kind object @name `view`) @signature `Lcom/google/android/material/circularreveal/CircularRevealCompat;.createCircularRevealListener:(Lcom/google/android/material/circularreveal/CircularRevealWidget;)Landroid/animation/Animator$AnimatorListener;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L194b78.  v0:= new `com.google.android.material.circularreveal.CircularRevealCompat$1`;
+  #L194b7c.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/circularreveal/CircularRevealCompat$1;.<init>:(Lcom/google/android/material/circularreveal/CircularRevealWidget;)V` @kind direct;
+  #L194b82.  return v0 @kind object;
+}

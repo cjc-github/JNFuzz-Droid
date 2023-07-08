@@ -1,0 +1,28 @@
+record `com.google.android.material.internal.ViewUtils$1` @kind class @AccessFlag FINAL extends `java.lang.Runnable` @kind interface {
+  `android.view.View` `com.google.android.material.internal.ViewUtils$1.val$view` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.ViewUtils$1` v0 @kind this, `android.view.View` v1 @kind object) @signature `Lcom/google/android/material/internal/ViewUtils$1;.<init>:(Landroid/view/View;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1a74bc.  v0.`com.google.android.material.internal.ViewUtils$1.val$view` @type ^`android.view.View` := v1 @kind object;
+  #L1a74c0.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1a74c6.  return @kind void;
+}
+procedure `void` `run`(`com.google.android.material.internal.ViewUtils$1` v3 @kind this) @signature `Lcom/google/android/material/internal/ViewUtils$1;.run:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a74d8.  v0:= v3.`com.google.android.material.internal.ViewUtils$1.val$view` @type ^`android.view.View` @kind object;
+  #L1a74dc.  call temp:= `getContext`(v0) @signature `Landroid/view/View;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1a74e2.  v0:= temp @kind object;
+  #L1a74e4.  v1:= "input_method" @kind object;
+  #L1a74e8.  call temp:= `getSystemService`(v0, v1) @signature `Landroid/content/Context;.getSystemService:(Ljava/lang/String;)Ljava/lang/Object;` @kind virtual;
+  #L1a74ee.  v0:= temp @kind object;
+  #L1a74f0.  v0:= (`android.view.inputmethod.InputMethodManager`) v0 @kind object;
+  #L1a74f4.  v1:= v3.`com.google.android.material.internal.ViewUtils$1.val$view` @type ^`android.view.View` @kind object;
+  #L1a74f8.  v2:= 1I;
+  #L1a74fa.  call temp:= `showSoftInput`(v0, v1, v2) @signature `Landroid/view/inputmethod/InputMethodManager;.showSoftInput:(Landroid/view/View;I)Z` @kind virtual;
+  #L1a7500.  return @kind void;
+}

@@ -1,0 +1,34 @@
+record `com.google.android.material.resources.TextAppearance$2` @kind class @AccessFlag  extends `com.google.android.material.resources.TextAppearanceFontCallback` @kind class {
+  `com.google.android.material.resources.TextAppearance` `com.google.android.material.resources.TextAppearance$2.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `com.google.android.material.resources.TextAppearanceFontCallback` `com.google.android.material.resources.TextAppearance$2.val$callback` @AccessFlag FINAL_SYNTHETIC;
+  `android.text.TextPaint` `com.google.android.material.resources.TextAppearance$2.val$textPaint` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.resources.TextAppearance$2` v0 @kind this, `com.google.android.material.resources.TextAppearance` v1 @kind object @name `this$0`, `android.text.TextPaint` v2 @kind object, `com.google.android.material.resources.TextAppearanceFontCallback` v3 @kind object) @signature `Lcom/google/android/material/resources/TextAppearance$2;.<init>:(Lcom/google/android/material/resources/TextAppearance;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1a8ec8.  v0.`com.google.android.material.resources.TextAppearance$2.this$0` @type ^`com.google.android.material.resources.TextAppearance` := v1 @kind object;
+  #L1a8ecc.  v0.`com.google.android.material.resources.TextAppearance$2.val$textPaint` @type ^`android.text.TextPaint` := v2 @kind object;
+  #L1a8ed0.  v0.`com.google.android.material.resources.TextAppearance$2.val$callback` @type ^`com.google.android.material.resources.TextAppearanceFontCallback` := v3 @kind object;
+  #L1a8ed4.  call `<init>`(v0) @signature `Lcom/google/android/material/resources/TextAppearanceFontCallback;.<init>:()V` @kind direct;
+  #L1a8eda.  return @kind void;
+}
+procedure `void` `onFontRetrievalFailed`(`com.google.android.material.resources.TextAppearance$2` v1 @kind this, `int` v2 @name `i`) @signature `Lcom/google/android/material/resources/TextAppearance$2;.onFontRetrievalFailed:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a8eec.  v0:= v1.`com.google.android.material.resources.TextAppearance$2.val$callback` @type ^`com.google.android.material.resources.TextAppearanceFontCallback` @kind object;
+  #L1a8ef0.  call `onFontRetrievalFailed`(v0, v2) @signature `Lcom/google/android/material/resources/TextAppearanceFontCallback;.onFontRetrievalFailed:(I)V` @kind virtual;
+  #L1a8ef6.  return @kind void;
+}
+procedure `void` `onFontRetrieved`(`com.google.android.material.resources.TextAppearance$2` v2 @kind this, `android.graphics.Typeface` v3 @kind object @name `typeface`, `boolean` v4 @name `fontResolvedSynchronously`) @signature `Lcom/google/android/material/resources/TextAppearance$2;.onFontRetrieved:(Landroid/graphics/Typeface;Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a8f08.  v0:= v2.`com.google.android.material.resources.TextAppearance$2.this$0` @type ^`com.google.android.material.resources.TextAppearance` @kind object;
+  #L1a8f0c.  v1:= v2.`com.google.android.material.resources.TextAppearance$2.val$textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a8f10.  call `updateTextPaintMeasureState`(v0, v1, v3) @signature `Lcom/google/android/material/resources/TextAppearance;.updateTextPaintMeasureState:(Landroid/text/TextPaint;Landroid/graphics/Typeface;)V` @kind virtual;
+  #L1a8f16.  v0:= v2.`com.google.android.material.resources.TextAppearance$2.val$callback` @type ^`com.google.android.material.resources.TextAppearanceFontCallback` @kind object;
+  #L1a8f1a.  call `onFontRetrieved`(v0, v3, v4) @signature `Lcom/google/android/material/resources/TextAppearanceFontCallback;.onFontRetrieved:(Landroid/graphics/Typeface;Z)V` @kind virtual;
+  #L1a8f20.  return @kind void;
+}

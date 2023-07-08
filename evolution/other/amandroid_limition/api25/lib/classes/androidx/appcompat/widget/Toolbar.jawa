@@ -1,0 +1,532 @@
+record `androidx.appcompat.widget.Toolbar` @kind class @AccessFlag PUBLIC extends `android.view.ViewGroup` @kind class {
+  `androidx.appcompat.view.menu.MenuPresenter$Callback` `androidx.appcompat.widget.Toolbar.mActionMenuPresenterCallback` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.Toolbar.mButtonGravity` @AccessFlag ;
+  `android.widget.ImageButton` `androidx.appcompat.widget.Toolbar.mCollapseButtonView` @AccessFlag ;
+  `java.lang.CharSequence` `androidx.appcompat.widget.Toolbar.mCollapseDescription` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `androidx.appcompat.widget.Toolbar.mCollapseIcon` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.Toolbar.mCollapsible` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.Toolbar.mContentInsetEndWithActions` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.Toolbar.mContentInsetStartWithNavigation` @AccessFlag PRIVATE;
+  `androidx.appcompat.widget.RtlSpacingHelper` `androidx.appcompat.widget.Toolbar.mContentInsets` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.Toolbar.mEatingHover` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.Toolbar.mEatingTouch` @AccessFlag PRIVATE;
+  `android.view.View` `androidx.appcompat.widget.Toolbar.mExpandedActionView` @AccessFlag ;
+  `androidx.appcompat.widget.Toolbar$ExpandedActionViewMenuPresenter` `androidx.appcompat.widget.Toolbar.mExpandedMenuPresenter` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.Toolbar.mGravity` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.appcompat.widget.Toolbar.mHiddenViews` @AccessFlag PRIVATE_FINAL;
+  `android.widget.ImageView` `androidx.appcompat.widget.Toolbar.mLogoView` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.Toolbar.mMaxButtonHeight` @AccessFlag PRIVATE;
+  `androidx.appcompat.view.menu.MenuBuilder$Callback` `androidx.appcompat.widget.Toolbar.mMenuBuilderCallback` @AccessFlag PRIVATE;
+  `androidx.appcompat.widget.ActionMenuView` `androidx.appcompat.widget.Toolbar.mMenuView` @AccessFlag PRIVATE;
+  `androidx.appcompat.widget.ActionMenuView$OnMenuItemClickListener` `androidx.appcompat.widget.Toolbar.mMenuViewItemClickListener` @AccessFlag PRIVATE_FINAL;
+  `android.widget.ImageButton` `androidx.appcompat.widget.Toolbar.mNavButtonView` @AccessFlag PRIVATE;
+  `androidx.appcompat.widget.Toolbar$OnMenuItemClickListener` `androidx.appcompat.widget.Toolbar.mOnMenuItemClickListener` @AccessFlag ;
+  `androidx.appcompat.widget.ActionMenuPresenter` `androidx.appcompat.widget.Toolbar.mOuterActionMenuPresenter` @AccessFlag PRIVATE;
+  `android.content.Context` `androidx.appcompat.widget.Toolbar.mPopupContext` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.Toolbar.mPopupTheme` @AccessFlag PRIVATE;
+  `java.lang.Runnable` `androidx.appcompat.widget.Toolbar.mShowOverflowMenuRunnable` @AccessFlag PRIVATE_FINAL;
+  `java.lang.CharSequence` `androidx.appcompat.widget.Toolbar.mSubtitleText` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.Toolbar.mSubtitleTextAppearance` @AccessFlag PRIVATE;
+  `android.content.res.ColorStateList` `androidx.appcompat.widget.Toolbar.mSubtitleTextColor` @AccessFlag PRIVATE;
+  `android.widget.TextView` `androidx.appcompat.widget.Toolbar.mSubtitleTextView` @AccessFlag PRIVATE;
+  `int`[] `androidx.appcompat.widget.Toolbar.mTempMargins` @AccessFlag PRIVATE_FINAL;
+  `java.util.ArrayList` `androidx.appcompat.widget.Toolbar.mTempViews` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.appcompat.widget.Toolbar.mTitleMarginBottom` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.Toolbar.mTitleMarginEnd` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.Toolbar.mTitleMarginStart` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.Toolbar.mTitleMarginTop` @AccessFlag PRIVATE;
+  `java.lang.CharSequence` `androidx.appcompat.widget.Toolbar.mTitleText` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.Toolbar.mTitleTextAppearance` @AccessFlag PRIVATE;
+  `android.content.res.ColorStateList` `androidx.appcompat.widget.Toolbar.mTitleTextColor` @AccessFlag PRIVATE;
+  `android.widget.TextView` `androidx.appcompat.widget.Toolbar.mTitleTextView` @AccessFlag PRIVATE;
+  `androidx.appcompat.widget.ToolbarWidgetWrapper` `androidx.appcompat.widget.Toolbar.mWrapper` @AccessFlag PRIVATE;
+}
+global `java.lang.String` `@@androidx.appcompat.widget.Toolbar.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Landroidx/appcompat/widget/Toolbar;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Landroidx/appcompat/widget/Toolbar;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.widget.Toolbar` v22 @kind this, `android.content.Context` v23 @kind object @name `context`, `android.util.AttributeSet` v24 @kind object @name `attrs`, `int` v25 @name `defStyleAttr`) @signature `Landroidx/appcompat/widget/Toolbar;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `addCustomViewsWithGravity`(`androidx.appcompat.widget.Toolbar` v7 @kind this, `java.util.List` v8 @kind object, `int` v9 @name `gravity`) @signature `Landroidx/appcompat/widget/Toolbar;.addCustomViewsWithGravity:(Ljava/util/List;I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `addSystemView`(`androidx.appcompat.widget.Toolbar` v3 @kind this, `android.view.View` v4 @kind object @name `v`, `boolean` v5 @name `allowHide`) @signature `Landroidx/appcompat/widget/Toolbar;.addSystemView:(Landroid/view/View;Z)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `ensureContentInsets`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.ensureContentInsets:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `ensureLogoView`(`androidx.appcompat.widget.Toolbar` v2 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.ensureLogoView:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `ensureMenu`(`androidx.appcompat.widget.Toolbar` v3 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.ensureMenu:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `ensureMenuView`(`androidx.appcompat.widget.Toolbar` v3 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.ensureMenuView:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `ensureNavButtonView`(`androidx.appcompat.widget.Toolbar` v4 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.ensureNavButtonView:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `getChildHorizontalGravity`(`androidx.appcompat.widget.Toolbar` v6 @kind this, `int` v7 @name `gravity`) @signature `Landroidx/appcompat/widget/Toolbar;.getChildHorizontalGravity:(I)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `getChildTop`(`androidx.appcompat.widget.Toolbar` v11 @kind this, `android.view.View` v12 @kind object @name `child`, `int` v13 @name `alignmentHeight`) @signature `Landroidx/appcompat/widget/Toolbar;.getChildTop:(Landroid/view/View;I)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `getChildVerticalGravity`(`androidx.appcompat.widget.Toolbar` v2 @kind this, `int` v3 @name `gravity`) @signature `Landroidx/appcompat/widget/Toolbar;.getChildVerticalGravity:(I)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `getHorizontalMargins`(`androidx.appcompat.widget.Toolbar` v3 @kind this, `android.view.View` v4 @kind object @name `v`) @signature `Landroidx/appcompat/widget/Toolbar;.getHorizontalMargins:(Landroid/view/View;)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.view.MenuInflater` `getMenuInflater`(`androidx.appcompat.widget.Toolbar` v2 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getMenuInflater:()Landroid/view/MenuInflater;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `getVerticalMargins`(`androidx.appcompat.widget.Toolbar` v3 @kind this, `android.view.View` v4 @kind object @name `v`) @signature `Landroidx/appcompat/widget/Toolbar;.getVerticalMargins:(Landroid/view/View;)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `getViewListMeasuredWidth`(`androidx.appcompat.widget.Toolbar` v13 @kind this, `java.util.List` v14 @kind object, `int`[] v15 @kind object @name `collapsingMargins`) @signature `Landroidx/appcompat/widget/Toolbar;.getViewListMeasuredWidth:(Ljava/util/List;[I)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `isChildOrHidden`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `android.view.View` v2 @kind object @name `child`) @signature `Landroidx/appcompat/widget/Toolbar;.isChildOrHidden:(Landroid/view/View;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `isCustomView`(`android.view.View` v1 @kind object @name `child`) @signature `Landroidx/appcompat/widget/Toolbar;.isCustomView:(Landroid/view/View;)Z` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `int` `layoutChildLeft`(`androidx.appcompat.widget.Toolbar` v6 @kind this, `android.view.View` v7 @kind object @name `child`, `int` v8 @name `left`, `int`[] v9 @kind object @name `collapsingMargins`, `int` v10 @name `alignmentHeight`) @signature `Landroidx/appcompat/widget/Toolbar;.layoutChildLeft:(Landroid/view/View;I[II)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `layoutChildRight`(`androidx.appcompat.widget.Toolbar` v6 @kind this, `android.view.View` v7 @kind object @name `child`, `int` v8 @name `right`, `int`[] v9 @kind object @name `collapsingMargins`, `int` v10 @name `alignmentHeight`) @signature `Landroidx/appcompat/widget/Toolbar;.layoutChildRight:(Landroid/view/View;I[II)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `measureChildCollapseMargins`(`androidx.appcompat.widget.Toolbar` v9 @kind this, `android.view.View` v10 @kind object @name `child`, `int` v11 @name `parentWidthMeasureSpec`, `int` v12 @name `widthUsed`, `int` v13 @name `parentHeightMeasureSpec`, `int` v14 @name `heightUsed`, `int`[] v15 @kind object @name `collapsingMargins`) @signature `Landroidx/appcompat/widget/Toolbar;.measureChildCollapseMargins:(Landroid/view/View;IIII[I)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `measureChildConstrained`(`androidx.appcompat.widget.Toolbar` v6 @kind this, `android.view.View` v7 @kind object @name `child`, `int` v8 @name `parentWidthSpec`, `int` v9 @name `widthUsed`, `int` v10 @name `parentHeightSpec`, `int` v11 @name `heightUsed`, `int` v12 @name `heightConstraint`) @signature `Landroidx/appcompat/widget/Toolbar;.measureChildConstrained:(Landroid/view/View;IIIII)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `postShowOverflowMenu`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.postShowOverflowMenu:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `shouldCollapse`(`androidx.appcompat.widget.Toolbar` v5 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.shouldCollapse:()Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `shouldLayout`(`androidx.appcompat.widget.Toolbar` v2 @kind this, `android.view.View` v3 @kind object @name `view`) @signature `Landroidx/appcompat/widget/Toolbar;.shouldLayout:(Landroid/view/View;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `addChildrenForExpandedActionView`(`androidx.appcompat.widget.Toolbar` v3 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.addChildrenForExpandedActionView:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `canShowOverflowMenu`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.canShowOverflowMenu:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `checkLayoutParams`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `android.view.ViewGroup$LayoutParams` v2 @kind object @name `p`) @signature `Landroidx/appcompat/widget/Toolbar;.checkLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)Z` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `collapseActionView`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.collapseActionView:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `dismissPopupMenus`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.dismissPopupMenus:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `ensureCollapseButtonView`(`androidx.appcompat.widget.Toolbar` v4 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.ensureCollapseButtonView:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `android.view.ViewGroup$LayoutParams` `generateDefaultLayoutParams`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.generateDefaultLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @AccessFlag PROTECTED_SYNTHETIC {
+
+  # return;
+}
+procedure `androidx.appcompat.widget.Toolbar$LayoutParams` `generateDefaultLayoutParams`(`androidx.appcompat.widget.Toolbar` v2 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.generateDefaultLayoutParams:()Landroidx/appcompat/widget/Toolbar$LayoutParams;` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `android.view.ViewGroup$LayoutParams` `generateLayoutParams`(`androidx.appcompat.widget.Toolbar` v0 @kind this, `android.util.AttributeSet` v1 @kind object) @signature `Landroidx/appcompat/widget/Toolbar;.generateLayoutParams:(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;` @AccessFlag PUBLIC_SYNTHETIC {
+
+  # return;
+}
+procedure `android.view.ViewGroup$LayoutParams` `generateLayoutParams`(`androidx.appcompat.widget.Toolbar` v0 @kind this, `android.view.ViewGroup$LayoutParams` v1 @kind object) @signature `Landroidx/appcompat/widget/Toolbar;.generateLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;` @AccessFlag PROTECTED_SYNTHETIC {
+
+  # return;
+}
+procedure `androidx.appcompat.widget.Toolbar$LayoutParams` `generateLayoutParams`(`androidx.appcompat.widget.Toolbar` v2 @kind this, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Landroidx/appcompat/widget/Toolbar;.generateLayoutParams:(Landroid/util/AttributeSet;)Landroidx/appcompat/widget/Toolbar$LayoutParams;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.appcompat.widget.Toolbar$LayoutParams` `generateLayoutParams`(`androidx.appcompat.widget.Toolbar` v2 @kind this, `android.view.ViewGroup$LayoutParams` v3 @kind object @name `p`) @signature `Landroidx/appcompat/widget/Toolbar;.generateLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)Landroidx/appcompat/widget/Toolbar$LayoutParams;` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getCollapseContentDescription`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getCollapseContentDescription:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `getCollapseIcon`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getCollapseIcon:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getContentInsetEnd`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getContentInsetEnd:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getContentInsetEndWithActions`(`androidx.appcompat.widget.Toolbar` v2 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getContentInsetEndWithActions:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getContentInsetLeft`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getContentInsetLeft:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getContentInsetRight`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getContentInsetRight:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getContentInsetStart`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getContentInsetStart:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getContentInsetStartWithNavigation`(`androidx.appcompat.widget.Toolbar` v2 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getContentInsetStartWithNavigation:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getCurrentContentInsetEnd`(`androidx.appcompat.widget.Toolbar` v4 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getCurrentContentInsetEnd:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getCurrentContentInsetLeft`(`androidx.appcompat.widget.Toolbar` v2 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getCurrentContentInsetLeft:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getCurrentContentInsetRight`(`androidx.appcompat.widget.Toolbar` v2 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getCurrentContentInsetRight:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getCurrentContentInsetStart`(`androidx.appcompat.widget.Toolbar` v3 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getCurrentContentInsetStart:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `getLogo`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getLogo:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getLogoDescription`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getLogoDescription:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.Menu` `getMenu`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getMenu:()Landroid/view/Menu;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getNavigationContentDescription`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getNavigationContentDescription:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `getNavigationIcon`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getNavigationIcon:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.appcompat.widget.ActionMenuPresenter` `getOuterActionMenuPresenter`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getOuterActionMenuPresenter:()Landroidx/appcompat/widget/ActionMenuPresenter;` @AccessFlag  {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `getOverflowIcon`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getOverflowIcon:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.content.Context` `getPopupContext`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getPopupContext:()Landroid/content/Context;` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `getPopupTheme`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getPopupTheme:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getSubtitle`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getSubtitle:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.widget.TextView` `getSubtitleTextView`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getSubtitleTextView:()Landroid/widget/TextView;` @AccessFlag FINAL {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getTitle`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getTitle:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getTitleMarginBottom`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getTitleMarginBottom:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getTitleMarginEnd`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getTitleMarginEnd:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getTitleMarginStart`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getTitleMarginStart:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getTitleMarginTop`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getTitleMarginTop:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.widget.TextView` `getTitleTextView`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getTitleTextView:()Landroid/widget/TextView;` @AccessFlag FINAL {
+
+  # return;
+}
+procedure `androidx.appcompat.widget.DecorToolbar` `getWrapper`(`androidx.appcompat.widget.Toolbar` v2 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.getWrapper:()Landroidx/appcompat/widget/DecorToolbar;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `hasExpandedActionView`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.hasExpandedActionView:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `hideOverflowMenu`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.hideOverflowMenu:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `inflateMenu`(`androidx.appcompat.widget.Toolbar` v2 @kind this, `int` v3 @name `resId`) @signature `Landroidx/appcompat/widget/Toolbar;.inflateMenu:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isOverflowMenuShowPending`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.isOverflowMenuShowPending:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isOverflowMenuShowing`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.isOverflowMenuShowing:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isTitleTruncated`(`androidx.appcompat.widget.Toolbar` v5 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.isTitleTruncated:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onDetachedFromWindow`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.onDetachedFromWindow:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `boolean` `onHoverEvent`(`androidx.appcompat.widget.Toolbar` v5 @kind this, `android.view.MotionEvent` v6 @kind object @name `ev`) @signature `Landroidx/appcompat/widget/Toolbar;.onHoverEvent:(Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onLayout`(`androidx.appcompat.widget.Toolbar` v33 @kind this, `boolean` v34 @name `changed`, `int` v35 @name `l`, `int` v36 @name `t`, `int` v37 @name `r`, `int` v38 @name `b`) @signature `Landroidx/appcompat/widget/Toolbar;.onLayout:(ZIIII)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onMeasure`(`androidx.appcompat.widget.Toolbar` v23 @kind this, `int` v24 @name `widthMeasureSpec`, `int` v25 @name `heightMeasureSpec`) @signature `Landroidx/appcompat/widget/Toolbar;.onMeasure:(II)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onRestoreInstanceState`(`androidx.appcompat.widget.Toolbar` v3 @kind this, `android.os.Parcelable` v4 @kind object @name `state`) @signature `Landroidx/appcompat/widget/Toolbar;.onRestoreInstanceState:(Landroid/os/Parcelable;)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onRtlPropertiesChanged`(`androidx.appcompat.widget.Toolbar` v2 @kind this, `int` v3 @name `layoutDirection`) @signature `Landroidx/appcompat/widget/Toolbar;.onRtlPropertiesChanged:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.os.Parcelable` `onSaveInstanceState`(`androidx.appcompat.widget.Toolbar` v2 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.onSaveInstanceState:()Landroid/os/Parcelable;` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `boolean` `onTouchEvent`(`androidx.appcompat.widget.Toolbar` v4 @kind this, `android.view.MotionEvent` v5 @kind object @name `ev`) @signature `Landroidx/appcompat/widget/Toolbar;.onTouchEvent:(Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `removeChildrenForExpandedActionView`(`androidx.appcompat.widget.Toolbar` v6 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.removeChildrenForExpandedActionView:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `setCollapseContentDescription`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/appcompat/widget/Toolbar;.setCollapseContentDescription:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setCollapseContentDescription`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `description`) @signature `Landroidx/appcompat/widget/Toolbar;.setCollapseContentDescription:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setCollapseIcon`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/appcompat/widget/Toolbar;.setCollapseIcon:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setCollapseIcon`(`androidx.appcompat.widget.Toolbar` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `icon`) @signature `Landroidx/appcompat/widget/Toolbar;.setCollapseIcon:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setCollapsible`(`androidx.appcompat.widget.Toolbar` v0 @kind this, `boolean` v1 @name `collapsible`) @signature `Landroidx/appcompat/widget/Toolbar;.setCollapsible:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setContentInsetEndWithActions`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `int` v2 @name `insetEndWithActions`) @signature `Landroidx/appcompat/widget/Toolbar;.setContentInsetEndWithActions:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setContentInsetStartWithNavigation`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `int` v2 @name `insetStartWithNavigation`) @signature `Landroidx/appcompat/widget/Toolbar;.setContentInsetStartWithNavigation:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setContentInsetsAbsolute`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `int` v2 @name `contentInsetLeft`, `int` v3 @name `contentInsetRight`) @signature `Landroidx/appcompat/widget/Toolbar;.setContentInsetsAbsolute:(II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setContentInsetsRelative`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `int` v2 @name `contentInsetStart`, `int` v3 @name `contentInsetEnd`) @signature `Landroidx/appcompat/widget/Toolbar;.setContentInsetsRelative:(II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setLogo`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/appcompat/widget/Toolbar;.setLogo:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setLogo`(`androidx.appcompat.widget.Toolbar` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `drawable`) @signature `Landroidx/appcompat/widget/Toolbar;.setLogo:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setLogoDescription`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/appcompat/widget/Toolbar;.setLogoDescription:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setLogoDescription`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `description`) @signature `Landroidx/appcompat/widget/Toolbar;.setLogoDescription:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setMenu`(`androidx.appcompat.widget.Toolbar` v5 @kind this, `androidx.appcompat.view.menu.MenuBuilder` v6 @kind object @name `menu`, `androidx.appcompat.widget.ActionMenuPresenter` v7 @kind object @name `outerPresenter`) @signature `Landroidx/appcompat/widget/Toolbar;.setMenu:(Landroidx/appcompat/view/menu/MenuBuilder;Landroidx/appcompat/widget/ActionMenuPresenter;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setMenuCallbacks`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `androidx.appcompat.view.menu.MenuPresenter$Callback` v2 @kind object @name `pcb`, `androidx.appcompat.view.menu.MenuBuilder$Callback` v3 @kind object @name `mcb`) @signature `Landroidx/appcompat/widget/Toolbar;.setMenuCallbacks:(Landroidx/appcompat/view/menu/MenuPresenter$Callback;Landroidx/appcompat/view/menu/MenuBuilder$Callback;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setNavigationContentDescription`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/appcompat/widget/Toolbar;.setNavigationContentDescription:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setNavigationContentDescription`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `description`) @signature `Landroidx/appcompat/widget/Toolbar;.setNavigationContentDescription:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setNavigationIcon`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/appcompat/widget/Toolbar;.setNavigationIcon:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setNavigationIcon`(`androidx.appcompat.widget.Toolbar` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `icon`) @signature `Landroidx/appcompat/widget/Toolbar;.setNavigationIcon:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setNavigationOnClickListener`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `android.view.View$OnClickListener` v2 @kind object @name `listener`) @signature `Landroidx/appcompat/widget/Toolbar;.setNavigationOnClickListener:(Landroid/view/View$OnClickListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOnMenuItemClickListener`(`androidx.appcompat.widget.Toolbar` v0 @kind this, `androidx.appcompat.widget.Toolbar$OnMenuItemClickListener` v1 @kind object @name `listener`) @signature `Landroidx/appcompat/widget/Toolbar;.setOnMenuItemClickListener:(Landroidx/appcompat/widget/Toolbar$OnMenuItemClickListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOverflowIcon`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `icon`) @signature `Landroidx/appcompat/widget/Toolbar;.setOverflowIcon:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setPopupTheme`(`androidx.appcompat.widget.Toolbar` v2 @kind this, `int` v3 @name `resId`) @signature `Landroidx/appcompat/widget/Toolbar;.setPopupTheme:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSubtitle`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/appcompat/widget/Toolbar;.setSubtitle:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSubtitle`(`androidx.appcompat.widget.Toolbar` v3 @kind this, `java.lang.CharSequence` v4 @kind object @name `subtitle`) @signature `Landroidx/appcompat/widget/Toolbar;.setSubtitle:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSubtitleTextAppearance`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `int` v3 @name `resId`) @signature `Landroidx/appcompat/widget/Toolbar;.setSubtitleTextAppearance:(Landroid/content/Context;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSubtitleTextColor`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `int` v2 @name `color`) @signature `Landroidx/appcompat/widget/Toolbar;.setSubtitleTextColor:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSubtitleTextColor`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `color`) @signature `Landroidx/appcompat/widget/Toolbar;.setSubtitleTextColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTitle`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/appcompat/widget/Toolbar;.setTitle:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTitle`(`androidx.appcompat.widget.Toolbar` v3 @kind this, `java.lang.CharSequence` v4 @kind object @name `title`) @signature `Landroidx/appcompat/widget/Toolbar;.setTitle:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTitleMargin`(`androidx.appcompat.widget.Toolbar` v0 @kind this, `int` v1 @name `start`, `int` v2 @name `top`, `int` v3 @name `end`, `int` v4 @name `bottom`) @signature `Landroidx/appcompat/widget/Toolbar;.setTitleMargin:(IIII)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTitleMarginBottom`(`androidx.appcompat.widget.Toolbar` v0 @kind this, `int` v1 @name `margin`) @signature `Landroidx/appcompat/widget/Toolbar;.setTitleMarginBottom:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTitleMarginEnd`(`androidx.appcompat.widget.Toolbar` v0 @kind this, `int` v1 @name `margin`) @signature `Landroidx/appcompat/widget/Toolbar;.setTitleMarginEnd:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTitleMarginStart`(`androidx.appcompat.widget.Toolbar` v0 @kind this, `int` v1 @name `margin`) @signature `Landroidx/appcompat/widget/Toolbar;.setTitleMarginStart:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTitleMarginTop`(`androidx.appcompat.widget.Toolbar` v0 @kind this, `int` v1 @name `margin`) @signature `Landroidx/appcompat/widget/Toolbar;.setTitleMarginTop:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTitleTextAppearance`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `int` v3 @name `resId`) @signature `Landroidx/appcompat/widget/Toolbar;.setTitleTextAppearance:(Landroid/content/Context;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTitleTextColor`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `int` v2 @name `color`) @signature `Landroidx/appcompat/widget/Toolbar;.setTitleTextColor:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTitleTextColor`(`androidx.appcompat.widget.Toolbar` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `color`) @signature `Landroidx/appcompat/widget/Toolbar;.setTitleTextColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `showOverflowMenu`(`androidx.appcompat.widget.Toolbar` v1 @kind this) @signature `Landroidx/appcompat/widget/Toolbar;.showOverflowMenu:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}

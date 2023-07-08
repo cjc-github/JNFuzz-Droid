@@ -1,0 +1,29 @@
+record `com.google.android.material.datepicker.MaterialTextInputPicker$1` @kind class @AccessFlag  extends `com.google.android.material.datepicker.OnSelectionChangedListener` @kind interface {
+  `com.google.android.material.datepicker.MaterialTextInputPicker` `com.google.android.material.datepicker.MaterialTextInputPicker$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.MaterialTextInputPicker$1` v0 @kind this, `com.google.android.material.datepicker.MaterialTextInputPicker` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/datepicker/MaterialTextInputPicker$1;.<init>:(Lcom/google/android/material/datepicker/MaterialTextInputPicker;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L199bd8.  v0.`com.google.android.material.datepicker.MaterialTextInputPicker$1.this$0` @type ^`com.google.android.material.datepicker.MaterialTextInputPicker` := v1 @kind object;
+  #L199bdc.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L199be2.  return @kind void;
+}
+procedure `void` `onSelectionChanged`(`com.google.android.material.datepicker.MaterialTextInputPicker$1` v2 @kind this, `java.lang.Object` v3 @kind object) @signature `Lcom/google/android/material/datepicker/MaterialTextInputPicker$1;.onSelectionChanged:(Ljava/lang/Object;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L199bf4.  v0:= v2.`com.google.android.material.datepicker.MaterialTextInputPicker$1.this$0` @type ^`com.google.android.material.datepicker.MaterialTextInputPicker` @kind object;
+  #L199bf8.  v0:= v0.`com.google.android.material.datepicker.MaterialTextInputPicker.onSelectionChangedListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L199bfc.  call temp:= `iterator`(v0) @signature `Ljava/util/LinkedHashSet;.iterator:()Ljava/util/Iterator;` @kind virtual;
+  #L199c02.  v0:= temp @kind object;
+  #L199c04.  call temp:= `hasNext`(v0) @signature `Ljava/util/Iterator;.hasNext:()Z` @kind interface;
+  #L199c0a.  v1:= temp;
+  #L199c0c.  if v1 == 0 then goto L199c24;
+  #L199c10.  call temp:= `next`(v0) @signature `Ljava/util/Iterator;.next:()Ljava/lang/Object;` @kind interface;
+  #L199c16.  v1:= temp @kind object;
+  #L199c18.  v1:= (`com.google.android.material.datepicker.OnSelectionChangedListener`) v1 @kind object;
+  #L199c1c.  call `onSelectionChanged`(v1, v3) @signature `Lcom/google/android/material/datepicker/OnSelectionChangedListener;.onSelectionChanged:(Ljava/lang/Object;)V` @kind interface;
+  #L199c22.  goto L199c04;
+  #L199c24.  return @kind void;
+}

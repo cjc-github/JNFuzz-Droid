@@ -1,0 +1,376 @@
+record `com.google.android.material.shape.ShapePath` @kind class @AccessFlag PUBLIC {
+  `float` `com.google.android.material.shape.ShapePath.currentShadowAngle` @AccessFlag PUBLIC;
+  `float` `com.google.android.material.shape.ShapePath.endShadowAngle` @AccessFlag PUBLIC;
+  `float` `com.google.android.material.shape.ShapePath.endX` @AccessFlag PUBLIC;
+  `float` `com.google.android.material.shape.ShapePath.endY` @AccessFlag PUBLIC;
+  `java.util.List` `com.google.android.material.shape.ShapePath.operations` @AccessFlag PRIVATE_FINAL;
+  `java.util.List` `com.google.android.material.shape.ShapePath.shadowCompatOperations` @AccessFlag PRIVATE_FINAL;
+  `float` `com.google.android.material.shape.ShapePath.startX` @AccessFlag PUBLIC;
+  `float` `com.google.android.material.shape.ShapePath.startY` @AccessFlag PUBLIC;
+}
+global `float` `@@com.google.android.material.shape.ShapePath.ANGLE_LEFT` @AccessFlag PROTECTED_STATIC_FINAL;
+global `float` `@@com.google.android.material.shape.ShapePath.ANGLE_UP` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.shape.ShapePath` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapePath;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1aeab4.  call `<init>`(v1) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1aeaba.  v0:= new `java.util.ArrayList`;
+  #L1aeabe.  call `<init>`(v0) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L1aeac4.  v1.`com.google.android.material.shape.ShapePath.operations` @type ^`java.util.List` := v0 @kind object;
+  #L1aeac8.  v0:= new `java.util.ArrayList`;
+  #L1aeacc.  call `<init>`(v0) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L1aead2.  v1.`com.google.android.material.shape.ShapePath.shadowCompatOperations` @type ^`java.util.List` := v0 @kind object;
+  #L1aead6.  v0:= 0I;
+  #L1aead8.  call `reset`(v1, v0, v0) @signature `Lcom/google/android/material/shape/ShapePath;.reset:(FF)V` @kind virtual;
+  #L1aeade.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.ShapePath` v1 @kind this, `float` v2 @name `startX`, `float` v3 @name `startY`) @signature `Lcom/google/android/material/shape/ShapePath;.<init>:(FF)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1aeaf0.  call `<init>`(v1) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1aeaf6.  v0:= new `java.util.ArrayList`;
+  #L1aeafa.  call `<init>`(v0) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L1aeb00.  v1.`com.google.android.material.shape.ShapePath.operations` @type ^`java.util.List` := v0 @kind object;
+  #L1aeb04.  v0:= new `java.util.ArrayList`;
+  #L1aeb08.  call `<init>`(v0) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L1aeb0e.  v1.`com.google.android.material.shape.ShapePath.shadowCompatOperations` @type ^`java.util.List` := v0 @kind object;
+  #L1aeb12.  call `reset`(v1, v2, v3) @signature `Lcom/google/android/material/shape/ShapePath;.reset:(FF)V` @kind virtual;
+  #L1aeb18.  return @kind void;
+}
+procedure `void` `addConnectingShadowIfNecessary`(`com.google.android.material.shape.ShapePath` v6 @kind this, `float` v7 @name `nextShadowAngle`) @signature `Lcom/google/android/material/shape/ShapePath;.addConnectingShadowIfNecessary:(F)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1aec28.  call temp:= `getCurrentShadowAngle`(v6) @signature `Lcom/google/android/material/shape/ShapePath;.getCurrentShadowAngle:()F` @kind direct;
+  #L1aec2e.  v0:= temp;
+  #L1aec30.  v0:= fcmpl(v0, v7);
+  #L1aec34.  if v0 != 0 then goto L1aec3a;
+  #L1aec38.  return @kind void;
+  #L1aec3a.  call temp:= `getCurrentShadowAngle`(v6) @signature `Lcom/google/android/material/shape/ShapePath;.getCurrentShadowAngle:()F` @kind direct;
+  #L1aec40.  v0:= temp;
+  #L1aec42.  v0:= v7 - v0 @kind float;
+  #L1aec46.  v1:= 360.0F;
+  #L1aec4a.  v0:= v0 + v1 @kind float;
+  #L1aec4c.  v0:= v0 %% v1 @kind float;
+  #L1aec4e.  v1:= 180.0F;
+  #L1aec52.  v1:= fcmpl(v0, v1);
+  #L1aec56.  if v1 <= 0 then goto L1aec5c;
+  #L1aec5a.  return @kind void;
+  #L1aec5c.  v1:= new `com.google.android.material.shape.ShapePath$PathArcOperation`;
+  #L1aec60.  call temp:= `getEndX`(v6) @signature `Lcom/google/android/material/shape/ShapePath;.getEndX:()F` @kind virtual;
+  #L1aec66.  v2:= temp;
+  #L1aec68.  call temp:= `getEndY`(v6) @signature `Lcom/google/android/material/shape/ShapePath;.getEndY:()F` @kind virtual;
+  #L1aec6e.  v3:= temp;
+  #L1aec70.  call temp:= `getEndX`(v6) @signature `Lcom/google/android/material/shape/ShapePath;.getEndX:()F` @kind virtual;
+  #L1aec76.  v4:= temp;
+  #L1aec78.  call temp:= `getEndY`(v6) @signature `Lcom/google/android/material/shape/ShapePath;.getEndY:()F` @kind virtual;
+  #L1aec7e.  v5:= temp;
+  #L1aec80.  call `<init>`(v1, v2, v3, v4, v5) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.<init>:(FFFF)V` @kind direct;
+  #L1aec86.  call temp:= `getCurrentShadowAngle`(v6) @signature `Lcom/google/android/material/shape/ShapePath;.getCurrentShadowAngle:()F` @kind direct;
+  #L1aec8c.  v2:= temp;
+  #L1aec8e.  call `access$600`(v1, v2) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.access$600:(Lcom/google/android/material/shape/ShapePath$PathArcOperation;F)V` @kind static;
+  #L1aec94.  call `access$700`(v1, v0) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.access$700:(Lcom/google/android/material/shape/ShapePath$PathArcOperation;F)V` @kind static;
+  #L1aec9a.  v2:= v6.`com.google.android.material.shape.ShapePath.shadowCompatOperations` @type ^`java.util.List` @kind object;
+  #L1aec9e.  v3:= new `com.google.android.material.shape.ShapePath$ArcShadowOperation`;
+  #L1aeca2.  call `<init>`(v3, v1) @signature `Lcom/google/android/material/shape/ShapePath$ArcShadowOperation;.<init>:(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)V` @kind direct;
+  #L1aeca8.  call temp:= `add`(v2, v3) @signature `Ljava/util/List;.add:(Ljava/lang/Object;)Z` @kind interface;
+  #L1aecae.  call `setCurrentShadowAngle`(v6, v7) @signature `Lcom/google/android/material/shape/ShapePath;.setCurrentShadowAngle:(F)V` @kind direct;
+  #L1aecb4.  return @kind void;
+}
+procedure `void` `addShadowCompatOperation`(`com.google.android.material.shape.ShapePath` v1 @kind this, `com.google.android.material.shape.ShapePath$ShadowCompatOperation` v2 @kind object @name `shadowOperation`, `float` v3 @name `startShadowAngle`, `float` v4 @name `endShadowAngle`) @signature `Lcom/google/android/material/shape/ShapePath;.addShadowCompatOperation:(Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;FF)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1aecc8.  call `addConnectingShadowIfNecessary`(v1, v3) @signature `Lcom/google/android/material/shape/ShapePath;.addConnectingShadowIfNecessary:(F)V` @kind direct;
+  #L1aecce.  v0:= v1.`com.google.android.material.shape.ShapePath.shadowCompatOperations` @type ^`java.util.List` @kind object;
+  #L1aecd2.  call temp:= `add`(v0, v2) @signature `Ljava/util/List;.add:(Ljava/lang/Object;)Z` @kind interface;
+  #L1aecd8.  call `setCurrentShadowAngle`(v1, v4) @signature `Lcom/google/android/material/shape/ShapePath;.setCurrentShadowAngle:(F)V` @kind direct;
+  #L1aecde.  return @kind void;
+}
+procedure `float` `getCurrentShadowAngle`(`com.google.android.material.shape.ShapePath` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapePath;.getCurrentShadowAngle:()F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1aea24.  v0:= v1.`com.google.android.material.shape.ShapePath.currentShadowAngle` @type ^`float`;
+  #L1aea28.  return v0;
+}
+procedure `float` `getEndShadowAngle`(`com.google.android.material.shape.ShapePath` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapePath;.getEndShadowAngle:()F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1aea3c.  v0:= v1.`com.google.android.material.shape.ShapePath.endShadowAngle` @type ^`float`;
+  #L1aea40.  return v0;
+}
+procedure `void` `setCurrentShadowAngle`(`com.google.android.material.shape.ShapePath` v0 @kind this, `float` v1 @name `currentShadowAngle`) @signature `Lcom/google/android/material/shape/ShapePath;.setCurrentShadowAngle:(F)V` @AccessFlag PRIVATE {
+    temp;
+
+  #L1aee68.  v0.`com.google.android.material.shape.ShapePath.currentShadowAngle` @type ^`float` := v1;
+  #L1aee6c.  return @kind void;
+}
+procedure `void` `setEndShadowAngle`(`com.google.android.material.shape.ShapePath` v0 @kind this, `float` v1 @name `endShadowAngle`) @signature `Lcom/google/android/material/shape/ShapePath;.setEndShadowAngle:(F)V` @AccessFlag PRIVATE {
+    temp;
+
+  #L1aee80.  v0.`com.google.android.material.shape.ShapePath.endShadowAngle` @type ^`float` := v1;
+  #L1aee84.  return @kind void;
+}
+procedure `void` `setEndX`(`com.google.android.material.shape.ShapePath` v0 @kind this, `float` v1 @name `endX`) @signature `Lcom/google/android/material/shape/ShapePath;.setEndX:(F)V` @AccessFlag PRIVATE {
+    temp;
+
+  #L1aee98.  v0.`com.google.android.material.shape.ShapePath.endX` @type ^`float` := v1;
+  #L1aee9c.  return @kind void;
+}
+procedure `void` `setEndY`(`com.google.android.material.shape.ShapePath` v0 @kind this, `float` v1 @name `endY`) @signature `Lcom/google/android/material/shape/ShapePath;.setEndY:(F)V` @AccessFlag PRIVATE {
+    temp;
+
+  #L1aeeb0.  v0.`com.google.android.material.shape.ShapePath.endY` @type ^`float` := v1;
+  #L1aeeb4.  return @kind void;
+}
+procedure `void` `setStartX`(`com.google.android.material.shape.ShapePath` v0 @kind this, `float` v1 @name `startX`) @signature `Lcom/google/android/material/shape/ShapePath;.setStartX:(F)V` @AccessFlag PRIVATE {
+    temp;
+
+  #L1aeec8.  v0.`com.google.android.material.shape.ShapePath.startX` @type ^`float` := v1;
+  #L1aeecc.  return @kind void;
+}
+procedure `void` `setStartY`(`com.google.android.material.shape.ShapePath` v0 @kind this, `float` v1 @name `startY`) @signature `Lcom/google/android/material/shape/ShapePath;.setStartY:(F)V` @AccessFlag PRIVATE {
+    temp;
+
+  #L1aeee0.  v0.`com.google.android.material.shape.ShapePath.startY` @type ^`float` := v1;
+  #L1aeee4.  return @kind void;
+}
+procedure `void` `addArc`(`com.google.android.material.shape.ShapePath` v16 @kind this, `float` v17 @name `left`, `float` v18 @name `top`, `float` v19 @name `right`, `float` v20 @name `bottom`, `float` v21 @name `startAngle`, `float` v22 @name `sweepAngle`) @signature `Lcom/google/android/material/shape/ShapePath;.addArc:(FFFFFF)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+    v12;
+    v13;
+    v14;
+    v15;
+
+  #L1aeb2c.  v0:= v16 @kind object;
+  #L1aeb30.  v1:= v17;
+  #L1aeb34.  v2:= v18;
+  #L1aeb38.  v3:= v19;
+  #L1aeb3c.  v4:= v20;
+  #L1aeb40.  v5:= v21;
+  #L1aeb44.  v6:= v22;
+  #L1aeb48.  v7:= new `com.google.android.material.shape.ShapePath$PathArcOperation`;
+  #L1aeb4c.  call `<init>`(v7, v1, v2, v3, v4) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.<init>:(FFFF)V` @kind direct;
+  #L1aeb52.  call `access$600`(v7, v5) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.access$600:(Lcom/google/android/material/shape/ShapePath$PathArcOperation;F)V` @kind static;
+  #L1aeb58.  call `access$700`(v7, v6) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.access$700:(Lcom/google/android/material/shape/ShapePath$PathArcOperation;F)V` @kind static;
+  #L1aeb5e.  v8:= v0.`com.google.android.material.shape.ShapePath.operations` @type ^`java.util.List` @kind object;
+  #L1aeb62.  call temp:= `add`(v8, v7) @signature `Ljava/util/List;.add:(Ljava/lang/Object;)Z` @kind interface;
+  #L1aeb68.  v8:= new `com.google.android.material.shape.ShapePath$ArcShadowOperation`;
+  #L1aeb6c.  call `<init>`(v8, v7) @signature `Lcom/google/android/material/shape/ShapePath$ArcShadowOperation;.<init>:(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)V` @kind direct;
+  #L1aeb72.  v9:= v5 + v6 @kind float;
+  #L1aeb76.  v10:= 0I;
+  #L1aeb78.  v10:= fcmpg(v6, v10);
+  #L1aeb7c.  if v10 >= 0 then goto L1aeb84;
+  #L1aeb80.  v10:= 1I;
+  #L1aeb82.  goto L1aeb86;
+  #L1aeb84.  v10:= 0I;
+  #L1aeb86.  v11:= 360.0F;
+  #L1aeb8a.  v12:= 180.0F;
+  #L1aeb8e.  if v10 == 0 then goto L1aeb9a;
+  #L1aeb92.  v13:= v5 + v12 @kind float;
+  #L1aeb96.  v13:= v13 %% v11 @kind float;
+  #L1aeb98.  goto L1aeb9c;
+  #L1aeb9a.  v13:= v5;
+  #L1aeb9c.  if v10 == 0 then goto L1aeba6;
+  #L1aeba0.  v12:= v12 + v9 @kind float;
+  #L1aeba2.  v12:= v12 %% v11 @kind float;
+  #L1aeba4.  goto L1aeba8;
+  #L1aeba6.  v12:= v9;
+  #L1aeba8.  call `addShadowCompatOperation`(v0, v8, v13, v12) @signature `Lcom/google/android/material/shape/ShapePath;.addShadowCompatOperation:(Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;FF)V` @kind direct;
+  #L1aebae.  v11:= v1 + v3 @kind float;
+  #L1aebb2.  v12:= 0.5F;
+  #L1aebb6.  v11:= v11 * v12 @kind float;
+  #L1aebb8.  v13:= v3 - v1 @kind float;
+  #L1aebbc.  v14:= 2.0F;
+  #L1aebc0.  v13:= v13 / v14 @kind float;
+  #L1aebc2.  v15:= v5 + v6 @kind float;
+  #L1aebc6.  v14:= (`double`) v15 @kind f2d;
+  #L1aebc8.  call temp:= `toRadians`(v14) @signature `Ljava/lang/Math;.toRadians:(D)D` @kind static;
+  #L1aebce.  v14:= temp @kind wide;
+  #L1aebd0.  call temp:= `cos`(v14) @signature `Ljava/lang/Math;.cos:(D)D` @kind static;
+  #L1aebd6.  v14:= temp @kind wide;
+  #L1aebd8.  v14:= (`float`) v14 @kind d2f;
+  #L1aebda.  v13:= v13 * v14 @kind float;
+  #L1aebdc.  v11:= v11 + v13 @kind float;
+  #L1aebde.  call `setEndX`(v0, v11) @signature `Lcom/google/android/material/shape/ShapePath;.setEndX:(F)V` @kind direct;
+  #L1aebe4.  v11:= v2 + v4 @kind float;
+  #L1aebe8.  v11:= v11 * v12 @kind float;
+  #L1aebea.  v12:= v4 - v2 @kind float;
+  #L1aebee.  v13:= 2.0F;
+  #L1aebf2.  v12:= v12 / v13 @kind float;
+  #L1aebf4.  v13:= v5 + v6 @kind float;
+  #L1aebf8.  v13:= (`double`) v13 @kind f2d;
+  #L1aebfa.  call temp:= `toRadians`(v13) @signature `Ljava/lang/Math;.toRadians:(D)D` @kind static;
+  #L1aec00.  v13:= temp @kind wide;
+  #L1aec02.  call temp:= `sin`(v13) @signature `Ljava/lang/Math;.sin:(D)D` @kind static;
+  #L1aec08.  v13:= temp @kind wide;
+  #L1aec0a.  v13:= (`float`) v13 @kind d2f;
+  #L1aec0c.  v12:= v12 * v13 @kind float;
+  #L1aec0e.  v11:= v11 + v12 @kind float;
+  #L1aec10.  call `setEndY`(v0, v11) @signature `Lcom/google/android/material/shape/ShapePath;.setEndY:(F)V` @kind direct;
+  #L1aec16.  return @kind void;
+}
+procedure `void` `applyToPath`(`com.google.android.material.shape.ShapePath` v3 @kind this, `android.graphics.Matrix` v4 @kind object @name `transform`, `android.graphics.Path` v5 @kind object @name `path`) @signature `Lcom/google/android/material/shape/ShapePath;.applyToPath:(Landroid/graphics/Matrix;Landroid/graphics/Path;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1aecf0.  v0:= 0I;
+  #L1aecf2.  v1:= v3.`com.google.android.material.shape.ShapePath.operations` @type ^`java.util.List` @kind object;
+  #L1aecf6.  call temp:= `size`(v1) @signature `Ljava/util/List;.size:()I` @kind interface;
+  #L1aecfc.  v1:= temp;
+  #L1aecfe.  if v0 >= v1 then goto L1aed1e;
+  #L1aed02.  v2:= v3.`com.google.android.material.shape.ShapePath.operations` @type ^`java.util.List` @kind object;
+  #L1aed06.  call temp:= `get`(v2, v0) @signature `Ljava/util/List;.get:(I)Ljava/lang/Object;` @kind interface;
+  #L1aed0c.  v2:= temp @kind object;
+  #L1aed0e.  v2:= (`com.google.android.material.shape.ShapePath$PathOperation`) v2 @kind object;
+  #L1aed12.  call `applyToPath`(v2, v4, v5) @signature `Lcom/google/android/material/shape/ShapePath$PathOperation;.applyToPath:(Landroid/graphics/Matrix;Landroid/graphics/Path;)V` @kind virtual;
+  #L1aed18.  v0:= v0 + 1;
+  #L1aed1c.  goto L1aecfe;
+  #L1aed1e.  return @kind void;
+}
+procedure `com.google.android.material.shape.ShapePath$ShadowCompatOperation` `createShadowCompatOperation`(`com.google.android.material.shape.ShapePath` v2 @kind this, `android.graphics.Matrix` v3 @kind object @name `transform`) @signature `Lcom/google/android/material/shape/ShapePath;.createShadowCompatOperation:(Landroid/graphics/Matrix;)Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L1ae9ec.  call temp:= `getEndShadowAngle`(v2) @signature `Lcom/google/android/material/shape/ShapePath;.getEndShadowAngle:()F` @kind direct;
+  #L1ae9f2.  v0:= temp;
+  #L1ae9f4.  call `addConnectingShadowIfNecessary`(v2, v0) @signature `Lcom/google/android/material/shape/ShapePath;.addConnectingShadowIfNecessary:(F)V` @kind direct;
+  #L1ae9fa.  v0:= new `java.util.ArrayList`;
+  #L1ae9fe.  v1:= v2.`com.google.android.material.shape.ShapePath.shadowCompatOperations` @type ^`java.util.List` @kind object;
+  #L1aea02.  call `<init>`(v0, v1) @signature `Ljava/util/ArrayList;.<init>:(Ljava/util/Collection;)V` @kind direct;
+  #L1aea08.  v1:= new `com.google.android.material.shape.ShapePath$1`;
+  #L1aea0c.  call `<init>`(v1, v2, v0, v3) @signature `Lcom/google/android/material/shape/ShapePath$1;.<init>:(Lcom/google/android/material/shape/ShapePath;Ljava/util/List;Landroid/graphics/Matrix;)V` @kind direct;
+  #L1aea12.  return v1 @kind object;
+}
+procedure `float` `getEndX`(`com.google.android.material.shape.ShapePath` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapePath;.getEndX:()F` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1aea54.  v0:= v1.`com.google.android.material.shape.ShapePath.endX` @type ^`float`;
+  #L1aea58.  return v0;
+}
+procedure `float` `getEndY`(`com.google.android.material.shape.ShapePath` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapePath;.getEndY:()F` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1aea6c.  v0:= v1.`com.google.android.material.shape.ShapePath.endY` @type ^`float`;
+  #L1aea70.  return v0;
+}
+procedure `float` `getStartX`(`com.google.android.material.shape.ShapePath` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapePath;.getStartX:()F` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1aea84.  v0:= v1.`com.google.android.material.shape.ShapePath.startX` @type ^`float`;
+  #L1aea88.  return v0;
+}
+procedure `float` `getStartY`(`com.google.android.material.shape.ShapePath` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapePath;.getStartY:()F` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1aea9c.  v0:= v1.`com.google.android.material.shape.ShapePath.startY` @type ^`float`;
+  #L1aeaa0.  return v0;
+}
+procedure `void` `lineTo`(`com.google.android.material.shape.ShapePath` v5 @kind this, `float` v6 @name `x`, `float` v7 @name `y`) @signature `Lcom/google/android/material/shape/ShapePath;.lineTo:(FF)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1aed30.  v0:= new `com.google.android.material.shape.ShapePath$PathLineOperation`;
+  #L1aed34.  call `<init>`(v0) @signature `Lcom/google/android/material/shape/ShapePath$PathLineOperation;.<init>:()V` @kind direct;
+  #L1aed3a.  call temp:= `access$002`(v0, v6) @signature `Lcom/google/android/material/shape/ShapePath$PathLineOperation;.access$002:(Lcom/google/android/material/shape/ShapePath$PathLineOperation;F)F` @kind static;
+  #L1aed40.  call temp:= `access$102`(v0, v7) @signature `Lcom/google/android/material/shape/ShapePath$PathLineOperation;.access$102:(Lcom/google/android/material/shape/ShapePath$PathLineOperation;F)F` @kind static;
+  #L1aed46.  v1:= v5.`com.google.android.material.shape.ShapePath.operations` @type ^`java.util.List` @kind object;
+  #L1aed4a.  call temp:= `add`(v1, v0) @signature `Ljava/util/List;.add:(Ljava/lang/Object;)Z` @kind interface;
+  #L1aed50.  v1:= new `com.google.android.material.shape.ShapePath$LineShadowOperation`;
+  #L1aed54.  call temp:= `getEndX`(v5) @signature `Lcom/google/android/material/shape/ShapePath;.getEndX:()F` @kind virtual;
+  #L1aed5a.  v2:= temp;
+  #L1aed5c.  call temp:= `getEndY`(v5) @signature `Lcom/google/android/material/shape/ShapePath;.getEndY:()F` @kind virtual;
+  #L1aed62.  v3:= temp;
+  #L1aed64.  call `<init>`(v1, v0, v2, v3) @signature `Lcom/google/android/material/shape/ShapePath$LineShadowOperation;.<init>:(Lcom/google/android/material/shape/ShapePath$PathLineOperation;FF)V` @kind direct;
+  #L1aed6a.  
+  #L1aed6c.  call temp:= `getAngle`(v1) @signature `Lcom/google/android/material/shape/ShapePath$LineShadowOperation;.getAngle:()F` @kind virtual;
+  #L1aed72.  v2:= temp;
+  #L1aed74.  v3:= 270.0F;
+  #L1aed78.  v2:= v2 + v3 @kind float;
+  #L1aed7a.  call temp:= `getAngle`(v1) @signature `Lcom/google/android/material/shape/ShapePath$LineShadowOperation;.getAngle:()F` @kind virtual;
+  #L1aed80.  v4:= temp;
+  #L1aed82.  v4:= v4 + v3 @kind float;
+  #L1aed84.  call `addShadowCompatOperation`(v5, v1, v2, v4) @signature `Lcom/google/android/material/shape/ShapePath;.addShadowCompatOperation:(Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;FF)V` @kind direct;
+  #L1aed8a.  call `setEndX`(v5, v6) @signature `Lcom/google/android/material/shape/ShapePath;.setEndX:(F)V` @kind direct;
+  #L1aed90.  call `setEndY`(v5, v7) @signature `Lcom/google/android/material/shape/ShapePath;.setEndY:(F)V` @kind direct;
+  #L1aed96.  return @kind void;
+}
+procedure `void` `quadToPoint`(`com.google.android.material.shape.ShapePath` v2 @kind this, `float` v3 @name `controlX`, `float` v4 @name `controlY`, `float` v5 @name `toX`, `float` v6 @name `toY`) @signature `Lcom/google/android/material/shape/ShapePath;.quadToPoint:(FFFF)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1aeda8.  v0:= new `com.google.android.material.shape.ShapePath$PathQuadOperation`;
+  #L1aedac.  call `<init>`(v0) @signature `Lcom/google/android/material/shape/ShapePath$PathQuadOperation;.<init>:()V` @kind direct;
+  #L1aedb2.  call `access$200`(v0, v3) @signature `Lcom/google/android/material/shape/ShapePath$PathQuadOperation;.access$200:(Lcom/google/android/material/shape/ShapePath$PathQuadOperation;F)V` @kind static;
+  #L1aedb8.  call `access$300`(v0, v4) @signature `Lcom/google/android/material/shape/ShapePath$PathQuadOperation;.access$300:(Lcom/google/android/material/shape/ShapePath$PathQuadOperation;F)V` @kind static;
+  #L1aedbe.  call `access$400`(v0, v5) @signature `Lcom/google/android/material/shape/ShapePath$PathQuadOperation;.access$400:(Lcom/google/android/material/shape/ShapePath$PathQuadOperation;F)V` @kind static;
+  #L1aedc4.  call `access$500`(v0, v6) @signature `Lcom/google/android/material/shape/ShapePath$PathQuadOperation;.access$500:(Lcom/google/android/material/shape/ShapePath$PathQuadOperation;F)V` @kind static;
+  #L1aedca.  v1:= v2.`com.google.android.material.shape.ShapePath.operations` @type ^`java.util.List` @kind object;
+  #L1aedce.  call temp:= `add`(v1, v0) @signature `Ljava/util/List;.add:(Ljava/lang/Object;)Z` @kind interface;
+  #L1aedd4.  call `setEndX`(v2, v5) @signature `Lcom/google/android/material/shape/ShapePath;.setEndX:(F)V` @kind direct;
+  #L1aedda.  call `setEndY`(v2, v6) @signature `Lcom/google/android/material/shape/ShapePath;.setEndY:(F)V` @kind direct;
+  #L1aede0.  return @kind void;
+}
+procedure `void` `reset`(`com.google.android.material.shape.ShapePath` v2 @kind this, `float` v3 @name `startX`, `float` v4 @name `startY`) @signature `Lcom/google/android/material/shape/ShapePath;.reset:(FF)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1aedf4.  v0:= 270.0F;
+  #L1aedf8.  v1:= 0I;
+  #L1aedfa.  call `reset`(v2, v3, v4, v0, v1) @signature `Lcom/google/android/material/shape/ShapePath;.reset:(FFFF)V` @kind virtual;
+  #L1aee00.  return @kind void;
+}
+procedure `void` `reset`(`com.google.android.material.shape.ShapePath` v2 @kind this, `float` v3 @name `startX`, `float` v4 @name `startY`, `float` v5 @name `shadowStartAngle`, `float` v6 @name `shadowSweepAngle`) @signature `Lcom/google/android/material/shape/ShapePath;.reset:(FFFF)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1aee14.  call `setStartX`(v2, v3) @signature `Lcom/google/android/material/shape/ShapePath;.setStartX:(F)V` @kind direct;
+  #L1aee1a.  call `setStartY`(v2, v4) @signature `Lcom/google/android/material/shape/ShapePath;.setStartY:(F)V` @kind direct;
+  #L1aee20.  call `setEndX`(v2, v3) @signature `Lcom/google/android/material/shape/ShapePath;.setEndX:(F)V` @kind direct;
+  #L1aee26.  call `setEndY`(v2, v4) @signature `Lcom/google/android/material/shape/ShapePath;.setEndY:(F)V` @kind direct;
+  #L1aee2c.  call `setCurrentShadowAngle`(v2, v5) @signature `Lcom/google/android/material/shape/ShapePath;.setCurrentShadowAngle:(F)V` @kind direct;
+  #L1aee32.  v0:= v5 + v6 @kind float;
+  #L1aee36.  v1:= 360.0F;
+  #L1aee3a.  v0:= v0 %% v1 @kind float;
+  #L1aee3c.  call `setEndShadowAngle`(v2, v0) @signature `Lcom/google/android/material/shape/ShapePath;.setEndShadowAngle:(F)V` @kind direct;
+  #L1aee42.  v0:= v2.`com.google.android.material.shape.ShapePath.operations` @type ^`java.util.List` @kind object;
+  #L1aee46.  call `clear`(v0) @signature `Ljava/util/List;.clear:()V` @kind interface;
+  #L1aee4c.  v0:= v2.`com.google.android.material.shape.ShapePath.shadowCompatOperations` @type ^`java.util.List` @kind object;
+  #L1aee50.  call `clear`(v0) @signature `Ljava/util/List;.clear:()V` @kind interface;
+  #L1aee56.  return @kind void;
+}

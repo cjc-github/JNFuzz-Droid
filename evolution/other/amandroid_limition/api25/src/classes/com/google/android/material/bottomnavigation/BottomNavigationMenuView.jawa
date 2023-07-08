@@ -1,0 +1,1152 @@
+record `com.google.android.material.bottomnavigation.BottomNavigationMenuView` @kind class @AccessFlag PUBLIC extends `android.view.ViewGroup` @kind class, `androidx.appcompat.view.menu.MenuView` @kind interface {
+  `int` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.activeItemMaxWidth` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.activeItemMinWidth` @AccessFlag PRIVATE_FINAL;
+  `android.util.SparseArray` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.badgeDrawables` @AccessFlag PRIVATE;
+  `com.google.android.material.bottomnavigation.BottomNavigationItemView`[] `com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.inactiveItemMaxWidth` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.inactiveItemMinWidth` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.drawable.Drawable` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemBackground` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemBackgroundRes` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemHeight` @AccessFlag PRIVATE_FINAL;
+  `boolean` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemHorizontalTranslationEnabled` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemIconSize` @AccessFlag PRIVATE;
+  `android.content.res.ColorStateList` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemIconTint` @AccessFlag PRIVATE;
+  `androidx.core.util.Pools$Pool` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemPool` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemTextAppearanceActive` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemTextAppearanceInactive` @AccessFlag PRIVATE;
+  `android.content.res.ColorStateList` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemTextColorDefault` @AccessFlag PRIVATE_FINAL;
+  `android.content.res.ColorStateList` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemTextColorFromUser` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.labelVisibilityMode` @AccessFlag PRIVATE;
+  `androidx.appcompat.view.menu.MenuBuilder` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @AccessFlag PRIVATE;
+  `android.view.View$OnClickListener` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.onClickListener` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.bottomnavigation.BottomNavigationPresenter` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.presenter` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemId` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemPosition` @AccessFlag PRIVATE;
+  `androidx.transition.TransitionSet` `com.google.android.material.bottomnavigation.BottomNavigationMenuView.set` @AccessFlag PRIVATE_FINAL;
+  `int`[] `com.google.android.material.bottomnavigation.BottomNavigationMenuView.tempChildWidths` @AccessFlag PRIVATE;
+}
+global `long` `@@com.google.android.material.bottomnavigation.BottomNavigationMenuView.ACTIVE_ANIMATION_DURATION_MS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int`[] `@@com.google.android.material.bottomnavigation.BottomNavigationMenuView.CHECKED_STATE_SET` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int`[] `@@com.google.android.material.bottomnavigation.BottomNavigationMenuView.DISABLED_STATE_SET` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomnavigation.BottomNavigationMenuView.ITEM_POOL_SIZE` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L186cfc.  v0:= 1I;
+  #L186cfe.  v1:= new `int`[v0];
+  #L186d02.  v2:= 16842912I;
+  #L186d08.  v3:= 0I;
+  #L186d0a.  v1[v3]:= v2;
+  #L186d0e.  `@@com.google.android.material.bottomnavigation.BottomNavigationMenuView.CHECKED_STATE_SET` @type ^`int`[] := v1 @kind object;
+  #L186d12.  v0:= new `int`[v0];
+  #L186d16.  v1:= -16842910I;
+  #L186d1c.  v0[v3]:= v1;
+  #L186d20.  `@@com.google.android.material.bottomnavigation.BottomNavigationMenuView.DISABLED_STATE_SET` @type ^`int`[] := v0 @kind object;
+  #L186d24.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L186d38.  v0:= 0I;
+  #L186d3a.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L186d40.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v6 @kind this, `android.content.Context` v7 @kind object @name `context`, `android.util.AttributeSet` v8 @kind object @name `attrs`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L186d54.  call `<init>`(v6, v7, v8) @signature `Landroid/view/ViewGroup;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L186d5a.  v0:= new `androidx.core.util.Pools$SynchronizedPool`;
+  #L186d5e.  v1:= 5I;
+  #L186d60.  call `<init>`(v0, v1) @signature `Landroidx/core/util/Pools$SynchronizedPool;.<init>:(I)V` @kind direct;
+  #L186d66.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemPool` @type ^`androidx.core.util.Pools$Pool` := v0 @kind object;
+  #L186d6a.  v0:= 0I;
+  #L186d6c.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemId` @type ^`int` := v0;
+  #L186d70.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemPosition` @type ^`int` := v0;
+  #L186d74.  v2:= new `android.util.SparseArray`;
+  #L186d78.  call `<init>`(v2, v1) @signature `Landroid/util/SparseArray;.<init>:(I)V` @kind direct;
+  #L186d7e.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.badgeDrawables` @type ^`android.util.SparseArray` := v2 @kind object;
+  #L186d82.  call temp:= `getResources`(v6) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L186d88.  v2:= temp @kind object;
+  #L186d8a.  v3:= `@@com.google.android.material.R$dimen.design_bottom_navigation_item_max_width` @type ^`int`;
+  #L186d8e.  call temp:= `getDimensionPixelSize`(v2, v3) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L186d94.  v3:= temp;
+  #L186d96.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.inactiveItemMaxWidth` @type ^`int` := v3;
+  #L186d9a.  v3:= `@@com.google.android.material.R$dimen.design_bottom_navigation_item_min_width` @type ^`int`;
+  #L186d9e.  call temp:= `getDimensionPixelSize`(v2, v3) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L186da4.  v3:= temp;
+  #L186da6.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.inactiveItemMinWidth` @type ^`int` := v3;
+  #L186daa.  v3:= `@@com.google.android.material.R$dimen.design_bottom_navigation_active_item_max_width` @type ^`int`;
+  #L186dae.  call temp:= `getDimensionPixelSize`(v2, v3) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L186db4.  v3:= temp;
+  #L186db6.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.activeItemMaxWidth` @type ^`int` := v3;
+  #L186dba.  v3:= `@@com.google.android.material.R$dimen.design_bottom_navigation_active_item_min_width` @type ^`int`;
+  #L186dbe.  call temp:= `getDimensionPixelSize`(v2, v3) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L186dc4.  v3:= temp;
+  #L186dc6.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.activeItemMinWidth` @type ^`int` := v3;
+  #L186dca.  v3:= `@@com.google.android.material.R$dimen.design_bottom_navigation_height` @type ^`int`;
+  #L186dce.  call temp:= `getDimensionPixelSize`(v2, v3) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L186dd4.  v3:= temp;
+  #L186dd6.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemHeight` @type ^`int` := v3;
+  #L186dda.  v3:= 16842808I;
+  #L186de0.  call temp:= `createDefaultColorStateList`(v6, v3) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.createDefaultColorStateList:(I)Landroid/content/res/ColorStateList;` @kind virtual;
+  #L186de6.  v3:= temp @kind object;
+  #L186de8.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemTextColorDefault` @type ^`android.content.res.ColorStateList` := v3 @kind object;
+  #L186dec.  v3:= new `androidx.transition.AutoTransition`;
+  #L186df0.  call `<init>`(v3) @signature `Landroidx/transition/AutoTransition;.<init>:()V` @kind direct;
+  #L186df6.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.set` @type ^`androidx.transition.TransitionSet` := v3 @kind object;
+  #L186dfa.  call temp:= `setOrdering`(v3, v0) @signature `Landroidx/transition/TransitionSet;.setOrdering:(I)Landroidx/transition/TransitionSet;` @kind virtual;
+  #L186e00.  v4:= 115L;
+  #L186e04.  call temp:= `setDuration`(v3, v4) @signature `Landroidx/transition/TransitionSet;.setDuration:(J)Landroidx/transition/TransitionSet;` @kind virtual;
+  #L186e0a.  v0:= new `androidx.interpolator.view.animation.FastOutSlowInInterpolator`;
+  #L186e0e.  call `<init>`(v0) @signature `Landroidx/interpolator/view/animation/FastOutSlowInInterpolator;.<init>:()V` @kind direct;
+  #L186e14.  call temp:= `setInterpolator`(v3, v0) @signature `Landroidx/transition/TransitionSet;.setInterpolator:(Landroid/animation/TimeInterpolator;)Landroidx/transition/TransitionSet;` @kind virtual;
+  #L186e1a.  v0:= new `com.google.android.material.internal.TextScale`;
+  #L186e1e.  call `<init>`(v0) @signature `Lcom/google/android/material/internal/TextScale;.<init>:()V` @kind direct;
+  #L186e24.  call temp:= `addTransition`(v3, v0) @signature `Landroidx/transition/TransitionSet;.addTransition:(Landroidx/transition/Transition;)Landroidx/transition/TransitionSet;` @kind virtual;
+  #L186e2a.  v0:= new `com.google.android.material.bottomnavigation.BottomNavigationMenuView$1`;
+  #L186e2e.  call `<init>`(v0, v6) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView$1;.<init>:(Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;)V` @kind direct;
+  #L186e34.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.onClickListener` @type ^`android.view.View$OnClickListener` := v0 @kind object;
+  #L186e38.  v0:= new `int`[v1];
+  #L186e3c.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.tempChildWidths` @type ^`int`[] := v0 @kind object;
+  #L186e40.  return @kind void;
+}
+procedure `com.google.android.material.bottomnavigation.BottomNavigationPresenter` `access$000`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.access$000:(Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;)Lcom/google/android/material/bottomnavigation/BottomNavigationPresenter;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L186c40.  v0:= v1.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.presenter` @type ^`com.google.android.material.bottomnavigation.BottomNavigationPresenter` @kind object;
+  #L186c44.  return v0 @kind object;
+}
+procedure `androidx.appcompat.view.menu.MenuBuilder` `access$100`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.access$100:(Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;)Landroidx/appcompat/view/menu/MenuBuilder;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L186ac8.  v0:= v1.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L186acc.  return v0 @kind object;
+}
+procedure `com.google.android.material.bottomnavigation.BottomNavigationItemView` `getNewItem`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v3 @kind this) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getNewItem:()Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L186c04.  v0:= v3.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemPool` @type ^`androidx.core.util.Pools$Pool` @kind object;
+  #L186c08.  call temp:= `acquire`(v0) @signature `Landroidx/core/util/Pools$Pool;.acquire:()Ljava/lang/Object;` @kind interface;
+  #L186c0e.  v0:= temp @kind object;
+  #L186c10.  v0:= (`com.google.android.material.bottomnavigation.BottomNavigationItemView`) v0 @kind object;
+  #L186c14.  if v0 != 0 then goto L186c2c;
+  #L186c18.  v1:= new `com.google.android.material.bottomnavigation.BottomNavigationItemView`;
+  #L186c1c.  call temp:= `getContext`(v3) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L186c22.  v2:= temp @kind object;
+  #L186c24.  call `<init>`(v1, v2) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L186c2a.  v0:= v1 @kind object;
+  #L186c2c.  return v0 @kind object;
+}
+procedure `boolean` `isShifting`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v3 @kind this, `int` v4 @name `labelVisibilityMode`, `int` v5 @name `childCount`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.isShifting:(II)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L186af8.  v0:= 1I;
+  #L186afa.  v1:= 0I;
+  #L186afc.  v2:= -1I;
+  #L186afe.  if v4 != v2 then goto L186b0a;
+  #L186b02.  v2:= 3I;
+  #L186b04.  if v5 <= v2 then goto L186b10;
+  #L186b08.  goto L186b0e;
+  #L186b0a.  if v4 != 0 then goto L186b10;
+  #L186b0e.  goto L186b12;
+  #L186b10.  v0:= v1;
+  #L186b12.  return v0;
+}
+procedure `boolean` `isValidId`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v1 @kind this, `int` v2 @name `viewId`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.isValidId:(I)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L186b24.  v0:= -1I;
+  #L186b26.  if v2 == v0 then goto L186b2e;
+  #L186b2a.  v0:= 1I;
+  #L186b2c.  goto L186b30;
+  #L186b2e.  v0:= 0I;
+  #L186b30.  return v0;
+}
+procedure `void` `removeUnusedBadges`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v4 @kind this) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.removeUnusedBadges:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L187384.  v0:= new `java.util.HashSet`;
+  #L187388.  call `<init>`(v0) @signature `Ljava/util/HashSet;.<init>:()V` @kind direct;
+  #L18738e.  v1:= 0I;
+  #L187390.  v2:= v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L187394.  call temp:= `size`(v2) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.size:()I` @kind virtual;
+  #L18739a.  v2:= temp;
+  #L18739c.  if v1 >= v2 then goto L1873c8;
+  #L1873a0.  v2:= v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L1873a4.  call temp:= `getItem`(v2, v1) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.getItem:(I)Landroid/view/MenuItem;` @kind virtual;
+  #L1873aa.  v2:= temp @kind object;
+  #L1873ac.  call temp:= `getItemId`(v2) @signature `Landroid/view/MenuItem;.getItemId:()I` @kind interface;
+  #L1873b2.  v2:= temp;
+  #L1873b4.  call temp:= `valueOf`(v2) @signature `Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer;` @kind static;
+  #L1873ba.  v2:= temp @kind object;
+  #L1873bc.  call temp:= `add`(v0, v2) @signature `Ljava/util/HashSet;.add:(Ljava/lang/Object;)Z` @kind virtual;
+  #L1873c2.  v1:= v1 + 1;
+  #L1873c6.  goto L187390;
+  #L1873c8.  v1:= 0I;
+  #L1873ca.  v2:= v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.badgeDrawables` @type ^`android.util.SparseArray` @kind object;
+  #L1873ce.  call temp:= `size`(v2) @signature `Landroid/util/SparseArray;.size:()I` @kind virtual;
+  #L1873d4.  v2:= temp;
+  #L1873d6.  if v1 >= v2 then goto L18740a;
+  #L1873da.  v2:= v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.badgeDrawables` @type ^`android.util.SparseArray` @kind object;
+  #L1873de.  call temp:= `keyAt`(v2, v1) @signature `Landroid/util/SparseArray;.keyAt:(I)I` @kind virtual;
+  #L1873e4.  v2:= temp;
+  #L1873e6.  call temp:= `valueOf`(v2) @signature `Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer;` @kind static;
+  #L1873ec.  v3:= temp @kind object;
+  #L1873ee.  call temp:= `contains`(v0, v3) @signature `Ljava/util/HashSet;.contains:(Ljava/lang/Object;)Z` @kind virtual;
+  #L1873f4.  v3:= temp;
+  #L1873f6.  if v3 != 0 then goto L187404;
+  #L1873fa.  v3:= v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.badgeDrawables` @type ^`android.util.SparseArray` @kind object;
+  #L1873fe.  call `delete`(v3, v2) @signature `Landroid/util/SparseArray;.delete:(I)V` @kind virtual;
+  #L187404.  v1:= v1 + 1;
+  #L187408.  goto L1873ca;
+  #L18740a.  return @kind void;
+}
+procedure `void` `setBadgeIfNeeded`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v2 @kind this, `com.google.android.material.bottomnavigation.BottomNavigationItemView` v3 @kind object @name `child`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.setBadgeIfNeeded:(Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L187468.  call temp:= `getId`(v3) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.getId:()I` @kind virtual;
+  #L18746e.  v0:= temp;
+  #L187470.  call temp:= `isValidId`(v2, v0) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.isValidId:(I)Z` @kind direct;
+  #L187476.  v1:= temp;
+  #L187478.  if v1 != 0 then goto L18747e;
+  #L18747c.  return @kind void;
+  #L18747e.  v1:= v2.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.badgeDrawables` @type ^`android.util.SparseArray` @kind object;
+  #L187482.  call temp:= `get`(v1, v0) @signature `Landroid/util/SparseArray;.get:(I)Ljava/lang/Object;` @kind virtual;
+  #L187488.  v1:= temp @kind object;
+  #L18748a.  v1:= (`com.google.android.material.badge.BadgeDrawable`) v1 @kind object;
+  #L18748e.  if v1 == 0 then goto L187498;
+  #L187492.  call `setBadge`(v3, v1) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setBadge:(Lcom/google/android/material/badge/BadgeDrawable;)V` @kind virtual;
+  #L187498.  return @kind void;
+}
+procedure `void` `validateMenuItemId`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v3 @kind this, `int` v4 @name `viewId`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.validateMenuItemId:(I)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1877f8.  call temp:= `isValidId`(v3, v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.isValidId:(I)Z` @kind direct;
+  #L1877fe.  v0:= temp;
+  #L187800.  if v0 == 0 then goto L187806;
+  #L187804.  return @kind void;
+  #L187806.  v0:= new `java.lang.IllegalArgumentException`;
+  #L18780a.  v1:= new `java.lang.StringBuilder`;
+  #L18780e.  call `<init>`(v1) @signature `Ljava/lang/StringBuilder;.<init>:()V` @kind direct;
+  #L187814.  call temp:= `append`(v1, v4) @signature `Ljava/lang/StringBuilder;.append:(I)Ljava/lang/StringBuilder;` @kind virtual;
+  #L18781a.  v1:= temp @kind object;
+  #L18781c.  v2:= " is not a valid view id" @kind object;
+  #L187820.  call temp:= `append`(v1, v2) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L187826.  v1:= temp @kind object;
+  #L187828.  call temp:= `toString`(v1) @signature `Ljava/lang/StringBuilder;.toString:()Ljava/lang/String;` @kind virtual;
+  #L18782e.  v1:= temp @kind object;
+  #L187830.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L187836.  throw v0;
+}
+procedure `void` `buildMenuView`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v6 @kind this) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.buildMenuView:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L186e54.  call `removeAllViews`(v6) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.removeAllViews:()V` @kind virtual;
+  #L186e5a.  v0:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] @kind object;
+  #L186e5e.  v1:= 0I;
+  #L186e60.  if v0 == 0 then goto L186e8a;
+  #L186e64.  v2:= length @variable v0;
+  #L186e66.  v3:= v1;
+  #L186e68.  if v3 >= v2 then goto L186e8a;
+  #L186e6c.  v4:= v0[v3] @kind object;
+  #L186e70.  if v4 == 0 then goto L186e84;
+  #L186e74.  v5:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemPool` @type ^`androidx.core.util.Pools$Pool` @kind object;
+  #L186e78.  call temp:= `release`(v5, v4) @signature `Landroidx/core/util/Pools$Pool;.release:(Ljava/lang/Object;)Z` @kind interface;
+  #L186e7e.  call `removeBadge`(v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.removeBadge:()V` @kind virtual;
+  #L186e84.  v3:= v3 + 1;
+  #L186e88.  goto L186e68;
+  #L186e8a.  v0:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L186e8e.  call temp:= `size`(v0) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.size:()I` @kind virtual;
+  #L186e94.  v0:= temp;
+  #L186e96.  if v0 != 0 then goto L186eaa;
+  #L186e9a.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemId` @type ^`int` := v1;
+  #L186e9e.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemPosition` @type ^`int` := v1;
+  #L186ea2.  v0:= 0I;
+  #L186ea4.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] := v0 @kind object;
+  #L186ea8.  return @kind void;
+  #L186eaa.  call `removeUnusedBadges`(v6) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.removeUnusedBadges:()V` @kind direct;
+  #L186eb0.  v0:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L186eb4.  call temp:= `size`(v0) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.size:()I` @kind virtual;
+  #L186eba.  v0:= temp;
+  #L186ebc.  v0:= new `com.google.android.material.bottomnavigation.BottomNavigationItemView`[v0];
+  #L186ec0.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] := v0 @kind object;
+  #L186ec4.  v0:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.labelVisibilityMode` @type ^`int`;
+  #L186ec8.  v2:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L186ecc.  call temp:= `getVisibleItems`(v2) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.getVisibleItems:()Ljava/util/ArrayList;` @kind virtual;
+  #L186ed2.  v2:= temp @kind object;
+  #L186ed4.  call temp:= `size`(v2) @signature `Ljava/util/ArrayList;.size:()I` @kind virtual;
+  #L186eda.  v2:= temp;
+  #L186edc.  call temp:= `isShifting`(v6, v0, v2) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.isShifting:(II)Z` @kind direct;
+  #L186ee2.  v0:= temp;
+  #L186ee4.  v2:= 0I;
+  #L186ee6.  v3:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L186eea.  call temp:= `size`(v3) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.size:()I` @kind virtual;
+  #L186ef0.  v3:= temp;
+  #L186ef2.  v4:= 1I;
+  #L186ef4.  if v2 >= v3 then goto L186ff6;
+  #L186ef8.  v3:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.presenter` @type ^`com.google.android.material.bottomnavigation.BottomNavigationPresenter` @kind object;
+  #L186efc.  call `setUpdateSuspended`(v3, v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationPresenter;.setUpdateSuspended:(Z)V` @kind virtual;
+  #L186f02.  v3:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L186f06.  call temp:= `getItem`(v3, v2) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.getItem:(I)Landroid/view/MenuItem;` @kind virtual;
+  #L186f0c.  v3:= temp @kind object;
+  #L186f0e.  call temp:= `setCheckable`(v3, v4) @signature `Landroid/view/MenuItem;.setCheckable:(Z)Landroid/view/MenuItem;` @kind interface;
+  #L186f14.  v3:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.presenter` @type ^`com.google.android.material.bottomnavigation.BottomNavigationPresenter` @kind object;
+  #L186f18.  call `setUpdateSuspended`(v3, v1) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationPresenter;.setUpdateSuspended:(Z)V` @kind virtual;
+  #L186f1e.  call temp:= `getNewItem`(v6) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getNewItem:()Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;` @kind direct;
+  #L186f24.  v3:= temp @kind object;
+  #L186f26.  v4:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] @kind object;
+  #L186f2a.  v4[v2]:= v3 @kind object;
+  #L186f2e.  v4:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemIconTint` @type ^`android.content.res.ColorStateList` @kind object;
+  #L186f32.  call `setIconTintList`(v3, v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setIconTintList:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L186f38.  v4:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemIconSize` @type ^`int`;
+  #L186f3c.  call `setIconSize`(v3, v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setIconSize:(I)V` @kind virtual;
+  #L186f42.  v4:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemTextColorDefault` @type ^`android.content.res.ColorStateList` @kind object;
+  #L186f46.  call `setTextColor`(v3, v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L186f4c.  v4:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemTextAppearanceInactive` @type ^`int`;
+  #L186f50.  call `setTextAppearanceInactive`(v3, v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setTextAppearanceInactive:(I)V` @kind virtual;
+  #L186f56.  v4:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemTextAppearanceActive` @type ^`int`;
+  #L186f5a.  call `setTextAppearanceActive`(v3, v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setTextAppearanceActive:(I)V` @kind virtual;
+  #L186f60.  v4:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemTextColorFromUser` @type ^`android.content.res.ColorStateList` @kind object;
+  #L186f64.  call `setTextColor`(v3, v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L186f6a.  v4:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemBackground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L186f6e.  if v4 == 0 then goto L186f7a;
+  #L186f72.  call `setItemBackground`(v3, v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setItemBackground:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L186f78.  goto L186f84;
+  #L186f7a.  v4:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemBackgroundRes` @type ^`int`;
+  #L186f7e.  call `setItemBackground`(v3, v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setItemBackground:(I)V` @kind virtual;
+  #L186f84.  call `setShifting`(v3, v0) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setShifting:(Z)V` @kind virtual;
+  #L186f8a.  v4:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.labelVisibilityMode` @type ^`int`;
+  #L186f8e.  call `setLabelVisibilityMode`(v3, v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setLabelVisibilityMode:(I)V` @kind virtual;
+  #L186f94.  v4:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L186f98.  call temp:= `getItem`(v4, v2) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.getItem:(I)Landroid/view/MenuItem;` @kind virtual;
+  #L186f9e.  v4:= temp @kind object;
+  #L186fa0.  v4:= (`androidx.appcompat.view.menu.MenuItemImpl`) v4 @kind object;
+  #L186fa4.  call `initialize`(v3, v4, v1) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.initialize:(Landroidx/appcompat/view/menu/MenuItemImpl;I)V` @kind virtual;
+  #L186faa.  call `setItemPosition`(v3, v2) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setItemPosition:(I)V` @kind virtual;
+  #L186fb0.  v4:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.onClickListener` @type ^`android.view.View$OnClickListener` @kind object;
+  #L186fb4.  call `setOnClickListener`(v3, v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setOnClickListener:(Landroid/view/View$OnClickListener;)V` @kind virtual;
+  #L186fba.  v4:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemId` @type ^`int`;
+  #L186fbe.  if v4 == 0 then goto L186fe2;
+  #L186fc2.  v4:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L186fc6.  call temp:= `getItem`(v4, v2) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.getItem:(I)Landroid/view/MenuItem;` @kind virtual;
+  #L186fcc.  v4:= temp @kind object;
+  #L186fce.  call temp:= `getItemId`(v4) @signature `Landroid/view/MenuItem;.getItemId:()I` @kind interface;
+  #L186fd4.  v4:= temp;
+  #L186fd6.  v5:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemId` @type ^`int`;
+  #L186fda.  if v4 != v5 then goto L186fe2;
+  #L186fde.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemPosition` @type ^`int` := v2;
+  #L186fe2.  call `setBadgeIfNeeded`(v6, v3) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.setBadgeIfNeeded:(Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;)V` @kind direct;
+  #L186fe8.  call `addView`(v6, v3) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.addView:(Landroid/view/View;)V` @kind virtual;
+  #L186fee.  v2:= v2 + 1;
+  #L186ff2.  goto L186ee6;
+  #L186ff6.  v1:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L186ffa.  call temp:= `size`(v1) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.size:()I` @kind virtual;
+  #L187000.  v1:= temp;
+  #L187002.  v1:= v1 - v4 @kind int;
+  #L187004.  v2:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemPosition` @type ^`int`;
+  #L187008.  call temp:= `min`(v1, v2) @signature `Ljava/lang/Math;.min:(II)I` @kind static;
+  #L18700e.  v1:= temp;
+  #L187010.  v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemPosition` @type ^`int` := v1;
+  #L187014.  v2:= v6.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L187018.  call temp:= `getItem`(v2, v1) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.getItem:(I)Landroid/view/MenuItem;` @kind virtual;
+  #L18701e.  v1:= temp @kind object;
+  #L187020.  call temp:= `setChecked`(v1, v4) @signature `Landroid/view/MenuItem;.setChecked:(Z)Landroid/view/MenuItem;` @kind interface;
+  #L187026.  return @kind void;
+}
+procedure `android.content.res.ColorStateList` `createDefaultColorStateList`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v12 @kind this, `int` v13 @name `baseColorThemeAttr`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.createDefaultColorStateList:(I)Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+
+  #L186988.  v0:= new `android.util.TypedValue`;
+  #L18698c.  call `<init>`(v0) @signature `Landroid/util/TypedValue;.<init>:()V` @kind direct;
+  #L186992.  call temp:= `getContext`(v12) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L186998.  v1:= temp @kind object;
+  #L18699a.  call temp:= `getTheme`(v1) @signature `Landroid/content/Context;.getTheme:()Landroid/content/res/Resources$Theme;` @kind virtual;
+  #L1869a0.  v1:= temp @kind object;
+  #L1869a2.  v2:= 1I;
+  #L1869a4.  call temp:= `resolveAttribute`(v1, v13, v0, v2) @signature `Landroid/content/res/Resources$Theme;.resolveAttribute:(ILandroid/util/TypedValue;Z)Z` @kind virtual;
+  #L1869aa.  v1:= temp;
+  #L1869ac.  v3:= 0I;
+  #L1869ae.  if v1 != 0 then goto L1869b4;
+  #L1869b2.  return v3 @kind object;
+  #L1869b4.  call temp:= `getContext`(v12) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1869ba.  v1:= temp @kind object;
+  #L1869bc.  v4:= v0.`android.util.TypedValue.resourceId` @type ^`int`;
+  #L1869c0.  call temp:= `getColorStateList`(v1, v4) @signature `Landroidx/appcompat/content/res/AppCompatResources;.getColorStateList:(Landroid/content/Context;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1869c6.  v1:= temp @kind object;
+  #L1869c8.  call temp:= `getContext`(v12) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1869ce.  v4:= temp @kind object;
+  #L1869d0.  call temp:= `getTheme`(v4) @signature `Landroid/content/Context;.getTheme:()Landroid/content/res/Resources$Theme;` @kind virtual;
+  #L1869d6.  v4:= temp @kind object;
+  #L1869d8.  v5:= `@@androidx.appcompat.R$attr.colorPrimary` @type ^`int`;
+  #L1869dc.  call temp:= `resolveAttribute`(v4, v5, v0, v2) @signature `Landroid/content/res/Resources$Theme;.resolveAttribute:(ILandroid/util/TypedValue;Z)Z` @kind virtual;
+  #L1869e2.  v4:= temp;
+  #L1869e4.  if v4 != 0 then goto L1869ea;
+  #L1869e8.  return v3 @kind object;
+  #L1869ea.  v3:= v0.`android.util.TypedValue.data` @type ^`int`;
+  #L1869ee.  call temp:= `getDefaultColor`(v1) @signature `Landroid/content/res/ColorStateList;.getDefaultColor:()I` @kind virtual;
+  #L1869f4.  v4:= temp;
+  #L1869f6.  v5:= new `android.content.res.ColorStateList`;
+  #L1869fa.  v6:= 3I;
+  #L1869fc.  v7:= new `int`[][v6];
+  #L186a00.  v8:= `@@com.google.android.material.bottomnavigation.BottomNavigationMenuView.DISABLED_STATE_SET` @type ^`int`[] @kind object;
+  #L186a04.  v9:= 0I;
+  #L186a06.  v7[v9]:= v8 @kind object;
+  #L186a0a.  v10:= `@@com.google.android.material.bottomnavigation.BottomNavigationMenuView.CHECKED_STATE_SET` @type ^`int`[] @kind object;
+  #L186a0e.  v7[v2]:= v10 @kind object;
+  #L186a12.  v10:= `@@com.google.android.material.bottomnavigation.BottomNavigationMenuView.EMPTY_STATE_SET` @type ^`int`[] @kind object;
+  #L186a16.  v11:= 2I;
+  #L186a18.  v7[v11]:= v10 @kind object;
+  #L186a1c.  v6:= new `int`[v6];
+  #L186a20.  call temp:= `getColorForState`(v1, v8, v4) @signature `Landroid/content/res/ColorStateList;.getColorForState:([II)I` @kind virtual;
+  #L186a26.  v8:= temp;
+  #L186a28.  v6[v9]:= v8;
+  #L186a2c.  v6[v2]:= v3;
+  #L186a30.  v6[v11]:= v4;
+  #L186a34.  call `<init>`(v5, v7, v6) @signature `Landroid/content/res/ColorStateList;.<init>:([[I[I)V` @kind direct;
+  #L186a3a.  return v5 @kind object;
+}
+procedure `com.google.android.material.bottomnavigation.BottomNavigationItemView` `findItemView`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v5 @kind this, `int` v6 @name `menuItemId`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.findItemView:(I)Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L186bc0.  call `validateMenuItemId`(v5, v6) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.validateMenuItemId:(I)V` @kind direct;
+  #L186bc6.  v0:= v5.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] @kind object;
+  #L186bca.  if v0 == 0 then goto L186bee;
+  #L186bce.  v1:= length @variable v0;
+  #L186bd0.  v2:= 0I;
+  #L186bd2.  if v2 >= v1 then goto L186bee;
+  #L186bd6.  v3:= v0[v2] @kind object;
+  #L186bda.  call temp:= `getId`(v3) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.getId:()I` @kind virtual;
+  #L186be0.  v4:= temp;
+  #L186be2.  if v4 != v6 then goto L186be8;
+  #L186be6.  return v3 @kind object;
+  #L186be8.  v2:= v2 + 1;
+  #L186bec.  goto L186bd2;
+  #L186bee.  v0:= 0I;
+  #L186bf0.  return v0 @kind object;
+}
+procedure `com.google.android.material.badge.BadgeDrawable` `getBadge`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v1 @kind this, `int` v2 @name `menuItemId`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getBadge:(I)Lcom/google/android/material/badge/BadgeDrawable;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L186b44.  v0:= v1.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.badgeDrawables` @type ^`android.util.SparseArray` @kind object;
+  #L186b48.  call temp:= `get`(v0, v2) @signature `Landroid/util/SparseArray;.get:(I)Ljava/lang/Object;` @kind virtual;
+  #L186b4e.  v0:= temp @kind object;
+  #L186b50.  v0:= (`com.google.android.material.badge.BadgeDrawable`) v0 @kind object;
+  #L186b54.  return v0 @kind object;
+}
+procedure `android.util.SparseArray` `getBadgeDrawables`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v1 @kind this) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getBadgeDrawables:()Landroid/util/SparseArray;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L186ab0.  v0:= v1.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.badgeDrawables` @type ^`android.util.SparseArray` @kind object;
+  #L186ab4.  return v0 @kind object;
+}
+procedure `android.content.res.ColorStateList` `getIconTintList`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v1 @kind this) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getIconTintList:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L186a4c.  v0:= v1.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemIconTint` @type ^`android.content.res.ColorStateList` @kind object;
+  #L186a50.  return v0 @kind object;
+}
+procedure `android.graphics.drawable.Drawable` `getItemBackground`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v2 @kind this) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getItemBackground:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L186a7c.  v0:= v2.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] @kind object;
+  #L186a80.  if v0 == 0 then goto L186a9a;
+  #L186a84.  v1:= length @variable v0;
+  #L186a86.  if v1 <= 0 then goto L186a9a;
+  #L186a8a.  v1:= 0I;
+  #L186a8c.  v0:= v0[v1] @kind object;
+  #L186a90.  call temp:= `getBackground`(v0) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.getBackground:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L186a96.  v0:= temp @kind object;
+  #L186a98.  return v0 @kind object;
+  #L186a9a.  v0:= v2.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemBackground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L186a9e.  return v0 @kind object;
+}
+procedure `int` `getItemBackgroundRes`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v1 @kind this) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getItemBackgroundRes:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L186c58.  v0:= v1.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemBackgroundRes` @type ^`int`;
+  #L186c5c.  return v0;
+}
+procedure `int` `getItemIconSize`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v1 @kind this) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getItemIconSize:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L186c70.  v0:= v1.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemIconSize` @type ^`int`;
+  #L186c74.  return v0;
+}
+procedure `int` `getItemTextAppearanceActive`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v1 @kind this) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getItemTextAppearanceActive:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L186c88.  v0:= v1.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemTextAppearanceActive` @type ^`int`;
+  #L186c8c.  return v0;
+}
+procedure `int` `getItemTextAppearanceInactive`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v1 @kind this) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getItemTextAppearanceInactive:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L186ca0.  v0:= v1.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemTextAppearanceInactive` @type ^`int`;
+  #L186ca4.  return v0;
+}
+procedure `android.content.res.ColorStateList` `getItemTextColor`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v1 @kind this) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getItemTextColor:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L186a64.  v0:= v1.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemTextColorFromUser` @type ^`android.content.res.ColorStateList` @kind object;
+  #L186a68.  return v0 @kind object;
+}
+procedure `int` `getLabelVisibilityMode`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v1 @kind this) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getLabelVisibilityMode:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L186cb8.  v0:= v1.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.labelVisibilityMode` @type ^`int`;
+  #L186cbc.  return v0;
+}
+procedure `com.google.android.material.badge.BadgeDrawable` `getOrCreateBadge`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v2 @kind this, `int` v3 @name `menuItemId`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getOrCreateBadge:(I)Lcom/google/android/material/badge/BadgeDrawable;` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L186b68.  call `validateMenuItemId`(v2, v3) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.validateMenuItemId:(I)V` @kind direct;
+  #L186b6e.  v0:= v2.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.badgeDrawables` @type ^`android.util.SparseArray` @kind object;
+  #L186b72.  call temp:= `get`(v0, v3) @signature `Landroid/util/SparseArray;.get:(I)Ljava/lang/Object;` @kind virtual;
+  #L186b78.  v0:= temp @kind object;
+  #L186b7a.  v0:= (`com.google.android.material.badge.BadgeDrawable`) v0 @kind object;
+  #L186b7e.  if v0 != 0 then goto L186b9c;
+  #L186b82.  call temp:= `getContext`(v2) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L186b88.  v1:= temp @kind object;
+  #L186b8a.  call temp:= `create`(v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.create:(Landroid/content/Context;)Lcom/google/android/material/badge/BadgeDrawable;` @kind static;
+  #L186b90.  v0:= temp @kind object;
+  #L186b92.  v1:= v2.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.badgeDrawables` @type ^`android.util.SparseArray` @kind object;
+  #L186b96.  call `put`(v1, v3, v0) @signature `Landroid/util/SparseArray;.put:(ILjava/lang/Object;)V` @kind virtual;
+  #L186b9c.  call temp:= `findItemView`(v2, v3) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.findItemView:(I)Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;` @kind virtual;
+  #L186ba2.  v1:= temp @kind object;
+  #L186ba4.  if v1 == 0 then goto L186bae;
+  #L186ba8.  call `setBadge`(v1, v0) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setBadge:(Lcom/google/android/material/badge/BadgeDrawable;)V` @kind virtual;
+  #L186bae.  return v0 @kind object;
+}
+procedure `int` `getSelectedItemId`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v1 @kind this) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getSelectedItemId:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L186cd0.  v0:= v1.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemId` @type ^`int`;
+  #L186cd4.  return v0;
+}
+procedure `int` `getWindowAnimations`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v1 @kind this) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getWindowAnimations:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L186ce8.  v0:= 0I;
+  #L186cea.  return v0;
+}
+procedure `void` `initialize`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v0 @kind this, `androidx.appcompat.view.menu.MenuBuilder` v1 @kind object @name `menu`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.initialize:(Landroidx/appcompat/view/menu/MenuBuilder;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L187038.  v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` := v1 @kind object;
+  #L18703c.  return @kind void;
+}
+procedure `boolean` `isItemHorizontalTranslationEnabled`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v1 @kind this) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.isItemHorizontalTranslationEnabled:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L186ae0.  v0:= v1.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemHorizontalTranslationEnabled` @type ^`boolean` @kind boolean;
+  #L186ae4.  return v0;
+}
+procedure `void` `onLayout`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v9 @kind this, `boolean` v10 @name `changed`, `int` v11 @name `left`, `int` v12 @name `top`, `int` v13 @name `right`, `int` v14 @name `bottom`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.onLayout:(ZIIII)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L187050.  call temp:= `getChildCount`(v9) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getChildCount:()I` @kind virtual;
+  #L187056.  v0:= temp;
+  #L187058.  v1:= v13 - v11 @kind int;
+  #L18705c.  v2:= v14 - v12 @kind int;
+  #L187060.  v3:= 0I;
+  #L187062.  v4:= 0I;
+  #L187064.  if v4 >= v0 then goto L1870cc;
+  #L187068.  call temp:= `getChildAt`(v9, v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L18706e.  v5:= temp @kind object;
+  #L187070.  call temp:= `getVisibility`(v5) @signature `Landroid/view/View;.getVisibility:()I` @kind virtual;
+  #L187076.  v6:= temp;
+  #L187078.  v7:= 8I;
+  #L18707c.  if v6 != v7 then goto L187082;
+  #L187080.  goto L1870c6;
+  #L187082.  call temp:= `getLayoutDirection`(v9) @signature `Landroidx/core/view/ViewCompat;.getLayoutDirection:(Landroid/view/View;)I` @kind static;
+  #L187088.  v6:= temp;
+  #L18708a.  v7:= 0I;
+  #L18708c.  v8:= 1I;
+  #L18708e.  if v6 != v8 then goto L1870ac;
+  #L187092.  v6:= v1 - v3 @kind int;
+  #L187096.  call temp:= `getMeasuredWidth`(v5) @signature `Landroid/view/View;.getMeasuredWidth:()I` @kind virtual;
+  #L18709c.  v8:= temp;
+  #L18709e.  v6:= v6 - v8 @kind int;
+  #L1870a0.  v8:= v1 - v3 @kind int;
+  #L1870a4.  call `layout`(v5, v6, v7, v8, v2) @signature `Landroid/view/View;.layout:(IIII)V` @kind virtual;
+  #L1870aa.  goto L1870bc;
+  #L1870ac.  call temp:= `getMeasuredWidth`(v5) @signature `Landroid/view/View;.getMeasuredWidth:()I` @kind virtual;
+  #L1870b2.  v6:= temp;
+  #L1870b4.  v6:= v6 + v3 @kind int;
+  #L1870b6.  call `layout`(v5, v3, v7, v6, v2) @signature `Landroid/view/View;.layout:(IIII)V` @kind virtual;
+  #L1870bc.  call temp:= `getMeasuredWidth`(v5) @signature `Landroid/view/View;.getMeasuredWidth:()I` @kind virtual;
+  #L1870c2.  v6:= temp;
+  #L1870c4.  v3:= v3 + v6 @kind int;
+  #L1870c6.  v4:= v4 + 1;
+  #L1870ca.  goto L187064;
+  #L1870cc.  return @kind void;
+}
+procedure `void` `onMeasure`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v19 @kind this, `int` v20 @name `widthMeasureSpec`, `int` v21 @name `heightMeasureSpec`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.onMeasure:(II)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+    v12;
+    v13;
+    v14;
+    v15;
+    v16;
+    v17;
+    v18;
+
+  #L1870e0.  v0:= v19 @kind object;
+  #L1870e4.  call temp:= `getSize`(v20) @signature `Landroid/view/View$MeasureSpec;.getSize:(I)I` @kind static;
+  #L1870ea.  v1:= temp;
+  #L1870ec.  v2:= v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L1870f0.  call temp:= `getVisibleItems`(v2) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.getVisibleItems:()Ljava/util/ArrayList;` @kind virtual;
+  #L1870f6.  v2:= temp @kind object;
+  #L1870f8.  call temp:= `size`(v2) @signature `Ljava/util/ArrayList;.size:()I` @kind virtual;
+  #L1870fe.  v2:= temp;
+  #L187100.  call temp:= `getChildCount`(v19) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getChildCount:()I` @kind virtual;
+  #L187106.  v3:= temp;
+  #L187108.  v4:= v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemHeight` @type ^`int`;
+  #L18710c.  v5:= 2.0F;
+  #L187110.  call temp:= `makeMeasureSpec`(v4, v5) @signature `Landroid/view/View$MeasureSpec;.makeMeasureSpec:(II)I` @kind static;
+  #L187116.  v4:= temp;
+  #L187118.  v6:= v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.labelVisibilityMode` @type ^`int`;
+  #L18711c.  call temp:= `isShifting`(v0, v6, v2) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.isShifting:(II)Z` @kind direct;
+  #L187122.  v6:= temp;
+  #L187124.  v8:= 8I;
+  #L187128.  v9:= 1I;
+  #L18712a.  if v6 == 0 then goto L187234;
+  #L18712e.  v6:= v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemHorizontalTranslationEnabled` @type ^`boolean` @kind boolean;
+  #L187132.  if v6 == 0 then goto L187234;
+  #L187136.  v6:= v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemPosition` @type ^`int`;
+  #L18713a.  call temp:= `getChildAt`(v0, v6) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L187140.  v6:= temp @kind object;
+  #L187142.  v10:= v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.activeItemMinWidth` @type ^`int`;
+  #L187146.  call temp:= `getVisibility`(v6) @signature `Landroid/view/View;.getVisibility:()I` @kind virtual;
+  #L18714c.  v11:= temp;
+  #L18714e.  if v11 == v8 then goto L187178;
+  #L187152.  v11:= v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.activeItemMaxWidth` @type ^`int`;
+  #L187156.  v12:= -2147483648I;
+  #L18715a.  call temp:= `makeMeasureSpec`(v11, v12) @signature `Landroid/view/View$MeasureSpec;.makeMeasureSpec:(II)I` @kind static;
+  #L187160.  v11:= temp;
+  #L187162.  call `measure`(v6, v11, v4) @signature `Landroid/view/View;.measure:(II)V` @kind virtual;
+  #L187168.  call temp:= `getMeasuredWidth`(v6) @signature `Landroid/view/View;.getMeasuredWidth:()I` @kind virtual;
+  #L18716e.  v11:= temp;
+  #L187170.  call temp:= `max`(v10, v11) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L187176.  v10:= temp;
+  #L187178.  call temp:= `getVisibility`(v6) @signature `Landroid/view/View;.getVisibility:()I` @kind virtual;
+  #L18717e.  v11:= temp;
+  #L187180.  if v11 == v8 then goto L187188;
+  #L187184.  v11:= v9;
+  #L187186.  goto L18718a;
+  #L187188.  v11:= 0I;
+  #L18718a.  v11:= v2 - v11 @kind int;
+  #L18718e.  v12:= v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.inactiveItemMinWidth` @type ^`int`;
+  #L187192.  v12:= v12 * v11 @kind int;
+  #L187194.  v12:= v1 - v12 @kind int;
+  #L187198.  v13:= v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.activeItemMaxWidth` @type ^`int`;
+  #L18719c.  call temp:= `min`(v10, v13) @signature `Ljava/lang/Math;.min:(II)I` @kind static;
+  #L1871a2.  v13:= temp;
+  #L1871a4.  call temp:= `min`(v12, v13) @signature `Ljava/lang/Math;.min:(II)I` @kind static;
+  #L1871aa.  v13:= temp;
+  #L1871ac.  v14:= v1 - v13 @kind int;
+  #L1871b0.  if v11 != 0 then goto L1871b8;
+  #L1871b4.  v15:= v9;
+  #L1871b6.  goto L1871ba;
+  #L1871b8.  v15:= v11;
+  #L1871ba.  v14:= v14 / v15 @kind int;
+  #L1871bc.  v15:= v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.inactiveItemMaxWidth` @type ^`int`;
+  #L1871c0.  call temp:= `min`(v14, v15) @signature `Ljava/lang/Math;.min:(II)I` @kind static;
+  #L1871c6.  v15:= temp;
+  #L1871c8.  v16:= v1 - v13 @kind int;
+  #L1871cc.  v17:= v15 * v11 @kind int;
+  #L1871d0.  v16:= v16 - v17 @kind int;
+  #L1871d4.  v17:= 0I;
+  #L1871d8.  v5:= v17;
+  #L1871dc.  if v5 >= v3 then goto L187232;
+  #L1871e0.  call temp:= `getChildAt`(v0, v5) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1871e6.  v18:= temp @kind object;
+  #L1871e8.  call temp:= `getVisibility`(v18) @signature `Landroid/view/View;.getVisibility:()I` @kind virtual;
+  #L1871ee.  v7:= temp;
+  #L1871f0.  if v7 == v8 then goto L18721e;
+  #L1871f4.  v7:= v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.tempChildWidths` @type ^`int`[] @kind object;
+  #L1871f8.  v8:= v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemPosition` @type ^`int`;
+  #L1871fc.  if v5 != v8 then goto L187204;
+  #L187200.  v8:= v13;
+  #L187202.  goto L187206;
+  #L187204.  v8:= v15;
+  #L187206.  v7[v5]:= v8;
+  #L18720a.  if v16 <= 0 then goto L187228;
+  #L18720e.  v8:= v7[v5];
+  #L187212.  v8:= v8 + v9 @kind int;
+  #L187214.  v7[v5]:= v8;
+  #L187218.  v16:= v16 + -1;
+  #L18721c.  goto L187228;
+  #L18721e.  v7:= v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.tempChildWidths` @type ^`int`[] @kind object;
+  #L187222.  v8:= 0I;
+  #L187224.  v7[v5]:= v8;
+  #L187228.  v5:= v5 + 1;
+  #L18722c.  v8:= 8I;
+  #L187230.  goto L1871dc;
+  #L187232.  goto L1872a0;
+  #L187234.  if v2 != 0 then goto L18723c;
+  #L187238.  v5:= v9;
+  #L18723a.  goto L18723e;
+  #L18723c.  v5:= v2;
+  #L18723e.  v5:= v1 / v5 @kind int;
+  #L187242.  v6:= v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.activeItemMaxWidth` @type ^`int`;
+  #L187246.  call temp:= `min`(v5, v6) @signature `Ljava/lang/Math;.min:(II)I` @kind static;
+  #L18724c.  v6:= temp;
+  #L18724e.  v7:= v6 * v2 @kind int;
+  #L187252.  v7:= v1 - v7 @kind int;
+  #L187256.  v8:= 0I;
+  #L187258.  if v8 >= v3 then goto L1872a0;
+  #L18725c.  call temp:= `getChildAt`(v0, v8) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L187262.  v10:= temp @kind object;
+  #L187264.  call temp:= `getVisibility`(v10) @signature `Landroid/view/View;.getVisibility:()I` @kind virtual;
+  #L18726a.  v10:= temp;
+  #L18726c.  v11:= 8I;
+  #L187270.  if v10 == v11 then goto L187290;
+  #L187274.  v10:= v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.tempChildWidths` @type ^`int`[] @kind object;
+  #L187278.  v10[v8]:= v6;
+  #L18727c.  if v7 <= 0 then goto L18729a;
+  #L187280.  v11:= v10[v8];
+  #L187284.  v11:= v11 + v9 @kind int;
+  #L187286.  v10[v8]:= v11;
+  #L18728a.  v7:= v7 + -1;
+  #L18728e.  goto L18729a;
+  #L187290.  v10:= v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.tempChildWidths` @type ^`int`[] @kind object;
+  #L187294.  v11:= 0I;
+  #L187296.  v10[v8]:= v11;
+  #L18729a.  v8:= v8 + 1;
+  #L18729e.  goto L187258;
+  #L1872a0.  v5:= 0I;
+  #L1872a2.  v6:= 0I;
+  #L1872a4.  if v6 >= v3 then goto L187300;
+  #L1872a8.  call temp:= `getChildAt`(v0, v6) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1872ae.  v7:= temp @kind object;
+  #L1872b0.  call temp:= `getVisibility`(v7) @signature `Landroid/view/View;.getVisibility:()I` @kind virtual;
+  #L1872b6.  v8:= temp;
+  #L1872b8.  v9:= 8I;
+  #L1872bc.  if v8 != v9 then goto L1872c2;
+  #L1872c0.  goto L1872fa;
+  #L1872c2.  v8:= v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.tempChildWidths` @type ^`int`[] @kind object;
+  #L1872c6.  v8:= v8[v6];
+  #L1872ca.  v10:= 2.0F;
+  #L1872ce.  call temp:= `makeMeasureSpec`(v8, v10) @signature `Landroid/view/View$MeasureSpec;.makeMeasureSpec:(II)I` @kind static;
+  #L1872d4.  v8:= temp;
+  #L1872d6.  call `measure`(v7, v8, v4) @signature `Landroid/view/View;.measure:(II)V` @kind virtual;
+  #L1872dc.  call temp:= `getLayoutParams`(v7) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L1872e2.  v8:= temp @kind object;
+  #L1872e4.  call temp:= `getMeasuredWidth`(v7) @signature `Landroid/view/View;.getMeasuredWidth:()I` @kind virtual;
+  #L1872ea.  v10:= temp;
+  #L1872ec.  v8.`android.view.ViewGroup$LayoutParams.width` @type ^`int` := v10;
+  #L1872f0.  call temp:= `getMeasuredWidth`(v7) @signature `Landroid/view/View;.getMeasuredWidth:()I` @kind virtual;
+  #L1872f6.  v10:= temp;
+  #L1872f8.  v5:= v5 + v10 @kind int;
+  #L1872fa.  v6:= v6 + 1;
+  #L1872fe.  goto L1872a4;
+  #L187300.  
+  #L187302.  v6:= 2.0F;
+  #L187306.  call temp:= `makeMeasureSpec`(v5, v6) @signature `Landroid/view/View$MeasureSpec;.makeMeasureSpec:(II)I` @kind static;
+  #L18730c.  v6:= temp;
+  #L18730e.  v7:= 0I;
+  #L187310.  call temp:= `resolveSizeAndState`(v5, v6, v7) @signature `Landroid/view/View;.resolveSizeAndState:(III)I` @kind static;
+  #L187316.  v6:= temp;
+  #L187318.  v8:= v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemHeight` @type ^`int`;
+  #L18731c.  call temp:= `resolveSizeAndState`(v8, v4, v7) @signature `Landroid/view/View;.resolveSizeAndState:(III)I` @kind static;
+  #L187322.  v7:= temp;
+  #L187324.  call `setMeasuredDimension`(v0, v6, v7) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.setMeasuredDimension:(II)V` @kind virtual;
+  #L18732a.  return @kind void;
+}
+procedure `void` `removeBadge`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v3 @kind this, `int` v4 @name `menuItemId`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.removeBadge:(I)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18733c.  call `validateMenuItemId`(v3, v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.validateMenuItemId:(I)V` @kind direct;
+  #L187342.  v0:= v3.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.badgeDrawables` @type ^`android.util.SparseArray` @kind object;
+  #L187346.  call temp:= `get`(v0, v4) @signature `Landroid/util/SparseArray;.get:(I)Ljava/lang/Object;` @kind virtual;
+  #L18734c.  v0:= temp @kind object;
+  #L18734e.  v0:= (`com.google.android.material.badge.BadgeDrawable`) v0 @kind object;
+  #L187352.  call temp:= `findItemView`(v3, v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.findItemView:(I)Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;` @kind virtual;
+  #L187358.  v1:= temp @kind object;
+  #L18735a.  if v1 == 0 then goto L187364;
+  #L18735e.  call `removeBadge`(v1) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.removeBadge:()V` @kind virtual;
+  #L187364.  if v0 == 0 then goto L187372;
+  #L187368.  v2:= v3.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.badgeDrawables` @type ^`android.util.SparseArray` @kind object;
+  #L18736c.  call `remove`(v2, v4) @signature `Landroid/util/SparseArray;.remove:(I)V` @kind virtual;
+  #L187372.  return @kind void;
+}
+procedure `void` `setBadgeDrawables`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v5 @kind this, `android.util.SparseArray` v6 @kind object) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.setBadgeDrawables:(Landroid/util/SparseArray;)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L18741c.  v5.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.badgeDrawables` @type ^`android.util.SparseArray` := v6 @kind object;
+  #L187420.  v0:= v5.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] @kind object;
+  #L187424.  if v0 == 0 then goto L187454;
+  #L187428.  v1:= length @variable v0;
+  #L18742a.  v2:= 0I;
+  #L18742c.  if v2 >= v1 then goto L187454;
+  #L187430.  v3:= v0[v2] @kind object;
+  #L187434.  call temp:= `getId`(v3) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.getId:()I` @kind virtual;
+  #L18743a.  v4:= temp;
+  #L18743c.  call temp:= `get`(v6, v4) @signature `Landroid/util/SparseArray;.get:(I)Ljava/lang/Object;` @kind virtual;
+  #L187442.  v4:= temp @kind object;
+  #L187444.  v4:= (`com.google.android.material.badge.BadgeDrawable`) v4 @kind object;
+  #L187448.  call `setBadge`(v3, v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setBadge:(Lcom/google/android/material/badge/BadgeDrawable;)V` @kind virtual;
+  #L18744e.  v2:= v2 + 1;
+  #L187452.  goto L18742c;
+  #L187454.  return @kind void;
+}
+procedure `void` `setIconTintList`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v4 @kind this, `android.content.res.ColorStateList` v5 @kind object @name `tint`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.setIconTintList:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1874ac.  v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemIconTint` @type ^`android.content.res.ColorStateList` := v5 @kind object;
+  #L1874b0.  v0:= v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] @kind object;
+  #L1874b4.  if v0 == 0 then goto L1874d0;
+  #L1874b8.  v1:= length @variable v0;
+  #L1874ba.  v2:= 0I;
+  #L1874bc.  if v2 >= v1 then goto L1874d0;
+  #L1874c0.  v3:= v0[v2] @kind object;
+  #L1874c4.  call `setIconTintList`(v3, v5) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setIconTintList:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1874ca.  v2:= v2 + 1;
+  #L1874ce.  goto L1874bc;
+  #L1874d0.  return @kind void;
+}
+procedure `void` `setItemBackground`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v4 @kind this, `android.graphics.drawable.Drawable` v5 @kind object @name `background`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.setItemBackground:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1874e4.  v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemBackground` @type ^`android.graphics.drawable.Drawable` := v5 @kind object;
+  #L1874e8.  v0:= v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] @kind object;
+  #L1874ec.  if v0 == 0 then goto L187508;
+  #L1874f0.  v1:= length @variable v0;
+  #L1874f2.  v2:= 0I;
+  #L1874f4.  if v2 >= v1 then goto L187508;
+  #L1874f8.  v3:= v0[v2] @kind object;
+  #L1874fc.  call `setItemBackground`(v3, v5) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setItemBackground:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L187502.  v2:= v2 + 1;
+  #L187506.  goto L1874f4;
+  #L187508.  return @kind void;
+}
+procedure `void` `setItemBackgroundRes`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v4 @kind this, `int` v5 @name `background`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.setItemBackgroundRes:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18751c.  v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemBackgroundRes` @type ^`int` := v5;
+  #L187520.  v0:= v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] @kind object;
+  #L187524.  if v0 == 0 then goto L187540;
+  #L187528.  v1:= length @variable v0;
+  #L18752a.  v2:= 0I;
+  #L18752c.  if v2 >= v1 then goto L187540;
+  #L187530.  v3:= v0[v2] @kind object;
+  #L187534.  call `setItemBackground`(v3, v5) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setItemBackground:(I)V` @kind virtual;
+  #L18753a.  v2:= v2 + 1;
+  #L18753e.  goto L18752c;
+  #L187540.  return @kind void;
+}
+procedure `void` `setItemHorizontalTranslationEnabled`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v0 @kind this, `boolean` v1 @name `itemHorizontalTranslationEnabled`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.setItemHorizontalTranslationEnabled:(Z)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L187554.  v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemHorizontalTranslationEnabled` @type ^`boolean` := v1 @kind boolean;
+  #L187558.  return @kind void;
+}
+procedure `void` `setItemIconSize`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v4 @kind this, `int` v5 @name `iconSize`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.setItemIconSize:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18756c.  v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemIconSize` @type ^`int` := v5;
+  #L187570.  v0:= v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] @kind object;
+  #L187574.  if v0 == 0 then goto L187590;
+  #L187578.  v1:= length @variable v0;
+  #L18757a.  v2:= 0I;
+  #L18757c.  if v2 >= v1 then goto L187590;
+  #L187580.  v3:= v0[v2] @kind object;
+  #L187584.  call `setIconSize`(v3, v5) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setIconSize:(I)V` @kind virtual;
+  #L18758a.  v2:= v2 + 1;
+  #L18758e.  goto L18757c;
+  #L187590.  return @kind void;
+}
+procedure `void` `setItemTextAppearanceActive`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v5 @kind this, `int` v6 @name `textAppearanceRes`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.setItemTextAppearanceActive:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1875a4.  v5.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemTextAppearanceActive` @type ^`int` := v6;
+  #L1875a8.  v0:= v5.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] @kind object;
+  #L1875ac.  if v0 == 0 then goto L1875d6;
+  #L1875b0.  v1:= length @variable v0;
+  #L1875b2.  v2:= 0I;
+  #L1875b4.  if v2 >= v1 then goto L1875d6;
+  #L1875b8.  v3:= v0[v2] @kind object;
+  #L1875bc.  call `setTextAppearanceActive`(v3, v6) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setTextAppearanceActive:(I)V` @kind virtual;
+  #L1875c2.  v4:= v5.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemTextColorFromUser` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1875c6.  if v4 == 0 then goto L1875d0;
+  #L1875ca.  call `setTextColor`(v3, v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1875d0.  v2:= v2 + 1;
+  #L1875d4.  goto L1875b4;
+  #L1875d6.  return @kind void;
+}
+procedure `void` `setItemTextAppearanceInactive`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v5 @kind this, `int` v6 @name `textAppearanceRes`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.setItemTextAppearanceInactive:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1875e8.  v5.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemTextAppearanceInactive` @type ^`int` := v6;
+  #L1875ec.  v0:= v5.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] @kind object;
+  #L1875f0.  if v0 == 0 then goto L18761a;
+  #L1875f4.  v1:= length @variable v0;
+  #L1875f6.  v2:= 0I;
+  #L1875f8.  if v2 >= v1 then goto L18761a;
+  #L1875fc.  v3:= v0[v2] @kind object;
+  #L187600.  call `setTextAppearanceInactive`(v3, v6) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setTextAppearanceInactive:(I)V` @kind virtual;
+  #L187606.  v4:= v5.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemTextColorFromUser` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18760a.  if v4 == 0 then goto L187614;
+  #L18760e.  call `setTextColor`(v3, v4) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L187614.  v2:= v2 + 1;
+  #L187618.  goto L1875f8;
+  #L18761a.  return @kind void;
+}
+procedure `void` `setItemTextColor`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v4 @kind this, `android.content.res.ColorStateList` v5 @kind object @name `color`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.setItemTextColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18762c.  v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.itemTextColorFromUser` @type ^`android.content.res.ColorStateList` := v5 @kind object;
+  #L187630.  v0:= v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] @kind object;
+  #L187634.  if v0 == 0 then goto L187650;
+  #L187638.  v1:= length @variable v0;
+  #L18763a.  v2:= 0I;
+  #L18763c.  if v2 >= v1 then goto L187650;
+  #L187640.  v3:= v0[v2] @kind object;
+  #L187644.  call `setTextColor`(v3, v5) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L18764a.  v2:= v2 + 1;
+  #L18764e.  goto L18763c;
+  #L187650.  return @kind void;
+}
+procedure `void` `setLabelVisibilityMode`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v0 @kind this, `int` v1 @name `labelVisibilityMode`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.setLabelVisibilityMode:(I)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L187664.  v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.labelVisibilityMode` @type ^`int` := v1;
+  #L187668.  return @kind void;
+}
+procedure `void` `setPresenter`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v0 @kind this, `com.google.android.material.bottomnavigation.BottomNavigationPresenter` v1 @kind object @name `presenter`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.setPresenter:(Lcom/google/android/material/bottomnavigation/BottomNavigationPresenter;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L18767c.  v0.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.presenter` @type ^`com.google.android.material.bottomnavigation.BottomNavigationPresenter` := v1 @kind object;
+  #L187680.  return @kind void;
+}
+procedure `void` `tryRestoreSelectedItemId`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v4 @kind this, `int` v5 @name `itemId`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.tryRestoreSelectedItemId:(I)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L187694.  v0:= v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L187698.  call temp:= `size`(v0) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.size:()I` @kind virtual;
+  #L18769e.  v0:= temp;
+  #L1876a0.  v1:= 0I;
+  #L1876a2.  if v1 >= v0 then goto L1876d6;
+  #L1876a6.  v2:= v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L1876aa.  call temp:= `getItem`(v2, v1) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.getItem:(I)Landroid/view/MenuItem;` @kind virtual;
+  #L1876b0.  v2:= temp @kind object;
+  #L1876b2.  call temp:= `getItemId`(v2) @signature `Landroid/view/MenuItem;.getItemId:()I` @kind interface;
+  #L1876b8.  v3:= temp;
+  #L1876ba.  if v5 != v3 then goto L1876d0;
+  #L1876be.  v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemId` @type ^`int` := v5;
+  #L1876c2.  v4.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemPosition` @type ^`int` := v1;
+  #L1876c6.  v3:= 1I;
+  #L1876c8.  call temp:= `setChecked`(v2, v3) @signature `Landroid/view/MenuItem;.setChecked:(Z)Landroid/view/MenuItem;` @kind interface;
+  #L1876ce.  goto L1876d6;
+  #L1876d0.  v1:= v1 + 1;
+  #L1876d4.  goto L1876a2;
+  #L1876d6.  return @kind void;
+}
+procedure `void` `updateMenuView`(`com.google.android.material.bottomnavigation.BottomNavigationMenuView` v7 @kind this) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.updateMenuView:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L1876e8.  v0:= v7.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L1876ec.  if v0 == 0 then goto L1877e4;
+  #L1876f0.  v1:= v7.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] @kind object;
+  #L1876f4.  if v1 != 0 then goto L1876fc;
+  #L1876f8.  goto L1877e4;
+  #L1876fc.  call temp:= `size`(v0) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.size:()I` @kind virtual;
+  #L187702.  v0:= temp;
+  #L187704.  v1:= v7.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] @kind object;
+  #L187708.  v1:= length @variable v1;
+  #L18770a.  if v0 == v1 then goto L187716;
+  #L18770e.  call `buildMenuView`(v7) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.buildMenuView:()V` @kind virtual;
+  #L187714.  return @kind void;
+  #L187716.  v1:= v7.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemId` @type ^`int`;
+  #L18771a.  v2:= 0I;
+  #L18771c.  if v2 >= v0 then goto L18774e;
+  #L187720.  v3:= v7.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L187724.  call temp:= `getItem`(v3, v2) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.getItem:(I)Landroid/view/MenuItem;` @kind virtual;
+  #L18772a.  v3:= temp @kind object;
+  #L18772c.  call temp:= `isChecked`(v3) @signature `Landroid/view/MenuItem;.isChecked:()Z` @kind interface;
+  #L187732.  v4:= temp;
+  #L187734.  if v4 == 0 then goto L187748;
+  #L187738.  call temp:= `getItemId`(v3) @signature `Landroid/view/MenuItem;.getItemId:()I` @kind interface;
+  #L18773e.  v4:= temp;
+  #L187740.  v7.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemId` @type ^`int` := v4;
+  #L187744.  v7.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemPosition` @type ^`int` := v2;
+  #L187748.  v2:= v2 + 1;
+  #L18774c.  goto L18771c;
+  #L18774e.  v2:= v7.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.selectedItemId` @type ^`int`;
+  #L187752.  if v1 == v2 then goto L187760;
+  #L187756.  v2:= v7.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.set` @type ^`androidx.transition.TransitionSet` @kind object;
+  #L18775a.  call `beginDelayedTransition`(v7, v2) @signature `Landroidx/transition/TransitionManager;.beginDelayedTransition:(Landroid/view/ViewGroup;Landroidx/transition/Transition;)V` @kind static;
+  #L187760.  v2:= v7.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.labelVisibilityMode` @type ^`int`;
+  #L187764.  v3:= v7.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L187768.  call temp:= `getVisibleItems`(v3) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.getVisibleItems:()Ljava/util/ArrayList;` @kind virtual;
+  #L18776e.  v3:= temp @kind object;
+  #L187770.  call temp:= `size`(v3) @signature `Ljava/util/ArrayList;.size:()I` @kind virtual;
+  #L187776.  v3:= temp;
+  #L187778.  call temp:= `isShifting`(v7, v2, v3) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationMenuView;.isShifting:(II)Z` @kind direct;
+  #L18777e.  v2:= temp;
+  #L187780.  v3:= 0I;
+  #L187782.  if v3 >= v0 then goto L1877e2;
+  #L187786.  v4:= v7.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.presenter` @type ^`com.google.android.material.bottomnavigation.BottomNavigationPresenter` @kind object;
+  #L18778a.  v5:= 1I;
+  #L18778c.  call `setUpdateSuspended`(v4, v5) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationPresenter;.setUpdateSuspended:(Z)V` @kind virtual;
+  #L187792.  v4:= v7.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] @kind object;
+  #L187796.  v4:= v4[v3] @kind object;
+  #L18779a.  v5:= v7.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.labelVisibilityMode` @type ^`int`;
+  #L18779e.  call `setLabelVisibilityMode`(v4, v5) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setLabelVisibilityMode:(I)V` @kind virtual;
+  #L1877a4.  v4:= v7.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] @kind object;
+  #L1877a8.  v4:= v4[v3] @kind object;
+  #L1877ac.  call `setShifting`(v4, v2) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.setShifting:(Z)V` @kind virtual;
+  #L1877b2.  v4:= v7.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.buttons` @type ^`com.google.android.material.bottomnavigation.BottomNavigationItemView`[] @kind object;
+  #L1877b6.  v4:= v4[v3] @kind object;
+  #L1877ba.  v5:= v7.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L1877be.  call temp:= `getItem`(v5, v3) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.getItem:(I)Landroid/view/MenuItem;` @kind virtual;
+  #L1877c4.  v5:= temp @kind object;
+  #L1877c6.  v5:= (`androidx.appcompat.view.menu.MenuItemImpl`) v5 @kind object;
+  #L1877ca.  v6:= 0I;
+  #L1877cc.  call `initialize`(v4, v5, v6) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationItemView;.initialize:(Landroidx/appcompat/view/menu/MenuItemImpl;I)V` @kind virtual;
+  #L1877d2.  v4:= v7.`com.google.android.material.bottomnavigation.BottomNavigationMenuView.presenter` @type ^`com.google.android.material.bottomnavigation.BottomNavigationPresenter` @kind object;
+  #L1877d6.  call `setUpdateSuspended`(v4, v6) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationPresenter;.setUpdateSuspended:(Z)V` @kind virtual;
+  #L1877dc.  v3:= v3 + 1;
+  #L1877e0.  goto L187782;
+  #L1877e2.  return @kind void;
+  #L1877e4.  return @kind void;
+}

@@ -1,0 +1,109 @@
+record `com.google.android.material.theme.MaterialComponentsViewInflater` @kind class @AccessFlag PUBLIC extends `androidx.appcompat.app.AppCompatViewInflater` @kind class {
+}
+global `int` `@@com.google.android.material.theme.MaterialComponentsViewInflater.floatingToolbarItemBackgroundResId` @AccessFlag PRIVATE_STATIC;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/theme/MaterialComponentsViewInflater;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1bc390.  v0:= -1I;
+  #L1bc392.  `@@com.google.android.material.theme.MaterialComponentsViewInflater.floatingToolbarItemBackgroundResId` @type ^`int` := v0;
+  #L1bc396.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.theme.MaterialComponentsViewInflater` v0 @kind this) @signature `Lcom/google/android/material/theme/MaterialComponentsViewInflater;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1bc3a8.  call `<init>`(v0) @signature `Landroidx/appcompat/app/AppCompatViewInflater;.<init>:()V` @kind direct;
+  #L1bc3ae.  return @kind void;
+}
+procedure `androidx.appcompat.widget.AppCompatButton` `createButton`(`com.google.android.material.theme.MaterialComponentsViewInflater` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/theme/MaterialComponentsViewInflater;.createButton:(Landroid/content/Context;Landroid/util/AttributeSet;)Landroidx/appcompat/widget/AppCompatButton;` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L1bc258.  call temp:= `shouldInflateAppCompatButton`(v1, v2, v3) @signature `Lcom/google/android/material/theme/MaterialComponentsViewInflater;.shouldInflateAppCompatButton:(Landroid/content/Context;Landroid/util/AttributeSet;)Z` @kind virtual;
+  #L1bc25e.  v0:= temp;
+  #L1bc260.  if v0 == 0 then goto L1bc270;
+  #L1bc264.  v0:= new `androidx.appcompat.widget.AppCompatButton`;
+  #L1bc268.  call `<init>`(v0, v2, v3) @signature `Landroidx/appcompat/widget/AppCompatButton;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1bc26e.  return v0 @kind object;
+  #L1bc270.  v0:= new `com.google.android.material.button.MaterialButton`;
+  #L1bc274.  call `<init>`(v0, v2, v3) @signature `Lcom/google/android/material/button/MaterialButton;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1bc27a.  return v0 @kind object;
+}
+procedure `androidx.appcompat.widget.AppCompatCheckBox` `createCheckBox`(`com.google.android.material.theme.MaterialComponentsViewInflater` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/theme/MaterialComponentsViewInflater;.createCheckBox:(Landroid/content/Context;Landroid/util/AttributeSet;)Landroidx/appcompat/widget/AppCompatCheckBox;` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L1bc28c.  v0:= new `com.google.android.material.checkbox.MaterialCheckBox`;
+  #L1bc290.  call `<init>`(v0, v2, v3) @signature `Lcom/google/android/material/checkbox/MaterialCheckBox;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1bc296.  return v0 @kind object;
+}
+procedure `androidx.appcompat.widget.AppCompatRadioButton` `createRadioButton`(`com.google.android.material.theme.MaterialComponentsViewInflater` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/theme/MaterialComponentsViewInflater;.createRadioButton:(Landroid/content/Context;Landroid/util/AttributeSet;)Landroidx/appcompat/widget/AppCompatRadioButton;` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L1bc2a8.  v0:= new `com.google.android.material.radiobutton.MaterialRadioButton`;
+  #L1bc2ac.  call `<init>`(v0, v2, v3) @signature `Lcom/google/android/material/radiobutton/MaterialRadioButton;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1bc2b2.  return v0 @kind object;
+}
+procedure `androidx.appcompat.widget.AppCompatTextView` `createTextView`(`com.google.android.material.theme.MaterialComponentsViewInflater` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/theme/MaterialComponentsViewInflater;.createTextView:(Landroid/content/Context;Landroid/util/AttributeSet;)Landroidx/appcompat/widget/AppCompatTextView;` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L1bc2c4.  v0:= new `com.google.android.material.textview.MaterialTextView`;
+  #L1bc2c8.  call `<init>`(v0, v2, v3) @signature `Lcom/google/android/material/textview/MaterialTextView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1bc2ce.  return v0 @kind object;
+}
+procedure `boolean` `shouldInflateAppCompatButton`(`com.google.android.material.theme.MaterialComponentsViewInflater` v6 @kind this, `android.content.Context` v7 @kind object @name `context`, `android.util.AttributeSet` v8 @kind object @name `attrs`) @signature `Lcom/google/android/material/theme/MaterialComponentsViewInflater;.shouldInflateAppCompatButton:(Landroid/content/Context;Landroid/util/AttributeSet;)Z` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1bc2e0.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1bc2e4.  v1:= 0I;
+  #L1bc2e6.  v2:= 23I;
+  #L1bc2ea.  if v0 == v2 then goto L1bc308;
+  #L1bc2ee.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1bc2f2.  v2:= 24I;
+  #L1bc2f6.  if v0 == v2 then goto L1bc308;
+  #L1bc2fa.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1bc2fe.  v2:= 25I;
+  #L1bc302.  if v0 == v2 then goto L1bc308;
+  #L1bc306.  return v1;
+  #L1bc308.  v0:= `@@com.google.android.material.theme.MaterialComponentsViewInflater.floatingToolbarItemBackgroundResId` @type ^`int`;
+  #L1bc30c.  v2:= -1I;
+  #L1bc30e.  if v0 != v2 then goto L1bc334;
+  #L1bc312.  
+  #L1bc314.  call temp:= `getResources`(v7) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1bc31a.  v0:= temp @kind object;
+  #L1bc31c.  v3:= "floatingToolbarItemBackgroundDrawable" @kind object;
+  #L1bc320.  v4:= "^attr-private" @kind object;
+  #L1bc324.  v5:= "android" @kind object;
+  #L1bc328.  call temp:= `getIdentifier`(v0, v3, v4, v5) @signature `Landroid/content/res/Resources;.getIdentifier:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I` @kind virtual;
+  #L1bc32e.  v0:= temp;
+  #L1bc330.  `@@com.google.android.material.theme.MaterialComponentsViewInflater.floatingToolbarItemBackgroundResId` @type ^`int` := v0;
+  #L1bc334.  v0:= `@@com.google.android.material.theme.MaterialComponentsViewInflater.floatingToolbarItemBackgroundResId` @type ^`int`;
+  #L1bc338.  if v0 == 0 then goto L1bc37c;
+  #L1bc33c.  if v0 == v2 then goto L1bc37c;
+  #L1bc340.  v0:= 0I;
+  #L1bc342.  call temp:= `getAttributeCount`(v8) @signature `Landroid/util/AttributeSet;.getAttributeCount:()I` @kind interface;
+  #L1bc348.  v2:= temp;
+  #L1bc34a.  if v0 >= v2 then goto L1bc37c;
+  #L1bc34e.  call temp:= `getAttributeNameResource`(v8, v0) @signature `Landroid/util/AttributeSet;.getAttributeNameResource:(I)I` @kind interface;
+  #L1bc354.  v2:= temp;
+  #L1bc356.  v3:= 16842964I;
+  #L1bc35c.  if v2 != v3 then goto L1bc376;
+  #L1bc360.  v2:= 0I;
+  #L1bc362.  call temp:= `getAttributeListValue`(v8, v0, v2, v1) @signature `Landroid/util/AttributeSet;.getAttributeListValue:(I[Ljava/lang/String;I)I` @kind interface;
+  #L1bc368.  v2:= temp;
+  #L1bc36a.  v3:= `@@com.google.android.material.theme.MaterialComponentsViewInflater.floatingToolbarItemBackgroundResId` @type ^`int`;
+  #L1bc36e.  if v3 != v2 then goto L1bc376;
+  #L1bc372.  v1:= 1I;
+  #L1bc374.  return v1;
+  #L1bc376.  v0:= v0 + 1;
+  #L1bc37a.  goto L1bc342;
+  #L1bc37c.  return v1;
+}

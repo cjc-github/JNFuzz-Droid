@@ -1,0 +1,364 @@
+record `com.google.android.material.snackbar.SnackbarManager` @kind class @AccessFlag  {
+  `com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` `com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @AccessFlag PRIVATE;
+  `android.os.Handler` `com.google.android.material.snackbar.SnackbarManager.handler` @AccessFlag PRIVATE_FINAL;
+  `java.lang.Object` `com.google.android.material.snackbar.SnackbarManager.lock` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` `com.google.android.material.snackbar.SnackbarManager.nextSnackbar` @AccessFlag PRIVATE;
+}
+global `int` `@@com.google.android.material.snackbar.SnackbarManager.LONG_DURATION_MS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.snackbar.SnackbarManager.MSG_TIMEOUT` @AccessFlag STATIC_FINAL;
+global `int` `@@com.google.android.material.snackbar.SnackbarManager.SHORT_DURATION_MS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `com.google.android.material.snackbar.SnackbarManager` `@@com.google.android.material.snackbar.SnackbarManager.snackbarManager` @AccessFlag PRIVATE_STATIC;
+procedure `void` `<init>`(`com.google.android.material.snackbar.SnackbarManager` v3 @kind this) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.<init>:()V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b113c.  call `<init>`(v3) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b1142.  v0:= new `java.lang.Object`;
+  #L1b1146.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b114c.  v3.`com.google.android.material.snackbar.SnackbarManager.lock` @type ^`java.lang.Object` := v0 @kind object;
+  #L1b1150.  v0:= new `android.os.Handler`;
+  #L1b1154.  call temp:= `getMainLooper`() @signature `Landroid/os/Looper;.getMainLooper:()Landroid/os/Looper;` @kind static;
+  #L1b115a.  v1:= temp @kind object;
+  #L1b115c.  v2:= new `com.google.android.material.snackbar.SnackbarManager$1`;
+  #L1b1160.  call `<init>`(v2, v3) @signature `Lcom/google/android/material/snackbar/SnackbarManager$1;.<init>:(Lcom/google/android/material/snackbar/SnackbarManager;)V` @kind direct;
+  #L1b1166.  call `<init>`(v0, v1, v2) @signature `Landroid/os/Handler;.<init>:(Landroid/os/Looper;Landroid/os/Handler$Callback;)V` @kind direct;
+  #L1b116c.  v3.`com.google.android.material.snackbar.SnackbarManager.handler` @type ^`android.os.Handler` := v0 @kind object;
+  #L1b1170.  return @kind void;
+}
+procedure `boolean` `cancelSnackbarLocked`(`com.google.android.material.snackbar.SnackbarManager` v2 @kind this, `com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` v3 @kind object @name `record`, `int` v4 @name `event`) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.cancelSnackbarLocked:(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;I)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b0ffc.  v0:= v3.`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord.callback` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L1b1000.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L1b1006.  v0:= temp @kind object;
+  #L1b1008.  v0:= (`com.google.android.material.snackbar.SnackbarManager$Callback`) v0 @kind object;
+  #L1b100c.  if v0 == 0 then goto L1b1024;
+  #L1b1010.  v1:= v2.`com.google.android.material.snackbar.SnackbarManager.handler` @type ^`android.os.Handler` @kind object;
+  #L1b1014.  call `removeCallbacksAndMessages`(v1, v3) @signature `Landroid/os/Handler;.removeCallbacksAndMessages:(Ljava/lang/Object;)V` @kind virtual;
+  #L1b101a.  call `dismiss`(v0, v4) @signature `Lcom/google/android/material/snackbar/SnackbarManager$Callback;.dismiss:(I)V` @kind interface;
+  #L1b1020.  v1:= 1I;
+  #L1b1022.  return v1;
+  #L1b1024.  v1:= 0I;
+  #L1b1026.  return v1;
+}
+procedure `com.google.android.material.snackbar.SnackbarManager` `getInstance`() @signature `Lcom/google/android/material/snackbar/SnackbarManager;.getInstance:()Lcom/google/android/material/snackbar/SnackbarManager;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L1b1110.  v0:= `@@com.google.android.material.snackbar.SnackbarManager.snackbarManager` @type ^`com.google.android.material.snackbar.SnackbarManager` @kind object;
+  #L1b1114.  if v0 != 0 then goto L1b1126;
+  #L1b1118.  v0:= new `com.google.android.material.snackbar.SnackbarManager`;
+  #L1b111c.  call `<init>`(v0) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.<init>:()V` @kind direct;
+  #L1b1122.  `@@com.google.android.material.snackbar.SnackbarManager.snackbarManager` @type ^`com.google.android.material.snackbar.SnackbarManager` := v0 @kind object;
+  #L1b1126.  v0:= `@@com.google.android.material.snackbar.SnackbarManager.snackbarManager` @type ^`com.google.android.material.snackbar.SnackbarManager` @kind object;
+  #L1b112a.  return v0 @kind object;
+}
+procedure `boolean` `isCurrentSnackbarLocked`(`com.google.android.material.snackbar.SnackbarManager` v1 @kind this, `com.google.android.material.snackbar.SnackbarManager$Callback` v2 @kind object @name `callback`) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.isCurrentSnackbarLocked:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1b10b8.  v0:= v1.`com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b10bc.  if v0 == 0 then goto L1b10d0;
+  #L1b10c0.  call temp:= `isSnackbar`(v0, v2) @signature `Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;.isSnackbar:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z` @kind virtual;
+  #L1b10c6.  v0:= temp;
+  #L1b10c8.  if v0 == 0 then goto L1b10d0;
+  #L1b10cc.  v0:= 1I;
+  #L1b10ce.  goto L1b10d2;
+  #L1b10d0.  v0:= 0I;
+  #L1b10d2.  return v0;
+}
+procedure `boolean` `isNextSnackbarLocked`(`com.google.android.material.snackbar.SnackbarManager` v1 @kind this, `com.google.android.material.snackbar.SnackbarManager$Callback` v2 @kind object @name `callback`) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.isNextSnackbarLocked:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1b10e4.  v0:= v1.`com.google.android.material.snackbar.SnackbarManager.nextSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b10e8.  if v0 == 0 then goto L1b10fc;
+  #L1b10ec.  call temp:= `isSnackbar`(v0, v2) @signature `Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;.isSnackbar:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z` @kind virtual;
+  #L1b10f2.  v0:= temp;
+  #L1b10f4.  if v0 == 0 then goto L1b10fc;
+  #L1b10f8.  v0:= 1I;
+  #L1b10fa.  goto L1b10fe;
+  #L1b10fc.  v0:= 0I;
+  #L1b10fe.  return v0;
+}
+procedure `void` `scheduleTimeoutLocked`(`com.google.android.material.snackbar.SnackbarManager` v5 @kind this, `com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` v6 @kind object @name `r`) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.scheduleTimeoutLocked:(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1b1368.  v0:= v6.`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord.duration` @type ^`int`;
+  #L1b136c.  v1:= -2I;
+  #L1b136e.  if v0 != v1 then goto L1b1374;
+  #L1b1372.  return @kind void;
+  #L1b1374.  v0:= 2750I;
+  #L1b1378.  v1:= v6.`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord.duration` @type ^`int`;
+  #L1b137c.  if v1 <= 0 then goto L1b1386;
+  #L1b1380.  v0:= v6.`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord.duration` @type ^`int`;
+  #L1b1384.  goto L1b1394;
+  #L1b1386.  v1:= v6.`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord.duration` @type ^`int`;
+  #L1b138a.  v2:= -1I;
+  #L1b138c.  if v1 != v2 then goto L1b1394;
+  #L1b1390.  v0:= 1500I;
+  #L1b1394.  v1:= v5.`com.google.android.material.snackbar.SnackbarManager.handler` @type ^`android.os.Handler` @kind object;
+  #L1b1398.  call `removeCallbacksAndMessages`(v1, v6) @signature `Landroid/os/Handler;.removeCallbacksAndMessages:(Ljava/lang/Object;)V` @kind virtual;
+  #L1b139e.  v1:= v5.`com.google.android.material.snackbar.SnackbarManager.handler` @type ^`android.os.Handler` @kind object;
+  #L1b13a2.  v2:= 0I;
+  #L1b13a4.  call temp:= `obtain`(v1, v2, v6) @signature `Landroid/os/Message;.obtain:(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;` @kind static;
+  #L1b13aa.  v2:= temp @kind object;
+  #L1b13ac.  v3:= (`long`) v0 @kind i2l;
+  #L1b13ae.  call temp:= `sendMessageDelayed`(v1, v2, v3) @signature `Landroid/os/Handler;.sendMessageDelayed:(Landroid/os/Message;J)Z` @kind virtual;
+  #L1b13b4.  return @kind void;
+}
+procedure `void` `showNextSnackbarLocked`(`com.google.android.material.snackbar.SnackbarManager` v2 @kind this) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.showNextSnackbarLocked:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b1470.  v0:= v2.`com.google.android.material.snackbar.SnackbarManager.nextSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b1474.  if v0 == 0 then goto L1b14a2;
+  #L1b1478.  v2.`com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` := v0 @kind object;
+  #L1b147c.  v1:= 0I;
+  #L1b147e.  v2.`com.google.android.material.snackbar.SnackbarManager.nextSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` := v1 @kind object;
+  #L1b1482.  v0:= v0.`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord.callback` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L1b1486.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L1b148c.  v0:= temp @kind object;
+  #L1b148e.  v0:= (`com.google.android.material.snackbar.SnackbarManager$Callback`) v0 @kind object;
+  #L1b1492.  if v0 == 0 then goto L1b149e;
+  #L1b1496.  call `show`(v0) @signature `Lcom/google/android/material/snackbar/SnackbarManager$Callback;.show:()V` @kind interface;
+  #L1b149c.  goto L1b14a2;
+  #L1b149e.  v2.`com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` := v1 @kind object;
+  #L1b14a2.  return @kind void;
+}
+procedure `void` `dismiss`(`com.google.android.material.snackbar.SnackbarManager` v2 @kind this, `com.google.android.material.snackbar.SnackbarManager$Callback` v3 @kind object @name `callback`, `int` v4 @name `event`) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.dismiss:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b1184.  v0:= v2.`com.google.android.material.snackbar.SnackbarManager.lock` @type ^`java.lang.Object` @kind object;
+  #L1b1188.  @monitorenter v0
+  #L1b118a.  call temp:= `isCurrentSnackbarLocked`(v2, v3) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.isCurrentSnackbarLocked:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z` @kind direct;
+  #L1b1190.  v1:= temp;
+  #L1b1192.  if v1 == 0 then goto L1b11a2;
+  #L1b1196.  v1:= v2.`com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b119a.  call temp:= `cancelSnackbarLocked`(v2, v1, v4) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.cancelSnackbarLocked:(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;I)Z` @kind direct;
+  #L1b11a0.  goto L1b11b8;
+  #L1b11a2.  call temp:= `isNextSnackbarLocked`(v2, v3) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.isNextSnackbarLocked:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z` @kind direct;
+  #L1b11a8.  v1:= temp;
+  #L1b11aa.  if v1 == 0 then goto L1b11b8;
+  #L1b11ae.  v1:= v2.`com.google.android.material.snackbar.SnackbarManager.nextSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b11b2.  call temp:= `cancelSnackbarLocked`(v2, v1, v4) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.cancelSnackbarLocked:(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;I)Z` @kind direct;
+  #L1b11b8.  @monitorexit v0
+  #L1b11ba.  return @kind void;
+  #L1b11bc.  v1:= Exception @type ^`java.lang.Throwable` @kind object;
+  #L1b11be.  @monitorexit v0
+  #L1b11c0.  throw v1;
+  catch `java.lang.Throwable` @[L1b118a..L1b11c0] goto L1b11bc;
+}
+procedure `void` `handleTimeout`(`com.google.android.material.snackbar.SnackbarManager` v2 @kind this, `com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` v3 @kind object @name `record`) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.handleTimeout:(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L1b11e0.  v0:= v2.`com.google.android.material.snackbar.SnackbarManager.lock` @type ^`java.lang.Object` @kind object;
+  #L1b11e4.  @monitorenter v0
+  #L1b11e6.  v1:= v2.`com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b11ea.  if v1 == v3 then goto L1b11f6;
+  #L1b11ee.  v1:= v2.`com.google.android.material.snackbar.SnackbarManager.nextSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b11f2.  if v1 != v3 then goto L1b11fe;
+  #L1b11f6.  v1:= 2I;
+  #L1b11f8.  call temp:= `cancelSnackbarLocked`(v2, v3, v1) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.cancelSnackbarLocked:(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;I)Z` @kind direct;
+  #L1b11fe.  @monitorexit v0
+  #L1b1200.  return @kind void;
+  #L1b1202.  v1:= Exception @type ^`java.lang.Throwable` @kind object;
+  #L1b1204.  @monitorexit v0
+  #L1b1206.  throw v1;
+  catch `java.lang.Throwable` @[L1b11e6..L1b1206] goto L1b1202;
+}
+procedure `boolean` `isCurrent`(`com.google.android.material.snackbar.SnackbarManager` v2 @kind this, `com.google.android.material.snackbar.SnackbarManager$Callback` v3 @kind object @name `callback`) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.isCurrent:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b1038.  v0:= v2.`com.google.android.material.snackbar.SnackbarManager.lock` @type ^`java.lang.Object` @kind object;
+  #L1b103c.  @monitorenter v0
+  #L1b103e.  call temp:= `isCurrentSnackbarLocked`(v2, v3) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.isCurrentSnackbarLocked:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z` @kind direct;
+  #L1b1044.  v1:= temp;
+  #L1b1046.  @monitorexit v0
+  #L1b1048.  return v1;
+  #L1b104a.  v1:= Exception @type ^`java.lang.Throwable` @kind object;
+  #L1b104c.  @monitorexit v0
+  #L1b104e.  throw v1;
+  catch `java.lang.Throwable` @[L1b103e..L1b104e] goto L1b104a;
+}
+procedure `boolean` `isCurrentOrNext`(`com.google.android.material.snackbar.SnackbarManager` v2 @kind this, `com.google.android.material.snackbar.SnackbarManager$Callback` v3 @kind object @name `callback`) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.isCurrentOrNext:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b106c.  v0:= v2.`com.google.android.material.snackbar.SnackbarManager.lock` @type ^`java.lang.Object` @kind object;
+  #L1b1070.  @monitorenter v0
+  #L1b1072.  call temp:= `isCurrentSnackbarLocked`(v2, v3) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.isCurrentSnackbarLocked:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z` @kind direct;
+  #L1b1078.  v1:= temp;
+  #L1b107a.  if v1 != 0 then goto L1b1090;
+  #L1b107e.  call temp:= `isNextSnackbarLocked`(v2, v3) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.isNextSnackbarLocked:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z` @kind direct;
+  #L1b1084.  v1:= temp;
+  #L1b1086.  if v1 == 0 then goto L1b108c;
+  #L1b108a.  goto L1b1090;
+  #L1b108c.  v1:= 0I;
+  #L1b108e.  goto L1b1092;
+  #L1b1090.  v1:= 1I;
+  #L1b1092.  @monitorexit v0
+  #L1b1094.  return v1;
+  #L1b1096.  v1:= Exception @type ^`java.lang.Throwable` @kind object;
+  #L1b1098.  @monitorexit v0
+  #L1b109a.  throw v1;
+  catch `java.lang.Throwable` @[L1b1072..L1b109a] goto L1b1096;
+}
+procedure `void` `onDismissed`(`com.google.android.material.snackbar.SnackbarManager` v2 @kind this, `com.google.android.material.snackbar.SnackbarManager$Callback` v3 @kind object @name `callback`) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.onDismissed:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b1224.  v0:= v2.`com.google.android.material.snackbar.SnackbarManager.lock` @type ^`java.lang.Object` @kind object;
+  #L1b1228.  @monitorenter v0
+  #L1b122a.  call temp:= `isCurrentSnackbarLocked`(v2, v3) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.isCurrentSnackbarLocked:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z` @kind direct;
+  #L1b1230.  v1:= temp;
+  #L1b1232.  if v1 == 0 then goto L1b124a;
+  #L1b1236.  v1:= 0I;
+  #L1b1238.  v2.`com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` := v1 @kind object;
+  #L1b123c.  v1:= v2.`com.google.android.material.snackbar.SnackbarManager.nextSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b1240.  if v1 == 0 then goto L1b124a;
+  #L1b1244.  call `showNextSnackbarLocked`(v2) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.showNextSnackbarLocked:()V` @kind direct;
+  #L1b124a.  @monitorexit v0
+  #L1b124c.  return @kind void;
+  #L1b124e.  v1:= Exception @type ^`java.lang.Throwable` @kind object;
+  #L1b1250.  @monitorexit v0
+  #L1b1252.  throw v1;
+  catch `java.lang.Throwable` @[L1b122a..L1b1252] goto L1b124e;
+}
+procedure `void` `onShown`(`com.google.android.material.snackbar.SnackbarManager` v2 @kind this, `com.google.android.material.snackbar.SnackbarManager$Callback` v3 @kind object @name `callback`) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.onShown:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b1270.  v0:= v2.`com.google.android.material.snackbar.SnackbarManager.lock` @type ^`java.lang.Object` @kind object;
+  #L1b1274.  @monitorenter v0
+  #L1b1276.  call temp:= `isCurrentSnackbarLocked`(v2, v3) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.isCurrentSnackbarLocked:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z` @kind direct;
+  #L1b127c.  v1:= temp;
+  #L1b127e.  if v1 == 0 then goto L1b128c;
+  #L1b1282.  v1:= v2.`com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b1286.  call `scheduleTimeoutLocked`(v2, v1) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.scheduleTimeoutLocked:(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;)V` @kind direct;
+  #L1b128c.  @monitorexit v0
+  #L1b128e.  return @kind void;
+  #L1b1290.  v1:= Exception @type ^`java.lang.Throwable` @kind object;
+  #L1b1292.  @monitorexit v0
+  #L1b1294.  throw v1;
+  catch `java.lang.Throwable` @[L1b1276..L1b1294] goto L1b1290;
+}
+procedure `void` `pauseTimeout`(`com.google.android.material.snackbar.SnackbarManager` v3 @kind this, `com.google.android.material.snackbar.SnackbarManager$Callback` v4 @kind object @name `callback`) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.pauseTimeout:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b12b4.  v0:= v3.`com.google.android.material.snackbar.SnackbarManager.lock` @type ^`java.lang.Object` @kind object;
+  #L1b12b8.  @monitorenter v0
+  #L1b12ba.  call temp:= `isCurrentSnackbarLocked`(v3, v4) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.isCurrentSnackbarLocked:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z` @kind direct;
+  #L1b12c0.  v1:= temp;
+  #L1b12c2.  if v1 == 0 then goto L1b12ea;
+  #L1b12c6.  v1:= v3.`com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b12ca.  v1:= v1.`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord.paused` @type ^`boolean` @kind boolean;
+  #L1b12ce.  if v1 != 0 then goto L1b12ea;
+  #L1b12d2.  v1:= v3.`com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b12d6.  v2:= 1I;
+  #L1b12d8.  v1.`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord.paused` @type ^`boolean` := v2 @kind boolean;
+  #L1b12dc.  v1:= v3.`com.google.android.material.snackbar.SnackbarManager.handler` @type ^`android.os.Handler` @kind object;
+  #L1b12e0.  v2:= v3.`com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b12e4.  call `removeCallbacksAndMessages`(v1, v2) @signature `Landroid/os/Handler;.removeCallbacksAndMessages:(Ljava/lang/Object;)V` @kind virtual;
+  #L1b12ea.  @monitorexit v0
+  #L1b12ec.  return @kind void;
+  #L1b12ee.  v1:= Exception @type ^`java.lang.Throwable` @kind object;
+  #L1b12f0.  @monitorexit v0
+  #L1b12f2.  throw v1;
+  catch `java.lang.Throwable` @[L1b12ba..L1b12f2] goto L1b12ee;
+}
+procedure `void` `restoreTimeoutIfPaused`(`com.google.android.material.snackbar.SnackbarManager` v3 @kind this, `com.google.android.material.snackbar.SnackbarManager$Callback` v4 @kind object @name `callback`) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.restoreTimeoutIfPaused:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b1310.  v0:= v3.`com.google.android.material.snackbar.SnackbarManager.lock` @type ^`java.lang.Object` @kind object;
+  #L1b1314.  @monitorenter v0
+  #L1b1316.  call temp:= `isCurrentSnackbarLocked`(v3, v4) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.isCurrentSnackbarLocked:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z` @kind direct;
+  #L1b131c.  v1:= temp;
+  #L1b131e.  if v1 == 0 then goto L1b1342;
+  #L1b1322.  v1:= v3.`com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b1326.  v1:= v1.`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord.paused` @type ^`boolean` @kind boolean;
+  #L1b132a.  if v1 == 0 then goto L1b1342;
+  #L1b132e.  v1:= v3.`com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b1332.  v2:= 0I;
+  #L1b1334.  v1.`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord.paused` @type ^`boolean` := v2 @kind boolean;
+  #L1b1338.  v1:= v3.`com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b133c.  call `scheduleTimeoutLocked`(v3, v1) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.scheduleTimeoutLocked:(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;)V` @kind direct;
+  #L1b1342.  @monitorexit v0
+  #L1b1344.  return @kind void;
+  #L1b1346.  v1:= Exception @type ^`java.lang.Throwable` @kind object;
+  #L1b1348.  @monitorexit v0
+  #L1b134a.  throw v1;
+  catch `java.lang.Throwable` @[L1b1316..L1b134a] goto L1b1346;
+}
+procedure `void` `show`(`com.google.android.material.snackbar.SnackbarManager` v3 @kind this, `int` v4 @name `duration`, `com.google.android.material.snackbar.SnackbarManager$Callback` v5 @kind object @name `callback`) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.show:(ILcom/google/android/material/snackbar/SnackbarManager$Callback;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b13c8.  v0:= v3.`com.google.android.material.snackbar.SnackbarManager.lock` @type ^`java.lang.Object` @kind object;
+  #L1b13cc.  @monitorenter v0
+  #L1b13ce.  call temp:= `isCurrentSnackbarLocked`(v3, v5) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.isCurrentSnackbarLocked:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z` @kind direct;
+  #L1b13d4.  v1:= temp;
+  #L1b13d6.  if v1 == 0 then goto L1b13fe;
+  #L1b13da.  v1:= v3.`com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b13de.  v1.`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord.duration` @type ^`int` := v4;
+  #L1b13e2.  v1:= v3.`com.google.android.material.snackbar.SnackbarManager.handler` @type ^`android.os.Handler` @kind object;
+  #L1b13e6.  v2:= v3.`com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b13ea.  call `removeCallbacksAndMessages`(v1, v2) @signature `Landroid/os/Handler;.removeCallbacksAndMessages:(Ljava/lang/Object;)V` @kind virtual;
+  #L1b13f0.  v1:= v3.`com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b13f4.  call `scheduleTimeoutLocked`(v3, v1) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.scheduleTimeoutLocked:(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;)V` @kind direct;
+  #L1b13fa.  @monitorexit v0
+  #L1b13fc.  return @kind void;
+  #L1b13fe.  call temp:= `isNextSnackbarLocked`(v3, v5) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.isNextSnackbarLocked:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z` @kind direct;
+  #L1b1404.  v1:= temp;
+  #L1b1406.  if v1 == 0 then goto L1b1414;
+  #L1b140a.  v1:= v3.`com.google.android.material.snackbar.SnackbarManager.nextSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b140e.  v1.`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord.duration` @type ^`int` := v4;
+  #L1b1412.  goto L1b1422;
+  #L1b1414.  v1:= new `com.google.android.material.snackbar.SnackbarManager$SnackbarRecord`;
+  #L1b1418.  call `<init>`(v1, v4, v5) @signature `Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;.<init>:(ILcom/google/android/material/snackbar/SnackbarManager$Callback;)V` @kind direct;
+  #L1b141e.  v3.`com.google.android.material.snackbar.SnackbarManager.nextSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` := v1 @kind object;
+  #L1b1422.  v1:= v3.`com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind object;
+  #L1b1426.  if v1 == 0 then goto L1b143c;
+  #L1b142a.  v2:= 4I;
+  #L1b142c.  call temp:= `cancelSnackbarLocked`(v3, v1, v2) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.cancelSnackbarLocked:(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;I)Z` @kind direct;
+  #L1b1432.  v1:= temp;
+  #L1b1434.  if v1 == 0 then goto L1b143c;
+  #L1b1438.  @monitorexit v0
+  #L1b143a.  return @kind void;
+  #L1b143c.  v1:= 0I;
+  #L1b143e.  v3.`com.google.android.material.snackbar.SnackbarManager.currentSnackbar` @type ^`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` := v1 @kind object;
+  #L1b1442.  call `showNextSnackbarLocked`(v3) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.showNextSnackbarLocked:()V` @kind direct;
+  #L1b1448.  @monitorexit v0
+  #L1b144a.  return @kind void;
+  #L1b144c.  v1:= Exception @type ^`java.lang.Throwable` @kind object;
+  #L1b144e.  @monitorexit v0
+  #L1b1450.  throw v1;
+  catch `java.lang.Throwable` @[L1b13ce..L1b1450] goto L1b144c;
+}

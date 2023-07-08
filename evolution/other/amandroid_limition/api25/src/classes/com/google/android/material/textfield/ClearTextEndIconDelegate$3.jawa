@@ -1,0 +1,23 @@
+record `com.google.android.material.textfield.ClearTextEndIconDelegate$3` @kind class @AccessFlag  extends `android.view.View$OnClickListener` @kind interface {
+  `com.google.android.material.textfield.ClearTextEndIconDelegate` `com.google.android.material.textfield.ClearTextEndIconDelegate$3.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.ClearTextEndIconDelegate$3` v0 @kind this, `com.google.android.material.textfield.ClearTextEndIconDelegate` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/textfield/ClearTextEndIconDelegate$3;.<init>:(Lcom/google/android/material/textfield/ClearTextEndIconDelegate;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b5ec8.  v0.`com.google.android.material.textfield.ClearTextEndIconDelegate$3.this$0` @type ^`com.google.android.material.textfield.ClearTextEndIconDelegate` := v1 @kind object;
+  #L1b5ecc.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b5ed2.  return @kind void;
+}
+procedure `void` `onClick`(`com.google.android.material.textfield.ClearTextEndIconDelegate$3` v2 @kind this, `android.view.View` v3 @kind object @name `v`) @signature `Lcom/google/android/material/textfield/ClearTextEndIconDelegate$3;.onClick:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b5ee4.  v0:= v2.`com.google.android.material.textfield.ClearTextEndIconDelegate$3.this$0` @type ^`com.google.android.material.textfield.ClearTextEndIconDelegate` @kind object;
+  #L1b5ee8.  v0:= v0.`com.google.android.material.textfield.ClearTextEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b5eec.  call temp:= `getEditText`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getEditText:()Landroid/widget/EditText;` @kind virtual;
+  #L1b5ef2.  v0:= temp @kind object;
+  #L1b5ef4.  v1:= 0I;
+  #L1b5ef6.  call `setText`(v0, v1) @signature `Landroid/widget/EditText;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1b5efc.  return @kind void;
+}

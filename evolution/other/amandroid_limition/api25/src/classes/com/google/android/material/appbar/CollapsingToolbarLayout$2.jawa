@@ -1,0 +1,24 @@
+record `com.google.android.material.appbar.CollapsingToolbarLayout$2` @kind class @AccessFlag  extends `android.animation.ValueAnimator$AnimatorUpdateListener` @kind interface {
+  `com.google.android.material.appbar.CollapsingToolbarLayout` `com.google.android.material.appbar.CollapsingToolbarLayout$2.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.CollapsingToolbarLayout$2` v0 @kind this, `com.google.android.material.appbar.CollapsingToolbarLayout` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$2;.<init>:(Lcom/google/android/material/appbar/CollapsingToolbarLayout;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L180298.  v0.`com.google.android.material.appbar.CollapsingToolbarLayout$2.this$0` @type ^`com.google.android.material.appbar.CollapsingToolbarLayout` := v1 @kind object;
+  #L18029c.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1802a2.  return @kind void;
+}
+procedure `void` `onAnimationUpdate`(`com.google.android.material.appbar.CollapsingToolbarLayout$2` v2 @kind this, `android.animation.ValueAnimator` v3 @kind object @name `animator`) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout$2;.onAnimationUpdate:(Landroid/animation/ValueAnimator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1802b4.  v0:= v2.`com.google.android.material.appbar.CollapsingToolbarLayout$2.this$0` @type ^`com.google.android.material.appbar.CollapsingToolbarLayout` @kind object;
+  #L1802b8.  call temp:= `getAnimatedValue`(v3) @signature `Landroid/animation/ValueAnimator;.getAnimatedValue:()Ljava/lang/Object;` @kind virtual;
+  #L1802be.  v1:= temp @kind object;
+  #L1802c0.  v1:= (`java.lang.Integer`) v1 @kind object;
+  #L1802c4.  call temp:= `intValue`(v1) @signature `Ljava/lang/Integer;.intValue:()I` @kind virtual;
+  #L1802ca.  v1:= temp;
+  #L1802cc.  call `setScrimAlpha`(v0, v1) @signature `Lcom/google/android/material/appbar/CollapsingToolbarLayout;.setScrimAlpha:(I)V` @kind virtual;
+  #L1802d2.  return @kind void;
+}

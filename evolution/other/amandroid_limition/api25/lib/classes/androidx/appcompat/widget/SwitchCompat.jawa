@@ -1,0 +1,319 @@
+record `androidx.appcompat.widget.SwitchCompat` @kind class @AccessFlag PUBLIC extends `android.widget.CompoundButton` @kind class {
+  `boolean` `androidx.appcompat.widget.SwitchCompat.mHasThumbTint` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.SwitchCompat.mHasThumbTintMode` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.SwitchCompat.mHasTrackTint` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.SwitchCompat.mHasTrackTintMode` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.SwitchCompat.mMinFlingVelocity` @AccessFlag PRIVATE;
+  `android.text.Layout` `androidx.appcompat.widget.SwitchCompat.mOffLayout` @AccessFlag PRIVATE;
+  `android.text.Layout` `androidx.appcompat.widget.SwitchCompat.mOnLayout` @AccessFlag PRIVATE;
+  `android.animation.ObjectAnimator` `androidx.appcompat.widget.SwitchCompat.mPositionAnimator` @AccessFlag ;
+  `boolean` `androidx.appcompat.widget.SwitchCompat.mShowText` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.SwitchCompat.mSplitTrack` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.SwitchCompat.mSwitchBottom` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.SwitchCompat.mSwitchHeight` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.SwitchCompat.mSwitchLeft` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.SwitchCompat.mSwitchMinWidth` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.SwitchCompat.mSwitchPadding` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.SwitchCompat.mSwitchRight` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.SwitchCompat.mSwitchTop` @AccessFlag PRIVATE;
+  `android.text.method.TransformationMethod` `androidx.appcompat.widget.SwitchCompat.mSwitchTransformationMethod` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.SwitchCompat.mSwitchWidth` @AccessFlag PRIVATE;
+  `android.graphics.Rect` `androidx.appcompat.widget.SwitchCompat.mTempRect` @AccessFlag PRIVATE_FINAL;
+  `android.content.res.ColorStateList` `androidx.appcompat.widget.SwitchCompat.mTextColors` @AccessFlag PRIVATE;
+  `androidx.appcompat.widget.AppCompatTextHelper` `androidx.appcompat.widget.SwitchCompat.mTextHelper` @AccessFlag PRIVATE_FINAL;
+  `java.lang.CharSequence` `androidx.appcompat.widget.SwitchCompat.mTextOff` @AccessFlag PRIVATE;
+  `java.lang.CharSequence` `androidx.appcompat.widget.SwitchCompat.mTextOn` @AccessFlag PRIVATE;
+  `android.text.TextPaint` `androidx.appcompat.widget.SwitchCompat.mTextPaint` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.drawable.Drawable` `androidx.appcompat.widget.SwitchCompat.mThumbDrawable` @AccessFlag PRIVATE;
+  `float` `androidx.appcompat.widget.SwitchCompat.mThumbPosition` @AccessFlag ;
+  `int` `androidx.appcompat.widget.SwitchCompat.mThumbTextPadding` @AccessFlag PRIVATE;
+  `android.content.res.ColorStateList` `androidx.appcompat.widget.SwitchCompat.mThumbTintList` @AccessFlag PRIVATE;
+  `android.graphics.PorterDuff$Mode` `androidx.appcompat.widget.SwitchCompat.mThumbTintMode` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.SwitchCompat.mThumbWidth` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.SwitchCompat.mTouchMode` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.SwitchCompat.mTouchSlop` @AccessFlag PRIVATE;
+  `float` `androidx.appcompat.widget.SwitchCompat.mTouchX` @AccessFlag PRIVATE;
+  `float` `androidx.appcompat.widget.SwitchCompat.mTouchY` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `androidx.appcompat.widget.SwitchCompat.mTrackDrawable` @AccessFlag PRIVATE;
+  `android.content.res.ColorStateList` `androidx.appcompat.widget.SwitchCompat.mTrackTintList` @AccessFlag PRIVATE;
+  `android.graphics.PorterDuff$Mode` `androidx.appcompat.widget.SwitchCompat.mTrackTintMode` @AccessFlag PRIVATE;
+  `android.view.VelocityTracker` `androidx.appcompat.widget.SwitchCompat.mVelocityTracker` @AccessFlag PRIVATE;
+}
+global `java.lang.String` `@@androidx.appcompat.widget.SwitchCompat.ACCESSIBILITY_EVENT_CLASS_NAME` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int`[] `@@androidx.appcompat.widget.SwitchCompat.CHECKED_STATE_SET` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.SwitchCompat.MONOSPACE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.SwitchCompat.SANS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.SwitchCompat.SERIF` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.SwitchCompat.THUMB_ANIMATION_DURATION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `android.util.Property` `@@androidx.appcompat.widget.SwitchCompat.THUMB_POS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.SwitchCompat.TOUCH_MODE_DOWN` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.SwitchCompat.TOUCH_MODE_DRAGGING` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.SwitchCompat.TOUCH_MODE_IDLE` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/appcompat/widget/SwitchCompat;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Landroidx/appcompat/widget/SwitchCompat;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Landroidx/appcompat/widget/SwitchCompat;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.widget.SwitchCompat` v10 @kind this, `android.content.Context` v11 @kind object @name `context`, `android.util.AttributeSet` v12 @kind object @name `attrs`, `int` v13 @name `defStyleAttr`) @signature `Landroidx/appcompat/widget/SwitchCompat;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `animateThumbToCheckedState`(`androidx.appcompat.widget.SwitchCompat` v5 @kind this, `boolean` v6 @name `newCheckedState`) @signature `Landroidx/appcompat/widget/SwitchCompat;.animateThumbToCheckedState:(Z)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `applyThumbTint`(`androidx.appcompat.widget.SwitchCompat` v2 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.applyThumbTint:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `applyTrackTint`(`androidx.appcompat.widget.SwitchCompat` v2 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.applyTrackTint:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `cancelPositionAnimator`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.cancelPositionAnimator:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `cancelSuperTouch`(`androidx.appcompat.widget.SwitchCompat` v2 @kind this, `android.view.MotionEvent` v3 @kind object @name `ev`) @signature `Landroidx/appcompat/widget/SwitchCompat;.cancelSuperTouch:(Landroid/view/MotionEvent;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `float` `constrain`(`float` v1 @name `amount`, `float` v2 @name `low`, `float` v3 @name `high`) @signature `Landroidx/appcompat/widget/SwitchCompat;.constrain:(FFF)F` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `boolean` `getTargetCheckedState`(`androidx.appcompat.widget.SwitchCompat` v2 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.getTargetCheckedState:()Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `getThumbOffset`(`androidx.appcompat.widget.SwitchCompat` v3 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.getThumbOffset:()I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `getThumbScrollRange`(`androidx.appcompat.widget.SwitchCompat` v4 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.getThumbScrollRange:()I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `hitThumb`(`androidx.appcompat.widget.SwitchCompat` v7 @kind this, `float` v8 @name `x`, `float` v9 @name `y`) @signature `Landroidx/appcompat/widget/SwitchCompat;.hitThumb:(FF)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.text.Layout` `makeLayout`(`androidx.appcompat.widget.SwitchCompat` v10 @kind this, `java.lang.CharSequence` v11 @kind object @name `text`) @signature `Landroidx/appcompat/widget/SwitchCompat;.makeLayout:(Ljava/lang/CharSequence;)Landroid/text/Layout;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `setSwitchTypefaceByIndex`(`androidx.appcompat.widget.SwitchCompat` v2 @kind this, `int` v3 @name `typefaceIndex`, `int` v4 @name `styleIndex`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setSwitchTypefaceByIndex:(II)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `stopDrag`(`androidx.appcompat.widget.SwitchCompat` v7 @kind this, `android.view.MotionEvent` v8 @kind object @name `ev`) @signature `Landroidx/appcompat/widget/SwitchCompat;.stopDrag:(Landroid/view/MotionEvent;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `draw`(`androidx.appcompat.widget.SwitchCompat` v13 @kind this, `android.graphics.Canvas` v14 @kind object @name `c`) @signature `Landroidx/appcompat/widget/SwitchCompat;.draw:(Landroid/graphics/Canvas;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `drawableHotspotChanged`(`androidx.appcompat.widget.SwitchCompat` v2 @kind this, `float` v3 @name `x`, `float` v4 @name `y`) @signature `Landroidx/appcompat/widget/SwitchCompat;.drawableHotspotChanged:(FF)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `drawableStateChanged`(`androidx.appcompat.widget.SwitchCompat` v5 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.drawableStateChanged:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `int` `getCompoundPaddingLeft`(`androidx.appcompat.widget.SwitchCompat` v2 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.getCompoundPaddingLeft:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getCompoundPaddingRight`(`androidx.appcompat.widget.SwitchCompat` v2 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.getCompoundPaddingRight:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `getShowText`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.getShowText:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `getSplitTrack`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.getSplitTrack:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getSwitchMinWidth`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.getSwitchMinWidth:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getSwitchPadding`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.getSwitchPadding:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getTextOff`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.getTextOff:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getTextOn`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.getTextOn:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `getThumbDrawable`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.getThumbDrawable:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getThumbTextPadding`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.getThumbTextPadding:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.content.res.ColorStateList` `getThumbTintList`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.getThumbTintList:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.graphics.PorterDuff$Mode` `getThumbTintMode`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.getThumbTintMode:()Landroid/graphics/PorterDuff$Mode;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `getTrackDrawable`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.getTrackDrawable:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.content.res.ColorStateList` `getTrackTintList`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.getTrackTintList:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.graphics.PorterDuff$Mode` `getTrackTintMode`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.getTrackTintMode:()Landroid/graphics/PorterDuff$Mode;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `jumpDrawablesToCurrentState`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.jumpDrawablesToCurrentState:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int`[] `onCreateDrawableState`(`androidx.appcompat.widget.SwitchCompat` v2 @kind this, `int` v3 @name `extraSpace`) @signature `Landroidx/appcompat/widget/SwitchCompat;.onCreateDrawableState:(I)[I` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onDraw`(`androidx.appcompat.widget.SwitchCompat` v16 @kind this, `android.graphics.Canvas` v17 @kind object @name `canvas`) @signature `Landroidx/appcompat/widget/SwitchCompat;.onDraw:(Landroid/graphics/Canvas;)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onInitializeAccessibilityEvent`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this, `android.view.accessibility.AccessibilityEvent` v2 @kind object @name `event`) @signature `Landroidx/appcompat/widget/SwitchCompat;.onInitializeAccessibilityEvent:(Landroid/view/accessibility/AccessibilityEvent;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onInitializeAccessibilityNodeInfo`(`androidx.appcompat.widget.SwitchCompat` v5 @kind this, `android.view.accessibility.AccessibilityNodeInfo` v6 @kind object @name `info`) @signature `Landroidx/appcompat/widget/SwitchCompat;.onInitializeAccessibilityNodeInfo:(Landroid/view/accessibility/AccessibilityNodeInfo;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onLayout`(`androidx.appcompat.widget.SwitchCompat` v7 @kind this, `boolean` v8 @name `changed`, `int` v9 @name `left`, `int` v10 @name `top`, `int` v11 @name `right`, `int` v12 @name `bottom`) @signature `Landroidx/appcompat/widget/SwitchCompat;.onLayout:(ZIIII)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onMeasure`(`androidx.appcompat.widget.SwitchCompat` v11 @kind this, `int` v12 @name `widthMeasureSpec`, `int` v13 @name `heightMeasureSpec`) @signature `Landroidx/appcompat/widget/SwitchCompat;.onMeasure:(II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onPopulateAccessibilityEvent`(`androidx.appcompat.widget.SwitchCompat` v2 @kind this, `android.view.accessibility.AccessibilityEvent` v3 @kind object @name `event`) @signature `Landroidx/appcompat/widget/SwitchCompat;.onPopulateAccessibilityEvent:(Landroid/view/accessibility/AccessibilityEvent;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onTouchEvent`(`androidx.appcompat.widget.SwitchCompat` v9 @kind this, `android.view.MotionEvent` v10 @kind object @name `ev`) @signature `Landroidx/appcompat/widget/SwitchCompat;.onTouchEvent:(Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setChecked`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this, `boolean` v2 @name `checked`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setChecked:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setCustomSelectionActionModeCallback`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this, `android.view.ActionMode$Callback` v2 @kind object @name `actionModeCallback`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setCustomSelectionActionModeCallback:(Landroid/view/ActionMode$Callback;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setShowText`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this, `boolean` v2 @name `showText`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setShowText:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSplitTrack`(`androidx.appcompat.widget.SwitchCompat` v0 @kind this, `boolean` v1 @name `splitTrack`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setSplitTrack:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSwitchMinWidth`(`androidx.appcompat.widget.SwitchCompat` v0 @kind this, `int` v1 @name `pixels`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setSwitchMinWidth:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSwitchPadding`(`androidx.appcompat.widget.SwitchCompat` v0 @kind this, `int` v1 @name `pixels`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setSwitchPadding:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSwitchTextAppearance`(`androidx.appcompat.widget.SwitchCompat` v8 @kind this, `android.content.Context` v9 @kind object @name `context`, `int` v10 @name `resid`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setSwitchTextAppearance:(Landroid/content/Context;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSwitchTypeface`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this, `android.graphics.Typeface` v2 @kind object @name `typeface`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setSwitchTypeface:(Landroid/graphics/Typeface;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSwitchTypeface`(`androidx.appcompat.widget.SwitchCompat` v6 @kind this, `android.graphics.Typeface` v7 @kind object @name `tf`, `int` v8 @name `style`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setSwitchTypeface:(Landroid/graphics/Typeface;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTextOff`(`androidx.appcompat.widget.SwitchCompat` v0 @kind this, `java.lang.CharSequence` v1 @kind object @name `textOff`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setTextOff:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTextOn`(`androidx.appcompat.widget.SwitchCompat` v0 @kind this, `java.lang.CharSequence` v1 @kind object @name `textOn`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setTextOn:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setThumbDrawable`(`androidx.appcompat.widget.SwitchCompat` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `thumb`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setThumbDrawable:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setThumbPosition`(`androidx.appcompat.widget.SwitchCompat` v0 @kind this, `float` v1 @name `position`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setThumbPosition:(F)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `setThumbResource`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setThumbResource:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setThumbTextPadding`(`androidx.appcompat.widget.SwitchCompat` v0 @kind this, `int` v1 @name `pixels`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setThumbTextPadding:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setThumbTintList`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `tint`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setThumbTintList:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setThumbTintMode`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this, `android.graphics.PorterDuff$Mode` v2 @kind object @name `tintMode`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setThumbTintMode:(Landroid/graphics/PorterDuff$Mode;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTrackDrawable`(`androidx.appcompat.widget.SwitchCompat` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `track`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setTrackDrawable:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTrackResource`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setTrackResource:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTrackTintList`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `tint`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setTrackTintList:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTrackTintMode`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this, `android.graphics.PorterDuff$Mode` v2 @kind object @name `tintMode`) @signature `Landroidx/appcompat/widget/SwitchCompat;.setTrackTintMode:(Landroid/graphics/PorterDuff$Mode;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `toggle`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this) @signature `Landroidx/appcompat/widget/SwitchCompat;.toggle:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `verifyDrawable`(`androidx.appcompat.widget.SwitchCompat` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `who`) @signature `Landroidx/appcompat/widget/SwitchCompat;.verifyDrawable:(Landroid/graphics/drawable/Drawable;)Z` @AccessFlag PROTECTED {
+
+  # return;
+}

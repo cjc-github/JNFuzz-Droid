@@ -1,0 +1,51 @@
+record `com.google.android.material.shape.RoundedCornerTreatment` @kind class @AccessFlag PUBLIC extends `com.google.android.material.shape.CornerTreatment` @kind class {
+  `float` `com.google.android.material.shape.RoundedCornerTreatment.radius` @AccessFlag ;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.RoundedCornerTreatment` v1 @kind this) @signature `Lcom/google/android/material/shape/RoundedCornerTreatment;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1acb44.  call `<init>`(v1) @signature `Lcom/google/android/material/shape/CornerTreatment;.<init>:()V` @kind direct;
+  #L1acb4a.  v0:= -1.0F;
+  #L1acb4e.  v1.`com.google.android.material.shape.RoundedCornerTreatment.radius` @type ^`float` := v0;
+  #L1acb52.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.RoundedCornerTreatment` v1 @kind this, `float` v2 @name `radius`) @signature `Lcom/google/android/material/shape/RoundedCornerTreatment;.<init>:(F)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1acb64.  call `<init>`(v1) @signature `Lcom/google/android/material/shape/CornerTreatment;.<init>:()V` @kind direct;
+  #L1acb6a.  v0:= -1.0F;
+  #L1acb6e.  v1.`com.google.android.material.shape.RoundedCornerTreatment.radius` @type ^`float` := v0;
+  #L1acb72.  v1.`com.google.android.material.shape.RoundedCornerTreatment.radius` @type ^`float` := v2;
+  #L1acb76.  return @kind void;
+}
+procedure `void` `getCornerPath`(`com.google.android.material.shape.RoundedCornerTreatment` v9 @kind this, `com.google.android.material.shape.ShapePath` v10 @kind object @name `shapePath`, `float` v11 @name `angle`, `float` v12 @name `interpolation`, `float` v13 @name `radius`) @signature `Lcom/google/android/material/shape/RoundedCornerTreatment;.getCornerPath:(Lcom/google/android/material/shape/ShapePath;FFF)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L1acb88.  v0:= v13 * v12 @kind float;
+  #L1acb8c.  v1:= 180.0F;
+  #L1acb90.  v2:= v1 - v11 @kind float;
+  #L1acb94.  v3:= 0I;
+  #L1acb96.  call `reset`(v10, v3, v0, v1, v2) @signature `Lcom/google/android/material/shape/ShapePath;.reset:(FFFF)V` @kind virtual;
+  #L1acb9c.  v0:= 2.0F;
+  #L1acba0.  v1:= v13 * v0 @kind float;
+  #L1acba4.  v5:= v1 * v12 @kind float;
+  #L1acba8.  v0:= v0 * v13 @kind float;
+  #L1acbaa.  v6:= v0 * v12 @kind float;
+  #L1acbae.  v4:= 0I;
+  #L1acbb0.  v7:= 180.0F;
+  #L1acbb4.  v2:= v10 @kind object;
+  #L1acbb6.  v8:= v11;
+  #L1acbb8.  call `addArc`(v2, v3, v4, v5, v6, v7, v8) @signature `Lcom/google/android/material/shape/ShapePath;.addArc:(FFFFFF)V` @kind virtual;
+  #L1acbbe.  return @kind void;
+}

@@ -1,0 +1,145 @@
+record `com.google.android.material.resources.MaterialAttributes` @kind class @AccessFlag PUBLIC {
+}
+procedure `void` `<init>`(`com.google.android.material.resources.MaterialAttributes` v0 @kind this) @signature `Lcom/google/android/material/resources/MaterialAttributes;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1a8c28.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1a8c2e.  return @kind void;
+}
+procedure `android.util.TypedValue` `resolve`(`android.content.Context` v3 @kind object @name `context`, `int` v4 @name `attributeResId`) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolve:(Landroid/content/Context;I)Landroid/util/TypedValue;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a8a84.  v0:= new `android.util.TypedValue`;
+  #L1a8a88.  call `<init>`(v0) @signature `Landroid/util/TypedValue;.<init>:()V` @kind direct;
+  #L1a8a8e.  call temp:= `getTheme`(v3) @signature `Landroid/content/Context;.getTheme:()Landroid/content/res/Resources$Theme;` @kind virtual;
+  #L1a8a94.  v1:= temp @kind object;
+  #L1a8a96.  v2:= 1I;
+  #L1a8a98.  call temp:= `resolveAttribute`(v1, v4, v0, v2) @signature `Landroid/content/res/Resources$Theme;.resolveAttribute:(ILandroid/util/TypedValue;Z)Z` @kind virtual;
+  #L1a8a9e.  v1:= temp;
+  #L1a8aa0.  if v1 == 0 then goto L1a8aa6;
+  #L1a8aa4.  return v0 @kind object;
+  #L1a8aa6.  v1:= 0I;
+  #L1a8aa8.  return v1 @kind object;
+}
+procedure `boolean` `resolveBoolean`(`android.content.Context` v3 @kind object @name `context`, `int` v4 @name `attributeResId`, `boolean` v5 @name `defaultValue`) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolveBoolean:(Landroid/content/Context;IZ)Z` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a8abc.  call temp:= `resolve`(v3, v4) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolve:(Landroid/content/Context;I)Landroid/util/TypedValue;` @kind static;
+  #L1a8ac2.  v0:= temp @kind object;
+  #L1a8ac4.  if v0 == 0 then goto L1a8ae4;
+  #L1a8ac8.  v1:= v0.`android.util.TypedValue.type` @type ^`int`;
+  #L1a8acc.  v2:= 18I;
+  #L1a8ad0.  if v1 != v2 then goto L1a8ae4;
+  #L1a8ad4.  v1:= v0.`android.util.TypedValue.data` @type ^`int`;
+  #L1a8ad8.  if v1 == 0 then goto L1a8ae0;
+  #L1a8adc.  v1:= 1I;
+  #L1a8ade.  goto L1a8ae6;
+  #L1a8ae0.  v1:= 0I;
+  #L1a8ae2.  goto L1a8ae6;
+  #L1a8ae4.  v1:= v5;
+  #L1a8ae6.  return v1;
+}
+procedure `boolean` `resolveBooleanOrThrow`(`android.content.Context` v1 @kind object @name `context`, `int` v2 @name `attributeResId`, `java.lang.String` v3 @kind object @name `errorMessageComponent`) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolveBooleanOrThrow:(Landroid/content/Context;ILjava/lang/String;)Z` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L1a8af8.  call temp:= `resolveOrThrow`(v1, v2, v3) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolveOrThrow:(Landroid/content/Context;ILjava/lang/String;)I` @kind static;
+  #L1a8afe.  v0:= temp;
+  #L1a8b00.  if v0 == 0 then goto L1a8b08;
+  #L1a8b04.  v0:= 1I;
+  #L1a8b06.  goto L1a8b0a;
+  #L1a8b08.  v0:= 0I;
+  #L1a8b0a.  return v0;
+}
+procedure `int` `resolveDimension`(`android.content.Context` v3 @kind object @name `context`, `int` v4 @name `attributeResId`, `int` v5 @name `defaultDimenResId`) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolveDimension:(Landroid/content/Context;II)I` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a8b1c.  call temp:= `resolve`(v3, v4) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolve:(Landroid/content/Context;I)Landroid/util/TypedValue;` @kind static;
+  #L1a8b22.  v0:= temp @kind object;
+  #L1a8b24.  if v0 == 0 then goto L1a8b50;
+  #L1a8b28.  v1:= v0.`android.util.TypedValue.type` @type ^`int`;
+  #L1a8b2c.  v2:= 5I;
+  #L1a8b2e.  if v1 == v2 then goto L1a8b34;
+  #L1a8b32.  goto L1a8b50;
+  #L1a8b34.  call temp:= `getResources`(v3) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1a8b3a.  v1:= temp @kind object;
+  #L1a8b3c.  call temp:= `getDisplayMetrics`(v1) @signature `Landroid/content/res/Resources;.getDisplayMetrics:()Landroid/util/DisplayMetrics;` @kind virtual;
+  #L1a8b42.  v1:= temp @kind object;
+  #L1a8b44.  call temp:= `getDimension`(v0, v1) @signature `Landroid/util/TypedValue;.getDimension:(Landroid/util/DisplayMetrics;)F` @kind virtual;
+  #L1a8b4a.  v1:= temp;
+  #L1a8b4c.  v1:= (`int`) v1 @kind f2i;
+  #L1a8b4e.  return v1;
+  #L1a8b50.  call temp:= `getResources`(v3) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1a8b56.  v1:= temp @kind object;
+  #L1a8b58.  call temp:= `getDimension`(v1, v5) @signature `Landroid/content/res/Resources;.getDimension:(I)F` @kind virtual;
+  #L1a8b5e.  v1:= temp;
+  #L1a8b60.  v1:= (`int`) v1 @kind f2i;
+  #L1a8b62.  return v1;
+}
+procedure `int` `resolveMinimumAccessibleTouchTarget`(`android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolveMinimumAccessibleTouchTarget:(Landroid/content/Context;)I` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a8b74.  v0:= `@@com.google.android.material.R$attr.minTouchTargetSize` @type ^`int`;
+  #L1a8b78.  v1:= `@@com.google.android.material.R$dimen.mtrl_min_touch_target_size` @type ^`int`;
+  #L1a8b7c.  call temp:= `resolveDimension`(v2, v0, v1) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolveDimension:(Landroid/content/Context;II)I` @kind static;
+  #L1a8b82.  v0:= temp;
+  #L1a8b84.  return v0;
+}
+procedure `int` `resolveOrThrow`(`android.content.Context` v6 @kind object @name `context`, `int` v7 @name `attributeResId`, `java.lang.String` v8 @kind object @name `errorMessageComponent`) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolveOrThrow:(Landroid/content/Context;ILjava/lang/String;)I` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1a8b98.  call temp:= `resolve`(v6, v7) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolve:(Landroid/content/Context;I)Landroid/util/TypedValue;` @kind static;
+  #L1a8b9e.  v0:= temp @kind object;
+  #L1a8ba0.  if v0 == 0 then goto L1a8baa;
+  #L1a8ba4.  v1:= v0.`android.util.TypedValue.data` @type ^`int`;
+  #L1a8ba8.  return v1;
+  #L1a8baa.  v1:= "%1$s requires a value for the %2$s attribute to be set in your app theme. You can either set the attribute in your theme or update your theme to inherit from Theme.MaterialComponents (or a descendant)." @kind object;
+  #L1a8bae.  v2:= new `java.lang.IllegalArgumentException`;
+  #L1a8bb2.  v3:= 2I;
+  #L1a8bb4.  v3:= new `java.lang.Object`[v3];
+  #L1a8bb8.  v4:= 0I;
+  #L1a8bba.  v3[v4]:= v8 @kind object;
+  #L1a8bbe.  v4:= 1I;
+  #L1a8bc0.  call temp:= `getResources`(v6) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1a8bc6.  v5:= temp @kind object;
+  #L1a8bc8.  call temp:= `getResourceName`(v5, v7) @signature `Landroid/content/res/Resources;.getResourceName:(I)Ljava/lang/String;` @kind virtual;
+  #L1a8bce.  v5:= temp @kind object;
+  #L1a8bd0.  v3[v4]:= v5 @kind object;
+  #L1a8bd4.  call temp:= `format`(v1, v3) @signature `Ljava/lang/String;.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;` @kind static;
+  #L1a8bda.  v3:= temp @kind object;
+  #L1a8bdc.  call `<init>`(v2, v3) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1a8be2.  throw v2;
+}
+procedure `int` `resolveOrThrow`(`android.view.View` v2 @kind object @name `componentView`, `int` v3 @name `attributeResId`) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolveOrThrow:(Landroid/view/View;I)I` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a8bf4.  
+  #L1a8bf6.  call temp:= `getContext`(v2) @signature `Landroid/view/View;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1a8bfc.  v0:= temp @kind object;
+  #L1a8bfe.  call temp:= `getClass`(v2) @signature `Ljava/lang/Object;.getClass:()Ljava/lang/Class;` @kind virtual;
+  #L1a8c04.  v1:= temp @kind object;
+  #L1a8c06.  call temp:= `getCanonicalName`(v1) @signature `Ljava/lang/Class;.getCanonicalName:()Ljava/lang/String;` @kind virtual;
+  #L1a8c0c.  v1:= temp @kind object;
+  #L1a8c0e.  call temp:= `resolveOrThrow`(v0, v3, v1) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolveOrThrow:(Landroid/content/Context;ILjava/lang/String;)I` @kind static;
+  #L1a8c14.  v0:= temp;
+  #L1a8c16.  return v0;
+}

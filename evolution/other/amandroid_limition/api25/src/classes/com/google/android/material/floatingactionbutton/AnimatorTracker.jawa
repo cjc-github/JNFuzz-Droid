@@ -1,0 +1,33 @@
+record `com.google.android.material.floatingactionbutton.AnimatorTracker` @kind class @AccessFlag  {
+  `android.animation.Animator` `com.google.android.material.floatingactionbutton.AnimatorTracker.currentAnimator` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.floatingactionbutton.AnimatorTracker` v0 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/AnimatorTracker;.<init>:()V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L19d2a8.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L19d2ae.  return @kind void;
+}
+procedure `void` `cancelCurrent`(`com.google.android.material.floatingactionbutton.AnimatorTracker` v1 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/AnimatorTracker;.cancelCurrent:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19d2c0.  v0:= v1.`com.google.android.material.floatingactionbutton.AnimatorTracker.currentAnimator` @type ^`android.animation.Animator` @kind object;
+  #L19d2c4.  if v0 == 0 then goto L19d2ce;
+  #L19d2c8.  call `cancel`(v0) @signature `Landroid/animation/Animator;.cancel:()V` @kind virtual;
+  #L19d2ce.  return @kind void;
+}
+procedure `void` `clear`(`com.google.android.material.floatingactionbutton.AnimatorTracker` v1 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/AnimatorTracker;.clear:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19d2e0.  v0:= 0I;
+  #L19d2e2.  v1.`com.google.android.material.floatingactionbutton.AnimatorTracker.currentAnimator` @type ^`android.animation.Animator` := v0 @kind object;
+  #L19d2e6.  return @kind void;
+}
+procedure `void` `onNextAnimationStart`(`com.google.android.material.floatingactionbutton.AnimatorTracker` v0 @kind this, `android.animation.Animator` v1 @kind object @name `animator`) @signature `Lcom/google/android/material/floatingactionbutton/AnimatorTracker;.onNextAnimationStart:(Landroid/animation/Animator;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L19d2f8.  call `cancelCurrent`(v0) @signature `Lcom/google/android/material/floatingactionbutton/AnimatorTracker;.cancelCurrent:()V` @kind virtual;
+  #L19d2fe.  v0.`com.google.android.material.floatingactionbutton.AnimatorTracker.currentAnimator` @type ^`android.animation.Animator` := v1 @kind object;
+  #L19d302.  return @kind void;
+}

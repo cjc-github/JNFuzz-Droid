@@ -1,0 +1,114 @@
+record `com.google.android.material.datepicker.MaterialDatePicker$Builder` @kind class @AccessFlag PUBLIC_FINAL {
+  `com.google.android.material.datepicker.CalendarConstraints` `com.google.android.material.datepicker.MaterialDatePicker$Builder.calendarConstraints` @AccessFlag ;
+  `com.google.android.material.datepicker.DateSelector` `com.google.android.material.datepicker.MaterialDatePicker$Builder.dateSelector` @AccessFlag FINAL;
+  `int` `com.google.android.material.datepicker.MaterialDatePicker$Builder.overrideThemeResId` @AccessFlag ;
+  `java.lang.Object` `com.google.android.material.datepicker.MaterialDatePicker$Builder.selection` @AccessFlag ;
+  `java.lang.CharSequence` `com.google.android.material.datepicker.MaterialDatePicker$Builder.titleText` @AccessFlag ;
+  `int` `com.google.android.material.datepicker.MaterialDatePicker$Builder.titleTextResId` @AccessFlag ;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.MaterialDatePicker$Builder` v1 @kind this, `com.google.android.material.datepicker.DateSelector` v2 @kind object) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;.<init>:(Lcom/google/android/material/datepicker/DateSelector;)V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L198e48.  call `<init>`(v1) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L198e4e.  v0:= 0I;
+  #L198e50.  v1.`com.google.android.material.datepicker.MaterialDatePicker$Builder.overrideThemeResId` @type ^`int` := v0;
+  #L198e54.  v1.`com.google.android.material.datepicker.MaterialDatePicker$Builder.titleTextResId` @type ^`int` := v0;
+  #L198e58.  v0:= 0I;
+  #L198e5a.  v1.`com.google.android.material.datepicker.MaterialDatePicker$Builder.titleText` @type ^`java.lang.CharSequence` := v0 @kind object;
+  #L198e5e.  v1.`com.google.android.material.datepicker.MaterialDatePicker$Builder.selection` @type ^`java.lang.Object` := v0 @kind object;
+  #L198e62.  v1.`com.google.android.material.datepicker.MaterialDatePicker$Builder.dateSelector` @type ^`com.google.android.material.datepicker.DateSelector` := v2 @kind object;
+  #L198e66.  return @kind void;
+}
+procedure `com.google.android.material.datepicker.MaterialDatePicker$Builder` `customDatePicker`(`com.google.android.material.datepicker.DateSelector` v1 @kind object) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;.customDatePicker:(Lcom/google/android/material/datepicker/DateSelector;)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L198d5c.  v0:= new `com.google.android.material.datepicker.MaterialDatePicker$Builder`;
+  #L198d60.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;.<init>:(Lcom/google/android/material/datepicker/DateSelector;)V` @kind direct;
+  #L198d66.  return v0 @kind object;
+}
+procedure `com.google.android.material.datepicker.MaterialDatePicker$Builder` `datePicker`() @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;.datePicker:()Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L198d78.  v0:= new `com.google.android.material.datepicker.MaterialDatePicker$Builder`;
+  #L198d7c.  v1:= new `com.google.android.material.datepicker.SingleDateSelector`;
+  #L198d80.  call `<init>`(v1) @signature `Lcom/google/android/material/datepicker/SingleDateSelector;.<init>:()V` @kind direct;
+  #L198d86.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;.<init>:(Lcom/google/android/material/datepicker/DateSelector;)V` @kind direct;
+  #L198d8c.  return v0 @kind object;
+}
+procedure `com.google.android.material.datepicker.MaterialDatePicker$Builder` `dateRangePicker`() @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;.dateRangePicker:()Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L198da0.  v0:= new `com.google.android.material.datepicker.MaterialDatePicker$Builder`;
+  #L198da4.  v1:= new `com.google.android.material.datepicker.RangeDateSelector`;
+  #L198da8.  call `<init>`(v1) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.<init>:()V` @kind direct;
+  #L198dae.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;.<init>:(Lcom/google/android/material/datepicker/DateSelector;)V` @kind direct;
+  #L198db4.  return v0 @kind object;
+}
+procedure `com.google.android.material.datepicker.MaterialDatePicker` `build`(`com.google.android.material.datepicker.MaterialDatePicker$Builder` v2 @kind this) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;.build:()Lcom/google/android/material/datepicker/MaterialDatePicker;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L198cf8.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker$Builder.calendarConstraints` @type ^`com.google.android.material.datepicker.CalendarConstraints` @kind object;
+  #L198cfc.  if v0 != 0 then goto L198d16;
+  #L198d00.  v0:= new `com.google.android.material.datepicker.CalendarConstraints$Builder`;
+  #L198d04.  call `<init>`(v0) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$Builder;.<init>:()V` @kind direct;
+  #L198d0a.  call temp:= `build`(v0) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$Builder;.build:()Lcom/google/android/material/datepicker/CalendarConstraints;` @kind virtual;
+  #L198d10.  v0:= temp @kind object;
+  #L198d12.  v2.`com.google.android.material.datepicker.MaterialDatePicker$Builder.calendarConstraints` @type ^`com.google.android.material.datepicker.CalendarConstraints` := v0 @kind object;
+  #L198d16.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker$Builder.titleTextResId` @type ^`int`;
+  #L198d1a.  if v0 != 0 then goto L198d2e;
+  #L198d1e.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker$Builder.dateSelector` @type ^`com.google.android.material.datepicker.DateSelector` @kind object;
+  #L198d22.  call temp:= `getDefaultTitleResId`(v0) @signature `Lcom/google/android/material/datepicker/DateSelector;.getDefaultTitleResId:()I` @kind interface;
+  #L198d28.  v0:= temp;
+  #L198d2a.  v2.`com.google.android.material.datepicker.MaterialDatePicker$Builder.titleTextResId` @type ^`int` := v0;
+  #L198d2e.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker$Builder.selection` @type ^`java.lang.Object` @kind object;
+  #L198d32.  if v0 == 0 then goto L198d40;
+  #L198d36.  v1:= v2.`com.google.android.material.datepicker.MaterialDatePicker$Builder.dateSelector` @type ^`com.google.android.material.datepicker.DateSelector` @kind object;
+  #L198d3a.  call `setSelection`(v1, v0) @signature `Lcom/google/android/material/datepicker/DateSelector;.setSelection:(Ljava/lang/Object;)V` @kind interface;
+  #L198d40.  call temp:= `newInstance`(v2) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.newInstance:(Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;)Lcom/google/android/material/datepicker/MaterialDatePicker;` @kind static;
+  #L198d46.  v0:= temp @kind object;
+  #L198d48.  return v0 @kind object;
+}
+procedure `com.google.android.material.datepicker.MaterialDatePicker$Builder` `setCalendarConstraints`(`com.google.android.material.datepicker.MaterialDatePicker$Builder` v0 @kind this, `com.google.android.material.datepicker.CalendarConstraints` v1 @kind object @name `bounds`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;.setCalendarConstraints:(Lcom/google/android/material/datepicker/CalendarConstraints;)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;` @AccessFlag PUBLIC {
+    temp;
+
+  #L198dc8.  v0.`com.google.android.material.datepicker.MaterialDatePicker$Builder.calendarConstraints` @type ^`com.google.android.material.datepicker.CalendarConstraints` := v1 @kind object;
+  #L198dcc.  return v0 @kind object;
+}
+procedure `com.google.android.material.datepicker.MaterialDatePicker$Builder` `setSelection`(`com.google.android.material.datepicker.MaterialDatePicker$Builder` v0 @kind this, `java.lang.Object` v1 @kind object) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;.setSelection:(Ljava/lang/Object;)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;` @AccessFlag PUBLIC {
+    temp;
+
+  #L198de0.  v0.`com.google.android.material.datepicker.MaterialDatePicker$Builder.selection` @type ^`java.lang.Object` := v1 @kind object;
+  #L198de4.  return v0 @kind object;
+}
+procedure `com.google.android.material.datepicker.MaterialDatePicker$Builder` `setTheme`(`com.google.android.material.datepicker.MaterialDatePicker$Builder` v0 @kind this, `int` v1 @name `themeResId`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;.setTheme:(I)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;` @AccessFlag PUBLIC {
+    temp;
+
+  #L198df8.  v0.`com.google.android.material.datepicker.MaterialDatePicker$Builder.overrideThemeResId` @type ^`int` := v1;
+  #L198dfc.  return v0 @kind object;
+}
+procedure `com.google.android.material.datepicker.MaterialDatePicker$Builder` `setTitleText`(`com.google.android.material.datepicker.MaterialDatePicker$Builder` v1 @kind this, `int` v2 @name `titleTextResId`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;.setTitleText:(I)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L198e10.  v1.`com.google.android.material.datepicker.MaterialDatePicker$Builder.titleTextResId` @type ^`int` := v2;
+  #L198e14.  v0:= 0I;
+  #L198e16.  v1.`com.google.android.material.datepicker.MaterialDatePicker$Builder.titleText` @type ^`java.lang.CharSequence` := v0 @kind object;
+  #L198e1a.  return v1 @kind object;
+}
+procedure `com.google.android.material.datepicker.MaterialDatePicker$Builder` `setTitleText`(`com.google.android.material.datepicker.MaterialDatePicker$Builder` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `charSequence`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;.setTitleText:(Ljava/lang/CharSequence;)Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L198e2c.  v1.`com.google.android.material.datepicker.MaterialDatePicker$Builder.titleText` @type ^`java.lang.CharSequence` := v2 @kind object;
+  #L198e30.  v0:= 0I;
+  #L198e32.  v1.`com.google.android.material.datepicker.MaterialDatePicker$Builder.titleTextResId` @type ^`int` := v0;
+  #L198e36.  return v1 @kind object;
+}

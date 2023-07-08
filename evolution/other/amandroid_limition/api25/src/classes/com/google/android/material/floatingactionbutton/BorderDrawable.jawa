@@ -1,0 +1,414 @@
+record `com.google.android.material.floatingactionbutton.BorderDrawable` @kind class @AccessFlag  extends `android.graphics.drawable.Drawable` @kind class {
+  `android.content.res.ColorStateList` `com.google.android.material.floatingactionbutton.BorderDrawable.borderTint` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.floatingactionbutton.BorderDrawable.borderWidth` @AccessFlag ;
+  `int` `com.google.android.material.floatingactionbutton.BorderDrawable.bottomInnerStrokeColor` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.floatingactionbutton.BorderDrawable.bottomOuterStrokeColor` @AccessFlag PRIVATE;
+  `android.graphics.RectF` `com.google.android.material.floatingactionbutton.BorderDrawable.boundsRectF` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.floatingactionbutton.BorderDrawable.currentBorderTintColor` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.floatingactionbutton.BorderDrawable.invalidateShader` @AccessFlag PRIVATE;
+  `android.graphics.Paint` `com.google.android.material.floatingactionbutton.BorderDrawable.paint` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.shape.ShapeAppearancePathProvider` `com.google.android.material.floatingactionbutton.BorderDrawable.pathProvider` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.Rect` `com.google.android.material.floatingactionbutton.BorderDrawable.rect` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.RectF` `com.google.android.material.floatingactionbutton.BorderDrawable.rectF` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.shape.ShapeAppearanceModel` `com.google.android.material.floatingactionbutton.BorderDrawable.shapeAppearanceModel` @AccessFlag PRIVATE;
+  `android.graphics.Path` `com.google.android.material.floatingactionbutton.BorderDrawable.shapePath` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.floatingactionbutton.BorderDrawable$BorderState` `com.google.android.material.floatingactionbutton.BorderDrawable.state` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.floatingactionbutton.BorderDrawable.topInnerStrokeColor` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.floatingactionbutton.BorderDrawable.topOuterStrokeColor` @AccessFlag PRIVATE;
+}
+global `float` `@@com.google.android.material.floatingactionbutton.BorderDrawable.DRAW_STROKE_WIDTH_MULTIPLE` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.floatingactionbutton.BorderDrawable` v2 @kind this, `com.google.android.material.shape.ShapeAppearanceModel` v3 @kind object @name `shapeAppearanceModel`) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L19d828.  call `<init>`(v2) @signature `Landroid/graphics/drawable/Drawable;.<init>:()V` @kind direct;
+  #L19d82e.  v0:= new `com.google.android.material.shape.ShapeAppearancePathProvider`;
+  #L19d832.  call `<init>`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearancePathProvider;.<init>:()V` @kind direct;
+  #L19d838.  v2.`com.google.android.material.floatingactionbutton.BorderDrawable.pathProvider` @type ^`com.google.android.material.shape.ShapeAppearancePathProvider` := v0 @kind object;
+  #L19d83c.  v0:= new `android.graphics.Path`;
+  #L19d840.  call `<init>`(v0) @signature `Landroid/graphics/Path;.<init>:()V` @kind direct;
+  #L19d846.  v2.`com.google.android.material.floatingactionbutton.BorderDrawable.shapePath` @type ^`android.graphics.Path` := v0 @kind object;
+  #L19d84a.  v0:= new `android.graphics.Rect`;
+  #L19d84e.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L19d854.  v2.`com.google.android.material.floatingactionbutton.BorderDrawable.rect` @type ^`android.graphics.Rect` := v0 @kind object;
+  #L19d858.  v0:= new `android.graphics.RectF`;
+  #L19d85c.  call `<init>`(v0) @signature `Landroid/graphics/RectF;.<init>:()V` @kind direct;
+  #L19d862.  v2.`com.google.android.material.floatingactionbutton.BorderDrawable.rectF` @type ^`android.graphics.RectF` := v0 @kind object;
+  #L19d866.  v0:= new `android.graphics.RectF`;
+  #L19d86a.  call `<init>`(v0) @signature `Landroid/graphics/RectF;.<init>:()V` @kind direct;
+  #L19d870.  v2.`com.google.android.material.floatingactionbutton.BorderDrawable.boundsRectF` @type ^`android.graphics.RectF` := v0 @kind object;
+  #L19d874.  v0:= new `com.google.android.material.floatingactionbutton.BorderDrawable$BorderState`;
+  #L19d878.  v1:= 0I;
+  #L19d87a.  call `<init>`(v0, v2, v1) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable$BorderState;.<init>:(Lcom/google/android/material/floatingactionbutton/BorderDrawable;Lcom/google/android/material/floatingactionbutton/BorderDrawable$1;)V` @kind direct;
+  #L19d880.  v2.`com.google.android.material.floatingactionbutton.BorderDrawable.state` @type ^`com.google.android.material.floatingactionbutton.BorderDrawable$BorderState` := v0 @kind object;
+  #L19d884.  v0:= 1I;
+  #L19d886.  v2.`com.google.android.material.floatingactionbutton.BorderDrawable.invalidateShader` @type ^`boolean` := v0 @kind boolean;
+  #L19d88a.  v2.`com.google.android.material.floatingactionbutton.BorderDrawable.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` := v3 @kind object;
+  #L19d88e.  v1:= new `android.graphics.Paint`;
+  #L19d892.  call `<init>`(v1, v0) @signature `Landroid/graphics/Paint;.<init>:(I)V` @kind direct;
+  #L19d898.  v2.`com.google.android.material.floatingactionbutton.BorderDrawable.paint` @type ^`android.graphics.Paint` := v1 @kind object;
+  #L19d89c.  v0:= `@@android.graphics.Paint$Style.STROKE` @type ^`android.graphics.Paint$Style` @kind object;
+  #L19d8a0.  call `setStyle`(v1, v0) @signature `Landroid/graphics/Paint;.setStyle:(Landroid/graphics/Paint$Style;)V` @kind virtual;
+  #L19d8a6.  return @kind void;
+}
+procedure `android.graphics.Shader` `createGradientShader`(`com.google.android.material.floatingactionbutton.BorderDrawable` v13 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.createGradientShader:()Landroid/graphics/Shader;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+    v12;
+
+  #L19d5f8.  v0:= v13.`com.google.android.material.floatingactionbutton.BorderDrawable.rect` @type ^`android.graphics.Rect` @kind object;
+  #L19d5fc.  call `copyBounds`(v13, v0) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.copyBounds:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L19d602.  v1:= v13.`com.google.android.material.floatingactionbutton.BorderDrawable.borderWidth` @type ^`float`;
+  #L19d606.  call temp:= `height`(v0) @signature `Landroid/graphics/Rect;.height:()I` @kind virtual;
+  #L19d60c.  v2:= temp;
+  #L19d60e.  v2:= (`float`) v2 @kind i2f;
+  #L19d610.  v1:= v1 / v2 @kind float;
+  #L19d612.  v2:= 6I;
+  #L19d614.  v11:= new `int`[v2];
+  #L19d618.  v3:= v13.`com.google.android.material.floatingactionbutton.BorderDrawable.topOuterStrokeColor` @type ^`int`;
+  #L19d61c.  v4:= v13.`com.google.android.material.floatingactionbutton.BorderDrawable.currentBorderTintColor` @type ^`int`;
+  #L19d620.  call temp:= `compositeColors`(v3, v4) @signature `Landroidx/core/graphics/ColorUtils;.compositeColors:(II)I` @kind static;
+  #L19d626.  v3:= temp;
+  #L19d628.  v4:= 0I;
+  #L19d62a.  v11[v4]:= v3;
+  #L19d62e.  v3:= v13.`com.google.android.material.floatingactionbutton.BorderDrawable.topInnerStrokeColor` @type ^`int`;
+  #L19d632.  v5:= v13.`com.google.android.material.floatingactionbutton.BorderDrawable.currentBorderTintColor` @type ^`int`;
+  #L19d636.  call temp:= `compositeColors`(v3, v5) @signature `Landroidx/core/graphics/ColorUtils;.compositeColors:(II)I` @kind static;
+  #L19d63c.  v3:= temp;
+  #L19d63e.  v5:= 1I;
+  #L19d640.  v11[v5]:= v3;
+  #L19d644.  v3:= v13.`com.google.android.material.floatingactionbutton.BorderDrawable.topInnerStrokeColor` @type ^`int`;
+  #L19d648.  call temp:= `setAlphaComponent`(v3, v4) @signature `Landroidx/core/graphics/ColorUtils;.setAlphaComponent:(II)I` @kind static;
+  #L19d64e.  v3:= temp;
+  #L19d650.  v6:= v13.`com.google.android.material.floatingactionbutton.BorderDrawable.currentBorderTintColor` @type ^`int`;
+  #L19d654.  call temp:= `compositeColors`(v3, v6) @signature `Landroidx/core/graphics/ColorUtils;.compositeColors:(II)I` @kind static;
+  #L19d65a.  v3:= temp;
+  #L19d65c.  v6:= 2I;
+  #L19d65e.  v11[v6]:= v3;
+  #L19d662.  v3:= v13.`com.google.android.material.floatingactionbutton.BorderDrawable.bottomInnerStrokeColor` @type ^`int`;
+  #L19d666.  call temp:= `setAlphaComponent`(v3, v4) @signature `Landroidx/core/graphics/ColorUtils;.setAlphaComponent:(II)I` @kind static;
+  #L19d66c.  v3:= temp;
+  #L19d66e.  v7:= v13.`com.google.android.material.floatingactionbutton.BorderDrawable.currentBorderTintColor` @type ^`int`;
+  #L19d672.  call temp:= `compositeColors`(v3, v7) @signature `Landroidx/core/graphics/ColorUtils;.compositeColors:(II)I` @kind static;
+  #L19d678.  v3:= temp;
+  #L19d67a.  v7:= 3I;
+  #L19d67c.  v11[v7]:= v3;
+  #L19d680.  v3:= v13.`com.google.android.material.floatingactionbutton.BorderDrawable.bottomInnerStrokeColor` @type ^`int`;
+  #L19d684.  v8:= v13.`com.google.android.material.floatingactionbutton.BorderDrawable.currentBorderTintColor` @type ^`int`;
+  #L19d688.  call temp:= `compositeColors`(v3, v8) @signature `Landroidx/core/graphics/ColorUtils;.compositeColors:(II)I` @kind static;
+  #L19d68e.  v3:= temp;
+  #L19d690.  v8:= 4I;
+  #L19d692.  v11[v8]:= v3;
+  #L19d696.  v3:= v13.`com.google.android.material.floatingactionbutton.BorderDrawable.bottomOuterStrokeColor` @type ^`int`;
+  #L19d69a.  v9:= v13.`com.google.android.material.floatingactionbutton.BorderDrawable.currentBorderTintColor` @type ^`int`;
+  #L19d69e.  call temp:= `compositeColors`(v3, v9) @signature `Landroidx/core/graphics/ColorUtils;.compositeColors:(II)I` @kind static;
+  #L19d6a4.  v3:= temp;
+  #L19d6a6.  v9:= 5I;
+  #L19d6a8.  v11[v9]:= v3;
+  #L19d6ac.  v2:= new `float`[v2];
+  #L19d6b0.  v3:= 0I;
+  #L19d6b2.  v2[v4]:= v3;
+  #L19d6b6.  v2[v5]:= v1;
+  #L19d6ba.  v3:= 0.5F;
+  #L19d6be.  v2[v6]:= v3;
+  #L19d6c2.  v2[v7]:= v3;
+  #L19d6c6.  v3:= 1.0F;
+  #L19d6ca.  v4:= v3 - v1 @kind float;
+  #L19d6ce.  v2[v8]:= v4;
+  #L19d6d2.  v2[v9]:= v3;
+  #L19d6d6.  v12:= new `android.graphics.LinearGradient`;
+  #L19d6da.  v3:= v0.`android.graphics.Rect.top` @type ^`int`;
+  #L19d6de.  v5:= (`float`) v3 @kind i2f;
+  #L19d6e0.  v3:= v0.`android.graphics.Rect.bottom` @type ^`int`;
+  #L19d6e4.  v7:= (`float`) v3 @kind i2f;
+  #L19d6e6.  v10:= `@@android.graphics.Shader$TileMode.CLAMP` @type ^`android.graphics.Shader$TileMode` @kind object;
+  #L19d6ea.  v4:= 0I;
+  #L19d6ec.  v6:= 0I;
+  #L19d6ee.  v3:= v12 @kind object;
+  #L19d6f0.  v8:= v11 @kind object;
+  #L19d6f2.  v9:= v2 @kind object;
+  #L19d6f4.  call `<init>`(v3, v4, v5, v6, v7, v8, v9, v10) @signature `Landroid/graphics/LinearGradient;.<init>:(FFFF[I[FLandroid/graphics/Shader$TileMode;)V` @kind direct;
+  #L19d6fa.  return v12 @kind object;
+}
+procedure `void` `draw`(`com.google.android.material.floatingactionbutton.BorderDrawable` v5 @kind this, `android.graphics.Canvas` v6 @kind object @name `canvas`) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.draw:(Landroid/graphics/Canvas;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L19d8b8.  v0:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.invalidateShader` @type ^`boolean` @kind boolean;
+  #L19d8bc.  if v0 == 0 then goto L19d8d8;
+  #L19d8c0.  v0:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.paint` @type ^`android.graphics.Paint` @kind object;
+  #L19d8c4.  call temp:= `createGradientShader`(v5) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.createGradientShader:()Landroid/graphics/Shader;` @kind direct;
+  #L19d8ca.  v1:= temp @kind object;
+  #L19d8cc.  call temp:= `setShader`(v0, v1) @signature `Landroid/graphics/Paint;.setShader:(Landroid/graphics/Shader;)Landroid/graphics/Shader;` @kind virtual;
+  #L19d8d2.  v0:= 0I;
+  #L19d8d4.  v5.`com.google.android.material.floatingactionbutton.BorderDrawable.invalidateShader` @type ^`boolean` := v0 @kind boolean;
+  #L19d8d8.  v0:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.paint` @type ^`android.graphics.Paint` @kind object;
+  #L19d8dc.  call temp:= `getStrokeWidth`(v0) @signature `Landroid/graphics/Paint;.getStrokeWidth:()F` @kind virtual;
+  #L19d8e2.  v0:= temp;
+  #L19d8e4.  v1:= 2.0F;
+  #L19d8e8.  v0:= v0 / v1 @kind float;
+  #L19d8ea.  v2:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.rect` @type ^`android.graphics.Rect` @kind object;
+  #L19d8ee.  call `copyBounds`(v5, v2) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.copyBounds:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L19d8f4.  v2:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.rectF` @type ^`android.graphics.RectF` @kind object;
+  #L19d8f8.  v3:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.rect` @type ^`android.graphics.Rect` @kind object;
+  #L19d8fc.  call `set`(v2, v3) @signature `Landroid/graphics/RectF;.set:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L19d902.  v2:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L19d906.  call temp:= `getTopLeftCornerSize`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getTopLeftCornerSize:()Lcom/google/android/material/shape/CornerSize;` @kind virtual;
+  #L19d90c.  v2:= temp @kind object;
+  #L19d90e.  call temp:= `getBoundsAsRectF`(v5) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.getBoundsAsRectF:()Landroid/graphics/RectF;` @kind virtual;
+  #L19d914.  v3:= temp @kind object;
+  #L19d916.  call temp:= `getCornerSize`(v2, v3) @signature `Lcom/google/android/material/shape/CornerSize;.getCornerSize:(Landroid/graphics/RectF;)F` @kind interface;
+  #L19d91c.  v2:= temp;
+  #L19d91e.  v3:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.rectF` @type ^`android.graphics.RectF` @kind object;
+  #L19d922.  call temp:= `width`(v3) @signature `Landroid/graphics/RectF;.width:()F` @kind virtual;
+  #L19d928.  v3:= temp;
+  #L19d92a.  v3:= v3 / v1 @kind float;
+  #L19d92c.  call temp:= `min`(v2, v3) @signature `Ljava/lang/Math;.min:(FF)F` @kind static;
+  #L19d932.  v1:= temp;
+  #L19d934.  v3:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L19d938.  call temp:= `getBoundsAsRectF`(v5) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.getBoundsAsRectF:()Landroid/graphics/RectF;` @kind virtual;
+  #L19d93e.  v4:= temp @kind object;
+  #L19d940.  call temp:= `isRoundRect`(v3, v4) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.isRoundRect:(Landroid/graphics/RectF;)Z` @kind virtual;
+  #L19d946.  v3:= temp;
+  #L19d948.  if v3 == 0 then goto L19d964;
+  #L19d94c.  v3:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.rectF` @type ^`android.graphics.RectF` @kind object;
+  #L19d950.  call `inset`(v3, v0, v0) @signature `Landroid/graphics/RectF;.inset:(FF)V` @kind virtual;
+  #L19d956.  v3:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.rectF` @type ^`android.graphics.RectF` @kind object;
+  #L19d95a.  v4:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.paint` @type ^`android.graphics.Paint` @kind object;
+  #L19d95e.  call `drawRoundRect`(v6, v3, v1, v1, v4) @signature `Landroid/graphics/Canvas;.drawRoundRect:(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V` @kind virtual;
+  #L19d964.  return @kind void;
+}
+procedure `android.graphics.RectF` `getBoundsAsRectF`(`com.google.android.material.floatingactionbutton.BorderDrawable` v2 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.getBoundsAsRectF:()Landroid/graphics/RectF;` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L19d5d0.  v0:= v2.`com.google.android.material.floatingactionbutton.BorderDrawable.boundsRectF` @type ^`android.graphics.RectF` @kind object;
+  #L19d5d4.  call temp:= `getBounds`(v2) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.getBounds:()Landroid/graphics/Rect;` @kind virtual;
+  #L19d5da.  v1:= temp @kind object;
+  #L19d5dc.  call `set`(v0, v1) @signature `Landroid/graphics/RectF;.set:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L19d5e2.  v0:= v2.`com.google.android.material.floatingactionbutton.BorderDrawable.boundsRectF` @type ^`android.graphics.RectF` @kind object;
+  #L19d5e6.  return v0 @kind object;
+}
+procedure `android.graphics.drawable.Drawable$ConstantState` `getConstantState`(`com.google.android.material.floatingactionbutton.BorderDrawable` v1 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.getConstantState:()Landroid/graphics/drawable/Drawable$ConstantState;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19d70c.  v0:= v1.`com.google.android.material.floatingactionbutton.BorderDrawable.state` @type ^`com.google.android.material.floatingactionbutton.BorderDrawable$BorderState` @kind object;
+  #L19d710.  return v0 @kind object;
+}
+procedure `int` `getOpacity`(`com.google.android.material.floatingactionbutton.BorderDrawable` v2 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.getOpacity:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19d800.  v0:= v2.`com.google.android.material.floatingactionbutton.BorderDrawable.borderWidth` @type ^`float`;
+  #L19d804.  v1:= 0I;
+  #L19d806.  v0:= fcmpl(v0, v1);
+  #L19d80a.  if v0 <= 0 then goto L19d812;
+  #L19d80e.  v0:= -3I;
+  #L19d810.  goto L19d814;
+  #L19d812.  v0:= -2I;
+  #L19d814.  return v0;
+}
+procedure `void` `getOutline`(`com.google.android.material.floatingactionbutton.BorderDrawable` v5 @kind this, `android.graphics.Outline` v6 @kind object @name `outline`) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.getOutline:(Landroid/graphics/Outline;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L19d978.  v0:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L19d97c.  call temp:= `getBoundsAsRectF`(v5) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.getBoundsAsRectF:()Landroid/graphics/RectF;` @kind virtual;
+  #L19d982.  v1:= temp @kind object;
+  #L19d984.  call temp:= `isRoundRect`(v0, v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.isRoundRect:(Landroid/graphics/RectF;)Z` @kind virtual;
+  #L19d98a.  v0:= temp;
+  #L19d98c.  if v0 == 0 then goto L19d9bc;
+  #L19d990.  v0:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L19d994.  call temp:= `getTopLeftCornerSize`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getTopLeftCornerSize:()Lcom/google/android/material/shape/CornerSize;` @kind virtual;
+  #L19d99a.  v0:= temp @kind object;
+  #L19d99c.  call temp:= `getBoundsAsRectF`(v5) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.getBoundsAsRectF:()Landroid/graphics/RectF;` @kind virtual;
+  #L19d9a2.  v1:= temp @kind object;
+  #L19d9a4.  call temp:= `getCornerSize`(v0, v1) @signature `Lcom/google/android/material/shape/CornerSize;.getCornerSize:(Landroid/graphics/RectF;)F` @kind interface;
+  #L19d9aa.  v0:= temp;
+  #L19d9ac.  call temp:= `getBounds`(v5) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.getBounds:()Landroid/graphics/Rect;` @kind virtual;
+  #L19d9b2.  v1:= temp @kind object;
+  #L19d9b4.  call `setRoundRect`(v6, v1, v0) @signature `Landroid/graphics/Outline;.setRoundRect:(Landroid/graphics/Rect;F)V` @kind virtual;
+  #L19d9ba.  return @kind void;
+  #L19d9bc.  v0:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.rect` @type ^`android.graphics.Rect` @kind object;
+  #L19d9c0.  call `copyBounds`(v5, v0) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.copyBounds:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L19d9c6.  v0:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.rectF` @type ^`android.graphics.RectF` @kind object;
+  #L19d9ca.  v1:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.rect` @type ^`android.graphics.Rect` @kind object;
+  #L19d9ce.  call `set`(v0, v1) @signature `Landroid/graphics/RectF;.set:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L19d9d4.  v0:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.pathProvider` @type ^`com.google.android.material.shape.ShapeAppearancePathProvider` @kind object;
+  #L19d9d8.  v1:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L19d9dc.  v2:= 1.0F;
+  #L19d9e0.  v3:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.rectF` @type ^`android.graphics.RectF` @kind object;
+  #L19d9e4.  v4:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.shapePath` @type ^`android.graphics.Path` @kind object;
+  #L19d9e8.  call `calculatePath`(v0, v1, v2, v3, v4) @signature `Lcom/google/android/material/shape/ShapeAppearancePathProvider;.calculatePath:(Lcom/google/android/material/shape/ShapeAppearanceModel;FLandroid/graphics/RectF;Landroid/graphics/Path;)V` @kind virtual;
+  #L19d9ee.  v0:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.shapePath` @type ^`android.graphics.Path` @kind object;
+  #L19d9f2.  call temp:= `isConvex`(v0) @signature `Landroid/graphics/Path;.isConvex:()Z` @kind virtual;
+  #L19d9f8.  v0:= temp;
+  #L19d9fa.  if v0 == 0 then goto L19da08;
+  #L19d9fe.  v0:= v5.`com.google.android.material.floatingactionbutton.BorderDrawable.shapePath` @type ^`android.graphics.Path` @kind object;
+  #L19da02.  call `setConvexPath`(v6, v0) @signature `Landroid/graphics/Outline;.setConvexPath:(Landroid/graphics/Path;)V` @kind virtual;
+  #L19da08.  return @kind void;
+}
+procedure `boolean` `getPadding`(`com.google.android.material.floatingactionbutton.BorderDrawable` v2 @kind this, `android.graphics.Rect` v3 @kind object @name `padding`) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.getPadding:(Landroid/graphics/Rect;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19d724.  v0:= v2.`com.google.android.material.floatingactionbutton.BorderDrawable.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L19d728.  call temp:= `getBoundsAsRectF`(v2) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.getBoundsAsRectF:()Landroid/graphics/RectF;` @kind virtual;
+  #L19d72e.  v1:= temp @kind object;
+  #L19d730.  call temp:= `isRoundRect`(v0, v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.isRoundRect:(Landroid/graphics/RectF;)Z` @kind virtual;
+  #L19d736.  v0:= temp;
+  #L19d738.  if v0 == 0 then goto L19d74e;
+  #L19d73c.  v0:= v2.`com.google.android.material.floatingactionbutton.BorderDrawable.borderWidth` @type ^`float`;
+  #L19d740.  call temp:= `round`(v0) @signature `Ljava/lang/Math;.round:(F)I` @kind static;
+  #L19d746.  v0:= temp;
+  #L19d748.  call `set`(v3, v0, v0, v0, v0) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L19d74e.  v0:= 1I;
+  #L19d750.  return v0;
+}
+procedure `com.google.android.material.shape.ShapeAppearanceModel` `getShapeAppearanceModel`(`com.google.android.material.floatingactionbutton.BorderDrawable` v1 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.getShapeAppearanceModel:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19d7e8.  v0:= v1.`com.google.android.material.floatingactionbutton.BorderDrawable.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L19d7ec.  return v0 @kind object;
+}
+procedure `boolean` `isStateful`(`com.google.android.material.floatingactionbutton.BorderDrawable` v1 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.isStateful:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19d764.  v0:= v1.`com.google.android.material.floatingactionbutton.BorderDrawable.borderTint` @type ^`android.content.res.ColorStateList` @kind object;
+  #L19d768.  if v0 == 0 then goto L19d778;
+  #L19d76c.  call temp:= `isStateful`(v0) @signature `Landroid/content/res/ColorStateList;.isStateful:()Z` @kind virtual;
+  #L19d772.  v0:= temp;
+  #L19d774.  if v0 != 0 then goto L19d784;
+  #L19d778.  call temp:= `isStateful`(v1) @signature `Landroid/graphics/drawable/Drawable;.isStateful:()Z` @kind super;
+  #L19d77e.  v0:= temp;
+  #L19d780.  if v0 == 0 then goto L19d788;
+  #L19d784.  v0:= 1I;
+  #L19d786.  goto L19d78a;
+  #L19d788.  v0:= 0I;
+  #L19d78a.  return v0;
+}
+procedure `void` `onBoundsChange`(`com.google.android.material.floatingactionbutton.BorderDrawable` v1 @kind this, `android.graphics.Rect` v2 @kind object @name `bounds`) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.onBoundsChange:(Landroid/graphics/Rect;)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L19da1c.  v0:= 1I;
+  #L19da1e.  v1.`com.google.android.material.floatingactionbutton.BorderDrawable.invalidateShader` @type ^`boolean` := v0 @kind boolean;
+  #L19da22.  return @kind void;
+}
+procedure `boolean` `onStateChange`(`com.google.android.material.floatingactionbutton.BorderDrawable` v2 @kind this, `int`[] v3 @kind object @name `state`) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.onStateChange:([I)Z` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L19d79c.  v0:= v2.`com.google.android.material.floatingactionbutton.BorderDrawable.borderTint` @type ^`android.content.res.ColorStateList` @kind object;
+  #L19d7a0.  if v0 == 0 then goto L19d7c2;
+  #L19d7a4.  v1:= v2.`com.google.android.material.floatingactionbutton.BorderDrawable.currentBorderTintColor` @type ^`int`;
+  #L19d7a8.  call temp:= `getColorForState`(v0, v3, v1) @signature `Landroid/content/res/ColorStateList;.getColorForState:([II)I` @kind virtual;
+  #L19d7ae.  v0:= temp;
+  #L19d7b0.  v1:= v2.`com.google.android.material.floatingactionbutton.BorderDrawable.currentBorderTintColor` @type ^`int`;
+  #L19d7b4.  if v0 == v1 then goto L19d7c2;
+  #L19d7b8.  v1:= 1I;
+  #L19d7ba.  v2.`com.google.android.material.floatingactionbutton.BorderDrawable.invalidateShader` @type ^`boolean` := v1 @kind boolean;
+  #L19d7be.  v2.`com.google.android.material.floatingactionbutton.BorderDrawable.currentBorderTintColor` @type ^`int` := v0;
+  #L19d7c2.  v0:= v2.`com.google.android.material.floatingactionbutton.BorderDrawable.invalidateShader` @type ^`boolean` @kind boolean;
+  #L19d7c6.  if v0 == 0 then goto L19d7d0;
+  #L19d7ca.  call `invalidateSelf`(v2) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.invalidateSelf:()V` @kind virtual;
+  #L19d7d0.  v0:= v2.`com.google.android.material.floatingactionbutton.BorderDrawable.invalidateShader` @type ^`boolean` @kind boolean;
+  #L19d7d4.  return v0;
+}
+procedure `void` `setAlpha`(`com.google.android.material.floatingactionbutton.BorderDrawable` v1 @kind this, `int` v2 @name `alpha`) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.setAlpha:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19da34.  v0:= v1.`com.google.android.material.floatingactionbutton.BorderDrawable.paint` @type ^`android.graphics.Paint` @kind object;
+  #L19da38.  call `setAlpha`(v0, v2) @signature `Landroid/graphics/Paint;.setAlpha:(I)V` @kind virtual;
+  #L19da3e.  call `invalidateSelf`(v1) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.invalidateSelf:()V` @kind virtual;
+  #L19da44.  return @kind void;
+}
+procedure `void` `setBorderTint`(`com.google.android.material.floatingactionbutton.BorderDrawable` v2 @kind this, `android.content.res.ColorStateList` v3 @kind object @name `tint`) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.setBorderTint:(Landroid/content/res/ColorStateList;)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L19da58.  if v3 == 0 then goto L19da74;
+  #L19da5c.  call temp:= `getState`(v2) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.getState:()[I` @kind virtual;
+  #L19da62.  v0:= temp @kind object;
+  #L19da64.  v1:= v2.`com.google.android.material.floatingactionbutton.BorderDrawable.currentBorderTintColor` @type ^`int`;
+  #L19da68.  call temp:= `getColorForState`(v3, v0, v1) @signature `Landroid/content/res/ColorStateList;.getColorForState:([II)I` @kind virtual;
+  #L19da6e.  v0:= temp;
+  #L19da70.  v2.`com.google.android.material.floatingactionbutton.BorderDrawable.currentBorderTintColor` @type ^`int` := v0;
+  #L19da74.  v2.`com.google.android.material.floatingactionbutton.BorderDrawable.borderTint` @type ^`android.content.res.ColorStateList` := v3 @kind object;
+  #L19da78.  v0:= 1I;
+  #L19da7a.  v2.`com.google.android.material.floatingactionbutton.BorderDrawable.invalidateShader` @type ^`boolean` := v0 @kind boolean;
+  #L19da7e.  call `invalidateSelf`(v2) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.invalidateSelf:()V` @kind virtual;
+  #L19da84.  return @kind void;
+}
+procedure `void` `setBorderWidth`(`com.google.android.material.floatingactionbutton.BorderDrawable` v2 @kind this, `float` v3 @name `width`) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.setBorderWidth:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19da98.  v0:= v2.`com.google.android.material.floatingactionbutton.BorderDrawable.borderWidth` @type ^`float`;
+  #L19da9c.  v0:= fcmpl(v0, v3);
+  #L19daa0.  if v0 == 0 then goto L19dac6;
+  #L19daa4.  v2.`com.google.android.material.floatingactionbutton.BorderDrawable.borderWidth` @type ^`float` := v3;
+  #L19daa8.  v0:= v2.`com.google.android.material.floatingactionbutton.BorderDrawable.paint` @type ^`android.graphics.Paint` @kind object;
+  #L19daac.  v1:= 1068149139I;
+  #L19dab2.  v1:= v1 * v3 @kind float;
+  #L19dab4.  call `setStrokeWidth`(v0, v1) @signature `Landroid/graphics/Paint;.setStrokeWidth:(F)V` @kind virtual;
+  #L19daba.  v0:= 1I;
+  #L19dabc.  v2.`com.google.android.material.floatingactionbutton.BorderDrawable.invalidateShader` @type ^`boolean` := v0 @kind boolean;
+  #L19dac0.  call `invalidateSelf`(v2) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.invalidateSelf:()V` @kind virtual;
+  #L19dac6.  return @kind void;
+}
+procedure `void` `setColorFilter`(`com.google.android.material.floatingactionbutton.BorderDrawable` v1 @kind this, `android.graphics.ColorFilter` v2 @kind object @name `colorFilter`) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.setColorFilter:(Landroid/graphics/ColorFilter;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19dad8.  v0:= v1.`com.google.android.material.floatingactionbutton.BorderDrawable.paint` @type ^`android.graphics.Paint` @kind object;
+  #L19dadc.  call temp:= `setColorFilter`(v0, v2) @signature `Landroid/graphics/Paint;.setColorFilter:(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;` @kind virtual;
+  #L19dae2.  call `invalidateSelf`(v1) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.invalidateSelf:()V` @kind virtual;
+  #L19dae8.  return @kind void;
+}
+procedure `void` `setGradientColors`(`com.google.android.material.floatingactionbutton.BorderDrawable` v0 @kind this, `int` v1 @name `topOuterStrokeColor`, `int` v2 @name `topInnerStrokeColor`, `int` v3 @name `bottomOuterStrokeColor`, `int` v4 @name `bottomInnerStrokeColor`) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.setGradientColors:(IIII)V` @AccessFlag  {
+    temp;
+
+  #L19dafc.  v0.`com.google.android.material.floatingactionbutton.BorderDrawable.topOuterStrokeColor` @type ^`int` := v1;
+  #L19db00.  v0.`com.google.android.material.floatingactionbutton.BorderDrawable.topInnerStrokeColor` @type ^`int` := v2;
+  #L19db04.  v0.`com.google.android.material.floatingactionbutton.BorderDrawable.bottomOuterStrokeColor` @type ^`int` := v3;
+  #L19db08.  v0.`com.google.android.material.floatingactionbutton.BorderDrawable.bottomInnerStrokeColor` @type ^`int` := v4;
+  #L19db0c.  return @kind void;
+}
+procedure `void` `setShapeAppearanceModel`(`com.google.android.material.floatingactionbutton.BorderDrawable` v0 @kind this, `com.google.android.material.shape.ShapeAppearanceModel` v1 @kind object @name `shapeAppearanceModel`) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L19db20.  v0.`com.google.android.material.floatingactionbutton.BorderDrawable.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` := v1 @kind object;
+  #L19db24.  call `invalidateSelf`(v0) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.invalidateSelf:()V` @kind virtual;
+  #L19db2a.  return @kind void;
+}

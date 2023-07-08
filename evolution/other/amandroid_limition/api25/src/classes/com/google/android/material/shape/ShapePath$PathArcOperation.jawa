@@ -1,0 +1,197 @@
+record `com.google.android.material.shape.ShapePath$PathArcOperation` @kind class @AccessFlag PUBLIC extends `com.google.android.material.shape.ShapePath$PathOperation` @kind class {
+  `float` `com.google.android.material.shape.ShapePath$PathArcOperation.bottom` @AccessFlag PUBLIC;
+  `float` `com.google.android.material.shape.ShapePath$PathArcOperation.left` @AccessFlag PUBLIC;
+  `float` `com.google.android.material.shape.ShapePath$PathArcOperation.right` @AccessFlag PUBLIC;
+  `float` `com.google.android.material.shape.ShapePath$PathArcOperation.startAngle` @AccessFlag PUBLIC;
+  `float` `com.google.android.material.shape.ShapePath$PathArcOperation.sweepAngle` @AccessFlag PUBLIC;
+  `float` `com.google.android.material.shape.ShapePath$PathArcOperation.top` @AccessFlag PUBLIC;
+}
+global `android.graphics.RectF` `@@com.google.android.material.shape.ShapePath$PathArcOperation.rectF` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1ae454.  v0:= new `android.graphics.RectF`;
+  #L1ae458.  call `<init>`(v0) @signature `Landroid/graphics/RectF;.<init>:()V` @kind direct;
+  #L1ae45e.  `@@com.google.android.material.shape.ShapePath$PathArcOperation.rectF` @type ^`android.graphics.RectF` := v0 @kind object;
+  #L1ae462.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.ShapePath$PathArcOperation` v0 @kind this, `float` v1 @name `left`, `float` v2 @name `top`, `float` v3 @name `right`, `float` v4 @name `bottom`) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.<init>:(FFFF)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1ae474.  call `<init>`(v0) @signature `Lcom/google/android/material/shape/ShapePath$PathOperation;.<init>:()V` @kind direct;
+  #L1ae47a.  call `setLeft`(v0, v1) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.setLeft:(F)V` @kind direct;
+  #L1ae480.  call `setTop`(v0, v2) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.setTop:(F)V` @kind direct;
+  #L1ae486.  call `setRight`(v0, v3) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.setRight:(F)V` @kind direct;
+  #L1ae48c.  call `setBottom`(v0, v4) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.setBottom:(F)V` @kind direct;
+  #L1ae492.  return @kind void;
+}
+procedure `float` `access$1000`(`com.google.android.material.shape.ShapePath$PathArcOperation` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.access$1000:(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)F` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1ae31c.  call temp:= `getLeft`(v1) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.getLeft:()F` @kind direct;
+  #L1ae322.  v0:= temp;
+  #L1ae324.  return v0;
+}
+procedure `float` `access$1100`(`com.google.android.material.shape.ShapePath$PathArcOperation` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.access$1100:(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)F` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1ae338.  call temp:= `getTop`(v1) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.getTop:()F` @kind direct;
+  #L1ae33e.  v0:= temp;
+  #L1ae340.  return v0;
+}
+procedure `float` `access$1200`(`com.google.android.material.shape.ShapePath$PathArcOperation` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.access$1200:(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)F` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1ae354.  call temp:= `getRight`(v1) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.getRight:()F` @kind direct;
+  #L1ae35a.  v0:= temp;
+  #L1ae35c.  return v0;
+}
+procedure `float` `access$1300`(`com.google.android.material.shape.ShapePath$PathArcOperation` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.access$1300:(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)F` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1ae370.  call temp:= `getBottom`(v1) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.getBottom:()F` @kind direct;
+  #L1ae376.  v0:= temp;
+  #L1ae378.  return v0;
+}
+procedure `void` `access$600`(`com.google.android.material.shape.ShapePath$PathArcOperation` v0 @kind object @name `x0`, `float` v1 @name `x1`) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.access$600:(Lcom/google/android/material/shape/ShapePath$PathArcOperation;F)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1ae4a4.  call `setStartAngle`(v0, v1) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.setStartAngle:(F)V` @kind direct;
+  #L1ae4aa.  return @kind void;
+}
+procedure `void` `access$700`(`com.google.android.material.shape.ShapePath$PathArcOperation` v0 @kind object @name `x0`, `float` v1 @name `x1`) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.access$700:(Lcom/google/android/material/shape/ShapePath$PathArcOperation;F)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1ae4bc.  call `setSweepAngle`(v0, v1) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.setSweepAngle:(F)V` @kind direct;
+  #L1ae4c2.  return @kind void;
+}
+procedure `float` `access$800`(`com.google.android.material.shape.ShapePath$PathArcOperation` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.access$800:(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)F` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1ae38c.  call temp:= `getStartAngle`(v1) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.getStartAngle:()F` @kind direct;
+  #L1ae392.  v0:= temp;
+  #L1ae394.  return v0;
+}
+procedure `float` `access$900`(`com.google.android.material.shape.ShapePath$PathArcOperation` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.access$900:(Lcom/google/android/material/shape/ShapePath$PathArcOperation;)F` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1ae3a8.  call temp:= `getSweepAngle`(v1) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.getSweepAngle:()F` @kind direct;
+  #L1ae3ae.  v0:= temp;
+  #L1ae3b0.  return v0;
+}
+procedure `float` `getBottom`(`com.google.android.material.shape.ShapePath$PathArcOperation` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.getBottom:()F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1ae3c4.  v0:= v1.`com.google.android.material.shape.ShapePath$PathArcOperation.bottom` @type ^`float`;
+  #L1ae3c8.  return v0;
+}
+procedure `float` `getLeft`(`com.google.android.material.shape.ShapePath$PathArcOperation` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.getLeft:()F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1ae3dc.  v0:= v1.`com.google.android.material.shape.ShapePath$PathArcOperation.left` @type ^`float`;
+  #L1ae3e0.  return v0;
+}
+procedure `float` `getRight`(`com.google.android.material.shape.ShapePath$PathArcOperation` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.getRight:()F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1ae3f4.  v0:= v1.`com.google.android.material.shape.ShapePath$PathArcOperation.right` @type ^`float`;
+  #L1ae3f8.  return v0;
+}
+procedure `float` `getStartAngle`(`com.google.android.material.shape.ShapePath$PathArcOperation` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.getStartAngle:()F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1ae40c.  v0:= v1.`com.google.android.material.shape.ShapePath$PathArcOperation.startAngle` @type ^`float`;
+  #L1ae410.  return v0;
+}
+procedure `float` `getSweepAngle`(`com.google.android.material.shape.ShapePath$PathArcOperation` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.getSweepAngle:()F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1ae424.  v0:= v1.`com.google.android.material.shape.ShapePath$PathArcOperation.sweepAngle` @type ^`float`;
+  #L1ae428.  return v0;
+}
+procedure `float` `getTop`(`com.google.android.material.shape.ShapePath$PathArcOperation` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.getTop:()F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1ae43c.  v0:= v1.`com.google.android.material.shape.ShapePath$PathArcOperation.top` @type ^`float`;
+  #L1ae440.  return v0;
+}
+procedure `void` `setBottom`(`com.google.android.material.shape.ShapePath$PathArcOperation` v0 @kind this, `float` v1 @name `bottom`) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.setBottom:(F)V` @AccessFlag PRIVATE {
+    temp;
+
+  #L1ae540.  v0.`com.google.android.material.shape.ShapePath$PathArcOperation.bottom` @type ^`float` := v1;
+  #L1ae544.  return @kind void;
+}
+procedure `void` `setLeft`(`com.google.android.material.shape.ShapePath$PathArcOperation` v0 @kind this, `float` v1 @name `left`) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.setLeft:(F)V` @AccessFlag PRIVATE {
+    temp;
+
+  #L1ae558.  v0.`com.google.android.material.shape.ShapePath$PathArcOperation.left` @type ^`float` := v1;
+  #L1ae55c.  return @kind void;
+}
+procedure `void` `setRight`(`com.google.android.material.shape.ShapePath$PathArcOperation` v0 @kind this, `float` v1 @name `right`) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.setRight:(F)V` @AccessFlag PRIVATE {
+    temp;
+
+  #L1ae570.  v0.`com.google.android.material.shape.ShapePath$PathArcOperation.right` @type ^`float` := v1;
+  #L1ae574.  return @kind void;
+}
+procedure `void` `setStartAngle`(`com.google.android.material.shape.ShapePath$PathArcOperation` v0 @kind this, `float` v1 @name `startAngle`) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.setStartAngle:(F)V` @AccessFlag PRIVATE {
+    temp;
+
+  #L1ae588.  v0.`com.google.android.material.shape.ShapePath$PathArcOperation.startAngle` @type ^`float` := v1;
+  #L1ae58c.  return @kind void;
+}
+procedure `void` `setSweepAngle`(`com.google.android.material.shape.ShapePath$PathArcOperation` v0 @kind this, `float` v1 @name `sweepAngle`) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.setSweepAngle:(F)V` @AccessFlag PRIVATE {
+    temp;
+
+  #L1ae5a0.  v0.`com.google.android.material.shape.ShapePath$PathArcOperation.sweepAngle` @type ^`float` := v1;
+  #L1ae5a4.  return @kind void;
+}
+procedure `void` `setTop`(`com.google.android.material.shape.ShapePath$PathArcOperation` v0 @kind this, `float` v1 @name `top`) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.setTop:(F)V` @AccessFlag PRIVATE {
+    temp;
+
+  #L1ae5b8.  v0.`com.google.android.material.shape.ShapePath$PathArcOperation.top` @type ^`float` := v1;
+  #L1ae5bc.  return @kind void;
+}
+procedure `void` `applyToPath`(`com.google.android.material.shape.ShapePath$PathArcOperation` v6 @kind this, `android.graphics.Matrix` v7 @kind object @name `transform`, `android.graphics.Path` v8 @kind object @name `path`) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.applyToPath:(Landroid/graphics/Matrix;Landroid/graphics/Path;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1ae4d4.  v0:= v6.`com.google.android.material.shape.ShapePath$PathArcOperation.matrix` @type ^`android.graphics.Matrix` @kind object;
+  #L1ae4d8.  call temp:= `invert`(v7, v0) @signature `Landroid/graphics/Matrix;.invert:(Landroid/graphics/Matrix;)Z` @kind virtual;
+  #L1ae4de.  call `transform`(v8, v0) @signature `Landroid/graphics/Path;.transform:(Landroid/graphics/Matrix;)V` @kind virtual;
+  #L1ae4e4.  v1:= `@@com.google.android.material.shape.ShapePath$PathArcOperation.rectF` @type ^`android.graphics.RectF` @kind object;
+  #L1ae4e8.  call temp:= `getLeft`(v6) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.getLeft:()F` @kind direct;
+  #L1ae4ee.  v2:= temp;
+  #L1ae4f0.  call temp:= `getTop`(v6) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.getTop:()F` @kind direct;
+  #L1ae4f6.  v3:= temp;
+  #L1ae4f8.  call temp:= `getRight`(v6) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.getRight:()F` @kind direct;
+  #L1ae4fe.  v4:= temp;
+  #L1ae500.  call temp:= `getBottom`(v6) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.getBottom:()F` @kind direct;
+  #L1ae506.  v5:= temp;
+  #L1ae508.  call `set`(v1, v2, v3, v4, v5) @signature `Landroid/graphics/RectF;.set:(FFFF)V` @kind virtual;
+  #L1ae50e.  call temp:= `getStartAngle`(v6) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.getStartAngle:()F` @kind direct;
+  #L1ae514.  v2:= temp;
+  #L1ae516.  call temp:= `getSweepAngle`(v6) @signature `Lcom/google/android/material/shape/ShapePath$PathArcOperation;.getSweepAngle:()F` @kind direct;
+  #L1ae51c.  v3:= temp;
+  #L1ae51e.  v4:= 0I;
+  #L1ae520.  call `arcTo`(v8, v1, v2, v3, v4) @signature `Landroid/graphics/Path;.arcTo:(Landroid/graphics/RectF;FFZ)V` @kind virtual;
+  #L1ae526.  call `transform`(v8, v7) @signature `Landroid/graphics/Path;.transform:(Landroid/graphics/Matrix;)V` @kind virtual;
+  #L1ae52c.  return @kind void;
+}

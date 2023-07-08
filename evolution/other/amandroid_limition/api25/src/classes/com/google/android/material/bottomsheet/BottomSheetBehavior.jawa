@@ -1,0 +1,1807 @@
+record `com.google.android.material.bottomsheet.BottomSheetBehavior` @kind class @AccessFlag PUBLIC extends `androidx.coordinatorlayout.widget.CoordinatorLayout$Behavior` @kind class {
+  `int` `com.google.android.material.bottomsheet.BottomSheetBehavior.activePointerId` @AccessFlag ;
+  `java.util.ArrayList` `com.google.android.material.bottomsheet.BottomSheetBehavior.callbacks` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.bottomsheet.BottomSheetBehavior.collapsedOffset` @AccessFlag ;
+  `androidx.customview.widget.ViewDragHelper$Callback` `com.google.android.material.bottomsheet.BottomSheetBehavior.dragCallback` @AccessFlag PRIVATE_FINAL;
+  `float` `com.google.android.material.bottomsheet.BottomSheetBehavior.elevation` @AccessFlag ;
+  `int` `com.google.android.material.bottomsheet.BottomSheetBehavior.expandedOffset` @AccessFlag ;
+  `boolean` `com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContents` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContentsOffset` @AccessFlag ;
+  `int` `com.google.android.material.bottomsheet.BottomSheetBehavior.halfExpandedOffset` @AccessFlag ;
+  `float` `com.google.android.material.bottomsheet.BottomSheetBehavior.halfExpandedRatio` @AccessFlag ;
+  `boolean` `com.google.android.material.bottomsheet.BottomSheetBehavior.hideable` @AccessFlag ;
+  `boolean` `com.google.android.material.bottomsheet.BottomSheetBehavior.ignoreEvents` @AccessFlag PRIVATE;
+  `java.util.Map` `com.google.android.material.bottomsheet.BottomSheetBehavior.importantForAccessibilityMap` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.bottomsheet.BottomSheetBehavior.initialY` @AccessFlag PRIVATE;
+  `android.animation.ValueAnimator` `com.google.android.material.bottomsheet.BottomSheetBehavior.interpolatorAnimator` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.bottomsheet.BottomSheetBehavior.isShapeExpanded` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.bottomsheet.BottomSheetBehavior.lastNestedScrollDy` @AccessFlag PRIVATE;
+  `com.google.android.material.shape.MaterialShapeDrawable` `com.google.android.material.bottomsheet.BottomSheetBehavior.materialShapeDrawable` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.bottomsheet.BottomSheetBehavior.maximumVelocity` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.bottomsheet.BottomSheetBehavior.nestedScrolled` @AccessFlag PRIVATE;
+  `java.lang.ref.WeakReference` `com.google.android.material.bottomsheet.BottomSheetBehavior.nestedScrollingChildRef` @AccessFlag ;
+  `int` `com.google.android.material.bottomsheet.BottomSheetBehavior.parentHeight` @AccessFlag ;
+  `int` `com.google.android.material.bottomsheet.BottomSheetBehavior.parentWidth` @AccessFlag ;
+  `int` `com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeight` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeightAuto` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeightMin` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.bottomsheet.BottomSheetBehavior.saveFlags` @AccessFlag PRIVATE;
+  `com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable` `com.google.android.material.bottomsheet.BottomSheetBehavior.settleRunnable` @AccessFlag PRIVATE;
+  `com.google.android.material.shape.ShapeAppearanceModel` `com.google.android.material.bottomsheet.BottomSheetBehavior.shapeAppearanceModelDefault` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.bottomsheet.BottomSheetBehavior.shapeThemingEnabled` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.bottomsheet.BottomSheetBehavior.skipCollapsed` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.bottomsheet.BottomSheetBehavior.state` @AccessFlag ;
+  `boolean` `com.google.android.material.bottomsheet.BottomSheetBehavior.touchingScrollingChild` @AccessFlag ;
+  `android.view.VelocityTracker` `com.google.android.material.bottomsheet.BottomSheetBehavior.velocityTracker` @AccessFlag PRIVATE;
+  `androidx.customview.widget.ViewDragHelper` `com.google.android.material.bottomsheet.BottomSheetBehavior.viewDragHelper` @AccessFlag ;
+  `java.lang.ref.WeakReference` `com.google.android.material.bottomsheet.BottomSheetBehavior.viewRef` @AccessFlag ;
+}
+global `int` `@@com.google.android.material.bottomsheet.BottomSheetBehavior.CORNER_ANIMATION_DURATION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomsheet.BottomSheetBehavior.DEF_STYLE_RES` @AccessFlag PRIVATE_STATIC_FINAL;
+global `float` `@@com.google.android.material.bottomsheet.BottomSheetBehavior.HIDE_FRICTION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `float` `@@com.google.android.material.bottomsheet.BottomSheetBehavior.HIDE_THRESHOLD` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomsheet.BottomSheetBehavior.PEEK_HEIGHT_AUTO` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomsheet.BottomSheetBehavior.SAVE_ALL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomsheet.BottomSheetBehavior.SAVE_FIT_TO_CONTENTS` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomsheet.BottomSheetBehavior.SAVE_HIDEABLE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomsheet.BottomSheetBehavior.SAVE_NONE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomsheet.BottomSheetBehavior.SAVE_PEEK_HEIGHT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomsheet.BottomSheetBehavior.SAVE_SKIP_COLLAPSED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_COLLAPSED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_DRAGGING` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HALF_EXPANDED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HIDDEN` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_SETTLING` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@com.google.android.material.bottomsheet.BottomSheetBehavior.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1897a0.  v0:= `@@com.google.android.material.R$style.Widget_Design_BottomSheet_Modal` @type ^`int`;
+  #L1897a4.  `@@com.google.android.material.bottomsheet.BottomSheetBehavior.DEF_STYLE_RES` @type ^`int` := v0;
+  #L1897a8.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1897bc.  call `<init>`(v1) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;.<init>:()V` @kind direct;
+  #L1897c2.  v0:= 0I;
+  #L1897c4.  v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.saveFlags` @type ^`int` := v0;
+  #L1897c8.  v0:= 1I;
+  #L1897ca.  v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContents` @type ^`boolean` := v0 @kind boolean;
+  #L1897ce.  v0:= 0I;
+  #L1897d0.  v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.settleRunnable` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable` := v0 @kind object;
+  #L1897d4.  v0:= 0.5F;
+  #L1897d8.  v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.halfExpandedRatio` @type ^`float` := v0;
+  #L1897dc.  v0:= -1.0F;
+  #L1897e0.  v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.elevation` @type ^`float` := v0;
+  #L1897e4.  v0:= 4I;
+  #L1897e6.  v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int` := v0;
+  #L1897ea.  v0:= new `java.util.ArrayList`;
+  #L1897ee.  call `<init>`(v0) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L1897f4.  v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.callbacks` @type ^`java.util.ArrayList` := v0 @kind object;
+  #L1897f8.  v0:= new `com.google.android.material.bottomsheet.BottomSheetBehavior$3`;
+  #L1897fc.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior$3;.<init>:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)V` @kind direct;
+  #L189802.  v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.dragCallback` @type ^`androidx.customview.widget.ViewDragHelper$Callback` := v0 @kind object;
+  #L189806.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v8 @kind this, `android.content.Context` v9 @kind object @name `context`, `android.util.AttributeSet` v10 @kind object @name `attrs`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L189818.  call `<init>`(v8, v9, v10) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L18981e.  v0:= 0I;
+  #L189820.  v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.saveFlags` @type ^`int` := v0;
+  #L189824.  v1:= 1I;
+  #L189826.  v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContents` @type ^`boolean` := v1 @kind boolean;
+  #L18982a.  v2:= 0I;
+  #L18982c.  v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.settleRunnable` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable` := v2 @kind object;
+  #L189830.  v2:= 0.5F;
+  #L189834.  v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.halfExpandedRatio` @type ^`float` := v2;
+  #L189838.  v3:= -1.0F;
+  #L18983c.  v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.elevation` @type ^`float` := v3;
+  #L189840.  v4:= 4I;
+  #L189842.  v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int` := v4;
+  #L189846.  v4:= new `java.util.ArrayList`;
+  #L18984a.  call `<init>`(v4) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L189850.  v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.callbacks` @type ^`java.util.ArrayList` := v4 @kind object;
+  #L189854.  v4:= new `com.google.android.material.bottomsheet.BottomSheetBehavior$3`;
+  #L189858.  call `<init>`(v4, v8) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior$3;.<init>:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)V` @kind direct;
+  #L18985e.  v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.dragCallback` @type ^`androidx.customview.widget.ViewDragHelper$Callback` := v4 @kind object;
+  #L189862.  v4:= `@@com.google.android.material.R$styleable.BottomSheetBehavior_Layout` @type ^`int`[] @kind object;
+  #L189866.  call temp:= `obtainStyledAttributes`(v9, v10, v4) @signature `Landroid/content/Context;.obtainStyledAttributes:(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;` @kind virtual;
+  #L18986c.  v4:= temp @kind object;
+  #L18986e.  v5:= `@@com.google.android.material.R$styleable.BottomSheetBehavior_Layout_shapeAppearance` @type ^`int`;
+  #L189872.  call temp:= `hasValue`(v4, v5) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L189878.  v5:= temp;
+  #L18987a.  v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.shapeThemingEnabled` @type ^`boolean` := v5 @kind boolean;
+  #L18987e.  v5:= `@@com.google.android.material.R$styleable.BottomSheetBehavior_Layout_backgroundTint` @type ^`int`;
+  #L189882.  call temp:= `hasValue`(v4, v5) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L189888.  v5:= temp;
+  #L18988a.  if v5 == 0 then goto L1898a2;
+  #L18988e.  v6:= `@@com.google.android.material.R$styleable.BottomSheetBehavior_Layout_backgroundTint` @type ^`int`;
+  #L189892.  call temp:= `getColorStateList`(v9, v4, v6) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L189898.  v6:= temp @kind object;
+  #L18989a.  call `createMaterialShapeDrawable`(v8, v9, v10, v5, v6) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.createMaterialShapeDrawable:(Landroid/content/Context;Landroid/util/AttributeSet;ZLandroid/content/res/ColorStateList;)V` @kind direct;
+  #L1898a0.  goto L1898a8;
+  #L1898a2.  call `createMaterialShapeDrawable`(v8, v9, v10, v5) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.createMaterialShapeDrawable:(Landroid/content/Context;Landroid/util/AttributeSet;Z)V` @kind direct;
+  #L1898a8.  call `createShapeValueAnimator`(v8) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.createShapeValueAnimator:()V` @kind direct;
+  #L1898ae.  v6:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1898b2.  v7:= 21I;
+  #L1898b6.  if v6 < v7 then goto L1898ca;
+  #L1898ba.  v6:= `@@com.google.android.material.R$styleable.BottomSheetBehavior_Layout_android_elevation` @type ^`int`;
+  #L1898be.  call temp:= `getDimension`(v4, v6, v3) @signature `Landroid/content/res/TypedArray;.getDimension:(IF)F` @kind virtual;
+  #L1898c4.  v3:= temp;
+  #L1898c6.  v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.elevation` @type ^`float` := v3;
+  #L1898ca.  v3:= `@@com.google.android.material.R$styleable.BottomSheetBehavior_Layout_behavior_peekHeight` @type ^`int`;
+  #L1898ce.  call temp:= `peekValue`(v4, v3) @signature `Landroid/content/res/TypedArray;.peekValue:(I)Landroid/util/TypedValue;` @kind virtual;
+  #L1898d4.  v3:= temp @kind object;
+  #L1898d6.  v6:= -1I;
+  #L1898d8.  if v3 == 0 then goto L1898f0;
+  #L1898dc.  v7:= v3.`android.util.TypedValue.data` @type ^`int`;
+  #L1898e0.  if v7 != v6 then goto L1898f0;
+  #L1898e4.  v6:= v3.`android.util.TypedValue.data` @type ^`int`;
+  #L1898e8.  call `setPeekHeight`(v8, v6) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setPeekHeight:(I)V` @kind virtual;
+  #L1898ee.  goto L189902;
+  #L1898f0.  v7:= `@@com.google.android.material.R$styleable.BottomSheetBehavior_Layout_behavior_peekHeight` @type ^`int`;
+  #L1898f4.  call temp:= `getDimensionPixelSize`(v4, v7, v6) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1898fa.  v6:= temp;
+  #L1898fc.  call `setPeekHeight`(v8, v6) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setPeekHeight:(I)V` @kind virtual;
+  #L189902.  v6:= `@@com.google.android.material.R$styleable.BottomSheetBehavior_Layout_behavior_hideable` @type ^`int`;
+  #L189906.  call temp:= `getBoolean`(v4, v6, v0) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L18990c.  v6:= temp;
+  #L18990e.  call `setHideable`(v8, v6) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setHideable:(Z)V` @kind virtual;
+  #L189914.  v6:= `@@com.google.android.material.R$styleable.BottomSheetBehavior_Layout_behavior_fitToContents` @type ^`int`;
+  #L189918.  call temp:= `getBoolean`(v4, v6, v1) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L18991e.  v1:= temp;
+  #L189920.  call `setFitToContents`(v8, v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setFitToContents:(Z)V` @kind virtual;
+  #L189926.  v1:= `@@com.google.android.material.R$styleable.BottomSheetBehavior_Layout_behavior_skipCollapsed` @type ^`int`;
+  #L18992a.  call temp:= `getBoolean`(v4, v1, v0) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L189930.  v1:= temp;
+  #L189932.  call `setSkipCollapsed`(v8, v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setSkipCollapsed:(Z)V` @kind virtual;
+  #L189938.  v1:= `@@com.google.android.material.R$styleable.BottomSheetBehavior_Layout_behavior_saveFlags` @type ^`int`;
+  #L18993c.  call temp:= `getInt`(v4, v1, v0) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L189942.  v1:= temp;
+  #L189944.  call `setSaveFlags`(v8, v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setSaveFlags:(I)V` @kind virtual;
+  #L18994a.  v1:= `@@com.google.android.material.R$styleable.BottomSheetBehavior_Layout_behavior_halfExpandedRatio` @type ^`int`;
+  #L18994e.  call temp:= `getFloat`(v4, v1, v2) @signature `Landroid/content/res/TypedArray;.getFloat:(IF)F` @kind virtual;
+  #L189954.  v1:= temp;
+  #L189956.  call `setHalfExpandedRatio`(v8, v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setHalfExpandedRatio:(F)V` @kind virtual;
+  #L18995c.  v1:= `@@com.google.android.material.R$styleable.BottomSheetBehavior_Layout_behavior_expandedOffset` @type ^`int`;
+  #L189960.  call temp:= `getInt`(v4, v1, v0) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L189966.  v0:= temp;
+  #L189968.  call `setExpandedOffset`(v8, v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setExpandedOffset:(I)V` @kind virtual;
+  #L18996e.  call `recycle`(v4) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L189974.  call temp:= `get`(v9) @signature `Landroid/view/ViewConfiguration;.get:(Landroid/content/Context;)Landroid/view/ViewConfiguration;` @kind static;
+  #L18997a.  v0:= temp @kind object;
+  #L18997c.  call temp:= `getScaledMaximumFlingVelocity`(v0) @signature `Landroid/view/ViewConfiguration;.getScaledMaximumFlingVelocity:()I` @kind virtual;
+  #L189982.  v1:= temp;
+  #L189984.  v1:= (`float`) v1 @kind i2f;
+  #L189986.  v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.maximumVelocity` @type ^`float` := v1;
+  #L18998a.  return @kind void;
+}
+procedure `com.google.android.material.shape.MaterialShapeDrawable` `access$000`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.access$000:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)Lcom/google/android/material/shape/MaterialShapeDrawable;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L189670.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L189674.  return v0 @kind object;
+}
+procedure `boolean` `access$200`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.access$200:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)Z` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L189068.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContents` @type ^`boolean` @kind boolean;
+  #L18906c.  return v0;
+}
+procedure `int` `access$300`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.access$300:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)I` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1896dc.  call temp:= `getExpandedOffset`(v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getExpandedOffset:()I` @kind direct;
+  #L1896e2.  v0:= temp;
+  #L1896e4.  return v0;
+}
+procedure `int` `access$400`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.access$400:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)I` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1896f8.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeight` @type ^`int`;
+  #L1896fc.  return v0;
+}
+procedure `boolean` `access$500`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.access$500:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)Z` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L189080.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.skipCollapsed` @type ^`boolean` @kind boolean;
+  #L189084.  return v0;
+}
+procedure `void` `addAccessibilityActionForState`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v2 @kind this, `android.view.View` v3 @kind object, `androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat` v4 @kind object @name `action`, `int` v5 @name `state`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.addAccessibilityActionForState:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;I)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L18999c.  v0:= new `com.google.android.material.bottomsheet.BottomSheetBehavior$4`;
+  #L1899a0.  call `<init>`(v0, v2, v5) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior$4;.<init>:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;I)V` @kind direct;
+  #L1899a6.  v1:= 0I;
+  #L1899a8.  call `replaceAccessibilityAction`(v3, v4, v1, v0) @signature `Landroidx/core/view/ViewCompat;.replaceAccessibilityAction:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;Ljava/lang/CharSequence;Landroidx/core/view/accessibility/AccessibilityViewCommand;)V` @kind static;
+  #L1899ae.  return @kind void;
+}
+procedure `void` `calculateCollapsedOffset`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v3 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.calculateCollapsedOffset:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1899ec.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeightAuto` @type ^`boolean` @kind boolean;
+  #L1899f0.  if v0 == 0 then goto L189a14;
+  #L1899f4.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeightMin` @type ^`int`;
+  #L1899f8.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.parentHeight` @type ^`int`;
+  #L1899fc.  v2:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.parentWidth` @type ^`int`;
+  #L189a00.  v2:= v2 * 9;
+  #L189a04.  v2:= v2 / 16;
+  #L189a08.  v1:= v1 - v2 @kind int;
+  #L189a0a.  call temp:= `max`(v0, v1) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L189a10.  v0:= temp;
+  #L189a12.  goto L189a18;
+  #L189a14.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeight` @type ^`int`;
+  #L189a18.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContents` @type ^`boolean` @kind boolean;
+  #L189a1c.  if v1 == 0 then goto L189a38;
+  #L189a20.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.parentHeight` @type ^`int`;
+  #L189a24.  v1:= v1 - v0 @kind int;
+  #L189a26.  v2:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContentsOffset` @type ^`int`;
+  #L189a2a.  call temp:= `max`(v1, v2) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L189a30.  v1:= temp;
+  #L189a32.  v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.collapsedOffset` @type ^`int` := v1;
+  #L189a36.  goto L189a42;
+  #L189a38.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.parentHeight` @type ^`int`;
+  #L189a3c.  v1:= v1 - v0 @kind int;
+  #L189a3e.  v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.collapsedOffset` @type ^`int` := v1;
+  #L189a42.  return @kind void;
+}
+procedure `void` `calculateHalfExpandedOffset`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v3 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.calculateHalfExpandedOffset:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L189a54.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.parentHeight` @type ^`int`;
+  #L189a58.  v0:= (`float`) v0 @kind i2f;
+  #L189a5a.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.halfExpandedRatio` @type ^`float`;
+  #L189a5e.  v2:= 1.0F;
+  #L189a62.  v2:= v2 - v1 @kind float;
+  #L189a64.  v0:= v0 * v2 @kind float;
+  #L189a66.  v0:= (`int`) v0 @kind f2i;
+  #L189a68.  v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.halfExpandedOffset` @type ^`int` := v0;
+  #L189a6c.  return @kind void;
+}
+procedure `void` `createMaterialShapeDrawable`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`, `boolean` v4 @name `hasBackgroundTint`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.createMaterialShapeDrawable:(Landroid/content/Context;Landroid/util/AttributeSet;Z)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L189a80.  v0:= 0I;
+  #L189a82.  call `createMaterialShapeDrawable`(v1, v2, v3, v4, v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.createMaterialShapeDrawable:(Landroid/content/Context;Landroid/util/AttributeSet;ZLandroid/content/res/ColorStateList;)V` @kind direct;
+  #L189a88.  return @kind void;
+}
+procedure `void` `createMaterialShapeDrawable`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v4 @kind this, `android.content.Context` v5 @kind object @name `context`, `android.util.AttributeSet` v6 @kind object @name `attrs`, `boolean` v7 @name `hasBackgroundTint`, `android.content.res.ColorStateList` v8 @kind object @name `bottomSheetColor`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.createMaterialShapeDrawable:(Landroid/content/Context;Landroid/util/AttributeSet;ZLandroid/content/res/ColorStateList;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L189a9c.  v0:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.shapeThemingEnabled` @type ^`boolean` @kind boolean;
+  #L189aa0.  if v0 == 0 then goto L189b1a;
+  #L189aa4.  v0:= `@@com.google.android.material.R$attr.bottomSheetStyle` @type ^`int`;
+  #L189aa8.  v1:= `@@com.google.android.material.bottomsheet.BottomSheetBehavior.DEF_STYLE_RES` @type ^`int`;
+  #L189aac.  call temp:= `builder`(v5, v6, v0, v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.builder:(Landroid/content/Context;Landroid/util/AttributeSet;II)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind static;
+  #L189ab2.  v0:= temp @kind object;
+  #L189ab4.  call temp:= `build`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.build:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L189aba.  v0:= temp @kind object;
+  #L189abc.  v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.shapeAppearanceModelDefault` @type ^`com.google.android.material.shape.ShapeAppearanceModel` := v0 @kind object;
+  #L189ac0.  v0:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L189ac4.  v1:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.shapeAppearanceModelDefault` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L189ac8.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L189ace.  v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` := v0 @kind object;
+  #L189ad2.  call `initializeElevationOverlay`(v0, v5) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.initializeElevationOverlay:(Landroid/content/Context;)V` @kind virtual;
+  #L189ad8.  if v7 == 0 then goto L189aec;
+  #L189adc.  if v8 == 0 then goto L189aec;
+  #L189ae0.  v0:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L189ae4.  call `setFillColor`(v0, v8) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L189aea.  goto L189b1a;
+  #L189aec.  v0:= new `android.util.TypedValue`;
+  #L189af0.  call `<init>`(v0) @signature `Landroid/util/TypedValue;.<init>:()V` @kind direct;
+  #L189af6.  call temp:= `getTheme`(v5) @signature `Landroid/content/Context;.getTheme:()Landroid/content/res/Resources$Theme;` @kind virtual;
+  #L189afc.  v1:= temp @kind object;
+  #L189afe.  v2:= 16842801I;
+  #L189b04.  v3:= 1I;
+  #L189b06.  call temp:= `resolveAttribute`(v1, v2, v0, v3) @signature `Landroid/content/res/Resources$Theme;.resolveAttribute:(ILandroid/util/TypedValue;Z)Z` @kind virtual;
+  #L189b0c.  v1:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L189b10.  v2:= v0.`android.util.TypedValue.data` @type ^`int`;
+  #L189b14.  call `setTint`(v1, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setTint:(I)V` @kind virtual;
+  #L189b1a.  return @kind void;
+}
+procedure `void` `createShapeValueAnimator`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v3 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.createShapeValueAnimator:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L189b2c.  v0:= 2I;
+  #L189b2e.  v0:= new `float`[v0];
+  #L189b32.  goto L189b64;
+  #L189b38.  call temp:= `ofFloat`(v0) @signature `Landroid/animation/ValueAnimator;.ofFloat:([F)Landroid/animation/ValueAnimator;` @kind static;
+  #L189b3e.  v0:= temp @kind object;
+  #L189b40.  v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.interpolatorAnimator` @type ^`android.animation.ValueAnimator` := v0 @kind object;
+  #L189b44.  v1:= 500L;
+  #L189b48.  call temp:= `setDuration`(v0, v1) @signature `Landroid/animation/ValueAnimator;.setDuration:(J)Landroid/animation/ValueAnimator;` @kind virtual;
+  #L189b4e.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.interpolatorAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L189b52.  v1:= new `com.google.android.material.bottomsheet.BottomSheetBehavior$2`;
+  #L189b56.  call `<init>`(v1, v3) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior$2;.<init>:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)V` @kind direct;
+  #L189b5c.  call `addUpdateListener`(v0, v1) @signature `Landroid/animation/ValueAnimator;.addUpdateListener:(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V` @kind virtual;
+  #L189b62.  return @kind void;
+  #L189b64.  v0:= (0I, 1065353216I) @kind object;
+  #L189b73.  goto L189b38;
+}
+procedure `com.google.android.material.bottomsheet.BottomSheetBehavior` `from`(`android.view.View` v4 @kind object) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.from:(Landroid/view/View;)Lcom/google/android/material/bottomsheet/BottomSheetBehavior;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L189610.  call temp:= `getLayoutParams`(v4) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L189616.  v0:= temp @kind object;
+  #L189618.  v1:= instanceof @variable v0 @type ^`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams` @kind boolean;
+  #L18961c.  if v1 == 0 then goto L18964e;
+  #L189620.  v1:= v0 @kind object;
+  #L189622.  v1:= (`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams`) v1 @kind object;
+  #L189626.  call temp:= `getBehavior`(v1) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;.getBehavior:()Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;` @kind virtual;
+  #L18962c.  v1:= temp @kind object;
+  #L18962e.  v2:= instanceof @variable v1 @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior` @kind boolean;
+  #L189632.  if v2 == 0 then goto L18963e;
+  #L189636.  v2:= v1 @kind object;
+  #L189638.  v2:= (`com.google.android.material.bottomsheet.BottomSheetBehavior`) v2 @kind object;
+  #L18963c.  return v2 @kind object;
+  #L18963e.  v2:= new `java.lang.IllegalArgumentException`;
+  #L189642.  v3:= "The view is not associated with BottomSheetBehavior" @kind object;
+  #L189646.  call `<init>`(v2, v3) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L18964c.  throw v2;
+  #L18964e.  v1:= new `java.lang.IllegalArgumentException`;
+  #L189652.  v2:= "The view is not a child of CoordinatorLayout" @kind object;
+  #L189656.  call `<init>`(v1, v2) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L18965c.  throw v1;
+}
+procedure `int` `getExpandedOffset`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getExpandedOffset:()I` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L189710.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContents` @type ^`boolean` @kind boolean;
+  #L189714.  if v0 == 0 then goto L18971e;
+  #L189718.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContentsOffset` @type ^`int`;
+  #L18971c.  goto L189722;
+  #L18971e.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.expandedOffset` @type ^`int`;
+  #L189722.  return v0;
+}
+procedure `float` `getYVelocity`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v3 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getYVelocity:()F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1896a0.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.velocityTracker` @type ^`android.view.VelocityTracker` @kind object;
+  #L1896a4.  if v0 != 0 then goto L1896ac;
+  #L1896a8.  v0:= 0I;
+  #L1896aa.  return v0;
+  #L1896ac.  v1:= 1000I;
+  #L1896b0.  v2:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.maximumVelocity` @type ^`float`;
+  #L1896b4.  call `computeCurrentVelocity`(v0, v1, v2) @signature `Landroid/view/VelocityTracker;.computeCurrentVelocity:(IF)V` @kind virtual;
+  #L1896ba.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.velocityTracker` @type ^`android.view.VelocityTracker` @kind object;
+  #L1896be.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.activePointerId` @type ^`int`;
+  #L1896c2.  call temp:= `getYVelocity`(v0, v1) @signature `Landroid/view/VelocityTracker;.getYVelocity:(I)F` @kind virtual;
+  #L1896c8.  v0:= temp;
+  #L1896ca.  return v0;
+}
+procedure `void` `reset`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.reset:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L189f9c.  v0:= -1I;
+  #L189f9e.  v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.activePointerId` @type ^`int` := v0;
+  #L189fa2.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.velocityTracker` @type ^`android.view.VelocityTracker` @kind object;
+  #L189fa6.  if v0 == 0 then goto L189fb6;
+  #L189faa.  call `recycle`(v0) @signature `Landroid/view/VelocityTracker;.recycle:()V` @kind virtual;
+  #L189fb0.  v0:= 0I;
+  #L189fb2.  v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.velocityTracker` @type ^`android.view.VelocityTracker` := v0 @kind object;
+  #L189fb6.  return @kind void;
+}
+procedure `void` `restoreOptionalState`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v3 @kind this, `com.google.android.material.bottomsheet.BottomSheetBehavior$SavedState` v4 @kind object @name `ss`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.restoreOptionalState:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SavedState;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L189fc8.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.saveFlags` @type ^`int`;
+  #L189fcc.  if v0 != 0 then goto L189fd2;
+  #L189fd0.  return @kind void;
+  #L189fd2.  v1:= -1I;
+  #L189fd4.  if v0 == v1 then goto L189fe0;
+  #L189fd8.  v2:= 1I;
+  #L189fda.  v0:= v0 ^& v2 @kind int;
+  #L189fdc.  if v0 != v2 then goto L189fe8;
+  #L189fe0.  v0:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior$SavedState.peekHeight` @type ^`int`;
+  #L189fe4.  v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeight` @type ^`int` := v0;
+  #L189fe8.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.saveFlags` @type ^`int`;
+  #L189fec.  if v0 == v1 then goto L189ff8;
+  #L189ff0.  v2:= 2I;
+  #L189ff2.  v0:= v0 ^& v2 @kind int;
+  #L189ff4.  if v0 != v2 then goto L18a000;
+  #L189ff8.  v0:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior$SavedState.fitToContents` @type ^`boolean` @kind boolean;
+  #L189ffc.  v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContents` @type ^`boolean` := v0 @kind boolean;
+  #L18a000.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.saveFlags` @type ^`int`;
+  #L18a004.  if v0 == v1 then goto L18a010;
+  #L18a008.  v2:= 4I;
+  #L18a00a.  v0:= v0 ^& v2 @kind int;
+  #L18a00c.  if v0 != v2 then goto L18a018;
+  #L18a010.  v0:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior$SavedState.hideable` @type ^`boolean` @kind boolean;
+  #L18a014.  v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.hideable` @type ^`boolean` := v0 @kind boolean;
+  #L18a018.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.saveFlags` @type ^`int`;
+  #L18a01c.  if v0 == v1 then goto L18a02a;
+  #L18a020.  v1:= 8I;
+  #L18a024.  v0:= v0 ^& v1 @kind int;
+  #L18a026.  if v0 != v1 then goto L18a032;
+  #L18a02a.  v0:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior$SavedState.skipCollapsed` @type ^`boolean` @kind boolean;
+  #L18a02e.  v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.skipCollapsed` @type ^`boolean` := v0 @kind boolean;
+  #L18a032.  return @kind void;
+}
+procedure `void` `settleToStatePendingLayout`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v4 @kind this, `int` v5 @name `state`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.settleToStatePendingLayout:(I)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18a3e8.  v0:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L18a3ec.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L18a3f2.  v0:= temp @kind object;
+  #L18a3f4.  v0:= (`android.view.View`) v0 @kind object;
+  #L18a3f8.  if v0 != 0 then goto L18a3fe;
+  #L18a3fc.  return @kind void;
+  #L18a3fe.  call temp:= `getParent`(v0) @signature `Landroid/view/View;.getParent:()Landroid/view/ViewParent;` @kind virtual;
+  #L18a404.  v1:= temp @kind object;
+  #L18a406.  if v1 == 0 then goto L18a436;
+  #L18a40a.  call temp:= `isLayoutRequested`(v1) @signature `Landroid/view/ViewParent;.isLayoutRequested:()Z` @kind interface;
+  #L18a410.  v2:= temp;
+  #L18a412.  if v2 == 0 then goto L18a436;
+  #L18a416.  call temp:= `isAttachedToWindow`(v0) @signature `Landroidx/core/view/ViewCompat;.isAttachedToWindow:(Landroid/view/View;)Z` @kind static;
+  #L18a41c.  v2:= temp;
+  #L18a41e.  if v2 == 0 then goto L18a436;
+  #L18a422.  v2:= v5;
+  #L18a424.  v3:= new `com.google.android.material.bottomsheet.BottomSheetBehavior$1`;
+  #L18a428.  call `<init>`(v3, v4, v0, v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior$1;.<init>:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;Landroid/view/View;I)V` @kind direct;
+  #L18a42e.  call temp:= `post`(v0, v3) @signature `Landroid/view/View;.post:(Ljava/lang/Runnable;)Z` @kind virtual;
+  #L18a434.  goto L18a43c;
+  #L18a436.  call `settleToState`(v4, v0, v5) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.settleToState:(Landroid/view/View;I)V` @kind virtual;
+  #L18a43c.  return @kind void;
+}
+procedure `void` `updateAccessibilityActions`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v5 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.updateAccessibilityActions:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L18a4fc.  v0:= v5.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L18a500.  if v0 != 0 then goto L18a506;
+  #L18a504.  return @kind void;
+  #L18a506.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L18a50c.  v0:= temp @kind object;
+  #L18a50e.  v0:= (`android.view.View`) v0 @kind object;
+  #L18a512.  if v0 != 0 then goto L18a518;
+  #L18a516.  return @kind void;
+  #L18a518.  v1:= 524288I;
+  #L18a51c.  call `removeAccessibilityAction`(v0, v1) @signature `Landroidx/core/view/ViewCompat;.removeAccessibilityAction:(Landroid/view/View;I)V` @kind static;
+  #L18a522.  v1:= 262144I;
+  #L18a526.  call `removeAccessibilityAction`(v0, v1) @signature `Landroidx/core/view/ViewCompat;.removeAccessibilityAction:(Landroid/view/View;I)V` @kind static;
+  #L18a52c.  v1:= 1048576I;
+  #L18a530.  call `removeAccessibilityAction`(v0, v1) @signature `Landroidx/core/view/ViewCompat;.removeAccessibilityAction:(Landroid/view/View;I)V` @kind static;
+  #L18a536.  v1:= v5.`com.google.android.material.bottomsheet.BottomSheetBehavior.hideable` @type ^`boolean` @kind boolean;
+  #L18a53a.  if v1 == 0 then goto L18a552;
+  #L18a53e.  v1:= v5.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int`;
+  #L18a542.  v2:= 5I;
+  #L18a544.  if v1 == v2 then goto L18a552;
+  #L18a548.  v1:= `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat.ACTION_DISMISS` @type ^`androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat` @kind object;
+  #L18a54c.  call `addAccessibilityActionForState`(v5, v0, v1, v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.addAccessibilityActionForState:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;I)V` @kind direct;
+  #L18a552.  v1:= v5.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int`;
+  #L18a556.  v2:= 6I;
+  #L18a558.  v3:= 4I;
+  #L18a55a.  v4:= 3I;
+  #L18a55c.  if v1 == v4 then goto L18a598;
+  #L18a560.  if v1 == v3 then goto L18a580;
+  #L18a564.  if v1 == v2 then goto L18a56a;
+  #L18a568.  goto L18a5b0;
+  #L18a56a.  v1:= `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat.ACTION_COLLAPSE` @type ^`androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat` @kind object;
+  #L18a56e.  call `addAccessibilityActionForState`(v5, v0, v1, v3) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.addAccessibilityActionForState:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;I)V` @kind direct;
+  #L18a574.  v1:= `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat.ACTION_EXPAND` @type ^`androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat` @kind object;
+  #L18a578.  call `addAccessibilityActionForState`(v5, v0, v1, v4) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.addAccessibilityActionForState:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;I)V` @kind direct;
+  #L18a57e.  goto L18a5b0;
+  #L18a580.  v1:= v5.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContents` @type ^`boolean` @kind boolean;
+  #L18a584.  if v1 == 0 then goto L18a58a;
+  #L18a588.  v2:= v4;
+  #L18a58a.  v1:= v2;
+  #L18a58c.  v2:= `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat.ACTION_EXPAND` @type ^`androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat` @kind object;
+  #L18a590.  call `addAccessibilityActionForState`(v5, v0, v2, v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.addAccessibilityActionForState:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;I)V` @kind direct;
+  #L18a596.  goto L18a5b0;
+  #L18a598.  v1:= v5.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContents` @type ^`boolean` @kind boolean;
+  #L18a59c.  if v1 == 0 then goto L18a5a2;
+  #L18a5a0.  v2:= v3;
+  #L18a5a2.  v1:= v2;
+  #L18a5a4.  v2:= `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat.ACTION_COLLAPSE` @type ^`androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat` @kind object;
+  #L18a5a8.  call `addAccessibilityActionForState`(v5, v0, v2, v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.addAccessibilityActionForState:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;I)V` @kind direct;
+  #L18a5ae.  
+  #L18a5b0.  return @kind void;
+}
+procedure `void` `updateDrawableForTargetState`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v7 @kind this, `int` v8 @name `state`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.updateDrawableForTargetState:(I)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L18a5c4.  v0:= 2I;
+  #L18a5c6.  if v8 != v0 then goto L18a5cc;
+  #L18a5ca.  return @kind void;
+  #L18a5cc.  v1:= 3I;
+  #L18a5ce.  v2:= 1I;
+  #L18a5d0.  v3:= 0I;
+  #L18a5d2.  if v8 != v1 then goto L18a5da;
+  #L18a5d6.  v1:= v2;
+  #L18a5d8.  goto L18a5dc;
+  #L18a5da.  v1:= v3;
+  #L18a5dc.  v4:= v7.`com.google.android.material.bottomsheet.BottomSheetBehavior.isShapeExpanded` @type ^`boolean` @kind boolean;
+  #L18a5e0.  if v4 == v1 then goto L18a640;
+  #L18a5e4.  v7.`com.google.android.material.bottomsheet.BottomSheetBehavior.isShapeExpanded` @type ^`boolean` := v1 @kind boolean;
+  #L18a5e8.  v4:= v7.`com.google.android.material.bottomsheet.BottomSheetBehavior.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18a5ec.  if v4 == 0 then goto L18a640;
+  #L18a5f0.  v4:= v7.`com.google.android.material.bottomsheet.BottomSheetBehavior.interpolatorAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L18a5f4.  if v4 == 0 then goto L18a640;
+  #L18a5f8.  call temp:= `isRunning`(v4) @signature `Landroid/animation/ValueAnimator;.isRunning:()Z` @kind virtual;
+  #L18a5fe.  v4:= temp;
+  #L18a600.  if v4 == 0 then goto L18a610;
+  #L18a604.  v0:= v7.`com.google.android.material.bottomsheet.BottomSheetBehavior.interpolatorAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L18a608.  call `reverse`(v0) @signature `Landroid/animation/ValueAnimator;.reverse:()V` @kind virtual;
+  #L18a60e.  goto L18a640;
+  #L18a610.  v4:= 1.0F;
+  #L18a614.  if v1 == 0 then goto L18a61c;
+  #L18a618.  v5:= 0I;
+  #L18a61a.  goto L18a61e;
+  #L18a61c.  v5:= v4;
+  #L18a61e.  v4:= v4 - v5 @kind float;
+  #L18a620.  v6:= v7.`com.google.android.material.bottomsheet.BottomSheetBehavior.interpolatorAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L18a624.  v0:= new `float`[v0];
+  #L18a628.  v0[v3]:= v4;
+  #L18a62c.  v0[v2]:= v5;
+  #L18a630.  call `setFloatValues`(v6, v0) @signature `Landroid/animation/ValueAnimator;.setFloatValues:([F)V` @kind virtual;
+  #L18a636.  v0:= v7.`com.google.android.material.bottomsheet.BottomSheetBehavior.interpolatorAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L18a63a.  call `start`(v0) @signature `Landroid/animation/ValueAnimator;.start:()V` @kind virtual;
+  #L18a640.  return @kind void;
+}
+procedure `void` `updateImportantForAccessibility`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v8 @kind this, `boolean` v9 @name `expanded`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.updateImportantForAccessibility:(Z)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L18a654.  v0:= v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L18a658.  if v0 != 0 then goto L18a65e;
+  #L18a65c.  return @kind void;
+  #L18a65e.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L18a664.  v0:= temp @kind object;
+  #L18a666.  v0:= (`android.view.View`) v0 @kind object;
+  #L18a66a.  call temp:= `getParent`(v0) @signature `Landroid/view/View;.getParent:()Landroid/view/ViewParent;` @kind virtual;
+  #L18a670.  v0:= temp @kind object;
+  #L18a672.  v1:= instanceof @variable v0 @type ^`androidx.coordinatorlayout.widget.CoordinatorLayout` @kind boolean;
+  #L18a676.  if v1 != 0 then goto L18a67c;
+  #L18a67a.  return @kind void;
+  #L18a67c.  v1:= v0 @kind object;
+  #L18a67e.  v1:= (`androidx.coordinatorlayout.widget.CoordinatorLayout`) v1 @kind object;
+  #L18a682.  call temp:= `getChildCount`(v1) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getChildCount:()I` @kind virtual;
+  #L18a688.  v2:= temp;
+  #L18a68a.  v3:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L18a68e.  v4:= 16I;
+  #L18a692.  if v3 < v4 then goto L18a6b4;
+  #L18a696.  if v9 == 0 then goto L18a6b4;
+  #L18a69a.  v3:= v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.importantForAccessibilityMap` @type ^`java.util.Map` @kind object;
+  #L18a69e.  if v3 != 0 then goto L18a6b2;
+  #L18a6a2.  v3:= new `java.util.HashMap`;
+  #L18a6a6.  call `<init>`(v3, v2) @signature `Ljava/util/HashMap;.<init>:(I)V` @kind direct;
+  #L18a6ac.  v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.importantForAccessibilityMap` @type ^`java.util.Map` := v3 @kind object;
+  #L18a6b0.  goto L18a6b4;
+  #L18a6b2.  return @kind void;
+  #L18a6b4.  v3:= 0I;
+  #L18a6b6.  if v3 >= v2 then goto L18a73c;
+  #L18a6ba.  call temp:= `getChildAt`(v1, v3) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L18a6c0.  v5:= temp @kind object;
+  #L18a6c2.  v6:= v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L18a6c6.  call temp:= `get`(v6) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L18a6cc.  v6:= temp @kind object;
+  #L18a6ce.  if v5 != v6 then goto L18a6d4;
+  #L18a6d2.  goto L18a736;
+  #L18a6d4.  if v9 != 0 then goto L18a70c;
+  #L18a6d8.  v6:= v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.importantForAccessibilityMap` @type ^`java.util.Map` @kind object;
+  #L18a6dc.  if v6 == 0 then goto L18a736;
+  #L18a6e0.  call temp:= `containsKey`(v6, v5) @signature `Ljava/util/Map;.containsKey:(Ljava/lang/Object;)Z` @kind interface;
+  #L18a6e6.  v6:= temp;
+  #L18a6e8.  if v6 == 0 then goto L18a736;
+  #L18a6ec.  v6:= v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.importantForAccessibilityMap` @type ^`java.util.Map` @kind object;
+  #L18a6f0.  call temp:= `get`(v6, v5) @signature `Ljava/util/Map;.get:(Ljava/lang/Object;)Ljava/lang/Object;` @kind interface;
+  #L18a6f6.  v6:= temp @kind object;
+  #L18a6f8.  v6:= (`java.lang.Integer`) v6 @kind object;
+  #L18a6fc.  call temp:= `intValue`(v6) @signature `Ljava/lang/Integer;.intValue:()I` @kind virtual;
+  #L18a702.  v6:= temp;
+  #L18a704.  call `setImportantForAccessibility`(v5, v6) @signature `Landroidx/core/view/ViewCompat;.setImportantForAccessibility:(Landroid/view/View;I)V` @kind static;
+  #L18a70a.  goto L18a736;
+  #L18a70c.  v6:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L18a710.  if v6 < v4 then goto L18a72e;
+  #L18a714.  v6:= v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.importantForAccessibilityMap` @type ^`java.util.Map` @kind object;
+  #L18a718.  call temp:= `getImportantForAccessibility`(v5) @signature `Landroid/view/View;.getImportantForAccessibility:()I` @kind virtual;
+  #L18a71e.  v7:= temp;
+  #L18a720.  call temp:= `valueOf`(v7) @signature `Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer;` @kind static;
+  #L18a726.  v7:= temp @kind object;
+  #L18a728.  call temp:= `put`(v6, v5, v7) @signature `Ljava/util/Map;.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;` @kind interface;
+  #L18a72e.  v6:= 4I;
+  #L18a730.  call `setImportantForAccessibility`(v5, v6) @signature `Landroidx/core/view/ViewCompat;.setImportantForAccessibility:(Landroid/view/View;I)V` @kind static;
+  #L18a736.  v3:= v3 + 1;
+  #L18a73a.  goto L18a6b6;
+  #L18a73c.  if v9 != 0 then goto L18a746;
+  #L18a740.  v3:= 0I;
+  #L18a742.  v8.`com.google.android.material.bottomsheet.BottomSheetBehavior.importantForAccessibilityMap` @type ^`java.util.Map` := v3 @kind object;
+  #L18a746.  return @kind void;
+}
+procedure `void` `addBottomSheetCallback`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this, `com.google.android.material.bottomsheet.BottomSheetBehavior$BottomSheetCallback` v2 @kind object @name `callback`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.addBottomSheetCallback:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior$BottomSheetCallback;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1899c0.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.callbacks` @type ^`java.util.ArrayList` @kind object;
+  #L1899c4.  call temp:= `contains`(v0, v2) @signature `Ljava/util/ArrayList;.contains:(Ljava/lang/Object;)Z` @kind virtual;
+  #L1899ca.  v0:= temp;
+  #L1899cc.  if v0 != 0 then goto L1899da;
+  #L1899d0.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.callbacks` @type ^`java.util.ArrayList` @kind object;
+  #L1899d4.  call temp:= `add`(v0, v2) @signature `Ljava/util/ArrayList;.add:(Ljava/lang/Object;)Z` @kind virtual;
+  #L1899da.  return @kind void;
+}
+procedure `void` `disableShapeAnimations`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.disableShapeAnimations:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L189b84.  v0:= 0I;
+  #L189b86.  v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.interpolatorAnimator` @type ^`android.animation.ValueAnimator` := v0 @kind object;
+  #L189b8a.  return @kind void;
+}
+procedure `void` `dispatchOnSlide`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v4 @kind this, `int` v5 @name `top`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.dispatchOnSlide:(I)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L189b9c.  v0:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L189ba0.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L189ba6.  v0:= temp @kind object;
+  #L189ba8.  v0:= (`android.view.View`) v0 @kind object;
+  #L189bac.  if v0 == 0 then goto L189c18;
+  #L189bb0.  v1:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.callbacks` @type ^`java.util.ArrayList` @kind object;
+  #L189bb4.  call temp:= `isEmpty`(v1) @signature `Ljava/util/ArrayList;.isEmpty:()Z` @kind virtual;
+  #L189bba.  v1:= temp;
+  #L189bbc.  if v1 != 0 then goto L189c18;
+  #L189bc0.  v1:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.collapsedOffset` @type ^`int`;
+  #L189bc4.  v2:= v1 - v5 @kind int;
+  #L189bc8.  v2:= (`float`) v2 @kind i2f;
+  #L189bca.  if v5 <= v1 then goto L189bda;
+  #L189bce.  v3:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.parentHeight` @type ^`int`;
+  #L189bd2.  v3:= v3 - v1 @kind int;
+  #L189bd4.  v1:= (`float`) v3 @kind i2f;
+  #L189bd6.  v2:= v2 / v1 @kind float;
+  #L189bd8.  goto L189be8;
+  #L189bda.  call temp:= `getExpandedOffset`(v4) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getExpandedOffset:()I` @kind direct;
+  #L189be0.  v3:= temp;
+  #L189be2.  v1:= v1 - v3 @kind int;
+  #L189be4.  v1:= (`float`) v1 @kind i2f;
+  #L189be6.  v2:= v2 / v1 @kind float;
+  #L189be8.  v1:= v2;
+  #L189bea.  v2:= 0I;
+  #L189bec.  v3:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.callbacks` @type ^`java.util.ArrayList` @kind object;
+  #L189bf0.  call temp:= `size`(v3) @signature `Ljava/util/ArrayList;.size:()I` @kind virtual;
+  #L189bf6.  v3:= temp;
+  #L189bf8.  if v2 >= v3 then goto L189c18;
+  #L189bfc.  v3:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.callbacks` @type ^`java.util.ArrayList` @kind object;
+  #L189c00.  call temp:= `get`(v3, v2) @signature `Ljava/util/ArrayList;.get:(I)Ljava/lang/Object;` @kind virtual;
+  #L189c06.  v3:= temp @kind object;
+  #L189c08.  v3:= (`com.google.android.material.bottomsheet.BottomSheetBehavior$BottomSheetCallback`) v3 @kind object;
+  #L189c0c.  call `onSlide`(v3, v0, v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior$BottomSheetCallback;.onSlide:(Landroid/view/View;F)V` @kind virtual;
+  #L189c12.  v2:= v2 + 1;
+  #L189c16.  goto L189bec;
+  #L189c18.  return @kind void;
+}
+procedure `android.view.View` `findScrollingChild`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v4 @kind this, `android.view.View` v5 @kind object @name `view`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.findScrollingChild:(Landroid/view/View;)Landroid/view/View;` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18900c.  call temp:= `isNestedScrollingEnabled`(v5) @signature `Landroidx/core/view/ViewCompat;.isNestedScrollingEnabled:(Landroid/view/View;)Z` @kind static;
+  #L189012.  v0:= temp;
+  #L189014.  if v0 == 0 then goto L18901a;
+  #L189018.  return v5 @kind object;
+  #L18901a.  v0:= instanceof @variable v5 @type ^`android.view.ViewGroup` @kind boolean;
+  #L18901e.  if v0 == 0 then goto L189052;
+  #L189022.  v0:= v5 @kind object;
+  #L189024.  v0:= (`android.view.ViewGroup`) v0 @kind object;
+  #L189028.  v1:= 0I;
+  #L18902a.  call temp:= `getChildCount`(v0) @signature `Landroid/view/ViewGroup;.getChildCount:()I` @kind virtual;
+  #L189030.  v2:= temp;
+  #L189032.  if v1 >= v2 then goto L189052;
+  #L189036.  call temp:= `getChildAt`(v0, v1) @signature `Landroid/view/ViewGroup;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L18903c.  v3:= temp @kind object;
+  #L18903e.  call temp:= `findScrollingChild`(v4, v3) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.findScrollingChild:(Landroid/view/View;)Landroid/view/View;` @kind virtual;
+  #L189044.  v3:= temp @kind object;
+  #L189046.  if v3 == 0 then goto L18904c;
+  #L18904a.  return v3 @kind object;
+  #L18904c.  v1:= v1 + 1;
+  #L189050.  goto L189032;
+  #L189052.  v0:= 0I;
+  #L189054.  return v0 @kind object;
+}
+procedure `float` `getHalfExpandedRatio`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getHalfExpandedRatio:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L189688.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.halfExpandedRatio` @type ^`float`;
+  #L18968c.  return v0;
+}
+procedure `int` `getPeekHeight`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getPeekHeight:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L189734.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeightAuto` @type ^`boolean` @kind boolean;
+  #L189738.  if v0 == 0 then goto L189740;
+  #L18973c.  v0:= -1I;
+  #L18973e.  goto L189744;
+  #L189740.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeight` @type ^`int`;
+  #L189744.  return v0;
+}
+procedure `int` `getPeekHeightMin`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getPeekHeightMin:()I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L189758.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeightMin` @type ^`int`;
+  #L18975c.  return v0;
+}
+procedure `int` `getSaveFlags`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getSaveFlags:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L189770.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.saveFlags` @type ^`int`;
+  #L189774.  return v0;
+}
+procedure `boolean` `getSkipCollapsed`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getSkipCollapsed:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L189098.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.skipCollapsed` @type ^`boolean` @kind boolean;
+  #L18909c.  return v0;
+}
+procedure `int` `getState`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getState:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L189788.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int`;
+  #L18978c.  return v0;
+}
+procedure `boolean` `isFitToContents`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.isFitToContents:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1890b0.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContents` @type ^`boolean` @kind boolean;
+  #L1890b4.  return v0;
+}
+procedure `boolean` `isHideable`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.isHideable:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1890c8.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.hideable` @type ^`boolean` @kind boolean;
+  #L1890cc.  return v0;
+}
+procedure `void` `onAttachedToLayoutParams`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams` v2 @kind object @name `layoutParams`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.onAttachedToLayoutParams:(Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L189c2c.  call `onAttachedToLayoutParams`(v1, v2) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;.onAttachedToLayoutParams:(Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;)V` @kind super;
+  #L189c32.  v0:= 0I;
+  #L189c34.  v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewRef` @type ^`java.lang.ref.WeakReference` := v0 @kind object;
+  #L189c38.  v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` := v0 @kind object;
+  #L189c3c.  return @kind void;
+}
+procedure `void` `onDetachedFromLayoutParams`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.onDetachedFromLayoutParams:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L189c50.  call `onDetachedFromLayoutParams`(v1) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;.onDetachedFromLayoutParams:()V` @kind super;
+  #L189c56.  v0:= 0I;
+  #L189c58.  v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewRef` @type ^`java.lang.ref.WeakReference` := v0 @kind object;
+  #L189c5c.  v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` := v0 @kind object;
+  #L189c60.  return @kind void;
+}
+procedure `boolean` `onInterceptTouchEvent`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v9 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v10 @kind object @name `parent`, `android.view.View` v11 @kind object, `android.view.MotionEvent` v12 @kind object @name `event`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.onInterceptTouchEvent:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L1890e0.  call temp:= `isShown`(v11) @signature `Landroid/view/View;.isShown:()Z` @kind virtual;
+  #L1890e6.  v0:= temp;
+  #L1890e8.  v1:= 0I;
+  #L1890ea.  v2:= 1I;
+  #L1890ec.  if v0 != 0 then goto L1890f6;
+  #L1890f0.  v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.ignoreEvents` @type ^`boolean` := v2 @kind boolean;
+  #L1890f4.  return v1;
+  #L1890f6.  call temp:= `getActionMasked`(v12) @signature `Landroid/view/MotionEvent;.getActionMasked:()I` @kind virtual;
+  #L1890fc.  v0:= temp;
+  #L1890fe.  if v0 != 0 then goto L189108;
+  #L189102.  call `reset`(v9) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.reset:()V` @kind direct;
+  #L189108.  v3:= v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.velocityTracker` @type ^`android.view.VelocityTracker` @kind object;
+  #L18910c.  if v3 != 0 then goto L18911c;
+  #L189110.  call temp:= `obtain`() @signature `Landroid/view/VelocityTracker;.obtain:()Landroid/view/VelocityTracker;` @kind static;
+  #L189116.  v3:= temp @kind object;
+  #L189118.  v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.velocityTracker` @type ^`android.view.VelocityTracker` := v3 @kind object;
+  #L18911c.  v3:= v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.velocityTracker` @type ^`android.view.VelocityTracker` @kind object;
+  #L189120.  call `addMovement`(v3, v12) @signature `Landroid/view/VelocityTracker;.addMovement:(Landroid/view/MotionEvent;)V` @kind virtual;
+  #L189126.  v3:= 0I;
+  #L189128.  v4:= -1I;
+  #L18912a.  v5:= 2I;
+  #L18912c.  if v0 == 0 then goto L189152;
+  #L189130.  if v0 == v2 then goto L18913c;
+  #L189134.  v6:= 3I;
+  #L189136.  if v0 == v6 then goto L18913c;
+  #L18913a.  goto L1891da;
+  #L18913c.  v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.touchingScrollingChild` @type ^`boolean` := v1 @kind boolean;
+  #L189140.  v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.activePointerId` @type ^`int` := v4;
+  #L189144.  v4:= v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.ignoreEvents` @type ^`boolean` @kind boolean;
+  #L189148.  if v4 == 0 then goto L1891da;
+  #L18914c.  v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.ignoreEvents` @type ^`boolean` := v1 @kind boolean;
+  #L189150.  return v1;
+  #L189152.  call temp:= `getX`(v12) @signature `Landroid/view/MotionEvent;.getX:()F` @kind virtual;
+  #L189158.  v6:= temp;
+  #L18915a.  v6:= (`int`) v6 @kind f2i;
+  #L18915c.  call temp:= `getY`(v12) @signature `Landroid/view/MotionEvent;.getY:()F` @kind virtual;
+  #L189162.  v7:= temp;
+  #L189164.  v7:= (`int`) v7 @kind f2i;
+  #L189166.  v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.initialY` @type ^`int` := v7;
+  #L18916a.  v7:= v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int`;
+  #L18916e.  if v7 == v5 then goto L1891b6;
+  #L189172.  v7:= v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.nestedScrollingChildRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L189176.  if v7 == 0 then goto L189188;
+  #L18917a.  call temp:= `get`(v7) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L189180.  v7:= temp @kind object;
+  #L189182.  v7:= (`android.view.View`) v7 @kind object;
+  #L189186.  goto L18918a;
+  #L189188.  v7:= v3 @kind object;
+  #L18918a.  if v7 == 0 then goto L1891b6;
+  #L18918e.  v8:= v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.initialY` @type ^`int`;
+  #L189192.  call temp:= `isPointInChildBounds`(v10, v7, v6, v8) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.isPointInChildBounds:(Landroid/view/View;II)Z` @kind virtual;
+  #L189198.  v8:= temp;
+  #L18919a.  if v8 == 0 then goto L1891b6;
+  #L18919e.  call temp:= `getActionIndex`(v12) @signature `Landroid/view/MotionEvent;.getActionIndex:()I` @kind virtual;
+  #L1891a4.  v8:= temp;
+  #L1891a6.  call temp:= `getPointerId`(v12, v8) @signature `Landroid/view/MotionEvent;.getPointerId:(I)I` @kind virtual;
+  #L1891ac.  v8:= temp;
+  #L1891ae.  v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.activePointerId` @type ^`int` := v8;
+  #L1891b2.  v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.touchingScrollingChild` @type ^`boolean` := v2 @kind boolean;
+  #L1891b6.  v7:= v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.activePointerId` @type ^`int`;
+  #L1891ba.  if v7 != v4 then goto L1891d2;
+  #L1891be.  v4:= v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.initialY` @type ^`int`;
+  #L1891c2.  call temp:= `isPointInChildBounds`(v10, v11, v6, v4) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.isPointInChildBounds:(Landroid/view/View;II)Z` @kind virtual;
+  #L1891c8.  v4:= temp;
+  #L1891ca.  if v4 != 0 then goto L1891d2;
+  #L1891ce.  v4:= v2;
+  #L1891d0.  goto L1891d4;
+  #L1891d2.  v4:= v1;
+  #L1891d4.  v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.ignoreEvents` @type ^`boolean` := v4 @kind boolean;
+  #L1891d8.  
+  #L1891da.  v4:= v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.ignoreEvents` @type ^`boolean` @kind boolean;
+  #L1891de.  if v4 != 0 then goto L1891f8;
+  #L1891e2.  v4:= v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` @kind object;
+  #L1891e6.  if v4 == 0 then goto L1891f8;
+  #L1891ea.  call temp:= `shouldInterceptTouchEvent`(v4, v12) @signature `Landroidx/customview/widget/ViewDragHelper;.shouldInterceptTouchEvent:(Landroid/view/MotionEvent;)Z` @kind virtual;
+  #L1891f0.  v4:= temp;
+  #L1891f2.  if v4 == 0 then goto L1891f8;
+  #L1891f6.  return v2;
+  #L1891f8.  v4:= v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.nestedScrollingChildRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L1891fc.  if v4 == 0 then goto L18920c;
+  #L189200.  call temp:= `get`(v4) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L189206.  v3:= temp @kind object;
+  #L189208.  v3:= (`android.view.View`) v3 @kind object;
+  #L18920c.  if v0 != v5 then goto L18927e;
+  #L189210.  if v3 == 0 then goto L18927e;
+  #L189214.  v4:= v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.ignoreEvents` @type ^`boolean` @kind boolean;
+  #L189218.  if v4 != 0 then goto L18927e;
+  #L18921c.  v4:= v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int`;
+  #L189220.  if v4 == v2 then goto L18927e;
+  #L189224.  call temp:= `getX`(v12) @signature `Landroid/view/MotionEvent;.getX:()F` @kind virtual;
+  #L18922a.  v4:= temp;
+  #L18922c.  v4:= (`int`) v4 @kind f2i;
+  #L18922e.  call temp:= `getY`(v12) @signature `Landroid/view/MotionEvent;.getY:()F` @kind virtual;
+  #L189234.  v5:= temp;
+  #L189236.  v5:= (`int`) v5 @kind f2i;
+  #L189238.  call temp:= `isPointInChildBounds`(v10, v3, v4, v5) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.isPointInChildBounds:(Landroid/view/View;II)Z` @kind virtual;
+  #L18923e.  v4:= temp;
+  #L189240.  if v4 != 0 then goto L18927e;
+  #L189244.  v4:= v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` @kind object;
+  #L189248.  if v4 == 0 then goto L18927e;
+  #L18924c.  v4:= v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.initialY` @type ^`int`;
+  #L189250.  v4:= (`float`) v4 @kind i2f;
+  #L189252.  call temp:= `getY`(v12) @signature `Landroid/view/MotionEvent;.getY:()F` @kind virtual;
+  #L189258.  v5:= temp;
+  #L18925a.  v4:= v4 - v5 @kind float;
+  #L18925c.  call temp:= `abs`(v4) @signature `Ljava/lang/Math;.abs:(F)F` @kind static;
+  #L189262.  v4:= temp;
+  #L189264.  v5:= v9.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` @kind object;
+  #L189268.  call temp:= `getTouchSlop`(v5) @signature `Landroidx/customview/widget/ViewDragHelper;.getTouchSlop:()I` @kind virtual;
+  #L18926e.  v5:= temp;
+  #L189270.  v5:= (`float`) v5 @kind i2f;
+  #L189272.  v4:= fcmpl(v4, v5);
+  #L189276.  if v4 <= 0 then goto L18927e;
+  #L18927a.  v1:= v2;
+  #L18927c.  goto L189280;
+  #L18927e.  
+  #L189280.  return v1;
+}
+procedure `boolean` `onLayoutChild`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v6 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v7 @kind object @name `parent`, `android.view.View` v8 @kind object, `int` v9 @name `layoutDirection`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.onLayoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L189294.  call temp:= `getFitsSystemWindows`(v7) @signature `Landroidx/core/view/ViewCompat;.getFitsSystemWindows:(Landroid/view/View;)Z` @kind static;
+  #L18929a.  v0:= temp;
+  #L18929c.  v1:= 1I;
+  #L18929e.  if v0 == 0 then goto L1892b4;
+  #L1892a2.  call temp:= `getFitsSystemWindows`(v8) @signature `Landroidx/core/view/ViewCompat;.getFitsSystemWindows:(Landroid/view/View;)Z` @kind static;
+  #L1892a8.  v0:= temp;
+  #L1892aa.  if v0 != 0 then goto L1892b4;
+  #L1892ae.  call `setFitsSystemWindows`(v8, v1) @signature `Landroid/view/View;.setFitsSystemWindows:(Z)V` @kind virtual;
+  #L1892b4.  v0:= v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L1892b8.  v2:= 3I;
+  #L1892ba.  v3:= 0I;
+  #L1892bc.  if v0 != 0 then goto L189368;
+  #L1892c0.  
+  #L1892c2.  call temp:= `getResources`(v7) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1892c8.  v0:= temp @kind object;
+  #L1892ca.  v4:= `@@com.google.android.material.R$dimen.design_bottom_sheet_peek_height_min` @type ^`int`;
+  #L1892ce.  call temp:= `getDimensionPixelSize`(v0, v4) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L1892d4.  v0:= temp;
+  #L1892d6.  v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeightMin` @type ^`int` := v0;
+  #L1892da.  v0:= new `java.lang.ref.WeakReference`;
+  #L1892de.  call `<init>`(v0, v8) @signature `Ljava/lang/ref/WeakReference;.<init>:(Ljava/lang/Object;)V` @kind direct;
+  #L1892e4.  v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewRef` @type ^`java.lang.ref.WeakReference` := v0 @kind object;
+  #L1892e8.  v0:= v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.shapeThemingEnabled` @type ^`boolean` @kind boolean;
+  #L1892ec.  if v0 == 0 then goto L1892fe;
+  #L1892f0.  v0:= v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L1892f4.  if v0 == 0 then goto L1892fe;
+  #L1892f8.  call `setBackground`(v8, v0) @signature `Landroidx/core/view/ViewCompat;.setBackground:(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V` @kind static;
+  #L1892fe.  v0:= v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L189302.  if v0 == 0 then goto L189350;
+  #L189306.  v4:= v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.elevation` @type ^`float`;
+  #L18930a.  v5:= -1.0F;
+  #L18930e.  v5:= fcmpl(v4, v5);
+  #L189312.  if v5 != 0 then goto L189320;
+  #L189316.  call temp:= `getElevation`(v8) @signature `Landroidx/core/view/ViewCompat;.getElevation:(Landroid/view/View;)F` @kind static;
+  #L18931c.  v4:= temp;
+  #L18931e.  goto L189322;
+  #L189320.  
+  #L189322.  call `setElevation`(v0, v4) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setElevation:(F)V` @kind virtual;
+  #L189328.  v0:= v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int`;
+  #L18932c.  if v0 != v2 then goto L189334;
+  #L189330.  v0:= v1;
+  #L189332.  goto L189336;
+  #L189334.  v0:= v3;
+  #L189336.  v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.isShapeExpanded` @type ^`boolean` := v0 @kind boolean;
+  #L18933a.  v4:= v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L18933e.  if v0 == 0 then goto L189346;
+  #L189342.  v0:= 0I;
+  #L189344.  goto L18934a;
+  #L189346.  v0:= 1.0F;
+  #L18934a.  call `setInterpolation`(v4, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setInterpolation:(F)V` @kind virtual;
+  #L189350.  call `updateAccessibilityActions`(v6) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.updateAccessibilityActions:()V` @kind direct;
+  #L189356.  call temp:= `getImportantForAccessibility`(v8) @signature `Landroidx/core/view/ViewCompat;.getImportantForAccessibility:(Landroid/view/View;)I` @kind static;
+  #L18935c.  v0:= temp;
+  #L18935e.  if v0 != 0 then goto L189368;
+  #L189362.  call `setImportantForAccessibility`(v8, v1) @signature `Landroidx/core/view/ViewCompat;.setImportantForAccessibility:(Landroid/view/View;I)V` @kind static;
+  #L189368.  v0:= v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` @kind object;
+  #L18936c.  if v0 != 0 then goto L189380;
+  #L189370.  v0:= v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.dragCallback` @type ^`androidx.customview.widget.ViewDragHelper$Callback` @kind object;
+  #L189374.  call temp:= `create`(v7, v0) @signature `Landroidx/customview/widget/ViewDragHelper;.create:(Landroid/view/ViewGroup;Landroidx/customview/widget/ViewDragHelper$Callback;)Landroidx/customview/widget/ViewDragHelper;` @kind static;
+  #L18937a.  v0:= temp @kind object;
+  #L18937c.  v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` := v0 @kind object;
+  #L189380.  call temp:= `getTop`(v8) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L189386.  v0:= temp;
+  #L189388.  call `onLayoutChild`(v7, v8, v9) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onLayoutChild:(Landroid/view/View;I)V` @kind virtual;
+  #L18938e.  call temp:= `getWidth`(v7) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getWidth:()I` @kind virtual;
+  #L189394.  v4:= temp;
+  #L189396.  v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.parentWidth` @type ^`int` := v4;
+  #L18939a.  call temp:= `getHeight`(v7) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getHeight:()I` @kind virtual;
+  #L1893a0.  v4:= temp;
+  #L1893a2.  v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.parentHeight` @type ^`int` := v4;
+  #L1893a6.  call temp:= `getHeight`(v8) @signature `Landroid/view/View;.getHeight:()I` @kind virtual;
+  #L1893ac.  v5:= temp;
+  #L1893ae.  v4:= v4 - v5 @kind int;
+  #L1893b0.  call temp:= `max`(v3, v4) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L1893b6.  v3:= temp;
+  #L1893b8.  v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContentsOffset` @type ^`int` := v3;
+  #L1893bc.  call `calculateHalfExpandedOffset`(v6) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.calculateHalfExpandedOffset:()V` @kind direct;
+  #L1893c2.  call `calculateCollapsedOffset`(v6) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.calculateCollapsedOffset:()V` @kind direct;
+  #L1893c8.  v3:= v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int`;
+  #L1893cc.  if v3 != v2 then goto L1893e0;
+  #L1893d0.  call temp:= `getExpandedOffset`(v6) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getExpandedOffset:()I` @kind direct;
+  #L1893d6.  v2:= temp;
+  #L1893d8.  call `offsetTopAndBottom`(v8, v2) @signature `Landroidx/core/view/ViewCompat;.offsetTopAndBottom:(Landroid/view/View;I)V` @kind static;
+  #L1893de.  goto L18943a;
+  #L1893e0.  v2:= 6I;
+  #L1893e2.  if v3 != v2 then goto L1893f2;
+  #L1893e6.  v2:= v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.halfExpandedOffset` @type ^`int`;
+  #L1893ea.  call `offsetTopAndBottom`(v8, v2) @signature `Landroidx/core/view/ViewCompat;.offsetTopAndBottom:(Landroid/view/View;I)V` @kind static;
+  #L1893f0.  goto L18943a;
+  #L1893f2.  v2:= v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.hideable` @type ^`boolean` @kind boolean;
+  #L1893f6.  if v2 == 0 then goto L18940c;
+  #L1893fa.  v2:= 5I;
+  #L1893fc.  if v3 != v2 then goto L18940c;
+  #L189400.  v2:= v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.parentHeight` @type ^`int`;
+  #L189404.  call `offsetTopAndBottom`(v8, v2) @signature `Landroidx/core/view/ViewCompat;.offsetTopAndBottom:(Landroid/view/View;I)V` @kind static;
+  #L18940a.  goto L18943a;
+  #L18940c.  v2:= 4I;
+  #L18940e.  if v3 != v2 then goto L18941e;
+  #L189412.  v2:= v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.collapsedOffset` @type ^`int`;
+  #L189416.  call `offsetTopAndBottom`(v8, v2) @signature `Landroidx/core/view/ViewCompat;.offsetTopAndBottom:(Landroid/view/View;I)V` @kind static;
+  #L18941c.  goto L18943a;
+  #L18941e.  if v3 == v1 then goto L189428;
+  #L189422.  v2:= 2I;
+  #L189424.  if v3 != v2 then goto L18943a;
+  #L189428.  call temp:= `getTop`(v8) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L18942e.  v2:= temp;
+  #L189430.  v2:= v0 - v2 @kind int;
+  #L189434.  call `offsetTopAndBottom`(v8, v2) @signature `Landroidx/core/view/ViewCompat;.offsetTopAndBottom:(Landroid/view/View;I)V` @kind static;
+  #L18943a.  v2:= new `java.lang.ref.WeakReference`;
+  #L18943e.  call temp:= `findScrollingChild`(v6, v8) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.findScrollingChild:(Landroid/view/View;)Landroid/view/View;` @kind virtual;
+  #L189444.  v3:= temp @kind object;
+  #L189446.  call `<init>`(v2, v3) @signature `Ljava/lang/ref/WeakReference;.<init>:(Ljava/lang/Object;)V` @kind direct;
+  #L18944c.  v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.nestedScrollingChildRef` @type ^`java.lang.ref.WeakReference` := v2 @kind object;
+  #L189450.  return v1;
+}
+procedure `boolean` `onNestedPreFling`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v3 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v4 @kind object @name `coordinatorLayout`, `android.view.View` v5 @kind object, `android.view.View` v6 @kind object @name `target`, `float` v7 @name `velocityX`, `float` v8 @name `velocityY`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.onNestedPreFling:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;FF)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L189464.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.nestedScrollingChildRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L189468.  v1:= 0I;
+  #L18946a.  if v0 == 0 then goto L189498;
+  #L18946e.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L189474.  v0:= temp @kind object;
+  #L189476.  if v6 != v0 then goto L189494;
+  #L18947a.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int`;
+  #L18947e.  v2:= 3I;
+  #L189480.  if v0 != v2 then goto L189490;
+  #L189484.  call temp:= `onNestedPreFling`(v3, v4, v5, v6, v7, v8) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;.onNestedPreFling:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;FF)Z` @kind super;
+  #L18948a.  v0:= temp;
+  #L18948c.  if v0 == 0 then goto L189494;
+  #L189490.  v1:= 1I;
+  #L189492.  goto L189496;
+  #L189494.  
+  #L189496.  return v1;
+  #L189498.  return v1;
+}
+procedure `void` `onNestedPreScroll`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v6 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v7 @kind object @name `coordinatorLayout`, `android.view.View` v8 @kind object, `android.view.View` v9 @kind object @name `target`, `int` v10 @name `dx`, `int` v11 @name `dy`, `int`[] v12 @kind object @name `consumed`, `int` v13 @name `type`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.onNestedPreScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;II[II)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L189c74.  v0:= 1I;
+  #L189c76.  if v13 != v0 then goto L189c7c;
+  #L189c7a.  return @kind void;
+  #L189c7c.  v1:= v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.nestedScrollingChildRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L189c80.  if v1 == 0 then goto L189c92;
+  #L189c84.  call temp:= `get`(v1) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L189c8a.  v1:= temp @kind object;
+  #L189c8c.  v1:= (`android.view.View`) v1 @kind object;
+  #L189c90.  goto L189c94;
+  #L189c92.  v1:= 0I;
+  #L189c94.  if v9 == v1 then goto L189c9a;
+  #L189c98.  return @kind void;
+  #L189c9a.  call temp:= `getTop`(v8) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L189ca0.  v2:= temp;
+  #L189ca2.  v3:= v2 - v11 @kind int;
+  #L189ca6.  if v11 <= 0 then goto L189cf0;
+  #L189caa.  call temp:= `getExpandedOffset`(v6) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getExpandedOffset:()I` @kind direct;
+  #L189cb0.  v4:= temp;
+  #L189cb2.  if v3 >= v4 then goto L189cdc;
+  #L189cb6.  call temp:= `getExpandedOffset`(v6) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getExpandedOffset:()I` @kind direct;
+  #L189cbc.  v4:= temp;
+  #L189cbe.  v4:= v2 - v4 @kind int;
+  #L189cc2.  v12[v0]:= v4;
+  #L189cc6.  v4:= v12[v0];
+  #L189cca.  v4:= -v4 @kind int;
+  #L189ccc.  call `offsetTopAndBottom`(v8, v4) @signature `Landroidx/core/view/ViewCompat;.offsetTopAndBottom:(Landroid/view/View;I)V` @kind static;
+  #L189cd2.  v4:= 3I;
+  #L189cd4.  call `setStateInternal`(v6, v4) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setStateInternal:(I)V` @kind virtual;
+  #L189cda.  goto L189d44;
+  #L189cdc.  v12[v0]:= v11;
+  #L189ce0.  v4:= -v11 @kind int;
+  #L189ce2.  call `offsetTopAndBottom`(v8, v4) @signature `Landroidx/core/view/ViewCompat;.offsetTopAndBottom:(Landroid/view/View;I)V` @kind static;
+  #L189ce8.  call `setStateInternal`(v6, v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setStateInternal:(I)V` @kind virtual;
+  #L189cee.  goto L189d44;
+  #L189cf0.  if v11 >= 0 then goto L189d44;
+  #L189cf4.  v4:= -1I;
+  #L189cf6.  call temp:= `canScrollVertically`(v9, v4) @signature `Landroid/view/View;.canScrollVertically:(I)Z` @kind virtual;
+  #L189cfc.  v4:= temp;
+  #L189cfe.  if v4 != 0 then goto L189d44;
+  #L189d02.  v4:= v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.collapsedOffset` @type ^`int`;
+  #L189d06.  if v3 <= v4 then goto L189d32;
+  #L189d0a.  v5:= v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.hideable` @type ^`boolean` @kind boolean;
+  #L189d0e.  if v5 == 0 then goto L189d14;
+  #L189d12.  goto L189d32;
+  #L189d14.  v4:= v2 - v4 @kind int;
+  #L189d18.  v12[v0]:= v4;
+  #L189d1c.  v4:= v12[v0];
+  #L189d20.  v4:= -v4 @kind int;
+  #L189d22.  call `offsetTopAndBottom`(v8, v4) @signature `Landroidx/core/view/ViewCompat;.offsetTopAndBottom:(Landroid/view/View;I)V` @kind static;
+  #L189d28.  v4:= 4I;
+  #L189d2a.  call `setStateInternal`(v6, v4) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setStateInternal:(I)V` @kind virtual;
+  #L189d30.  goto L189d44;
+  #L189d32.  v12[v0]:= v11;
+  #L189d36.  v4:= -v11 @kind int;
+  #L189d38.  call `offsetTopAndBottom`(v8, v4) @signature `Landroidx/core/view/ViewCompat;.offsetTopAndBottom:(Landroid/view/View;I)V` @kind static;
+  #L189d3e.  call `setStateInternal`(v6, v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setStateInternal:(I)V` @kind virtual;
+  #L189d44.  call temp:= `getTop`(v8) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L189d4a.  v4:= temp;
+  #L189d4c.  call `dispatchOnSlide`(v6, v4) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.dispatchOnSlide:(I)V` @kind virtual;
+  #L189d52.  v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.lastNestedScrollDy` @type ^`int` := v11;
+  #L189d56.  v6.`com.google.android.material.bottomsheet.BottomSheetBehavior.nestedScrolled` @type ^`boolean` := v0 @kind boolean;
+  #L189d5a.  return @kind void;
+}
+procedure `void` `onNestedScroll`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v0 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind object @name `coordinatorLayout`, `android.view.View` v2 @kind object, `android.view.View` v3 @kind object @name `target`, `int` v4 @name `dxConsumed`, `int` v5 @name `dyConsumed`, `int` v6 @name `dxUnconsumed`, `int` v7 @name `dyUnconsumed`, `int` v8 @name `type`, `int`[] v9 @kind object @name `consumed`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.onNestedScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;IIIII[I)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L189d6c.  return @kind void;
+}
+procedure `void` `onRestoreInstanceState`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v3 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v4 @kind object @name `parent`, `android.view.View` v5 @kind object, `android.os.Parcelable` v6 @kind object @name `state`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.onRestoreInstanceState:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/os/Parcelable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L189d80.  v0:= v6 @kind object;
+  #L189d82.  v0:= (`com.google.android.material.bottomsheet.BottomSheetBehavior$SavedState`) v0 @kind object;
+  #L189d86.  call temp:= `getSuperState`(v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SavedState;.getSuperState:()Landroid/os/Parcelable;` @kind virtual;
+  #L189d8c.  v1:= temp @kind object;
+  #L189d8e.  call `onRestoreInstanceState`(v3, v4, v5, v1) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;.onRestoreInstanceState:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/os/Parcelable;)V` @kind super;
+  #L189d94.  call `restoreOptionalState`(v3, v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.restoreOptionalState:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SavedState;)V` @kind direct;
+  #L189d9a.  v1:= v0.`com.google.android.material.bottomsheet.BottomSheetBehavior$SavedState.state` @type ^`int`;
+  #L189d9e.  v2:= 1I;
+  #L189da0.  if v1 == v2 then goto L189dba;
+  #L189da4.  v1:= v0.`com.google.android.material.bottomsheet.BottomSheetBehavior$SavedState.state` @type ^`int`;
+  #L189da8.  v2:= 2I;
+  #L189daa.  if v1 != v2 then goto L189db0;
+  #L189dae.  goto L189dba;
+  #L189db0.  v1:= v0.`com.google.android.material.bottomsheet.BottomSheetBehavior$SavedState.state` @type ^`int`;
+  #L189db4.  v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int` := v1;
+  #L189db8.  goto L189dc0;
+  #L189dba.  v1:= 4I;
+  #L189dbc.  v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int` := v1;
+  #L189dc0.  return @kind void;
+}
+procedure `android.os.Parcelable` `onSaveInstanceState`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v2 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v3 @kind object @name `parent`, `android.view.View` v4 @kind object) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.onSaveInstanceState:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)Landroid/os/Parcelable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L188fe8.  v0:= new `com.google.android.material.bottomsheet.BottomSheetBehavior$SavedState`;
+  #L188fec.  call temp:= `onSaveInstanceState`(v2, v3, v4) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;.onSaveInstanceState:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)Landroid/os/Parcelable;` @kind super;
+  #L188ff2.  v1:= temp @kind object;
+  #L188ff4.  call `<init>`(v0, v1, v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SavedState;.<init>:(Landroid/os/Parcelable;Lcom/google/android/material/bottomsheet/BottomSheetBehavior;)V` @kind direct;
+  #L188ffa.  return v0 @kind object;
+}
+procedure `boolean` `onStartNestedScroll`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v2 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v3 @kind object @name `coordinatorLayout`, `android.view.View` v4 @kind object, `android.view.View` v5 @kind object @name `directTargetChild`, `android.view.View` v6 @kind object @name `target`, `int` v7 @name `axes`, `int` v8 @name `type`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.onStartNestedScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;Landroid/view/View;II)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1894ac.  v0:= 0I;
+  #L1894ae.  v2.`com.google.android.material.bottomsheet.BottomSheetBehavior.lastNestedScrollDy` @type ^`int` := v0;
+  #L1894b2.  v2.`com.google.android.material.bottomsheet.BottomSheetBehavior.nestedScrolled` @type ^`boolean` := v0 @kind boolean;
+  #L1894b6.  v1:= v7 ^& 2;
+  #L1894ba.  if v1 == 0 then goto L1894c0;
+  #L1894be.  v0:= 1I;
+  #L1894c0.  return v0;
+}
+procedure `void` `onStopNestedScroll`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v3 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v4 @kind object @name `coordinatorLayout`, `android.view.View` v5 @kind object, `android.view.View` v6 @kind object @name `target`, `int` v7 @name `type`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.onStopNestedScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L189dd4.  call temp:= `getTop`(v5) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L189dda.  v0:= temp;
+  #L189ddc.  call temp:= `getExpandedOffset`(v3) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getExpandedOffset:()I` @kind direct;
+  #L189de2.  v1:= temp;
+  #L189de4.  if v0 != v1 then goto L189df2;
+  #L189de8.  v0:= 3I;
+  #L189dea.  call `setStateInternal`(v3, v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setStateInternal:(I)V` @kind virtual;
+  #L189df0.  return @kind void;
+  #L189df2.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.nestedScrollingChildRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L189df6.  if v0 == 0 then goto L189f6e;
+  #L189dfa.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L189e00.  v0:= temp @kind object;
+  #L189e02.  if v6 != v0 then goto L189f6e;
+  #L189e06.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.nestedScrolled` @type ^`boolean` @kind boolean;
+  #L189e0a.  if v0 != 0 then goto L189e12;
+  #L189e0e.  goto L189f6e;
+  #L189e12.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.lastNestedScrollDy` @type ^`int`;
+  #L189e16.  if v0 <= 0 then goto L189e28;
+  #L189e1a.  call temp:= `getExpandedOffset`(v3) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getExpandedOffset:()I` @kind direct;
+  #L189e20.  v0:= temp;
+  #L189e22.  v1:= 3I;
+  #L189e24.  goto L189f60;
+  #L189e28.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.hideable` @type ^`boolean` @kind boolean;
+  #L189e2c.  if v0 == 0 then goto L189e4e;
+  #L189e30.  call temp:= `getYVelocity`(v3) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getYVelocity:()F` @kind direct;
+  #L189e36.  v0:= temp;
+  #L189e38.  call temp:= `shouldHide`(v3, v5, v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.shouldHide:(Landroid/view/View;F)Z` @kind virtual;
+  #L189e3e.  v0:= temp;
+  #L189e40.  if v0 == 0 then goto L189e4e;
+  #L189e44.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.parentHeight` @type ^`int`;
+  #L189e48.  v1:= 5I;
+  #L189e4a.  goto L189f60;
+  #L189e4e.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.lastNestedScrollDy` @type ^`int`;
+  #L189e52.  if v0 != 0 then goto L189f0e;
+  #L189e56.  call temp:= `getTop`(v5) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L189e5c.  v0:= temp;
+  #L189e5e.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContents` @type ^`boolean` @kind boolean;
+  #L189e62.  if v1 == 0 then goto L189ea2;
+  #L189e66.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContentsOffset` @type ^`int`;
+  #L189e6a.  v1:= v0 - v1 @kind int;
+  #L189e6e.  call temp:= `abs`(v1) @signature `Ljava/lang/Math;.abs:(I)I` @kind static;
+  #L189e74.  v1:= temp;
+  #L189e76.  v2:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.collapsedOffset` @type ^`int`;
+  #L189e7a.  v2:= v0 - v2 @kind int;
+  #L189e7e.  call temp:= `abs`(v2) @signature `Ljava/lang/Math;.abs:(I)I` @kind static;
+  #L189e84.  v2:= temp;
+  #L189e86.  if v1 >= v2 then goto L189e96;
+  #L189e8a.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContentsOffset` @type ^`int`;
+  #L189e8e.  v2:= 3I;
+  #L189e90.  v0:= v1;
+  #L189e92.  v1:= v2;
+  #L189e94.  goto L189f0c;
+  #L189e96.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.collapsedOffset` @type ^`int`;
+  #L189e9a.  v2:= 4I;
+  #L189e9c.  v0:= v1;
+  #L189e9e.  v1:= v2;
+  #L189ea0.  goto L189f0c;
+  #L189ea2.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.halfExpandedOffset` @type ^`int`;
+  #L189ea6.  if v0 >= v1 then goto L189ed6;
+  #L189eaa.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.collapsedOffset` @type ^`int`;
+  #L189eae.  v1:= v0 - v1 @kind int;
+  #L189eb2.  call temp:= `abs`(v1) @signature `Ljava/lang/Math;.abs:(I)I` @kind static;
+  #L189eb8.  v1:= temp;
+  #L189eba.  if v0 >= v1 then goto L189eca;
+  #L189ebe.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.expandedOffset` @type ^`int`;
+  #L189ec2.  v2:= 3I;
+  #L189ec4.  v0:= v1;
+  #L189ec6.  v1:= v2;
+  #L189ec8.  goto L189f0c;
+  #L189eca.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.halfExpandedOffset` @type ^`int`;
+  #L189ece.  v2:= 6I;
+  #L189ed0.  v0:= v1;
+  #L189ed2.  v1:= v2;
+  #L189ed4.  goto L189f0c;
+  #L189ed6.  v1:= v0 - v1 @kind int;
+  #L189eda.  call temp:= `abs`(v1) @signature `Ljava/lang/Math;.abs:(I)I` @kind static;
+  #L189ee0.  v1:= temp;
+  #L189ee2.  v2:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.collapsedOffset` @type ^`int`;
+  #L189ee6.  v2:= v0 - v2 @kind int;
+  #L189eea.  call temp:= `abs`(v2) @signature `Ljava/lang/Math;.abs:(I)I` @kind static;
+  #L189ef0.  v2:= temp;
+  #L189ef2.  if v1 >= v2 then goto L189f02;
+  #L189ef6.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.halfExpandedOffset` @type ^`int`;
+  #L189efa.  v2:= 6I;
+  #L189efc.  v0:= v1;
+  #L189efe.  v1:= v2;
+  #L189f00.  goto L189f0c;
+  #L189f02.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.collapsedOffset` @type ^`int`;
+  #L189f06.  v2:= 4I;
+  #L189f08.  v0:= v1;
+  #L189f0a.  v1:= v2;
+  #L189f0c.  goto L189f60;
+  #L189f0e.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContents` @type ^`boolean` @kind boolean;
+  #L189f12.  if v0 == 0 then goto L189f1e;
+  #L189f16.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.collapsedOffset` @type ^`int`;
+  #L189f1a.  v1:= 4I;
+  #L189f1c.  goto L189f60;
+  #L189f1e.  call temp:= `getTop`(v5) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L189f24.  v0:= temp;
+  #L189f26.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.halfExpandedOffset` @type ^`int`;
+  #L189f2a.  v1:= v0 - v1 @kind int;
+  #L189f2e.  call temp:= `abs`(v1) @signature `Ljava/lang/Math;.abs:(I)I` @kind static;
+  #L189f34.  v1:= temp;
+  #L189f36.  v2:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.collapsedOffset` @type ^`int`;
+  #L189f3a.  v2:= v0 - v2 @kind int;
+  #L189f3e.  call temp:= `abs`(v2) @signature `Ljava/lang/Math;.abs:(I)I` @kind static;
+  #L189f44.  v2:= temp;
+  #L189f46.  if v1 >= v2 then goto L189f56;
+  #L189f4a.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.halfExpandedOffset` @type ^`int`;
+  #L189f4e.  v2:= 6I;
+  #L189f50.  v0:= v1;
+  #L189f52.  v1:= v2;
+  #L189f54.  goto L189f60;
+  #L189f56.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.collapsedOffset` @type ^`int`;
+  #L189f5a.  v2:= 4I;
+  #L189f5c.  v0:= v1;
+  #L189f5e.  v1:= v2;
+  #L189f60.  v2:= 0I;
+  #L189f62.  call `startSettlingAnimation`(v3, v5, v1, v0, v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.startSettlingAnimation:(Landroid/view/View;IIZ)V` @kind virtual;
+  #L189f68.  v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.nestedScrolled` @type ^`boolean` := v2 @kind boolean;
+  #L189f6c.  return @kind void;
+  #L189f6e.  return @kind void;
+}
+procedure `boolean` `onTouchEvent`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v4 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v5 @kind object @name `parent`, `android.view.View` v6 @kind object, `android.view.MotionEvent` v7 @kind object @name `event`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.onTouchEvent:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1894d4.  call temp:= `isShown`(v6) @signature `Landroid/view/View;.isShown:()Z` @kind virtual;
+  #L1894da.  v0:= temp;
+  #L1894dc.  if v0 != 0 then goto L1894e4;
+  #L1894e0.  v0:= 0I;
+  #L1894e2.  return v0;
+  #L1894e4.  call temp:= `getActionMasked`(v7) @signature `Landroid/view/MotionEvent;.getActionMasked:()I` @kind virtual;
+  #L1894ea.  v0:= temp;
+  #L1894ec.  v1:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int`;
+  #L1894f0.  v2:= 1I;
+  #L1894f2.  if v1 != v2 then goto L1894fc;
+  #L1894f6.  if v0 != 0 then goto L1894fc;
+  #L1894fa.  return v2;
+  #L1894fc.  v1:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` @kind object;
+  #L189500.  if v1 == 0 then goto L18950a;
+  #L189504.  call `processTouchEvent`(v1, v7) @signature `Landroidx/customview/widget/ViewDragHelper;.processTouchEvent:(Landroid/view/MotionEvent;)V` @kind virtual;
+  #L18950a.  if v0 != 0 then goto L189514;
+  #L18950e.  call `reset`(v4) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.reset:()V` @kind direct;
+  #L189514.  v1:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.velocityTracker` @type ^`android.view.VelocityTracker` @kind object;
+  #L189518.  if v1 != 0 then goto L189528;
+  #L18951c.  call temp:= `obtain`() @signature `Landroid/view/VelocityTracker;.obtain:()Landroid/view/VelocityTracker;` @kind static;
+  #L189522.  v1:= temp @kind object;
+  #L189524.  v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.velocityTracker` @type ^`android.view.VelocityTracker` := v1 @kind object;
+  #L189528.  v1:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.velocityTracker` @type ^`android.view.VelocityTracker` @kind object;
+  #L18952c.  call `addMovement`(v1, v7) @signature `Landroid/view/VelocityTracker;.addMovement:(Landroid/view/MotionEvent;)V` @kind virtual;
+  #L189532.  v1:= 2I;
+  #L189534.  if v0 != v1 then goto L189588;
+  #L189538.  v1:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.ignoreEvents` @type ^`boolean` @kind boolean;
+  #L18953c.  if v1 != 0 then goto L189588;
+  #L189540.  v1:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.initialY` @type ^`int`;
+  #L189544.  v1:= (`float`) v1 @kind i2f;
+  #L189546.  call temp:= `getY`(v7) @signature `Landroid/view/MotionEvent;.getY:()F` @kind virtual;
+  #L18954c.  v3:= temp;
+  #L18954e.  v1:= v1 - v3 @kind float;
+  #L189550.  call temp:= `abs`(v1) @signature `Ljava/lang/Math;.abs:(F)F` @kind static;
+  #L189556.  v1:= temp;
+  #L189558.  v3:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` @kind object;
+  #L18955c.  call temp:= `getTouchSlop`(v3) @signature `Landroidx/customview/widget/ViewDragHelper;.getTouchSlop:()I` @kind virtual;
+  #L189562.  v3:= temp;
+  #L189564.  v3:= (`float`) v3 @kind i2f;
+  #L189566.  v1:= fcmpl(v1, v3);
+  #L18956a.  if v1 <= 0 then goto L189588;
+  #L18956e.  v1:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` @kind object;
+  #L189572.  call temp:= `getActionIndex`(v7) @signature `Landroid/view/MotionEvent;.getActionIndex:()I` @kind virtual;
+  #L189578.  v3:= temp;
+  #L18957a.  call temp:= `getPointerId`(v7, v3) @signature `Landroid/view/MotionEvent;.getPointerId:(I)I` @kind virtual;
+  #L189580.  v3:= temp;
+  #L189582.  call `captureChildView`(v1, v6, v3) @signature `Landroidx/customview/widget/ViewDragHelper;.captureChildView:(Landroid/view/View;I)V` @kind virtual;
+  #L189588.  v1:= v4.`com.google.android.material.bottomsheet.BottomSheetBehavior.ignoreEvents` @type ^`boolean` @kind boolean;
+  #L18958c.  v1:= v1 ^~ v2 @kind int;
+  #L18958e.  return v1;
+}
+procedure `void` `removeBottomSheetCallback`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this, `com.google.android.material.bottomsheet.BottomSheetBehavior$BottomSheetCallback` v2 @kind object @name `callback`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.removeBottomSheetCallback:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior$BottomSheetCallback;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L189f80.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.callbacks` @type ^`java.util.ArrayList` @kind object;
+  #L189f84.  call temp:= `remove`(v0, v2) @signature `Ljava/util/ArrayList;.remove:(Ljava/lang/Object;)Z` @kind virtual;
+  #L189f8a.  return @kind void;
+}
+procedure `void` `setBottomSheetCallback`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v2 @kind this, `com.google.android.material.bottomsheet.BottomSheetBehavior$BottomSheetCallback` v3 @kind object @name `callback`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setBottomSheetCallback:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior$BottomSheetCallback;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L18a044.  v0:= "BottomSheetBehavior" @kind object;
+  #L18a048.  v1:= "BottomSheetBehavior now supports multiple callbacks. `setBottomSheetCallback()` removes all existing callbacks, including ones set internally by library authors, which may result in unintended behavior. This may change in the future. Please use `addBottomSheetCallback()` and `removeBottomSheetCallback()` instead to set your own callbacks." @kind object;
+  #L18a04c.  call temp:= `w`(v0, v1) @signature `Landroid/util/Log;.w:(Ljava/lang/String;Ljava/lang/String;)I` @kind static;
+  #L18a052.  v0:= v2.`com.google.android.material.bottomsheet.BottomSheetBehavior.callbacks` @type ^`java.util.ArrayList` @kind object;
+  #L18a056.  call `clear`(v0) @signature `Ljava/util/ArrayList;.clear:()V` @kind virtual;
+  #L18a05c.  if v3 == 0 then goto L18a06a;
+  #L18a060.  v0:= v2.`com.google.android.material.bottomsheet.BottomSheetBehavior.callbacks` @type ^`java.util.ArrayList` @kind object;
+  #L18a064.  call temp:= `add`(v0, v3) @signature `Ljava/util/ArrayList;.add:(Ljava/lang/Object;)Z` @kind virtual;
+  #L18a06a.  return @kind void;
+}
+procedure `void` `setExpandedOffset`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v2 @kind this, `int` v3 @name `offset`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setExpandedOffset:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L18a07c.  if v3 < 0 then goto L18a086;
+  #L18a080.  v2.`com.google.android.material.bottomsheet.BottomSheetBehavior.expandedOffset` @type ^`int` := v3;
+  #L18a084.  return @kind void;
+  #L18a086.  v0:= new `java.lang.IllegalArgumentException`;
+  #L18a08a.  v1:= "offset must be greater than or equal to 0" @kind object;
+  #L18a08e.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L18a094.  throw v0;
+}
+procedure `void` `setFitToContents`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v2 @kind this, `boolean` v3 @name `fitToContents`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setFitToContents:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L18a0a8.  v0:= v2.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContents` @type ^`boolean` @kind boolean;
+  #L18a0ac.  if v0 != v3 then goto L18a0b2;
+  #L18a0b0.  return @kind void;
+  #L18a0b2.  v2.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContents` @type ^`boolean` := v3 @kind boolean;
+  #L18a0b6.  v0:= v2.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L18a0ba.  if v0 == 0 then goto L18a0c4;
+  #L18a0be.  call `calculateCollapsedOffset`(v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.calculateCollapsedOffset:()V` @kind direct;
+  #L18a0c4.  v0:= v2.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContents` @type ^`boolean` @kind boolean;
+  #L18a0c8.  if v0 == 0 then goto L18a0da;
+  #L18a0cc.  v0:= v2.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int`;
+  #L18a0d0.  v1:= 6I;
+  #L18a0d2.  if v0 != v1 then goto L18a0da;
+  #L18a0d6.  v0:= 3I;
+  #L18a0d8.  goto L18a0de;
+  #L18a0da.  v0:= v2.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int`;
+  #L18a0de.  call `setStateInternal`(v2, v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setStateInternal:(I)V` @kind virtual;
+  #L18a0e4.  call `updateAccessibilityActions`(v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.updateAccessibilityActions:()V` @kind direct;
+  #L18a0ea.  return @kind void;
+}
+procedure `void` `setHalfExpandedRatio`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v2 @kind this, `float` v3 @name `ratio`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setHalfExpandedRatio:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L18a0fc.  v0:= 0I;
+  #L18a0fe.  v0:= fcmpg(v3, v0);
+  #L18a102.  if v0 <= 0 then goto L18a118;
+  #L18a106.  v0:= 1.0F;
+  #L18a10a.  v0:= fcmpl(v3, v0);
+  #L18a10e.  if v0 >= 0 then goto L18a118;
+  #L18a112.  v2.`com.google.android.material.bottomsheet.BottomSheetBehavior.halfExpandedRatio` @type ^`float` := v3;
+  #L18a116.  return @kind void;
+  #L18a118.  v0:= new `java.lang.IllegalArgumentException`;
+  #L18a11c.  v1:= "ratio must be a float value between 0 and 1" @kind object;
+  #L18a120.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L18a126.  throw v0;
+}
+procedure `void` `setHideable`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v2 @kind this, `boolean` v3 @name `hideable`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setHideable:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L18a138.  v0:= v2.`com.google.android.material.bottomsheet.BottomSheetBehavior.hideable` @type ^`boolean` @kind boolean;
+  #L18a13c.  if v0 == v3 then goto L18a160;
+  #L18a140.  v2.`com.google.android.material.bottomsheet.BottomSheetBehavior.hideable` @type ^`boolean` := v3 @kind boolean;
+  #L18a144.  if v3 != 0 then goto L18a15a;
+  #L18a148.  v0:= v2.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int`;
+  #L18a14c.  v1:= 5I;
+  #L18a14e.  if v0 != v1 then goto L18a15a;
+  #L18a152.  v0:= 4I;
+  #L18a154.  call `setState`(v2, v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setState:(I)V` @kind virtual;
+  #L18a15a.  call `updateAccessibilityActions`(v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.updateAccessibilityActions:()V` @kind direct;
+  #L18a160.  return @kind void;
+}
+procedure `void` `setPeekHeight`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this, `int` v2 @name `peekHeight`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setPeekHeight:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18a174.  v0:= 0I;
+  #L18a176.  call `setPeekHeight`(v1, v2, v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setPeekHeight:(IZ)V` @kind virtual;
+  #L18a17c.  return @kind void;
+}
+procedure `void` `setPeekHeight`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v3 @kind this, `int` v4 @name `peekHeight`, `boolean` v5 @name `animate`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setPeekHeight:(IZ)V` @AccessFlag PUBLIC_FINAL {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18a190.  v0:= 0I;
+  #L18a192.  v1:= -1I;
+  #L18a194.  if v4 != v1 then goto L18a1aa;
+  #L18a198.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeightAuto` @type ^`boolean` @kind boolean;
+  #L18a19c.  if v1 != 0 then goto L18a1ce;
+  #L18a1a0.  v1:= 1I;
+  #L18a1a2.  v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeightAuto` @type ^`boolean` := v1 @kind boolean;
+  #L18a1a6.  v0:= 1I;
+  #L18a1a8.  goto L18a1ce;
+  #L18a1aa.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeightAuto` @type ^`boolean` @kind boolean;
+  #L18a1ae.  if v1 != 0 then goto L18a1ba;
+  #L18a1b2.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeight` @type ^`int`;
+  #L18a1b6.  if v1 == v4 then goto L18a1ce;
+  #L18a1ba.  v1:= 0I;
+  #L18a1bc.  v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeightAuto` @type ^`boolean` := v1 @kind boolean;
+  #L18a1c0.  call temp:= `max`(v1, v4) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L18a1c6.  v1:= temp;
+  #L18a1c8.  v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeight` @type ^`int` := v1;
+  #L18a1cc.  v0:= 1I;
+  #L18a1ce.  if v0 == 0 then goto L18a214;
+  #L18a1d2.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L18a1d6.  if v1 == 0 then goto L18a214;
+  #L18a1da.  call `calculateCollapsedOffset`(v3) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.calculateCollapsedOffset:()V` @kind direct;
+  #L18a1e0.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int`;
+  #L18a1e4.  v2:= 4I;
+  #L18a1e6.  if v1 != v2 then goto L18a214;
+  #L18a1ea.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L18a1ee.  call temp:= `get`(v1) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L18a1f4.  v1:= temp @kind object;
+  #L18a1f6.  v1:= (`android.view.View`) v1 @kind object;
+  #L18a1fa.  if v1 == 0 then goto L18a214;
+  #L18a1fe.  if v5 == 0 then goto L18a20e;
+  #L18a202.  v2:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int`;
+  #L18a206.  call `settleToStatePendingLayout`(v3, v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.settleToStatePendingLayout:(I)V` @kind direct;
+  #L18a20c.  goto L18a214;
+  #L18a20e.  call `requestLayout`(v1) @signature `Landroid/view/View;.requestLayout:()V` @kind virtual;
+  #L18a214.  return @kind void;
+}
+procedure `void` `setSaveFlags`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v0 @kind this, `int` v1 @name `flags`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setSaveFlags:(I)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L18a228.  v0.`com.google.android.material.bottomsheet.BottomSheetBehavior.saveFlags` @type ^`int` := v1;
+  #L18a22c.  return @kind void;
+}
+procedure `void` `setSkipCollapsed`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v0 @kind this, `boolean` v1 @name `skipCollapsed`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setSkipCollapsed:(Z)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L18a240.  v0.`com.google.android.material.bottomsheet.BottomSheetBehavior.skipCollapsed` @type ^`boolean` := v1 @kind boolean;
+  #L18a244.  return @kind void;
+}
+procedure `void` `setState`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind this, `int` v2 @name `state`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setState:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18a258.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int`;
+  #L18a25c.  if v2 != v0 then goto L18a262;
+  #L18a260.  return @kind void;
+  #L18a262.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L18a266.  if v0 != 0 then goto L18a290;
+  #L18a26a.  v0:= 4I;
+  #L18a26c.  if v2 == v0 then goto L18a28a;
+  #L18a270.  v0:= 3I;
+  #L18a272.  if v2 == v0 then goto L18a28a;
+  #L18a276.  v0:= 6I;
+  #L18a278.  if v2 == v0 then goto L18a28a;
+  #L18a27c.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.hideable` @type ^`boolean` @kind boolean;
+  #L18a280.  if v0 == 0 then goto L18a28e;
+  #L18a284.  v0:= 5I;
+  #L18a286.  if v2 != v0 then goto L18a28e;
+  #L18a28a.  v1.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int` := v2;
+  #L18a28e.  return @kind void;
+  #L18a290.  call `settleToStatePendingLayout`(v1, v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.settleToStatePendingLayout:(I)V` @kind direct;
+  #L18a296.  return @kind void;
+}
+procedure `void` `setStateInternal`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v3 @kind this, `int` v4 @name `state`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setStateInternal:(I)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18a2a8.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int`;
+  #L18a2ac.  if v0 != v4 then goto L18a2b2;
+  #L18a2b0.  return @kind void;
+  #L18a2b2.  v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.state` @type ^`int` := v4;
+  #L18a2b6.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L18a2ba.  if v0 != 0 then goto L18a2c0;
+  #L18a2be.  return @kind void;
+  #L18a2c0.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L18a2c6.  v0:= temp @kind object;
+  #L18a2c8.  v0:= (`android.view.View`) v0 @kind object;
+  #L18a2cc.  if v0 != 0 then goto L18a2d2;
+  #L18a2d0.  return @kind void;
+  #L18a2d2.  v1:= 6I;
+  #L18a2d4.  if v4 == v1 then goto L18a2f6;
+  #L18a2d8.  v1:= 3I;
+  #L18a2da.  if v4 != v1 then goto L18a2e0;
+  #L18a2de.  goto L18a2f6;
+  #L18a2e0.  v1:= 5I;
+  #L18a2e2.  if v4 == v1 then goto L18a2ec;
+  #L18a2e6.  v1:= 4I;
+  #L18a2e8.  if v4 != v1 then goto L18a2fe;
+  #L18a2ec.  v1:= 0I;
+  #L18a2ee.  call `updateImportantForAccessibility`(v3, v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.updateImportantForAccessibility:(Z)V` @kind direct;
+  #L18a2f4.  goto L18a2fe;
+  #L18a2f6.  v1:= 1I;
+  #L18a2f8.  call `updateImportantForAccessibility`(v3, v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.updateImportantForAccessibility:(Z)V` @kind direct;
+  #L18a2fe.  call `updateDrawableForTargetState`(v3, v4) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.updateDrawableForTargetState:(I)V` @kind direct;
+  #L18a304.  v1:= 0I;
+  #L18a306.  v2:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.callbacks` @type ^`java.util.ArrayList` @kind object;
+  #L18a30a.  call temp:= `size`(v2) @signature `Ljava/util/ArrayList;.size:()I` @kind virtual;
+  #L18a310.  v2:= temp;
+  #L18a312.  if v1 >= v2 then goto L18a332;
+  #L18a316.  v2:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.callbacks` @type ^`java.util.ArrayList` @kind object;
+  #L18a31a.  call temp:= `get`(v2, v1) @signature `Ljava/util/ArrayList;.get:(I)Ljava/lang/Object;` @kind virtual;
+  #L18a320.  v2:= temp @kind object;
+  #L18a322.  v2:= (`com.google.android.material.bottomsheet.BottomSheetBehavior$BottomSheetCallback`) v2 @kind object;
+  #L18a326.  call `onStateChanged`(v2, v0, v4) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior$BottomSheetCallback;.onStateChanged:(Landroid/view/View;I)V` @kind virtual;
+  #L18a32c.  v1:= v1 + 1;
+  #L18a330.  goto L18a306;
+  #L18a332.  call `updateAccessibilityActions`(v3) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.updateAccessibilityActions:()V` @kind direct;
+  #L18a338.  return @kind void;
+}
+procedure `void` `settleToState`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v3 @kind this, `android.view.View` v4 @kind object @name `child`, `int` v5 @name `state`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.settleToState:(Landroid/view/View;I)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18a34c.  v0:= 4I;
+  #L18a34e.  if v5 != v0 then goto L18a358;
+  #L18a352.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.collapsedOffset` @type ^`int`;
+  #L18a356.  goto L18a39c;
+  #L18a358.  v0:= 6I;
+  #L18a35a.  if v5 != v0 then goto L18a37a;
+  #L18a35e.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.halfExpandedOffset` @type ^`int`;
+  #L18a362.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContents` @type ^`boolean` @kind boolean;
+  #L18a366.  if v1 == 0 then goto L18a39c;
+  #L18a36a.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContentsOffset` @type ^`int`;
+  #L18a36e.  if v0 > v1 then goto L18a39c;
+  #L18a372.  v5:= 3I;
+  #L18a374.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.fitToContentsOffset` @type ^`int`;
+  #L18a378.  goto L18a39c;
+  #L18a37a.  v0:= 3I;
+  #L18a37c.  if v5 != v0 then goto L18a38a;
+  #L18a380.  call temp:= `getExpandedOffset`(v3) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getExpandedOffset:()I` @kind direct;
+  #L18a386.  v0:= temp;
+  #L18a388.  goto L18a39c;
+  #L18a38a.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.hideable` @type ^`boolean` @kind boolean;
+  #L18a38e.  if v0 == 0 then goto L18a3a6;
+  #L18a392.  v0:= 5I;
+  #L18a394.  if v5 != v0 then goto L18a3a6;
+  #L18a398.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.parentHeight` @type ^`int`;
+  #L18a39c.  v1:= 0I;
+  #L18a39e.  call `startSettlingAnimation`(v3, v4, v5, v0, v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.startSettlingAnimation:(Landroid/view/View;IIZ)V` @kind virtual;
+  #L18a3a4.  return @kind void;
+  #L18a3a6.  v0:= new `java.lang.IllegalArgumentException`;
+  #L18a3aa.  v1:= new `java.lang.StringBuilder`;
+  #L18a3ae.  call `<init>`(v1) @signature `Ljava/lang/StringBuilder;.<init>:()V` @kind direct;
+  #L18a3b4.  v2:= "Illegal state argument: " @kind object;
+  #L18a3b8.  call temp:= `append`(v1, v2) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L18a3be.  v1:= temp @kind object;
+  #L18a3c0.  call temp:= `append`(v1, v5) @signature `Ljava/lang/StringBuilder;.append:(I)Ljava/lang/StringBuilder;` @kind virtual;
+  #L18a3c6.  v1:= temp @kind object;
+  #L18a3c8.  call temp:= `toString`(v1) @signature `Ljava/lang/StringBuilder;.toString:()Ljava/lang/String;` @kind virtual;
+  #L18a3ce.  v1:= temp @kind object;
+  #L18a3d0.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L18a3d6.  throw v0;
+}
+procedure `boolean` `shouldHide`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v5 @kind this, `android.view.View` v6 @kind object @name `child`, `float` v7 @name `yvel`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.shouldHide:(Landroid/view/View;F)Z` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1895a0.  v0:= v5.`com.google.android.material.bottomsheet.BottomSheetBehavior.skipCollapsed` @type ^`boolean` @kind boolean;
+  #L1895a4.  v1:= 1I;
+  #L1895a6.  if v0 == 0 then goto L1895ac;
+  #L1895aa.  return v1;
+  #L1895ac.  call temp:= `getTop`(v6) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L1895b2.  v0:= temp;
+  #L1895b4.  v2:= v5.`com.google.android.material.bottomsheet.BottomSheetBehavior.collapsedOffset` @type ^`int`;
+  #L1895b8.  v3:= 0I;
+  #L1895ba.  if v0 >= v2 then goto L1895c0;
+  #L1895be.  return v3;
+  #L1895c0.  call temp:= `getTop`(v6) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L1895c6.  v0:= temp;
+  #L1895c8.  v0:= (`float`) v0 @kind i2f;
+  #L1895ca.  v2:= 1036831949I;
+  #L1895d0.  v2:= v2 * v7 @kind float;
+  #L1895d2.  v0:= v0 + v2 @kind float;
+  #L1895d4.  v2:= v5.`com.google.android.material.bottomsheet.BottomSheetBehavior.collapsedOffset` @type ^`int`;
+  #L1895d8.  v2:= (`float`) v2 @kind i2f;
+  #L1895da.  v2:= v0 - v2 @kind float;
+  #L1895de.  call temp:= `abs`(v2) @signature `Ljava/lang/Math;.abs:(F)F` @kind static;
+  #L1895e4.  v2:= temp;
+  #L1895e6.  v4:= v5.`com.google.android.material.bottomsheet.BottomSheetBehavior.peekHeight` @type ^`int`;
+  #L1895ea.  v4:= (`float`) v4 @kind i2f;
+  #L1895ec.  v2:= v2 / v4 @kind float;
+  #L1895ee.  v4:= 0.5F;
+  #L1895f2.  v2:= fcmpl(v2, v4);
+  #L1895f6.  if v2 <= 0 then goto L1895fc;
+  #L1895fa.  goto L1895fe;
+  #L1895fc.  v1:= v3;
+  #L1895fe.  return v1;
+}
+procedure `void` `startSettlingAnimation`(`com.google.android.material.bottomsheet.BottomSheetBehavior` v3 @kind this, `android.view.View` v4 @kind object @name `child`, `int` v5 @name `state`, `int` v6 @name `top`, `boolean` v7 @name `settleFromViewDragHelper`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.startSettlingAnimation:(Landroid/view/View;IIZ)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18a450.  if v7 == 0 then goto L18a46a;
+  #L18a454.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` @kind object;
+  #L18a458.  call temp:= `getLeft`(v4) @signature `Landroid/view/View;.getLeft:()I` @kind virtual;
+  #L18a45e.  v1:= temp;
+  #L18a460.  call temp:= `settleCapturedViewAt`(v0, v1, v6) @signature `Landroidx/customview/widget/ViewDragHelper;.settleCapturedViewAt:(II)Z` @kind virtual;
+  #L18a466.  v0:= temp;
+  #L18a468.  goto L18a47e;
+  #L18a46a.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` @kind object;
+  #L18a46e.  call temp:= `getLeft`(v4) @signature `Landroid/view/View;.getLeft:()I` @kind virtual;
+  #L18a474.  v1:= temp;
+  #L18a476.  call temp:= `smoothSlideViewTo`(v0, v4, v1, v6) @signature `Landroidx/customview/widget/ViewDragHelper;.smoothSlideViewTo:(Landroid/view/View;II)Z` @kind virtual;
+  #L18a47c.  v0:= temp;
+  #L18a47e.  
+  #L18a480.  if v0 == 0 then goto L18a4e2;
+  #L18a484.  v1:= 2I;
+  #L18a486.  call `setStateInternal`(v3, v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setStateInternal:(I)V` @kind virtual;
+  #L18a48c.  call `updateDrawableForTargetState`(v3, v5) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.updateDrawableForTargetState:(I)V` @kind direct;
+  #L18a492.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.settleRunnable` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable` @kind object;
+  #L18a496.  if v1 != 0 then goto L18a4a8;
+  #L18a49a.  v1:= new `com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable`;
+  #L18a49e.  call `<init>`(v1, v3, v4, v5) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SettleRunnable;.<init>:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;Landroid/view/View;I)V` @kind direct;
+  #L18a4a4.  v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.settleRunnable` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable` := v1 @kind object;
+  #L18a4a8.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.settleRunnable` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable` @kind object;
+  #L18a4ac.  call temp:= `access$100`(v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SettleRunnable;.access$100:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SettleRunnable;)Z` @kind static;
+  #L18a4b2.  v1:= temp;
+  #L18a4b4.  if v1 != 0 then goto L18a4d8;
+  #L18a4b8.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.settleRunnable` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable` @kind object;
+  #L18a4bc.  v1.`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable.targetState` @type ^`int` := v5;
+  #L18a4c0.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.settleRunnable` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable` @kind object;
+  #L18a4c4.  call `postOnAnimation`(v4, v1) @signature `Landroidx/core/view/ViewCompat;.postOnAnimation:(Landroid/view/View;Ljava/lang/Runnable;)V` @kind static;
+  #L18a4ca.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.settleRunnable` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable` @kind object;
+  #L18a4ce.  v2:= 1I;
+  #L18a4d0.  call temp:= `access$102`(v1, v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SettleRunnable;.access$102:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SettleRunnable;Z)Z` @kind static;
+  #L18a4d6.  goto L18a4e8;
+  #L18a4d8.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetBehavior.settleRunnable` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable` @kind object;
+  #L18a4dc.  v1.`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable.targetState` @type ^`int` := v5;
+  #L18a4e0.  goto L18a4e8;
+  #L18a4e2.  call `setStateInternal`(v3, v5) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setStateInternal:(I)V` @kind virtual;
+  #L18a4e8.  return @kind void;
+}

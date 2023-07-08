@@ -1,0 +1,45 @@
+record `com.google.android.material.internal.ViewUtils$RelativePadding` @kind class @AccessFlag PUBLIC {
+  `int` `com.google.android.material.internal.ViewUtils$RelativePadding.bottom` @AccessFlag PUBLIC;
+  `int` `com.google.android.material.internal.ViewUtils$RelativePadding.end` @AccessFlag PUBLIC;
+  `int` `com.google.android.material.internal.ViewUtils$RelativePadding.start` @AccessFlag PUBLIC;
+  `int` `com.google.android.material.internal.ViewUtils$RelativePadding.top` @AccessFlag PUBLIC;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.ViewUtils$RelativePadding` v0 @kind this, `int` v1 @name `start`, `int` v2 @name `top`, `int` v3 @name `end`, `int` v4 @name `bottom`) @signature `Lcom/google/android/material/internal/ViewUtils$RelativePadding;.<init>:(IIII)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1a75e4.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1a75ea.  v0.`com.google.android.material.internal.ViewUtils$RelativePadding.start` @type ^`int` := v1;
+  #L1a75ee.  v0.`com.google.android.material.internal.ViewUtils$RelativePadding.top` @type ^`int` := v2;
+  #L1a75f2.  v0.`com.google.android.material.internal.ViewUtils$RelativePadding.end` @type ^`int` := v3;
+  #L1a75f6.  v0.`com.google.android.material.internal.ViewUtils$RelativePadding.bottom` @type ^`int` := v4;
+  #L1a75fa.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.ViewUtils$RelativePadding` v1 @kind this, `com.google.android.material.internal.ViewUtils$RelativePadding` v2 @kind object @name `other`) @signature `Lcom/google/android/material/internal/ViewUtils$RelativePadding;.<init>:(Lcom/google/android/material/internal/ViewUtils$RelativePadding;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a75ac.  call `<init>`(v1) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1a75b2.  v0:= v2.`com.google.android.material.internal.ViewUtils$RelativePadding.start` @type ^`int`;
+  #L1a75b6.  v1.`com.google.android.material.internal.ViewUtils$RelativePadding.start` @type ^`int` := v0;
+  #L1a75ba.  v0:= v2.`com.google.android.material.internal.ViewUtils$RelativePadding.top` @type ^`int`;
+  #L1a75be.  v1.`com.google.android.material.internal.ViewUtils$RelativePadding.top` @type ^`int` := v0;
+  #L1a75c2.  v0:= v2.`com.google.android.material.internal.ViewUtils$RelativePadding.end` @type ^`int`;
+  #L1a75c6.  v1.`com.google.android.material.internal.ViewUtils$RelativePadding.end` @type ^`int` := v0;
+  #L1a75ca.  v0:= v2.`com.google.android.material.internal.ViewUtils$RelativePadding.bottom` @type ^`int`;
+  #L1a75ce.  v1.`com.google.android.material.internal.ViewUtils$RelativePadding.bottom` @type ^`int` := v0;
+  #L1a75d2.  return @kind void;
+}
+procedure `void` `applyToView`(`com.google.android.material.internal.ViewUtils$RelativePadding` v4 @kind this, `android.view.View` v5 @kind object @name `view`) @signature `Lcom/google/android/material/internal/ViewUtils$RelativePadding;.applyToView:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1a760c.  v0:= v4.`com.google.android.material.internal.ViewUtils$RelativePadding.start` @type ^`int`;
+  #L1a7610.  v1:= v4.`com.google.android.material.internal.ViewUtils$RelativePadding.top` @type ^`int`;
+  #L1a7614.  v2:= v4.`com.google.android.material.internal.ViewUtils$RelativePadding.end` @type ^`int`;
+  #L1a7618.  v3:= v4.`com.google.android.material.internal.ViewUtils$RelativePadding.bottom` @type ^`int`;
+  #L1a761c.  call `setPaddingRelative`(v5, v0, v1, v2, v3) @signature `Landroidx/core/view/ViewCompat;.setPaddingRelative:(Landroid/view/View;IIII)V` @kind static;
+  #L1a7622.  return @kind void;
+}

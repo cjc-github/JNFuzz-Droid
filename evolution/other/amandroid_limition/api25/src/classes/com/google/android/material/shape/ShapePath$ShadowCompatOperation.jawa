@@ -1,0 +1,30 @@
+record `com.google.android.material.shape.ShapePath$ShadowCompatOperation` @kind class @AccessFlag ABSTRACT {
+}
+global `android.graphics.Matrix` `@@com.google.android.material.shape.ShapePath$ShadowCompatOperation.IDENTITY_MATRIX` @AccessFlag STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1ae830.  v0:= new `android.graphics.Matrix`;
+  #L1ae834.  call `<init>`(v0) @signature `Landroid/graphics/Matrix;.<init>:()V` @kind direct;
+  #L1ae83a.  `@@com.google.android.material.shape.ShapePath$ShadowCompatOperation.IDENTITY_MATRIX` @type ^`android.graphics.Matrix` := v0 @kind object;
+  #L1ae83e.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.ShapePath$ShadowCompatOperation` v0 @kind this) @signature `Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;.<init>:()V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1ae850.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1ae856.  return @kind void;
+}
+procedure `void` `draw`(`android.graphics.Matrix` v0 @kind object, `com.google.android.material.shadow.ShadowRenderer` v1 @kind object, `int` v2 , `android.graphics.Canvas` v3 @kind object) @signature `Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;.draw:(Landroid/graphics/Matrix;Lcom/google/android/material/shadow/ShadowRenderer;ILandroid/graphics/Canvas;)V` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `void` `draw`(`com.google.android.material.shape.ShapePath$ShadowCompatOperation` v1 @kind this, `com.google.android.material.shadow.ShadowRenderer` v2 @kind object @name `shadowRenderer`, `int` v3 @name `shadowElevation`, `android.graphics.Canvas` v4 @kind object @name `canvas`) @signature `Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;.draw:(Lcom/google/android/material/shadow/ShadowRenderer;ILandroid/graphics/Canvas;)V` @AccessFlag PUBLIC_FINAL {
+    temp;
+    v0;
+
+  #L1ae868.  v0:= `@@com.google.android.material.shape.ShapePath$ShadowCompatOperation.IDENTITY_MATRIX` @type ^`android.graphics.Matrix` @kind object;
+  #L1ae86c.  call `draw`(v1, v0, v2, v3, v4) @signature `Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;.draw:(Landroid/graphics/Matrix;Lcom/google/android/material/shadow/ShadowRenderer;ILandroid/graphics/Canvas;)V` @kind virtual;
+  #L1ae872.  return @kind void;
+}

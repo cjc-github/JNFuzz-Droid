@@ -1,0 +1,327 @@
+record `com.google.android.material.bottomsheet.BottomSheetDialog` @kind class @AccessFlag PUBLIC extends `androidx.appcompat.app.AppCompatDialog` @kind class {
+  `com.google.android.material.bottomsheet.BottomSheetBehavior` `com.google.android.material.bottomsheet.BottomSheetDialog.behavior` @AccessFlag PRIVATE;
+  `com.google.android.material.bottomsheet.BottomSheetBehavior$BottomSheetCallback` `com.google.android.material.bottomsheet.BottomSheetDialog.bottomSheetCallback` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.bottomsheet.BottomSheetDialog.cancelable` @AccessFlag ;
+  `boolean` `com.google.android.material.bottomsheet.BottomSheetDialog.canceledOnTouchOutside` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.bottomsheet.BottomSheetDialog.canceledOnTouchOutsideSet` @AccessFlag PRIVATE;
+  `android.widget.FrameLayout` `com.google.android.material.bottomsheet.BottomSheetDialog.container` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.bottomsheet.BottomSheetDialog.dismissWithAnimation` @AccessFlag ;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomsheet.BottomSheetDialog` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L18accc.  v0:= 0I;
+  #L18acce.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.<init>:(Landroid/content/Context;I)V` @kind direct;
+  #L18acd4.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomsheet.BottomSheetDialog` v2 @kind this, `android.content.Context` v3 @kind object @name `context`, `int` v4 @name `theme`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.<init>:(Landroid/content/Context;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L18ad24.  call temp:= `getThemeResId`(v3, v4) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.getThemeResId:(Landroid/content/Context;I)I` @kind static;
+  #L18ad2a.  v0:= temp;
+  #L18ad2c.  call `<init>`(v2, v3, v0) @signature `Landroidx/appcompat/app/AppCompatDialog;.<init>:(Landroid/content/Context;I)V` @kind direct;
+  #L18ad32.  v0:= 1I;
+  #L18ad34.  v2.`com.google.android.material.bottomsheet.BottomSheetDialog.cancelable` @type ^`boolean` := v0 @kind boolean;
+  #L18ad38.  v2.`com.google.android.material.bottomsheet.BottomSheetDialog.canceledOnTouchOutside` @type ^`boolean` := v0 @kind boolean;
+  #L18ad3c.  v1:= new `com.google.android.material.bottomsheet.BottomSheetDialog$4`;
+  #L18ad40.  call `<init>`(v1, v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog$4;.<init>:(Lcom/google/android/material/bottomsheet/BottomSheetDialog;)V` @kind direct;
+  #L18ad46.  v2.`com.google.android.material.bottomsheet.BottomSheetDialog.bottomSheetCallback` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior$BottomSheetCallback` := v1 @kind object;
+  #L18ad4a.  call temp:= `supportRequestWindowFeature`(v2, v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.supportRequestWindowFeature:(I)Z` @kind virtual;
+  #L18ad50.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomsheet.BottomSheetDialog` v2 @kind this, `android.content.Context` v3 @kind object @name `context`, `boolean` v4 @name `cancelable`, `android.content.DialogInterface$OnCancelListener` v5 @kind object @name `cancelListener`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.<init>:(Landroid/content/Context;ZLandroid/content/DialogInterface$OnCancelListener;)V` @AccessFlag PROTECTED_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L18ace8.  call `<init>`(v2, v3, v4, v5) @signature `Landroidx/appcompat/app/AppCompatDialog;.<init>:(Landroid/content/Context;ZLandroid/content/DialogInterface$OnCancelListener;)V` @kind direct;
+  #L18acee.  v0:= 1I;
+  #L18acf0.  v2.`com.google.android.material.bottomsheet.BottomSheetDialog.cancelable` @type ^`boolean` := v0 @kind boolean;
+  #L18acf4.  v2.`com.google.android.material.bottomsheet.BottomSheetDialog.canceledOnTouchOutside` @type ^`boolean` := v0 @kind boolean;
+  #L18acf8.  v1:= new `com.google.android.material.bottomsheet.BottomSheetDialog$4`;
+  #L18acfc.  call `<init>`(v1, v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog$4;.<init>:(Lcom/google/android/material/bottomsheet/BottomSheetDialog;)V` @kind direct;
+  #L18ad02.  v2.`com.google.android.material.bottomsheet.BottomSheetDialog.bottomSheetCallback` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior$BottomSheetCallback` := v1 @kind object;
+  #L18ad06.  call temp:= `supportRequestWindowFeature`(v2, v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.supportRequestWindowFeature:(I)Z` @kind virtual;
+  #L18ad0c.  v2.`com.google.android.material.bottomsheet.BottomSheetDialog.cancelable` @type ^`boolean` := v4 @kind boolean;
+  #L18ad10.  return @kind void;
+}
+procedure `android.widget.FrameLayout` `ensureContainerAndBehavior`(`com.google.android.material.bottomsheet.BottomSheetDialog` v3 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.ensureContainerAndBehavior:()Landroid/widget/FrameLayout;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18ab80.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetDialog.container` @type ^`android.widget.FrameLayout` @kind object;
+  #L18ab84.  if v0 != 0 then goto L18abdc;
+  #L18ab88.  
+  #L18ab8a.  call temp:= `getContext`(v3) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L18ab90.  v0:= temp @kind object;
+  #L18ab92.  v1:= `@@com.google.android.material.R$layout.design_bottom_sheet_dialog` @type ^`int`;
+  #L18ab96.  v2:= 0I;
+  #L18ab98.  call temp:= `inflate`(v0, v1, v2) @signature `Landroid/view/View;.inflate:(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;` @kind static;
+  #L18ab9e.  v0:= temp @kind object;
+  #L18aba0.  v0:= (`android.widget.FrameLayout`) v0 @kind object;
+  #L18aba4.  v3.`com.google.android.material.bottomsheet.BottomSheetDialog.container` @type ^`android.widget.FrameLayout` := v0 @kind object;
+  #L18aba8.  v1:= `@@com.google.android.material.R$id.design_bottom_sheet` @type ^`int`;
+  #L18abac.  call temp:= `findViewById`(v0, v1) @signature `Landroid/widget/FrameLayout;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L18abb2.  v0:= temp @kind object;
+  #L18abb4.  v0:= (`android.widget.FrameLayout`) v0 @kind object;
+  #L18abb8.  call temp:= `from`(v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.from:(Landroid/view/View;)Lcom/google/android/material/bottomsheet/BottomSheetBehavior;` @kind static;
+  #L18abbe.  v1:= temp @kind object;
+  #L18abc0.  v3.`com.google.android.material.bottomsheet.BottomSheetDialog.behavior` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior` := v1 @kind object;
+  #L18abc4.  v2:= v3.`com.google.android.material.bottomsheet.BottomSheetDialog.bottomSheetCallback` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior$BottomSheetCallback` @kind object;
+  #L18abc8.  call `addBottomSheetCallback`(v1, v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.addBottomSheetCallback:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior$BottomSheetCallback;)V` @kind virtual;
+  #L18abce.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetDialog.behavior` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior` @kind object;
+  #L18abd2.  v2:= v3.`com.google.android.material.bottomsheet.BottomSheetDialog.cancelable` @type ^`boolean` @kind boolean;
+  #L18abd6.  call `setHideable`(v1, v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setHideable:(Z)V` @kind virtual;
+  #L18abdc.  v0:= v3.`com.google.android.material.bottomsheet.BottomSheetDialog.container` @type ^`android.widget.FrameLayout` @kind object;
+  #L18abe0.  return v0 @kind object;
+}
+procedure `int` `getThemeResId`(`android.content.Context` v4 @kind object @name `context`, `int` v5 @name `themeId`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.getThemeResId:(Landroid/content/Context;I)I` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18ac88.  if v5 != 0 then goto L18acba;
+  #L18ac8c.  v0:= new `android.util.TypedValue`;
+  #L18ac90.  call `<init>`(v0) @signature `Landroid/util/TypedValue;.<init>:()V` @kind direct;
+  #L18ac96.  call temp:= `getTheme`(v4) @signature `Landroid/content/Context;.getTheme:()Landroid/content/res/Resources$Theme;` @kind virtual;
+  #L18ac9c.  v1:= temp @kind object;
+  #L18ac9e.  v2:= `@@com.google.android.material.R$attr.bottomSheetDialogTheme` @type ^`int`;
+  #L18aca2.  v3:= 1I;
+  #L18aca4.  call temp:= `resolveAttribute`(v1, v2, v0, v3) @signature `Landroid/content/res/Resources$Theme;.resolveAttribute:(ILandroid/util/TypedValue;Z)Z` @kind virtual;
+  #L18acaa.  v1:= temp;
+  #L18acac.  if v1 == 0 then goto L18acb6;
+  #L18acb0.  v5:= v0.`android.util.TypedValue.resourceId` @type ^`int`;
+  #L18acb4.  goto L18acba;
+  #L18acb6.  v5:= `@@com.google.android.material.R$style.Theme_Design_Light_BottomSheetDialog` @type ^`int`;
+  #L18acba.  return v5;
+}
+procedure `android.view.View` `wrapInBottomSheet`(`com.google.android.material.bottomsheet.BottomSheetDialog` v4 @kind this, `int` v5 @name `layoutResId`, `android.view.View` v6 @kind object @name `view`, `android.view.ViewGroup$LayoutParams` v7 @kind object @name `params`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.wrapInBottomSheet:(ILandroid/view/View;Landroid/view/ViewGroup$LayoutParams;)Landroid/view/View;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18aad4.  call temp:= `ensureContainerAndBehavior`(v4) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.ensureContainerAndBehavior:()Landroid/widget/FrameLayout;` @kind direct;
+  #L18aada.  v0:= v4.`com.google.android.material.bottomsheet.BottomSheetDialog.container` @type ^`android.widget.FrameLayout` @kind object;
+  #L18aade.  v1:= `@@com.google.android.material.R$id.coordinator` @type ^`int`;
+  #L18aae2.  call temp:= `findViewById`(v0, v1) @signature `Landroid/widget/FrameLayout;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L18aae8.  v0:= temp @kind object;
+  #L18aaea.  v0:= (`androidx.coordinatorlayout.widget.CoordinatorLayout`) v0 @kind object;
+  #L18aaee.  if v5 == 0 then goto L18ab08;
+  #L18aaf2.  if v6 != 0 then goto L18ab08;
+  #L18aaf6.  call temp:= `getLayoutInflater`(v4) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.getLayoutInflater:()Landroid/view/LayoutInflater;` @kind virtual;
+  #L18aafc.  v1:= temp @kind object;
+  #L18aafe.  v2:= 0I;
+  #L18ab00.  call temp:= `inflate`(v1, v5, v0, v2) @signature `Landroid/view/LayoutInflater;.inflate:(ILandroid/view/ViewGroup;Z)Landroid/view/View;` @kind virtual;
+  #L18ab06.  v6:= temp @kind object;
+  #L18ab08.  v1:= v4.`com.google.android.material.bottomsheet.BottomSheetDialog.container` @type ^`android.widget.FrameLayout` @kind object;
+  #L18ab0c.  v2:= `@@com.google.android.material.R$id.design_bottom_sheet` @type ^`int`;
+  #L18ab10.  call temp:= `findViewById`(v1, v2) @signature `Landroid/widget/FrameLayout;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L18ab16.  v1:= temp @kind object;
+  #L18ab18.  v1:= (`android.widget.FrameLayout`) v1 @kind object;
+  #L18ab1c.  if v7 != 0 then goto L18ab28;
+  #L18ab20.  call `addView`(v1, v6) @signature `Landroid/widget/FrameLayout;.addView:(Landroid/view/View;)V` @kind virtual;
+  #L18ab26.  goto L18ab2e;
+  #L18ab28.  call `addView`(v1, v6, v7) @signature `Landroid/widget/FrameLayout;.addView:(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V` @kind virtual;
+  #L18ab2e.  v2:= `@@com.google.android.material.R$id.touch_outside` @type ^`int`;
+  #L18ab32.  call temp:= `findViewById`(v0, v2) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L18ab38.  v2:= temp @kind object;
+  #L18ab3a.  v3:= new `com.google.android.material.bottomsheet.BottomSheetDialog$1`;
+  #L18ab3e.  call `<init>`(v3, v4) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog$1;.<init>:(Lcom/google/android/material/bottomsheet/BottomSheetDialog;)V` @kind direct;
+  #L18ab44.  call `setOnClickListener`(v2, v3) @signature `Landroid/view/View;.setOnClickListener:(Landroid/view/View$OnClickListener;)V` @kind virtual;
+  #L18ab4a.  v2:= new `com.google.android.material.bottomsheet.BottomSheetDialog$2`;
+  #L18ab4e.  call `<init>`(v2, v4) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog$2;.<init>:(Lcom/google/android/material/bottomsheet/BottomSheetDialog;)V` @kind direct;
+  #L18ab54.  call `setAccessibilityDelegate`(v1, v2) @signature `Landroidx/core/view/ViewCompat;.setAccessibilityDelegate:(Landroid/view/View;Landroidx/core/view/AccessibilityDelegateCompat;)V` @kind static;
+  #L18ab5a.  v2:= new `com.google.android.material.bottomsheet.BottomSheetDialog$3`;
+  #L18ab5e.  call `<init>`(v2, v4) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog$3;.<init>:(Lcom/google/android/material/bottomsheet/BottomSheetDialog;)V` @kind direct;
+  #L18ab64.  call `setOnTouchListener`(v1, v2) @signature `Landroid/widget/FrameLayout;.setOnTouchListener:(Landroid/view/View$OnTouchListener;)V` @kind virtual;
+  #L18ab6a.  v2:= v4.`com.google.android.material.bottomsheet.BottomSheetDialog.container` @type ^`android.widget.FrameLayout` @kind object;
+  #L18ab6e.  return v2 @kind object;
+}
+procedure `void` `cancel`(`com.google.android.material.bottomsheet.BottomSheetDialog` v3 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.cancel:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18ad64.  call temp:= `getBehavior`(v3) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.getBehavior:()Lcom/google/android/material/bottomsheet/BottomSheetBehavior;` @kind virtual;
+  #L18ad6a.  v0:= temp @kind object;
+  #L18ad6c.  v1:= v3.`com.google.android.material.bottomsheet.BottomSheetDialog.dismissWithAnimation` @type ^`boolean` @kind boolean;
+  #L18ad70.  if v1 == 0 then goto L18ad8c;
+  #L18ad74.  call temp:= `getState`(v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getState:()I` @kind virtual;
+  #L18ad7a.  v1:= temp;
+  #L18ad7c.  v2:= 5I;
+  #L18ad7e.  if v1 != v2 then goto L18ad84;
+  #L18ad82.  goto L18ad8c;
+  #L18ad84.  call `setState`(v0, v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setState:(I)V` @kind virtual;
+  #L18ad8a.  goto L18ad92;
+  #L18ad8c.  call `cancel`(v3) @signature `Landroidx/appcompat/app/AppCompatDialog;.cancel:()V` @kind super;
+  #L18ad92.  return @kind void;
+}
+procedure `com.google.android.material.bottomsheet.BottomSheetBehavior` `getBehavior`(`com.google.android.material.bottomsheet.BottomSheetDialog` v1 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.getBehavior:()Lcom/google/android/material/bottomsheet/BottomSheetBehavior;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18ac64.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetDialog.behavior` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior` @kind object;
+  #L18ac68.  if v0 != 0 then goto L18ac72;
+  #L18ac6c.  call temp:= `ensureContainerAndBehavior`(v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.ensureContainerAndBehavior:()Landroid/widget/FrameLayout;` @kind direct;
+  #L18ac72.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetDialog.behavior` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior` @kind object;
+  #L18ac76.  return v0 @kind object;
+}
+procedure `boolean` `getDismissWithAnimation`(`com.google.android.material.bottomsheet.BottomSheetDialog` v1 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.getDismissWithAnimation:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18abf4.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetDialog.dismissWithAnimation` @type ^`boolean` @kind boolean;
+  #L18abf8.  return v0;
+}
+procedure `void` `onCreate`(`com.google.android.material.bottomsheet.BottomSheetDialog` v3 @kind this, `android.os.Bundle` v4 @kind object @name `savedInstanceState`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.onCreate:(Landroid/os/Bundle;)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18ada4.  call `onCreate`(v3, v4) @signature `Landroidx/appcompat/app/AppCompatDialog;.onCreate:(Landroid/os/Bundle;)V` @kind super;
+  #L18adaa.  call temp:= `getWindow`(v3) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.getWindow:()Landroid/view/Window;` @kind virtual;
+  #L18adb0.  v0:= temp @kind object;
+  #L18adb2.  if v0 == 0 then goto L18adde;
+  #L18adb6.  v1:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L18adba.  v2:= 21I;
+  #L18adbe.  if v1 < v2 then goto L18add6;
+  #L18adc2.  v1:= 67108864I;
+  #L18adc6.  call `clearFlags`(v0, v1) @signature `Landroid/view/Window;.clearFlags:(I)V` @kind virtual;
+  #L18adcc.  v1:= -2147483648I;
+  #L18add0.  call `addFlags`(v0, v1) @signature `Landroid/view/Window;.addFlags:(I)V` @kind virtual;
+  #L18add6.  v1:= -1I;
+  #L18add8.  call `setLayout`(v0, v1, v1) @signature `Landroid/view/Window;.setLayout:(II)V` @kind virtual;
+  #L18adde.  return @kind void;
+}
+procedure `void` `onStart`(`com.google.android.material.bottomsheet.BottomSheetDialog` v2 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.onStart:()V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L18adf0.  call `onStart`(v2) @signature `Landroidx/appcompat/app/AppCompatDialog;.onStart:()V` @kind super;
+  #L18adf6.  v0:= v2.`com.google.android.material.bottomsheet.BottomSheetDialog.behavior` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior` @kind object;
+  #L18adfa.  if v0 == 0 then goto L18ae18;
+  #L18adfe.  call temp:= `getState`(v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getState:()I` @kind virtual;
+  #L18ae04.  v0:= temp;
+  #L18ae06.  v1:= 5I;
+  #L18ae08.  if v0 != v1 then goto L18ae18;
+  #L18ae0c.  v0:= v2.`com.google.android.material.bottomsheet.BottomSheetDialog.behavior` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior` @kind object;
+  #L18ae10.  v1:= 4I;
+  #L18ae12.  call `setState`(v0, v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setState:(I)V` @kind virtual;
+  #L18ae18.  return @kind void;
+}
+procedure `void` `removeDefaultCallback`(`com.google.android.material.bottomsheet.BottomSheetDialog` v2 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.removeDefaultCallback:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L18ae2c.  v0:= v2.`com.google.android.material.bottomsheet.BottomSheetDialog.behavior` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior` @kind object;
+  #L18ae30.  v1:= v2.`com.google.android.material.bottomsheet.BottomSheetDialog.bottomSheetCallback` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior$BottomSheetCallback` @kind object;
+  #L18ae34.  call `removeBottomSheetCallback`(v0, v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.removeBottomSheetCallback:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior$BottomSheetCallback;)V` @kind virtual;
+  #L18ae3a.  return @kind void;
+}
+procedure `void` `setCancelable`(`com.google.android.material.bottomsheet.BottomSheetDialog` v1 @kind this, `boolean` v2 @name `cancelable`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.setCancelable:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18ae4c.  call `setCancelable`(v1, v2) @signature `Landroidx/appcompat/app/AppCompatDialog;.setCancelable:(Z)V` @kind super;
+  #L18ae52.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetDialog.cancelable` @type ^`boolean` @kind boolean;
+  #L18ae56.  if v0 == v2 then goto L18ae6c;
+  #L18ae5a.  v1.`com.google.android.material.bottomsheet.BottomSheetDialog.cancelable` @type ^`boolean` := v2 @kind boolean;
+  #L18ae5e.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetDialog.behavior` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior` @kind object;
+  #L18ae62.  if v0 == 0 then goto L18ae6c;
+  #L18ae66.  call `setHideable`(v0, v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setHideable:(Z)V` @kind virtual;
+  #L18ae6c.  return @kind void;
+}
+procedure `void` `setCanceledOnTouchOutside`(`com.google.android.material.bottomsheet.BottomSheetDialog` v2 @kind this, `boolean` v3 @name `cancel`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.setCanceledOnTouchOutside:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L18ae80.  call `setCanceledOnTouchOutside`(v2, v3) @signature `Landroidx/appcompat/app/AppCompatDialog;.setCanceledOnTouchOutside:(Z)V` @kind super;
+  #L18ae86.  v0:= 1I;
+  #L18ae88.  if v3 == 0 then goto L18ae98;
+  #L18ae8c.  v1:= v2.`com.google.android.material.bottomsheet.BottomSheetDialog.cancelable` @type ^`boolean` @kind boolean;
+  #L18ae90.  if v1 != 0 then goto L18ae98;
+  #L18ae94.  v2.`com.google.android.material.bottomsheet.BottomSheetDialog.cancelable` @type ^`boolean` := v0 @kind boolean;
+  #L18ae98.  v2.`com.google.android.material.bottomsheet.BottomSheetDialog.canceledOnTouchOutside` @type ^`boolean` := v3 @kind boolean;
+  #L18ae9c.  v2.`com.google.android.material.bottomsheet.BottomSheetDialog.canceledOnTouchOutsideSet` @type ^`boolean` := v0 @kind boolean;
+  #L18aea0.  return @kind void;
+}
+procedure `void` `setContentView`(`com.google.android.material.bottomsheet.BottomSheetDialog` v1 @kind this, `int` v2 @name `layoutResId`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.setContentView:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18aefc.  v0:= 0I;
+  #L18aefe.  call temp:= `wrapInBottomSheet`(v1, v2, v0, v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.wrapInBottomSheet:(ILandroid/view/View;Landroid/view/ViewGroup$LayoutParams;)Landroid/view/View;` @kind direct;
+  #L18af04.  v0:= temp @kind object;
+  #L18af06.  call `setContentView`(v1, v0) @signature `Landroidx/appcompat/app/AppCompatDialog;.setContentView:(Landroid/view/View;)V` @kind super;
+  #L18af0c.  return @kind void;
+}
+procedure `void` `setContentView`(`com.google.android.material.bottomsheet.BottomSheetDialog` v2 @kind this, `android.view.View` v3 @kind object @name `view`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.setContentView:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L18aeb4.  v0:= 0I;
+  #L18aeb6.  v1:= 0I;
+  #L18aeb8.  call temp:= `wrapInBottomSheet`(v2, v0, v3, v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.wrapInBottomSheet:(ILandroid/view/View;Landroid/view/ViewGroup$LayoutParams;)Landroid/view/View;` @kind direct;
+  #L18aebe.  v0:= temp @kind object;
+  #L18aec0.  call `setContentView`(v2, v0) @signature `Landroidx/appcompat/app/AppCompatDialog;.setContentView:(Landroid/view/View;)V` @kind super;
+  #L18aec6.  return @kind void;
+}
+procedure `void` `setContentView`(`com.google.android.material.bottomsheet.BottomSheetDialog` v1 @kind this, `android.view.View` v2 @kind object @name `view`, `android.view.ViewGroup$LayoutParams` v3 @kind object @name `params`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.setContentView:(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18aed8.  v0:= 0I;
+  #L18aeda.  call temp:= `wrapInBottomSheet`(v1, v0, v2, v3) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.wrapInBottomSheet:(ILandroid/view/View;Landroid/view/ViewGroup$LayoutParams;)Landroid/view/View;` @kind direct;
+  #L18aee0.  v0:= temp @kind object;
+  #L18aee2.  call `setContentView`(v1, v0) @signature `Landroidx/appcompat/app/AppCompatDialog;.setContentView:(Landroid/view/View;)V` @kind super;
+  #L18aee8.  return @kind void;
+}
+procedure `void` `setDismissWithAnimation`(`com.google.android.material.bottomsheet.BottomSheetDialog` v0 @kind this, `boolean` v1 @name `dismissWithAnimation`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.setDismissWithAnimation:(Z)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L18af20.  v0.`com.google.android.material.bottomsheet.BottomSheetDialog.dismissWithAnimation` @type ^`boolean` := v1 @kind boolean;
+  #L18af24.  return @kind void;
+}
+procedure `boolean` `shouldWindowCloseOnTouchOutside`(`com.google.android.material.bottomsheet.BottomSheetDialog` v5 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.shouldWindowCloseOnTouchOutside:()Z` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L18ac0c.  v0:= v5.`com.google.android.material.bottomsheet.BottomSheetDialog.canceledOnTouchOutsideSet` @type ^`boolean` @kind boolean;
+  #L18ac10.  if v0 != 0 then goto L18ac4e;
+  #L18ac14.  
+  #L18ac16.  call temp:= `getContext`(v5) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L18ac1c.  v0:= temp @kind object;
+  #L18ac1e.  v1:= 1I;
+  #L18ac20.  v2:= new `int`[v1];
+  #L18ac24.  v3:= 16843611I;
+  #L18ac2a.  v4:= 0I;
+  #L18ac2c.  v2[v4]:= v3;
+  #L18ac30.  call temp:= `obtainStyledAttributes`(v0, v2) @signature `Landroid/content/Context;.obtainStyledAttributes:([I)Landroid/content/res/TypedArray;` @kind virtual;
+  #L18ac36.  v0:= temp @kind object;
+  #L18ac38.  call temp:= `getBoolean`(v0, v4, v1) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L18ac3e.  v2:= temp;
+  #L18ac40.  v5.`com.google.android.material.bottomsheet.BottomSheetDialog.canceledOnTouchOutside` @type ^`boolean` := v2 @kind boolean;
+  #L18ac44.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L18ac4a.  v5.`com.google.android.material.bottomsheet.BottomSheetDialog.canceledOnTouchOutsideSet` @type ^`boolean` := v1 @kind boolean;
+  #L18ac4e.  v0:= v5.`com.google.android.material.bottomsheet.BottomSheetDialog.canceledOnTouchOutside` @type ^`boolean` @kind boolean;
+  #L18ac52.  return v0;
+}

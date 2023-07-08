@@ -1,0 +1,5 @@
+su
+echo " [+] clean some information"
+cd /data/local/tmp
+pgrep afl-fuzz | xargs kill -s 9
+rm -rf test_jni* out in

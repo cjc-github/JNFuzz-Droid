@@ -1,0 +1,42 @@
+record `com.google.android.material.behavior.SwipeDismissBehavior$SettleRunnable` @kind class @AccessFlag  extends `java.lang.Runnable` @kind interface {
+  `boolean` `com.google.android.material.behavior.SwipeDismissBehavior$SettleRunnable.dismiss` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.behavior.SwipeDismissBehavior` `com.google.android.material.behavior.SwipeDismissBehavior$SettleRunnable.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `android.view.View` `com.google.android.material.behavior.SwipeDismissBehavior$SettleRunnable.view` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.behavior.SwipeDismissBehavior$SettleRunnable` v0 @kind this, `com.google.android.material.behavior.SwipeDismissBehavior` v1 @kind object, `android.view.View` v2 @kind object @name `view`, `boolean` v3 @name `dismiss`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior$SettleRunnable;.<init>:(Lcom/google/android/material/behavior/SwipeDismissBehavior;Landroid/view/View;Z)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1840b0.  v0.`com.google.android.material.behavior.SwipeDismissBehavior$SettleRunnable.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` := v1 @kind object;
+  #L1840b4.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1840ba.  v0.`com.google.android.material.behavior.SwipeDismissBehavior$SettleRunnable.view` @type ^`android.view.View` := v2 @kind object;
+  #L1840be.  v0.`com.google.android.material.behavior.SwipeDismissBehavior$SettleRunnable.dismiss` @type ^`boolean` := v3 @kind boolean;
+  #L1840c2.  return @kind void;
+}
+procedure `void` `run`(`com.google.android.material.behavior.SwipeDismissBehavior$SettleRunnable` v2 @kind this) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior$SettleRunnable;.run:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1840d4.  v0:= v2.`com.google.android.material.behavior.SwipeDismissBehavior$SettleRunnable.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L1840d8.  v0:= v0.`com.google.android.material.behavior.SwipeDismissBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` @kind object;
+  #L1840dc.  if v0 == 0 then goto L184102;
+  #L1840e0.  v0:= v2.`com.google.android.material.behavior.SwipeDismissBehavior$SettleRunnable.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L1840e4.  v0:= v0.`com.google.android.material.behavior.SwipeDismissBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` @kind object;
+  #L1840e8.  v1:= 1I;
+  #L1840ea.  call temp:= `continueSettling`(v0, v1) @signature `Landroidx/customview/widget/ViewDragHelper;.continueSettling:(Z)Z` @kind virtual;
+  #L1840f0.  v0:= temp;
+  #L1840f2.  if v0 == 0 then goto L184102;
+  #L1840f6.  v0:= v2.`com.google.android.material.behavior.SwipeDismissBehavior$SettleRunnable.view` @type ^`android.view.View` @kind object;
+  #L1840fa.  call `postOnAnimation`(v0, v2) @signature `Landroidx/core/view/ViewCompat;.postOnAnimation:(Landroid/view/View;Ljava/lang/Runnable;)V` @kind static;
+  #L184100.  goto L184128;
+  #L184102.  v0:= v2.`com.google.android.material.behavior.SwipeDismissBehavior$SettleRunnable.dismiss` @type ^`boolean` @kind boolean;
+  #L184106.  if v0 == 0 then goto L184128;
+  #L18410a.  v0:= v2.`com.google.android.material.behavior.SwipeDismissBehavior$SettleRunnable.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L18410e.  v0:= v0.`com.google.android.material.behavior.SwipeDismissBehavior.listener` @type ^`com.google.android.material.behavior.SwipeDismissBehavior$OnDismissListener` @kind object;
+  #L184112.  if v0 == 0 then goto L184128;
+  #L184116.  v0:= v2.`com.google.android.material.behavior.SwipeDismissBehavior$SettleRunnable.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L18411a.  v0:= v0.`com.google.android.material.behavior.SwipeDismissBehavior.listener` @type ^`com.google.android.material.behavior.SwipeDismissBehavior$OnDismissListener` @kind object;
+  #L18411e.  v1:= v2.`com.google.android.material.behavior.SwipeDismissBehavior$SettleRunnable.view` @type ^`android.view.View` @kind object;
+  #L184122.  call `onDismiss`(v0, v1) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior$OnDismissListener;.onDismiss:(Landroid/view/View;)V` @kind interface;
+  #L184128.  return @kind void;
+}

@@ -1,0 +1,73 @@
+record `com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` @kind class @AccessFlag PUBLIC {
+  `float` `com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.centerX` @AccessFlag PUBLIC;
+  `float` `com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.centerY` @AccessFlag PUBLIC;
+  `float` `com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.radius` @AccessFlag PUBLIC;
+}
+global `float` `@@com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.INVALID_RADIUS` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` v0 @kind this) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;.<init>:()V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+
+  #L195c30.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L195c36.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` v0 @kind this, `float` v1 @name `centerX`, `float` v2 @name `centerY`, `float` v3 @name `radius`) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;.<init>:(FFF)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L195c84.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L195c8a.  v0.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.centerX` @type ^`float` := v1;
+  #L195c8e.  v0.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.centerY` @type ^`float` := v2;
+  #L195c92.  v0.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.radius` @type ^`float` := v3;
+  #L195c96.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` v0 @kind this, `com.google.android.material.circularreveal.CircularRevealWidget$1` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;.<init>:(Lcom/google/android/material/circularreveal/CircularRevealWidget$1;)V` @AccessFlag SYNTHETIC_CONSTRUCTOR {
+    temp;
+
+  #L195c48.  call `<init>`(v0) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;.<init>:()V` @kind direct;
+  #L195c4e.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` v3 @kind this, `com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` v4 @kind object @name `other`) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;.<init>:(Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L195c60.  v0:= v4.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.centerX` @type ^`float`;
+  #L195c64.  v1:= v4.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.centerY` @type ^`float`;
+  #L195c68.  v2:= v4.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.radius` @type ^`float`;
+  #L195c6c.  call `<init>`(v3, v0, v1, v2) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;.<init>:(FFF)V` @kind direct;
+  #L195c72.  return @kind void;
+}
+procedure `boolean` `isInvalid`(`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` v2 @kind this) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;.isInvalid:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L195c04.  v0:= v2.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.radius` @type ^`float`;
+  #L195c08.  v1:= 2139095039I;
+  #L195c0e.  v0:= fcmpl(v0, v1);
+  #L195c12.  if v0 != 0 then goto L195c1a;
+  #L195c16.  v0:= 1I;
+  #L195c18.  goto L195c1c;
+  #L195c1a.  v0:= 0I;
+  #L195c1c.  return v0;
+}
+procedure `void` `set`(`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` v0 @kind this, `float` v1 @name `centerX`, `float` v2 @name `centerY`, `float` v3 @name `radius`) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;.set:(FFF)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L195ccc.  v0.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.centerX` @type ^`float` := v1;
+  #L195cd0.  v0.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.centerY` @type ^`float` := v2;
+  #L195cd4.  v0.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.radius` @type ^`float` := v3;
+  #L195cd8.  return @kind void;
+}
+procedure `void` `set`(`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` v3 @kind this, `com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` v4 @kind object @name `other`) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;.set:(Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L195ca8.  v0:= v4.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.centerX` @type ^`float`;
+  #L195cac.  v1:= v4.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.centerY` @type ^`float`;
+  #L195cb0.  v2:= v4.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.radius` @type ^`float`;
+  #L195cb4.  call `set`(v3, v0, v1, v2) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;.set:(FFF)V` @kind virtual;
+  #L195cba.  return @kind void;
+}

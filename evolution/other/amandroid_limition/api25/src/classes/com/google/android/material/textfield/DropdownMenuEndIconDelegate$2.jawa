@@ -1,0 +1,53 @@
+record `com.google.android.material.textfield.DropdownMenuEndIconDelegate$2` @kind class @AccessFlag  extends `com.google.android.material.textfield.TextInputLayout$AccessibilityDelegate` @kind class {
+  `com.google.android.material.textfield.DropdownMenuEndIconDelegate` `com.google.android.material.textfield.DropdownMenuEndIconDelegate$2.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate$2` v0 @kind this, `com.google.android.material.textfield.DropdownMenuEndIconDelegate` v1 @kind object @name `this$0`, `com.google.android.material.textfield.TextInputLayout` v2 @kind object @name `layout`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$2;.<init>:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Lcom/google/android/material/textfield/TextInputLayout;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b6690.  v0.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$2.this$0` @type ^`com.google.android.material.textfield.DropdownMenuEndIconDelegate` := v1 @kind object;
+  #L1b6694.  call `<init>`(v0, v2) @signature `Lcom/google/android/material/textfield/TextInputLayout$AccessibilityDelegate;.<init>:(Lcom/google/android/material/textfield/TextInputLayout;)V` @kind direct;
+  #L1b669a.  return @kind void;
+}
+procedure `void` `onInitializeAccessibilityNodeInfo`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate$2` v1 @kind this, `android.view.View` v2 @kind object @name `host`, `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v3 @kind object @name `info`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$2;.onInitializeAccessibilityNodeInfo:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b66ac.  call `onInitializeAccessibilityNodeInfo`(v1, v2, v3) @signature `Lcom/google/android/material/textfield/TextInputLayout$AccessibilityDelegate;.onInitializeAccessibilityNodeInfo:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V` @kind super;
+  #L1b66b2.  v0:= constclass @type ^`android.widget.Spinner` @kind object;
+  #L1b66b6.  call temp:= `getName`(v0) @signature `Ljava/lang/Class;.getName:()Ljava/lang/String;` @kind virtual;
+  #L1b66bc.  v0:= temp @kind object;
+  #L1b66be.  call `setClassName`(v3, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setClassName:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1b66c4.  call temp:= `isShowingHintText`(v3) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isShowingHintText:()Z` @kind virtual;
+  #L1b66ca.  v0:= temp;
+  #L1b66cc.  if v0 == 0 then goto L1b66d8;
+  #L1b66d0.  v0:= 0I;
+  #L1b66d2.  call `setHintText`(v3, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setHintText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1b66d8.  return @kind void;
+}
+procedure `void` `onPopulateAccessibilityEvent`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate$2` v3 @kind this, `android.view.View` v4 @kind object @name `host`, `android.view.accessibility.AccessibilityEvent` v5 @kind object @name `event`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$2;.onPopulateAccessibilityEvent:(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b66ec.  call `onPopulateAccessibilityEvent`(v3, v4, v5) @signature `Lcom/google/android/material/textfield/TextInputLayout$AccessibilityDelegate;.onPopulateAccessibilityEvent:(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V` @kind super;
+  #L1b66f2.  v0:= v3.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$2.this$0` @type ^`com.google.android.material.textfield.DropdownMenuEndIconDelegate` @kind object;
+  #L1b66f6.  v1:= v0.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b66fa.  call temp:= `getEditText`(v1) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getEditText:()Landroid/widget/EditText;` @kind virtual;
+  #L1b6700.  v1:= temp @kind object;
+  #L1b6702.  call temp:= `access$000`(v0, v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$000:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Landroid/widget/EditText;)Landroid/widget/AutoCompleteTextView;` @kind static;
+  #L1b6708.  v0:= temp @kind object;
+  #L1b670a.  call temp:= `getEventType`(v5) @signature `Landroid/view/accessibility/AccessibilityEvent;.getEventType:()I` @kind virtual;
+  #L1b6710.  v1:= temp;
+  #L1b6712.  v2:= 1I;
+  #L1b6714.  if v1 != v2 then goto L1b673a;
+  #L1b6718.  v1:= v3.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$2.this$0` @type ^`com.google.android.material.textfield.DropdownMenuEndIconDelegate` @kind object;
+  #L1b671c.  call temp:= `access$300`(v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$300:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)Landroid/view/accessibility/AccessibilityManager;` @kind static;
+  #L1b6722.  v1:= temp @kind object;
+  #L1b6724.  call temp:= `isTouchExplorationEnabled`(v1) @signature `Landroid/view/accessibility/AccessibilityManager;.isTouchExplorationEnabled:()Z` @kind virtual;
+  #L1b672a.  v1:= temp;
+  #L1b672c.  if v1 == 0 then goto L1b673a;
+  #L1b6730.  v1:= v3.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$2.this$0` @type ^`com.google.android.material.textfield.DropdownMenuEndIconDelegate` @kind object;
+  #L1b6734.  call `access$400`(v1, v0) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$400:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Landroid/widget/AutoCompleteTextView;)V` @kind static;
+  #L1b673a.  return @kind void;
+}

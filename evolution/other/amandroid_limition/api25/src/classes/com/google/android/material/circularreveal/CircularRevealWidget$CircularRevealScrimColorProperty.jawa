@@ -1,0 +1,57 @@
+record `com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealScrimColorProperty` @kind class @AccessFlag PUBLIC extends `android.util.Property` @kind class {
+}
+global `android.util.Property` `@@com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealScrimColorProperty.CIRCULAR_REVEAL_SCRIM_COLOR` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealScrimColorProperty;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L195b84.  v0:= new `com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealScrimColorProperty`;
+  #L195b88.  v1:= "circularRevealScrimColor" @kind object;
+  #L195b8c.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealScrimColorProperty;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L195b92.  `@@com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealScrimColorProperty.CIRCULAR_REVEAL_SCRIM_COLOR` @type ^`android.util.Property` := v0 @kind object;
+  #L195b96.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealScrimColorProperty` v1 @kind this, `java.lang.String` v2 @kind object @name `name`) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealScrimColorProperty;.<init>:(Ljava/lang/String;)V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L195ba8.  v0:= constclass @type ^`java.lang.Integer` @kind object;
+  #L195bac.  call `<init>`(v1, v0, v2) @signature `Landroid/util/Property;.<init>:(Ljava/lang/Class;Ljava/lang/String;)V` @kind direct;
+  #L195bb2.  return @kind void;
+}
+procedure `java.lang.Integer` `get`(`com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealScrimColorProperty` v1 @kind this, `com.google.android.material.circularreveal.CircularRevealWidget` v2 @kind object @name `object`) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealScrimColorProperty;.get:(Lcom/google/android/material/circularreveal/CircularRevealWidget;)Ljava/lang/Integer;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L195b40.  call temp:= `getCircularRevealScrimColor`(v2) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget;.getCircularRevealScrimColor:()I` @kind interface;
+  #L195b46.  v0:= temp;
+  #L195b48.  call temp:= `valueOf`(v0) @signature `Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer;` @kind static;
+  #L195b4e.  v0:= temp @kind object;
+  #L195b50.  return v0 @kind object;
+}
+procedure `java.lang.Object` `get`(`com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealScrimColorProperty` v0 @kind this, `java.lang.Object` v1 @kind object) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealScrimColorProperty;.get:(Ljava/lang/Object;)Ljava/lang/Object;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L195b64.  v1:= (`com.google.android.material.circularreveal.CircularRevealWidget`) v1 @kind object;
+  #L195b68.  call temp:= `get`(v0, v1) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealScrimColorProperty;.get:(Lcom/google/android/material/circularreveal/CircularRevealWidget;)Ljava/lang/Integer;` @kind virtual;
+  #L195b6e.  v1:= temp @kind object;
+  #L195b70.  return v1 @kind object;
+}
+procedure `void` `set`(`com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealScrimColorProperty` v1 @kind this, `com.google.android.material.circularreveal.CircularRevealWidget` v2 @kind object @name `object`, `java.lang.Integer` v3 @kind object @name `value`) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealScrimColorProperty;.set:(Lcom/google/android/material/circularreveal/CircularRevealWidget;Ljava/lang/Integer;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L195bc4.  call temp:= `intValue`(v3) @signature `Ljava/lang/Integer;.intValue:()I` @kind virtual;
+  #L195bca.  v0:= temp;
+  #L195bcc.  call `setCircularRevealScrimColor`(v2, v0) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget;.setCircularRevealScrimColor:(I)V` @kind interface;
+  #L195bd2.  return @kind void;
+}
+procedure `void` `set`(`com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealScrimColorProperty` v0 @kind this, `java.lang.Object` v1 @kind object, `java.lang.Object` v2 @kind object) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealScrimColorProperty;.set:(Ljava/lang/Object;Ljava/lang/Object;)V` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L195be4.  v1:= (`com.google.android.material.circularreveal.CircularRevealWidget`) v1 @kind object;
+  #L195be8.  v2:= (`java.lang.Integer`) v2 @kind object;
+  #L195bec.  call `set`(v0, v1, v2) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealScrimColorProperty;.set:(Lcom/google/android/material/circularreveal/CircularRevealWidget;Ljava/lang/Integer;)V` @kind virtual;
+  #L195bf2.  return @kind void;
+}

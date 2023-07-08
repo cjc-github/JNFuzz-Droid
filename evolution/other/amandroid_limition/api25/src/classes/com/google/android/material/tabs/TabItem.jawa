@@ -1,0 +1,39 @@
+record `com.google.android.material.tabs.TabItem` @kind class @AccessFlag PUBLIC extends `android.view.View` @kind class {
+  `int` `com.google.android.material.tabs.TabItem.customLayout` @AccessFlag PUBLIC_FINAL;
+  `android.graphics.drawable.Drawable` `com.google.android.material.tabs.TabItem.icon` @AccessFlag PUBLIC_FINAL;
+  `java.lang.CharSequence` `com.google.android.material.tabs.TabItem.text` @AccessFlag PUBLIC_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.tabs.TabItem` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/tabs/TabItem;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1b1f6c.  v0:= 0I;
+  #L1b1f6e.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/tabs/TabItem;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1b1f74.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.tabs.TabItem` v3 @kind this, `android.content.Context` v4 @kind object @name `context`, `android.util.AttributeSet` v5 @kind object @name `attrs`) @signature `Lcom/google/android/material/tabs/TabItem;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b1f88.  call `<init>`(v3, v4, v5) @signature `Landroid/view/View;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1b1f8e.  v0:= `@@com.google.android.material.R$styleable.TabItem` @type ^`int`[] @kind object;
+  #L1b1f92.  call temp:= `obtainStyledAttributes`(v4, v5, v0) @signature `Landroidx/appcompat/widget/TintTypedArray;.obtainStyledAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;[I)Landroidx/appcompat/widget/TintTypedArray;` @kind static;
+  #L1b1f98.  v0:= temp @kind object;
+  #L1b1f9a.  v1:= `@@com.google.android.material.R$styleable.TabItem_android_text` @type ^`int`;
+  #L1b1f9e.  call temp:= `getText`(v0, v1) @signature `Landroidx/appcompat/widget/TintTypedArray;.getText:(I)Ljava/lang/CharSequence;` @kind virtual;
+  #L1b1fa4.  v1:= temp @kind object;
+  #L1b1fa6.  v3.`com.google.android.material.tabs.TabItem.text` @type ^`java.lang.CharSequence` := v1 @kind object;
+  #L1b1faa.  v1:= `@@com.google.android.material.R$styleable.TabItem_android_icon` @type ^`int`;
+  #L1b1fae.  call temp:= `getDrawable`(v0, v1) @signature `Landroidx/appcompat/widget/TintTypedArray;.getDrawable:(I)Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1b1fb4.  v1:= temp @kind object;
+  #L1b1fb6.  v3.`com.google.android.material.tabs.TabItem.icon` @type ^`android.graphics.drawable.Drawable` := v1 @kind object;
+  #L1b1fba.  v1:= `@@com.google.android.material.R$styleable.TabItem_android_layout` @type ^`int`;
+  #L1b1fbe.  v2:= 0I;
+  #L1b1fc0.  call temp:= `getResourceId`(v0, v1, v2) @signature `Landroidx/appcompat/widget/TintTypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1b1fc6.  v1:= temp;
+  #L1b1fc8.  v3.`com.google.android.material.tabs.TabItem.customLayout` @type ^`int` := v1;
+  #L1b1fcc.  call `recycle`(v0) @signature `Landroidx/appcompat/widget/TintTypedArray;.recycle:()V` @kind virtual;
+  #L1b1fd2.  return @kind void;
+}

@@ -1,0 +1,19 @@
+record `com.google.android.material.internal.NavigationSubMenu` @kind class @AccessFlag PUBLIC extends `androidx.appcompat.view.menu.SubMenuBuilder` @kind class {
+}
+procedure `void` `<init>`(`com.google.android.material.internal.NavigationSubMenu` v0 @kind this, `android.content.Context` v1 @kind object @name `context`, `com.google.android.material.internal.NavigationMenu` v2 @kind object @name `menu`, `androidx.appcompat.view.menu.MenuItemImpl` v3 @kind object @name `item`) @signature `Lcom/google/android/material/internal/NavigationSubMenu;.<init>:(Landroid/content/Context;Lcom/google/android/material/internal/NavigationMenu;Landroidx/appcompat/view/menu/MenuItemImpl;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1a6178.  call `<init>`(v0, v1, v2, v3) @signature `Landroidx/appcompat/view/menu/SubMenuBuilder;.<init>:(Landroid/content/Context;Landroidx/appcompat/view/menu/MenuBuilder;Landroidx/appcompat/view/menu/MenuItemImpl;)V` @kind direct;
+  #L1a617e.  return @kind void;
+}
+procedure `void` `onItemsChanged`(`com.google.android.material.internal.NavigationSubMenu` v1 @kind this, `boolean` v2 @name `structureChanged`) @signature `Lcom/google/android/material/internal/NavigationSubMenu;.onItemsChanged:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a6190.  call `onItemsChanged`(v1, v2) @signature `Landroidx/appcompat/view/menu/SubMenuBuilder;.onItemsChanged:(Z)V` @kind super;
+  #L1a6196.  call temp:= `getParentMenu`(v1) @signature `Lcom/google/android/material/internal/NavigationSubMenu;.getParentMenu:()Landroid/view/Menu;` @kind virtual;
+  #L1a619c.  v0:= temp @kind object;
+  #L1a619e.  v0:= (`androidx.appcompat.view.menu.MenuBuilder`) v0 @kind object;
+  #L1a61a2.  call `onItemsChanged`(v0, v2) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.onItemsChanged:(Z)V` @kind virtual;
+  #L1a61a8.  return @kind void;
+}

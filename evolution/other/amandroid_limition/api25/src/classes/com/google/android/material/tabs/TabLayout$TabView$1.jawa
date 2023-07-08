@@ -1,0 +1,26 @@
+record `com.google.android.material.tabs.TabLayout$TabView$1` @kind class @AccessFlag  extends `android.view.View$OnLayoutChangeListener` @kind interface {
+  `com.google.android.material.tabs.TabLayout$TabView` `com.google.android.material.tabs.TabLayout$TabView$1.this$1` @AccessFlag FINAL_SYNTHETIC;
+  `android.view.View` `com.google.android.material.tabs.TabLayout$TabView$1.val$view` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.tabs.TabLayout$TabView$1` v0 @kind this, `com.google.android.material.tabs.TabLayout$TabView` v1 @kind object @name `this$1`, `android.view.View` v2 @kind object) @signature `Lcom/google/android/material/tabs/TabLayout$TabView$1;.<init>:(Lcom/google/android/material/tabs/TabLayout$TabView;Landroid/view/View;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b2a54.  v0.`com.google.android.material.tabs.TabLayout$TabView$1.this$1` @type ^`com.google.android.material.tabs.TabLayout$TabView` := v1 @kind object;
+  #L1b2a58.  v0.`com.google.android.material.tabs.TabLayout$TabView$1.val$view` @type ^`android.view.View` := v2 @kind object;
+  #L1b2a5c.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b2a62.  return @kind void;
+}
+procedure `void` `onLayoutChange`(`com.google.android.material.tabs.TabLayout$TabView$1` v2 @kind this, `android.view.View` v3 @kind object @name `v`, `int` v4 @name `left`, `int` v5 @name `top`, `int` v6 @name `right`, `int` v7 @name `bottom`, `int` v8 @name `oldLeft`, `int` v9 @name `oldTop`, `int` v10 @name `oldRight`, `int` v11 @name `oldBottom`) @signature `Lcom/google/android/material/tabs/TabLayout$TabView$1;.onLayoutChange:(Landroid/view/View;IIIIIIII)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b2a74.  v0:= v2.`com.google.android.material.tabs.TabLayout$TabView$1.val$view` @type ^`android.view.View` @kind object;
+  #L1b2a78.  call temp:= `getVisibility`(v0) @signature `Landroid/view/View;.getVisibility:()I` @kind virtual;
+  #L1b2a7e.  v0:= temp;
+  #L1b2a80.  if v0 != 0 then goto L1b2a92;
+  #L1b2a84.  v0:= v2.`com.google.android.material.tabs.TabLayout$TabView$1.this$1` @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind object;
+  #L1b2a88.  v1:= v2.`com.google.android.material.tabs.TabLayout$TabView$1.val$view` @type ^`android.view.View` @kind object;
+  #L1b2a8c.  call `access$900`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.access$900:(Lcom/google/android/material/tabs/TabLayout$TabView;Landroid/view/View;)V` @kind static;
+  #L1b2a92.  return @kind void;
+}

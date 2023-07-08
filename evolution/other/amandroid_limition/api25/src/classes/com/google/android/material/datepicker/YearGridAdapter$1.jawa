@@ -1,0 +1,38 @@
+record `com.google.android.material.datepicker.YearGridAdapter$1` @kind class @AccessFlag  extends `android.view.View$OnClickListener` @kind interface {
+  `com.google.android.material.datepicker.YearGridAdapter` `com.google.android.material.datepicker.YearGridAdapter$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `int` `com.google.android.material.datepicker.YearGridAdapter$1.val$year` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.YearGridAdapter$1` v0 @kind this, `com.google.android.material.datepicker.YearGridAdapter` v1 @kind object @name `this$0`, `int` v2 ) @signature `Lcom/google/android/material/datepicker/YearGridAdapter$1;.<init>:(Lcom/google/android/material/datepicker/YearGridAdapter;I)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L19bcb0.  v0.`com.google.android.material.datepicker.YearGridAdapter$1.this$0` @type ^`com.google.android.material.datepicker.YearGridAdapter` := v1 @kind object;
+  #L19bcb4.  v0.`com.google.android.material.datepicker.YearGridAdapter$1.val$year` @type ^`int` := v2;
+  #L19bcb8.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L19bcbe.  return @kind void;
+}
+procedure `void` `onClick`(`com.google.android.material.datepicker.YearGridAdapter$1` v3 @kind this, `android.view.View` v4 @kind object @name `view`) @signature `Lcom/google/android/material/datepicker/YearGridAdapter$1;.onClick:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L19bcd0.  v0:= v3.`com.google.android.material.datepicker.YearGridAdapter$1.val$year` @type ^`int`;
+  #L19bcd4.  v1:= v3.`com.google.android.material.datepicker.YearGridAdapter$1.this$0` @type ^`com.google.android.material.datepicker.YearGridAdapter` @kind object;
+  #L19bcd8.  call temp:= `access$000`(v1) @signature `Lcom/google/android/material/datepicker/YearGridAdapter;.access$000:(Lcom/google/android/material/datepicker/YearGridAdapter;)Lcom/google/android/material/datepicker/MaterialCalendar;` @kind static;
+  #L19bcde.  v1:= temp @kind object;
+  #L19bce0.  call temp:= `getCurrentMonth`(v1) @signature `Lcom/google/android/material/datepicker/MaterialCalendar;.getCurrentMonth:()Lcom/google/android/material/datepicker/Month;` @kind virtual;
+  #L19bce6.  v1:= temp @kind object;
+  #L19bce8.  v1:= v1.`com.google.android.material.datepicker.Month.month` @type ^`int`;
+  #L19bcec.  call temp:= `create`(v0, v1) @signature `Lcom/google/android/material/datepicker/Month;.create:(II)Lcom/google/android/material/datepicker/Month;` @kind static;
+  #L19bcf2.  v0:= temp @kind object;
+  #L19bcf4.  v1:= v3.`com.google.android.material.datepicker.YearGridAdapter$1.this$0` @type ^`com.google.android.material.datepicker.YearGridAdapter` @kind object;
+  #L19bcf8.  call temp:= `access$000`(v1) @signature `Lcom/google/android/material/datepicker/YearGridAdapter;.access$000:(Lcom/google/android/material/datepicker/YearGridAdapter;)Lcom/google/android/material/datepicker/MaterialCalendar;` @kind static;
+  #L19bcfe.  v1:= temp @kind object;
+  #L19bd00.  call `setCurrentMonth`(v1, v0) @signature `Lcom/google/android/material/datepicker/MaterialCalendar;.setCurrentMonth:(Lcom/google/android/material/datepicker/Month;)V` @kind virtual;
+  #L19bd06.  v1:= v3.`com.google.android.material.datepicker.YearGridAdapter$1.this$0` @type ^`com.google.android.material.datepicker.YearGridAdapter` @kind object;
+  #L19bd0a.  call temp:= `access$000`(v1) @signature `Lcom/google/android/material/datepicker/YearGridAdapter;.access$000:(Lcom/google/android/material/datepicker/YearGridAdapter;)Lcom/google/android/material/datepicker/MaterialCalendar;` @kind static;
+  #L19bd10.  v1:= temp @kind object;
+  #L19bd12.  v2:= `@@com.google.android.material.datepicker.MaterialCalendar$CalendarSelector.DAY` @type ^`com.google.android.material.datepicker.MaterialCalendar$CalendarSelector` @kind object;
+  #L19bd16.  call `setSelector`(v1, v2) @signature `Lcom/google/android/material/datepicker/MaterialCalendar;.setSelector:(Lcom/google/android/material/datepicker/MaterialCalendar$CalendarSelector;)V` @kind virtual;
+  #L19bd1c.  return @kind void;
+}

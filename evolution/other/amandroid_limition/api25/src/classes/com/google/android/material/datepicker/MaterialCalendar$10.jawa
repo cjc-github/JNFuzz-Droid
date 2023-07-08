@@ -1,0 +1,24 @@
+record `com.google.android.material.datepicker.MaterialCalendar$10` @kind class @AccessFlag  extends `java.lang.Runnable` @kind interface {
+  `com.google.android.material.datepicker.MaterialCalendar` `com.google.android.material.datepicker.MaterialCalendar$10.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `int` `com.google.android.material.datepicker.MaterialCalendar$10.val$position` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.MaterialCalendar$10` v0 @kind this, `com.google.android.material.datepicker.MaterialCalendar` v1 @kind object @name `this$0`, `int` v2 ) @signature `Lcom/google/android/material/datepicker/MaterialCalendar$10;.<init>:(Lcom/google/android/material/datepicker/MaterialCalendar;I)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L19757c.  v0.`com.google.android.material.datepicker.MaterialCalendar$10.this$0` @type ^`com.google.android.material.datepicker.MaterialCalendar` := v1 @kind object;
+  #L197580.  v0.`com.google.android.material.datepicker.MaterialCalendar$10.val$position` @type ^`int` := v2;
+  #L197584.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L19758a.  return @kind void;
+}
+procedure `void` `run`(`com.google.android.material.datepicker.MaterialCalendar$10` v2 @kind this) @signature `Lcom/google/android/material/datepicker/MaterialCalendar$10;.run:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19759c.  v0:= v2.`com.google.android.material.datepicker.MaterialCalendar$10.this$0` @type ^`com.google.android.material.datepicker.MaterialCalendar` @kind object;
+  #L1975a0.  call temp:= `access$000`(v0) @signature `Lcom/google/android/material/datepicker/MaterialCalendar;.access$000:(Lcom/google/android/material/datepicker/MaterialCalendar;)Landroidx/recyclerview/widget/RecyclerView;` @kind static;
+  #L1975a6.  v0:= temp @kind object;
+  #L1975a8.  v1:= v2.`com.google.android.material.datepicker.MaterialCalendar$10.val$position` @type ^`int`;
+  #L1975ac.  call `smoothScrollToPosition`(v0, v1) @signature `Landroidx/recyclerview/widget/RecyclerView;.smoothScrollToPosition:(I)V` @kind virtual;
+  #L1975b2.  return @kind void;
+}

@@ -1,0 +1,149 @@
+record `androidx.viewpager2.adapter.FragmentStateAdapter` @kind class @AccessFlag PUBLIC_ABSTRACT extends `androidx.recyclerview.widget.RecyclerView$Adapter` @kind class, `androidx.viewpager2.adapter.StatefulAdapter` @kind interface {
+  `androidx.fragment.app.FragmentManager` `androidx.viewpager2.adapter.FragmentStateAdapter.mFragmentManager` @AccessFlag FINAL;
+  `androidx.viewpager2.adapter.FragmentStateAdapter$FragmentMaxLifecycleEnforcer` `androidx.viewpager2.adapter.FragmentStateAdapter.mFragmentMaxLifecycleEnforcer` @AccessFlag PRIVATE;
+  `androidx.collection.LongSparseArray` `androidx.viewpager2.adapter.FragmentStateAdapter.mFragments` @AccessFlag FINAL;
+  `boolean` `androidx.viewpager2.adapter.FragmentStateAdapter.mHasStaleFragments` @AccessFlag PRIVATE;
+  `boolean` `androidx.viewpager2.adapter.FragmentStateAdapter.mIsInGracePeriod` @AccessFlag ;
+  `androidx.collection.LongSparseArray` `androidx.viewpager2.adapter.FragmentStateAdapter.mItemIdToViewHolder` @AccessFlag PRIVATE_FINAL;
+  `androidx.lifecycle.Lifecycle` `androidx.viewpager2.adapter.FragmentStateAdapter.mLifecycle` @AccessFlag FINAL;
+  `androidx.collection.LongSparseArray` `androidx.viewpager2.adapter.FragmentStateAdapter.mSavedStates` @AccessFlag PRIVATE_FINAL;
+}
+global `long` `@@androidx.viewpager2.adapter.FragmentStateAdapter.GRACE_WINDOW_TIME_MS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.viewpager2.adapter.FragmentStateAdapter.KEY_PREFIX_FRAGMENT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.viewpager2.adapter.FragmentStateAdapter.KEY_PREFIX_STATE` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`androidx.viewpager2.adapter.FragmentStateAdapter` v2 @kind this, `androidx.fragment.app.Fragment` v3 @kind object @name `fragment`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.<init>:(Landroidx/fragment/app/Fragment;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.viewpager2.adapter.FragmentStateAdapter` v2 @kind this, `androidx.fragment.app.FragmentActivity` v3 @kind object @name `fragmentActivity`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.<init>:(Landroidx/fragment/app/FragmentActivity;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.viewpager2.adapter.FragmentStateAdapter` v1 @kind this, `androidx.fragment.app.FragmentManager` v2 @kind object @name `fragmentManager`, `androidx.lifecycle.Lifecycle` v3 @kind object @name `lifecycle`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.<init>:(Landroidx/fragment/app/FragmentManager;Landroidx/lifecycle/Lifecycle;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `java.lang.String` `createKey`(`java.lang.String` v1 @kind object @name `prefix`, `long` v2 @name `id`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.createKey:(Ljava/lang/String;J)Ljava/lang/String;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `ensureFragment`(`androidx.viewpager2.adapter.FragmentStateAdapter` v4 @kind this, `int` v5 @name `position`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.ensureFragment:(I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `isFragmentViewBound`(`androidx.viewpager2.adapter.FragmentStateAdapter` v5 @kind this, `long` v6 @name `itemId`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.isFragmentViewBound:(J)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `isValidKey`(`java.lang.String` v2 @kind object @name `key`, `java.lang.String` v3 @kind object @name `prefix`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.isValidKey:(Ljava/lang/String;Ljava/lang/String;)Z` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `java.lang.Long` `itemForViewHolder`(`androidx.viewpager2.adapter.FragmentStateAdapter` v4 @kind this, `int` v5 @name `viewHolderId`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.itemForViewHolder:(I)Ljava/lang/Long;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `long` `parseIdFromKey`(`java.lang.String` v2 @kind object @name `key`, `java.lang.String` v3 @kind object @name `prefix`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.parseIdFromKey:(Ljava/lang/String;Ljava/lang/String;)J` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `removeFragment`(`androidx.viewpager2.adapter.FragmentStateAdapter` v3 @kind this, `long` v4 @name `itemId`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.removeFragment:(J)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `scheduleGracePeriodEnd`(`androidx.viewpager2.adapter.FragmentStateAdapter` v4 @kind this) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.scheduleGracePeriodEnd:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `scheduleViewAttach`(`androidx.viewpager2.adapter.FragmentStateAdapter` v3 @kind this, `androidx.fragment.app.Fragment` v4 @kind object @name `fragment`, `android.widget.FrameLayout` v5 @kind object @name `container`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.scheduleViewAttach:(Landroidx/fragment/app/Fragment;Landroid/widget/FrameLayout;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `addViewToContainer`(`androidx.viewpager2.adapter.FragmentStateAdapter` v2 @kind this, `android.view.View` v3 @kind object @name `v`, `android.widget.FrameLayout` v4 @kind object @name `container`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.addViewToContainer:(Landroid/view/View;Landroid/widget/FrameLayout;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `containsItem`(`androidx.viewpager2.adapter.FragmentStateAdapter` v2 @kind this, `long` v3 @name `itemId`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.containsItem:(J)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.fragment.app.Fragment` `createFragment`(`int` v0 ) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.createFragment:(I)Landroidx/fragment/app/Fragment;` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `void` `gcFragments`(`androidx.viewpager2.adapter.FragmentStateAdapter` v5 @kind this) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.gcFragments:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `long` `getItemId`(`androidx.viewpager2.adapter.FragmentStateAdapter` v2 @kind this, `int` v3 @name `position`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.getItemId:(I)J` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onAttachedToRecyclerView`(`androidx.viewpager2.adapter.FragmentStateAdapter` v1 @kind this, `androidx.recyclerview.widget.RecyclerView` v2 @kind object @name `recyclerView`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.onAttachedToRecyclerView:(Landroidx/recyclerview/widget/RecyclerView;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onBindViewHolder`(`androidx.viewpager2.adapter.FragmentStateAdapter` v0 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind object, `int` v2 ) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.onBindViewHolder:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V` @AccessFlag PUBLIC_SYNTHETIC {
+
+  # return;
+}
+procedure `void` `onBindViewHolder`(`androidx.viewpager2.adapter.FragmentStateAdapter` v7 @kind this, `androidx.viewpager2.adapter.FragmentViewHolder` v8 @kind object @name `holder`, `int` v9 @name `position`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.onBindViewHolder:(Landroidx/viewpager2/adapter/FragmentViewHolder;I)V` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.RecyclerView$ViewHolder` `onCreateViewHolder`(`androidx.viewpager2.adapter.FragmentStateAdapter` v0 @kind this, `android.view.ViewGroup` v1 @kind object, `int` v2 ) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.onCreateViewHolder:(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;` @AccessFlag PUBLIC_SYNTHETIC {
+
+  # return;
+}
+procedure `androidx.viewpager2.adapter.FragmentViewHolder` `onCreateViewHolder`(`androidx.viewpager2.adapter.FragmentStateAdapter` v1 @kind this, `android.view.ViewGroup` v2 @kind object @name `parent`, `int` v3 @name `viewType`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.onCreateViewHolder:(Landroid/view/ViewGroup;I)Landroidx/viewpager2/adapter/FragmentViewHolder;` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `void` `onDetachedFromRecyclerView`(`androidx.viewpager2.adapter.FragmentStateAdapter` v1 @kind this, `androidx.recyclerview.widget.RecyclerView` v2 @kind object @name `recyclerView`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.onDetachedFromRecyclerView:(Landroidx/recyclerview/widget/RecyclerView;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onFailedToRecycleView`(`androidx.viewpager2.adapter.FragmentStateAdapter` v0 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind object) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.onFailedToRecycleView:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Z` @AccessFlag PUBLIC_SYNTHETIC {
+
+  # return;
+}
+procedure `boolean` `onFailedToRecycleView`(`androidx.viewpager2.adapter.FragmentStateAdapter` v1 @kind this, `androidx.viewpager2.adapter.FragmentViewHolder` v2 @kind object @name `holder`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.onFailedToRecycleView:(Landroidx/viewpager2/adapter/FragmentViewHolder;)Z` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `void` `onViewAttachedToWindow`(`androidx.viewpager2.adapter.FragmentStateAdapter` v0 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind object) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.onViewAttachedToWindow:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V` @AccessFlag PUBLIC_SYNTHETIC {
+
+  # return;
+}
+procedure `void` `onViewAttachedToWindow`(`androidx.viewpager2.adapter.FragmentStateAdapter` v0 @kind this, `androidx.viewpager2.adapter.FragmentViewHolder` v1 @kind object @name `holder`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.onViewAttachedToWindow:(Landroidx/viewpager2/adapter/FragmentViewHolder;)V` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `void` `onViewRecycled`(`androidx.viewpager2.adapter.FragmentStateAdapter` v0 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind object) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.onViewRecycled:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V` @AccessFlag PUBLIC_SYNTHETIC {
+
+  # return;
+}
+procedure `void` `onViewRecycled`(`androidx.viewpager2.adapter.FragmentStateAdapter` v5 @kind this, `androidx.viewpager2.adapter.FragmentViewHolder` v6 @kind object @name `holder`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.onViewRecycled:(Landroidx/viewpager2/adapter/FragmentViewHolder;)V` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `void` `placeFragmentInViewHolder`(`androidx.viewpager2.adapter.FragmentStateAdapter` v7 @kind this, `androidx.viewpager2.adapter.FragmentViewHolder` v8 @kind object @name `holder`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.placeFragmentInViewHolder:(Landroidx/viewpager2/adapter/FragmentViewHolder;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `restoreState`(`androidx.viewpager2.adapter.FragmentStateAdapter` v7 @kind this, `android.os.Parcelable` v8 @kind object @name `savedState`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.restoreState:(Landroid/os/Parcelable;)V` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `android.os.Parcelable` `saveState`(`androidx.viewpager2.adapter.FragmentStateAdapter` v7 @kind this) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.saveState:()Landroid/os/Parcelable;` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `void` `setHasStableIds`(`androidx.viewpager2.adapter.FragmentStateAdapter` v2 @kind this, `boolean` v3 @name `hasStableIds`) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.setHasStableIds:(Z)V` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `boolean` `shouldDelayFragmentTransactions`(`androidx.viewpager2.adapter.FragmentStateAdapter` v1 @kind this) @signature `Landroidx/viewpager2/adapter/FragmentStateAdapter;.shouldDelayFragmentTransactions:()Z` @AccessFlag  {
+
+  # return;
+}

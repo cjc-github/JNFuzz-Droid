@@ -1,0 +1,303 @@
+record `com.google.android.material.appbar.HeaderScrollingViewBehavior` @kind class @AccessFlag ABSTRACT extends `com.google.android.material.appbar.ViewOffsetBehavior` @kind class {
+  `int` `com.google.android.material.appbar.HeaderScrollingViewBehavior.overlayTop` @AccessFlag PRIVATE;
+  `android.graphics.Rect` `com.google.android.material.appbar.HeaderScrollingViewBehavior.tempRect1` @AccessFlag FINAL;
+  `android.graphics.Rect` `com.google.android.material.appbar.HeaderScrollingViewBehavior.tempRect2` @AccessFlag FINAL;
+  `int` `com.google.android.material.appbar.HeaderScrollingViewBehavior.verticalLayoutGap` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.HeaderScrollingViewBehavior` v1 @kind this) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L18207c.  call `<init>`(v1) @signature `Lcom/google/android/material/appbar/ViewOffsetBehavior;.<init>:()V` @kind direct;
+  #L182082.  v0:= new `android.graphics.Rect`;
+  #L182086.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L18208c.  v1.`com.google.android.material.appbar.HeaderScrollingViewBehavior.tempRect1` @type ^`android.graphics.Rect` := v0 @kind object;
+  #L182090.  v0:= new `android.graphics.Rect`;
+  #L182094.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L18209a.  v1.`com.google.android.material.appbar.HeaderScrollingViewBehavior.tempRect2` @type ^`android.graphics.Rect` := v0 @kind object;
+  #L18209e.  v0:= 0I;
+  #L1820a0.  v1.`com.google.android.material.appbar.HeaderScrollingViewBehavior.verticalLayoutGap` @type ^`int` := v0;
+  #L1820a4.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.HeaderScrollingViewBehavior` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1820b8.  call `<init>`(v1, v2, v3) @signature `Lcom/google/android/material/appbar/ViewOffsetBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1820be.  v0:= new `android.graphics.Rect`;
+  #L1820c2.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L1820c8.  v1.`com.google.android.material.appbar.HeaderScrollingViewBehavior.tempRect1` @type ^`android.graphics.Rect` := v0 @kind object;
+  #L1820cc.  v0:= new `android.graphics.Rect`;
+  #L1820d0.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L1820d6.  v1.`com.google.android.material.appbar.HeaderScrollingViewBehavior.tempRect2` @type ^`android.graphics.Rect` := v0 @kind object;
+  #L1820da.  v0:= 0I;
+  #L1820dc.  v1.`com.google.android.material.appbar.HeaderScrollingViewBehavior.verticalLayoutGap` @type ^`int` := v0;
+  #L1820e0.  return @kind void;
+}
+procedure `int` `resolveGravity`(`int` v1 @name `gravity`) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.resolveGravity:(I)I` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+
+  #L18205c.  if v1 != 0 then goto L182068;
+  #L182060.  v0:= 8388659I;
+  #L182066.  goto L18206a;
+  #L182068.  v0:= v1;
+  #L18206a.  return v0;
+}
+procedure `android.view.View` `findFirstDependency`(`java.util.List` v0 @kind object) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.findFirstDependency:(Ljava/util/List;)Landroid/view/View;` @AccessFlag ABSTRACT {
+
+  # return;
+}
+procedure `int` `getOverlapPixelsForOffset`(`com.google.android.material.appbar.HeaderScrollingViewBehavior` v4 @kind this, `android.view.View` v5 @kind object @name `header`) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.getOverlapPixelsForOffset:(Landroid/view/View;)I` @AccessFlag FINAL {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L181fd8.  v0:= v4.`com.google.android.material.appbar.HeaderScrollingViewBehavior.overlayTop` @type ^`int`;
+  #L181fdc.  v1:= 0I;
+  #L181fde.  if v0 != 0 then goto L181fe4;
+  #L181fe2.  goto L181ffe;
+  #L181fe4.  call temp:= `getOverlapRatioForOffset`(v4, v5) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.getOverlapRatioForOffset:(Landroid/view/View;)F` @kind virtual;
+  #L181fea.  v0:= temp;
+  #L181fec.  v2:= v4.`com.google.android.material.appbar.HeaderScrollingViewBehavior.overlayTop` @type ^`int`;
+  #L181ff0.  v3:= (`float`) v2 @kind i2f;
+  #L181ff2.  v0:= v0 * v3 @kind float;
+  #L181ff4.  v0:= (`int`) v0 @kind f2i;
+  #L181ff6.  call temp:= `clamp`(v0, v1, v2) @signature `Landroidx/core/math/MathUtils;.clamp:(III)I` @kind static;
+  #L181ffc.  v1:= temp;
+  #L181ffe.  return v1;
+}
+procedure `float` `getOverlapRatioForOffset`(`com.google.android.material.appbar.HeaderScrollingViewBehavior` v1 @kind this, `android.view.View` v2 @kind object @name `header`) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.getOverlapRatioForOffset:(Landroid/view/View;)F` @AccessFlag  {
+    temp;
+    v0;
+
+  #L181fc0.  v0:= 1.0F;
+  #L181fc4.  return v0;
+}
+procedure `int` `getOverlayTop`(`com.google.android.material.appbar.HeaderScrollingViewBehavior` v1 @kind this) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.getOverlayTop:()I` @AccessFlag PUBLIC_FINAL {
+    temp;
+    v0;
+
+  #L182010.  v0:= v1.`com.google.android.material.appbar.HeaderScrollingViewBehavior.overlayTop` @type ^`int`;
+  #L182014.  return v0;
+}
+procedure `int` `getScrollRange`(`com.google.android.material.appbar.HeaderScrollingViewBehavior` v1 @kind this, `android.view.View` v2 @kind object @name `v`) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.getScrollRange:(Landroid/view/View;)I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L182028.  call temp:= `getMeasuredHeight`(v2) @signature `Landroid/view/View;.getMeasuredHeight:()I` @kind virtual;
+  #L18202e.  v0:= temp;
+  #L182030.  return v0;
+}
+procedure `int` `getVerticalLayoutGap`(`com.google.android.material.appbar.HeaderScrollingViewBehavior` v1 @kind this) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.getVerticalLayoutGap:()I` @AccessFlag FINAL {
+    temp;
+    v0;
+
+  #L182044.  v0:= v1.`com.google.android.material.appbar.HeaderScrollingViewBehavior.verticalLayoutGap` @type ^`int`;
+  #L182048.  return v0;
+}
+procedure `void` `layoutChild`(`com.google.android.material.appbar.HeaderScrollingViewBehavior` v12 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v13 @kind object @name `parent`, `android.view.View` v14 @kind object @name `child`, `int` v15 @name `layoutDirection`) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.layoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+
+  #L1820f4.  call temp:= `getDependencies`(v13, v14) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getDependencies:(Landroid/view/View;)Ljava/util/List;` @kind virtual;
+  #L1820fa.  v0:= temp @kind object;
+  #L1820fc.  call temp:= `findFirstDependency`(v12, v0) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.findFirstDependency:(Ljava/util/List;)Landroid/view/View;` @kind virtual;
+  #L182102.  v1:= temp @kind object;
+  #L182104.  if v1 == 0 then goto L182222;
+  #L182108.  
+  #L18210a.  call temp:= `getLayoutParams`(v14) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L182110.  v2:= temp @kind object;
+  #L182112.  v2:= (`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams`) v2 @kind object;
+  #L182116.  v9:= v12.`com.google.android.material.appbar.HeaderScrollingViewBehavior.tempRect1` @type ^`android.graphics.Rect` @kind object;
+  #L18211a.  
+  #L18211c.  call temp:= `getPaddingLeft`(v13) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getPaddingLeft:()I` @kind virtual;
+  #L182122.  v3:= temp;
+  #L182124.  v4:= v2.`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams.leftMargin` @type ^`int`;
+  #L182128.  v3:= v3 + v4 @kind int;
+  #L18212a.  call temp:= `getBottom`(v1) @signature `Landroid/view/View;.getBottom:()I` @kind virtual;
+  #L182130.  v4:= temp;
+  #L182132.  v5:= v2.`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams.topMargin` @type ^`int`;
+  #L182136.  v4:= v4 + v5 @kind int;
+  #L182138.  call temp:= `getWidth`(v13) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getWidth:()I` @kind virtual;
+  #L18213e.  v5:= temp;
+  #L182140.  call temp:= `getPaddingRight`(v13) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getPaddingRight:()I` @kind virtual;
+  #L182146.  v6:= temp;
+  #L182148.  v5:= v5 - v6 @kind int;
+  #L18214a.  v6:= v2.`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams.rightMargin` @type ^`int`;
+  #L18214e.  v5:= v5 - v6 @kind int;
+  #L182150.  call temp:= `getHeight`(v13) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getHeight:()I` @kind virtual;
+  #L182156.  v6:= temp;
+  #L182158.  call temp:= `getBottom`(v1) @signature `Landroid/view/View;.getBottom:()I` @kind virtual;
+  #L18215e.  v7:= temp;
+  #L182160.  v6:= v6 + v7 @kind int;
+  #L182162.  call temp:= `getPaddingBottom`(v13) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getPaddingBottom:()I` @kind virtual;
+  #L182168.  v7:= temp;
+  #L18216a.  v6:= v6 - v7 @kind int;
+  #L18216c.  v7:= v2.`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams.bottomMargin` @type ^`int`;
+  #L182170.  v6:= v6 - v7 @kind int;
+  #L182172.  call `set`(v9, v3, v4, v5, v6) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L182178.  call temp:= `getLastWindowInsets`(v13) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getLastWindowInsets:()Landroidx/core/view/WindowInsetsCompat;` @kind virtual;
+  #L18217e.  v10:= temp @kind object;
+  #L182180.  if v10 == 0 then goto L1821c0;
+  #L182184.  call temp:= `getFitsSystemWindows`(v13) @signature `Landroidx/core/view/ViewCompat;.getFitsSystemWindows:(Landroid/view/View;)Z` @kind static;
+  #L18218a.  v3:= temp;
+  #L18218c.  if v3 == 0 then goto L1821c0;
+  #L182190.  call temp:= `getFitsSystemWindows`(v14) @signature `Landroidx/core/view/ViewCompat;.getFitsSystemWindows:(Landroid/view/View;)Z` @kind static;
+  #L182196.  v3:= temp;
+  #L182198.  if v3 != 0 then goto L1821c0;
+  #L18219c.  v3:= v9.`android.graphics.Rect.left` @type ^`int`;
+  #L1821a0.  call temp:= `getSystemWindowInsetLeft`(v10) @signature `Landroidx/core/view/WindowInsetsCompat;.getSystemWindowInsetLeft:()I` @kind virtual;
+  #L1821a6.  v4:= temp;
+  #L1821a8.  v3:= v3 + v4 @kind int;
+  #L1821aa.  v9.`android.graphics.Rect.left` @type ^`int` := v3;
+  #L1821ae.  v3:= v9.`android.graphics.Rect.right` @type ^`int`;
+  #L1821b2.  call temp:= `getSystemWindowInsetRight`(v10) @signature `Landroidx/core/view/WindowInsetsCompat;.getSystemWindowInsetRight:()I` @kind virtual;
+  #L1821b8.  v4:= temp;
+  #L1821ba.  v3:= v3 - v4 @kind int;
+  #L1821bc.  v9.`android.graphics.Rect.right` @type ^`int` := v3;
+  #L1821c0.  v11:= v12.`com.google.android.material.appbar.HeaderScrollingViewBehavior.tempRect2` @type ^`android.graphics.Rect` @kind object;
+  #L1821c4.  v3:= v2.`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams.gravity` @type ^`int`;
+  #L1821c8.  call temp:= `resolveGravity`(v3) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.resolveGravity:(I)I` @kind static;
+  #L1821ce.  v3:= temp;
+  #L1821d0.  call temp:= `getMeasuredWidth`(v14) @signature `Landroid/view/View;.getMeasuredWidth:()I` @kind virtual;
+  #L1821d6.  v4:= temp;
+  #L1821d8.  call temp:= `getMeasuredHeight`(v14) @signature `Landroid/view/View;.getMeasuredHeight:()I` @kind virtual;
+  #L1821de.  v5:= temp;
+  #L1821e0.  v6:= v9 @kind object;
+  #L1821e2.  v7:= v11 @kind object;
+  #L1821e4.  v8:= v15;
+  #L1821e6.  call `apply`(v3, v4, v5, v6, v7, v8) @signature `Landroidx/core/view/GravityCompat;.apply:(IIILandroid/graphics/Rect;Landroid/graphics/Rect;I)V` @kind static;
+  #L1821ec.  call temp:= `getOverlapPixelsForOffset`(v12, v1) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.getOverlapPixelsForOffset:(Landroid/view/View;)I` @kind virtual;
+  #L1821f2.  v3:= temp;
+  #L1821f4.  v4:= v11.`android.graphics.Rect.left` @type ^`int`;
+  #L1821f8.  v5:= v11.`android.graphics.Rect.top` @type ^`int`;
+  #L1821fc.  v5:= v5 - v3 @kind int;
+  #L1821fe.  v6:= v11.`android.graphics.Rect.right` @type ^`int`;
+  #L182202.  v7:= v11.`android.graphics.Rect.bottom` @type ^`int`;
+  #L182206.  v7:= v7 - v3 @kind int;
+  #L182208.  call `layout`(v14, v4, v5, v6, v7) @signature `Landroid/view/View;.layout:(IIII)V` @kind virtual;
+  #L18220e.  v4:= v11.`android.graphics.Rect.top` @type ^`int`;
+  #L182212.  call temp:= `getBottom`(v1) @signature `Landroid/view/View;.getBottom:()I` @kind virtual;
+  #L182218.  v5:= temp;
+  #L18221a.  v4:= v4 - v5 @kind int;
+  #L18221c.  v12.`com.google.android.material.appbar.HeaderScrollingViewBehavior.verticalLayoutGap` @type ^`int` := v4;
+  #L182220.  goto L18222e;
+  #L182222.  call `layoutChild`(v12, v13, v14, v15) @signature `Lcom/google/android/material/appbar/ViewOffsetBehavior;.layoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)V` @kind super;
+  #L182228.  v2:= 0I;
+  #L18222a.  v12.`com.google.android.material.appbar.HeaderScrollingViewBehavior.verticalLayoutGap` @type ^`int` := v2;
+  #L18222e.  return @kind void;
+}
+procedure `boolean` `onMeasureChild`(`com.google.android.material.appbar.HeaderScrollingViewBehavior` v16 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v17 @kind object @name `parent`, `android.view.View` v18 @kind object @name `child`, `int` v19 @name `parentWidthMeasureSpec`, `int` v20 @name `widthUsed`, `int` v21 @name `parentHeightMeasureSpec`, `int` v22 @name `heightUsed`) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.onMeasureChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;IIII)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+    v12;
+    v13;
+    v14;
+    v15;
+
+  #L181eb0.  v0:= v16 @kind object;
+  #L181eb4.  call temp:= `getLayoutParams`(v18) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L181eba.  v1:= temp @kind object;
+  #L181ebc.  v1:= v1.`android.view.ViewGroup$LayoutParams.height` @type ^`int`;
+  #L181ec0.  v2:= -1I;
+  #L181ec2.  if v1 == v2 then goto L181ed4;
+  #L181ec6.  v3:= -2I;
+  #L181ec8.  if v1 != v3 then goto L181ece;
+  #L181ecc.  goto L181ed4;
+  #L181ece.  v15:= v18 @kind object;
+  #L181ed2.  goto L181f98;
+  #L181ed4.  call temp:= `getDependencies`(v17, v18) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getDependencies:(Landroid/view/View;)Ljava/util/List;` @kind virtual;
+  #L181eda.  v3:= temp @kind object;
+  #L181edc.  call temp:= `findFirstDependency`(v0, v3) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.findFirstDependency:(Ljava/util/List;)Landroid/view/View;` @kind virtual;
+  #L181ee2.  v4:= temp @kind object;
+  #L181ee4.  if v4 == 0 then goto L181f94;
+  #L181ee8.  call temp:= `getSize`(v21) @signature `Landroid/view/View$MeasureSpec;.getSize:(I)I` @kind static;
+  #L181eee.  v5:= temp;
+  #L181ef0.  if v5 <= 0 then goto L181f22;
+  #L181ef4.  call temp:= `getFitsSystemWindows`(v4) @signature `Landroidx/core/view/ViewCompat;.getFitsSystemWindows:(Landroid/view/View;)Z` @kind static;
+  #L181efa.  v6:= temp;
+  #L181efc.  if v6 == 0 then goto L181f2a;
+  #L181f00.  call temp:= `getLastWindowInsets`(v17) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getLastWindowInsets:()Landroidx/core/view/WindowInsetsCompat;` @kind virtual;
+  #L181f06.  v6:= temp @kind object;
+  #L181f08.  if v6 == 0 then goto L181f20;
+  #L181f0c.  call temp:= `getSystemWindowInsetTop`(v6) @signature `Landroidx/core/view/WindowInsetsCompat;.getSystemWindowInsetTop:()I` @kind virtual;
+  #L181f12.  v7:= temp;
+  #L181f14.  call temp:= `getSystemWindowInsetBottom`(v6) @signature `Landroidx/core/view/WindowInsetsCompat;.getSystemWindowInsetBottom:()I` @kind virtual;
+  #L181f1a.  v8:= temp;
+  #L181f1c.  v7:= v7 + v8 @kind int;
+  #L181f1e.  v5:= v5 + v7 @kind int;
+  #L181f20.  goto L181f2a;
+  #L181f22.  call temp:= `getHeight`(v17) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getHeight:()I` @kind virtual;
+  #L181f28.  v5:= temp;
+  #L181f2a.  call temp:= `getScrollRange`(v0, v4) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.getScrollRange:(Landroid/view/View;)I` @kind virtual;
+  #L181f30.  v6:= temp;
+  #L181f32.  v6:= v6 + v5 @kind int;
+  #L181f34.  call temp:= `getMeasuredHeight`(v4) @signature `Landroid/view/View;.getMeasuredHeight:()I` @kind virtual;
+  #L181f3a.  v7:= temp;
+  #L181f3c.  call temp:= `shouldHeaderOverlapScrollingChild`(v16) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.shouldHeaderOverlapScrollingChild:()Z` @kind virtual;
+  #L181f42.  v8:= temp;
+  #L181f44.  if v8 == 0 then goto L181f58;
+  #L181f48.  v8:= -v7 @kind int;
+  #L181f4a.  v8:= (`float`) v8 @kind i2f;
+  #L181f4c.  v15:= v18 @kind object;
+  #L181f50.  call `setTranslationY`(v15, v8) @signature `Landroid/view/View;.setTranslationY:(F)V` @kind virtual;
+  #L181f56.  goto L181f5e;
+  #L181f58.  v15:= v18 @kind object;
+  #L181f5c.  v6:= v6 - v7 @kind int;
+  #L181f5e.  if v1 != v2 then goto L181f68;
+  #L181f62.  v2:= 2.0F;
+  #L181f66.  goto L181f6c;
+  #L181f68.  v2:= -2147483648I;
+  #L181f6c.  call temp:= `makeMeasureSpec`(v6, v2) @signature `Landroid/view/View$MeasureSpec;.makeMeasureSpec:(II)I` @kind static;
+  #L181f72.  v2:= temp;
+  #L181f74.  v9:= v17 @kind object;
+  #L181f78.  v10:= v18 @kind object;
+  #L181f7c.  v11:= v19;
+  #L181f80.  v12:= v20;
+  #L181f84.  v13:= v2;
+  #L181f86.  v14:= v22;
+  #L181f8a.  call `onMeasureChild`(v9, v10, v11, v12, v13, v14) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onMeasureChild:(Landroid/view/View;IIII)V` @kind virtual;
+  #L181f90.  v8:= 1I;
+  #L181f92.  return v8;
+  #L181f94.  v15:= v18 @kind object;
+  #L181f98.  v2:= 0I;
+  #L181f9a.  return v2;
+}
+procedure `void` `setOverlayTop`(`com.google.android.material.appbar.HeaderScrollingViewBehavior` v0 @kind this, `int` v1 @name `overlayTop`) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.setOverlayTop:(I)V` @AccessFlag PUBLIC_FINAL {
+    temp;
+
+  #L182240.  v0.`com.google.android.material.appbar.HeaderScrollingViewBehavior.overlayTop` @type ^`int` := v1;
+  #L182244.  return @kind void;
+}
+procedure `boolean` `shouldHeaderOverlapScrollingChild`(`com.google.android.material.appbar.HeaderScrollingViewBehavior` v1 @kind this) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.shouldHeaderOverlapScrollingChild:()Z` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L181fac.  v0:= 0I;
+  #L181fae.  return v0;
+}

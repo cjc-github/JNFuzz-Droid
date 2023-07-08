@@ -1,0 +1,401 @@
+record `androidx.coordinatorlayout.widget.CoordinatorLayout` @kind class @AccessFlag PUBLIC extends `android.view.ViewGroup` @kind class, `androidx.core.view.NestedScrollingParent2` @kind interface, `androidx.core.view.NestedScrollingParent3` @kind interface {
+  `androidx.core.view.OnApplyWindowInsetsListener` `androidx.coordinatorlayout.widget.CoordinatorLayout.mApplyWindowInsetsListener` @AccessFlag PRIVATE;
+  `int`[] `androidx.coordinatorlayout.widget.CoordinatorLayout.mBehaviorConsumed` @AccessFlag PRIVATE_FINAL;
+  `android.view.View` `androidx.coordinatorlayout.widget.CoordinatorLayout.mBehaviorTouchView` @AccessFlag PRIVATE;
+  `androidx.coordinatorlayout.widget.DirectedAcyclicGraph` `androidx.coordinatorlayout.widget.CoordinatorLayout.mChildDag` @AccessFlag PRIVATE_FINAL;
+  `java.util.List` `androidx.coordinatorlayout.widget.CoordinatorLayout.mDependencySortedChildren` @AccessFlag PRIVATE_FINAL;
+  `boolean` `androidx.coordinatorlayout.widget.CoordinatorLayout.mDisallowInterceptReset` @AccessFlag PRIVATE;
+  `boolean` `androidx.coordinatorlayout.widget.CoordinatorLayout.mDrawStatusBarBackground` @AccessFlag PRIVATE;
+  `boolean` `androidx.coordinatorlayout.widget.CoordinatorLayout.mIsAttachedToWindow` @AccessFlag PRIVATE;
+  `int`[] `androidx.coordinatorlayout.widget.CoordinatorLayout.mKeylines` @AccessFlag PRIVATE;
+  `androidx.core.view.WindowInsetsCompat` `androidx.coordinatorlayout.widget.CoordinatorLayout.mLastInsets` @AccessFlag PRIVATE;
+  `boolean` `androidx.coordinatorlayout.widget.CoordinatorLayout.mNeedsPreDrawListener` @AccessFlag PRIVATE;
+  `androidx.core.view.NestedScrollingParentHelper` `androidx.coordinatorlayout.widget.CoordinatorLayout.mNestedScrollingParentHelper` @AccessFlag PRIVATE_FINAL;
+  `android.view.View` `androidx.coordinatorlayout.widget.CoordinatorLayout.mNestedScrollingTarget` @AccessFlag PRIVATE;
+  `int`[] `androidx.coordinatorlayout.widget.CoordinatorLayout.mNestedScrollingV2ConsumedCompat` @AccessFlag PRIVATE_FINAL;
+  `android.view.ViewGroup$OnHierarchyChangeListener` `androidx.coordinatorlayout.widget.CoordinatorLayout.mOnHierarchyChangeListener` @AccessFlag ;
+  `androidx.coordinatorlayout.widget.CoordinatorLayout$OnPreDrawListener` `androidx.coordinatorlayout.widget.CoordinatorLayout.mOnPreDrawListener` @AccessFlag PRIVATE;
+  `android.graphics.Paint` `androidx.coordinatorlayout.widget.CoordinatorLayout.mScrimPaint` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `androidx.coordinatorlayout.widget.CoordinatorLayout.mStatusBarBackground` @AccessFlag PRIVATE;
+  `java.util.List` `androidx.coordinatorlayout.widget.CoordinatorLayout.mTempDependenciesList` @AccessFlag PRIVATE_FINAL;
+  `java.util.List` `androidx.coordinatorlayout.widget.CoordinatorLayout.mTempList1` @AccessFlag PRIVATE_FINAL;
+}
+global `java.lang.Class`[] `@@androidx.coordinatorlayout.widget.CoordinatorLayout.CONSTRUCTOR_PARAMS` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.coordinatorlayout.widget.CoordinatorLayout.EVENT_NESTED_SCROLL` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.coordinatorlayout.widget.CoordinatorLayout.EVENT_PRE_DRAW` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.coordinatorlayout.widget.CoordinatorLayout.EVENT_VIEW_REMOVED` @AccessFlag STATIC_FINAL;
+global `java.lang.String` `@@androidx.coordinatorlayout.widget.CoordinatorLayout.TAG` @AccessFlag STATIC_FINAL;
+global `java.util.Comparator` `@@androidx.coordinatorlayout.widget.CoordinatorLayout.TOP_SORTED_CHILDREN_COMPARATOR` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.coordinatorlayout.widget.CoordinatorLayout.TYPE_ON_INTERCEPT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.coordinatorlayout.widget.CoordinatorLayout.TYPE_ON_TOUCH` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.coordinatorlayout.widget.CoordinatorLayout.WIDGET_PACKAGE_NAME` @AccessFlag STATIC_FINAL;
+global `java.lang.ThreadLocal` `@@androidx.coordinatorlayout.widget.CoordinatorLayout.sConstructors` @AccessFlag STATIC_FINAL;
+global `androidx.core.util.Pools$Pool` `@@androidx.coordinatorlayout.widget.CoordinatorLayout.sRectPool` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v9 @kind this, `android.content.Context` v10 @kind object @name `context`, `android.util.AttributeSet` v11 @kind object @name `attrs`, `int` v12 @name `defStyleAttr`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `android.graphics.Rect` `acquireTempRect`() @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.acquireTempRect:()Landroid/graphics/Rect;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `int` `clamp`(`int` v0 @name `value`, `int` v1 @name `min`, `int` v2 @name `max`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.clamp:(III)I` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `constrainChildRect`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v7 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams` v8 @kind object @name `lp`, `android.graphics.Rect` v9 @kind object @name `out`, `int` v10 @name `childWidth`, `int` v11 @name `childHeight`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.constrainChildRect:(Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;Landroid/graphics/Rect;II)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.core.view.WindowInsetsCompat` `dispatchApplyWindowInsetsToBehaviors`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v6 @kind this, `androidx.core.view.WindowInsetsCompat` v7 @kind object @name `insets`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.dispatchApplyWindowInsetsToBehaviors:(Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `getDesiredAnchoredChildRectWithoutConstraints`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v16 @kind this, `android.view.View` v17 @kind object @name `child`, `int` v18 @name `layoutDirection`, `android.graphics.Rect` v19 @kind object @name `anchorRect`, `android.graphics.Rect` v20 @kind object @name `out`, `androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams` v21 @kind object @name `lp`, `int` v22 @name `childWidth`, `int` v23 @name `childHeight`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getDesiredAnchoredChildRectWithoutConstraints:(Landroid/view/View;ILandroid/graphics/Rect;Landroid/graphics/Rect;Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;II)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `getKeyline`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v4 @kind this, `int` v5 @name `index`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getKeyline:(I)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `getTopSortedChildren`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v5 @kind this, `java.util.List` v6 @kind object) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getTopSortedChildren:(Ljava/util/List;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `hasDependencies`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind this, `android.view.View` v2 @kind object @name `child`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.hasDependencies:(Landroid/view/View;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `layoutChild`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v9 @kind this, `android.view.View` v10 @kind object @name `child`, `int` v11 @name `layoutDirection`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.layoutChild:(Landroid/view/View;I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `layoutChildWithAnchor`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v6 @kind this, `android.view.View` v7 @kind object @name `child`, `android.view.View` v8 @kind object @name `anchor`, `int` v9 @name `layoutDirection`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.layoutChildWithAnchor:(Landroid/view/View;Landroid/view/View;I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `layoutChildWithKeyline`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v16 @kind this, `android.view.View` v17 @kind object @name `child`, `int` v18 @name `keyline`, `int` v19 @name `layoutDirection`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.layoutChildWithKeyline:(Landroid/view/View;II)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `offsetChildByInset`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v10 @kind this, `android.view.View` v11 @kind object @name `child`, `android.graphics.Rect` v12 @kind object @name `inset`, `int` v13 @name `layoutDirection`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.offsetChildByInset:(Landroid/view/View;Landroid/graphics/Rect;I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.coordinatorlayout.widget.CoordinatorLayout$Behavior` `parseBehavior`(`android.content.Context` v7 @kind object @name `context`, `android.util.AttributeSet` v8 @kind object @name `attrs`, `java.lang.String` v9 @kind object @name `name`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.parseBehavior:(Landroid/content/Context;Landroid/util/AttributeSet;Ljava/lang/String;)Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `boolean` `performIntercept`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v24 @kind this, `android.view.MotionEvent` v25 @kind object @name `ev`, `int` v26 @name `type`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.performIntercept:(Landroid/view/MotionEvent;I)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `prepareChildren`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v7 @kind this) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.prepareChildren:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `releaseTempRect`(`android.graphics.Rect` v1 @kind object @name `rect`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.releaseTempRect:(Landroid/graphics/Rect;)V` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `resetTouchBehaviors`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v16 @kind this, `boolean` v17 @name `notifyOnInterceptTouchEvent`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.resetTouchBehaviors:(Z)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `resolveAnchoredChildGravity`(`int` v1 @name `gravity`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.resolveAnchoredChildGravity:(I)I` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `int` `resolveGravity`(`int` v1 @name `gravity`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.resolveGravity:(I)I` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `int` `resolveKeylineGravity`(`int` v1 @name `gravity`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.resolveKeylineGravity:(I)I` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `setInsetOffsetX`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind this, `android.view.View` v3 @kind object @name `child`, `int` v4 @name `offsetX`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.setInsetOffsetX:(Landroid/view/View;I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `setInsetOffsetY`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind this, `android.view.View` v3 @kind object @name `child`, `int` v4 @name `offsetY`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.setInsetOffsetY:(Landroid/view/View;I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `setupForInsets`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind this) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.setupForInsets:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `addPreDrawListener`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind this) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.addPreDrawListener:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `checkLayoutParams`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind this, `android.view.ViewGroup$LayoutParams` v2 @kind object @name `p`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.checkLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)Z` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `dispatchDependentViewsChanged`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v5 @kind this, `android.view.View` v6 @kind object @name `view`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.dispatchDependentViewsChanged:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `doViewsOverlap`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v6 @kind this, `android.view.View` v7 @kind object @name `first`, `android.view.View` v8 @kind object @name `second`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.doViewsOverlap:(Landroid/view/View;Landroid/view/View;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `drawChild`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v10 @kind this, `android.graphics.Canvas` v11 @kind object @name `canvas`, `android.view.View` v12 @kind object @name `child`, `long` v13 @name `drawingTime`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.drawChild:(Landroid/graphics/Canvas;Landroid/view/View;J)Z` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `drawableStateChanged`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v4 @kind this) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.drawableStateChanged:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `ensurePreDrawListener`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v5 @kind this) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.ensurePreDrawListener:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `android.view.ViewGroup$LayoutParams` `generateDefaultLayoutParams`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind this) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.generateDefaultLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @AccessFlag PROTECTED_SYNTHETIC {
+
+  # return;
+}
+procedure `androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams` `generateDefaultLayoutParams`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind this) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.generateDefaultLayoutParams:()Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `android.view.ViewGroup$LayoutParams` `generateLayoutParams`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v0 @kind this, `android.util.AttributeSet` v1 @kind object) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.generateLayoutParams:(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;` @AccessFlag PUBLIC_SYNTHETIC {
+
+  # return;
+}
+procedure `android.view.ViewGroup$LayoutParams` `generateLayoutParams`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v0 @kind this, `android.view.ViewGroup$LayoutParams` v1 @kind object) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.generateLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;` @AccessFlag PROTECTED_SYNTHETIC {
+
+  # return;
+}
+procedure `androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams` `generateLayoutParams`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind this, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.generateLayoutParams:(Landroid/util/AttributeSet;)Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams` `generateLayoutParams`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind this, `android.view.ViewGroup$LayoutParams` v3 @kind object @name `p`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.generateLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `getChildRect`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v4 @kind this, `android.view.View` v5 @kind object @name `child`, `boolean` v6 @name `transform`, `android.graphics.Rect` v7 @kind object @name `out`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getChildRect:(Landroid/view/View;ZLandroid/graphics/Rect;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `java.util.List` `getDependencies`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind this, `android.view.View` v3 @kind object @name `child`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getDependencies:(Landroid/view/View;)Ljava/util/List;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.util.List` `getDependencySortedChildren`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind this) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getDependencySortedChildren:()Ljava/util/List;` @AccessFlag FINAL {
+
+  # return;
+}
+procedure `java.util.List` `getDependents`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind this, `android.view.View` v3 @kind object @name `child`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getDependents:(Landroid/view/View;)Ljava/util/List;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `getDescendantRect`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v0 @kind this, `android.view.View` v1 @kind object @name `descendant`, `android.graphics.Rect` v2 @kind object @name `out`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getDescendantRect:(Landroid/view/View;Landroid/graphics/Rect;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `getDesiredAnchoredChildRect`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v11 @kind this, `android.view.View` v12 @kind object @name `child`, `int` v13 @name `layoutDirection`, `android.graphics.Rect` v14 @kind object @name `anchorRect`, `android.graphics.Rect` v15 @kind object @name `out`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getDesiredAnchoredChildRect:(Landroid/view/View;ILandroid/graphics/Rect;Landroid/graphics/Rect;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `getLastChildRect`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind this, `android.view.View` v3 @kind object @name `child`, `android.graphics.Rect` v4 @kind object @name `out`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getLastChildRect:(Landroid/view/View;Landroid/graphics/Rect;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `androidx.core.view.WindowInsetsCompat` `getLastWindowInsets`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind this) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getLastWindowInsets:()Landroidx/core/view/WindowInsetsCompat;` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `int` `getNestedScrollAxes`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind this) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getNestedScrollAxes:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams` `getResolvedLayoutParams`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v8 @kind this, `android.view.View` v9 @kind object @name `child`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getResolvedLayoutParams:(Landroid/view/View;)Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;` @AccessFlag  {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `getStatusBarBackground`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind this) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getStatusBarBackground:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getSuggestedMinimumHeight`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v3 @kind this) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getSuggestedMinimumHeight:()I` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `int` `getSuggestedMinimumWidth`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v3 @kind this) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getSuggestedMinimumWidth:()I` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `boolean` `isPointInChildBounds`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind this, `android.view.View` v3 @kind object @name `child`, `int` v4 @name `x`, `int` v5 @name `y`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.isPointInChildBounds:(Landroid/view/View;II)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `offsetChildToAnchor`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v17 @kind this, `android.view.View` v18 @kind object @name `child`, `int` v19 @name `layoutDirection`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.offsetChildToAnchor:(Landroid/view/View;I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onAttachedToWindow`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind this) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onAttachedToWindow:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onChildViewsChanged`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v17 @kind this, `int` v18 @name `type`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onChildViewsChanged:(I)V` @AccessFlag FINAL {
+
+  # return;
+}
+procedure `void` `onDetachedFromWindow`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v3 @kind this) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onDetachedFromWindow:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onDraw`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v4 @kind this, `android.graphics.Canvas` v5 @kind object @name `c`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onDraw:(Landroid/graphics/Canvas;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onInterceptTouchEvent`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v4 @kind this, `android.view.MotionEvent` v5 @kind object @name `ev`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onInterceptTouchEvent:(Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onLayout`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v7 @kind this, `boolean` v8 @name `changed`, `int` v9 @name `l`, `int` v10 @name `t`, `int` v11 @name `r`, `int` v12 @name `b`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onLayout:(ZIIII)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onLayoutChild`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v3 @kind this, `android.view.View` v4 @kind object @name `child`, `int` v5 @name `layoutDirection`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onLayoutChild:(Landroid/view/View;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onMeasure`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v35 @kind this, `int` v36 @name `widthMeasureSpec`, `int` v37 @name `heightMeasureSpec`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onMeasure:(II)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onMeasureChild`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v0 @kind this, `android.view.View` v1 @kind object @name `child`, `int` v2 @name `parentWidthMeasureSpec`, `int` v3 @name `widthUsed`, `int` v4 @name `parentHeightMeasureSpec`, `int` v5 @name `heightUsed`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onMeasureChild:(Landroid/view/View;IIII)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onNestedFling`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v14 @kind this, `android.view.View` v15 @kind object @name `target`, `float` v16 @name `velocityX`, `float` v17 @name `velocityY`, `boolean` v18 @name `consumed`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onNestedFling:(Landroid/view/View;FFZ)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onNestedPreFling`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v12 @kind this, `android.view.View` v13 @kind object @name `target`, `float` v14 @name `velocityX`, `float` v15 @name `velocityY`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onNestedPreFling:(Landroid/view/View;FF)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onNestedPreScroll`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v6 @kind this, `android.view.View` v7 @kind object @name `target`, `int` v8 @name `dx`, `int` v9 @name `dy`, `int`[] v10 @kind object @name `consumed`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onNestedPreScroll:(Landroid/view/View;II[I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onNestedPreScroll`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v19 @kind this, `android.view.View` v20 @kind object @name `target`, `int` v21 @name `dx`, `int` v22 @name `dy`, `int`[] v23 @kind object @name `consumed`, `int` v24 @name `type`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onNestedPreScroll:(Landroid/view/View;II[II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onNestedScroll`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v7 @kind this, `android.view.View` v8 @kind object @name `target`, `int` v9 @name `dxConsumed`, `int` v10 @name `dyConsumed`, `int` v11 @name `dxUnconsumed`, `int` v12 @name `dyUnconsumed`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onNestedScroll:(Landroid/view/View;IIII)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onNestedScroll`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v8 @kind this, `android.view.View` v9 @kind object @name `target`, `int` v10 @name `dxConsumed`, `int` v11 @name `dyConsumed`, `int` v12 @name `dxUnconsumed`, `int` v13 @name `dyUnconsumed`, `int` v14 @name `type`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onNestedScroll:(Landroid/view/View;IIIII)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onNestedScroll`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v22 @kind this, `android.view.View` v23 @kind object @name `target`, `int` v24 @name `dxConsumed`, `int` v25 @name `dyConsumed`, `int` v26 @name `dxUnconsumed`, `int` v27 @name `dyUnconsumed`, `int` v28 @name `type`, `int`[] v29 @kind object @name `consumed`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onNestedScroll:(Landroid/view/View;IIIII[I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onNestedScrollAccepted`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind this, `android.view.View` v2 @kind object @name `child`, `android.view.View` v3 @kind object @name `target`, `int` v4 @name `nestedScrollAxes`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onNestedScrollAccepted:(Landroid/view/View;Landroid/view/View;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onNestedScrollAccepted`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v17 @kind this, `android.view.View` v18 @kind object @name `child`, `android.view.View` v19 @kind object @name `target`, `int` v20 @name `nestedScrollAxes`, `int` v21 @name `type`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onNestedScrollAccepted:(Landroid/view/View;Landroid/view/View;II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onRestoreInstanceState`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v9 @kind this, `android.os.Parcelable` v10 @kind object @name `state`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onRestoreInstanceState:(Landroid/os/Parcelable;)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `android.os.Parcelable` `onSaveInstanceState`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v9 @kind this) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onSaveInstanceState:()Landroid/os/Parcelable;` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `boolean` `onStartNestedScroll`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind this, `android.view.View` v2 @kind object @name `child`, `android.view.View` v3 @kind object @name `target`, `int` v4 @name `nestedScrollAxes`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onStartNestedScroll:(Landroid/view/View;Landroid/view/View;I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onStartNestedScroll`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v15 @kind this, `android.view.View` v16 @kind object @name `child`, `android.view.View` v17 @kind object @name `target`, `int` v18 @name `axes`, `int` v19 @name `type`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onStartNestedScroll:(Landroid/view/View;Landroid/view/View;II)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onStopNestedScroll`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind this, `android.view.View` v2 @kind object @name `target`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onStopNestedScroll:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onStopNestedScroll`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v5 @kind this, `android.view.View` v6 @kind object @name `target`, `int` v7 @name `type`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onStopNestedScroll:(Landroid/view/View;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onTouchEvent`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v18 @kind this, `android.view.MotionEvent` v19 @kind object @name `ev`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onTouchEvent:(Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `recordLastChildRect`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind this, `android.view.View` v2 @kind object @name `child`, `android.graphics.Rect` v3 @kind object @name `r`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.recordLastChildRect:(Landroid/view/View;Landroid/graphics/Rect;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `removePreDrawListener`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind this) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.removePreDrawListener:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `requestChildRectangleOnScreen`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v3 @kind this, `android.view.View` v4 @kind object @name `child`, `android.graphics.Rect` v5 @kind object @name `rectangle`, `boolean` v6 @name `immediate`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.requestChildRectangleOnScreen:(Landroid/view/View;Landroid/graphics/Rect;Z)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `requestDisallowInterceptTouchEvent`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind this, `boolean` v2 @name `disallowIntercept`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.requestDisallowInterceptTouchEvent:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setFitsSystemWindows`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v0 @kind this, `boolean` v1 @name `fitSystemWindows`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.setFitsSystemWindows:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOnHierarchyChangeListener`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v0 @kind this, `android.view.ViewGroup$OnHierarchyChangeListener` v1 @kind object @name `onHierarchyChangeListener`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.setOnHierarchyChangeListener:(Landroid/view/ViewGroup$OnHierarchyChangeListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setStatusBarBackground`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v3 @kind this, `android.graphics.drawable.Drawable` v4 @kind object @name `bg`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.setStatusBarBackground:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setStatusBarBackgroundColor`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind this, `int` v2 @name `color`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.setStatusBarBackgroundColor:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setStatusBarBackgroundResource`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.setStatusBarBackgroundResource:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setVisibility`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v3 @kind this, `int` v4 @name `visibility`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.setVisibility:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.view.WindowInsetsCompat` `setWindowInsets`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v3 @kind this, `androidx.core.view.WindowInsetsCompat` v4 @kind object @name `insets`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.setWindowInsets:(Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;` @AccessFlag FINAL {
+
+  # return;
+}
+procedure `boolean` `verifyDrawable`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `who`) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.verifyDrawable:(Landroid/graphics/drawable/Drawable;)Z` @AccessFlag PROTECTED {
+
+  # return;
+}

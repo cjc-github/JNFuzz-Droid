@@ -1,0 +1,47 @@
+record `com.google.android.material.appbar.HeaderBehavior$FlingRunnable` @kind class @AccessFlag  extends `java.lang.Runnable` @kind interface {
+  `android.view.View` `com.google.android.material.appbar.HeaderBehavior$FlingRunnable.layout` @AccessFlag PRIVATE_FINAL;
+  `androidx.coordinatorlayout.widget.CoordinatorLayout` `com.google.android.material.appbar.HeaderBehavior$FlingRunnable.parent` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.appbar.HeaderBehavior` `com.google.android.material.appbar.HeaderBehavior$FlingRunnable.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.HeaderBehavior$FlingRunnable` v0 @kind this, `com.google.android.material.appbar.HeaderBehavior` v1 @kind object, `androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind object @name `parent`, `android.view.View` v3 @kind object) @signature `Lcom/google/android/material/appbar/HeaderBehavior$FlingRunnable;.<init>:(Lcom/google/android/material/appbar/HeaderBehavior;Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L181934.  v0.`com.google.android.material.appbar.HeaderBehavior$FlingRunnable.this$0` @type ^`com.google.android.material.appbar.HeaderBehavior` := v1 @kind object;
+  #L181938.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L18193e.  v0.`com.google.android.material.appbar.HeaderBehavior$FlingRunnable.parent` @type ^`androidx.coordinatorlayout.widget.CoordinatorLayout` := v2 @kind object;
+  #L181942.  v0.`com.google.android.material.appbar.HeaderBehavior$FlingRunnable.layout` @type ^`android.view.View` := v3 @kind object;
+  #L181946.  return @kind void;
+}
+procedure `void` `run`(`com.google.android.material.appbar.HeaderBehavior$FlingRunnable` v4 @kind this) @signature `Lcom/google/android/material/appbar/HeaderBehavior$FlingRunnable;.run:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L181958.  v0:= v4.`com.google.android.material.appbar.HeaderBehavior$FlingRunnable.layout` @type ^`android.view.View` @kind object;
+  #L18195c.  if v0 == 0 then goto L1819bc;
+  #L181960.  v0:= v4.`com.google.android.material.appbar.HeaderBehavior$FlingRunnable.this$0` @type ^`com.google.android.material.appbar.HeaderBehavior` @kind object;
+  #L181964.  v0:= v0.`com.google.android.material.appbar.HeaderBehavior.scroller` @type ^`android.widget.OverScroller` @kind object;
+  #L181968.  if v0 == 0 then goto L1819bc;
+  #L18196c.  v0:= v4.`com.google.android.material.appbar.HeaderBehavior$FlingRunnable.this$0` @type ^`com.google.android.material.appbar.HeaderBehavior` @kind object;
+  #L181970.  v0:= v0.`com.google.android.material.appbar.HeaderBehavior.scroller` @type ^`android.widget.OverScroller` @kind object;
+  #L181974.  call temp:= `computeScrollOffset`(v0) @signature `Landroid/widget/OverScroller;.computeScrollOffset:()Z` @kind virtual;
+  #L18197a.  v0:= temp;
+  #L18197c.  if v0 == 0 then goto L1819aa;
+  #L181980.  v0:= v4.`com.google.android.material.appbar.HeaderBehavior$FlingRunnable.this$0` @type ^`com.google.android.material.appbar.HeaderBehavior` @kind object;
+  #L181984.  v1:= v4.`com.google.android.material.appbar.HeaderBehavior$FlingRunnable.parent` @type ^`androidx.coordinatorlayout.widget.CoordinatorLayout` @kind object;
+  #L181988.  v2:= v4.`com.google.android.material.appbar.HeaderBehavior$FlingRunnable.layout` @type ^`android.view.View` @kind object;
+  #L18198c.  v3:= v0.`com.google.android.material.appbar.HeaderBehavior.scroller` @type ^`android.widget.OverScroller` @kind object;
+  #L181990.  call temp:= `getCurrY`(v3) @signature `Landroid/widget/OverScroller;.getCurrY:()I` @kind virtual;
+  #L181996.  v3:= temp;
+  #L181998.  call temp:= `setHeaderTopBottomOffset`(v0, v1, v2, v3) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.setHeaderTopBottomOffset:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)I` @kind virtual;
+  #L18199e.  v0:= v4.`com.google.android.material.appbar.HeaderBehavior$FlingRunnable.layout` @type ^`android.view.View` @kind object;
+  #L1819a2.  call `postOnAnimation`(v0, v4) @signature `Landroidx/core/view/ViewCompat;.postOnAnimation:(Landroid/view/View;Ljava/lang/Runnable;)V` @kind static;
+  #L1819a8.  goto L1819bc;
+  #L1819aa.  v0:= v4.`com.google.android.material.appbar.HeaderBehavior$FlingRunnable.this$0` @type ^`com.google.android.material.appbar.HeaderBehavior` @kind object;
+  #L1819ae.  v1:= v4.`com.google.android.material.appbar.HeaderBehavior$FlingRunnable.parent` @type ^`androidx.coordinatorlayout.widget.CoordinatorLayout` @kind object;
+  #L1819b2.  v2:= v4.`com.google.android.material.appbar.HeaderBehavior$FlingRunnable.layout` @type ^`android.view.View` @kind object;
+  #L1819b6.  call `onFlingFinished`(v0, v1, v2) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.onFlingFinished:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)V` @kind virtual;
+  #L1819bc.  return @kind void;
+}

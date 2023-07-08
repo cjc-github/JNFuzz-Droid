@@ -1,0 +1,49 @@
+record `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$4` @kind class @AccessFlag FINAL extends `android.util.Property` @kind class {
+}
+procedure `void` `<init>`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$4` v0 @kind this, `java.lang.Class` v1 @kind object, `java.lang.String` v2 @kind object @name `x1`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$4;.<init>:(Ljava/lang/Class;Ljava/lang/String;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L19dcdc.  call `<init>`(v0, v1, v2) @signature `Landroid/util/Property;.<init>:(Ljava/lang/Class;Ljava/lang/String;)V` @kind direct;
+  #L19dce2.  return @kind void;
+}
+procedure `java.lang.Float` `get`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$4` v1 @kind this, `android.view.View` v2 @kind object @name `object`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$4;.get:(Landroid/view/View;)Ljava/lang/Float;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19dc94.  call temp:= `getLayoutParams`(v2) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L19dc9a.  v0:= temp @kind object;
+  #L19dc9c.  v0:= v0.`android.view.ViewGroup$LayoutParams.width` @type ^`int`;
+  #L19dca0.  v0:= (`float`) v0 @kind i2f;
+  #L19dca2.  call temp:= `valueOf`(v0) @signature `Ljava/lang/Float;.valueOf:(F)Ljava/lang/Float;` @kind static;
+  #L19dca8.  v0:= temp @kind object;
+  #L19dcaa.  return v0 @kind object;
+}
+procedure `java.lang.Object` `get`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$4` v0 @kind this, `java.lang.Object` v1 @kind object) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$4;.get:(Ljava/lang/Object;)Ljava/lang/Object;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19dcbc.  v1:= (`android.view.View`) v1 @kind object;
+  #L19dcc0.  call temp:= `get`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$4;.get:(Landroid/view/View;)Ljava/lang/Float;` @kind virtual;
+  #L19dcc6.  v1:= temp @kind object;
+  #L19dcc8.  return v1 @kind object;
+}
+procedure `void` `set`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$4` v2 @kind this, `android.view.View` v3 @kind object @name `object`, `java.lang.Float` v4 @kind object @name `value`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$4;.set:(Landroid/view/View;Ljava/lang/Float;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19dcf4.  call temp:= `getLayoutParams`(v3) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L19dcfa.  v0:= temp @kind object;
+  #L19dcfc.  call temp:= `intValue`(v4) @signature `Ljava/lang/Float;.intValue:()I` @kind virtual;
+  #L19dd02.  v1:= temp;
+  #L19dd04.  v0.`android.view.ViewGroup$LayoutParams.width` @type ^`int` := v1;
+  #L19dd08.  call `requestLayout`(v3) @signature `Landroid/view/View;.requestLayout:()V` @kind virtual;
+  #L19dd0e.  return @kind void;
+}
+procedure `void` `set`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$4` v0 @kind this, `java.lang.Object` v1 @kind object, `java.lang.Object` v2 @kind object) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$4;.set:(Ljava/lang/Object;Ljava/lang/Object;)V` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19dd20.  v1:= (`android.view.View`) v1 @kind object;
+  #L19dd24.  v2:= (`java.lang.Float`) v2 @kind object;
+  #L19dd28.  call `set`(v0, v1, v2) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$4;.set:(Landroid/view/View;Ljava/lang/Float;)V` @kind virtual;
+  #L19dd2e.  return @kind void;
+}

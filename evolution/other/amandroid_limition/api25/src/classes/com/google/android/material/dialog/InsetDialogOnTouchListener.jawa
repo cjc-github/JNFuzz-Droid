@@ -1,0 +1,92 @@
+record `com.google.android.material.dialog.InsetDialogOnTouchListener` @kind class @AccessFlag PUBLIC extends `android.view.View$OnTouchListener` @kind interface {
+  `android.app.Dialog` `com.google.android.material.dialog.InsetDialogOnTouchListener.dialog` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.dialog.InsetDialogOnTouchListener.leftInset` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.dialog.InsetDialogOnTouchListener.prePieSlop` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.dialog.InsetDialogOnTouchListener.topInset` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.dialog.InsetDialogOnTouchListener` v1 @kind this, `android.app.Dialog` v2 @kind object @name `dialog`, `android.graphics.Rect` v3 @kind object @name `insets`) @signature `Lcom/google/android/material/dialog/InsetDialogOnTouchListener;.<init>:(Landroid/app/Dialog;Landroid/graphics/Rect;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L19c088.  call `<init>`(v1) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L19c08e.  v1.`com.google.android.material.dialog.InsetDialogOnTouchListener.dialog` @type ^`android.app.Dialog` := v2 @kind object;
+  #L19c092.  v0:= v3.`android.graphics.Rect.left` @type ^`int`;
+  #L19c096.  v1.`com.google.android.material.dialog.InsetDialogOnTouchListener.leftInset` @type ^`int` := v0;
+  #L19c09a.  v0:= v3.`android.graphics.Rect.top` @type ^`int`;
+  #L19c09e.  v1.`com.google.android.material.dialog.InsetDialogOnTouchListener.topInset` @type ^`int` := v0;
+  #L19c0a2.  call temp:= `getContext`(v2) @signature `Landroid/app/Dialog;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L19c0a8.  v0:= temp @kind object;
+  #L19c0aa.  call temp:= `get`(v0) @signature `Landroid/view/ViewConfiguration;.get:(Landroid/content/Context;)Landroid/view/ViewConfiguration;` @kind static;
+  #L19c0b0.  v0:= temp @kind object;
+  #L19c0b2.  call temp:= `getScaledWindowTouchSlop`(v0) @signature `Landroid/view/ViewConfiguration;.getScaledWindowTouchSlop:()I` @kind virtual;
+  #L19c0b8.  v0:= temp;
+  #L19c0ba.  v1.`com.google.android.material.dialog.InsetDialogOnTouchListener.prePieSlop` @type ^`int` := v0;
+  #L19c0be.  return @kind void;
+}
+procedure `boolean` `onTouch`(`com.google.android.material.dialog.InsetDialogOnTouchListener` v10 @kind this, `android.view.View` v11 @kind object @name `view`, `android.view.MotionEvent` v12 @kind object @name `event`) @signature `Lcom/google/android/material/dialog/InsetDialogOnTouchListener;.onTouch:(Landroid/view/View;Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+
+  #L19bfb8.  v0:= 16908290I;
+  #L19bfbe.  call temp:= `findViewById`(v11, v0) @signature `Landroid/view/View;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L19bfc4.  v0:= temp @kind object;
+  #L19bfc6.  v1:= v10.`com.google.android.material.dialog.InsetDialogOnTouchListener.leftInset` @type ^`int`;
+  #L19bfca.  call temp:= `getLeft`(v0) @signature `Landroid/view/View;.getLeft:()I` @kind virtual;
+  #L19bfd0.  v2:= temp;
+  #L19bfd2.  v1:= v1 + v2 @kind int;
+  #L19bfd4.  call temp:= `getWidth`(v0) @signature `Landroid/view/View;.getWidth:()I` @kind virtual;
+  #L19bfda.  v2:= temp;
+  #L19bfdc.  v2:= v2 + v1 @kind int;
+  #L19bfde.  v3:= v10.`com.google.android.material.dialog.InsetDialogOnTouchListener.topInset` @type ^`int`;
+  #L19bfe2.  call temp:= `getTop`(v0) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L19bfe8.  v4:= temp;
+  #L19bfea.  v3:= v3 + v4 @kind int;
+  #L19bfec.  call temp:= `getHeight`(v0) @signature `Landroid/view/View;.getHeight:()I` @kind virtual;
+  #L19bff2.  v4:= temp;
+  #L19bff4.  v4:= v4 + v3 @kind int;
+  #L19bff6.  v5:= new `android.graphics.RectF`;
+  #L19bffa.  v6:= (`float`) v1 @kind i2f;
+  #L19bffc.  v7:= (`float`) v3 @kind i2f;
+  #L19bffe.  v8:= (`float`) v2 @kind i2f;
+  #L19c000.  v9:= (`float`) v4 @kind i2f;
+  #L19c002.  call `<init>`(v5, v6, v7, v8, v9) @signature `Landroid/graphics/RectF;.<init>:(FFFF)V` @kind direct;
+  #L19c008.  call temp:= `getX`(v12) @signature `Landroid/view/MotionEvent;.getX:()F` @kind virtual;
+  #L19c00e.  v6:= temp;
+  #L19c010.  call temp:= `getY`(v12) @signature `Landroid/view/MotionEvent;.getY:()F` @kind virtual;
+  #L19c016.  v7:= temp;
+  #L19c018.  call temp:= `contains`(v5, v6, v7) @signature `Landroid/graphics/RectF;.contains:(FF)Z` @kind virtual;
+  #L19c01e.  v6:= temp;
+  #L19c020.  v7:= 0I;
+  #L19c022.  if v6 == 0 then goto L19c028;
+  #L19c026.  return v7;
+  #L19c028.  call temp:= `obtain`(v12) @signature `Landroid/view/MotionEvent;.obtain:(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;` @kind static;
+  #L19c02e.  v6:= temp @kind object;
+  #L19c030.  v8:= 4I;
+  #L19c032.  call `setAction`(v6, v8) @signature `Landroid/view/MotionEvent;.setAction:(I)V` @kind virtual;
+  #L19c038.  v8:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L19c03c.  v9:= 28I;
+  #L19c040.  if v8 >= v9 then goto L19c064;
+  #L19c044.  call `setAction`(v6, v7) @signature `Landroid/view/MotionEvent;.setAction:(I)V` @kind virtual;
+  #L19c04a.  v7:= v10.`com.google.android.material.dialog.InsetDialogOnTouchListener.prePieSlop` @type ^`int`;
+  #L19c04e.  v8:= -v7 @kind int;
+  #L19c050.  v8:= v8 + -1;
+  #L19c054.  v8:= (`float`) v8 @kind i2f;
+  #L19c056.  v7:= -v7 @kind int;
+  #L19c058.  v7:= v7 + -1;
+  #L19c05c.  v7:= (`float`) v7 @kind i2f;
+  #L19c05e.  call `setLocation`(v6, v8, v7) @signature `Landroid/view/MotionEvent;.setLocation:(FF)V` @kind virtual;
+  #L19c064.  call temp:= `performClick`(v11) @signature `Landroid/view/View;.performClick:()Z` @kind virtual;
+  #L19c06a.  v7:= v10.`com.google.android.material.dialog.InsetDialogOnTouchListener.dialog` @type ^`android.app.Dialog` @kind object;
+  #L19c06e.  call temp:= `onTouchEvent`(v7, v6) @signature `Landroid/app/Dialog;.onTouchEvent:(Landroid/view/MotionEvent;)Z` @kind virtual;
+  #L19c074.  v7:= temp;
+  #L19c076.  return v7;
+}

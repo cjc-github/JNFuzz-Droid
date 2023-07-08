@@ -1,0 +1,33 @@
+record `com.google.android.material.datepicker.SingleDateSelector$1` @kind class @AccessFlag  extends `com.google.android.material.datepicker.DateFormatTextWatcher` @kind class {
+  `com.google.android.material.datepicker.SingleDateSelector` `com.google.android.material.datepicker.SingleDateSelector$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `com.google.android.material.datepicker.OnSelectionChangedListener` `com.google.android.material.datepicker.SingleDateSelector$1.val$listener` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.SingleDateSelector$1` v0 @kind this, `com.google.android.material.datepicker.SingleDateSelector` v1 @kind object @name `this$0`, `java.lang.String` v2 @kind object @name `formatHint`, `java.text.DateFormat` v3 @kind object @name `dateFormat`, `com.google.android.material.textfield.TextInputLayout` v4 @kind object @name `textInputLayout`, `com.google.android.material.datepicker.CalendarConstraints` v5 @kind object @name `constraints`, `com.google.android.material.datepicker.OnSelectionChangedListener` v6 @kind object) @signature `Lcom/google/android/material/datepicker/SingleDateSelector$1;.<init>:(Lcom/google/android/material/datepicker/SingleDateSelector;Ljava/lang/String;Ljava/text/DateFormat;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/CalendarConstraints;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L19b2a8.  v0.`com.google.android.material.datepicker.SingleDateSelector$1.this$0` @type ^`com.google.android.material.datepicker.SingleDateSelector` := v1 @kind object;
+  #L19b2ac.  v0.`com.google.android.material.datepicker.SingleDateSelector$1.val$listener` @type ^`com.google.android.material.datepicker.OnSelectionChangedListener` := v6 @kind object;
+  #L19b2b0.  call `<init>`(v0, v2, v3, v4, v5) @signature `Lcom/google/android/material/datepicker/DateFormatTextWatcher;.<init>:(Ljava/lang/String;Ljava/text/DateFormat;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/CalendarConstraints;)V` @kind direct;
+  #L19b2b6.  return @kind void;
+}
+procedure `void` `onValidDate`(`com.google.android.material.datepicker.SingleDateSelector$1` v3 @kind this, `java.lang.Long` v4 @kind object @name `day`) @signature `Lcom/google/android/material/datepicker/SingleDateSelector$1;.onValidDate:(Ljava/lang/Long;)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L19b2c8.  if v4 != 0 then goto L19b2d8;
+  #L19b2cc.  v0:= v3.`com.google.android.material.datepicker.SingleDateSelector$1.this$0` @type ^`com.google.android.material.datepicker.SingleDateSelector` @kind object;
+  #L19b2d0.  call `access$000`(v0) @signature `Lcom/google/android/material/datepicker/SingleDateSelector;.access$000:(Lcom/google/android/material/datepicker/SingleDateSelector;)V` @kind static;
+  #L19b2d6.  goto L19b2ea;
+  #L19b2d8.  v0:= v3.`com.google.android.material.datepicker.SingleDateSelector$1.this$0` @type ^`com.google.android.material.datepicker.SingleDateSelector` @kind object;
+  #L19b2dc.  call temp:= `longValue`(v4) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L19b2e2.  v1:= temp @kind wide;
+  #L19b2e4.  call `select`(v0, v1) @signature `Lcom/google/android/material/datepicker/SingleDateSelector;.select:(J)V` @kind virtual;
+  #L19b2ea.  v0:= v3.`com.google.android.material.datepicker.SingleDateSelector$1.val$listener` @type ^`com.google.android.material.datepicker.OnSelectionChangedListener` @kind object;
+  #L19b2ee.  v1:= v3.`com.google.android.material.datepicker.SingleDateSelector$1.this$0` @type ^`com.google.android.material.datepicker.SingleDateSelector` @kind object;
+  #L19b2f2.  call temp:= `getSelection`(v1) @signature `Lcom/google/android/material/datepicker/SingleDateSelector;.getSelection:()Ljava/lang/Long;` @kind virtual;
+  #L19b2f8.  v1:= temp @kind object;
+  #L19b2fa.  call `onSelectionChanged`(v0, v1) @signature `Lcom/google/android/material/datepicker/OnSelectionChangedListener;.onSelectionChanged:(Ljava/lang/Object;)V` @kind interface;
+  #L19b300.  return @kind void;
+}

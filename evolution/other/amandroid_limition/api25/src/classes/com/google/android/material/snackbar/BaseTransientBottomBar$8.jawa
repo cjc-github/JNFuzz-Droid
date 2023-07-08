@@ -1,0 +1,47 @@
+record `com.google.android.material.snackbar.BaseTransientBottomBar$8` @kind class @AccessFlag  extends `com.google.android.material.behavior.SwipeDismissBehavior$OnDismissListener` @kind interface {
+  `com.google.android.material.snackbar.BaseTransientBottomBar` `com.google.android.material.snackbar.BaseTransientBottomBar$8.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.snackbar.BaseTransientBottomBar$8` v0 @kind this, `com.google.android.material.snackbar.BaseTransientBottomBar` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$8;.<init>:(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1af648.  v0.`com.google.android.material.snackbar.BaseTransientBottomBar$8.this$0` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar` := v1 @kind object;
+  #L1af64c.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1af652.  return @kind void;
+}
+procedure `void` `onDismiss`(`com.google.android.material.snackbar.BaseTransientBottomBar$8` v2 @kind this, `android.view.View` v3 @kind object @name `view`) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$8;.onDismiss:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1af664.  v0:= 8I;
+  #L1af668.  call `setVisibility`(v3, v0) @signature `Landroid/view/View;.setVisibility:(I)V` @kind virtual;
+  #L1af66e.  v0:= v2.`com.google.android.material.snackbar.BaseTransientBottomBar$8.this$0` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar` @kind object;
+  #L1af672.  v1:= 0I;
+  #L1af674.  call `dispatchDismiss`(v0, v1) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar;.dispatchDismiss:(I)V` @kind virtual;
+  #L1af67a.  return @kind void;
+}
+procedure `void` `onDragStateChanged`(`com.google.android.material.snackbar.BaseTransientBottomBar$8` v2 @kind this, `int` v3 @name `state`) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$8;.onDragStateChanged:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1af68c.  if v3 == 0 then goto L1af6b6;
+  #L1af690.  v0:= 1I;
+  #L1af692.  if v3 == v0 then goto L1af69e;
+  #L1af696.  v0:= 2I;
+  #L1af698.  if v3 == v0 then goto L1af69e;
+  #L1af69c.  goto L1af6ce;
+  #L1af69e.  call temp:= `getInstance`() @signature `Lcom/google/android/material/snackbar/SnackbarManager;.getInstance:()Lcom/google/android/material/snackbar/SnackbarManager;` @kind static;
+  #L1af6a4.  v0:= temp @kind object;
+  #L1af6a6.  v1:= v2.`com.google.android.material.snackbar.BaseTransientBottomBar$8.this$0` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar` @kind object;
+  #L1af6aa.  v1:= v1.`com.google.android.material.snackbar.BaseTransientBottomBar.managerCallback` @type ^`com.google.android.material.snackbar.SnackbarManager$Callback` @kind object;
+  #L1af6ae.  call `pauseTimeout`(v0, v1) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.pauseTimeout:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)V` @kind virtual;
+  #L1af6b4.  goto L1af6ce;
+  #L1af6b6.  call temp:= `getInstance`() @signature `Lcom/google/android/material/snackbar/SnackbarManager;.getInstance:()Lcom/google/android/material/snackbar/SnackbarManager;` @kind static;
+  #L1af6bc.  v0:= temp @kind object;
+  #L1af6be.  v1:= v2.`com.google.android.material.snackbar.BaseTransientBottomBar$8.this$0` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar` @kind object;
+  #L1af6c2.  v1:= v1.`com.google.android.material.snackbar.BaseTransientBottomBar.managerCallback` @type ^`com.google.android.material.snackbar.SnackbarManager$Callback` @kind object;
+  #L1af6c6.  call `restoreTimeoutIfPaused`(v0, v1) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.restoreTimeoutIfPaused:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)V` @kind virtual;
+  #L1af6cc.  
+  #L1af6ce.  return @kind void;
+}

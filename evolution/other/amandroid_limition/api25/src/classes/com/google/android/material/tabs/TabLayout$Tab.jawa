@@ -1,0 +1,371 @@
+record `com.google.android.material.tabs.TabLayout$Tab` @kind class @AccessFlag PUBLIC {
+  `java.lang.CharSequence` `com.google.android.material.tabs.TabLayout$Tab.contentDesc` @AccessFlag PRIVATE;
+  `android.view.View` `com.google.android.material.tabs.TabLayout$Tab.customView` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `com.google.android.material.tabs.TabLayout$Tab.icon` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.tabs.TabLayout$Tab.labelVisibilityMode` @AccessFlag PRIVATE;
+  `com.google.android.material.tabs.TabLayout` `com.google.android.material.tabs.TabLayout$Tab.parent` @AccessFlag PUBLIC;
+  `int` `com.google.android.material.tabs.TabLayout$Tab.position` @AccessFlag PRIVATE;
+  `java.lang.Object` `com.google.android.material.tabs.TabLayout$Tab.tag` @AccessFlag PRIVATE;
+  `java.lang.CharSequence` `com.google.android.material.tabs.TabLayout$Tab.text` @AccessFlag PRIVATE;
+  `com.google.android.material.tabs.TabLayout$TabView` `com.google.android.material.tabs.TabLayout$Tab.view` @AccessFlag PUBLIC;
+}
+global `int` `@@com.google.android.material.tabs.TabLayout$Tab.INVALID_POSITION` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.tabs.TabLayout$Tab` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1b3d38.  call `<init>`(v1) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b3d3e.  v0:= -1I;
+  #L1b3d40.  v1.`com.google.android.material.tabs.TabLayout$Tab.position` @type ^`int` := v0;
+  #L1b3d44.  v0:= 1I;
+  #L1b3d46.  v1.`com.google.android.material.tabs.TabLayout$Tab.labelVisibilityMode` @type ^`int` := v0;
+  #L1b3d4a.  return @kind void;
+}
+procedure `java.lang.CharSequence` `access$100`(`com.google.android.material.tabs.TabLayout$Tab` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.access$100:(Lcom/google/android/material/tabs/TabLayout$Tab;)Ljava/lang/CharSequence;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1b3cb0.  v0:= v1.`com.google.android.material.tabs.TabLayout$Tab.contentDesc` @type ^`java.lang.CharSequence` @kind object;
+  #L1b3cb4.  return v0 @kind object;
+}
+procedure `int` `access$1000`(`com.google.android.material.tabs.TabLayout$Tab` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.access$1000:(Lcom/google/android/material/tabs/TabLayout$Tab;)I` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1b3c68.  v0:= v1.`com.google.android.material.tabs.TabLayout$Tab.labelVisibilityMode` @type ^`int`;
+  #L1b3c6c.  return v0;
+}
+procedure `java.lang.CharSequence` `access$200`(`com.google.android.material.tabs.TabLayout$Tab` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.access$200:(Lcom/google/android/material/tabs/TabLayout$Tab;)Ljava/lang/CharSequence;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1b3cc8.  v0:= v1.`com.google.android.material.tabs.TabLayout$Tab.text` @type ^`java.lang.CharSequence` @kind object;
+  #L1b3ccc.  return v0 @kind object;
+}
+procedure `com.google.android.material.badge.BadgeDrawable` `getBadge`(`com.google.android.material.tabs.TabLayout$Tab` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getBadge:()Lcom/google/android/material/badge/BadgeDrawable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b3994.  v0:= v1.`com.google.android.material.tabs.TabLayout$Tab.view` @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind object;
+  #L1b3998.  call temp:= `access$800`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.access$800:(Lcom/google/android/material/tabs/TabLayout$TabView;)Lcom/google/android/material/badge/BadgeDrawable;` @kind static;
+  #L1b399e.  v0:= temp @kind object;
+  #L1b39a0.  return v0 @kind object;
+}
+procedure `java.lang.CharSequence` `getContentDescription`(`com.google.android.material.tabs.TabLayout$Tab` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getContentDescription:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b3ce0.  v0:= v1.`com.google.android.material.tabs.TabLayout$Tab.view` @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind object;
+  #L1b3ce4.  if v0 != 0 then goto L1b3cec;
+  #L1b3ce8.  v0:= 0I;
+  #L1b3cea.  goto L1b3cf4;
+  #L1b3cec.  call temp:= `getContentDescription`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.getContentDescription:()Ljava/lang/CharSequence;` @kind virtual;
+  #L1b3cf2.  v0:= temp @kind object;
+  #L1b3cf4.  return v0 @kind object;
+}
+procedure `android.view.View` `getCustomView`(`com.google.android.material.tabs.TabLayout$Tab` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getCustomView:()Landroid/view/View;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b393c.  v0:= v1.`com.google.android.material.tabs.TabLayout$Tab.customView` @type ^`android.view.View` @kind object;
+  #L1b3940.  return v0 @kind object;
+}
+procedure `android.graphics.drawable.Drawable` `getIcon`(`com.google.android.material.tabs.TabLayout$Tab` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getIcon:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b3924.  v0:= v1.`com.google.android.material.tabs.TabLayout$Tab.icon` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1b3928.  return v0 @kind object;
+}
+procedure `com.google.android.material.badge.BadgeDrawable` `getOrCreateBadge`(`com.google.android.material.tabs.TabLayout$Tab` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getOrCreateBadge:()Lcom/google/android/material/badge/BadgeDrawable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b39b4.  v0:= v1.`com.google.android.material.tabs.TabLayout$Tab.view` @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind object;
+  #L1b39b8.  call temp:= `access$600`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.access$600:(Lcom/google/android/material/tabs/TabLayout$TabView;)Lcom/google/android/material/badge/BadgeDrawable;` @kind static;
+  #L1b39be.  v0:= temp @kind object;
+  #L1b39c0.  return v0 @kind object;
+}
+procedure `int` `getPosition`(`com.google.android.material.tabs.TabLayout$Tab` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getPosition:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b3c80.  v0:= v1.`com.google.android.material.tabs.TabLayout$Tab.position` @type ^`int`;
+  #L1b3c84.  return v0;
+}
+procedure `int` `getTabLabelVisibility`(`com.google.android.material.tabs.TabLayout$Tab` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getTabLabelVisibility:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b3c98.  v0:= v1.`com.google.android.material.tabs.TabLayout$Tab.labelVisibilityMode` @type ^`int`;
+  #L1b3c9c.  return v0;
+}
+procedure `java.lang.Object` `getTag`(`com.google.android.material.tabs.TabLayout$Tab` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getTag:()Ljava/lang/Object;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b3d20.  v0:= v1.`com.google.android.material.tabs.TabLayout$Tab.tag` @type ^`java.lang.Object` @kind object;
+  #L1b3d24.  return v0 @kind object;
+}
+procedure `java.lang.CharSequence` `getText`(`com.google.android.material.tabs.TabLayout$Tab` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getText:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b3d08.  v0:= v1.`com.google.android.material.tabs.TabLayout$Tab.text` @type ^`java.lang.CharSequence` @kind object;
+  #L1b3d0c.  return v0 @kind object;
+}
+procedure `boolean` `isSelected`(`com.google.android.material.tabs.TabLayout$Tab` v2 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.isSelected:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b3954.  v0:= v2.`com.google.android.material.tabs.TabLayout$Tab.parent` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b3958.  if v0 == 0 then goto L1b3974;
+  #L1b395c.  call temp:= `getSelectedTabPosition`(v0) @signature `Lcom/google/android/material/tabs/TabLayout;.getSelectedTabPosition:()I` @kind virtual;
+  #L1b3962.  v0:= temp;
+  #L1b3964.  v1:= v2.`com.google.android.material.tabs.TabLayout$Tab.position` @type ^`int`;
+  #L1b3968.  if v0 != v1 then goto L1b3970;
+  #L1b396c.  v0:= 1I;
+  #L1b396e.  goto L1b3972;
+  #L1b3970.  v0:= 0I;
+  #L1b3972.  return v0;
+  #L1b3974.  v0:= new `java.lang.IllegalArgumentException`;
+  #L1b3978.  v1:= "Tab not attached to a TabLayout" @kind object;
+  #L1b397c.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1b3982.  throw v0;
+}
+procedure `void` `removeBadge`(`com.google.android.material.tabs.TabLayout$Tab` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.removeBadge:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b3d5c.  v0:= v1.`com.google.android.material.tabs.TabLayout$Tab.view` @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind object;
+  #L1b3d60.  call `access$700`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.access$700:(Lcom/google/android/material/tabs/TabLayout$TabView;)V` @kind static;
+  #L1b3d66.  return @kind void;
+}
+procedure `void` `reset`(`com.google.android.material.tabs.TabLayout$Tab` v2 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.reset:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L1b3d78.  v0:= 0I;
+  #L1b3d7a.  v2.`com.google.android.material.tabs.TabLayout$Tab.parent` @type ^`com.google.android.material.tabs.TabLayout` := v0 @kind object;
+  #L1b3d7e.  v2.`com.google.android.material.tabs.TabLayout$Tab.view` @type ^`com.google.android.material.tabs.TabLayout$TabView` := v0 @kind object;
+  #L1b3d82.  v2.`com.google.android.material.tabs.TabLayout$Tab.tag` @type ^`java.lang.Object` := v0 @kind object;
+  #L1b3d86.  v2.`com.google.android.material.tabs.TabLayout$Tab.icon` @type ^`android.graphics.drawable.Drawable` := v0 @kind object;
+  #L1b3d8a.  v2.`com.google.android.material.tabs.TabLayout$Tab.text` @type ^`java.lang.CharSequence` := v0 @kind object;
+  #L1b3d8e.  v2.`com.google.android.material.tabs.TabLayout$Tab.contentDesc` @type ^`java.lang.CharSequence` := v0 @kind object;
+  #L1b3d92.  v1:= -1I;
+  #L1b3d94.  v2.`com.google.android.material.tabs.TabLayout$Tab.position` @type ^`int` := v1;
+  #L1b3d98.  v2.`com.google.android.material.tabs.TabLayout$Tab.customView` @type ^`android.view.View` := v0 @kind object;
+  #L1b3d9c.  return @kind void;
+}
+procedure `void` `select`(`com.google.android.material.tabs.TabLayout$Tab` v2 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.select:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b3db0.  v0:= v2.`com.google.android.material.tabs.TabLayout$Tab.parent` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b3db4.  if v0 == 0 then goto L1b3dc0;
+  #L1b3db8.  call `selectTab`(v0, v2) @signature `Lcom/google/android/material/tabs/TabLayout;.selectTab:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @kind virtual;
+  #L1b3dbe.  return @kind void;
+  #L1b3dc0.  v0:= new `java.lang.IllegalArgumentException`;
+  #L1b3dc4.  v1:= "Tab not attached to a TabLayout" @kind object;
+  #L1b3dc8.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1b3dce.  throw v0;
+}
+procedure `com.google.android.material.tabs.TabLayout$Tab` `setContentDescription`(`com.google.android.material.tabs.TabLayout$Tab` v2 @kind this, `int` v3 @name `resId`) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setContentDescription:(I)Lcom/google/android/material/tabs/TabLayout$Tab;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b39d4.  v0:= v2.`com.google.android.material.tabs.TabLayout$Tab.parent` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b39d8.  if v0 == 0 then goto L1b39f6;
+  #L1b39dc.  call temp:= `getResources`(v0) @signature `Lcom/google/android/material/tabs/TabLayout;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1b39e2.  v0:= temp @kind object;
+  #L1b39e4.  call temp:= `getText`(v0, v3) @signature `Landroid/content/res/Resources;.getText:(I)Ljava/lang/CharSequence;` @kind virtual;
+  #L1b39ea.  v0:= temp @kind object;
+  #L1b39ec.  call temp:= `setContentDescription`(v2, v0) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setContentDescription:(Ljava/lang/CharSequence;)Lcom/google/android/material/tabs/TabLayout$Tab;` @kind virtual;
+  #L1b39f2.  v0:= temp @kind object;
+  #L1b39f4.  return v0 @kind object;
+  #L1b39f6.  v0:= new `java.lang.IllegalArgumentException`;
+  #L1b39fa.  v1:= "Tab not attached to a TabLayout" @kind object;
+  #L1b39fe.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1b3a04.  throw v0;
+}
+procedure `com.google.android.material.tabs.TabLayout$Tab` `setContentDescription`(`com.google.android.material.tabs.TabLayout$Tab` v0 @kind this, `java.lang.CharSequence` v1 @kind object @name `contentDesc`) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setContentDescription:(Ljava/lang/CharSequence;)Lcom/google/android/material/tabs/TabLayout$Tab;` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b3a18.  v0.`com.google.android.material.tabs.TabLayout$Tab.contentDesc` @type ^`java.lang.CharSequence` := v1 @kind object;
+  #L1b3a1c.  call `updateView`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.updateView:()V` @kind virtual;
+  #L1b3a22.  return v0 @kind object;
+}
+procedure `com.google.android.material.tabs.TabLayout$Tab` `setCustomView`(`com.google.android.material.tabs.TabLayout$Tab` v3 @kind this, `int` v4 @name `resId`) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setCustomView:(I)Lcom/google/android/material/tabs/TabLayout$Tab;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b3a50.  v0:= v3.`com.google.android.material.tabs.TabLayout$Tab.view` @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind object;
+  #L1b3a54.  call temp:= `getContext`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1b3a5a.  v0:= temp @kind object;
+  #L1b3a5c.  call temp:= `from`(v0) @signature `Landroid/view/LayoutInflater;.from:(Landroid/content/Context;)Landroid/view/LayoutInflater;` @kind static;
+  #L1b3a62.  v0:= temp @kind object;
+  #L1b3a64.  v1:= v3.`com.google.android.material.tabs.TabLayout$Tab.view` @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind object;
+  #L1b3a68.  v2:= 0I;
+  #L1b3a6a.  call temp:= `inflate`(v0, v4, v1, v2) @signature `Landroid/view/LayoutInflater;.inflate:(ILandroid/view/ViewGroup;Z)Landroid/view/View;` @kind virtual;
+  #L1b3a70.  v1:= temp @kind object;
+  #L1b3a72.  call temp:= `setCustomView`(v3, v1) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setCustomView:(Landroid/view/View;)Lcom/google/android/material/tabs/TabLayout$Tab;` @kind virtual;
+  #L1b3a78.  v1:= temp @kind object;
+  #L1b3a7a.  return v1 @kind object;
+}
+procedure `com.google.android.material.tabs.TabLayout$Tab` `setCustomView`(`com.google.android.material.tabs.TabLayout$Tab` v0 @kind this, `android.view.View` v1 @kind object @name `view`) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setCustomView:(Landroid/view/View;)Lcom/google/android/material/tabs/TabLayout$Tab;` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b3a34.  v0.`com.google.android.material.tabs.TabLayout$Tab.customView` @type ^`android.view.View` := v1 @kind object;
+  #L1b3a38.  call `updateView`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.updateView:()V` @kind virtual;
+  #L1b3a3e.  return v0 @kind object;
+}
+procedure `com.google.android.material.tabs.TabLayout$Tab` `setIcon`(`com.google.android.material.tabs.TabLayout$Tab` v2 @kind this, `int` v3 @name `resId`) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setIcon:(I)Lcom/google/android/material/tabs/TabLayout$Tab;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b3b08.  v0:= v2.`com.google.android.material.tabs.TabLayout$Tab.parent` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b3b0c.  if v0 == 0 then goto L1b3b2a;
+  #L1b3b10.  call temp:= `getContext`(v0) @signature `Lcom/google/android/material/tabs/TabLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1b3b16.  v0:= temp @kind object;
+  #L1b3b18.  call temp:= `getDrawable`(v0, v3) @signature `Landroidx/appcompat/content/res/AppCompatResources;.getDrawable:(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;` @kind static;
+  #L1b3b1e.  v0:= temp @kind object;
+  #L1b3b20.  call temp:= `setIcon`(v2, v0) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setIcon:(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/tabs/TabLayout$Tab;` @kind virtual;
+  #L1b3b26.  v0:= temp @kind object;
+  #L1b3b28.  return v0 @kind object;
+  #L1b3b2a.  v0:= new `java.lang.IllegalArgumentException`;
+  #L1b3b2e.  v1:= "Tab not attached to a TabLayout" @kind object;
+  #L1b3b32.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1b3b38.  throw v0;
+}
+procedure `com.google.android.material.tabs.TabLayout$Tab` `setIcon`(`com.google.android.material.tabs.TabLayout$Tab` v3 @kind this, `android.graphics.drawable.Drawable` v4 @kind object @name `icon`) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setIcon:(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/tabs/TabLayout$Tab;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b3a8c.  v3.`com.google.android.material.tabs.TabLayout$Tab.icon` @type ^`android.graphics.drawable.Drawable` := v4 @kind object;
+  #L1b3a90.  v0:= v3.`com.google.android.material.tabs.TabLayout$Tab.parent` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b3a94.  v0:= v0.`com.google.android.material.tabs.TabLayout.tabGravity` @type ^`int`;
+  #L1b3a98.  v1:= 1I;
+  #L1b3a9a.  if v0 == v1 then goto L1b3aac;
+  #L1b3a9e.  v0:= v3.`com.google.android.material.tabs.TabLayout$Tab.parent` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b3aa2.  v0:= v0.`com.google.android.material.tabs.TabLayout.mode` @type ^`int`;
+  #L1b3aa6.  v2:= 2I;
+  #L1b3aa8.  if v0 != v2 then goto L1b3ab6;
+  #L1b3aac.  v0:= v3.`com.google.android.material.tabs.TabLayout$Tab.parent` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b3ab0.  call `updateTabViews`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.updateTabViews:(Z)V` @kind virtual;
+  #L1b3ab6.  call `updateView`(v3) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.updateView:()V` @kind virtual;
+  #L1b3abc.  v0:= `@@com.google.android.material.badge.BadgeUtils.USE_COMPAT_PARENT` @type ^`boolean` @kind boolean;
+  #L1b3ac0.  if v0 == 0 then goto L1b3af6;
+  #L1b3ac4.  v0:= v3.`com.google.android.material.tabs.TabLayout$Tab.view` @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind object;
+  #L1b3ac8.  call temp:= `access$400`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.access$400:(Lcom/google/android/material/tabs/TabLayout$TabView;)Z` @kind static;
+  #L1b3ace.  v0:= temp;
+  #L1b3ad0.  if v0 == 0 then goto L1b3af6;
+  #L1b3ad4.  v0:= v3.`com.google.android.material.tabs.TabLayout$Tab.view` @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind object;
+  #L1b3ad8.  call temp:= `access$500`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.access$500:(Lcom/google/android/material/tabs/TabLayout$TabView;)Lcom/google/android/material/badge/BadgeDrawable;` @kind static;
+  #L1b3ade.  v0:= temp @kind object;
+  #L1b3ae0.  call temp:= `isVisible`(v0) @signature `Lcom/google/android/material/badge/BadgeDrawable;.isVisible:()Z` @kind virtual;
+  #L1b3ae6.  v0:= temp;
+  #L1b3ae8.  if v0 == 0 then goto L1b3af6;
+  #L1b3aec.  v0:= v3.`com.google.android.material.tabs.TabLayout$Tab.view` @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind object;
+  #L1b3af0.  call `invalidate`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.invalidate:()V` @kind virtual;
+  #L1b3af6.  return v3 @kind object;
+}
+procedure `void` `setPosition`(`com.google.android.material.tabs.TabLayout$Tab` v0 @kind this, `int` v1 @name `position`) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setPosition:(I)V` @AccessFlag  {
+    temp;
+
+  #L1b3de0.  v0.`com.google.android.material.tabs.TabLayout$Tab.position` @type ^`int` := v1;
+  #L1b3de4.  return @kind void;
+}
+procedure `com.google.android.material.tabs.TabLayout$Tab` `setTabLabelVisibility`(`com.google.android.material.tabs.TabLayout$Tab` v3 @kind this, `int` v4 @name `mode`) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setTabLabelVisibility:(I)Lcom/google/android/material/tabs/TabLayout$Tab;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b3b4c.  v3.`com.google.android.material.tabs.TabLayout$Tab.labelVisibilityMode` @type ^`int` := v4;
+  #L1b3b50.  v0:= v3.`com.google.android.material.tabs.TabLayout$Tab.parent` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b3b54.  v0:= v0.`com.google.android.material.tabs.TabLayout.tabGravity` @type ^`int`;
+  #L1b3b58.  v1:= 1I;
+  #L1b3b5a.  if v0 == v1 then goto L1b3b6c;
+  #L1b3b5e.  v0:= v3.`com.google.android.material.tabs.TabLayout$Tab.parent` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b3b62.  v0:= v0.`com.google.android.material.tabs.TabLayout.mode` @type ^`int`;
+  #L1b3b66.  v2:= 2I;
+  #L1b3b68.  if v0 != v2 then goto L1b3b76;
+  #L1b3b6c.  v0:= v3.`com.google.android.material.tabs.TabLayout$Tab.parent` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b3b70.  call `updateTabViews`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.updateTabViews:(Z)V` @kind virtual;
+  #L1b3b76.  call `updateView`(v3) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.updateView:()V` @kind virtual;
+  #L1b3b7c.  v0:= `@@com.google.android.material.badge.BadgeUtils.USE_COMPAT_PARENT` @type ^`boolean` @kind boolean;
+  #L1b3b80.  if v0 == 0 then goto L1b3bb6;
+  #L1b3b84.  v0:= v3.`com.google.android.material.tabs.TabLayout$Tab.view` @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind object;
+  #L1b3b88.  call temp:= `access$400`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.access$400:(Lcom/google/android/material/tabs/TabLayout$TabView;)Z` @kind static;
+  #L1b3b8e.  v0:= temp;
+  #L1b3b90.  if v0 == 0 then goto L1b3bb6;
+  #L1b3b94.  v0:= v3.`com.google.android.material.tabs.TabLayout$Tab.view` @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind object;
+  #L1b3b98.  call temp:= `access$500`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.access$500:(Lcom/google/android/material/tabs/TabLayout$TabView;)Lcom/google/android/material/badge/BadgeDrawable;` @kind static;
+  #L1b3b9e.  v0:= temp @kind object;
+  #L1b3ba0.  call temp:= `isVisible`(v0) @signature `Lcom/google/android/material/badge/BadgeDrawable;.isVisible:()Z` @kind virtual;
+  #L1b3ba6.  v0:= temp;
+  #L1b3ba8.  if v0 == 0 then goto L1b3bb6;
+  #L1b3bac.  v0:= v3.`com.google.android.material.tabs.TabLayout$Tab.view` @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind object;
+  #L1b3bb0.  call `invalidate`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.invalidate:()V` @kind virtual;
+  #L1b3bb6.  return v3 @kind object;
+}
+procedure `com.google.android.material.tabs.TabLayout$Tab` `setTag`(`com.google.android.material.tabs.TabLayout$Tab` v0 @kind this, `java.lang.Object` v1 @kind object @name `tag`) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setTag:(Ljava/lang/Object;)Lcom/google/android/material/tabs/TabLayout$Tab;` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b3bc8.  v0.`com.google.android.material.tabs.TabLayout$Tab.tag` @type ^`java.lang.Object` := v1 @kind object;
+  #L1b3bcc.  return v0 @kind object;
+}
+procedure `com.google.android.material.tabs.TabLayout$Tab` `setText`(`com.google.android.material.tabs.TabLayout$Tab` v2 @kind this, `int` v3 @name `resId`) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setText:(I)Lcom/google/android/material/tabs/TabLayout$Tab;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b3be0.  v0:= v2.`com.google.android.material.tabs.TabLayout$Tab.parent` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b3be4.  if v0 == 0 then goto L1b3c02;
+  #L1b3be8.  call temp:= `getResources`(v0) @signature `Lcom/google/android/material/tabs/TabLayout;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1b3bee.  v0:= temp @kind object;
+  #L1b3bf0.  call temp:= `getText`(v0, v3) @signature `Landroid/content/res/Resources;.getText:(I)Ljava/lang/CharSequence;` @kind virtual;
+  #L1b3bf6.  v0:= temp @kind object;
+  #L1b3bf8.  call temp:= `setText`(v2, v0) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setText:(Ljava/lang/CharSequence;)Lcom/google/android/material/tabs/TabLayout$Tab;` @kind virtual;
+  #L1b3bfe.  v0:= temp @kind object;
+  #L1b3c00.  return v0 @kind object;
+  #L1b3c02.  v0:= new `java.lang.IllegalArgumentException`;
+  #L1b3c06.  v1:= "Tab not attached to a TabLayout" @kind object;
+  #L1b3c0a.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1b3c10.  throw v0;
+}
+procedure `com.google.android.material.tabs.TabLayout$Tab` `setText`(`com.google.android.material.tabs.TabLayout$Tab` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `text`) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setText:(Ljava/lang/CharSequence;)Lcom/google/android/material/tabs/TabLayout$Tab;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b3c24.  v0:= v1.`com.google.android.material.tabs.TabLayout$Tab.contentDesc` @type ^`java.lang.CharSequence` @kind object;
+  #L1b3c28.  call temp:= `isEmpty`(v0) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L1b3c2e.  v0:= temp;
+  #L1b3c30.  if v0 == 0 then goto L1b3c4a;
+  #L1b3c34.  call temp:= `isEmpty`(v2) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L1b3c3a.  v0:= temp;
+  #L1b3c3c.  if v0 != 0 then goto L1b3c4a;
+  #L1b3c40.  v0:= v1.`com.google.android.material.tabs.TabLayout$Tab.view` @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind object;
+  #L1b3c44.  call `setContentDescription`(v0, v2) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.setContentDescription:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1b3c4a.  v1.`com.google.android.material.tabs.TabLayout$Tab.text` @type ^`java.lang.CharSequence` := v2 @kind object;
+  #L1b3c4e.  call `updateView`(v1) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.updateView:()V` @kind virtual;
+  #L1b3c54.  return v1 @kind object;
+}
+procedure `void` `updateView`(`com.google.android.material.tabs.TabLayout$Tab` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.updateView:()V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b3df8.  v0:= v1.`com.google.android.material.tabs.TabLayout$Tab.view` @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind object;
+  #L1b3dfc.  if v0 == 0 then goto L1b3e06;
+  #L1b3e00.  call `update`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.update:()V` @kind virtual;
+  #L1b3e06.  return @kind void;
+}

@@ -1,0 +1,279 @@
+record `com.google.android.material.internal.ForegroundLinearLayout` @kind class @AccessFlag PUBLIC extends `androidx.appcompat.widget.LinearLayoutCompat` @kind class {
+  `android.graphics.drawable.Drawable` `com.google.android.material.internal.ForegroundLinearLayout.foreground` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.internal.ForegroundLinearLayout.foregroundBoundsChanged` @AccessFlag ;
+  `int` `com.google.android.material.internal.ForegroundLinearLayout.foregroundGravity` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.internal.ForegroundLinearLayout.mForegroundInPadding` @AccessFlag PROTECTED;
+  `android.graphics.Rect` `com.google.android.material.internal.ForegroundLinearLayout.overlayBounds` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.Rect` `com.google.android.material.internal.ForegroundLinearLayout.selfBounds` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.ForegroundLinearLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a44f8.  v0:= 0I;
+  #L1a44fa.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1a4500.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.ForegroundLinearLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a4514.  v0:= 0I;
+  #L1a4516.  call `<init>`(v1, v2, v3, v0) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1a451c.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.ForegroundLinearLayout` v8 @kind this, `android.content.Context` v9 @kind object @name `context`, `android.util.AttributeSet` v10 @kind object @name `attrs`, `int` v11 @name `defStyle`) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L1a4530.  call `<init>`(v8, v9, v10, v11) @signature `Landroidx/appcompat/widget/LinearLayoutCompat;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1a4536.  v0:= new `android.graphics.Rect`;
+  #L1a453a.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L1a4540.  v8.`com.google.android.material.internal.ForegroundLinearLayout.selfBounds` @type ^`android.graphics.Rect` := v0 @kind object;
+  #L1a4544.  v0:= new `android.graphics.Rect`;
+  #L1a4548.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L1a454e.  v8.`com.google.android.material.internal.ForegroundLinearLayout.overlayBounds` @type ^`android.graphics.Rect` := v0 @kind object;
+  #L1a4552.  v0:= 119I;
+  #L1a4556.  v8.`com.google.android.material.internal.ForegroundLinearLayout.foregroundGravity` @type ^`int` := v0;
+  #L1a455a.  v0:= 1I;
+  #L1a455c.  v8.`com.google.android.material.internal.ForegroundLinearLayout.mForegroundInPadding` @type ^`boolean` := v0 @kind boolean;
+  #L1a4560.  v1:= 0I;
+  #L1a4562.  v8.`com.google.android.material.internal.ForegroundLinearLayout.foregroundBoundsChanged` @type ^`boolean` := v1 @kind boolean;
+  #L1a4566.  v4:= `@@com.google.android.material.R$styleable.ForegroundLinearLayout` @type ^`int`[] @kind object;
+  #L1a456a.  v7:= new `int`[v1];
+  #L1a456e.  v6:= 0I;
+  #L1a4570.  v2:= v9 @kind object;
+  #L1a4572.  v3:= v10 @kind object;
+  #L1a4574.  v5:= v11;
+  #L1a4576.  call temp:= `obtainStyledAttributes`(v2, v3, v4, v5, v6, v7) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainStyledAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;` @kind static;
+  #L1a457c.  v1:= temp @kind object;
+  #L1a457e.  v2:= `@@com.google.android.material.R$styleable.ForegroundLinearLayout_android_foregroundGravity` @type ^`int`;
+  #L1a4582.  v3:= v8.`com.google.android.material.internal.ForegroundLinearLayout.foregroundGravity` @type ^`int`;
+  #L1a4586.  call temp:= `getInt`(v1, v2, v3) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L1a458c.  v2:= temp;
+  #L1a458e.  v8.`com.google.android.material.internal.ForegroundLinearLayout.foregroundGravity` @type ^`int` := v2;
+  #L1a4592.  v2:= `@@com.google.android.material.R$styleable.ForegroundLinearLayout_android_foreground` @type ^`int`;
+  #L1a4596.  call temp:= `getDrawable`(v1, v2) @signature `Landroid/content/res/TypedArray;.getDrawable:(I)Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1a459c.  v2:= temp @kind object;
+  #L1a459e.  if v2 == 0 then goto L1a45a8;
+  #L1a45a2.  call `setForeground`(v8, v2) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.setForeground:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L1a45a8.  v3:= `@@com.google.android.material.R$styleable.ForegroundLinearLayout_foregroundInsidePadding` @type ^`int`;
+  #L1a45ac.  call temp:= `getBoolean`(v1, v3, v0) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L1a45b2.  v0:= temp;
+  #L1a45b4.  v8.`com.google.android.material.internal.ForegroundLinearLayout.mForegroundInPadding` @type ^`boolean` := v0 @kind boolean;
+  #L1a45b8.  call `recycle`(v1) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1a45be.  return @kind void;
+}
+procedure `void` `draw`(`com.google.android.material.internal.ForegroundLinearLayout` v9 @kind this, `android.graphics.Canvas` v10 @kind object @name `canvas`) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.draw:(Landroid/graphics/Canvas;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L1a45d0.  call `draw`(v9, v10) @signature `Landroidx/appcompat/widget/LinearLayoutCompat;.draw:(Landroid/graphics/Canvas;)V` @kind super;
+  #L1a45d6.  v0:= v9.`com.google.android.material.internal.ForegroundLinearLayout.foreground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a45da.  if v0 == 0 then goto L1a4682;
+  #L1a45de.  v0:= v9.`com.google.android.material.internal.ForegroundLinearLayout.foreground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a45e2.  v1:= v9.`com.google.android.material.internal.ForegroundLinearLayout.foregroundBoundsChanged` @type ^`boolean` @kind boolean;
+  #L1a45e6.  if v1 == 0 then goto L1a467c;
+  #L1a45ea.  v1:= 0I;
+  #L1a45ec.  v9.`com.google.android.material.internal.ForegroundLinearLayout.foregroundBoundsChanged` @type ^`boolean` := v1 @kind boolean;
+  #L1a45f0.  v2:= v9.`com.google.android.material.internal.ForegroundLinearLayout.selfBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a45f4.  v3:= v9.`com.google.android.material.internal.ForegroundLinearLayout.overlayBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a45f8.  call temp:= `getRight`(v9) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.getRight:()I` @kind virtual;
+  #L1a45fe.  v4:= temp;
+  #L1a4600.  call temp:= `getLeft`(v9) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.getLeft:()I` @kind virtual;
+  #L1a4606.  v5:= temp;
+  #L1a4608.  v4:= v4 - v5 @kind int;
+  #L1a460a.  call temp:= `getBottom`(v9) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.getBottom:()I` @kind virtual;
+  #L1a4610.  v5:= temp;
+  #L1a4612.  call temp:= `getTop`(v9) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.getTop:()I` @kind virtual;
+  #L1a4618.  v6:= temp;
+  #L1a461a.  v5:= v5 - v6 @kind int;
+  #L1a461c.  v6:= v9.`com.google.android.material.internal.ForegroundLinearLayout.mForegroundInPadding` @type ^`boolean` @kind boolean;
+  #L1a4620.  if v6 == 0 then goto L1a462c;
+  #L1a4624.  call `set`(v2, v1, v1, v4, v5) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L1a462a.  goto L1a465c;
+  #L1a462c.  
+  #L1a462e.  call temp:= `getPaddingLeft`(v9) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.getPaddingLeft:()I` @kind virtual;
+  #L1a4634.  v1:= temp;
+  #L1a4636.  call temp:= `getPaddingTop`(v9) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.getPaddingTop:()I` @kind virtual;
+  #L1a463c.  v6:= temp;
+  #L1a463e.  call temp:= `getPaddingRight`(v9) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.getPaddingRight:()I` @kind virtual;
+  #L1a4644.  v7:= temp;
+  #L1a4646.  v7:= v4 - v7 @kind int;
+  #L1a464a.  call temp:= `getPaddingBottom`(v9) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.getPaddingBottom:()I` @kind virtual;
+  #L1a4650.  v8:= temp;
+  #L1a4652.  v8:= v5 - v8 @kind int;
+  #L1a4656.  call `set`(v2, v1, v6, v7, v8) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L1a465c.  v1:= v9.`com.google.android.material.internal.ForegroundLinearLayout.foregroundGravity` @type ^`int`;
+  #L1a4660.  call temp:= `getIntrinsicWidth`(v0) @signature `Landroid/graphics/drawable/Drawable;.getIntrinsicWidth:()I` @kind virtual;
+  #L1a4666.  v6:= temp;
+  #L1a4668.  call temp:= `getIntrinsicHeight`(v0) @signature `Landroid/graphics/drawable/Drawable;.getIntrinsicHeight:()I` @kind virtual;
+  #L1a466e.  v7:= temp;
+  #L1a4670.  call `apply`(v1, v6, v7, v2, v3) @signature `Landroid/view/Gravity;.apply:(IIILandroid/graphics/Rect;Landroid/graphics/Rect;)V` @kind static;
+  #L1a4676.  call `setBounds`(v0, v3) @signature `Landroid/graphics/drawable/Drawable;.setBounds:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L1a467c.  call `draw`(v0, v10) @signature `Landroid/graphics/drawable/Drawable;.draw:(Landroid/graphics/Canvas;)V` @kind virtual;
+  #L1a4682.  return @kind void;
+}
+procedure `void` `drawableHotspotChanged`(`com.google.android.material.internal.ForegroundLinearLayout` v1 @kind this, `float` v2 @name `x`, `float` v3 @name `y`) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.drawableHotspotChanged:(FF)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a4694.  call `drawableHotspotChanged`(v1, v2, v3) @signature `Landroidx/appcompat/widget/LinearLayoutCompat;.drawableHotspotChanged:(FF)V` @kind super;
+  #L1a469a.  v0:= v1.`com.google.android.material.internal.ForegroundLinearLayout.foreground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a469e.  if v0 == 0 then goto L1a46a8;
+  #L1a46a2.  call `setHotspot`(v0, v2, v3) @signature `Landroid/graphics/drawable/Drawable;.setHotspot:(FF)V` @kind virtual;
+  #L1a46a8.  return @kind void;
+}
+procedure `void` `drawableStateChanged`(`com.google.android.material.internal.ForegroundLinearLayout` v2 @kind this) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.drawableStateChanged:()V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L1a46bc.  call `drawableStateChanged`(v2) @signature `Landroidx/appcompat/widget/LinearLayoutCompat;.drawableStateChanged:()V` @kind super;
+  #L1a46c2.  v0:= v2.`com.google.android.material.internal.ForegroundLinearLayout.foreground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a46c6.  if v0 == 0 then goto L1a46e8;
+  #L1a46ca.  call temp:= `isStateful`(v0) @signature `Landroid/graphics/drawable/Drawable;.isStateful:()Z` @kind virtual;
+  #L1a46d0.  v0:= temp;
+  #L1a46d2.  if v0 == 0 then goto L1a46e8;
+  #L1a46d6.  v0:= v2.`com.google.android.material.internal.ForegroundLinearLayout.foreground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a46da.  call temp:= `getDrawableState`(v2) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.getDrawableState:()[I` @kind virtual;
+  #L1a46e0.  v1:= temp @kind object;
+  #L1a46e2.  call temp:= `setState`(v0, v1) @signature `Landroid/graphics/drawable/Drawable;.setState:([I)Z` @kind virtual;
+  #L1a46e8.  return @kind void;
+}
+procedure `android.graphics.drawable.Drawable` `getForeground`(`com.google.android.material.internal.ForegroundLinearLayout` v1 @kind this) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.getForeground:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a4498.  v0:= v1.`com.google.android.material.internal.ForegroundLinearLayout.foreground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a449c.  return v0 @kind object;
+}
+procedure `int` `getForegroundGravity`(`com.google.android.material.internal.ForegroundLinearLayout` v1 @kind this) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.getForegroundGravity:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a44e0.  v0:= v1.`com.google.android.material.internal.ForegroundLinearLayout.foregroundGravity` @type ^`int`;
+  #L1a44e4.  return v0;
+}
+procedure `void` `jumpDrawablesToCurrentState`(`com.google.android.material.internal.ForegroundLinearLayout` v1 @kind this) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.jumpDrawablesToCurrentState:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a46fc.  call `jumpDrawablesToCurrentState`(v1) @signature `Landroidx/appcompat/widget/LinearLayoutCompat;.jumpDrawablesToCurrentState:()V` @kind super;
+  #L1a4702.  v0:= v1.`com.google.android.material.internal.ForegroundLinearLayout.foreground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a4706.  if v0 == 0 then goto L1a4710;
+  #L1a470a.  call `jumpToCurrentState`(v0) @signature `Landroid/graphics/drawable/Drawable;.jumpToCurrentState:()V` @kind virtual;
+  #L1a4710.  return @kind void;
+}
+procedure `void` `onLayout`(`com.google.android.material.internal.ForegroundLinearLayout` v1 @kind this, `boolean` v2 @name `changed`, `int` v3 @name `left`, `int` v4 @name `top`, `int` v5 @name `right`, `int` v6 @name `bottom`) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.onLayout:(ZIIII)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L1a4724.  call `onLayout`(v1, v2, v3, v4, v5, v6) @signature `Landroidx/appcompat/widget/LinearLayoutCompat;.onLayout:(ZIIII)V` @kind super;
+  #L1a472a.  v0:= v1.`com.google.android.material.internal.ForegroundLinearLayout.foregroundBoundsChanged` @type ^`boolean` @kind boolean;
+  #L1a472e.  v0:= v0 ^| v2 @kind int;
+  #L1a4730.  v1.`com.google.android.material.internal.ForegroundLinearLayout.foregroundBoundsChanged` @type ^`boolean` := v0 @kind boolean;
+  #L1a4734.  return @kind void;
+}
+procedure `void` `onSizeChanged`(`com.google.android.material.internal.ForegroundLinearLayout` v1 @kind this, `int` v2 @name `w`, `int` v3 @name `h`, `int` v4 @name `oldw`, `int` v5 @name `oldh`) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.onSizeChanged:(IIII)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L1a4748.  call `onSizeChanged`(v1, v2, v3, v4, v5) @signature `Landroidx/appcompat/widget/LinearLayoutCompat;.onSizeChanged:(IIII)V` @kind super;
+  #L1a474e.  v0:= 1I;
+  #L1a4750.  v1.`com.google.android.material.internal.ForegroundLinearLayout.foregroundBoundsChanged` @type ^`boolean` := v0 @kind boolean;
+  #L1a4754.  return @kind void;
+}
+procedure `void` `setForeground`(`com.google.android.material.internal.ForegroundLinearLayout` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `drawable`) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.setForeground:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a4768.  v0:= v2.`com.google.android.material.internal.ForegroundLinearLayout.foreground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a476c.  if v0 == v3 then goto L1a47e8;
+  #L1a4770.  if v0 == 0 then goto L1a4786;
+  #L1a4774.  v1:= 0I;
+  #L1a4776.  call `setCallback`(v0, v1) @signature `Landroid/graphics/drawable/Drawable;.setCallback:(Landroid/graphics/drawable/Drawable$Callback;)V` @kind virtual;
+  #L1a477c.  v0:= v2.`com.google.android.material.internal.ForegroundLinearLayout.foreground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a4780.  call `unscheduleDrawable`(v2, v0) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.unscheduleDrawable:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L1a4786.  v2.`com.google.android.material.internal.ForegroundLinearLayout.foreground` @type ^`android.graphics.drawable.Drawable` := v3 @kind object;
+  #L1a478a.  if v3 == 0 then goto L1a47d4;
+  #L1a478e.  v0:= 0I;
+  #L1a4790.  call `setWillNotDraw`(v2, v0) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.setWillNotDraw:(Z)V` @kind virtual;
+  #L1a4796.  call `setCallback`(v3, v2) @signature `Landroid/graphics/drawable/Drawable;.setCallback:(Landroid/graphics/drawable/Drawable$Callback;)V` @kind virtual;
+  #L1a479c.  call temp:= `isStateful`(v3) @signature `Landroid/graphics/drawable/Drawable;.isStateful:()Z` @kind virtual;
+  #L1a47a2.  v0:= temp;
+  #L1a47a4.  if v0 == 0 then goto L1a47b6;
+  #L1a47a8.  call temp:= `getDrawableState`(v2) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.getDrawableState:()[I` @kind virtual;
+  #L1a47ae.  v0:= temp @kind object;
+  #L1a47b0.  call temp:= `setState`(v3, v0) @signature `Landroid/graphics/drawable/Drawable;.setState:([I)Z` @kind virtual;
+  #L1a47b6.  v0:= v2.`com.google.android.material.internal.ForegroundLinearLayout.foregroundGravity` @type ^`int`;
+  #L1a47ba.  v1:= 119I;
+  #L1a47be.  if v0 != v1 then goto L1a47dc;
+  #L1a47c2.  v0:= new `android.graphics.Rect`;
+  #L1a47c6.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L1a47cc.  call temp:= `getPadding`(v3, v0) @signature `Landroid/graphics/drawable/Drawable;.getPadding:(Landroid/graphics/Rect;)Z` @kind virtual;
+  #L1a47d2.  goto L1a47dc;
+  #L1a47d4.  v0:= 1I;
+  #L1a47d6.  call `setWillNotDraw`(v2, v0) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.setWillNotDraw:(Z)V` @kind virtual;
+  #L1a47dc.  call `requestLayout`(v2) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.requestLayout:()V` @kind virtual;
+  #L1a47e2.  call `invalidate`(v2) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.invalidate:()V` @kind virtual;
+  #L1a47e8.  return @kind void;
+}
+procedure `void` `setForegroundGravity`(`com.google.android.material.internal.ForegroundLinearLayout` v2 @kind this, `int` v3 @name `foregroundGravity`) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.setForegroundGravity:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a47fc.  v0:= v2.`com.google.android.material.internal.ForegroundLinearLayout.foregroundGravity` @type ^`int`;
+  #L1a4800.  if v0 == v3 then goto L1a4852;
+  #L1a4804.  v0:= 8388615I;
+  #L1a480a.  v0:= v0 ^& v3 @kind int;
+  #L1a480c.  if v0 != 0 then goto L1a4818;
+  #L1a4810.  v0:= 8388611I;
+  #L1a4816.  v3:= v3 ^| v0 @kind int;
+  #L1a4818.  v0:= v3 ^& 112;
+  #L1a481c.  if v0 != 0 then goto L1a4824;
+  #L1a4820.  v3:= v3 ^| 48;
+  #L1a4824.  v2.`com.google.android.material.internal.ForegroundLinearLayout.foregroundGravity` @type ^`int` := v3;
+  #L1a4828.  v0:= 119I;
+  #L1a482c.  if v3 != v0 then goto L1a484c;
+  #L1a4830.  v0:= v2.`com.google.android.material.internal.ForegroundLinearLayout.foreground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a4834.  if v0 == 0 then goto L1a484c;
+  #L1a4838.  v0:= new `android.graphics.Rect`;
+  #L1a483c.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L1a4842.  v1:= v2.`com.google.android.material.internal.ForegroundLinearLayout.foreground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a4846.  call temp:= `getPadding`(v1, v0) @signature `Landroid/graphics/drawable/Drawable;.getPadding:(Landroid/graphics/Rect;)Z` @kind virtual;
+  #L1a484c.  call `requestLayout`(v2) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.requestLayout:()V` @kind virtual;
+  #L1a4852.  return @kind void;
+}
+procedure `boolean` `verifyDrawable`(`com.google.android.material.internal.ForegroundLinearLayout` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `who`) @signature `Lcom/google/android/material/internal/ForegroundLinearLayout;.verifyDrawable:(Landroid/graphics/drawable/Drawable;)Z` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L1a44b0.  call temp:= `verifyDrawable`(v1, v2) @signature `Landroidx/appcompat/widget/LinearLayoutCompat;.verifyDrawable:(Landroid/graphics/drawable/Drawable;)Z` @kind super;
+  #L1a44b6.  v0:= temp;
+  #L1a44b8.  if v0 != 0 then goto L1a44ca;
+  #L1a44bc.  v0:= v1.`com.google.android.material.internal.ForegroundLinearLayout.foreground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a44c0.  if v2 != v0 then goto L1a44c6;
+  #L1a44c4.  goto L1a44ca;
+  #L1a44c6.  v0:= 0I;
+  #L1a44c8.  goto L1a44cc;
+  #L1a44ca.  v0:= 1I;
+  #L1a44cc.  return v0;
+}

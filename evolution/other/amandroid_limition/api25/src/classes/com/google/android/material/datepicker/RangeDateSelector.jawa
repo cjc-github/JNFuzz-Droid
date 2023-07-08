@@ -1,0 +1,528 @@
+record `com.google.android.material.datepicker.RangeDateSelector` @kind class @AccessFlag PUBLIC extends `com.google.android.material.datepicker.DateSelector` @kind interface {
+  `java.lang.String` `com.google.android.material.datepicker.RangeDateSelector.invalidRangeEndError` @AccessFlag PRIVATE_FINAL;
+  `java.lang.String` `com.google.android.material.datepicker.RangeDateSelector.invalidRangeStartError` @AccessFlag PRIVATE;
+  `java.lang.Long` `com.google.android.material.datepicker.RangeDateSelector.proposedTextEnd` @AccessFlag PRIVATE;
+  `java.lang.Long` `com.google.android.material.datepicker.RangeDateSelector.proposedTextStart` @AccessFlag PRIVATE;
+  `java.lang.Long` `com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @AccessFlag PRIVATE;
+  `java.lang.Long` `com.google.android.material.datepicker.RangeDateSelector.selectedStartItem` @AccessFlag PRIVATE;
+}
+global `android.os.Parcelable$Creator` `@@com.google.android.material.datepicker.RangeDateSelector.CREATOR` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L19afe0.  v0:= new `com.google.android.material.datepicker.RangeDateSelector$3`;
+  #L19afe4.  call `<init>`(v0) @signature `Lcom/google/android/material/datepicker/RangeDateSelector$3;.<init>:()V` @kind direct;
+  #L19afea.  `@@com.google.android.material.datepicker.RangeDateSelector.CREATOR` @type ^`android.os.Parcelable$Creator` := v0 @kind object;
+  #L19afee.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.RangeDateSelector` v1 @kind this) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L19b000.  call `<init>`(v1) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L19b006.  v0:= " " @kind object;
+  #L19b00a.  v1.`com.google.android.material.datepicker.RangeDateSelector.invalidRangeEndError` @type ^`java.lang.String` := v0 @kind object;
+  #L19b00e.  v0:= 0I;
+  #L19b010.  v1.`com.google.android.material.datepicker.RangeDateSelector.selectedStartItem` @type ^`java.lang.Long` := v0 @kind object;
+  #L19b014.  v1.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` := v0 @kind object;
+  #L19b018.  v1.`com.google.android.material.datepicker.RangeDateSelector.proposedTextStart` @type ^`java.lang.Long` := v0 @kind object;
+  #L19b01c.  v1.`com.google.android.material.datepicker.RangeDateSelector.proposedTextEnd` @type ^`java.lang.Long` := v0 @kind object;
+  #L19b020.  return @kind void;
+}
+procedure `java.lang.Long` `access$002`(`com.google.android.material.datepicker.RangeDateSelector` v0 @kind object @name `x0`, `java.lang.Long` v1 @kind object @name `x1`) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.access$002:(Lcom/google/android/material/datepicker/RangeDateSelector;Ljava/lang/Long;)Ljava/lang/Long;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L19ae10.  v0.`com.google.android.material.datepicker.RangeDateSelector.proposedTextStart` @type ^`java.lang.Long` := v1 @kind object;
+  #L19ae14.  return v1 @kind object;
+}
+procedure `void` `access$100`(`com.google.android.material.datepicker.RangeDateSelector` v0 @kind object @name `x0`, `com.google.android.material.textfield.TextInputLayout` v1 @kind object @name `x1`, `com.google.android.material.textfield.TextInputLayout` v2 @kind object @name `x2`, `com.google.android.material.datepicker.OnSelectionChangedListener` v3 @kind object @name `x3`) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.access$100:(Lcom/google/android/material/datepicker/RangeDateSelector;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L19b034.  call `updateIfValidTextProposal`(v0, v1, v2, v3) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.updateIfValidTextProposal:(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)V` @kind direct;
+  #L19b03a.  return @kind void;
+}
+procedure `java.lang.Long` `access$202`(`com.google.android.material.datepicker.RangeDateSelector` v0 @kind object @name `x0`, `java.lang.Long` v1 @kind object @name `x1`) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.access$202:(Lcom/google/android/material/datepicker/RangeDateSelector;Ljava/lang/Long;)Ljava/lang/Long;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L19ae28.  v0.`com.google.android.material.datepicker.RangeDateSelector.proposedTextEnd` @type ^`java.lang.Long` := v1 @kind object;
+  #L19ae2c.  return v1 @kind object;
+}
+procedure `java.lang.Long` `access$302`(`com.google.android.material.datepicker.RangeDateSelector` v0 @kind object @name `x0`, `java.lang.Long` v1 @kind object @name `x1`) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.access$302:(Lcom/google/android/material/datepicker/RangeDateSelector;Ljava/lang/Long;)Ljava/lang/Long;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L19ae40.  v0.`com.google.android.material.datepicker.RangeDateSelector.selectedStartItem` @type ^`java.lang.Long` := v1 @kind object;
+  #L19ae44.  return v1 @kind object;
+}
+procedure `java.lang.Long` `access$402`(`com.google.android.material.datepicker.RangeDateSelector` v0 @kind object @name `x0`, `java.lang.Long` v1 @kind object @name `x1`) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.access$402:(Lcom/google/android/material/datepicker/RangeDateSelector;Ljava/lang/Long;)Ljava/lang/Long;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L19ae58.  v0.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` := v1 @kind object;
+  #L19ae5c.  return v1 @kind object;
+}
+procedure `void` `clearInvalidRange`(`com.google.android.material.datepicker.RangeDateSelector` v3 @kind this, `com.google.android.material.textfield.TextInputLayout` v4 @kind object @name `start`, `com.google.android.material.textfield.TextInputLayout` v5 @kind object @name `end`) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.clearInvalidRange:(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L19b04c.  call temp:= `getError`(v4) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getError:()Ljava/lang/CharSequence;` @kind virtual;
+  #L19b052.  v0:= temp @kind object;
+  #L19b054.  v1:= 0I;
+  #L19b056.  if v0 == 0 then goto L19b078;
+  #L19b05a.  v0:= v3.`com.google.android.material.datepicker.RangeDateSelector.invalidRangeStartError` @type ^`java.lang.String` @kind object;
+  #L19b05e.  call temp:= `getError`(v4) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getError:()Ljava/lang/CharSequence;` @kind virtual;
+  #L19b064.  v2:= temp @kind object;
+  #L19b066.  call temp:= `contentEquals`(v0, v2) @signature `Ljava/lang/String;.contentEquals:(Ljava/lang/CharSequence;)Z` @kind virtual;
+  #L19b06c.  v0:= temp;
+  #L19b06e.  if v0 == 0 then goto L19b078;
+  #L19b072.  call `setError`(v4, v1) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setError:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L19b078.  call temp:= `getError`(v5) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getError:()Ljava/lang/CharSequence;` @kind virtual;
+  #L19b07e.  v0:= temp @kind object;
+  #L19b080.  if v0 == 0 then goto L19b0a2;
+  #L19b084.  call temp:= `getError`(v5) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getError:()Ljava/lang/CharSequence;` @kind virtual;
+  #L19b08a.  v0:= temp @kind object;
+  #L19b08c.  v2:= " " @kind object;
+  #L19b090.  call temp:= `contentEquals`(v2, v0) @signature `Ljava/lang/String;.contentEquals:(Ljava/lang/CharSequence;)Z` @kind virtual;
+  #L19b096.  v0:= temp;
+  #L19b098.  if v0 == 0 then goto L19b0a2;
+  #L19b09c.  call `setError`(v5, v1) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setError:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L19b0a2.  return @kind void;
+}
+procedure `boolean` `isValidRange`(`com.google.android.material.datepicker.RangeDateSelector` v1 @kind this, `long` v2 @name `start`, `long` v4 @name `end`) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.isValidRange:(JJ)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L19ad64.  v0:= lcmp(v2, v4);
+  #L19ad68.  if v0 > 0 then goto L19ad70;
+  #L19ad6c.  v0:= 1I;
+  #L19ad6e.  goto L19ad72;
+  #L19ad70.  v0:= 0I;
+  #L19ad72.  return v0;
+}
+procedure `void` `setInvalidRange`(`com.google.android.material.datepicker.RangeDateSelector` v1 @kind this, `com.google.android.material.textfield.TextInputLayout` v2 @kind object @name `start`, `com.google.android.material.textfield.TextInputLayout` v3 @kind object @name `end`) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.setInvalidRange:(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L19b118.  v0:= v1.`com.google.android.material.datepicker.RangeDateSelector.invalidRangeStartError` @type ^`java.lang.String` @kind object;
+  #L19b11c.  call `setError`(v2, v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setError:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L19b122.  v0:= " " @kind object;
+  #L19b126.  call `setError`(v3, v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setError:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L19b12c.  return @kind void;
+}
+procedure `void` `updateIfValidTextProposal`(`com.google.android.material.datepicker.RangeDateSelector` v4 @kind this, `com.google.android.material.textfield.TextInputLayout` v5 @kind object @name `startTextInput`, `com.google.android.material.textfield.TextInputLayout` v6 @kind object @name `endTextInput`, `com.google.android.material.datepicker.OnSelectionChangedListener` v7 @kind object) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.updateIfValidTextProposal:(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L19b20c.  v0:= v4.`com.google.android.material.datepicker.RangeDateSelector.proposedTextStart` @type ^`java.lang.Long` @kind object;
+  #L19b210.  if v0 == 0 then goto L19b266;
+  #L19b214.  v1:= v4.`com.google.android.material.datepicker.RangeDateSelector.proposedTextEnd` @type ^`java.lang.Long` @kind object;
+  #L19b218.  if v1 != 0 then goto L19b21e;
+  #L19b21c.  goto L19b266;
+  #L19b21e.  call temp:= `longValue`(v0) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L19b224.  v0:= temp @kind wide;
+  #L19b226.  v2:= v4.`com.google.android.material.datepicker.RangeDateSelector.proposedTextEnd` @type ^`java.lang.Long` @kind object;
+  #L19b22a.  call temp:= `longValue`(v2) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L19b230.  v2:= temp @kind wide;
+  #L19b232.  call temp:= `isValidRange`(v4, v0, v2) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.isValidRange:(JJ)Z` @kind direct;
+  #L19b238.  v0:= temp;
+  #L19b23a.  if v0 == 0 then goto L19b25e;
+  #L19b23e.  v0:= v4.`com.google.android.material.datepicker.RangeDateSelector.proposedTextStart` @type ^`java.lang.Long` @kind object;
+  #L19b242.  v4.`com.google.android.material.datepicker.RangeDateSelector.selectedStartItem` @type ^`java.lang.Long` := v0 @kind object;
+  #L19b246.  v0:= v4.`com.google.android.material.datepicker.RangeDateSelector.proposedTextEnd` @type ^`java.lang.Long` @kind object;
+  #L19b24a.  v4.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` := v0 @kind object;
+  #L19b24e.  call temp:= `getSelection`(v4) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.getSelection:()Landroidx/core/util/Pair;` @kind virtual;
+  #L19b254.  v0:= temp @kind object;
+  #L19b256.  call `onSelectionChanged`(v7, v0) @signature `Lcom/google/android/material/datepicker/OnSelectionChangedListener;.onSelectionChanged:(Ljava/lang/Object;)V` @kind interface;
+  #L19b25c.  goto L19b264;
+  #L19b25e.  call `setInvalidRange`(v4, v5, v6) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.setInvalidRange:(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;)V` @kind direct;
+  #L19b264.  return @kind void;
+  #L19b266.  call `clearInvalidRange`(v4, v5, v6) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.clearInvalidRange:(Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;)V` @kind direct;
+  #L19b26c.  return @kind void;
+}
+procedure `int` `describeContents`(`com.google.android.material.datepicker.RangeDateSelector` v1 @kind this) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.describeContents:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19ad84.  v0:= 0I;
+  #L19ad86.  return v0;
+}
+procedure `int` `getDefaultThemeResId`(`com.google.android.material.datepicker.RangeDateSelector` v6 @kind this, `android.content.Context` v7 @kind object @name `context`) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.getDefaultThemeResId:(Landroid/content/Context;)I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L19ad98.  call temp:= `getResources`(v7) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L19ad9e.  v0:= temp @kind object;
+  #L19ada0.  call temp:= `getDisplayMetrics`(v0) @signature `Landroid/content/res/Resources;.getDisplayMetrics:()Landroid/util/DisplayMetrics;` @kind virtual;
+  #L19ada6.  v1:= temp @kind object;
+  #L19ada8.  v2:= `@@com.google.android.material.R$dimen.mtrl_calendar_maximum_default_fullscreen_minor_axis` @type ^`int`;
+  #L19adac.  call temp:= `getDimensionPixelSize`(v0, v2) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L19adb2.  v2:= temp;
+  #L19adb4.  v3:= v1.`android.util.DisplayMetrics.widthPixels` @type ^`int`;
+  #L19adb8.  v4:= v1.`android.util.DisplayMetrics.heightPixels` @type ^`int`;
+  #L19adbc.  call temp:= `min`(v3, v4) @signature `Ljava/lang/Math;.min:(II)I` @kind static;
+  #L19adc2.  v3:= temp;
+  #L19adc4.  if v3 <= v2 then goto L19adce;
+  #L19adc8.  v4:= `@@com.google.android.material.R$attr.materialCalendarTheme` @type ^`int`;
+  #L19adcc.  goto L19add2;
+  #L19adce.  v4:= `@@com.google.android.material.R$attr.materialCalendarFullscreenTheme` @type ^`int`;
+  #L19add2.  v5:= constclass @type ^`com.google.android.material.datepicker.MaterialDatePicker` @kind object;
+  #L19add6.  call temp:= `getCanonicalName`(v5) @signature `Ljava/lang/Class;.getCanonicalName:()Ljava/lang/String;` @kind virtual;
+  #L19addc.  v5:= temp @kind object;
+  #L19adde.  call temp:= `resolveOrThrow`(v7, v4, v5) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolveOrThrow:(Landroid/content/Context;ILjava/lang/String;)I` @kind static;
+  #L19ade4.  v5:= temp;
+  #L19ade6.  return v5;
+}
+procedure `int` `getDefaultTitleResId`(`com.google.android.material.datepicker.RangeDateSelector` v1 @kind this) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.getDefaultTitleResId:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19adf8.  v0:= `@@com.google.android.material.R$string.mtrl_picker_range_header_title` @type ^`int`;
+  #L19adfc.  return v0;
+}
+procedure `java.util.Collection` `getSelectedDays`(`com.google.android.material.datepicker.RangeDateSelector` v2 @kind this) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.getSelectedDays:()Ljava/util/Collection;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19af54.  v0:= new `java.util.ArrayList`;
+  #L19af58.  call `<init>`(v0) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L19af5e.  v1:= v2.`com.google.android.material.datepicker.RangeDateSelector.selectedStartItem` @type ^`java.lang.Long` @kind object;
+  #L19af62.  if v1 == 0 then goto L19af6c;
+  #L19af66.  call temp:= `add`(v0, v1) @signature `Ljava/util/ArrayList;.add:(Ljava/lang/Object;)Z` @kind virtual;
+  #L19af6c.  v1:= v2.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` @kind object;
+  #L19af70.  if v1 == 0 then goto L19af7a;
+  #L19af74.  call temp:= `add`(v0, v1) @signature `Ljava/util/ArrayList;.add:(Ljava/lang/Object;)Z` @kind virtual;
+  #L19af7a.  return v0 @kind object;
+}
+procedure `java.util.Collection` `getSelectedRanges`(`com.google.android.material.datepicker.RangeDateSelector` v4 @kind this) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.getSelectedRanges:()Ljava/util/Collection;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L19af8c.  v0:= v4.`com.google.android.material.datepicker.RangeDateSelector.selectedStartItem` @type ^`java.lang.Long` @kind object;
+  #L19af90.  if v0 == 0 then goto L19afc2;
+  #L19af94.  v0:= v4.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` @kind object;
+  #L19af98.  if v0 != 0 then goto L19af9e;
+  #L19af9c.  goto L19afc2;
+  #L19af9e.  v0:= new `java.util.ArrayList`;
+  #L19afa2.  call `<init>`(v0) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L19afa8.  v1:= new `androidx.core.util.Pair`;
+  #L19afac.  v2:= v4.`com.google.android.material.datepicker.RangeDateSelector.selectedStartItem` @type ^`java.lang.Long` @kind object;
+  #L19afb0.  v3:= v4.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` @kind object;
+  #L19afb4.  call `<init>`(v1, v2, v3) @signature `Landroidx/core/util/Pair;.<init>:(Ljava/lang/Object;Ljava/lang/Object;)V` @kind direct;
+  #L19afba.  call temp:= `add`(v0, v1) @signature `Ljava/util/ArrayList;.add:(Ljava/lang/Object;)Z` @kind virtual;
+  #L19afc0.  return v0 @kind object;
+  #L19afc2.  v0:= new `java.util.ArrayList`;
+  #L19afc6.  call `<init>`(v0) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L19afcc.  return v0 @kind object;
+}
+procedure `androidx.core.util.Pair` `getSelection`(`com.google.android.material.datepicker.RangeDateSelector` v3 @kind this) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.getSelection:()Landroidx/core/util/Pair;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L19acf8.  v0:= new `androidx.core.util.Pair`;
+  #L19acfc.  v1:= v3.`com.google.android.material.datepicker.RangeDateSelector.selectedStartItem` @type ^`java.lang.Long` @kind object;
+  #L19ad00.  v2:= v3.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` @kind object;
+  #L19ad04.  call `<init>`(v0, v1, v2) @signature `Landroidx/core/util/Pair;.<init>:(Ljava/lang/Object;Ljava/lang/Object;)V` @kind direct;
+  #L19ad0a.  return v0 @kind object;
+}
+procedure `java.lang.Object` `getSelection`(`com.google.android.material.datepicker.RangeDateSelector` v1 @kind this) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.getSelection:()Ljava/lang/Object;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L19ae70.  call temp:= `getSelection`(v1) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.getSelection:()Landroidx/core/util/Pair;` @kind virtual;
+  #L19ae76.  v0:= temp @kind object;
+  #L19ae78.  return v0 @kind object;
+}
+procedure `java.lang.String` `getSelectionDisplayString`(`com.google.android.material.datepicker.RangeDateSelector` v7 @kind this, `android.content.Context` v8 @kind object @name `context`) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.getSelectionDisplayString:(Landroid/content/Context;)Ljava/lang/String;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L19ae8c.  call temp:= `getResources`(v8) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L19ae92.  v0:= temp @kind object;
+  #L19ae94.  v1:= v7.`com.google.android.material.datepicker.RangeDateSelector.selectedStartItem` @type ^`java.lang.Long` @kind object;
+  #L19ae98.  if v1 != 0 then goto L19aeb2;
+  #L19ae9c.  v2:= v7.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` @kind object;
+  #L19aea0.  if v2 != 0 then goto L19aeb2;
+  #L19aea4.  v1:= `@@com.google.android.material.R$string.mtrl_picker_range_header_unselected` @type ^`int`;
+  #L19aea8.  call temp:= `getString`(v0, v1) @signature `Landroid/content/res/Resources;.getString:(I)Ljava/lang/String;` @kind virtual;
+  #L19aeae.  v1:= temp @kind object;
+  #L19aeb0.  return v1 @kind object;
+  #L19aeb2.  v2:= v7.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` @kind object;
+  #L19aeb6.  v3:= 0I;
+  #L19aeb8.  v4:= 1I;
+  #L19aeba.  if v2 != 0 then goto L19aee8;
+  #L19aebe.  v1:= `@@com.google.android.material.R$string.mtrl_picker_range_header_only_start_selected` @type ^`int`;
+  #L19aec2.  v2:= new `java.lang.Object`[v4];
+  #L19aec6.  v4:= v7.`com.google.android.material.datepicker.RangeDateSelector.selectedStartItem` @type ^`java.lang.Long` @kind object;
+  #L19aeca.  call temp:= `longValue`(v4) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L19aed0.  v4:= temp @kind wide;
+  #L19aed2.  call temp:= `getDateString`(v4) @signature `Lcom/google/android/material/datepicker/DateStrings;.getDateString:(J)Ljava/lang/String;` @kind static;
+  #L19aed8.  v4:= temp @kind object;
+  #L19aeda.  v2[v3]:= v4 @kind object;
+  #L19aede.  call temp:= `getString`(v0, v1, v2) @signature `Landroid/content/res/Resources;.getString:(I[Ljava/lang/Object;)Ljava/lang/String;` @kind virtual;
+  #L19aee4.  v1:= temp @kind object;
+  #L19aee6.  return v1 @kind object;
+  #L19aee8.  if v1 != 0 then goto L19af16;
+  #L19aeec.  v1:= `@@com.google.android.material.R$string.mtrl_picker_range_header_only_end_selected` @type ^`int`;
+  #L19aef0.  v2:= new `java.lang.Object`[v4];
+  #L19aef4.  v4:= v7.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` @kind object;
+  #L19aef8.  call temp:= `longValue`(v4) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L19aefe.  v4:= temp @kind wide;
+  #L19af00.  call temp:= `getDateString`(v4) @signature `Lcom/google/android/material/datepicker/DateStrings;.getDateString:(J)Ljava/lang/String;` @kind static;
+  #L19af06.  v4:= temp @kind object;
+  #L19af08.  v2[v3]:= v4 @kind object;
+  #L19af0c.  call temp:= `getString`(v0, v1, v2) @signature `Landroid/content/res/Resources;.getString:(I[Ljava/lang/Object;)Ljava/lang/String;` @kind virtual;
+  #L19af12.  v1:= temp @kind object;
+  #L19af14.  return v1 @kind object;
+  #L19af16.  
+  #L19af18.  call temp:= `getDateRangeString`(v1, v2) @signature `Lcom/google/android/material/datepicker/DateStrings;.getDateRangeString:(Ljava/lang/Long;Ljava/lang/Long;)Landroidx/core/util/Pair;` @kind static;
+  #L19af1e.  v1:= temp @kind object;
+  #L19af20.  v2:= `@@com.google.android.material.R$string.mtrl_picker_range_header_selected` @type ^`int`;
+  #L19af24.  v5:= 2I;
+  #L19af26.  v5:= new `java.lang.Object`[v5];
+  #L19af2a.  v6:= v1.`androidx.core.util.Pair.first` @type ^`java.lang.Object` @kind object;
+  #L19af2e.  v5[v3]:= v6 @kind object;
+  #L19af32.  v3:= v1.`androidx.core.util.Pair.second` @type ^`java.lang.Object` @kind object;
+  #L19af36.  v5[v4]:= v3 @kind object;
+  #L19af3a.  call temp:= `getString`(v0, v2, v5) @signature `Landroid/content/res/Resources;.getString:(I[Ljava/lang/Object;)Ljava/lang/String;` @kind virtual;
+  #L19af40.  v2:= temp @kind object;
+  #L19af42.  return v2 @kind object;
+}
+procedure `boolean` `isSelectionComplete`(`com.google.android.material.datepicker.RangeDateSelector` v4 @kind this) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.isSelectionComplete:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L19ad1c.  v0:= v4.`com.google.android.material.datepicker.RangeDateSelector.selectedStartItem` @type ^`java.lang.Long` @kind object;
+  #L19ad20.  if v0 == 0 then goto L19ad50;
+  #L19ad24.  v1:= v4.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` @kind object;
+  #L19ad28.  if v1 == 0 then goto L19ad50;
+  #L19ad2c.  call temp:= `longValue`(v0) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L19ad32.  v0:= temp @kind wide;
+  #L19ad34.  v2:= v4.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` @kind object;
+  #L19ad38.  call temp:= `longValue`(v2) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L19ad3e.  v2:= temp @kind wide;
+  #L19ad40.  call temp:= `isValidRange`(v4, v0, v2) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.isValidRange:(JJ)Z` @kind direct;
+  #L19ad46.  v0:= temp;
+  #L19ad48.  if v0 == 0 then goto L19ad50;
+  #L19ad4c.  v0:= 1I;
+  #L19ad4e.  goto L19ad52;
+  #L19ad50.  v0:= 0I;
+  #L19ad52.  return v0;
+}
+procedure `android.view.View` `onCreateTextInputView`(`com.google.android.material.datepicker.RangeDateSelector` v18 @kind this, `android.view.LayoutInflater` v19 @kind object @name `layoutInflater`, `android.view.ViewGroup` v20 @kind object @name `viewGroup`, `android.os.Bundle` v21 @kind object @name `bundle`, `com.google.android.material.datepicker.CalendarConstraints` v22 @kind object @name `constraints`, `com.google.android.material.datepicker.OnSelectionChangedListener` v23 @kind object) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.onCreateTextInputView:(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;Lcom/google/android/material/datepicker/CalendarConstraints;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)Landroid/view/View;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+    v12;
+    v13;
+    v14;
+    v15;
+    v16;
+    v17;
+
+  #L19abc0.  v9:= v18 @kind object;
+  #L19abc4.  v0:= `@@com.google.android.material.R$layout.mtrl_picker_text_input_date_range` @type ^`int`;
+  #L19abc8.  v1:= 0I;
+  #L19abca.  v10:= v19 @kind object;
+  #L19abce.  v11:= v20 @kind object;
+  #L19abd2.  call temp:= `inflate`(v10, v0, v11, v1) @signature `Landroid/view/LayoutInflater;.inflate:(ILandroid/view/ViewGroup;Z)Landroid/view/View;` @kind virtual;
+  #L19abd8.  v12:= temp @kind object;
+  #L19abda.  v0:= `@@com.google.android.material.R$id.mtrl_picker_text_input_range_start` @type ^`int`;
+  #L19abde.  call temp:= `findViewById`(v12, v0) @signature `Landroid/view/View;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L19abe4.  v0:= temp @kind object;
+  #L19abe6.  v13:= v0 @kind object;
+  #L19abe8.  v13:= (`com.google.android.material.textfield.TextInputLayout`) v13 @kind object;
+  #L19abec.  v0:= `@@com.google.android.material.R$id.mtrl_picker_text_input_range_end` @type ^`int`;
+  #L19abf0.  call temp:= `findViewById`(v12, v0) @signature `Landroid/view/View;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L19abf6.  v0:= temp @kind object;
+  #L19abf8.  v14:= v0 @kind object;
+  #L19abfa.  v14:= (`com.google.android.material.textfield.TextInputLayout`) v14 @kind object;
+  #L19abfe.  call temp:= `getEditText`(v13) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getEditText:()Landroid/widget/EditText;` @kind virtual;
+  #L19ac04.  v15:= temp @kind object;
+  #L19ac06.  call temp:= `getEditText`(v14) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getEditText:()Landroid/widget/EditText;` @kind virtual;
+  #L19ac0c.  v8:= temp @kind object;
+  #L19ac0e.  call temp:= `isSamsungDevice`() @signature `Lcom/google/android/material/internal/ManufacturerUtils;.isSamsungDevice:()Z` @kind static;
+  #L19ac14.  v0:= temp;
+  #L19ac16.  if v0 == 0 then goto L19ac2a;
+  #L19ac1a.  v0:= 17I;
+  #L19ac1e.  call `setInputType`(v15, v0) @signature `Landroid/widget/EditText;.setInputType:(I)V` @kind virtual;
+  #L19ac24.  call `setInputType`(v8, v0) @signature `Landroid/widget/EditText;.setInputType:(I)V` @kind virtual;
+  #L19ac2a.  call temp:= `getResources`(v12) @signature `Landroid/view/View;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L19ac30.  v0:= temp @kind object;
+  #L19ac32.  v1:= `@@com.google.android.material.R$string.mtrl_picker_invalid_range` @type ^`int`;
+  #L19ac36.  call temp:= `getString`(v0, v1) @signature `Landroid/content/res/Resources;.getString:(I)Ljava/lang/String;` @kind virtual;
+  #L19ac3c.  v0:= temp @kind object;
+  #L19ac3e.  v9.`com.google.android.material.datepicker.RangeDateSelector.invalidRangeStartError` @type ^`java.lang.String` := v0 @kind object;
+  #L19ac42.  call temp:= `getTextInputFormat`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getTextInputFormat:()Ljava/text/SimpleDateFormat;` @kind static;
+  #L19ac48.  v7:= temp @kind object;
+  #L19ac4a.  v0:= v9.`com.google.android.material.datepicker.RangeDateSelector.selectedStartItem` @type ^`java.lang.Long` @kind object;
+  #L19ac4e.  if v0 == 0 then goto L19ac68;
+  #L19ac52.  call temp:= `format`(v7, v0) @signature `Ljava/text/SimpleDateFormat;.format:(Ljava/lang/Object;)Ljava/lang/String;` @kind virtual;
+  #L19ac58.  v0:= temp @kind object;
+  #L19ac5a.  call `setText`(v15, v0) @signature `Landroid/widget/EditText;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L19ac60.  v0:= v9.`com.google.android.material.datepicker.RangeDateSelector.selectedStartItem` @type ^`java.lang.Long` @kind object;
+  #L19ac64.  v9.`com.google.android.material.datepicker.RangeDateSelector.proposedTextStart` @type ^`java.lang.Long` := v0 @kind object;
+  #L19ac68.  v0:= v9.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` @kind object;
+  #L19ac6c.  if v0 == 0 then goto L19ac86;
+  #L19ac70.  call temp:= `format`(v7, v0) @signature `Ljava/text/SimpleDateFormat;.format:(Ljava/lang/Object;)Ljava/lang/String;` @kind virtual;
+  #L19ac76.  v0:= temp @kind object;
+  #L19ac78.  call `setText`(v8, v0) @signature `Landroid/widget/EditText;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L19ac7e.  v0:= v9.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` @kind object;
+  #L19ac82.  v9.`com.google.android.material.datepicker.RangeDateSelector.proposedTextEnd` @type ^`java.lang.Long` := v0 @kind object;
+  #L19ac86.  call temp:= `getResources`(v12) @signature `Landroid/view/View;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L19ac8c.  v0:= temp @kind object;
+  #L19ac8e.  call temp:= `getTextInputHint`(v0, v7) @signature `Lcom/google/android/material/datepicker/UtcDates;.getTextInputHint:(Landroid/content/res/Resources;Ljava/text/SimpleDateFormat;)Ljava/lang/String;` @kind static;
+  #L19ac94.  v16:= temp @kind object;
+  #L19ac96.  v6:= new `com.google.android.material.datepicker.RangeDateSelector$1`;
+  #L19ac9a.  v0:= v6 @kind object;
+  #L19ac9c.  v1:= v18 @kind object;
+  #L19aca0.  v2:= v16 @kind object;
+  #L19aca4.  v3:= v7 @kind object;
+  #L19aca6.  v4:= v13 @kind object;
+  #L19aca8.  v5:= v22 @kind object;
+  #L19acac.  v9:= v6 @kind object;
+  #L19acae.  v6:= v13 @kind object;
+  #L19acb0.  v17:= v7 @kind object;
+  #L19acb4.  v7:= v14 @kind object;
+  #L19acb6.  v10:= v8 @kind object;
+  #L19acb8.  v8:= v23 @kind object;
+  #L19acbc.  call `<init>`(v0, v1, v2, v3, v4, v5, v6, v7, v8) @signature `Lcom/google/android/material/datepicker/RangeDateSelector$1;.<init>:(Lcom/google/android/material/datepicker/RangeDateSelector;Ljava/lang/String;Ljava/text/DateFormat;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/CalendarConstraints;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)V` @kind direct;
+  #L19acc2.  call `addTextChangedListener`(v15, v9) @signature `Landroid/widget/EditText;.addTextChangedListener:(Landroid/text/TextWatcher;)V` @kind virtual;
+  #L19acc8.  v9:= new `com.google.android.material.datepicker.RangeDateSelector$2`;
+  #L19accc.  v0:= v9 @kind object;
+  #L19acce.  v3:= v17 @kind object;
+  #L19acd2.  v4:= v14 @kind object;
+  #L19acd4.  call `<init>`(v0, v1, v2, v3, v4, v5, v6, v7, v8) @signature `Lcom/google/android/material/datepicker/RangeDateSelector$2;.<init>:(Lcom/google/android/material/datepicker/RangeDateSelector;Ljava/lang/String;Ljava/text/DateFormat;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/CalendarConstraints;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)V` @kind direct;
+  #L19acda.  call `addTextChangedListener`(v10, v9) @signature `Landroid/widget/EditText;.addTextChangedListener:(Landroid/text/TextWatcher;)V` @kind virtual;
+  #L19ace0.  call `requestFocusAndShowKeyboard`(v15) @signature `Lcom/google/android/material/internal/ViewUtils;.requestFocusAndShowKeyboard:(Landroid/view/View;)V` @kind static;
+  #L19ace6.  return v12 @kind object;
+}
+procedure `void` `select`(`com.google.android.material.datepicker.RangeDateSelector` v2 @kind this, `long` v3 @name `selection`) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.select:(J)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19b0b4.  v0:= v2.`com.google.android.material.datepicker.RangeDateSelector.selectedStartItem` @type ^`java.lang.Long` @kind object;
+  #L19b0b8.  if v0 != 0 then goto L19b0ca;
+  #L19b0bc.  call temp:= `valueOf`(v3) @signature `Ljava/lang/Long;.valueOf:(J)Ljava/lang/Long;` @kind static;
+  #L19b0c2.  v0:= temp @kind object;
+  #L19b0c4.  v2.`com.google.android.material.datepicker.RangeDateSelector.selectedStartItem` @type ^`java.lang.Long` := v0 @kind object;
+  #L19b0c8.  goto L19b106;
+  #L19b0ca.  v1:= v2.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` @kind object;
+  #L19b0ce.  if v1 != 0 then goto L19b0f4;
+  #L19b0d2.  call temp:= `longValue`(v0) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L19b0d8.  v0:= temp @kind wide;
+  #L19b0da.  call temp:= `isValidRange`(v2, v0, v3) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.isValidRange:(JJ)Z` @kind direct;
+  #L19b0e0.  v0:= temp;
+  #L19b0e2.  if v0 == 0 then goto L19b0f4;
+  #L19b0e6.  call temp:= `valueOf`(v3) @signature `Ljava/lang/Long;.valueOf:(J)Ljava/lang/Long;` @kind static;
+  #L19b0ec.  v0:= temp @kind object;
+  #L19b0ee.  v2.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` := v0 @kind object;
+  #L19b0f2.  goto L19b106;
+  #L19b0f4.  v0:= 0I;
+  #L19b0f6.  v2.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` := v0 @kind object;
+  #L19b0fa.  call temp:= `valueOf`(v3) @signature `Ljava/lang/Long;.valueOf:(J)Ljava/lang/Long;` @kind static;
+  #L19b100.  v0:= temp @kind object;
+  #L19b102.  v2.`com.google.android.material.datepicker.RangeDateSelector.selectedStartItem` @type ^`java.lang.Long` := v0 @kind object;
+  #L19b106.  return @kind void;
+}
+procedure `void` `setSelection`(`com.google.android.material.datepicker.RangeDateSelector` v4 @kind this, `androidx.core.util.Pair` v5 @kind object) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.setSelection:(Landroidx/core/util/Pair;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L19b140.  v0:= v5.`androidx.core.util.Pair.first` @type ^`java.lang.Object` @kind object;
+  #L19b144.  if v0 == 0 then goto L19b17e;
+  #L19b148.  v0:= v5.`androidx.core.util.Pair.second` @type ^`java.lang.Object` @kind object;
+  #L19b14c.  if v0 == 0 then goto L19b17e;
+  #L19b150.  v0:= v5.`androidx.core.util.Pair.first` @type ^`java.lang.Object` @kind object;
+  #L19b154.  v0:= (`java.lang.Long`) v0 @kind object;
+  #L19b158.  call temp:= `longValue`(v0) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L19b15e.  v0:= temp @kind wide;
+  #L19b160.  v2:= v5.`androidx.core.util.Pair.second` @type ^`java.lang.Object` @kind object;
+  #L19b164.  v2:= (`java.lang.Long`) v2 @kind object;
+  #L19b168.  call temp:= `longValue`(v2) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L19b16e.  v2:= temp @kind wide;
+  #L19b170.  call temp:= `isValidRange`(v4, v0, v2) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.isValidRange:(JJ)Z` @kind direct;
+  #L19b176.  v0:= temp;
+  #L19b178.  call `checkArgument`(v0) @signature `Landroidx/core/util/Preconditions;.checkArgument:(Z)V` @kind static;
+  #L19b17e.  v0:= v5.`androidx.core.util.Pair.first` @type ^`java.lang.Object` @kind object;
+  #L19b182.  v1:= 0I;
+  #L19b184.  if v0 != 0 then goto L19b18c;
+  #L19b188.  v0:= v1 @kind object;
+  #L19b18a.  goto L19b1ac;
+  #L19b18c.  v0:= v5.`androidx.core.util.Pair.first` @type ^`java.lang.Object` @kind object;
+  #L19b190.  v0:= (`java.lang.Long`) v0 @kind object;
+  #L19b194.  call temp:= `longValue`(v0) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L19b19a.  v2:= temp @kind wide;
+  #L19b19c.  call temp:= `canonicalYearMonthDay`(v2) @signature `Lcom/google/android/material/datepicker/UtcDates;.canonicalYearMonthDay:(J)J` @kind static;
+  #L19b1a2.  v2:= temp @kind wide;
+  #L19b1a4.  call temp:= `valueOf`(v2) @signature `Ljava/lang/Long;.valueOf:(J)Ljava/lang/Long;` @kind static;
+  #L19b1aa.  v0:= temp @kind object;
+  #L19b1ac.  v4.`com.google.android.material.datepicker.RangeDateSelector.selectedStartItem` @type ^`java.lang.Long` := v0 @kind object;
+  #L19b1b0.  v0:= v5.`androidx.core.util.Pair.second` @type ^`java.lang.Object` @kind object;
+  #L19b1b4.  if v0 != 0 then goto L19b1ba;
+  #L19b1b8.  goto L19b1da;
+  #L19b1ba.  v0:= v5.`androidx.core.util.Pair.second` @type ^`java.lang.Object` @kind object;
+  #L19b1be.  v0:= (`java.lang.Long`) v0 @kind object;
+  #L19b1c2.  call temp:= `longValue`(v0) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L19b1c8.  v0:= temp @kind wide;
+  #L19b1ca.  call temp:= `canonicalYearMonthDay`(v0) @signature `Lcom/google/android/material/datepicker/UtcDates;.canonicalYearMonthDay:(J)J` @kind static;
+  #L19b1d0.  v0:= temp @kind wide;
+  #L19b1d2.  call temp:= `valueOf`(v0) @signature `Ljava/lang/Long;.valueOf:(J)Ljava/lang/Long;` @kind static;
+  #L19b1d8.  v1:= temp @kind object;
+  #L19b1da.  v4.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` := v1 @kind object;
+  #L19b1de.  return @kind void;
+}
+procedure `void` `setSelection`(`com.google.android.material.datepicker.RangeDateSelector` v0 @kind this, `java.lang.Object` v1 @kind object) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.setSelection:(Ljava/lang/Object;)V` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19b1f0.  v1:= (`androidx.core.util.Pair`) v1 @kind object;
+  #L19b1f4.  call `setSelection`(v0, v1) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.setSelection:(Landroidx/core/util/Pair;)V` @kind virtual;
+  #L19b1fa.  return @kind void;
+}
+procedure `void` `writeToParcel`(`com.google.android.material.datepicker.RangeDateSelector` v1 @kind this, `android.os.Parcel` v2 @kind object @name `dest`, `int` v3 @name `flags`) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.writeToParcel:(Landroid/os/Parcel;I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19b280.  v0:= v1.`com.google.android.material.datepicker.RangeDateSelector.selectedStartItem` @type ^`java.lang.Long` @kind object;
+  #L19b284.  call `writeValue`(v2, v0) @signature `Landroid/os/Parcel;.writeValue:(Ljava/lang/Object;)V` @kind virtual;
+  #L19b28a.  v0:= v1.`com.google.android.material.datepicker.RangeDateSelector.selectedEndItem` @type ^`java.lang.Long` @kind object;
+  #L19b28e.  call `writeValue`(v2, v0) @signature `Landroid/os/Parcel;.writeValue:(Ljava/lang/Object;)V` @kind virtual;
+  #L19b294.  return @kind void;
+}

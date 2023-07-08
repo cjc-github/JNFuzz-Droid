@@ -1,0 +1,70 @@
+record `com.google.android.material.floatingactionbutton.FloatingActionButton$ShadowDelegateImpl` @kind class @AccessFlag  extends `com.google.android.material.shadow.ShadowViewDelegate` @kind interface {
+  `com.google.android.material.floatingactionbutton.FloatingActionButton` `com.google.android.material.floatingactionbutton.FloatingActionButton$ShadowDelegateImpl.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.floatingactionbutton.FloatingActionButton$ShadowDelegateImpl` v0 @kind this, `com.google.android.material.floatingactionbutton.FloatingActionButton` v1 @kind object) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton$ShadowDelegateImpl;.<init>:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L19f698.  v0.`com.google.android.material.floatingactionbutton.FloatingActionButton$ShadowDelegateImpl.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` := v1 @kind object;
+  #L19f69c.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L19f6a2.  return @kind void;
+}
+procedure `float` `getRadius`(`com.google.android.material.floatingactionbutton.FloatingActionButton$ShadowDelegateImpl` v2 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton$ShadowDelegateImpl;.getRadius:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19f670.  v0:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButton$ShadowDelegateImpl.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19f674.  call temp:= `getSizeDimension`(v0) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.getSizeDimension:()I` @kind virtual;
+  #L19f67a.  v0:= temp;
+  #L19f67c.  v0:= (`float`) v0 @kind i2f;
+  #L19f67e.  v1:= 2.0F;
+  #L19f682.  v0:= v0 / v1 @kind float;
+  #L19f684.  return v0;
+}
+procedure `boolean` `isCompatPaddingEnabled`(`com.google.android.material.floatingactionbutton.FloatingActionButton$ShadowDelegateImpl` v1 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton$ShadowDelegateImpl;.isCompatPaddingEnabled:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19f654.  v0:= v1.`com.google.android.material.floatingactionbutton.FloatingActionButton$ShadowDelegateImpl.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19f658.  v0:= v0.`com.google.android.material.floatingactionbutton.FloatingActionButton.compatPadding` @type ^`boolean` @kind boolean;
+  #L19f65c.  return v0;
+}
+procedure `void` `setBackgroundDrawable`(`com.google.android.material.floatingactionbutton.FloatingActionButton$ShadowDelegateImpl` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `background`) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton$ShadowDelegateImpl;.setBackgroundDrawable:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19f6b4.  if v2 == 0 then goto L19f6c2;
+  #L19f6b8.  v0:= v1.`com.google.android.material.floatingactionbutton.FloatingActionButton$ShadowDelegateImpl.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19f6bc.  call `access$101`(v0, v2) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.access$101:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;Landroid/graphics/drawable/Drawable;)V` @kind static;
+  #L19f6c2.  return @kind void;
+}
+procedure `void` `setShadowPadding`(`com.google.android.material.floatingactionbutton.FloatingActionButton$ShadowDelegateImpl` v5 @kind this, `int` v6 @name `left`, `int` v7 @name `top`, `int` v8 @name `right`, `int` v9 @name `bottom`) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton$ShadowDelegateImpl;.setShadowPadding:(IIII)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L19f6d4.  v0:= v5.`com.google.android.material.floatingactionbutton.FloatingActionButton$ShadowDelegateImpl.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19f6d8.  v0:= v0.`com.google.android.material.floatingactionbutton.FloatingActionButton.shadowPadding` @type ^`android.graphics.Rect` @kind object;
+  #L19f6dc.  call `set`(v0, v6, v7, v8, v9) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L19f6e2.  v0:= v5.`com.google.android.material.floatingactionbutton.FloatingActionButton$ShadowDelegateImpl.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19f6e6.  call temp:= `access$000`(v0) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.access$000:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)I` @kind static;
+  #L19f6ec.  v1:= temp;
+  #L19f6ee.  v1:= v1 + v6 @kind int;
+  #L19f6f0.  v2:= v5.`com.google.android.material.floatingactionbutton.FloatingActionButton$ShadowDelegateImpl.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19f6f4.  call temp:= `access$000`(v2) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.access$000:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)I` @kind static;
+  #L19f6fa.  v2:= temp;
+  #L19f6fc.  v2:= v2 + v7 @kind int;
+  #L19f6fe.  v3:= v5.`com.google.android.material.floatingactionbutton.FloatingActionButton$ShadowDelegateImpl.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19f702.  call temp:= `access$000`(v3) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.access$000:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)I` @kind static;
+  #L19f708.  v3:= temp;
+  #L19f70a.  v3:= v3 + v8 @kind int;
+  #L19f70c.  v4:= v5.`com.google.android.material.floatingactionbutton.FloatingActionButton$ShadowDelegateImpl.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19f710.  call temp:= `access$000`(v4) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.access$000:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)I` @kind static;
+  #L19f716.  v4:= temp;
+  #L19f718.  v4:= v4 + v9 @kind int;
+  #L19f71a.  call `setPadding`(v0, v1, v2, v3, v4) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.setPadding:(IIII)V` @kind virtual;
+  #L19f720.  return @kind void;
+}

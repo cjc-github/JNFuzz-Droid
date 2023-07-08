@@ -1,0 +1,129 @@
+record `com.google.android.material.transformation.FabTransformationSheetBehavior` @kind class @AccessFlag PUBLIC extends `com.google.android.material.transformation.FabTransformationBehavior` @kind class {
+  `java.util.Map` `com.google.android.material.transformation.FabTransformationSheetBehavior.importantForAccessibilityMap` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.transformation.FabTransformationSheetBehavior` v0 @kind this) @signature `Lcom/google/android/material/transformation/FabTransformationSheetBehavior;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1bd94c.  call `<init>`(v0) @signature `Lcom/google/android/material/transformation/FabTransformationBehavior;.<init>:()V` @kind direct;
+  #L1bd952.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.transformation.FabTransformationSheetBehavior` v0 @kind this, `android.content.Context` v1 @kind object @name `context`, `android.util.AttributeSet` v2 @kind object @name `attrs`) @signature `Lcom/google/android/material/transformation/FabTransformationSheetBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1bd964.  call `<init>`(v0, v1, v2) @signature `Lcom/google/android/material/transformation/FabTransformationBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1bd96a.  return @kind void;
+}
+procedure `void` `updateImportantForAccessibility`(`com.google.android.material.transformation.FabTransformationSheetBehavior` v9 @kind this, `android.view.View` v10 @kind object @name `sheet`, `boolean` v11 @name `expanded`) @signature `Lcom/google/android/material/transformation/FabTransformationSheetBehavior;.updateImportantForAccessibility:(Landroid/view/View;Z)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L1bd97c.  call temp:= `getParent`(v10) @signature `Landroid/view/View;.getParent:()Landroid/view/ViewParent;` @kind virtual;
+  #L1bd982.  v0:= temp @kind object;
+  #L1bd984.  v1:= instanceof @variable v0 @type ^`androidx.coordinatorlayout.widget.CoordinatorLayout` @kind boolean;
+  #L1bd988.  if v1 != 0 then goto L1bd98e;
+  #L1bd98c.  return @kind void;
+  #L1bd98e.  v1:= v0 @kind object;
+  #L1bd990.  v1:= (`androidx.coordinatorlayout.widget.CoordinatorLayout`) v1 @kind object;
+  #L1bd994.  call temp:= `getChildCount`(v1) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getChildCount:()I` @kind virtual;
+  #L1bd99a.  v2:= temp;
+  #L1bd99c.  v3:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1bd9a0.  v4:= 16I;
+  #L1bd9a4.  if v3 < v4 then goto L1bd9ba;
+  #L1bd9a8.  if v11 == 0 then goto L1bd9ba;
+  #L1bd9ac.  v3:= new `java.util.HashMap`;
+  #L1bd9b0.  call `<init>`(v3, v2) @signature `Ljava/util/HashMap;.<init>:(I)V` @kind direct;
+  #L1bd9b6.  v9.`com.google.android.material.transformation.FabTransformationSheetBehavior.importantForAccessibilityMap` @type ^`java.util.Map` := v3 @kind object;
+  #L1bd9ba.  v3:= 0I;
+  #L1bd9bc.  if v3 >= v2 then goto L1bda6e;
+  #L1bd9c0.  call temp:= `getChildAt`(v1, v3) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1bd9c6.  v5:= temp @kind object;
+  #L1bd9c8.  
+  #L1bd9ca.  call temp:= `getLayoutParams`(v5) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L1bd9d0.  v6:= temp @kind object;
+  #L1bd9d2.  v6:= instanceof @variable v6 @type ^`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams` @kind boolean;
+  #L1bd9d6.  if v6 == 0 then goto L1bd9fa;
+  #L1bd9da.  call temp:= `getLayoutParams`(v5) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L1bd9e0.  v6:= temp @kind object;
+  #L1bd9e2.  v6:= (`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams`) v6 @kind object;
+  #L1bd9e6.  call temp:= `getBehavior`(v6) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;.getBehavior:()Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;` @kind virtual;
+  #L1bd9ec.  v6:= temp @kind object;
+  #L1bd9ee.  v6:= instanceof @variable v6 @type ^`com.google.android.material.transformation.FabTransformationScrimBehavior` @kind boolean;
+  #L1bd9f2.  if v6 == 0 then goto L1bd9fa;
+  #L1bd9f6.  v6:= 1I;
+  #L1bd9f8.  goto L1bd9fc;
+  #L1bd9fa.  v6:= 0I;
+  #L1bd9fc.  if v5 == v10 then goto L1bda68;
+  #L1bda00.  if v6 == 0 then goto L1bda06;
+  #L1bda04.  goto L1bda68;
+  #L1bda06.  if v11 != 0 then goto L1bda3e;
+  #L1bda0a.  v7:= v9.`com.google.android.material.transformation.FabTransformationSheetBehavior.importantForAccessibilityMap` @type ^`java.util.Map` @kind object;
+  #L1bda0e.  if v7 == 0 then goto L1bda68;
+  #L1bda12.  call temp:= `containsKey`(v7, v5) @signature `Ljava/util/Map;.containsKey:(Ljava/lang/Object;)Z` @kind interface;
+  #L1bda18.  v7:= temp;
+  #L1bda1a.  if v7 == 0 then goto L1bda68;
+  #L1bda1e.  v7:= v9.`com.google.android.material.transformation.FabTransformationSheetBehavior.importantForAccessibilityMap` @type ^`java.util.Map` @kind object;
+  #L1bda22.  call temp:= `get`(v7, v5) @signature `Ljava/util/Map;.get:(Ljava/lang/Object;)Ljava/lang/Object;` @kind interface;
+  #L1bda28.  v7:= temp @kind object;
+  #L1bda2a.  v7:= (`java.lang.Integer`) v7 @kind object;
+  #L1bda2e.  call temp:= `intValue`(v7) @signature `Ljava/lang/Integer;.intValue:()I` @kind virtual;
+  #L1bda34.  v7:= temp;
+  #L1bda36.  call `setImportantForAccessibility`(v5, v7) @signature `Landroidx/core/view/ViewCompat;.setImportantForAccessibility:(Landroid/view/View;I)V` @kind static;
+  #L1bda3c.  goto L1bda68;
+  #L1bda3e.  v7:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1bda42.  if v7 < v4 then goto L1bda60;
+  #L1bda46.  v7:= v9.`com.google.android.material.transformation.FabTransformationSheetBehavior.importantForAccessibilityMap` @type ^`java.util.Map` @kind object;
+  #L1bda4a.  call temp:= `getImportantForAccessibility`(v5) @signature `Landroid/view/View;.getImportantForAccessibility:()I` @kind virtual;
+  #L1bda50.  v8:= temp;
+  #L1bda52.  call temp:= `valueOf`(v8) @signature `Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer;` @kind static;
+  #L1bda58.  v8:= temp @kind object;
+  #L1bda5a.  call temp:= `put`(v7, v5, v8) @signature `Ljava/util/Map;.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;` @kind interface;
+  #L1bda60.  v7:= 4I;
+  #L1bda62.  call `setImportantForAccessibility`(v5, v7) @signature `Landroidx/core/view/ViewCompat;.setImportantForAccessibility:(Landroid/view/View;I)V` @kind static;
+  #L1bda68.  v3:= v3 + 1;
+  #L1bda6c.  goto L1bd9bc;
+  #L1bda6e.  if v11 != 0 then goto L1bda78;
+  #L1bda72.  v3:= 0I;
+  #L1bda74.  v9.`com.google.android.material.transformation.FabTransformationSheetBehavior.importantForAccessibilityMap` @type ^`java.util.Map` := v3 @kind object;
+  #L1bda78.  return @kind void;
+}
+procedure `com.google.android.material.transformation.FabTransformationBehavior$FabTransformationSpec` `onCreateMotionSpec`(`com.google.android.material.transformation.FabTransformationSheetBehavior` v5 @kind this, `android.content.Context` v6 @kind object @name `context`, `boolean` v7 @name `expanded`) @signature `Lcom/google/android/material/transformation/FabTransformationSheetBehavior;.onCreateMotionSpec:(Landroid/content/Context;Z)Lcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1bd900.  if v7 == 0 then goto L1bd90a;
+  #L1bd904.  v0:= `@@com.google.android.material.R$animator.mtrl_fab_transformation_sheet_expand_spec` @type ^`int`;
+  #L1bd908.  goto L1bd90e;
+  #L1bd90a.  v0:= `@@com.google.android.material.R$animator.mtrl_fab_transformation_sheet_collapse_spec` @type ^`int`;
+  #L1bd90e.  v1:= new `com.google.android.material.transformation.FabTransformationBehavior$FabTransformationSpec`;
+  #L1bd912.  call `<init>`(v1) @signature `Lcom/google/android/material/transformation/FabTransformationBehavior$FabTransformationSpec;.<init>:()V` @kind direct;
+  #L1bd918.  call temp:= `createFromResource`(v6, v0) @signature `Lcom/google/android/material/animation/MotionSpec;.createFromResource:(Landroid/content/Context;I)Lcom/google/android/material/animation/MotionSpec;` @kind static;
+  #L1bd91e.  v2:= temp @kind object;
+  #L1bd920.  v1.`com.google.android.material.transformation.FabTransformationBehavior$FabTransformationSpec.timings` @type ^`com.google.android.material.animation.MotionSpec` := v2 @kind object;
+  #L1bd924.  v2:= new `com.google.android.material.animation.Positioning`;
+  #L1bd928.  v3:= 17I;
+  #L1bd92c.  v4:= 0I;
+  #L1bd92e.  call `<init>`(v2, v3, v4, v4) @signature `Lcom/google/android/material/animation/Positioning;.<init>:(IFF)V` @kind direct;
+  #L1bd934.  v1.`com.google.android.material.transformation.FabTransformationBehavior$FabTransformationSpec.positioning` @type ^`com.google.android.material.animation.Positioning` := v2 @kind object;
+  #L1bd938.  return v1 @kind object;
+}
+procedure `boolean` `onExpandedStateChange`(`com.google.android.material.transformation.FabTransformationSheetBehavior` v1 @kind this, `android.view.View` v2 @kind object @name `dependency`, `android.view.View` v3 @kind object @name `child`, `boolean` v4 @name `expanded`, `boolean` v5 @name `animated`) @signature `Lcom/google/android/material/transformation/FabTransformationSheetBehavior;.onExpandedStateChange:(Landroid/view/View;Landroid/view/View;ZZ)Z` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L1bd8e0.  call `updateImportantForAccessibility`(v1, v3, v4) @signature `Lcom/google/android/material/transformation/FabTransformationSheetBehavior;.updateImportantForAccessibility:(Landroid/view/View;Z)V` @kind direct;
+  #L1bd8e6.  call temp:= `onExpandedStateChange`(v1, v2, v3, v4, v5) @signature `Lcom/google/android/material/transformation/FabTransformationBehavior;.onExpandedStateChange:(Landroid/view/View;Landroid/view/View;ZZ)Z` @kind super;
+  #L1bd8ec.  v0:= temp;
+  #L1bd8ee.  return v0;
+}

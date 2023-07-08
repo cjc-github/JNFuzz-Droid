@@ -1,0 +1,49 @@
+record `com.google.android.material.internal.NavigationMenuPresenter$1` @kind class @AccessFlag  extends `android.view.View$OnClickListener` @kind interface {
+  `com.google.android.material.internal.NavigationMenuPresenter` `com.google.android.material.internal.NavigationMenuPresenter$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.NavigationMenuPresenter$1` v0 @kind this, `com.google.android.material.internal.NavigationMenuPresenter` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter$1;.<init>:(Lcom/google/android/material/internal/NavigationMenuPresenter;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1a4f10.  v0.`com.google.android.material.internal.NavigationMenuPresenter$1.this$0` @type ^`com.google.android.material.internal.NavigationMenuPresenter` := v1 @kind object;
+  #L1a4f14.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1a4f1a.  return @kind void;
+}
+procedure `void` `onClick`(`com.google.android.material.internal.NavigationMenuPresenter$1` v6 @kind this, `android.view.View` v7 @kind object @name `view`) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter$1;.onClick:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1a4f2c.  v0:= v7 @kind object;
+  #L1a4f2e.  v0:= (`com.google.android.material.internal.NavigationMenuItemView`) v0 @kind object;
+  #L1a4f32.  v1:= v6.`com.google.android.material.internal.NavigationMenuPresenter$1.this$0` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a4f36.  v2:= 1I;
+  #L1a4f38.  call `setUpdateSuspended`(v1, v2) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setUpdateSuspended:(Z)V` @kind virtual;
+  #L1a4f3e.  call temp:= `getItemData`(v0) @signature `Lcom/google/android/material/internal/NavigationMenuItemView;.getItemData:()Landroidx/appcompat/view/menu/MenuItemImpl;` @kind virtual;
+  #L1a4f44.  v1:= temp @kind object;
+  #L1a4f46.  v2:= v6.`com.google.android.material.internal.NavigationMenuPresenter$1.this$0` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a4f4a.  v2:= v2.`com.google.android.material.internal.NavigationMenuPresenter.menu` @type ^`androidx.appcompat.view.menu.MenuBuilder` @kind object;
+  #L1a4f4e.  v3:= v6.`com.google.android.material.internal.NavigationMenuPresenter$1.this$0` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a4f52.  v4:= 0I;
+  #L1a4f54.  call temp:= `performItemAction`(v2, v1, v3, v4) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.performItemAction:(Landroid/view/MenuItem;Landroidx/appcompat/view/menu/MenuPresenter;I)Z` @kind virtual;
+  #L1a4f5a.  v2:= temp;
+  #L1a4f5c.  v3:= 0I;
+  #L1a4f5e.  if v1 == 0 then goto L1a4f82;
+  #L1a4f62.  call temp:= `isCheckable`(v1) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.isCheckable:()Z` @kind virtual;
+  #L1a4f68.  v5:= temp;
+  #L1a4f6a.  if v5 == 0 then goto L1a4f82;
+  #L1a4f6e.  if v2 == 0 then goto L1a4f82;
+  #L1a4f72.  v5:= v6.`com.google.android.material.internal.NavigationMenuPresenter$1.this$0` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a4f76.  v5:= v5.`com.google.android.material.internal.NavigationMenuPresenter.adapter` @type ^`com.google.android.material.internal.NavigationMenuPresenter$NavigationMenuAdapter` @kind object;
+  #L1a4f7a.  call `setCheckedItem`(v5, v1) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter$NavigationMenuAdapter;.setCheckedItem:(Landroidx/appcompat/view/menu/MenuItemImpl;)V` @kind virtual;
+  #L1a4f80.  v3:= 1I;
+  #L1a4f82.  v5:= v6.`com.google.android.material.internal.NavigationMenuPresenter$1.this$0` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a4f86.  call `setUpdateSuspended`(v5, v4) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setUpdateSuspended:(Z)V` @kind virtual;
+  #L1a4f8c.  if v3 == 0 then goto L1a4f9a;
+  #L1a4f90.  v5:= v6.`com.google.android.material.internal.NavigationMenuPresenter$1.this$0` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a4f94.  call `updateMenuView`(v5, v4) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.updateMenuView:(Z)V` @kind virtual;
+  #L1a4f9a.  return @kind void;
+}

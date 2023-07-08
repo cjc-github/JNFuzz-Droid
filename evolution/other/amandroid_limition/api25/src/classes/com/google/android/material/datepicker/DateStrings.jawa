@@ -1,0 +1,310 @@
+record `com.google.android.material.datepicker.DateStrings` @kind class @AccessFlag  {
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.DateStrings` v0 @kind this) @signature `Lcom/google/android/material/datepicker/DateStrings;.<init>:()V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+
+  #L1971b0.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1971b6.  return @kind void;
+}
+procedure `androidx.core.util.Pair` `getDateRangeString`(`java.lang.Long` v1 @kind object @name `start`, `java.lang.Long` v2 @kind object @name `end`) @signature `Lcom/google/android/material/datepicker/DateStrings;.getDateRangeString:(Ljava/lang/Long;Ljava/lang/Long;)Landroidx/core/util/Pair;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L196d78.  v0:= 0I;
+  #L196d7a.  call temp:= `getDateRangeString`(v1, v2, v0) @signature `Lcom/google/android/material/datepicker/DateStrings;.getDateRangeString:(Ljava/lang/Long;Ljava/lang/Long;Ljava/text/SimpleDateFormat;)Landroidx/core/util/Pair;` @kind static;
+  #L196d80.  v0:= temp @kind object;
+  #L196d82.  return v0 @kind object;
+}
+procedure `androidx.core.util.Pair` `getDateRangeString`(`java.lang.Long` v7 @kind object @name `start`, `java.lang.Long` v8 @kind object @name `end`, `java.text.SimpleDateFormat` v9 @kind object @name `userDefinedDateFormat`) @signature `Lcom/google/android/material/datepicker/DateStrings;.getDateRangeString:(Ljava/lang/Long;Ljava/lang/Long;Ljava/text/SimpleDateFormat;)Landroidx/core/util/Pair;` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L196d94.  v0:= 0I;
+  #L196d96.  if v7 != 0 then goto L196da8;
+  #L196d9a.  if v8 != 0 then goto L196da8;
+  #L196d9e.  call temp:= `create`(v0, v0) @signature `Landroidx/core/util/Pair;.create:(Ljava/lang/Object;Ljava/lang/Object;)Landroidx/core/util/Pair;` @kind static;
+  #L196da4.  v0:= temp @kind object;
+  #L196da6.  return v0 @kind object;
+  #L196da8.  if v7 != 0 then goto L196dc6;
+  #L196dac.  call temp:= `longValue`(v8) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L196db2.  v1:= temp @kind wide;
+  #L196db4.  call temp:= `getDateString`(v1, v9) @signature `Lcom/google/android/material/datepicker/DateStrings;.getDateString:(JLjava/text/SimpleDateFormat;)Ljava/lang/String;` @kind static;
+  #L196dba.  v1:= temp @kind object;
+  #L196dbc.  call temp:= `create`(v0, v1) @signature `Landroidx/core/util/Pair;.create:(Ljava/lang/Object;Ljava/lang/Object;)Landroidx/core/util/Pair;` @kind static;
+  #L196dc2.  v0:= temp @kind object;
+  #L196dc4.  return v0 @kind object;
+  #L196dc6.  if v8 != 0 then goto L196de4;
+  #L196dca.  call temp:= `longValue`(v7) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L196dd0.  v1:= temp @kind wide;
+  #L196dd2.  call temp:= `getDateString`(v1, v9) @signature `Lcom/google/android/material/datepicker/DateStrings;.getDateString:(JLjava/text/SimpleDateFormat;)Ljava/lang/String;` @kind static;
+  #L196dd8.  v1:= temp @kind object;
+  #L196dda.  call temp:= `create`(v1, v0) @signature `Landroidx/core/util/Pair;.create:(Ljava/lang/Object;Ljava/lang/Object;)Landroidx/core/util/Pair;` @kind static;
+  #L196de0.  v0:= temp @kind object;
+  #L196de2.  return v0 @kind object;
+  #L196de4.  call temp:= `getTodayCalendar`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getTodayCalendar:()Ljava/util/Calendar;` @kind static;
+  #L196dea.  v0:= temp @kind object;
+  #L196dec.  call temp:= `getUtcCalendar`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getUtcCalendar:()Ljava/util/Calendar;` @kind static;
+  #L196df2.  v1:= temp @kind object;
+  #L196df4.  call temp:= `longValue`(v7) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L196dfa.  v2:= temp @kind wide;
+  #L196dfc.  call `setTimeInMillis`(v1, v2) @signature `Ljava/util/Calendar;.setTimeInMillis:(J)V` @kind virtual;
+  #L196e02.  call temp:= `getUtcCalendar`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getUtcCalendar:()Ljava/util/Calendar;` @kind static;
+  #L196e08.  v2:= temp @kind object;
+  #L196e0a.  call temp:= `longValue`(v8) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L196e10.  v3:= temp @kind wide;
+  #L196e12.  call `setTimeInMillis`(v2, v3) @signature `Ljava/util/Calendar;.setTimeInMillis:(J)V` @kind virtual;
+  #L196e18.  if v9 == 0 then goto L196e5c;
+  #L196e1c.  v3:= new `java.util.Date`;
+  #L196e20.  call temp:= `longValue`(v7) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L196e26.  v4:= temp @kind wide;
+  #L196e28.  call `<init>`(v3, v4) @signature `Ljava/util/Date;.<init>:(J)V` @kind direct;
+  #L196e2e.  v4:= new `java.util.Date`;
+  #L196e32.  call temp:= `longValue`(v8) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L196e38.  v5:= temp @kind wide;
+  #L196e3a.  call `<init>`(v4, v5) @signature `Ljava/util/Date;.<init>:(J)V` @kind direct;
+  #L196e40.  
+  #L196e42.  call temp:= `format`(v9, v3) @signature `Ljava/text/SimpleDateFormat;.format:(Ljava/util/Date;)Ljava/lang/String;` @kind virtual;
+  #L196e48.  v5:= temp @kind object;
+  #L196e4a.  call temp:= `format`(v9, v4) @signature `Ljava/text/SimpleDateFormat;.format:(Ljava/util/Date;)Ljava/lang/String;` @kind virtual;
+  #L196e50.  v6:= temp @kind object;
+  #L196e52.  call temp:= `create`(v5, v6) @signature `Landroidx/core/util/Pair;.create:(Ljava/lang/Object;Ljava/lang/Object;)Landroidx/core/util/Pair;` @kind static;
+  #L196e58.  v5:= temp @kind object;
+  #L196e5a.  return v5 @kind object;
+  #L196e5c.  v3:= 1I;
+  #L196e5e.  call temp:= `get`(v1, v3) @signature `Ljava/util/Calendar;.get:(I)I` @kind virtual;
+  #L196e64.  v4:= temp;
+  #L196e66.  call temp:= `get`(v2, v3) @signature `Ljava/util/Calendar;.get:(I)I` @kind virtual;
+  #L196e6c.  v5:= temp;
+  #L196e6e.  if v4 != v5 then goto L196efe;
+  #L196e72.  call temp:= `get`(v1, v3) @signature `Ljava/util/Calendar;.get:(I)I` @kind virtual;
+  #L196e78.  v4:= temp;
+  #L196e7a.  call temp:= `get`(v0, v3) @signature `Ljava/util/Calendar;.get:(I)I` @kind virtual;
+  #L196e80.  v3:= temp;
+  #L196e82.  if v4 != v3 then goto L196ec2;
+  #L196e86.  
+  #L196e88.  call temp:= `longValue`(v7) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L196e8e.  v3:= temp @kind wide;
+  #L196e90.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L196e96.  v5:= temp @kind object;
+  #L196e98.  call temp:= `getMonthDay`(v3, v5) @signature `Lcom/google/android/material/datepicker/DateStrings;.getMonthDay:(JLjava/util/Locale;)Ljava/lang/String;` @kind static;
+  #L196e9e.  v3:= temp @kind object;
+  #L196ea0.  call temp:= `longValue`(v8) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L196ea6.  v4:= temp @kind wide;
+  #L196ea8.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L196eae.  v6:= temp @kind object;
+  #L196eb0.  call temp:= `getMonthDay`(v4, v6) @signature `Lcom/google/android/material/datepicker/DateStrings;.getMonthDay:(JLjava/util/Locale;)Ljava/lang/String;` @kind static;
+  #L196eb6.  v4:= temp @kind object;
+  #L196eb8.  call temp:= `create`(v3, v4) @signature `Landroidx/core/util/Pair;.create:(Ljava/lang/Object;Ljava/lang/Object;)Landroidx/core/util/Pair;` @kind static;
+  #L196ebe.  v3:= temp @kind object;
+  #L196ec0.  return v3 @kind object;
+  #L196ec2.  
+  #L196ec4.  call temp:= `longValue`(v7) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L196eca.  v3:= temp @kind wide;
+  #L196ecc.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L196ed2.  v5:= temp @kind object;
+  #L196ed4.  call temp:= `getMonthDay`(v3, v5) @signature `Lcom/google/android/material/datepicker/DateStrings;.getMonthDay:(JLjava/util/Locale;)Ljava/lang/String;` @kind static;
+  #L196eda.  v3:= temp @kind object;
+  #L196edc.  call temp:= `longValue`(v8) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L196ee2.  v4:= temp @kind wide;
+  #L196ee4.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L196eea.  v6:= temp @kind object;
+  #L196eec.  call temp:= `getYearMonthDay`(v4, v6) @signature `Lcom/google/android/material/datepicker/DateStrings;.getYearMonthDay:(JLjava/util/Locale;)Ljava/lang/String;` @kind static;
+  #L196ef2.  v4:= temp @kind object;
+  #L196ef4.  call temp:= `create`(v3, v4) @signature `Landroidx/core/util/Pair;.create:(Ljava/lang/Object;Ljava/lang/Object;)Landroidx/core/util/Pair;` @kind static;
+  #L196efa.  v3:= temp @kind object;
+  #L196efc.  return v3 @kind object;
+  #L196efe.  
+  #L196f00.  call temp:= `longValue`(v7) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L196f06.  v3:= temp @kind wide;
+  #L196f08.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L196f0e.  v5:= temp @kind object;
+  #L196f10.  call temp:= `getYearMonthDay`(v3, v5) @signature `Lcom/google/android/material/datepicker/DateStrings;.getYearMonthDay:(JLjava/util/Locale;)Ljava/lang/String;` @kind static;
+  #L196f16.  v3:= temp @kind object;
+  #L196f18.  call temp:= `longValue`(v8) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L196f1e.  v4:= temp @kind wide;
+  #L196f20.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L196f26.  v6:= temp @kind object;
+  #L196f28.  call temp:= `getYearMonthDay`(v4, v6) @signature `Lcom/google/android/material/datepicker/DateStrings;.getYearMonthDay:(JLjava/util/Locale;)Ljava/lang/String;` @kind static;
+  #L196f2e.  v4:= temp @kind object;
+  #L196f30.  call temp:= `create`(v3, v4) @signature `Landroidx/core/util/Pair;.create:(Ljava/lang/Object;Ljava/lang/Object;)Landroidx/core/util/Pair;` @kind static;
+  #L196f36.  v3:= temp @kind object;
+  #L196f38.  return v3 @kind object;
+}
+procedure `java.lang.String` `getDateString`(`long` v1 @name `timeInMillis`) @signature `Lcom/google/android/material/datepicker/DateStrings;.getDateString:(J)Ljava/lang/String;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L196f4c.  v0:= 0I;
+  #L196f4e.  call temp:= `getDateString`(v1, v0) @signature `Lcom/google/android/material/datepicker/DateStrings;.getDateString:(JLjava/text/SimpleDateFormat;)Ljava/lang/String;` @kind static;
+  #L196f54.  v0:= temp @kind object;
+  #L196f56.  return v0 @kind object;
+}
+procedure `java.lang.String` `getDateString`(`long` v4 @name `timeInMillis`, `java.text.SimpleDateFormat` v6 @kind object @name `userDefinedDateFormat`) @signature `Lcom/google/android/material/datepicker/DateStrings;.getDateString:(JLjava/text/SimpleDateFormat;)Ljava/lang/String;` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L196f68.  call temp:= `getTodayCalendar`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getTodayCalendar:()Ljava/util/Calendar;` @kind static;
+  #L196f6e.  v0:= temp @kind object;
+  #L196f70.  call temp:= `getUtcCalendar`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getUtcCalendar:()Ljava/util/Calendar;` @kind static;
+  #L196f76.  v1:= temp @kind object;
+  #L196f78.  call `setTimeInMillis`(v1, v4) @signature `Ljava/util/Calendar;.setTimeInMillis:(J)V` @kind virtual;
+  #L196f7e.  if v6 == 0 then goto L196f96;
+  #L196f82.  v2:= new `java.util.Date`;
+  #L196f86.  call `<init>`(v2, v4) @signature `Ljava/util/Date;.<init>:(J)V` @kind direct;
+  #L196f8c.  call temp:= `format`(v6, v2) @signature `Ljava/text/SimpleDateFormat;.format:(Ljava/util/Date;)Ljava/lang/String;` @kind virtual;
+  #L196f92.  v3:= temp @kind object;
+  #L196f94.  return v3 @kind object;
+  #L196f96.  v2:= 1I;
+  #L196f98.  call temp:= `get`(v0, v2) @signature `Ljava/util/Calendar;.get:(I)I` @kind virtual;
+  #L196f9e.  v3:= temp;
+  #L196fa0.  call temp:= `get`(v1, v2) @signature `Ljava/util/Calendar;.get:(I)I` @kind virtual;
+  #L196fa6.  v2:= temp;
+  #L196fa8.  if v3 != v2 then goto L196fb6;
+  #L196fac.  call temp:= `getMonthDay`(v4) @signature `Lcom/google/android/material/datepicker/DateStrings;.getMonthDay:(J)Ljava/lang/String;` @kind static;
+  #L196fb2.  v2:= temp @kind object;
+  #L196fb4.  return v2 @kind object;
+  #L196fb6.  call temp:= `getYearMonthDay`(v4) @signature `Lcom/google/android/material/datepicker/DateStrings;.getYearMonthDay:(J)Ljava/lang/String;` @kind static;
+  #L196fbc.  v2:= temp @kind object;
+  #L196fbe.  return v2 @kind object;
+}
+procedure `java.lang.String` `getMonthDay`(`long` v1 @name `timeInMillis`) @signature `Lcom/google/android/material/datepicker/DateStrings;.getMonthDay:(J)Ljava/lang/String;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L196fd0.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L196fd6.  v0:= temp @kind object;
+  #L196fd8.  call temp:= `getMonthDay`(v1, v0) @signature `Lcom/google/android/material/datepicker/DateStrings;.getMonthDay:(JLjava/util/Locale;)Ljava/lang/String;` @kind static;
+  #L196fde.  v0:= temp @kind object;
+  #L196fe0.  return v0 @kind object;
+}
+procedure `java.lang.String` `getMonthDay`(`long` v2 @name `timeInMillis`, `java.util.Locale` v4 @kind object @name `locale`) @signature `Lcom/google/android/material/datepicker/DateStrings;.getMonthDay:(JLjava/util/Locale;)Ljava/lang/String;` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L196ff4.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L196ff8.  v1:= 24I;
+  #L196ffc.  if v0 < v1 then goto L19701c;
+  #L197000.  call temp:= `getAbbrMonthDayFormat`(v4) @signature `Lcom/google/android/material/datepicker/UtcDates;.getAbbrMonthDayFormat:(Ljava/util/Locale;)Landroid/icu/text/DateFormat;` @kind static;
+  #L197006.  v0:= temp @kind object;
+  #L197008.  v1:= new `java.util.Date`;
+  #L19700c.  call `<init>`(v1, v2) @signature `Ljava/util/Date;.<init>:(J)V` @kind direct;
+  #L197012.  call temp:= `format`(v0, v1) @signature `Landroid/icu/text/DateFormat;.format:(Ljava/util/Date;)Ljava/lang/String;` @kind virtual;
+  #L197018.  v0:= temp @kind object;
+  #L19701a.  return v0 @kind object;
+  #L19701c.  call temp:= `getMediumNoYear`(v4) @signature `Lcom/google/android/material/datepicker/UtcDates;.getMediumNoYear:(Ljava/util/Locale;)Ljava/text/DateFormat;` @kind static;
+  #L197022.  v0:= temp @kind object;
+  #L197024.  v1:= new `java.util.Date`;
+  #L197028.  call `<init>`(v1, v2) @signature `Ljava/util/Date;.<init>:(J)V` @kind direct;
+  #L19702e.  call temp:= `format`(v0, v1) @signature `Ljava/text/DateFormat;.format:(Ljava/util/Date;)Ljava/lang/String;` @kind virtual;
+  #L197034.  v0:= temp @kind object;
+  #L197036.  return v0 @kind object;
+}
+procedure `java.lang.String` `getMonthDayOfWeekDay`(`long` v1 @name `timeInMillis`) @signature `Lcom/google/android/material/datepicker/DateStrings;.getMonthDayOfWeekDay:(J)Ljava/lang/String;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L197048.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L19704e.  v0:= temp @kind object;
+  #L197050.  call temp:= `getMonthDayOfWeekDay`(v1, v0) @signature `Lcom/google/android/material/datepicker/DateStrings;.getMonthDayOfWeekDay:(JLjava/util/Locale;)Ljava/lang/String;` @kind static;
+  #L197056.  v0:= temp @kind object;
+  #L197058.  return v0 @kind object;
+}
+procedure `java.lang.String` `getMonthDayOfWeekDay`(`long` v2 @name `timeInMillis`, `java.util.Locale` v4 @kind object @name `locale`) @signature `Lcom/google/android/material/datepicker/DateStrings;.getMonthDayOfWeekDay:(JLjava/util/Locale;)Ljava/lang/String;` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L19706c.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L197070.  v1:= 24I;
+  #L197074.  if v0 < v1 then goto L197094;
+  #L197078.  call temp:= `getAbbrMonthWeekdayDayFormat`(v4) @signature `Lcom/google/android/material/datepicker/UtcDates;.getAbbrMonthWeekdayDayFormat:(Ljava/util/Locale;)Landroid/icu/text/DateFormat;` @kind static;
+  #L19707e.  v0:= temp @kind object;
+  #L197080.  v1:= new `java.util.Date`;
+  #L197084.  call `<init>`(v1, v2) @signature `Ljava/util/Date;.<init>:(J)V` @kind direct;
+  #L19708a.  call temp:= `format`(v0, v1) @signature `Landroid/icu/text/DateFormat;.format:(Ljava/util/Date;)Ljava/lang/String;` @kind virtual;
+  #L197090.  v0:= temp @kind object;
+  #L197092.  return v0 @kind object;
+  #L197094.  call temp:= `getFullFormat`(v4) @signature `Lcom/google/android/material/datepicker/UtcDates;.getFullFormat:(Ljava/util/Locale;)Ljava/text/DateFormat;` @kind static;
+  #L19709a.  v0:= temp @kind object;
+  #L19709c.  v1:= new `java.util.Date`;
+  #L1970a0.  call `<init>`(v1, v2) @signature `Ljava/util/Date;.<init>:(J)V` @kind direct;
+  #L1970a6.  call temp:= `format`(v0, v1) @signature `Ljava/text/DateFormat;.format:(Ljava/util/Date;)Ljava/lang/String;` @kind virtual;
+  #L1970ac.  v0:= temp @kind object;
+  #L1970ae.  return v0 @kind object;
+}
+procedure `java.lang.String` `getYearMonthDay`(`long` v1 @name `timeInMillis`) @signature `Lcom/google/android/material/datepicker/DateStrings;.getYearMonthDay:(J)Ljava/lang/String;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L1970c0.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L1970c6.  v0:= temp @kind object;
+  #L1970c8.  call temp:= `getYearMonthDay`(v1, v0) @signature `Lcom/google/android/material/datepicker/DateStrings;.getYearMonthDay:(JLjava/util/Locale;)Ljava/lang/String;` @kind static;
+  #L1970ce.  v0:= temp @kind object;
+  #L1970d0.  return v0 @kind object;
+}
+procedure `java.lang.String` `getYearMonthDay`(`long` v2 @name `timeInMillis`, `java.util.Locale` v4 @kind object @name `locale`) @signature `Lcom/google/android/material/datepicker/DateStrings;.getYearMonthDay:(JLjava/util/Locale;)Ljava/lang/String;` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1970e4.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1970e8.  v1:= 24I;
+  #L1970ec.  if v0 < v1 then goto L19710c;
+  #L1970f0.  call temp:= `getYearAbbrMonthDayFormat`(v4) @signature `Lcom/google/android/material/datepicker/UtcDates;.getYearAbbrMonthDayFormat:(Ljava/util/Locale;)Landroid/icu/text/DateFormat;` @kind static;
+  #L1970f6.  v0:= temp @kind object;
+  #L1970f8.  v1:= new `java.util.Date`;
+  #L1970fc.  call `<init>`(v1, v2) @signature `Ljava/util/Date;.<init>:(J)V` @kind direct;
+  #L197102.  call temp:= `format`(v0, v1) @signature `Landroid/icu/text/DateFormat;.format:(Ljava/util/Date;)Ljava/lang/String;` @kind virtual;
+  #L197108.  v0:= temp @kind object;
+  #L19710a.  return v0 @kind object;
+  #L19710c.  call temp:= `getMediumFormat`(v4) @signature `Lcom/google/android/material/datepicker/UtcDates;.getMediumFormat:(Ljava/util/Locale;)Ljava/text/DateFormat;` @kind static;
+  #L197112.  v0:= temp @kind object;
+  #L197114.  v1:= new `java.util.Date`;
+  #L197118.  call `<init>`(v1, v2) @signature `Ljava/util/Date;.<init>:(J)V` @kind direct;
+  #L19711e.  call temp:= `format`(v0, v1) @signature `Ljava/text/DateFormat;.format:(Ljava/util/Date;)Ljava/lang/String;` @kind virtual;
+  #L197124.  v0:= temp @kind object;
+  #L197126.  return v0 @kind object;
+}
+procedure `java.lang.String` `getYearMonthDayOfWeekDay`(`long` v1 @name `timeInMillis`) @signature `Lcom/google/android/material/datepicker/DateStrings;.getYearMonthDayOfWeekDay:(J)Ljava/lang/String;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L197138.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L19713e.  v0:= temp @kind object;
+  #L197140.  call temp:= `getYearMonthDayOfWeekDay`(v1, v0) @signature `Lcom/google/android/material/datepicker/DateStrings;.getYearMonthDayOfWeekDay:(JLjava/util/Locale;)Ljava/lang/String;` @kind static;
+  #L197146.  v0:= temp @kind object;
+  #L197148.  return v0 @kind object;
+}
+procedure `java.lang.String` `getYearMonthDayOfWeekDay`(`long` v2 @name `timeInMillis`, `java.util.Locale` v4 @kind object @name `locale`) @signature `Lcom/google/android/material/datepicker/DateStrings;.getYearMonthDayOfWeekDay:(JLjava/util/Locale;)Ljava/lang/String;` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L19715c.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L197160.  v1:= 24I;
+  #L197164.  if v0 < v1 then goto L197184;
+  #L197168.  call temp:= `getYearAbbrMonthWeekdayDayFormat`(v4) @signature `Lcom/google/android/material/datepicker/UtcDates;.getYearAbbrMonthWeekdayDayFormat:(Ljava/util/Locale;)Landroid/icu/text/DateFormat;` @kind static;
+  #L19716e.  v0:= temp @kind object;
+  #L197170.  v1:= new `java.util.Date`;
+  #L197174.  call `<init>`(v1, v2) @signature `Ljava/util/Date;.<init>:(J)V` @kind direct;
+  #L19717a.  call temp:= `format`(v0, v1) @signature `Landroid/icu/text/DateFormat;.format:(Ljava/util/Date;)Ljava/lang/String;` @kind virtual;
+  #L197180.  v0:= temp @kind object;
+  #L197182.  return v0 @kind object;
+  #L197184.  call temp:= `getFullFormat`(v4) @signature `Lcom/google/android/material/datepicker/UtcDates;.getFullFormat:(Ljava/util/Locale;)Ljava/text/DateFormat;` @kind static;
+  #L19718a.  v0:= temp @kind object;
+  #L19718c.  v1:= new `java.util.Date`;
+  #L197190.  call `<init>`(v1, v2) @signature `Ljava/util/Date;.<init>:(J)V` @kind direct;
+  #L197196.  call temp:= `format`(v0, v1) @signature `Ljava/text/DateFormat;.format:(Ljava/util/Date;)Ljava/lang/String;` @kind virtual;
+  #L19719c.  v0:= temp @kind object;
+  #L19719e.  return v0 @kind object;
+}

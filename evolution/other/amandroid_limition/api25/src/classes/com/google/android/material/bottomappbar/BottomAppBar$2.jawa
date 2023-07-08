@@ -1,0 +1,97 @@
+record `com.google.android.material.bottomappbar.BottomAppBar$2` @kind class @AccessFlag  extends `com.google.android.material.animation.TransformationCallback` @kind interface {
+  `com.google.android.material.bottomappbar.BottomAppBar` `com.google.android.material.bottomappbar.BottomAppBar$2.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomappbar.BottomAppBar$2` v0 @kind this, `com.google.android.material.bottomappbar.BottomAppBar` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$2;.<init>:(Lcom/google/android/material/bottomappbar/BottomAppBar;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L184408.  v0.`com.google.android.material.bottomappbar.BottomAppBar$2.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar` := v1 @kind object;
+  #L18440c.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L184412.  return @kind void;
+}
+procedure `void` `onScaleChanged`(`com.google.android.material.bottomappbar.BottomAppBar$2` v0 @kind this, `android.view.View` v1 @kind object) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$2;.onScaleChanged:(Landroid/view/View;)V` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L184424.  v1:= (`com.google.android.material.floatingactionbutton.FloatingActionButton`) v1 @kind object;
+  #L184428.  call `onScaleChanged`(v0, v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$2;.onScaleChanged:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V` @kind virtual;
+  #L18442e.  return @kind void;
+}
+procedure `void` `onScaleChanged`(`com.google.android.material.bottomappbar.BottomAppBar$2` v2 @kind this, `com.google.android.material.floatingactionbutton.FloatingActionButton` v3 @kind object @name `fab`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$2;.onScaleChanged:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L184440.  v0:= v2.`com.google.android.material.bottomappbar.BottomAppBar$2.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar` @kind object;
+  #L184444.  call temp:= `access$300`(v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$300:(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind static;
+  #L18444a.  v0:= temp @kind object;
+  #L18444c.  call temp:= `getVisibility`(v3) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.getVisibility:()I` @kind virtual;
+  #L184452.  v1:= temp;
+  #L184454.  if v1 != 0 then goto L184462;
+  #L184458.  call temp:= `getScaleY`(v3) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.getScaleY:()F` @kind virtual;
+  #L18445e.  v1:= temp;
+  #L184460.  goto L184464;
+  #L184462.  v1:= 0I;
+  #L184464.  call `setInterpolation`(v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setInterpolation:(F)V` @kind virtual;
+  #L18446a.  return @kind void;
+}
+procedure `void` `onTranslationChanged`(`com.google.android.material.bottomappbar.BottomAppBar$2` v0 @kind this, `android.view.View` v1 @kind object) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$2;.onTranslationChanged:(Landroid/view/View;)V` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L18447c.  v1:= (`com.google.android.material.floatingactionbutton.FloatingActionButton`) v1 @kind object;
+  #L184480.  call `onTranslationChanged`(v0, v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$2;.onTranslationChanged:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V` @kind virtual;
+  #L184486.  return @kind void;
+}
+procedure `void` `onTranslationChanged`(`com.google.android.material.bottomappbar.BottomAppBar$2` v4 @kind this, `com.google.android.material.floatingactionbutton.FloatingActionButton` v5 @kind object @name `fab`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$2;.onTranslationChanged:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L184498.  call temp:= `getTranslationX`(v5) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.getTranslationX:()F` @kind virtual;
+  #L18449e.  v0:= temp;
+  #L1844a0.  v1:= v4.`com.google.android.material.bottomappbar.BottomAppBar$2.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar` @kind object;
+  #L1844a4.  call temp:= `access$400`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$400:(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;` @kind static;
+  #L1844aa.  v1:= temp @kind object;
+  #L1844ac.  call temp:= `getHorizontalOffset`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.getHorizontalOffset:()F` @kind virtual;
+  #L1844b2.  v1:= temp;
+  #L1844b4.  v1:= fcmpl(v1, v0);
+  #L1844b8.  if v1 == 0 then goto L1844e0;
+  #L1844bc.  v1:= v4.`com.google.android.material.bottomappbar.BottomAppBar$2.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar` @kind object;
+  #L1844c0.  call temp:= `access$400`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$400:(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;` @kind static;
+  #L1844c6.  v1:= temp @kind object;
+  #L1844c8.  call `setHorizontalOffset`(v1, v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.setHorizontalOffset:(F)V` @kind virtual;
+  #L1844ce.  v1:= v4.`com.google.android.material.bottomappbar.BottomAppBar$2.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar` @kind object;
+  #L1844d2.  call temp:= `access$300`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$300:(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind static;
+  #L1844d8.  v1:= temp @kind object;
+  #L1844da.  call `invalidateSelf`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L1844e0.  call temp:= `getTranslationY`(v5) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.getTranslationY:()F` @kind virtual;
+  #L1844e6.  v1:= temp;
+  #L1844e8.  v1:= -v1 @kind float;
+  #L1844ea.  v2:= v4.`com.google.android.material.bottomappbar.BottomAppBar$2.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar` @kind object;
+  #L1844ee.  call temp:= `access$400`(v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$400:(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;` @kind static;
+  #L1844f4.  v2:= temp @kind object;
+  #L1844f6.  call temp:= `getCradleVerticalOffset`(v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.getCradleVerticalOffset:()F` @kind virtual;
+  #L1844fc.  v2:= temp;
+  #L1844fe.  v2:= fcmpl(v2, v1);
+  #L184502.  if v2 == 0 then goto L18452a;
+  #L184506.  v2:= v4.`com.google.android.material.bottomappbar.BottomAppBar$2.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar` @kind object;
+  #L18450a.  call temp:= `access$400`(v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$400:(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;` @kind static;
+  #L184510.  v2:= temp @kind object;
+  #L184512.  call `setCradleVerticalOffset`(v2, v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBarTopEdgeTreatment;.setCradleVerticalOffset:(F)V` @kind virtual;
+  #L184518.  v2:= v4.`com.google.android.material.bottomappbar.BottomAppBar$2.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar` @kind object;
+  #L18451c.  call temp:= `access$300`(v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$300:(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind static;
+  #L184522.  v2:= temp @kind object;
+  #L184524.  call `invalidateSelf`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L18452a.  v2:= v4.`com.google.android.material.bottomappbar.BottomAppBar$2.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar` @kind object;
+  #L18452e.  call temp:= `access$300`(v2) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$300:(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind static;
+  #L184534.  v2:= temp @kind object;
+  #L184536.  call temp:= `getVisibility`(v5) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.getVisibility:()I` @kind virtual;
+  #L18453c.  v3:= temp;
+  #L18453e.  if v3 != 0 then goto L18454c;
+  #L184542.  call temp:= `getScaleY`(v5) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.getScaleY:()F` @kind virtual;
+  #L184548.  v3:= temp;
+  #L18454a.  goto L18454e;
+  #L18454c.  v3:= 0I;
+  #L18454e.  call `setInterpolation`(v2, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setInterpolation:(F)V` @kind virtual;
+  #L184554.  return @kind void;
+}

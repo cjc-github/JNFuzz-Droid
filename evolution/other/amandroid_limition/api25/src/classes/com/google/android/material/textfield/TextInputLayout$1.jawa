@@ -1,0 +1,39 @@
+record `com.google.android.material.textfield.TextInputLayout$1` @kind class @AccessFlag  extends `android.text.TextWatcher` @kind interface {
+  `com.google.android.material.textfield.TextInputLayout` `com.google.android.material.textfield.TextInputLayout$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.TextInputLayout$1` v0 @kind this, `com.google.android.material.textfield.TextInputLayout` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/textfield/TextInputLayout$1;.<init>:(Lcom/google/android/material/textfield/TextInputLayout;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b8368.  v0.`com.google.android.material.textfield.TextInputLayout$1.this$0` @type ^`com.google.android.material.textfield.TextInputLayout` := v1 @kind object;
+  #L1b836c.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b8372.  return @kind void;
+}
+procedure `void` `afterTextChanged`(`com.google.android.material.textfield.TextInputLayout$1` v2 @kind this, `android.text.Editable` v3 @kind object @name `s`) @signature `Lcom/google/android/material/textfield/TextInputLayout$1;.afterTextChanged:(Landroid/text/Editable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b8384.  v0:= v2.`com.google.android.material.textfield.TextInputLayout$1.this$0` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b8388.  call temp:= `access$000`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.access$000:(Lcom/google/android/material/textfield/TextInputLayout;)Z` @kind static;
+  #L1b838e.  v1:= temp;
+  #L1b8390.  v1:= v1 ^~ 1;
+  #L1b8394.  call `updateLabelState`(v0, v1) @signature `Lcom/google/android/material/textfield/TextInputLayout;.updateLabelState:(Z)V` @kind virtual;
+  #L1b839a.  v0:= v2.`com.google.android.material.textfield.TextInputLayout$1.this$0` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b839e.  v0:= v0.`com.google.android.material.textfield.TextInputLayout.counterEnabled` @type ^`boolean` @kind boolean;
+  #L1b83a2.  if v0 == 0 then goto L1b83b8;
+  #L1b83a6.  v0:= v2.`com.google.android.material.textfield.TextInputLayout$1.this$0` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b83aa.  call temp:= `length`(v3) @signature `Landroid/text/Editable;.length:()I` @kind interface;
+  #L1b83b0.  v1:= temp;
+  #L1b83b2.  call `updateCounter`(v0, v1) @signature `Lcom/google/android/material/textfield/TextInputLayout;.updateCounter:(I)V` @kind virtual;
+  #L1b83b8.  return @kind void;
+}
+procedure `void` `beforeTextChanged`(`com.google.android.material.textfield.TextInputLayout$1` v0 @kind this, `java.lang.CharSequence` v1 @kind object @name `s`, `int` v2 @name `start`, `int` v3 @name `count`, `int` v4 @name `after`) @signature `Lcom/google/android/material/textfield/TextInputLayout$1;.beforeTextChanged:(Ljava/lang/CharSequence;III)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b83cc.  return @kind void;
+}
+procedure `void` `onTextChanged`(`com.google.android.material.textfield.TextInputLayout$1` v0 @kind this, `java.lang.CharSequence` v1 @kind object @name `s`, `int` v2 @name `start`, `int` v3 @name `before`, `int` v4 @name `count`) @signature `Lcom/google/android/material/textfield/TextInputLayout$1;.onTextChanged:(Ljava/lang/CharSequence;III)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b83e0.  return @kind void;
+}

@@ -1,0 +1,207 @@
+record `androidx.recyclerview.widget.RecyclerView$ViewHolder` @kind class @AccessFlag PUBLIC_ABSTRACT {
+  `android.view.View` `androidx.recyclerview.widget.RecyclerView$ViewHolder.itemView` @AccessFlag PUBLIC_FINAL;
+  `int` `androidx.recyclerview.widget.RecyclerView$ViewHolder.mFlags` @AccessFlag ;
+  `boolean` `androidx.recyclerview.widget.RecyclerView$ViewHolder.mInChangeScrap` @AccessFlag ;
+  `int` `androidx.recyclerview.widget.RecyclerView$ViewHolder.mIsRecyclableCount` @AccessFlag PRIVATE;
+  `long` `androidx.recyclerview.widget.RecyclerView$ViewHolder.mItemId` @AccessFlag ;
+  `int` `androidx.recyclerview.widget.RecyclerView$ViewHolder.mItemViewType` @AccessFlag ;
+  `java.lang.ref.WeakReference` `androidx.recyclerview.widget.RecyclerView$ViewHolder.mNestedRecyclerView` @AccessFlag ;
+  `int` `androidx.recyclerview.widget.RecyclerView$ViewHolder.mOldPosition` @AccessFlag ;
+  `androidx.recyclerview.widget.RecyclerView` `androidx.recyclerview.widget.RecyclerView$ViewHolder.mOwnerRecyclerView` @AccessFlag ;
+  `java.util.List` `androidx.recyclerview.widget.RecyclerView$ViewHolder.mPayloads` @AccessFlag ;
+  `int` `androidx.recyclerview.widget.RecyclerView$ViewHolder.mPendingAccessibilityState` @AccessFlag ;
+  `int` `androidx.recyclerview.widget.RecyclerView$ViewHolder.mPosition` @AccessFlag ;
+  `int` `androidx.recyclerview.widget.RecyclerView$ViewHolder.mPreLayoutPosition` @AccessFlag ;
+  `androidx.recyclerview.widget.RecyclerView$Recycler` `androidx.recyclerview.widget.RecyclerView$ViewHolder.mScrapContainer` @AccessFlag ;
+  `androidx.recyclerview.widget.RecyclerView$ViewHolder` `androidx.recyclerview.widget.RecyclerView$ViewHolder.mShadowedHolder` @AccessFlag ;
+  `androidx.recyclerview.widget.RecyclerView$ViewHolder` `androidx.recyclerview.widget.RecyclerView$ViewHolder.mShadowingHolder` @AccessFlag ;
+  `java.util.List` `androidx.recyclerview.widget.RecyclerView$ViewHolder.mUnmodifiedPayloads` @AccessFlag ;
+  `int` `androidx.recyclerview.widget.RecyclerView$ViewHolder.mWasImportantForAccessibilityBeforeHidden` @AccessFlag PRIVATE;
+}
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ViewHolder.FLAG_ADAPTER_FULLUPDATE` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ViewHolder.FLAG_ADAPTER_POSITION_UNKNOWN` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ViewHolder.FLAG_APPEARED_IN_PRE_LAYOUT` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ViewHolder.FLAG_BOUNCED_FROM_HIDDEN_LIST` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ViewHolder.FLAG_BOUND` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ViewHolder.FLAG_IGNORE` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ViewHolder.FLAG_INVALID` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ViewHolder.FLAG_MOVED` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ViewHolder.FLAG_NOT_RECYCLABLE` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ViewHolder.FLAG_REMOVED` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ViewHolder.FLAG_RETURNED_FROM_SCRAP` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ViewHolder.FLAG_TMP_DETACHED` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ViewHolder.FLAG_UPDATE` @AccessFlag STATIC_FINAL;
+global `java.util.List` `@@androidx.recyclerview.widget.RecyclerView$ViewHolder.FULLUPDATE_PAYLOADS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ViewHolder.PENDING_ACCESSIBILITY_STATE_NOT_SET` @AccessFlag STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v3 @kind this, `android.view.View` v4 @kind object @name `itemView`) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.<init>:(Landroid/view/View;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `createPayloadsIfNeeded`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.createPayloadsIfNeeded:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `addChangePayload`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v2 @kind this, `java.lang.Object` v3 @kind object @name `payload`) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.addChangePayload:(Ljava/lang/Object;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `addFlags`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this, `int` v2 @name `flags`) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.addFlags:(I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `clearOldPosition`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.clearOldPosition:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `clearPayload`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.clearPayload:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `clearReturnedFromScrapFlag`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.clearReturnedFromScrapFlag:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `clearTmpDetachFlag`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.clearTmpDetachFlag:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `doesTransientStatePreventRecycling`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.doesTransientStatePreventRecycling:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `flagRemovedAndOffsetPosition`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this, `int` v2 @name `mNewPosition`, `int` v3 @name `offset`, `boolean` v4 @name `applyToPreLayout`) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.flagRemovedAndOffsetPosition:(IIZ)V` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `getAdapterPosition`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.getAdapterPosition:()I` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `long` `getItemId`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v2 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.getItemId:()J` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `int` `getItemViewType`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.getItemViewType:()I` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `int` `getLayoutPosition`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v2 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.getLayoutPosition:()I` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `int` `getOldPosition`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.getOldPosition:()I` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `int` `getPosition`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v2 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.getPosition:()I` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `java.util.List` `getUnmodifiedPayloads`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.getUnmodifiedPayloads:()Ljava/util/List;` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `hasAnyOfTheFlags`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this, `int` v2 @name `flags`) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.hasAnyOfTheFlags:(I)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isAdapterPositionUnknown`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.isAdapterPositionUnknown:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isAttachedToTransitionOverlay`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v2 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.isAttachedToTransitionOverlay:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isBound`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v2 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.isBound:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isInvalid`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.isInvalid:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isRecyclable`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.isRecyclable:()Z` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `boolean` `isRemoved`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.isRemoved:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isScrap`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.isScrap:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isTmpDetached`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.isTmpDetached:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isUpdated`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.isUpdated:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `needsUpdate`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.needsUpdate:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `offsetPosition`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v2 @kind this, `int` v3 @name `offset`, `boolean` v4 @name `applyToPreLayout`) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.offsetPosition:(IZ)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onEnteredHiddenState`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v2 @kind this, `androidx.recyclerview.widget.RecyclerView` v3 @kind object @name `parent`) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.onEnteredHiddenState:(Landroidx/recyclerview/widget/RecyclerView;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onLeftHiddenState`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this, `androidx.recyclerview.widget.RecyclerView` v2 @kind object @name `parent`) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.onLeftHiddenState:(Landroidx/recyclerview/widget/RecyclerView;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `resetInternal`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v4 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.resetInternal:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `saveOldPosition`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v2 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.saveOldPosition:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `setFlags`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v2 @kind this, `int` v3 @name `flags`, `int` v4 @name `mask`) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.setFlags:(II)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `setIsRecyclable`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v2 @kind this, `boolean` v3 @name `recyclable`) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.setIsRecyclable:(Z)V` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `void` `setScrapContainer`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v0 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v1 @kind object @name `recycler`, `boolean` v2 @name `isChangeScrap`) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.setScrapContainer:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Z)V` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `shouldBeKeptAsChild`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.shouldBeKeptAsChild:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `shouldIgnore`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.shouldIgnore:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `stopIgnoring`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.stopIgnoring:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `java.lang.String` `toString`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v5 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.toString:()Ljava/lang/String;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `unScrap`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.unScrap:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `wasReturnedFromScrap`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ViewHolder;.wasReturnedFromScrap:()Z` @AccessFlag  {
+
+  # return;
+}

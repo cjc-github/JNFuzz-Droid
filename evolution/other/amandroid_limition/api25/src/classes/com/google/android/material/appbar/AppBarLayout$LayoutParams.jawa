@@ -1,0 +1,144 @@
+record `com.google.android.material.appbar.AppBarLayout$LayoutParams` @kind class @AccessFlag PUBLIC extends `android.widget.LinearLayout$LayoutParams` @kind class {
+  `int` `com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollFlags` @AccessFlag ;
+  `android.view.animation.Interpolator` `com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollInterpolator` @AccessFlag ;
+}
+global `int` `@@com.google.android.material.appbar.AppBarLayout$LayoutParams.COLLAPSIBLE_FLAGS` @AccessFlag STATIC_FINAL;
+global `int` `@@com.google.android.material.appbar.AppBarLayout$LayoutParams.FLAG_QUICK_RETURN` @AccessFlag STATIC_FINAL;
+global `int` `@@com.google.android.material.appbar.AppBarLayout$LayoutParams.FLAG_SNAP` @AccessFlag STATIC_FINAL;
+global `int` `@@com.google.android.material.appbar.AppBarLayout$LayoutParams.SCROLL_FLAG_ENTER_ALWAYS` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.appbar.AppBarLayout$LayoutParams.SCROLL_FLAG_ENTER_ALWAYS_COLLAPSED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.appbar.AppBarLayout$LayoutParams.SCROLL_FLAG_EXIT_UNTIL_COLLAPSED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.appbar.AppBarLayout$LayoutParams.SCROLL_FLAG_NO_SCROLL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.appbar.AppBarLayout$LayoutParams.SCROLL_FLAG_SCROLL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.appbar.AppBarLayout$LayoutParams.SCROLL_FLAG_SNAP` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.appbar.AppBarLayout$LayoutParams.SCROLL_FLAG_SNAP_MARGINS` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.appbar.AppBarLayout$LayoutParams` v1 @kind this, `int` v2 @name `width`, `int` v3 @name `height`) @signature `Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;.<init>:(II)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L17ed04.  call `<init>`(v1, v2, v3) @signature `Landroid/widget/LinearLayout$LayoutParams;.<init>:(II)V` @kind direct;
+  #L17ed0a.  v0:= 1I;
+  #L17ed0c.  v1.`com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollFlags` @type ^`int` := v0;
+  #L17ed10.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.AppBarLayout$LayoutParams` v1 @kind this, `int` v2 @name `width`, `int` v3 @name `height`, `float` v4 @name `weight`) @signature `Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;.<init>:(IIF)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L17ed24.  call `<init>`(v1, v2, v3, v4) @signature `Landroid/widget/LinearLayout$LayoutParams;.<init>:(IIF)V` @kind direct;
+  #L17ed2a.  v0:= 1I;
+  #L17ed2c.  v1.`com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollFlags` @type ^`int` := v0;
+  #L17ed30.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.AppBarLayout$LayoutParams` v3 @kind this, `android.content.Context` v4 @kind object @name `c`, `android.util.AttributeSet` v5 @kind object @name `attrs`) @signature `Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L17ec08.  call `<init>`(v3, v4, v5) @signature `Landroid/widget/LinearLayout$LayoutParams;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L17ec0e.  v0:= 1I;
+  #L17ec10.  v3.`com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollFlags` @type ^`int` := v0;
+  #L17ec14.  v0:= `@@com.google.android.material.R$styleable.AppBarLayout_Layout` @type ^`int`[] @kind object;
+  #L17ec18.  call temp:= `obtainStyledAttributes`(v4, v5, v0) @signature `Landroid/content/Context;.obtainStyledAttributes:(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;` @kind virtual;
+  #L17ec1e.  v0:= temp @kind object;
+  #L17ec20.  v1:= `@@com.google.android.material.R$styleable.AppBarLayout_Layout_layout_scrollFlags` @type ^`int`;
+  #L17ec24.  v2:= 0I;
+  #L17ec26.  call temp:= `getInt`(v0, v1, v2) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L17ec2c.  v1:= temp;
+  #L17ec2e.  v3.`com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollFlags` @type ^`int` := v1;
+  #L17ec32.  v1:= `@@com.google.android.material.R$styleable.AppBarLayout_Layout_layout_scrollInterpolator` @type ^`int`;
+  #L17ec36.  call temp:= `hasValue`(v0, v1) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L17ec3c.  v1:= temp;
+  #L17ec3e.  if v1 == 0 then goto L17ec5a;
+  #L17ec42.  v1:= `@@com.google.android.material.R$styleable.AppBarLayout_Layout_layout_scrollInterpolator` @type ^`int`;
+  #L17ec46.  call temp:= `getResourceId`(v0, v1, v2) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L17ec4c.  v1:= temp;
+  #L17ec4e.  call temp:= `loadInterpolator`(v4, v1) @signature `Landroid/view/animation/AnimationUtils;.loadInterpolator:(Landroid/content/Context;I)Landroid/view/animation/Interpolator;` @kind static;
+  #L17ec54.  v2:= temp @kind object;
+  #L17ec56.  v3.`com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollInterpolator` @type ^`android.view.animation.Interpolator` := v2 @kind object;
+  #L17ec5a.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L17ec60.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.AppBarLayout$LayoutParams` v1 @kind this, `android.view.ViewGroup$LayoutParams` v2 @kind object @name `p`) @signature `Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;.<init>:(Landroid/view/ViewGroup$LayoutParams;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L17ec74.  call `<init>`(v1, v2) @signature `Landroid/widget/LinearLayout$LayoutParams;.<init>:(Landroid/view/ViewGroup$LayoutParams;)V` @kind direct;
+  #L17ec7a.  v0:= 1I;
+  #L17ec7c.  v1.`com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollFlags` @type ^`int` := v0;
+  #L17ec80.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.AppBarLayout$LayoutParams` v1 @kind this, `android.view.ViewGroup$MarginLayoutParams` v2 @kind object @name `source`) @signature `Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;.<init>:(Landroid/view/ViewGroup$MarginLayoutParams;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L17ec94.  call `<init>`(v1, v2) @signature `Landroid/widget/LinearLayout$LayoutParams;.<init>:(Landroid/view/ViewGroup$MarginLayoutParams;)V` @kind direct;
+  #L17ec9a.  v0:= 1I;
+  #L17ec9c.  v1.`com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollFlags` @type ^`int` := v0;
+  #L17eca0.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.AppBarLayout$LayoutParams` v1 @kind this, `android.widget.LinearLayout$LayoutParams` v2 @kind object @name `source`) @signature `Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;.<init>:(Landroid/widget/LinearLayout$LayoutParams;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L17ecb4.  call `<init>`(v1, v2) @signature `Landroid/widget/LinearLayout$LayoutParams;.<init>:(Landroid/widget/LinearLayout$LayoutParams;)V` @kind direct;
+  #L17ecba.  v0:= 1I;
+  #L17ecbc.  v1.`com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollFlags` @type ^`int` := v0;
+  #L17ecc0.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.AppBarLayout$LayoutParams` v1 @kind this, `com.google.android.material.appbar.AppBarLayout$LayoutParams` v2 @kind object @name `source`) @signature `Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;.<init>:(Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L17ecd4.  call `<init>`(v1, v2) @signature `Landroid/widget/LinearLayout$LayoutParams;.<init>:(Landroid/widget/LinearLayout$LayoutParams;)V` @kind direct;
+  #L17ecda.  v0:= 1I;
+  #L17ecdc.  v1.`com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollFlags` @type ^`int` := v0;
+  #L17ece0.  v0:= v2.`com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollFlags` @type ^`int`;
+  #L17ece4.  v1.`com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollFlags` @type ^`int` := v0;
+  #L17ece8.  v0:= v2.`com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollInterpolator` @type ^`android.view.animation.Interpolator` @kind object;
+  #L17ecec.  v1.`com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollInterpolator` @type ^`android.view.animation.Interpolator` := v0 @kind object;
+  #L17ecf0.  return @kind void;
+}
+procedure `int` `getScrollFlags`(`com.google.android.material.appbar.AppBarLayout$LayoutParams` v1 @kind this) @signature `Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;.getScrollFlags:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L17ebf0.  v0:= v1.`com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollFlags` @type ^`int`;
+  #L17ebf4.  return v0;
+}
+procedure `android.view.animation.Interpolator` `getScrollInterpolator`(`com.google.android.material.appbar.AppBarLayout$LayoutParams` v1 @kind this) @signature `Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;.getScrollInterpolator:()Landroid/view/animation/Interpolator;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L17ebac.  v0:= v1.`com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollInterpolator` @type ^`android.view.animation.Interpolator` @kind object;
+  #L17ebb0.  return v0 @kind object;
+}
+procedure `boolean` `isCollapsible`(`com.google.android.material.appbar.AppBarLayout$LayoutParams` v3 @kind this) @signature `Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;.isCollapsible:()Z` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L17ebc4.  v0:= v3.`com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollFlags` @type ^`int`;
+  #L17ebc8.  v1:= v0 ^& 1;
+  #L17ebcc.  v2:= 1I;
+  #L17ebce.  if v1 != v2 then goto L17ebdc;
+  #L17ebd2.  v0:= v0 ^& 10;
+  #L17ebd6.  if v0 == 0 then goto L17ebdc;
+  #L17ebda.  goto L17ebde;
+  #L17ebdc.  v2:= 0I;
+  #L17ebde.  return v2;
+}
+procedure `void` `setScrollFlags`(`com.google.android.material.appbar.AppBarLayout$LayoutParams` v0 @kind this, `int` v1 @name `flags`) @signature `Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;.setScrollFlags:(I)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L17ed44.  v0.`com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollFlags` @type ^`int` := v1;
+  #L17ed48.  return @kind void;
+}
+procedure `void` `setScrollInterpolator`(`com.google.android.material.appbar.AppBarLayout$LayoutParams` v0 @kind this, `android.view.animation.Interpolator` v1 @kind object @name `interpolator`) @signature `Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;.setScrollInterpolator:(Landroid/view/animation/Interpolator;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L17ed5c.  v0.`com.google.android.material.appbar.AppBarLayout$LayoutParams.scrollInterpolator` @type ^`android.view.animation.Interpolator` := v1 @kind object;
+  #L17ed60.  return @kind void;
+}

@@ -1,0 +1,87 @@
+record `androidx.constraintlayout.solver.SolverVariable` @kind class @AccessFlag PUBLIC {
+  `float` `androidx.constraintlayout.solver.SolverVariable.computedValue` @AccessFlag PUBLIC;
+  `int` `androidx.constraintlayout.solver.SolverVariable.definitionId` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.SolverVariable.id` @AccessFlag PUBLIC;
+  `androidx.constraintlayout.solver.ArrayRow`[] `androidx.constraintlayout.solver.SolverVariable.mClientEquations` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.SolverVariable.mClientEquationsCount` @AccessFlag ;
+  `java.lang.String` `androidx.constraintlayout.solver.SolverVariable.mName` @AccessFlag PRIVATE;
+  `androidx.constraintlayout.solver.SolverVariable$Type` `androidx.constraintlayout.solver.SolverVariable.mType` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.SolverVariable.strength` @AccessFlag PUBLIC;
+  `float`[] `androidx.constraintlayout.solver.SolverVariable.strengthVector` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.SolverVariable.usageInRowCount` @AccessFlag PUBLIC;
+}
+global `boolean` `@@androidx.constraintlayout.solver.SolverVariable.INTERNAL_DEBUG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.SolverVariable.MAX_STRENGTH` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.SolverVariable.STRENGTH_BARRIER` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.SolverVariable.STRENGTH_EQUALITY` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.SolverVariable.STRENGTH_FIXED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.SolverVariable.STRENGTH_HIGH` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.SolverVariable.STRENGTH_HIGHEST` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.SolverVariable.STRENGTH_LOW` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.SolverVariable.STRENGTH_MEDIUM` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.SolverVariable.STRENGTH_NONE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.SolverVariable.uniqueConstantId` @AccessFlag PRIVATE_STATIC;
+global `int` `@@androidx.constraintlayout.solver.SolverVariable.uniqueErrorId` @AccessFlag PRIVATE_STATIC;
+global `int` `@@androidx.constraintlayout.solver.SolverVariable.uniqueId` @AccessFlag PRIVATE_STATIC;
+global `int` `@@androidx.constraintlayout.solver.SolverVariable.uniqueSlackId` @AccessFlag PRIVATE_STATIC;
+global `int` `@@androidx.constraintlayout.solver.SolverVariable.uniqueUnrestrictedId` @AccessFlag PRIVATE_STATIC;
+procedure `void` `<clinit>`() @signature `Landroidx/constraintlayout/solver/SolverVariable;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.constraintlayout.solver.SolverVariable` v2 @kind this, `androidx.constraintlayout.solver.SolverVariable$Type` v3 @kind object @name `type`, `java.lang.String` v4 @kind object @name `prefix`) @signature `Landroidx/constraintlayout/solver/SolverVariable;.<init>:(Landroidx/constraintlayout/solver/SolverVariable$Type;Ljava/lang/String;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.constraintlayout.solver.SolverVariable` v2 @kind this, `java.lang.String` v3 @kind object @name `name`, `androidx.constraintlayout.solver.SolverVariable$Type` v4 @kind object @name `type`) @signature `Landroidx/constraintlayout/solver/SolverVariable;.<init>:(Ljava/lang/String;Landroidx/constraintlayout/solver/SolverVariable$Type;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `java.lang.String` `getUniqueName`(`androidx.constraintlayout.solver.SolverVariable$Type` v3 @kind object @name `type`, `java.lang.String` v4 @kind object @name `prefix`) @signature `Landroidx/constraintlayout/solver/SolverVariable;.getUniqueName:(Landroidx/constraintlayout/solver/SolverVariable$Type;Ljava/lang/String;)Ljava/lang/String;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `increaseErrorId`() @signature `Landroidx/constraintlayout/solver/SolverVariable;.increaseErrorId:()V` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `void` `addToRow`(`androidx.constraintlayout.solver.SolverVariable` v3 @kind this, `androidx.constraintlayout.solver.ArrayRow` v4 @kind object @name `row`) @signature `Landroidx/constraintlayout/solver/SolverVariable;.addToRow:(Landroidx/constraintlayout/solver/ArrayRow;)V` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `void` `clearStrengths`(`androidx.constraintlayout.solver.SolverVariable` v3 @kind this) @signature `Landroidx/constraintlayout/solver/SolverVariable;.clearStrengths:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `java.lang.String` `getName`(`androidx.constraintlayout.solver.SolverVariable` v1 @kind this) @signature `Landroidx/constraintlayout/solver/SolverVariable;.getName:()Ljava/lang/String;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `removeFromRow`(`androidx.constraintlayout.solver.SolverVariable` v6 @kind this, `androidx.constraintlayout.solver.ArrayRow` v7 @kind object @name `row`) @signature `Landroidx/constraintlayout/solver/SolverVariable;.removeFromRow:(Landroidx/constraintlayout/solver/ArrayRow;)V` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `void` `reset`(`androidx.constraintlayout.solver.SolverVariable` v2 @kind this) @signature `Landroidx/constraintlayout/solver/SolverVariable;.reset:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setName`(`androidx.constraintlayout.solver.SolverVariable` v0 @kind this, `java.lang.String` v1 @kind object @name `name`) @signature `Landroidx/constraintlayout/solver/SolverVariable;.setName:(Ljava/lang/String;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setType`(`androidx.constraintlayout.solver.SolverVariable` v0 @kind this, `androidx.constraintlayout.solver.SolverVariable$Type` v1 @kind object @name `type`, `java.lang.String` v2 @kind object @name `prefix`) @signature `Landroidx/constraintlayout/solver/SolverVariable;.setType:(Landroidx/constraintlayout/solver/SolverVariable$Type;Ljava/lang/String;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.String` `strengthsToString`(`androidx.constraintlayout.solver.SolverVariable` v7 @kind this) @signature `Landroidx/constraintlayout/solver/SolverVariable;.strengthsToString:()Ljava/lang/String;` @AccessFlag  {
+
+  # return;
+}
+procedure `java.lang.String` `toString`(`androidx.constraintlayout.solver.SolverVariable` v3 @kind this) @signature `Landroidx/constraintlayout/solver/SolverVariable;.toString:()Ljava/lang/String;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `updateReferencesWithNewDefinition`(`androidx.constraintlayout.solver.SolverVariable` v5 @kind this, `androidx.constraintlayout.solver.ArrayRow` v6 @kind object @name `definition`) @signature `Landroidx/constraintlayout/solver/SolverVariable;.updateReferencesWithNewDefinition:(Landroidx/constraintlayout/solver/ArrayRow;)V` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}

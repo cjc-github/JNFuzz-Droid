@@ -1,0 +1,24 @@
+record `com.google.android.material.internal.NavigationMenu` @kind class @AccessFlag PUBLIC extends `androidx.appcompat.view.menu.MenuBuilder` @kind class {
+}
+procedure `void` `<init>`(`com.google.android.material.internal.NavigationMenu` v0 @kind this, `android.content.Context` v1 @kind object @name `context`) @signature `Lcom/google/android/material/internal/NavigationMenu;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1a6160.  call `<init>`(v0, v1) @signature `Landroidx/appcompat/view/menu/MenuBuilder;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L1a6166.  return @kind void;
+}
+procedure `android.view.SubMenu` `addSubMenu`(`com.google.android.material.internal.NavigationMenu` v3 @kind this, `int` v4 @name `group`, `int` v5 @name `id`, `int` v6 @name `categoryOrder`, `java.lang.CharSequence` v7 @kind object @name `title`) @signature `Lcom/google/android/material/internal/NavigationMenu;.addSubMenu:(IIILjava/lang/CharSequence;)Landroid/view/SubMenu;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a6128.  call temp:= `addInternal`(v3, v4, v5, v6, v7) @signature `Lcom/google/android/material/internal/NavigationMenu;.addInternal:(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;` @kind virtual;
+  #L1a612e.  v0:= temp @kind object;
+  #L1a6130.  v0:= (`androidx.appcompat.view.menu.MenuItemImpl`) v0 @kind object;
+  #L1a6134.  v1:= new `com.google.android.material.internal.NavigationSubMenu`;
+  #L1a6138.  call temp:= `getContext`(v3) @signature `Lcom/google/android/material/internal/NavigationMenu;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1a613e.  v2:= temp @kind object;
+  #L1a6140.  call `<init>`(v1, v2, v3, v0) @signature `Lcom/google/android/material/internal/NavigationSubMenu;.<init>:(Landroid/content/Context;Lcom/google/android/material/internal/NavigationMenu;Landroidx/appcompat/view/menu/MenuItemImpl;)V` @kind direct;
+  #L1a6146.  call `setSubMenu`(v0, v1) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setSubMenu:(Landroidx/appcompat/view/menu/SubMenuBuilder;)V` @kind virtual;
+  #L1a614c.  return v1 @kind object;
+}

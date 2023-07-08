@@ -1,0 +1,40 @@
+record `com.google.android.material.tabs.TabLayout$SlidingTabIndicator$1` @kind class @AccessFlag  extends `android.animation.ValueAnimator$AnimatorUpdateListener` @kind interface {
+  `com.google.android.material.tabs.TabLayout$SlidingTabIndicator` `com.google.android.material.tabs.TabLayout$SlidingTabIndicator$1.this$1` @AccessFlag FINAL_SYNTHETIC;
+  `int` `com.google.android.material.tabs.TabLayout$SlidingTabIndicator$1.val$finalTargetLeft` @AccessFlag FINAL_SYNTHETIC;
+  `int` `com.google.android.material.tabs.TabLayout$SlidingTabIndicator$1.val$finalTargetRight` @AccessFlag FINAL_SYNTHETIC;
+  `int` `com.google.android.material.tabs.TabLayout$SlidingTabIndicator$1.val$startLeft` @AccessFlag FINAL_SYNTHETIC;
+  `int` `com.google.android.material.tabs.TabLayout$SlidingTabIndicator$1.val$startRight` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.tabs.TabLayout$SlidingTabIndicator$1` v0 @kind this, `com.google.android.material.tabs.TabLayout$SlidingTabIndicator` v1 @kind object @name `this$1`, `int` v2 , `int` v3 , `int` v4 , `int` v5 ) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator$1;.<init>:(Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;IIII)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b20e8.  v0.`com.google.android.material.tabs.TabLayout$SlidingTabIndicator$1.this$1` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` := v1 @kind object;
+  #L1b20ec.  v0.`com.google.android.material.tabs.TabLayout$SlidingTabIndicator$1.val$startLeft` @type ^`int` := v2;
+  #L1b20f0.  v0.`com.google.android.material.tabs.TabLayout$SlidingTabIndicator$1.val$finalTargetLeft` @type ^`int` := v3;
+  #L1b20f4.  v0.`com.google.android.material.tabs.TabLayout$SlidingTabIndicator$1.val$startRight` @type ^`int` := v4;
+  #L1b20f8.  v0.`com.google.android.material.tabs.TabLayout$SlidingTabIndicator$1.val$finalTargetRight` @type ^`int` := v5;
+  #L1b20fc.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b2102.  return @kind void;
+}
+procedure `void` `onAnimationUpdate`(`com.google.android.material.tabs.TabLayout$SlidingTabIndicator$1` v5 @kind this, `android.animation.ValueAnimator` v6 @kind object @name `valueAnimator`) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator$1;.onAnimationUpdate:(Landroid/animation/ValueAnimator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1b2114.  call temp:= `getAnimatedFraction`(v6) @signature `Landroid/animation/ValueAnimator;.getAnimatedFraction:()F` @kind virtual;
+  #L1b211a.  v0:= temp;
+  #L1b211c.  v1:= v5.`com.google.android.material.tabs.TabLayout$SlidingTabIndicator$1.this$1` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b2120.  v2:= v5.`com.google.android.material.tabs.TabLayout$SlidingTabIndicator$1.val$startLeft` @type ^`int`;
+  #L1b2124.  v3:= v5.`com.google.android.material.tabs.TabLayout$SlidingTabIndicator$1.val$finalTargetLeft` @type ^`int`;
+  #L1b2128.  call temp:= `lerp`(v2, v3, v0) @signature `Lcom/google/android/material/animation/AnimationUtils;.lerp:(IIF)I` @kind static;
+  #L1b212e.  v2:= temp;
+  #L1b2130.  v3:= v5.`com.google.android.material.tabs.TabLayout$SlidingTabIndicator$1.val$startRight` @type ^`int`;
+  #L1b2134.  v4:= v5.`com.google.android.material.tabs.TabLayout$SlidingTabIndicator$1.val$finalTargetRight` @type ^`int`;
+  #L1b2138.  call temp:= `lerp`(v3, v4, v0) @signature `Lcom/google/android/material/animation/AnimationUtils;.lerp:(IIF)I` @kind static;
+  #L1b213e.  v3:= temp;
+  #L1b2140.  call `setIndicatorPosition`(v1, v2, v3) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.setIndicatorPosition:(II)V` @kind virtual;
+  #L1b2146.  return @kind void;
+}

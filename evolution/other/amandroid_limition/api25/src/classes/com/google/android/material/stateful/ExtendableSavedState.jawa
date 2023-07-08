@@ -1,0 +1,123 @@
+record `com.google.android.material.stateful.ExtendableSavedState` @kind class @AccessFlag PUBLIC extends `androidx.customview.view.AbsSavedState` @kind class {
+  `androidx.collection.SimpleArrayMap` `com.google.android.material.stateful.ExtendableSavedState.extendableStates` @AccessFlag PUBLIC_FINAL;
+}
+global `android.os.Parcelable$Creator` `@@com.google.android.material.stateful.ExtendableSavedState.CREATOR` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/stateful/ExtendableSavedState;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1b1ad4.  v0:= new `com.google.android.material.stateful.ExtendableSavedState$1`;
+  #L1b1ad8.  call `<init>`(v0) @signature `Lcom/google/android/material/stateful/ExtendableSavedState$1;.<init>:()V` @kind direct;
+  #L1b1ade.  `@@com.google.android.material.stateful.ExtendableSavedState.CREATOR` @type ^`android.os.Parcelable$Creator` := v0 @kind object;
+  #L1b1ae2.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.stateful.ExtendableSavedState` v7 @kind this, `android.os.Parcel` v8 @kind object @name `in`, `java.lang.ClassLoader` v9 @kind object @name `loader`) @signature `Lcom/google/android/material/stateful/ExtendableSavedState;.<init>:(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L1b1af4.  call `<init>`(v7, v8, v9) @signature `Landroidx/customview/view/AbsSavedState;.<init>:(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V` @kind direct;
+  #L1b1afa.  call temp:= `readInt`(v8) @signature `Landroid/os/Parcel;.readInt:()I` @kind virtual;
+  #L1b1b00.  v0:= temp;
+  #L1b1b02.  v1:= new `java.lang.String`[v0];
+  #L1b1b06.  call `readStringArray`(v8, v1) @signature `Landroid/os/Parcel;.readStringArray:([Ljava/lang/String;)V` @kind virtual;
+  #L1b1b0c.  v2:= new `android.os.Bundle`[v0];
+  #L1b1b10.  v3:= `@@android.os.Bundle.CREATOR` @type ^`android.os.Parcelable$Creator` @kind object;
+  #L1b1b14.  call `readTypedArray`(v8, v2, v3) @signature `Landroid/os/Parcel;.readTypedArray:([Ljava/lang/Object;Landroid/os/Parcelable$Creator;)V` @kind virtual;
+  #L1b1b1a.  v3:= new `androidx.collection.SimpleArrayMap`;
+  #L1b1b1e.  call `<init>`(v3, v0) @signature `Landroidx/collection/SimpleArrayMap;.<init>:(I)V` @kind direct;
+  #L1b1b24.  v7.`com.google.android.material.stateful.ExtendableSavedState.extendableStates` @type ^`androidx.collection.SimpleArrayMap` := v3 @kind object;
+  #L1b1b28.  v3:= 0I;
+  #L1b1b2a.  if v3 >= v0 then goto L1b1b46;
+  #L1b1b2e.  v4:= v7.`com.google.android.material.stateful.ExtendableSavedState.extendableStates` @type ^`androidx.collection.SimpleArrayMap` @kind object;
+  #L1b1b32.  v5:= v1[v3] @kind object;
+  #L1b1b36.  v6:= v2[v3] @kind object;
+  #L1b1b3a.  call temp:= `put`(v4, v5, v6) @signature `Landroidx/collection/SimpleArrayMap;.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;` @kind virtual;
+  #L1b1b40.  v3:= v3 + 1;
+  #L1b1b44.  goto L1b1b2a;
+  #L1b1b46.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.stateful.ExtendableSavedState` v0 @kind this, `android.os.Parcel` v1 @kind object @name `x0`, `java.lang.ClassLoader` v2 @kind object @name `x1`, `com.google.android.material.stateful.ExtendableSavedState$1` v3 @kind object @name `x2`) @signature `Lcom/google/android/material/stateful/ExtendableSavedState;.<init>:(Landroid/os/Parcel;Ljava/lang/ClassLoader;Lcom/google/android/material/stateful/ExtendableSavedState$1;)V` @AccessFlag SYNTHETIC_CONSTRUCTOR {
+    temp;
+
+  #L1b1b58.  call `<init>`(v0, v1, v2) @signature `Lcom/google/android/material/stateful/ExtendableSavedState;.<init>:(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V` @kind direct;
+  #L1b1b5e.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.stateful.ExtendableSavedState` v1 @kind this, `android.os.Parcelable` v2 @kind object @name `superState`) @signature `Lcom/google/android/material/stateful/ExtendableSavedState;.<init>:(Landroid/os/Parcelable;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1b1b70.  call `<init>`(v1, v2) @signature `Landroidx/customview/view/AbsSavedState;.<init>:(Landroid/os/Parcelable;)V` @kind direct;
+  #L1b1b76.  v0:= new `androidx.collection.SimpleArrayMap`;
+  #L1b1b7a.  call `<init>`(v0) @signature `Landroidx/collection/SimpleArrayMap;.<init>:()V` @kind direct;
+  #L1b1b80.  v1.`com.google.android.material.stateful.ExtendableSavedState.extendableStates` @type ^`androidx.collection.SimpleArrayMap` := v0 @kind object;
+  #L1b1b84.  return @kind void;
+}
+procedure `java.lang.String` `toString`(`com.google.android.material.stateful.ExtendableSavedState` v2 @kind this) @signature `Lcom/google/android/material/stateful/ExtendableSavedState;.toString:()Ljava/lang/String;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b1a68.  v0:= new `java.lang.StringBuilder`;
+  #L1b1a6c.  call `<init>`(v0) @signature `Ljava/lang/StringBuilder;.<init>:()V` @kind direct;
+  #L1b1a72.  v1:= "ExtendableSavedState{" @kind object;
+  #L1b1a76.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L1b1a7c.  v0:= temp @kind object;
+  #L1b1a7e.  call temp:= `identityHashCode`(v2) @signature `Ljava/lang/System;.identityHashCode:(Ljava/lang/Object;)I` @kind static;
+  #L1b1a84.  v1:= temp;
+  #L1b1a86.  call temp:= `toHexString`(v1) @signature `Ljava/lang/Integer;.toHexString:(I)Ljava/lang/String;` @kind static;
+  #L1b1a8c.  v1:= temp @kind object;
+  #L1b1a8e.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L1b1a94.  v0:= temp @kind object;
+  #L1b1a96.  v1:= " states=" @kind object;
+  #L1b1a9a.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L1b1aa0.  v0:= temp @kind object;
+  #L1b1aa2.  v1:= v2.`com.google.android.material.stateful.ExtendableSavedState.extendableStates` @type ^`androidx.collection.SimpleArrayMap` @kind object;
+  #L1b1aa6.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L1b1aac.  v0:= temp @kind object;
+  #L1b1aae.  v1:= "}" @kind object;
+  #L1b1ab2.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L1b1ab8.  v0:= temp @kind object;
+  #L1b1aba.  call temp:= `toString`(v0) @signature `Ljava/lang/StringBuilder;.toString:()Ljava/lang/String;` @kind virtual;
+  #L1b1ac0.  v0:= temp @kind object;
+  #L1b1ac2.  return v0 @kind object;
+}
+procedure `void` `writeToParcel`(`com.google.android.material.stateful.ExtendableSavedState` v5 @kind this, `android.os.Parcel` v6 @kind object @name `out`, `int` v7 @name `flags`) @signature `Lcom/google/android/material/stateful/ExtendableSavedState;.writeToParcel:(Landroid/os/Parcel;I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1b1b98.  call `writeToParcel`(v5, v6, v7) @signature `Landroidx/customview/view/AbsSavedState;.writeToParcel:(Landroid/os/Parcel;I)V` @kind super;
+  #L1b1b9e.  v0:= v5.`com.google.android.material.stateful.ExtendableSavedState.extendableStates` @type ^`androidx.collection.SimpleArrayMap` @kind object;
+  #L1b1ba2.  call temp:= `size`(v0) @signature `Landroidx/collection/SimpleArrayMap;.size:()I` @kind virtual;
+  #L1b1ba8.  v0:= temp;
+  #L1b1baa.  call `writeInt`(v6, v0) @signature `Landroid/os/Parcel;.writeInt:(I)V` @kind virtual;
+  #L1b1bb0.  v1:= new `java.lang.String`[v0];
+  #L1b1bb4.  v2:= new `android.os.Bundle`[v0];
+  #L1b1bb8.  v3:= 0I;
+  #L1b1bba.  if v3 >= v0 then goto L1b1bec;
+  #L1b1bbe.  v4:= v5.`com.google.android.material.stateful.ExtendableSavedState.extendableStates` @type ^`androidx.collection.SimpleArrayMap` @kind object;
+  #L1b1bc2.  call temp:= `keyAt`(v4, v3) @signature `Landroidx/collection/SimpleArrayMap;.keyAt:(I)Ljava/lang/Object;` @kind virtual;
+  #L1b1bc8.  v4:= temp @kind object;
+  #L1b1bca.  v4:= (`java.lang.String`) v4 @kind object;
+  #L1b1bce.  v1[v3]:= v4 @kind object;
+  #L1b1bd2.  v4:= v5.`com.google.android.material.stateful.ExtendableSavedState.extendableStates` @type ^`androidx.collection.SimpleArrayMap` @kind object;
+  #L1b1bd6.  call temp:= `valueAt`(v4, v3) @signature `Landroidx/collection/SimpleArrayMap;.valueAt:(I)Ljava/lang/Object;` @kind virtual;
+  #L1b1bdc.  v4:= temp @kind object;
+  #L1b1bde.  v4:= (`android.os.Bundle`) v4 @kind object;
+  #L1b1be2.  v2[v3]:= v4 @kind object;
+  #L1b1be6.  v3:= v3 + 1;
+  #L1b1bea.  goto L1b1bba;
+  #L1b1bec.  call `writeStringArray`(v6, v1) @signature `Landroid/os/Parcel;.writeStringArray:([Ljava/lang/String;)V` @kind virtual;
+  #L1b1bf2.  v3:= 0I;
+  #L1b1bf4.  call `writeTypedArray`(v6, v2, v3) @signature `Landroid/os/Parcel;.writeTypedArray:([Landroid/os/Parcelable;I)V` @kind virtual;
+  #L1b1bfa.  return @kind void;
+}

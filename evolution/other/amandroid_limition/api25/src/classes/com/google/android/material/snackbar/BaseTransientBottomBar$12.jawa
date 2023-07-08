@@ -1,0 +1,25 @@
+record `com.google.android.material.snackbar.BaseTransientBottomBar$12` @kind class @AccessFlag  extends `android.animation.ValueAnimator$AnimatorUpdateListener` @kind interface {
+  `com.google.android.material.snackbar.BaseTransientBottomBar` `com.google.android.material.snackbar.BaseTransientBottomBar$12.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.snackbar.BaseTransientBottomBar$12` v0 @kind this, `com.google.android.material.snackbar.BaseTransientBottomBar` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$12;.<init>:(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1aefe4.  v0.`com.google.android.material.snackbar.BaseTransientBottomBar$12.this$0` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar` := v1 @kind object;
+  #L1aefe8.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1aefee.  return @kind void;
+}
+procedure `void` `onAnimationUpdate`(`com.google.android.material.snackbar.BaseTransientBottomBar$12` v2 @kind this, `android.animation.ValueAnimator` v3 @kind object @name `valueAnimator`) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$12;.onAnimationUpdate:(Landroid/animation/ValueAnimator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1af000.  v0:= v2.`com.google.android.material.snackbar.BaseTransientBottomBar$12.this$0` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar` @kind object;
+  #L1af004.  v0:= v0.`com.google.android.material.snackbar.BaseTransientBottomBar.view` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar$SnackbarBaseLayout` @kind object;
+  #L1af008.  call temp:= `getAnimatedValue`(v3) @signature `Landroid/animation/ValueAnimator;.getAnimatedValue:()Ljava/lang/Object;` @kind virtual;
+  #L1af00e.  v1:= temp @kind object;
+  #L1af010.  v1:= (`java.lang.Float`) v1 @kind object;
+  #L1af014.  call temp:= `floatValue`(v1) @signature `Ljava/lang/Float;.floatValue:()F` @kind virtual;
+  #L1af01a.  v1:= temp;
+  #L1af01c.  call `setAlpha`(v0, v1) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;.setAlpha:(F)V` @kind virtual;
+  #L1af022.  return @kind void;
+}

@@ -1,0 +1,19 @@
+record `com.google.android.material.appbar.AppBarLayout$1` @kind class @AccessFlag  extends `androidx.core.view.OnApplyWindowInsetsListener` @kind interface {
+  `com.google.android.material.appbar.AppBarLayout` `com.google.android.material.appbar.AppBarLayout$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.AppBarLayout$1` v0 @kind this, `com.google.android.material.appbar.AppBarLayout` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/appbar/AppBarLayout$1;.<init>:(Lcom/google/android/material/appbar/AppBarLayout;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L17d960.  v0.`com.google.android.material.appbar.AppBarLayout$1.this$0` @type ^`com.google.android.material.appbar.AppBarLayout` := v1 @kind object;
+  #L17d964.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L17d96a.  return @kind void;
+}
+procedure `androidx.core.view.WindowInsetsCompat` `onApplyWindowInsets`(`com.google.android.material.appbar.AppBarLayout$1` v1 @kind this, `android.view.View` v2 @kind object @name `v`, `androidx.core.view.WindowInsetsCompat` v3 @kind object @name `insets`) @signature `Lcom/google/android/material/appbar/AppBarLayout$1;.onApplyWindowInsets:(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L17d940.  v0:= v1.`com.google.android.material.appbar.AppBarLayout$1.this$0` @type ^`com.google.android.material.appbar.AppBarLayout` @kind object;
+  #L17d944.  call temp:= `onWindowInsetChanged`(v0, v3) @signature `Lcom/google/android/material/appbar/AppBarLayout;.onWindowInsetChanged:(Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;` @kind virtual;
+  #L17d94a.  v0:= temp @kind object;
+  #L17d94c.  return v0 @kind object;
+}

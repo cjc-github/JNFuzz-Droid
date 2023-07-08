@@ -1,0 +1,19 @@
+record `com.google.android.material.internal.ManufacturerUtils` @kind class @AccessFlag PUBLIC {
+}
+procedure `void` `<init>`(`com.google.android.material.internal.ManufacturerUtils` v0 @kind this) @signature `Lcom/google/android/material/internal/ManufacturerUtils;.<init>:()V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+
+  #L1a4888.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1a488e.  return @kind void;
+}
+procedure `boolean` `isSamsungDevice`() @signature `Lcom/google/android/material/internal/ManufacturerUtils;.isSamsungDevice:()Z` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a4864.  v0:= `@@android.os.Build.MANUFACTURER` @type ^`java.lang.String` @kind object;
+  #L1a4868.  v1:= "samsung" @kind object;
+  #L1a486c.  call temp:= `equalsIgnoreCase`(v0, v1) @signature `Ljava/lang/String;.equalsIgnoreCase:(Ljava/lang/String;)Z` @kind virtual;
+  #L1a4872.  v0:= temp;
+  #L1a4874.  return v0;
+}

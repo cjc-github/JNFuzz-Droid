@@ -1,0 +1,302 @@
+record `com.google.android.material.behavior.SwipeDismissBehavior$1` @kind class @AccessFlag  extends `androidx.customview.widget.ViewDragHelper$Callback` @kind class {
+  `int` `com.google.android.material.behavior.SwipeDismissBehavior$1.activePointerId` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.behavior.SwipeDismissBehavior$1.originalCapturedViewLeft` @AccessFlag PRIVATE;
+  `com.google.android.material.behavior.SwipeDismissBehavior` `com.google.android.material.behavior.SwipeDismissBehavior$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+global `int` `@@com.google.android.material.behavior.SwipeDismissBehavior$1.INVALID_POINTER_ID` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.behavior.SwipeDismissBehavior$1` v1 @kind this, `com.google.android.material.behavior.SwipeDismissBehavior` v2 @kind object @name `this$0`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior$1;.<init>:(Lcom/google/android/material/behavior/SwipeDismissBehavior;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L183ef8.  v1.`com.google.android.material.behavior.SwipeDismissBehavior$1.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` := v2 @kind object;
+  #L183efc.  call `<init>`(v1) @signature `Landroidx/customview/widget/ViewDragHelper$Callback;.<init>:()V` @kind direct;
+  #L183f02.  v0:= -1I;
+  #L183f04.  v1.`com.google.android.material.behavior.SwipeDismissBehavior$1.activePointerId` @type ^`int` := v0;
+  #L183f08.  return @kind void;
+}
+procedure `boolean` `shouldDismiss`(`com.google.android.material.behavior.SwipeDismissBehavior$1` v6 @kind this, `android.view.View` v7 @kind object @name `child`, `float` v8 @name `xvel`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior$1;.shouldDismiss:(Landroid/view/View;F)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L183d00.  v0:= 0I;
+  #L183d02.  v1:= fcmpl(v8, v0);
+  #L183d06.  v2:= 0I;
+  #L183d08.  v3:= 1I;
+  #L183d0a.  if v1 == 0 then goto L183d82;
+  #L183d0e.  
+  #L183d10.  call temp:= `getLayoutDirection`(v7) @signature `Landroidx/core/view/ViewCompat;.getLayoutDirection:(Landroid/view/View;)I` @kind static;
+  #L183d16.  v1:= temp;
+  #L183d18.  if v1 != v3 then goto L183d20;
+  #L183d1c.  v1:= v3;
+  #L183d1e.  goto L183d22;
+  #L183d20.  v1:= v2;
+  #L183d22.  v4:= v6.`com.google.android.material.behavior.SwipeDismissBehavior$1.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L183d26.  v4:= v4.`com.google.android.material.behavior.SwipeDismissBehavior.swipeDirection` @type ^`int`;
+  #L183d2a.  v5:= 2I;
+  #L183d2c.  if v4 != v5 then goto L183d32;
+  #L183d30.  return v3;
+  #L183d32.  v4:= v6.`com.google.android.material.behavior.SwipeDismissBehavior$1.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L183d36.  v4:= v4.`com.google.android.material.behavior.SwipeDismissBehavior.swipeDirection` @type ^`int`;
+  #L183d3a.  if v4 != 0 then goto L183d58;
+  #L183d3e.  if v1 == 0 then goto L183d4c;
+  #L183d42.  v0:= fcmpg(v8, v0);
+  #L183d46.  if v0 >= 0 then goto L183d56;
+  #L183d4a.  goto L183d54;
+  #L183d4c.  v0:= fcmpl(v8, v0);
+  #L183d50.  if v0 <= 0 then goto L183d56;
+  #L183d54.  v2:= v3;
+  #L183d56.  return v2;
+  #L183d58.  v4:= v6.`com.google.android.material.behavior.SwipeDismissBehavior$1.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L183d5c.  v4:= v4.`com.google.android.material.behavior.SwipeDismissBehavior.swipeDirection` @type ^`int`;
+  #L183d60.  if v4 != v3 then goto L183d7e;
+  #L183d64.  if v1 == 0 then goto L183d72;
+  #L183d68.  v0:= fcmpl(v8, v0);
+  #L183d6c.  if v0 <= 0 then goto L183d7c;
+  #L183d70.  goto L183d7a;
+  #L183d72.  v0:= fcmpg(v8, v0);
+  #L183d76.  if v0 >= 0 then goto L183d7c;
+  #L183d7a.  v2:= v3;
+  #L183d7c.  return v2;
+  #L183d7e.  
+  #L183d80.  return v2;
+  #L183d82.  call temp:= `getLeft`(v7) @signature `Landroid/view/View;.getLeft:()I` @kind virtual;
+  #L183d88.  v0:= temp;
+  #L183d8a.  v1:= v6.`com.google.android.material.behavior.SwipeDismissBehavior$1.originalCapturedViewLeft` @type ^`int`;
+  #L183d8e.  v0:= v0 - v1 @kind int;
+  #L183d90.  call temp:= `getWidth`(v7) @signature `Landroid/view/View;.getWidth:()I` @kind virtual;
+  #L183d96.  v1:= temp;
+  #L183d98.  v1:= (`float`) v1 @kind i2f;
+  #L183d9a.  v4:= v6.`com.google.android.material.behavior.SwipeDismissBehavior$1.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L183d9e.  v4:= v4.`com.google.android.material.behavior.SwipeDismissBehavior.dragDismissThreshold` @type ^`float`;
+  #L183da2.  v1:= v1 * v4 @kind float;
+  #L183da4.  call temp:= `round`(v1) @signature `Ljava/lang/Math;.round:(F)I` @kind static;
+  #L183daa.  v1:= temp;
+  #L183dac.  call temp:= `abs`(v0) @signature `Ljava/lang/Math;.abs:(I)I` @kind static;
+  #L183db2.  v4:= temp;
+  #L183db4.  if v4 < v1 then goto L183dba;
+  #L183db8.  v2:= v3;
+  #L183dba.  return v2;
+}
+procedure `int` `clampViewPositionHorizontal`(`com.google.android.material.behavior.SwipeDismissBehavior$1` v4 @kind this, `android.view.View` v5 @kind object @name `child`, `int` v6 @name `left`, `int` v7 @name `dx`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior$1;.clampViewPositionHorizontal:(Landroid/view/View;II)I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L183e04.  
+  #L183e06.  call temp:= `getLayoutDirection`(v5) @signature `Landroidx/core/view/ViewCompat;.getLayoutDirection:(Landroid/view/View;)I` @kind static;
+  #L183e0c.  v0:= temp;
+  #L183e0e.  v1:= 1I;
+  #L183e10.  if v0 != v1 then goto L183e18;
+  #L183e14.  v0:= v1;
+  #L183e16.  goto L183e1a;
+  #L183e18.  v0:= 0I;
+  #L183e1a.  v2:= v4.`com.google.android.material.behavior.SwipeDismissBehavior$1.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L183e1e.  v2:= v2.`com.google.android.material.behavior.SwipeDismissBehavior.swipeDirection` @type ^`int`;
+  #L183e22.  if v2 != 0 then goto L183e52;
+  #L183e26.  if v0 == 0 then goto L183e3e;
+  #L183e2a.  v1:= v4.`com.google.android.material.behavior.SwipeDismissBehavior$1.originalCapturedViewLeft` @type ^`int`;
+  #L183e2e.  call temp:= `getWidth`(v5) @signature `Landroid/view/View;.getWidth:()I` @kind virtual;
+  #L183e34.  v2:= temp;
+  #L183e36.  v1:= v1 - v2 @kind int;
+  #L183e38.  v2:= v4.`com.google.android.material.behavior.SwipeDismissBehavior$1.originalCapturedViewLeft` @type ^`int`;
+  #L183e3c.  goto L183ea6;
+  #L183e3e.  v1:= v4.`com.google.android.material.behavior.SwipeDismissBehavior$1.originalCapturedViewLeft` @type ^`int`;
+  #L183e42.  v2:= v4.`com.google.android.material.behavior.SwipeDismissBehavior$1.originalCapturedViewLeft` @type ^`int`;
+  #L183e46.  call temp:= `getWidth`(v5) @signature `Landroid/view/View;.getWidth:()I` @kind virtual;
+  #L183e4c.  v3:= temp;
+  #L183e4e.  v2:= v2 + v3 @kind int;
+  #L183e50.  goto L183ea6;
+  #L183e52.  v2:= v4.`com.google.android.material.behavior.SwipeDismissBehavior$1.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L183e56.  v2:= v2.`com.google.android.material.behavior.SwipeDismissBehavior.swipeDirection` @type ^`int`;
+  #L183e5a.  if v2 != v1 then goto L183e8a;
+  #L183e5e.  if v0 == 0 then goto L183e76;
+  #L183e62.  v1:= v4.`com.google.android.material.behavior.SwipeDismissBehavior$1.originalCapturedViewLeft` @type ^`int`;
+  #L183e66.  v2:= v4.`com.google.android.material.behavior.SwipeDismissBehavior$1.originalCapturedViewLeft` @type ^`int`;
+  #L183e6a.  call temp:= `getWidth`(v5) @signature `Landroid/view/View;.getWidth:()I` @kind virtual;
+  #L183e70.  v3:= temp;
+  #L183e72.  v2:= v2 + v3 @kind int;
+  #L183e74.  goto L183ea6;
+  #L183e76.  v1:= v4.`com.google.android.material.behavior.SwipeDismissBehavior$1.originalCapturedViewLeft` @type ^`int`;
+  #L183e7a.  call temp:= `getWidth`(v5) @signature `Landroid/view/View;.getWidth:()I` @kind virtual;
+  #L183e80.  v2:= temp;
+  #L183e82.  v1:= v1 - v2 @kind int;
+  #L183e84.  v2:= v4.`com.google.android.material.behavior.SwipeDismissBehavior$1.originalCapturedViewLeft` @type ^`int`;
+  #L183e88.  goto L183ea6;
+  #L183e8a.  v1:= v4.`com.google.android.material.behavior.SwipeDismissBehavior$1.originalCapturedViewLeft` @type ^`int`;
+  #L183e8e.  call temp:= `getWidth`(v5) @signature `Landroid/view/View;.getWidth:()I` @kind virtual;
+  #L183e94.  v2:= temp;
+  #L183e96.  v1:= v1 - v2 @kind int;
+  #L183e98.  v2:= v4.`com.google.android.material.behavior.SwipeDismissBehavior$1.originalCapturedViewLeft` @type ^`int`;
+  #L183e9c.  call temp:= `getWidth`(v5) @signature `Landroid/view/View;.getWidth:()I` @kind virtual;
+  #L183ea2.  v3:= temp;
+  #L183ea4.  v2:= v2 + v3 @kind int;
+  #L183ea6.  call temp:= `clamp`(v1, v6, v2) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.clamp:(III)I` @kind static;
+  #L183eac.  v3:= temp;
+  #L183eae.  return v3;
+}
+procedure `int` `clampViewPositionVertical`(`com.google.android.material.behavior.SwipeDismissBehavior$1` v1 @kind this, `android.view.View` v2 @kind object @name `child`, `int` v3 @name `top`, `int` v4 @name `dy`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior$1;.clampViewPositionVertical:(Landroid/view/View;II)I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L183ec0.  call temp:= `getTop`(v2) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L183ec6.  v0:= temp;
+  #L183ec8.  return v0;
+}
+procedure `int` `getViewHorizontalDragRange`(`com.google.android.material.behavior.SwipeDismissBehavior$1` v1 @kind this, `android.view.View` v2 @kind object @name `child`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior$1;.getViewHorizontalDragRange:(Landroid/view/View;)I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L183edc.  call temp:= `getWidth`(v2) @signature `Landroid/view/View;.getWidth:()I` @kind virtual;
+  #L183ee2.  v0:= temp;
+  #L183ee4.  return v0;
+}
+procedure `void` `onViewCaptured`(`com.google.android.material.behavior.SwipeDismissBehavior$1` v2 @kind this, `android.view.View` v3 @kind object @name `capturedChild`, `int` v4 @name `activePointerId`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior$1;.onViewCaptured:(Landroid/view/View;I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L183f1c.  v2.`com.google.android.material.behavior.SwipeDismissBehavior$1.activePointerId` @type ^`int` := v4;
+  #L183f20.  call temp:= `getLeft`(v3) @signature `Landroid/view/View;.getLeft:()I` @kind virtual;
+  #L183f26.  v0:= temp;
+  #L183f28.  v2.`com.google.android.material.behavior.SwipeDismissBehavior$1.originalCapturedViewLeft` @type ^`int` := v0;
+  #L183f2c.  call temp:= `getParent`(v3) @signature `Landroid/view/View;.getParent:()Landroid/view/ViewParent;` @kind virtual;
+  #L183f32.  v0:= temp @kind object;
+  #L183f34.  if v0 == 0 then goto L183f40;
+  #L183f38.  v1:= 1I;
+  #L183f3a.  call `requestDisallowInterceptTouchEvent`(v0, v1) @signature `Landroid/view/ViewParent;.requestDisallowInterceptTouchEvent:(Z)V` @kind interface;
+  #L183f40.  return @kind void;
+}
+procedure `void` `onViewDragStateChanged`(`com.google.android.material.behavior.SwipeDismissBehavior$1` v1 @kind this, `int` v2 @name `state`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior$1;.onViewDragStateChanged:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L183f54.  v0:= v1.`com.google.android.material.behavior.SwipeDismissBehavior$1.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L183f58.  v0:= v0.`com.google.android.material.behavior.SwipeDismissBehavior.listener` @type ^`com.google.android.material.behavior.SwipeDismissBehavior$OnDismissListener` @kind object;
+  #L183f5c.  if v0 == 0 then goto L183f6e;
+  #L183f60.  v0:= v1.`com.google.android.material.behavior.SwipeDismissBehavior$1.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L183f64.  v0:= v0.`com.google.android.material.behavior.SwipeDismissBehavior.listener` @type ^`com.google.android.material.behavior.SwipeDismissBehavior$OnDismissListener` @kind object;
+  #L183f68.  call `onDragStateChanged`(v0, v2) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior$OnDismissListener;.onDragStateChanged:(I)V` @kind interface;
+  #L183f6e.  return @kind void;
+}
+procedure `void` `onViewPositionChanged`(`com.google.android.material.behavior.SwipeDismissBehavior$1` v6 @kind this, `android.view.View` v7 @kind object @name `child`, `int` v8 @name `left`, `int` v9 @name `top`, `int` v10 @name `dx`, `int` v11 @name `dy`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior$1;.onViewPositionChanged:(Landroid/view/View;IIII)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L183f80.  v0:= v6.`com.google.android.material.behavior.SwipeDismissBehavior$1.originalCapturedViewLeft` @type ^`int`;
+  #L183f84.  v0:= (`float`) v0 @kind i2f;
+  #L183f86.  call temp:= `getWidth`(v7) @signature `Landroid/view/View;.getWidth:()I` @kind virtual;
+  #L183f8c.  v1:= temp;
+  #L183f8e.  v1:= (`float`) v1 @kind i2f;
+  #L183f90.  v2:= v6.`com.google.android.material.behavior.SwipeDismissBehavior$1.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L183f94.  v2:= v2.`com.google.android.material.behavior.SwipeDismissBehavior.alphaStartSwipeDistance` @type ^`float`;
+  #L183f98.  v1:= v1 * v2 @kind float;
+  #L183f9a.  v0:= v0 + v1 @kind float;
+  #L183f9c.  v1:= v6.`com.google.android.material.behavior.SwipeDismissBehavior$1.originalCapturedViewLeft` @type ^`int`;
+  #L183fa0.  v1:= (`float`) v1 @kind i2f;
+  #L183fa2.  call temp:= `getWidth`(v7) @signature `Landroid/view/View;.getWidth:()I` @kind virtual;
+  #L183fa8.  v2:= temp;
+  #L183faa.  v2:= (`float`) v2 @kind i2f;
+  #L183fac.  v3:= v6.`com.google.android.material.behavior.SwipeDismissBehavior$1.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L183fb0.  v3:= v3.`com.google.android.material.behavior.SwipeDismissBehavior.alphaEndSwipeDistance` @type ^`float`;
+  #L183fb4.  v2:= v2 * v3 @kind float;
+  #L183fb6.  v1:= v1 + v2 @kind float;
+  #L183fb8.  v2:= (`float`) v8 @kind i2f;
+  #L183fba.  v2:= fcmpg(v2, v0);
+  #L183fbe.  v3:= 1.0F;
+  #L183fc2.  if v2 > 0 then goto L183fce;
+  #L183fc6.  call `setAlpha`(v7, v3) @signature `Landroid/view/View;.setAlpha:(F)V` @kind virtual;
+  #L183fcc.  goto L183ffe;
+  #L183fce.  v2:= (`float`) v8 @kind i2f;
+  #L183fd0.  v2:= fcmpl(v2, v1);
+  #L183fd4.  v4:= 0I;
+  #L183fd6.  if v2 < 0 then goto L183fe2;
+  #L183fda.  call `setAlpha`(v7, v4) @signature `Landroid/view/View;.setAlpha:(F)V` @kind virtual;
+  #L183fe0.  goto L183ffe;
+  #L183fe2.  v2:= (`float`) v8 @kind i2f;
+  #L183fe4.  call temp:= `fraction`(v0, v1, v2) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.fraction:(FFF)F` @kind static;
+  #L183fea.  v2:= temp;
+  #L183fec.  v5:= v3 - v2 @kind float;
+  #L183ff0.  call temp:= `clamp`(v4, v5, v3) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.clamp:(FFF)F` @kind static;
+  #L183ff6.  v3:= temp;
+  #L183ff8.  call `setAlpha`(v7, v3) @signature `Landroid/view/View;.setAlpha:(F)V` @kind virtual;
+  #L183ffe.  return @kind void;
+}
+procedure `void` `onViewReleased`(`com.google.android.material.behavior.SwipeDismissBehavior$1` v5 @kind this, `android.view.View` v6 @kind object @name `child`, `float` v7 @name `xvel`, `float` v8 @name `yvel`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior$1;.onViewReleased:(Landroid/view/View;FF)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L184010.  v0:= -1I;
+  #L184012.  v5.`com.google.android.material.behavior.SwipeDismissBehavior$1.activePointerId` @type ^`int` := v0;
+  #L184016.  call temp:= `getWidth`(v6) @signature `Landroid/view/View;.getWidth:()I` @kind virtual;
+  #L18401c.  v0:= temp;
+  #L18401e.  v1:= 0I;
+  #L184020.  call temp:= `shouldDismiss`(v5, v6, v7) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior$1;.shouldDismiss:(Landroid/view/View;F)Z` @kind direct;
+  #L184026.  v2:= temp;
+  #L184028.  if v2 == 0 then goto L18404a;
+  #L18402c.  
+  #L18402e.  call temp:= `getLeft`(v6) @signature `Landroid/view/View;.getLeft:()I` @kind virtual;
+  #L184034.  v2:= temp;
+  #L184036.  v3:= v5.`com.google.android.material.behavior.SwipeDismissBehavior$1.originalCapturedViewLeft` @type ^`int`;
+  #L18403a.  if v2 >= v3 then goto L184042;
+  #L18403e.  v3:= v3 - v0 @kind int;
+  #L184040.  goto L184044;
+  #L184042.  v3:= v3 + v0 @kind int;
+  #L184044.  v2:= v3;
+  #L184046.  v1:= 1I;
+  #L184048.  goto L18404e;
+  #L18404a.  v2:= v5.`com.google.android.material.behavior.SwipeDismissBehavior$1.originalCapturedViewLeft` @type ^`int`;
+  #L18404e.  v3:= v5.`com.google.android.material.behavior.SwipeDismissBehavior$1.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L184052.  v3:= v3.`com.google.android.material.behavior.SwipeDismissBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` @kind object;
+  #L184056.  call temp:= `getTop`(v6) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L18405c.  v4:= temp;
+  #L18405e.  call temp:= `settleCapturedViewAt`(v3, v2, v4) @signature `Landroidx/customview/widget/ViewDragHelper;.settleCapturedViewAt:(II)Z` @kind virtual;
+  #L184064.  v3:= temp;
+  #L184066.  if v3 == 0 then goto L184080;
+  #L18406a.  v3:= new `com.google.android.material.behavior.SwipeDismissBehavior$SettleRunnable`;
+  #L18406e.  v4:= v5.`com.google.android.material.behavior.SwipeDismissBehavior$1.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L184072.  call `<init>`(v3, v4, v6, v1) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior$SettleRunnable;.<init>:(Lcom/google/android/material/behavior/SwipeDismissBehavior;Landroid/view/View;Z)V` @kind direct;
+  #L184078.  call `postOnAnimation`(v6, v3) @signature `Landroidx/core/view/ViewCompat;.postOnAnimation:(Landroid/view/View;Ljava/lang/Runnable;)V` @kind static;
+  #L18407e.  goto L18409e;
+  #L184080.  if v1 == 0 then goto L18409e;
+  #L184084.  v3:= v5.`com.google.android.material.behavior.SwipeDismissBehavior$1.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L184088.  v3:= v3.`com.google.android.material.behavior.SwipeDismissBehavior.listener` @type ^`com.google.android.material.behavior.SwipeDismissBehavior$OnDismissListener` @kind object;
+  #L18408c.  if v3 == 0 then goto L18409e;
+  #L184090.  v3:= v5.`com.google.android.material.behavior.SwipeDismissBehavior$1.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L184094.  v3:= v3.`com.google.android.material.behavior.SwipeDismissBehavior.listener` @type ^`com.google.android.material.behavior.SwipeDismissBehavior$OnDismissListener` @kind object;
+  #L184098.  call `onDismiss`(v3, v6) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior$OnDismissListener;.onDismiss:(Landroid/view/View;)V` @kind interface;
+  #L18409e.  return @kind void;
+}
+procedure `boolean` `tryCaptureView`(`com.google.android.material.behavior.SwipeDismissBehavior$1` v2 @kind this, `android.view.View` v3 @kind object @name `child`, `int` v4 @name `pointerId`) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior$1;.tryCaptureView:(Landroid/view/View;I)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L183dcc.  v0:= v2.`com.google.android.material.behavior.SwipeDismissBehavior$1.activePointerId` @type ^`int`;
+  #L183dd0.  v1:= -1I;
+  #L183dd2.  if v0 == v1 then goto L183dda;
+  #L183dd6.  if v0 != v4 then goto L183dee;
+  #L183dda.  v0:= v2.`com.google.android.material.behavior.SwipeDismissBehavior$1.this$0` @type ^`com.google.android.material.behavior.SwipeDismissBehavior` @kind object;
+  #L183dde.  call temp:= `canSwipeDismissView`(v0, v3) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.canSwipeDismissView:(Landroid/view/View;)Z` @kind virtual;
+  #L183de4.  v0:= temp;
+  #L183de6.  if v0 == 0 then goto L183dee;
+  #L183dea.  v0:= 1I;
+  #L183dec.  goto L183df0;
+  #L183dee.  v0:= 0I;
+  #L183df0.  return v0;
+}

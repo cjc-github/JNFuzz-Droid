@@ -1,0 +1,249 @@
+record `androidx.viewpager2.widget.ViewPager2` @kind class @AccessFlag PUBLIC_FINAL extends `android.view.ViewGroup` @kind class {
+  `androidx.viewpager2.widget.ViewPager2$AccessibilityProvider` `androidx.viewpager2.widget.ViewPager2.mAccessibilityProvider` @AccessFlag ;
+  `int` `androidx.viewpager2.widget.ViewPager2.mCurrentItem` @AccessFlag ;
+  `androidx.recyclerview.widget.RecyclerView$AdapterDataObserver` `androidx.viewpager2.widget.ViewPager2.mCurrentItemDataSetChangeObserver` @AccessFlag PRIVATE;
+  `boolean` `androidx.viewpager2.widget.ViewPager2.mCurrentItemDirty` @AccessFlag ;
+  `androidx.viewpager2.widget.CompositeOnPageChangeCallback` `androidx.viewpager2.widget.ViewPager2.mExternalPageChangeCallbacks` @AccessFlag PRIVATE;
+  `androidx.viewpager2.widget.FakeDrag` `androidx.viewpager2.widget.ViewPager2.mFakeDragger` @AccessFlag PRIVATE;
+  `androidx.recyclerview.widget.LinearLayoutManager` `androidx.viewpager2.widget.ViewPager2.mLayoutManager` @AccessFlag PRIVATE;
+  `int` `androidx.viewpager2.widget.ViewPager2.mOffscreenPageLimit` @AccessFlag PRIVATE;
+  `androidx.viewpager2.widget.CompositeOnPageChangeCallback` `androidx.viewpager2.widget.ViewPager2.mPageChangeEventDispatcher` @AccessFlag PRIVATE;
+  `androidx.viewpager2.widget.PageTransformerAdapter` `androidx.viewpager2.widget.ViewPager2.mPageTransformerAdapter` @AccessFlag PRIVATE;
+  `androidx.recyclerview.widget.PagerSnapHelper` `androidx.viewpager2.widget.ViewPager2.mPagerSnapHelper` @AccessFlag PRIVATE;
+  `android.os.Parcelable` `androidx.viewpager2.widget.ViewPager2.mPendingAdapterState` @AccessFlag PRIVATE;
+  `int` `androidx.viewpager2.widget.ViewPager2.mPendingCurrentItem` @AccessFlag PRIVATE;
+  `androidx.recyclerview.widget.RecyclerView` `androidx.viewpager2.widget.ViewPager2.mRecyclerView` @AccessFlag ;
+  `androidx.recyclerview.widget.RecyclerView$ItemAnimator` `androidx.viewpager2.widget.ViewPager2.mSavedItemAnimator` @AccessFlag PRIVATE;
+  `boolean` `androidx.viewpager2.widget.ViewPager2.mSavedItemAnimatorPresent` @AccessFlag PRIVATE;
+  `androidx.viewpager2.widget.ScrollEventAdapter` `androidx.viewpager2.widget.ViewPager2.mScrollEventAdapter` @AccessFlag ;
+  `android.graphics.Rect` `androidx.viewpager2.widget.ViewPager2.mTmpChildRect` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.Rect` `androidx.viewpager2.widget.ViewPager2.mTmpContainerRect` @AccessFlag PRIVATE_FINAL;
+  `boolean` `androidx.viewpager2.widget.ViewPager2.mUserInputEnabled` @AccessFlag PRIVATE;
+}
+global `int` `@@androidx.viewpager2.widget.ViewPager2.OFFSCREEN_PAGE_LIMIT_DEFAULT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.viewpager2.widget.ViewPager2.ORIENTATION_HORIZONTAL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.viewpager2.widget.ViewPager2.ORIENTATION_VERTICAL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_DRAGGING` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_IDLE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_SETTLING` @AccessFlag PUBLIC_STATIC_FINAL;
+global `boolean` `@@androidx.viewpager2.widget.ViewPager2.sFeatureEnhancedA11yEnabled` @AccessFlag STATIC;
+procedure `void` `<clinit>`() @signature `Landroidx/viewpager2/widget/ViewPager2;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.viewpager2.widget.ViewPager2` v3 @kind this, `android.content.Context` v4 @kind object @name `context`) @signature `Landroidx/viewpager2/widget/ViewPager2;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.viewpager2.widget.ViewPager2` v3 @kind this, `android.content.Context` v4 @kind object @name `context`, `android.util.AttributeSet` v5 @kind object @name `attrs`) @signature `Landroidx/viewpager2/widget/ViewPager2;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.viewpager2.widget.ViewPager2` v3 @kind this, `android.content.Context` v4 @kind object @name `context`, `android.util.AttributeSet` v5 @kind object @name `attrs`, `int` v6 @name `defStyleAttr`) @signature `Landroidx/viewpager2/widget/ViewPager2;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.viewpager2.widget.ViewPager2` v3 @kind this, `android.content.Context` v4 @kind object @name `context`, `android.util.AttributeSet` v5 @kind object @name `attrs`, `int` v6 @name `defStyleAttr`, `int` v7 @name `defStyleRes`) @signature `Landroidx/viewpager2/widget/ViewPager2;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;II)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.RecyclerView$OnChildAttachStateChangeListener` `enforceChildFillListener`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.enforceChildFillListener:()Landroidx/recyclerview/widget/RecyclerView$OnChildAttachStateChangeListener;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `initialize`(`androidx.viewpager2.widget.ViewPager2` v5 @kind this, `android.content.Context` v6 @kind object @name `context`, `android.util.AttributeSet` v7 @kind object @name `attrs`) @signature `Landroidx/viewpager2/widget/ViewPager2;.initialize:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `registerCurrentItemDataSetTracker`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$Adapter` v2 @kind object) @signature `Landroidx/viewpager2/widget/ViewPager2;.registerCurrentItemDataSetTracker:(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `restorePendingState`(`androidx.viewpager2.widget.ViewPager2` v5 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.restorePendingState:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `setOrientation`(`androidx.viewpager2.widget.ViewPager2` v8 @kind this, `android.content.Context` v9 @kind object @name `context`, `android.util.AttributeSet` v10 @kind object @name `attrs`) @signature `Landroidx/viewpager2/widget/ViewPager2;.setOrientation:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `unregisterCurrentItemDataSetTracker`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$Adapter` v2 @kind object) @signature `Landroidx/viewpager2/widget/ViewPager2;.unregisterCurrentItemDataSetTracker:(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `addItemDecoration`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$ItemDecoration` v2 @kind object @name `decor`) @signature `Landroidx/viewpager2/widget/ViewPager2;.addItemDecoration:(Landroidx/recyclerview/widget/RecyclerView$ItemDecoration;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addItemDecoration`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$ItemDecoration` v2 @kind object @name `decor`, `int` v3 @name `index`) @signature `Landroidx/viewpager2/widget/ViewPager2;.addItemDecoration:(Landroidx/recyclerview/widget/RecyclerView$ItemDecoration;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `beginFakeDrag`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.beginFakeDrag:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `canScrollHorizontally`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this, `int` v2 @name `direction`) @signature `Landroidx/viewpager2/widget/ViewPager2;.canScrollHorizontally:(I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `canScrollVertically`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this, `int` v2 @name `direction`) @signature `Landroidx/viewpager2/widget/ViewPager2;.canScrollVertically:(I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `dispatchRestoreInstanceState`(`androidx.viewpager2.widget.ViewPager2` v4 @kind this, `android.util.SparseArray` v5 @kind object) @signature `Landroidx/viewpager2/widget/ViewPager2;.dispatchRestoreInstanceState:(Landroid/util/SparseArray;)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `boolean` `endFakeDrag`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.endFakeDrag:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `fakeDragBy`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this, `float` v2 @name `offsetPxFloat`) @signature `Landroidx/viewpager2/widget/ViewPager2;.fakeDragBy:(F)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getAccessibilityClassName`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.getAccessibilityClassName:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.RecyclerView$Adapter` `getAdapter`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.getAdapter:()Landroidx/recyclerview/widget/RecyclerView$Adapter;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getCurrentItem`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.getCurrentItem:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.RecyclerView$ItemDecoration` `getItemDecorationAt`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this, `int` v2 @name `index`) @signature `Landroidx/viewpager2/widget/ViewPager2;.getItemDecorationAt:(I)Landroidx/recyclerview/widget/RecyclerView$ItemDecoration;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getItemDecorationCount`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.getItemDecorationCount:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getOffscreenPageLimit`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.getOffscreenPageLimit:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getOrientation`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.getOrientation:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getPageSize`(`androidx.viewpager2.widget.ViewPager2` v3 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.getPageSize:()I` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `getScrollState`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.getScrollState:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `invalidateItemDecorations`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.invalidateItemDecorations:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isFakeDragging`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.isFakeDragging:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isRtl`(`androidx.viewpager2.widget.ViewPager2` v2 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.isRtl:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isUserInputEnabled`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.isUserInputEnabled:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onInitializeAccessibilityNodeInfo`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this, `android.view.accessibility.AccessibilityNodeInfo` v2 @kind object @name `info`) @signature `Landroidx/viewpager2/widget/ViewPager2;.onInitializeAccessibilityNodeInfo:(Landroid/view/accessibility/AccessibilityNodeInfo;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onLayout`(`androidx.viewpager2.widget.ViewPager2` v7 @kind this, `boolean` v8 @name `changed`, `int` v9 @name `l`, `int` v10 @name `t`, `int` v11 @name `r`, `int` v12 @name `b`) @signature `Landroidx/viewpager2/widget/ViewPager2;.onLayout:(ZIIII)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onMeasure`(`androidx.viewpager2.widget.ViewPager2` v5 @kind this, `int` v6 @name `widthMeasureSpec`, `int` v7 @name `heightMeasureSpec`) @signature `Landroidx/viewpager2/widget/ViewPager2;.onMeasure:(II)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onRestoreInstanceState`(`androidx.viewpager2.widget.ViewPager2` v2 @kind this, `android.os.Parcelable` v3 @kind object @name `state`) @signature `Landroidx/viewpager2/widget/ViewPager2;.onRestoreInstanceState:(Landroid/os/Parcelable;)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `android.os.Parcelable` `onSaveInstanceState`(`androidx.viewpager2.widget.ViewPager2` v4 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.onSaveInstanceState:()Landroid/os/Parcelable;` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onViewAdded`(`androidx.viewpager2.widget.ViewPager2` v3 @kind this, `android.view.View` v4 @kind object @name `child`) @signature `Landroidx/viewpager2/widget/ViewPager2;.onViewAdded:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `performAccessibilityAction`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this, `int` v2 @name `action`, `android.os.Bundle` v3 @kind object @name `arguments`) @signature `Landroidx/viewpager2/widget/ViewPager2;.performAccessibilityAction:(ILandroid/os/Bundle;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `registerOnPageChangeCallback`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this, `androidx.viewpager2.widget.ViewPager2$OnPageChangeCallback` v2 @kind object @name `callback`) @signature `Landroidx/viewpager2/widget/ViewPager2;.registerOnPageChangeCallback:(Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `removeItemDecoration`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$ItemDecoration` v2 @kind object @name `decor`) @signature `Landroidx/viewpager2/widget/ViewPager2;.removeItemDecoration:(Landroidx/recyclerview/widget/RecyclerView$ItemDecoration;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `removeItemDecorationAt`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this, `int` v2 @name `index`) @signature `Landroidx/viewpager2/widget/ViewPager2;.removeItemDecorationAt:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `requestTransform`(`androidx.viewpager2.widget.ViewPager2` v6 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.requestTransform:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setAdapter`(`androidx.viewpager2.widget.ViewPager2` v2 @kind this, `androidx.recyclerview.widget.RecyclerView$Adapter` v3 @kind object @name `adapter`) @signature `Landroidx/viewpager2/widget/ViewPager2;.setAdapter:(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setCurrentItem`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this, `int` v2 @name `item`) @signature `Landroidx/viewpager2/widget/ViewPager2;.setCurrentItem:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setCurrentItem`(`androidx.viewpager2.widget.ViewPager2` v2 @kind this, `int` v3 @name `item`, `boolean` v4 @name `smoothScroll`) @signature `Landroidx/viewpager2/widget/ViewPager2;.setCurrentItem:(IZ)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setCurrentItemInternal`(`androidx.viewpager2.widget.ViewPager2` v7 @kind this, `int` v8 @name `item`, `boolean` v9 @name `smoothScroll`) @signature `Landroidx/viewpager2/widget/ViewPager2;.setCurrentItemInternal:(IZ)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `setLayoutDirection`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this, `int` v2 @name `layoutDirection`) @signature `Landroidx/viewpager2/widget/ViewPager2;.setLayoutDirection:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOffscreenPageLimit`(`androidx.viewpager2.widget.ViewPager2` v2 @kind this, `int` v3 @name `limit`) @signature `Landroidx/viewpager2/widget/ViewPager2;.setOffscreenPageLimit:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOrientation`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this, `int` v2 @name `orientation`) @signature `Landroidx/viewpager2/widget/ViewPager2;.setOrientation:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setPageTransformer`(`androidx.viewpager2.widget.ViewPager2` v3 @kind this, `androidx.viewpager2.widget.ViewPager2$PageTransformer` v4 @kind object @name `transformer`) @signature `Landroidx/viewpager2/widget/ViewPager2;.setPageTransformer:(Landroidx/viewpager2/widget/ViewPager2$PageTransformer;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setUserInputEnabled`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this, `boolean` v2 @name `enabled`) @signature `Landroidx/viewpager2/widget/ViewPager2;.setUserInputEnabled:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `snapToPage`(`androidx.viewpager2.widget.ViewPager2` v5 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.snapToPage:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `unregisterOnPageChangeCallback`(`androidx.viewpager2.widget.ViewPager2` v1 @kind this, `androidx.viewpager2.widget.ViewPager2$OnPageChangeCallback` v2 @kind object @name `callback`) @signature `Landroidx/viewpager2/widget/ViewPager2;.unregisterOnPageChangeCallback:(Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `updateCurrentItem`(`androidx.viewpager2.widget.ViewPager2` v3 @kind this) @signature `Landroidx/viewpager2/widget/ViewPager2;.updateCurrentItem:()V` @AccessFlag  {
+
+  # return;
+}

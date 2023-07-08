@@ -1,0 +1,2551 @@
+record `com.google.android.material.chip.Chip` @kind class @AccessFlag PUBLIC extends `androidx.appcompat.widget.AppCompatCheckBox` @kind class, `com.google.android.material.chip.ChipDrawable$Delegate` @kind interface, `com.google.android.material.shape.Shapeable` @kind interface {
+  `com.google.android.material.chip.ChipDrawable` `com.google.android.material.chip.Chip.chipDrawable` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.chip.Chip.closeIconFocused` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.chip.Chip.closeIconHovered` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.chip.Chip.closeIconPressed` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.chip.Chip.deferredCheckedValue` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.chip.Chip.ensureMinTouchTargetSize` @AccessFlag PRIVATE;
+  `com.google.android.material.resources.TextAppearanceFontCallback` `com.google.android.material.chip.Chip.fontCallback` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.drawable.InsetDrawable` `com.google.android.material.chip.Chip.insetBackgroundDrawable` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.chip.Chip.lastLayoutDirection` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.chip.Chip.minTouchTargetSize` @AccessFlag PRIVATE;
+  `android.widget.CompoundButton$OnCheckedChangeListener` `com.google.android.material.chip.Chip.onCheckedChangeListenerInternal` @AccessFlag PRIVATE;
+  `android.view.View$OnClickListener` `com.google.android.material.chip.Chip.onCloseIconClickListener` @AccessFlag PRIVATE;
+  `android.graphics.Rect` `com.google.android.material.chip.Chip.rect` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.RectF` `com.google.android.material.chip.Chip.rectF` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.drawable.RippleDrawable` `com.google.android.material.chip.Chip.ripple` @AccessFlag PRIVATE;
+  `com.google.android.material.chip.Chip$ChipTouchHelper` `com.google.android.material.chip.Chip.touchHelper` @AccessFlag PRIVATE_FINAL;
+}
+global `java.lang.String` `@@com.google.android.material.chip.Chip.BUTTON_ACCESSIBILITY_CLASS_NAME` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int`[] `@@com.google.android.material.chip.Chip.CHECKABLE_STATE_SET` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.chip.Chip.CHIP_BODY_VIRTUAL_ID` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.chip.Chip.CLOSE_ICON_VIRTUAL_ID` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@com.google.android.material.chip.Chip.COMPOUND_BUTTON_ACCESSIBILITY_CLASS_NAME` @AccessFlag PRIVATE_STATIC_FINAL;
+global `android.graphics.Rect` `@@com.google.android.material.chip.Chip.EMPTY_BOUNDS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@com.google.android.material.chip.Chip.GENERIC_VIEW_ACCESSIBILITY_CLASS_NAME` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.chip.Chip.MIN_TOUCH_TARGET_DP` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@com.google.android.material.chip.Chip.NAMESPACE_ANDROID` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int`[] `@@com.google.android.material.chip.Chip.SELECTED_STATE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@com.google.android.material.chip.Chip.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/chip/Chip;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L193368.  v0:= new `android.graphics.Rect`;
+  #L19336c.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L193372.  `@@com.google.android.material.chip.Chip.EMPTY_BOUNDS` @type ^`android.graphics.Rect` := v0 @kind object;
+  #L193376.  v0:= 1I;
+  #L193378.  v1:= new `int`[v0];
+  #L19337c.  v2:= 16842913I;
+  #L193382.  v3:= 0I;
+  #L193384.  v1[v3]:= v2;
+  #L193388.  `@@com.google.android.material.chip.Chip.SELECTED_STATE` @type ^`int`[] := v1 @kind object;
+  #L19338c.  v0:= new `int`[v0];
+  #L193390.  v1:= 16842911I;
+  #L193396.  v0[v3]:= v1;
+  #L19339a.  `@@com.google.android.material.chip.Chip.CHECKABLE_STATE_SET` @type ^`int`[] := v0 @kind object;
+  #L19339e.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.chip.Chip` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/chip/Chip;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1933b0.  v0:= 0I;
+  #L1933b2.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/chip/Chip;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1933b8.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.chip.Chip` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/chip/Chip;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1933cc.  v0:= `@@com.google.android.material.R$attr.chipStyle` @type ^`int`;
+  #L1933d0.  call `<init>`(v1, v2, v3, v0) @signature `Lcom/google/android/material/chip/Chip;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1933d6.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.chip.Chip` v8 @kind this, `android.content.Context` v9 @kind object @name `context`, `android.util.AttributeSet` v10 @kind object @name `attrs`, `int` v11 @name `defStyleAttr`) @signature `Lcom/google/android/material/chip/Chip;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L1933e8.  call `<init>`(v8, v9, v10, v11) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1933ee.  v0:= new `android.graphics.Rect`;
+  #L1933f2.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L1933f8.  v8.`com.google.android.material.chip.Chip.rect` @type ^`android.graphics.Rect` := v0 @kind object;
+  #L1933fc.  v0:= new `android.graphics.RectF`;
+  #L193400.  call `<init>`(v0) @signature `Landroid/graphics/RectF;.<init>:()V` @kind direct;
+  #L193406.  v8.`com.google.android.material.chip.Chip.rectF` @type ^`android.graphics.RectF` := v0 @kind object;
+  #L19340a.  v0:= new `com.google.android.material.chip.Chip$1`;
+  #L19340e.  call `<init>`(v0, v8) @signature `Lcom/google/android/material/chip/Chip$1;.<init>:(Lcom/google/android/material/chip/Chip;)V` @kind direct;
+  #L193414.  v8.`com.google.android.material.chip.Chip.fontCallback` @type ^`com.google.android.material.resources.TextAppearanceFontCallback` := v0 @kind object;
+  #L193418.  call `validateAttributes`(v8, v10) @signature `Lcom/google/android/material/chip/Chip;.validateAttributes:(Landroid/util/AttributeSet;)V` @kind direct;
+  #L19341e.  v0:= `@@com.google.android.material.R$style.Widget_MaterialComponents_Chip_Action` @type ^`int`;
+  #L193422.  call temp:= `createFromAttributes`(v9, v10, v11, v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.createFromAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;II)Lcom/google/android/material/chip/ChipDrawable;` @kind static;
+  #L193428.  v0:= temp @kind object;
+  #L19342a.  call `initMinTouchTarget`(v8, v9, v10, v11) @signature `Lcom/google/android/material/chip/Chip;.initMinTouchTarget:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L193430.  call `setChipDrawable`(v8, v0) @signature `Lcom/google/android/material/chip/Chip;.setChipDrawable:(Lcom/google/android/material/chip/ChipDrawable;)V` @kind virtual;
+  #L193436.  call temp:= `getElevation`(v8) @signature `Landroidx/core/view/ViewCompat;.getElevation:(Landroid/view/View;)F` @kind static;
+  #L19343c.  v1:= temp;
+  #L19343e.  call `setElevation`(v0, v1) @signature `Lcom/google/android/material/chip/ChipDrawable;.setElevation:(F)V` @kind virtual;
+  #L193444.  v4:= `@@com.google.android.material.R$styleable.Chip` @type ^`int`[] @kind object;
+  #L193448.  v6:= `@@com.google.android.material.R$style.Widget_MaterialComponents_Chip_Action` @type ^`int`;
+  #L19344c.  v1:= 0I;
+  #L19344e.  v7:= new `int`[v1];
+  #L193452.  v2:= v9 @kind object;
+  #L193454.  v3:= v10 @kind object;
+  #L193456.  v5:= v11;
+  #L193458.  call temp:= `obtainStyledAttributes`(v2, v3, v4, v5, v6, v7) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainStyledAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;` @kind static;
+  #L19345e.  v2:= temp @kind object;
+  #L193460.  v3:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L193464.  v4:= 23I;
+  #L193468.  if v3 >= v4 then goto L19347e;
+  #L19346c.  v3:= `@@com.google.android.material.R$styleable.Chip_android_textColor` @type ^`int`;
+  #L193470.  call temp:= `getColorStateList`(v9, v2, v3) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L193476.  v3:= temp @kind object;
+  #L193478.  call `setTextColor`(v8, v3) @signature `Lcom/google/android/material/chip/Chip;.setTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L19347e.  v3:= `@@com.google.android.material.R$styleable.Chip_shapeAppearance` @type ^`int`;
+  #L193482.  call temp:= `hasValue`(v2, v3) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L193488.  v3:= temp;
+  #L19348a.  call `recycle`(v2) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L193490.  v4:= new `com.google.android.material.chip.Chip$ChipTouchHelper`;
+  #L193494.  call `<init>`(v4, v8, v8) @signature `Lcom/google/android/material/chip/Chip$ChipTouchHelper;.<init>:(Lcom/google/android/material/chip/Chip;Lcom/google/android/material/chip/Chip;)V` @kind direct;
+  #L19349a.  v8.`com.google.android.material.chip.Chip.touchHelper` @type ^`com.google.android.material.chip.Chip$ChipTouchHelper` := v4 @kind object;
+  #L19349e.  v5:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1934a2.  v6:= 24I;
+  #L1934a6.  if v5 < v6 then goto L1934b2;
+  #L1934aa.  call `setAccessibilityDelegate`(v8, v4) @signature `Landroidx/core/view/ViewCompat;.setAccessibilityDelegate:(Landroid/view/View;Landroidx/core/view/AccessibilityDelegateCompat;)V` @kind static;
+  #L1934b0.  goto L1934b8;
+  #L1934b2.  call `updateAccessibilityDelegate`(v8) @signature `Lcom/google/android/material/chip/Chip;.updateAccessibilityDelegate:()V` @kind direct;
+  #L1934b8.  if v3 != 0 then goto L1934c2;
+  #L1934bc.  call `initOutlineProvider`(v8) @signature `Lcom/google/android/material/chip/Chip;.initOutlineProvider:()V` @kind direct;
+  #L1934c2.  v4:= v8.`com.google.android.material.chip.Chip.deferredCheckedValue` @type ^`boolean` @kind boolean;
+  #L1934c6.  call `setChecked`(v8, v4) @signature `Lcom/google/android/material/chip/Chip;.setChecked:(Z)V` @kind virtual;
+  #L1934cc.  call temp:= `getText`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getText:()Ljava/lang/CharSequence;` @kind virtual;
+  #L1934d2.  v4:= temp @kind object;
+  #L1934d4.  call `setText`(v8, v4) @signature `Lcom/google/android/material/chip/Chip;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1934da.  call temp:= `getEllipsize`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getEllipsize:()Landroid/text/TextUtils$TruncateAt;` @kind virtual;
+  #L1934e0.  v4:= temp @kind object;
+  #L1934e2.  call `setEllipsize`(v8, v4) @signature `Lcom/google/android/material/chip/Chip;.setEllipsize:(Landroid/text/TextUtils$TruncateAt;)V` @kind virtual;
+  #L1934e8.  call `setIncludeFontPadding`(v8, v1) @signature `Lcom/google/android/material/chip/Chip;.setIncludeFontPadding:(Z)V` @kind virtual;
+  #L1934ee.  call `updateTextPaintDrawState`(v8) @signature `Lcom/google/android/material/chip/Chip;.updateTextPaintDrawState:()V` @kind direct;
+  #L1934f4.  v1:= v8.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1934f8.  call temp:= `shouldDrawText`(v1) @signature `Lcom/google/android/material/chip/ChipDrawable;.shouldDrawText:()Z` @kind virtual;
+  #L1934fe.  v1:= temp;
+  #L193500.  if v1 != 0 then goto L19350a;
+  #L193504.  call `setSingleLine`(v8) @signature `Lcom/google/android/material/chip/Chip;.setSingleLine:()V` @kind virtual;
+  #L19350a.  v1:= 8388627I;
+  #L193510.  call `setGravity`(v8, v1) @signature `Lcom/google/android/material/chip/Chip;.setGravity:(I)V` @kind virtual;
+  #L193516.  call `updatePaddingInternal`(v8) @signature `Lcom/google/android/material/chip/Chip;.updatePaddingInternal:()V` @kind direct;
+  #L19351c.  call temp:= `shouldEnsureMinTouchTargetSize`(v8) @signature `Lcom/google/android/material/chip/Chip;.shouldEnsureMinTouchTargetSize:()Z` @kind virtual;
+  #L193522.  v1:= temp;
+  #L193524.  if v1 == 0 then goto L193532;
+  #L193528.  v1:= v8.`com.google.android.material.chip.Chip.minTouchTargetSize` @type ^`int`;
+  #L19352c.  call `setMinHeight`(v8, v1) @signature `Lcom/google/android/material/chip/Chip;.setMinHeight:(I)V` @kind virtual;
+  #L193532.  call temp:= `getLayoutDirection`(v8) @signature `Landroidx/core/view/ViewCompat;.getLayoutDirection:(Landroid/view/View;)I` @kind static;
+  #L193538.  v1:= temp;
+  #L19353a.  v8.`com.google.android.material.chip.Chip.lastLayoutDirection` @type ^`int` := v1;
+  #L19353e.  return @kind void;
+}
+procedure `com.google.android.material.chip.ChipDrawable` `access$000`(`com.google.android.material.chip.Chip` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/chip/Chip;.access$000:(Lcom/google/android/material/chip/Chip;)Lcom/google/android/material/chip/ChipDrawable;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L192f9c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L192fa0.  return v0 @kind object;
+}
+procedure `boolean` `access$100`(`com.google.android.material.chip.Chip` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/chip/Chip;.access$100:(Lcom/google/android/material/chip/Chip;)Z` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L192a1c.  call temp:= `hasCloseIcon`(v1) @signature `Lcom/google/android/material/chip/Chip;.hasCloseIcon:()Z` @kind direct;
+  #L192a22.  v0:= temp;
+  #L192a24.  return v0;
+}
+procedure `android.graphics.RectF` `access$200`(`com.google.android.material.chip.Chip` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/chip/Chip;.access$200:(Lcom/google/android/material/chip/Chip;)Landroid/graphics/RectF;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L192890.  call temp:= `getCloseIconTouchBounds`(v1) @signature `Lcom/google/android/material/chip/Chip;.getCloseIconTouchBounds:()Landroid/graphics/RectF;` @kind direct;
+  #L192896.  v0:= temp @kind object;
+  #L192898.  return v0 @kind object;
+}
+procedure `boolean` `access$302`(`com.google.android.material.chip.Chip` v0 @kind object @name `x0`, `boolean` v1 @name `x1`) @signature `Lcom/google/android/material/chip/Chip;.access$302:(Lcom/google/android/material/chip/Chip;Z)Z` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L192a38.  v0.`com.google.android.material.chip.Chip.closeIconFocused` @type ^`boolean` := v1 @kind boolean;
+  #L192a3c.  return v1;
+}
+procedure `android.graphics.Rect` `access$400`(`com.google.android.material.chip.Chip` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/chip/Chip;.access$400:(Lcom/google/android/material/chip/Chip;)Landroid/graphics/Rect;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L19281c.  call temp:= `getCloseIconTouchBoundsInt`(v1) @signature `Lcom/google/android/material/chip/Chip;.getCloseIconTouchBoundsInt:()Landroid/graphics/Rect;` @kind direct;
+  #L192822.  v0:= temp @kind object;
+  #L192824.  return v0 @kind object;
+}
+procedure `android.graphics.Rect` `access$500`() @signature `Lcom/google/android/material/chip/Chip;.access$500:()Landroid/graphics/Rect;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L192838.  v0:= `@@com.google.android.material.chip.Chip.EMPTY_BOUNDS` @type ^`android.graphics.Rect` @kind object;
+  #L19283c.  return v0 @kind object;
+}
+procedure `void` `applyChipDrawable`(`com.google.android.material.chip.Chip` v0 @kind this, `com.google.android.material.chip.ChipDrawable` v1 @kind object @name `chipDrawable`) @signature `Lcom/google/android/material/chip/Chip;.applyChipDrawable:(Lcom/google/android/material/chip/ChipDrawable;)V` @AccessFlag PRIVATE {
+    temp;
+
+  #L193550.  call `setDelegate`(v1, v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.setDelegate:(Lcom/google/android/material/chip/ChipDrawable$Delegate;)V` @kind virtual;
+  #L193556.  return @kind void;
+}
+procedure `int`[] `createCloseIconDrawableState`(`com.google.android.material.chip.Chip` v4 @kind this) @signature `Lcom/google/android/material/chip/Chip;.createCloseIconDrawableState:()[I` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L193204.  v0:= 0I;
+  #L193206.  call temp:= `isEnabled`(v4) @signature `Lcom/google/android/material/chip/Chip;.isEnabled:()Z` @kind virtual;
+  #L19320c.  v1:= temp;
+  #L19320e.  if v1 == 0 then goto L193216;
+  #L193212.  v0:= v0 + 1;
+  #L193216.  v1:= v4.`com.google.android.material.chip.Chip.closeIconFocused` @type ^`boolean` @kind boolean;
+  #L19321a.  if v1 == 0 then goto L193222;
+  #L19321e.  v0:= v0 + 1;
+  #L193222.  v1:= v4.`com.google.android.material.chip.Chip.closeIconHovered` @type ^`boolean` @kind boolean;
+  #L193226.  if v1 == 0 then goto L19322e;
+  #L19322a.  v0:= v0 + 1;
+  #L19322e.  v1:= v4.`com.google.android.material.chip.Chip.closeIconPressed` @type ^`boolean` @kind boolean;
+  #L193232.  if v1 == 0 then goto L19323a;
+  #L193236.  v0:= v0 + 1;
+  #L19323a.  call temp:= `isChecked`(v4) @signature `Lcom/google/android/material/chip/Chip;.isChecked:()Z` @kind virtual;
+  #L193240.  v1:= temp;
+  #L193242.  if v1 == 0 then goto L19324a;
+  #L193246.  v0:= v0 + 1;
+  #L19324a.  v1:= new `int`[v0];
+  #L19324e.  v2:= 0I;
+  #L193250.  call temp:= `isEnabled`(v4) @signature `Lcom/google/android/material/chip/Chip;.isEnabled:()Z` @kind virtual;
+  #L193256.  v3:= temp;
+  #L193258.  if v3 == 0 then goto L19326a;
+  #L19325c.  v3:= 16842910I;
+  #L193262.  v1[v2]:= v3;
+  #L193266.  v2:= v2 + 1;
+  #L19326a.  v3:= v4.`com.google.android.material.chip.Chip.closeIconFocused` @type ^`boolean` @kind boolean;
+  #L19326e.  if v3 == 0 then goto L193280;
+  #L193272.  v3:= 16842908I;
+  #L193278.  v1[v2]:= v3;
+  #L19327c.  v2:= v2 + 1;
+  #L193280.  v3:= v4.`com.google.android.material.chip.Chip.closeIconHovered` @type ^`boolean` @kind boolean;
+  #L193284.  if v3 == 0 then goto L193296;
+  #L193288.  v3:= 16843623I;
+  #L19328e.  v1[v2]:= v3;
+  #L193292.  v2:= v2 + 1;
+  #L193296.  v3:= v4.`com.google.android.material.chip.Chip.closeIconPressed` @type ^`boolean` @kind boolean;
+  #L19329a.  if v3 == 0 then goto L1932ac;
+  #L19329e.  v3:= 16842919I;
+  #L1932a4.  v1[v2]:= v3;
+  #L1932a8.  v2:= v2 + 1;
+  #L1932ac.  call temp:= `isChecked`(v4) @signature `Lcom/google/android/material/chip/Chip;.isChecked:()Z` @kind virtual;
+  #L1932b2.  v3:= temp;
+  #L1932b4.  if v3 == 0 then goto L1932c6;
+  #L1932b8.  v3:= 16842913I;
+  #L1932be.  v1[v2]:= v3;
+  #L1932c2.  v2:= v2 + 1;
+  #L1932c6.  return v1 @kind object;
+}
+procedure `void` `ensureChipDrawableHasCallback`(`com.google.android.material.chip.Chip` v2 @kind this) @signature `Lcom/google/android/material/chip/Chip;.ensureChipDrawableHasCallback:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1935b4.  call temp:= `getBackgroundDrawable`(v2) @signature `Lcom/google/android/material/chip/Chip;.getBackgroundDrawable:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1935ba.  v0:= temp @kind object;
+  #L1935bc.  v1:= v2.`com.google.android.material.chip.Chip.insetBackgroundDrawable` @type ^`android.graphics.drawable.InsetDrawable` @kind object;
+  #L1935c0.  if v0 != v1 then goto L1935e2;
+  #L1935c4.  v0:= v2.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1935c8.  call temp:= `getCallback`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getCallback:()Landroid/graphics/drawable/Drawable$Callback;` @kind virtual;
+  #L1935ce.  v0:= temp @kind object;
+  #L1935d0.  if v0 != 0 then goto L1935e2;
+  #L1935d4.  v0:= v2.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1935d8.  v1:= v2.`com.google.android.material.chip.Chip.insetBackgroundDrawable` @type ^`android.graphics.drawable.InsetDrawable` @kind object;
+  #L1935dc.  call `setCallback`(v0, v1) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCallback:(Landroid/graphics/drawable/Drawable$Callback;)V` @kind virtual;
+  #L1935e2.  return @kind void;
+}
+procedure `android.graphics.RectF` `getCloseIconTouchBounds`(`com.google.android.material.chip.Chip` v2 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getCloseIconTouchBounds:()Landroid/graphics/RectF;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1928ac.  v0:= v2.`com.google.android.material.chip.Chip.rectF` @type ^`android.graphics.RectF` @kind object;
+  #L1928b0.  call `setEmpty`(v0) @signature `Landroid/graphics/RectF;.setEmpty:()V` @kind virtual;
+  #L1928b6.  call temp:= `hasCloseIcon`(v2) @signature `Lcom/google/android/material/chip/Chip;.hasCloseIcon:()Z` @kind direct;
+  #L1928bc.  v0:= temp;
+  #L1928be.  if v0 == 0 then goto L1928d0;
+  #L1928c2.  v0:= v2.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1928c6.  v1:= v2.`com.google.android.material.chip.Chip.rectF` @type ^`android.graphics.RectF` @kind object;
+  #L1928ca.  call `getCloseIconTouchBounds`(v0, v1) @signature `Lcom/google/android/material/chip/ChipDrawable;.getCloseIconTouchBounds:(Landroid/graphics/RectF;)V` @kind virtual;
+  #L1928d0.  v0:= v2.`com.google.android.material.chip.Chip.rectF` @type ^`android.graphics.RectF` @kind object;
+  #L1928d4.  return v0 @kind object;
+}
+procedure `android.graphics.Rect` `getCloseIconTouchBoundsInt`(`com.google.android.material.chip.Chip` v6 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getCloseIconTouchBoundsInt:()Landroid/graphics/Rect;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L192850.  call temp:= `getCloseIconTouchBounds`(v6) @signature `Lcom/google/android/material/chip/Chip;.getCloseIconTouchBounds:()Landroid/graphics/RectF;` @kind direct;
+  #L192856.  v0:= temp @kind object;
+  #L192858.  v1:= v6.`com.google.android.material.chip.Chip.rect` @type ^`android.graphics.Rect` @kind object;
+  #L19285c.  v2:= v0.`android.graphics.RectF.left` @type ^`float`;
+  #L192860.  v2:= (`int`) v2 @kind f2i;
+  #L192862.  v3:= v0.`android.graphics.RectF.top` @type ^`float`;
+  #L192866.  v3:= (`int`) v3 @kind f2i;
+  #L192868.  v4:= v0.`android.graphics.RectF.right` @type ^`float`;
+  #L19286c.  v4:= (`int`) v4 @kind f2i;
+  #L19286e.  v5:= v0.`android.graphics.RectF.bottom` @type ^`float`;
+  #L192872.  v5:= (`int`) v5 @kind f2i;
+  #L192874.  call `set`(v1, v2, v3, v4, v5) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L19287a.  v1:= v6.`com.google.android.material.chip.Chip.rect` @type ^`android.graphics.Rect` @kind object;
+  #L19287e.  return v1 @kind object;
+}
+procedure `com.google.android.material.resources.TextAppearance` `getTextAppearance`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getTextAppearance:()Lcom/google/android/material/resources/TextAppearance;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L192fb4.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L192fb8.  if v0 == 0 then goto L192fc6;
+  #L192fbc.  call temp:= `getTextAppearance`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getTextAppearance:()Lcom/google/android/material/resources/TextAppearance;` @kind virtual;
+  #L192fc2.  v0:= temp @kind object;
+  #L192fc4.  goto L192fc8;
+  #L192fc6.  v0:= 0I;
+  #L192fc8.  return v0 @kind object;
+}
+procedure `boolean` `handleAccessibilityExit`(`com.google.android.material.chip.Chip` v11 @kind this, `android.view.MotionEvent` v12 @kind object @name `event`) @signature `Lcom/google/android/material/chip/Chip;.handleAccessibilityExit:(Landroid/view/MotionEvent;)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+
+  #L192bdc.  v0:= "Unable to send Accessibility Exit event" @kind object;
+  #L192be0.  v1:= "Chip" @kind object;
+  #L192be4.  call temp:= `getAction`(v12) @signature `Landroid/view/MotionEvent;.getAction:()I` @kind virtual;
+  #L192bea.  v2:= temp;
+  #L192bec.  v3:= 0I;
+  #L192bee.  v4:= 10I;
+  #L192bf2.  if v2 != v4 then goto L192c94;
+  #L192bf6.  v2:= constclass @type ^`androidx.customview.widget.ExploreByTouchHelper` @kind object;
+  #L192bfa.  v4:= "mHoveredVirtualViewId" @kind object;
+  #L192bfe.  call temp:= `getDeclaredField`(v2, v4) @signature `Ljava/lang/Class;.getDeclaredField:(Ljava/lang/String;)Ljava/lang/reflect/Field;` @kind virtual;
+  #L192c04.  v2:= temp @kind object;
+  #L192c06.  v4:= 1I;
+  #L192c08.  call `setAccessible`(v2, v4) @signature `Ljava/lang/reflect/Field;.setAccessible:(Z)V` @kind virtual;
+  #L192c0e.  v5:= v11.`com.google.android.material.chip.Chip.touchHelper` @type ^`com.google.android.material.chip.Chip$ChipTouchHelper` @kind object;
+  #L192c12.  call temp:= `get`(v2, v5) @signature `Ljava/lang/reflect/Field;.get:(Ljava/lang/Object;)Ljava/lang/Object;` @kind virtual;
+  #L192c18.  v5:= temp @kind object;
+  #L192c1a.  v5:= (`java.lang.Integer`) v5 @kind object;
+  #L192c1e.  call temp:= `intValue`(v5) @signature `Ljava/lang/Integer;.intValue:()I` @kind virtual;
+  #L192c24.  v5:= temp;
+  #L192c26.  v6:= -2147483648I;
+  #L192c2a.  if v5 == v6 then goto L192c6c;
+  #L192c2e.  v7:= constclass @type ^`androidx.customview.widget.ExploreByTouchHelper` @kind object;
+  #L192c32.  v8:= "updateHoveredVirtualView" @kind object;
+  #L192c36.  v9:= new `java.lang.Class`[v4];
+  #L192c3a.  v10:= `@@java.lang.Integer.TYPE` @type ^`java.lang.Class` @kind object;
+  #L192c3e.  v9[v3]:= v10 @kind object;
+  #L192c42.  call temp:= `getDeclaredMethod`(v7, v8, v9) @signature `Ljava/lang/Class;.getDeclaredMethod:(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;` @kind virtual;
+  #L192c48.  v7:= temp @kind object;
+  #L192c4a.  call `setAccessible`(v7, v4) @signature `Ljava/lang/reflect/Method;.setAccessible:(Z)V` @kind virtual;
+  #L192c50.  v8:= v11.`com.google.android.material.chip.Chip.touchHelper` @type ^`com.google.android.material.chip.Chip$ChipTouchHelper` @kind object;
+  #L192c54.  v9:= new `java.lang.Object`[v4];
+  #L192c58.  call temp:= `valueOf`(v6) @signature `Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer;` @kind static;
+  #L192c5e.  v6:= temp @kind object;
+  #L192c60.  v9[v3]:= v6 @kind object;
+  #L192c64.  call temp:= `invoke`(v7, v8, v9) @signature `Ljava/lang/reflect/Method;.invoke:(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;` @kind virtual;
+  #L192c6a.  return v4;
+  #L192c6c.  goto L192c94;
+  #L192c6e.  v2:= Exception @type ^`java.lang.NoSuchFieldException` @kind object;
+  #L192c70.  call temp:= `e`(v1, v0, v2) @signature `Landroid/util/Log;.e:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I` @kind static;
+  #L192c76.  goto L192c94;
+  #L192c78.  v2:= Exception @type ^`java.lang.reflect.InvocationTargetException` @kind object;
+  #L192c7a.  call temp:= `e`(v1, v0, v2) @signature `Landroid/util/Log;.e:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I` @kind static;
+  #L192c80.  goto L192c94;
+  #L192c82.  v2:= Exception @type ^`java.lang.IllegalAccessException` @kind object;
+  #L192c84.  call temp:= `e`(v1, v0, v2) @signature `Landroid/util/Log;.e:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I` @kind static;
+  #L192c8a.  goto L192c94;
+  #L192c8c.  v2:= Exception @type ^`java.lang.NoSuchMethodException` @kind object;
+  #L192c8e.  call temp:= `e`(v1, v0, v2) @signature `Landroid/util/Log;.e:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I` @kind static;
+  #L192c94.  return v3;
+  catch `java.lang.NoSuchMethodException` @[L192bf6..L192c6a] goto L192c8c;
+  catch `java.lang.IllegalAccessException` @[L192bf6..L192c6a] goto L192c82;
+  catch `java.lang.reflect.InvocationTargetException` @[L192bf6..L192c6a] goto L192c78;
+  catch `java.lang.NoSuchFieldException` @[L192bf6..L192c6a] goto L192c6e;
+}
+procedure `boolean` `hasCloseIcon`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.hasCloseIcon:()Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L192cc0.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L192cc4.  if v0 == 0 then goto L192cd8;
+  #L192cc8.  call temp:= `getCloseIcon`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getCloseIcon:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L192cce.  v0:= temp @kind object;
+  #L192cd0.  if v0 == 0 then goto L192cd8;
+  #L192cd4.  v0:= 1I;
+  #L192cd6.  goto L192cda;
+  #L192cd8.  v0:= 0I;
+  #L192cda.  return v0;
+}
+procedure `void` `initMinTouchTarget`(`com.google.android.material.chip.Chip` v7 @kind this, `android.content.Context` v8 @kind object @name `context`, `android.util.AttributeSet` v9 @kind object @name `attrs`, `int` v10 @name `defStyleAttr`) @signature `Lcom/google/android/material/chip/Chip;.initMinTouchTarget:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L193640.  v2:= `@@com.google.android.material.R$styleable.Chip` @type ^`int`[] @kind object;
+  #L193644.  v4:= `@@com.google.android.material.R$style.Widget_MaterialComponents_Chip_Action` @type ^`int`;
+  #L193648.  v6:= 0I;
+  #L19364a.  v5:= new `int`[v6];
+  #L19364e.  v0:= v8 @kind object;
+  #L193650.  v1:= v9 @kind object;
+  #L193652.  v3:= v10;
+  #L193654.  call temp:= `obtainStyledAttributes`(v0, v1, v2, v3, v4, v5) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainStyledAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;` @kind static;
+  #L19365a.  v0:= temp @kind object;
+  #L19365c.  v1:= `@@com.google.android.material.R$styleable.Chip_ensureMinTouchTargetSize` @type ^`int`;
+  #L193660.  call temp:= `getBoolean`(v0, v1, v6) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L193666.  v1:= temp;
+  #L193668.  v7.`com.google.android.material.chip.Chip.ensureMinTouchTargetSize` @type ^`boolean` := v1 @kind boolean;
+  #L19366c.  
+  #L19366e.  call temp:= `getContext`(v7) @signature `Lcom/google/android/material/chip/Chip;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L193674.  v1:= temp @kind object;
+  #L193676.  v2:= 48I;
+  #L19367a.  call temp:= `dpToPx`(v1, v2) @signature `Lcom/google/android/material/internal/ViewUtils;.dpToPx:(Landroid/content/Context;I)F` @kind static;
+  #L193680.  v1:= temp;
+  #L193682.  v1:= (`double`) v1 @kind f2d;
+  #L193684.  call temp:= `ceil`(v1) @signature `Ljava/lang/Math;.ceil:(D)D` @kind static;
+  #L19368a.  v1:= temp @kind wide;
+  #L19368c.  v1:= (`float`) v1 @kind d2f;
+  #L19368e.  v2:= `@@com.google.android.material.R$styleable.Chip_chipMinTouchTargetSize` @type ^`int`;
+  #L193692.  call temp:= `getDimension`(v0, v2, v1) @signature `Landroid/content/res/TypedArray;.getDimension:(IF)F` @kind virtual;
+  #L193698.  v2:= temp;
+  #L19369a.  v2:= (`double`) v2 @kind f2d;
+  #L19369c.  call temp:= `ceil`(v2) @signature `Ljava/lang/Math;.ceil:(D)D` @kind static;
+  #L1936a2.  v2:= temp @kind wide;
+  #L1936a4.  v2:= (`int`) v2 @kind d2i;
+  #L1936a6.  v7.`com.google.android.material.chip.Chip.minTouchTargetSize` @type ^`int` := v2;
+  #L1936aa.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1936b0.  return @kind void;
+}
+procedure `void` `initOutlineProvider`(`com.google.android.material.chip.Chip` v2 @kind this) @signature `Lcom/google/android/material/chip/Chip;.initOutlineProvider:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1936c4.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1936c8.  v1:= 21I;
+  #L1936cc.  if v0 < v1 then goto L1936e0;
+  #L1936d0.  v0:= new `com.google.android.material.chip.Chip$2`;
+  #L1936d4.  call `<init>`(v0, v2) @signature `Lcom/google/android/material/chip/Chip$2;.<init>:(Lcom/google/android/material/chip/Chip;)V` @kind direct;
+  #L1936da.  call `setOutlineProvider`(v2, v0) @signature `Lcom/google/android/material/chip/Chip;.setOutlineProvider:(Landroid/view/ViewOutlineProvider;)V` @kind virtual;
+  #L1936e0.  return @kind void;
+}
+procedure `void` `insetChipBackgroundDrawable`(`com.google.android.material.chip.Chip` v7 @kind this, `int` v8 @name `insetLeft`, `int` v9 @name `insetTop`, `int` v10 @name `insetRight`, `int` v11 @name `insetBottom`) @signature `Lcom/google/android/material/chip/Chip;.insetChipBackgroundDrawable:(IIII)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L1936f4.  v6:= new `android.graphics.drawable.InsetDrawable`;
+  #L1936f8.  v1:= v7.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1936fc.  v0:= v6 @kind object;
+  #L1936fe.  v2:= v8;
+  #L193700.  v3:= v9;
+  #L193702.  v4:= v10;
+  #L193704.  v5:= v11;
+  #L193706.  call `<init>`(v0, v1, v2, v3, v4, v5) @signature `Landroid/graphics/drawable/InsetDrawable;.<init>:(Landroid/graphics/drawable/Drawable;IIII)V` @kind direct;
+  #L19370c.  v7.`com.google.android.material.chip.Chip.insetBackgroundDrawable` @type ^`android.graphics.drawable.InsetDrawable` := v6 @kind object;
+  #L193710.  return @kind void;
+}
+procedure `void` `removeBackgroundInset`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.removeBackgroundInset:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L193850.  v0:= v1.`com.google.android.material.chip.Chip.insetBackgroundDrawable` @type ^`android.graphics.drawable.InsetDrawable` @kind object;
+  #L193854.  if v0 == 0 then goto L19387c;
+  #L193858.  v0:= 0I;
+  #L19385a.  v1.`com.google.android.material.chip.Chip.insetBackgroundDrawable` @type ^`android.graphics.drawable.InsetDrawable` := v0 @kind object;
+  #L19385e.  v0:= 0I;
+  #L193860.  call `setMinWidth`(v1, v0) @signature `Lcom/google/android/material/chip/Chip;.setMinWidth:(I)V` @kind virtual;
+  #L193866.  call temp:= `getChipMinHeight`(v1) @signature `Lcom/google/android/material/chip/Chip;.getChipMinHeight:()F` @kind virtual;
+  #L19386c.  v0:= temp;
+  #L19386e.  v0:= (`int`) v0 @kind f2i;
+  #L193870.  call `setMinHeight`(v1, v0) @signature `Lcom/google/android/material/chip/Chip;.setMinHeight:(I)V` @kind virtual;
+  #L193876.  call `updateBackgroundDrawable`(v1) @signature `Lcom/google/android/material/chip/Chip;.updateBackgroundDrawable:()V` @kind direct;
+  #L19387c.  return @kind void;
+}
+procedure `void` `setCloseIconHovered`(`com.google.android.material.chip.Chip` v1 @kind this, `boolean` v2 @name `hovered`) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconHovered:(Z)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L193ef4.  v0:= v1.`com.google.android.material.chip.Chip.closeIconHovered` @type ^`boolean` @kind boolean;
+  #L193ef8.  if v0 == v2 then goto L193f06;
+  #L193efc.  v1.`com.google.android.material.chip.Chip.closeIconHovered` @type ^`boolean` := v2 @kind boolean;
+  #L193f00.  call `refreshDrawableState`(v1) @signature `Lcom/google/android/material/chip/Chip;.refreshDrawableState:()V` @kind virtual;
+  #L193f06.  return @kind void;
+}
+procedure `void` `setCloseIconPressed`(`com.google.android.material.chip.Chip` v1 @kind this, `boolean` v2 @name `pressed`) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconPressed:(Z)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L193f18.  v0:= v1.`com.google.android.material.chip.Chip.closeIconPressed` @type ^`boolean` @kind boolean;
+  #L193f1c.  if v0 == v2 then goto L193f2a;
+  #L193f20.  v1.`com.google.android.material.chip.Chip.closeIconPressed` @type ^`boolean` := v2 @kind boolean;
+  #L193f24.  call `refreshDrawableState`(v1) @signature `Lcom/google/android/material/chip/Chip;.refreshDrawableState:()V` @kind virtual;
+  #L193f2a.  return @kind void;
+}
+procedure `void` `unapplyChipDrawable`(`com.google.android.material.chip.Chip` v1 @kind this, `com.google.android.material.chip.ChipDrawable` v2 @kind object @name `chipDrawable`) @signature `Lcom/google/android/material/chip/Chip;.unapplyChipDrawable:(Lcom/google/android/material/chip/ChipDrawable;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1946f4.  if v2 == 0 then goto L194700;
+  #L1946f8.  v0:= 0I;
+  #L1946fa.  call `setDelegate`(v2, v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.setDelegate:(Lcom/google/android/material/chip/ChipDrawable$Delegate;)V` @kind virtual;
+  #L194700.  return @kind void;
+}
+procedure `void` `updateAccessibilityDelegate`(`com.google.android.material.chip.Chip` v2 @kind this) @signature `Lcom/google/android/material/chip/Chip;.updateAccessibilityDelegate:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L194714.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L194718.  v1:= 24I;
+  #L19471c.  if v0 < v1 then goto L194722;
+  #L194720.  return @kind void;
+  #L194722.  call temp:= `hasCloseIcon`(v2) @signature `Lcom/google/android/material/chip/Chip;.hasCloseIcon:()Z` @kind direct;
+  #L194728.  v0:= temp;
+  #L19472a.  if v0 == 0 then goto L194746;
+  #L19472e.  call temp:= `isCloseIconVisible`(v2) @signature `Lcom/google/android/material/chip/Chip;.isCloseIconVisible:()Z` @kind virtual;
+  #L194734.  v0:= temp;
+  #L194736.  if v0 == 0 then goto L194746;
+  #L19473a.  v0:= v2.`com.google.android.material.chip.Chip.touchHelper` @type ^`com.google.android.material.chip.Chip$ChipTouchHelper` @kind object;
+  #L19473e.  call `setAccessibilityDelegate`(v2, v0) @signature `Landroidx/core/view/ViewCompat;.setAccessibilityDelegate:(Landroid/view/View;Landroidx/core/view/AccessibilityDelegateCompat;)V` @kind static;
+  #L194744.  goto L19474e;
+  #L194746.  v0:= 0I;
+  #L194748.  call `setAccessibilityDelegate`(v2, v0) @signature `Landroidx/core/view/ViewCompat;.setAccessibilityDelegate:(Landroid/view/View;Landroidx/core/view/AccessibilityDelegateCompat;)V` @kind static;
+  #L19474e.  return @kind void;
+}
+procedure `void` `updateBackgroundDrawable`(`com.google.android.material.chip.Chip` v2 @kind this) @signature `Lcom/google/android/material/chip/Chip;.updateBackgroundDrawable:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L194760.  v0:= `@@com.google.android.material.ripple.RippleUtils.USE_FRAMEWORK_RIPPLE` @type ^`boolean` @kind boolean;
+  #L194764.  if v0 == 0 then goto L194770;
+  #L194768.  call `updateFrameworkRippleBackground`(v2) @signature `Lcom/google/android/material/chip/Chip;.updateFrameworkRippleBackground:()V` @kind direct;
+  #L19476e.  goto L194790;
+  #L194770.  v0:= v2.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L194774.  v1:= 1I;
+  #L194776.  call `setUseCompatRipple`(v0, v1) @signature `Lcom/google/android/material/chip/ChipDrawable;.setUseCompatRipple:(Z)V` @kind virtual;
+  #L19477c.  call temp:= `getBackgroundDrawable`(v2) @signature `Lcom/google/android/material/chip/Chip;.getBackgroundDrawable:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L194782.  v0:= temp @kind object;
+  #L194784.  call `setBackground`(v2, v0) @signature `Landroidx/core/view/ViewCompat;.setBackground:(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V` @kind static;
+  #L19478a.  call `ensureChipDrawableHasCallback`(v2) @signature `Lcom/google/android/material/chip/Chip;.ensureChipDrawableHasCallback:()V` @kind direct;
+  #L194790.  return @kind void;
+}
+procedure `void` `updateFrameworkRippleBackground`(`com.google.android.material.chip.Chip` v4 @kind this) @signature `Lcom/google/android/material/chip/Chip;.updateFrameworkRippleBackground:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1947a4.  v0:= new `android.graphics.drawable.RippleDrawable`;
+  #L1947a8.  v1:= v4.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1947ac.  call temp:= `getRippleColor`(v1) @signature `Lcom/google/android/material/chip/ChipDrawable;.getRippleColor:()Landroid/content/res/ColorStateList;` @kind virtual;
+  #L1947b2.  v1:= temp @kind object;
+  #L1947b4.  call temp:= `sanitizeRippleDrawableColor`(v1) @signature `Lcom/google/android/material/ripple/RippleUtils;.sanitizeRippleDrawableColor:(Landroid/content/res/ColorStateList;)Landroid/content/res/ColorStateList;` @kind static;
+  #L1947ba.  v1:= temp @kind object;
+  #L1947bc.  call temp:= `getBackgroundDrawable`(v4) @signature `Lcom/google/android/material/chip/Chip;.getBackgroundDrawable:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1947c2.  v2:= temp @kind object;
+  #L1947c4.  v3:= 0I;
+  #L1947c6.  call `<init>`(v0, v1, v2, v3) @signature `Landroid/graphics/drawable/RippleDrawable;.<init>:(Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V` @kind direct;
+  #L1947cc.  v4.`com.google.android.material.chip.Chip.ripple` @type ^`android.graphics.drawable.RippleDrawable` := v0 @kind object;
+  #L1947d0.  v0:= v4.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1947d4.  v1:= 0I;
+  #L1947d6.  call `setUseCompatRipple`(v0, v1) @signature `Lcom/google/android/material/chip/ChipDrawable;.setUseCompatRipple:(Z)V` @kind virtual;
+  #L1947dc.  v0:= v4.`com.google.android.material.chip.Chip.ripple` @type ^`android.graphics.drawable.RippleDrawable` @kind object;
+  #L1947e0.  call `setBackground`(v4, v0) @signature `Landroidx/core/view/ViewCompat;.setBackground:(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V` @kind static;
+  #L1947e6.  return @kind void;
+}
+procedure `void` `updatePaddingInternal`(`com.google.android.material.chip.Chip` v4 @kind this) @signature `Lcom/google/android/material/chip/Chip;.updatePaddingInternal:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1947f8.  call temp:= `getText`(v4) @signature `Lcom/google/android/material/chip/Chip;.getText:()Ljava/lang/CharSequence;` @kind virtual;
+  #L1947fe.  v0:= temp @kind object;
+  #L194800.  call temp:= `isEmpty`(v0) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L194806.  v0:= temp;
+  #L194808.  if v0 != 0 then goto L194882;
+  #L19480c.  v0:= v4.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L194810.  if v0 != 0 then goto L194816;
+  #L194814.  goto L194882;
+  #L194816.  
+  #L194818.  call temp:= `getChipEndPadding`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getChipEndPadding:()F` @kind virtual;
+  #L19481e.  v0:= temp;
+  #L194820.  v1:= v4.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L194824.  call temp:= `getTextEndPadding`(v1) @signature `Lcom/google/android/material/chip/ChipDrawable;.getTextEndPadding:()F` @kind virtual;
+  #L19482a.  v1:= temp;
+  #L19482c.  v0:= v0 + v1 @kind float;
+  #L19482e.  v1:= v4.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L194832.  call temp:= `calculateCloseIconWidth`(v1) @signature `Lcom/google/android/material/chip/ChipDrawable;.calculateCloseIconWidth:()F` @kind virtual;
+  #L194838.  v1:= temp;
+  #L19483a.  v0:= v0 + v1 @kind float;
+  #L19483c.  v0:= (`int`) v0 @kind f2i;
+  #L19483e.  v1:= v4.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L194842.  call temp:= `getChipStartPadding`(v1) @signature `Lcom/google/android/material/chip/ChipDrawable;.getChipStartPadding:()F` @kind virtual;
+  #L194848.  v1:= temp;
+  #L19484a.  v2:= v4.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L19484e.  call temp:= `getTextStartPadding`(v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.getTextStartPadding:()F` @kind virtual;
+  #L194854.  v2:= temp;
+  #L194856.  v1:= v1 + v2 @kind float;
+  #L194858.  v2:= v4.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L19485c.  call temp:= `calculateChipIconWidth`(v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.calculateChipIconWidth:()F` @kind virtual;
+  #L194862.  v2:= temp;
+  #L194864.  v1:= v1 + v2 @kind float;
+  #L194866.  v1:= (`int`) v1 @kind f2i;
+  #L194868.  
+  #L19486a.  call temp:= `getPaddingTop`(v4) @signature `Lcom/google/android/material/chip/Chip;.getPaddingTop:()I` @kind virtual;
+  #L194870.  v2:= temp;
+  #L194872.  call temp:= `getPaddingBottom`(v4) @signature `Lcom/google/android/material/chip/Chip;.getPaddingBottom:()I` @kind virtual;
+  #L194878.  v3:= temp;
+  #L19487a.  call `setPaddingRelative`(v4, v1, v2, v0, v3) @signature `Landroidx/core/view/ViewCompat;.setPaddingRelative:(Landroid/view/View;IIII)V` @kind static;
+  #L194880.  return @kind void;
+  #L194882.  return @kind void;
+}
+procedure `void` `updateTextPaintDrawState`(`com.google.android.material.chip.Chip` v4 @kind this) @signature `Lcom/google/android/material/chip/Chip;.updateTextPaintDrawState:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L194894.  call temp:= `getPaint`(v4) @signature `Lcom/google/android/material/chip/Chip;.getPaint:()Landroid/text/TextPaint;` @kind virtual;
+  #L19489a.  v0:= temp @kind object;
+  #L19489c.  v1:= v4.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1948a0.  if v1 == 0 then goto L1948b0;
+  #L1948a4.  call temp:= `getState`(v1) @signature `Lcom/google/android/material/chip/ChipDrawable;.getState:()[I` @kind virtual;
+  #L1948aa.  v1:= temp @kind object;
+  #L1948ac.  v0.`android.text.TextPaint.drawableState` @type ^`int`[] := v1 @kind object;
+  #L1948b0.  call temp:= `getTextAppearance`(v4) @signature `Lcom/google/android/material/chip/Chip;.getTextAppearance:()Lcom/google/android/material/resources/TextAppearance;` @kind direct;
+  #L1948b6.  v1:= temp @kind object;
+  #L1948b8.  if v1 == 0 then goto L1948ce;
+  #L1948bc.  call temp:= `getContext`(v4) @signature `Lcom/google/android/material/chip/Chip;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1948c2.  v2:= temp @kind object;
+  #L1948c4.  v3:= v4.`com.google.android.material.chip.Chip.fontCallback` @type ^`com.google.android.material.resources.TextAppearanceFontCallback` @kind object;
+  #L1948c8.  call `updateDrawState`(v1, v2, v0, v3) @signature `Lcom/google/android/material/resources/TextAppearance;.updateDrawState:(Landroid/content/Context;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V` @kind virtual;
+  #L1948ce.  return @kind void;
+}
+procedure `void` `validateAttributes`(`com.google.android.material.chip.Chip` v4 @kind this, `android.util.AttributeSet` v5 @kind object @name `attributeSet`) @signature `Lcom/google/android/material/chip/Chip;.validateAttributes:(Landroid/util/AttributeSet;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1948e0.  if v5 != 0 then goto L1948e6;
+  #L1948e4.  return @kind void;
+  #L1948e6.  v0:= "http://schemas.android.com/apk/res/android" @kind object;
+  #L1948ea.  v1:= "background" @kind object;
+  #L1948ee.  call temp:= `getAttributeValue`(v5, v0, v1) @signature `Landroid/util/AttributeSet;.getAttributeValue:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;` @kind interface;
+  #L1948f4.  v1:= temp @kind object;
+  #L1948f6.  v2:= "Chip" @kind object;
+  #L1948fa.  if v1 == 0 then goto L194908;
+  #L1948fe.  v1:= "Do not set the background; Chip manages its own background drawable." @kind object;
+  #L194902.  call temp:= `w`(v2, v1) @signature `Landroid/util/Log;.w:(Ljava/lang/String;Ljava/lang/String;)I` @kind static;
+  #L194908.  v1:= "drawableLeft" @kind object;
+  #L19490c.  call temp:= `getAttributeValue`(v5, v0, v1) @signature `Landroid/util/AttributeSet;.getAttributeValue:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;` @kind interface;
+  #L194912.  v1:= temp @kind object;
+  #L194914.  if v1 != 0 then goto L1949e8;
+  #L194918.  v1:= "drawableStart" @kind object;
+  #L19491c.  call temp:= `getAttributeValue`(v5, v0, v1) @signature `Landroid/util/AttributeSet;.getAttributeValue:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;` @kind interface;
+  #L194922.  v1:= temp @kind object;
+  #L194924.  if v1 != 0 then goto L1949d8;
+  #L194928.  v1:= "drawableEnd" @kind object;
+  #L19492c.  call temp:= `getAttributeValue`(v5, v0, v1) @signature `Landroid/util/AttributeSet;.getAttributeValue:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;` @kind interface;
+  #L194932.  v1:= temp @kind object;
+  #L194934.  v3:= "Please set end drawable using R.attr#closeIcon." @kind object;
+  #L194938.  if v1 != 0 then goto L1949cc;
+  #L19493c.  v1:= "drawableRight" @kind object;
+  #L194940.  call temp:= `getAttributeValue`(v5, v0, v1) @signature `Landroid/util/AttributeSet;.getAttributeValue:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;` @kind interface;
+  #L194946.  v1:= temp @kind object;
+  #L194948.  if v1 != 0 then goto L1949c0;
+  #L19494c.  v1:= "singleLine" @kind object;
+  #L194950.  v3:= 1I;
+  #L194952.  call temp:= `getAttributeBooleanValue`(v5, v0, v1, v3) @signature `Landroid/util/AttributeSet;.getAttributeBooleanValue:(Ljava/lang/String;Ljava/lang/String;Z)Z` @kind interface;
+  #L194958.  v1:= temp;
+  #L19495a.  if v1 == 0 then goto L1949b0;
+  #L19495e.  v1:= "lines" @kind object;
+  #L194962.  call temp:= `getAttributeIntValue`(v5, v0, v1, v3) @signature `Landroid/util/AttributeSet;.getAttributeIntValue:(Ljava/lang/String;Ljava/lang/String;I)I` @kind interface;
+  #L194968.  v1:= temp;
+  #L19496a.  if v1 != v3 then goto L1949b0;
+  #L19496e.  v1:= "minLines" @kind object;
+  #L194972.  call temp:= `getAttributeIntValue`(v5, v0, v1, v3) @signature `Landroid/util/AttributeSet;.getAttributeIntValue:(Ljava/lang/String;Ljava/lang/String;I)I` @kind interface;
+  #L194978.  v1:= temp;
+  #L19497a.  if v1 != v3 then goto L1949b0;
+  #L19497e.  v1:= "maxLines" @kind object;
+  #L194982.  call temp:= `getAttributeIntValue`(v5, v0, v1, v3) @signature `Landroid/util/AttributeSet;.getAttributeIntValue:(Ljava/lang/String;Ljava/lang/String;I)I` @kind interface;
+  #L194988.  v1:= temp;
+  #L19498a.  if v1 != v3 then goto L1949b0;
+  #L19498e.  v1:= "gravity" @kind object;
+  #L194992.  v3:= 8388627I;
+  #L194998.  call temp:= `getAttributeIntValue`(v5, v0, v1, v3) @signature `Landroid/util/AttributeSet;.getAttributeIntValue:(Ljava/lang/String;Ljava/lang/String;I)I` @kind interface;
+  #L19499e.  v0:= temp;
+  #L1949a0.  if v0 == v3 then goto L1949ae;
+  #L1949a4.  v0:= "Chip text must be vertically center and start aligned" @kind object;
+  #L1949a8.  call temp:= `w`(v2, v0) @signature `Landroid/util/Log;.w:(Ljava/lang/String;Ljava/lang/String;)I` @kind static;
+  #L1949ae.  return @kind void;
+  #L1949b0.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L1949b4.  v1:= "Chip does not support multi-line text" @kind object;
+  #L1949b8.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1949be.  throw v0;
+  #L1949c0.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L1949c4.  call `<init>`(v0, v3) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1949ca.  throw v0;
+  #L1949cc.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L1949d0.  call `<init>`(v0, v3) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1949d6.  throw v0;
+  #L1949d8.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L1949dc.  v1:= "Please set start drawable using R.attr#chipIcon." @kind object;
+  #L1949e0.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1949e6.  throw v0;
+  #L1949e8.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L1949ec.  v1:= "Please set left drawable using R.attr#chipIcon." @kind object;
+  #L1949f0.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1949f6.  throw v0;
+}
+procedure `boolean` `dispatchHoverEvent`(`com.google.android.material.chip.Chip` v1 @kind this, `android.view.MotionEvent` v2 @kind object @name `event`) @signature `Lcom/google/android/material/chip/Chip;.dispatchHoverEvent:(Landroid/view/MotionEvent;)Z` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L192a50.  call temp:= `handleAccessibilityExit`(v1, v2) @signature `Lcom/google/android/material/chip/Chip;.handleAccessibilityExit:(Landroid/view/MotionEvent;)Z` @kind direct;
+  #L192a56.  v0:= temp;
+  #L192a58.  if v0 != 0 then goto L192a7e;
+  #L192a5c.  v0:= v1.`com.google.android.material.chip.Chip.touchHelper` @type ^`com.google.android.material.chip.Chip$ChipTouchHelper` @kind object;
+  #L192a60.  call temp:= `dispatchHoverEvent`(v0, v2) @signature `Lcom/google/android/material/chip/Chip$ChipTouchHelper;.dispatchHoverEvent:(Landroid/view/MotionEvent;)Z` @kind virtual;
+  #L192a66.  v0:= temp;
+  #L192a68.  if v0 != 0 then goto L192a7e;
+  #L192a6c.  call temp:= `dispatchHoverEvent`(v1, v2) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.dispatchHoverEvent:(Landroid/view/MotionEvent;)Z` @kind super;
+  #L192a72.  v0:= temp;
+  #L192a74.  if v0 == 0 then goto L192a7a;
+  #L192a78.  goto L192a7e;
+  #L192a7a.  v0:= 0I;
+  #L192a7c.  goto L192a80;
+  #L192a7e.  v0:= 1I;
+  #L192a80.  return v0;
+}
+procedure `boolean` `dispatchKeyEvent`(`com.google.android.material.chip.Chip` v3 @kind this, `android.view.KeyEvent` v4 @kind object @name `event`) @signature `Lcom/google/android/material/chip/Chip;.dispatchKeyEvent:(Landroid/view/KeyEvent;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L192a94.  v0:= v3.`com.google.android.material.chip.Chip.touchHelper` @type ^`com.google.android.material.chip.Chip$ChipTouchHelper` @kind object;
+  #L192a98.  call temp:= `dispatchKeyEvent`(v0, v4) @signature `Lcom/google/android/material/chip/Chip$ChipTouchHelper;.dispatchKeyEvent:(Landroid/view/KeyEvent;)Z` @kind virtual;
+  #L192a9e.  v0:= temp;
+  #L192aa0.  if v0 == 0 then goto L192abc;
+  #L192aa4.  v1:= v3.`com.google.android.material.chip.Chip.touchHelper` @type ^`com.google.android.material.chip.Chip$ChipTouchHelper` @kind object;
+  #L192aa8.  call temp:= `getKeyboardFocusedVirtualViewId`(v1) @signature `Lcom/google/android/material/chip/Chip$ChipTouchHelper;.getKeyboardFocusedVirtualViewId:()I` @kind virtual;
+  #L192aae.  v1:= temp;
+  #L192ab0.  v2:= -2147483648I;
+  #L192ab4.  if v1 == v2 then goto L192abc;
+  #L192ab8.  v1:= 1I;
+  #L192aba.  return v1;
+  #L192abc.  call temp:= `dispatchKeyEvent`(v3, v4) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.dispatchKeyEvent:(Landroid/view/KeyEvent;)Z` @kind super;
+  #L192ac2.  v1:= temp;
+  #L192ac4.  return v1;
+}
+procedure `void` `drawableStateChanged`(`com.google.android.material.chip.Chip` v3 @kind this) @signature `Lcom/google/android/material/chip/Chip;.drawableStateChanged:()V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L193568.  call `drawableStateChanged`(v3) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.drawableStateChanged:()V` @kind super;
+  #L19356e.  v0:= 0I;
+  #L193570.  v1:= v3.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193574.  if v1 == 0 then goto L193598;
+  #L193578.  call temp:= `isCloseIconStateful`(v1) @signature `Lcom/google/android/material/chip/ChipDrawable;.isCloseIconStateful:()Z` @kind virtual;
+  #L19357e.  v1:= temp;
+  #L193580.  if v1 == 0 then goto L193598;
+  #L193584.  v1:= v3.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193588.  call temp:= `createCloseIconDrawableState`(v3) @signature `Lcom/google/android/material/chip/Chip;.createCloseIconDrawableState:()[I` @kind direct;
+  #L19358e.  v2:= temp @kind object;
+  #L193590.  call temp:= `setCloseIconState`(v1, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCloseIconState:([I)Z` @kind virtual;
+  #L193596.  v0:= temp;
+  #L193598.  if v0 == 0 then goto L1935a2;
+  #L19359c.  call `invalidate`(v3) @signature `Lcom/google/android/material/chip/Chip;.invalidate:()V` @kind virtual;
+  #L1935a2.  return @kind void;
+}
+procedure `boolean` `ensureAccessibleTouchTarget`(`com.google.android.material.chip.Chip` v7 @kind this, `int` v8 @name `minTargetPx`) @signature `Lcom/google/android/material/chip/Chip;.ensureAccessibleTouchTarget:(I)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L192ad8.  v7.`com.google.android.material.chip.Chip.minTouchTargetSize` @type ^`int` := v8;
+  #L192adc.  call temp:= `shouldEnsureMinTouchTargetSize`(v7) @signature `Lcom/google/android/material/chip/Chip;.shouldEnsureMinTouchTargetSize:()Z` @kind virtual;
+  #L192ae2.  v0:= temp;
+  #L192ae4.  v1:= 0I;
+  #L192ae6.  if v0 != 0 then goto L192af2;
+  #L192aea.  call `removeBackgroundInset`(v7) @signature `Lcom/google/android/material/chip/Chip;.removeBackgroundInset:()V` @kind direct;
+  #L192af0.  return v1;
+  #L192af2.  v0:= v7.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L192af6.  call temp:= `getIntrinsicHeight`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getIntrinsicHeight:()I` @kind virtual;
+  #L192afc.  v0:= temp;
+  #L192afe.  v0:= v8 - v0 @kind int;
+  #L192b02.  call temp:= `max`(v1, v0) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L192b08.  v0:= temp;
+  #L192b0a.  v2:= v7.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L192b0e.  call temp:= `getIntrinsicWidth`(v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.getIntrinsicWidth:()I` @kind virtual;
+  #L192b14.  v2:= temp;
+  #L192b16.  v2:= v8 - v2 @kind int;
+  #L192b1a.  call temp:= `max`(v1, v2) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L192b20.  v2:= temp;
+  #L192b22.  if v2 > 0 then goto L192b32;
+  #L192b26.  if v0 > 0 then goto L192b32;
+  #L192b2a.  call `removeBackgroundInset`(v7) @signature `Lcom/google/android/material/chip/Chip;.removeBackgroundInset:()V` @kind direct;
+  #L192b30.  return v1;
+  #L192b32.  if v2 <= 0 then goto L192b3c;
+  #L192b36.  v3:= v2 / 2;
+  #L192b3a.  goto L192b3e;
+  #L192b3c.  v3:= v1;
+  #L192b3e.  if v0 <= 0 then goto L192b46;
+  #L192b42.  v1:= v0 / 2;
+  #L192b46.  v4:= v7.`com.google.android.material.chip.Chip.insetBackgroundDrawable` @type ^`android.graphics.drawable.InsetDrawable` @kind object;
+  #L192b4a.  v5:= 1I;
+  #L192b4c.  if v4 == 0 then goto L192b86;
+  #L192b50.  v4:= new `android.graphics.Rect`;
+  #L192b54.  call `<init>`(v4) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L192b5a.  v6:= v7.`com.google.android.material.chip.Chip.insetBackgroundDrawable` @type ^`android.graphics.drawable.InsetDrawable` @kind object;
+  #L192b5e.  call temp:= `getPadding`(v6, v4) @signature `Landroid/graphics/drawable/InsetDrawable;.getPadding:(Landroid/graphics/Rect;)Z` @kind virtual;
+  #L192b64.  v6:= v4.`android.graphics.Rect.top` @type ^`int`;
+  #L192b68.  if v6 != v1 then goto L192b86;
+  #L192b6c.  v6:= v4.`android.graphics.Rect.bottom` @type ^`int`;
+  #L192b70.  if v6 != v1 then goto L192b86;
+  #L192b74.  v6:= v4.`android.graphics.Rect.left` @type ^`int`;
+  #L192b78.  if v6 != v3 then goto L192b86;
+  #L192b7c.  v6:= v4.`android.graphics.Rect.right` @type ^`int`;
+  #L192b80.  if v6 != v3 then goto L192b86;
+  #L192b84.  return v5;
+  #L192b86.  v4:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L192b8a.  v6:= 16I;
+  #L192b8e.  if v4 < v6 then goto L192bb8;
+  #L192b92.  call temp:= `getMinHeight`(v7) @signature `Lcom/google/android/material/chip/Chip;.getMinHeight:()I` @kind virtual;
+  #L192b98.  v4:= temp;
+  #L192b9a.  if v4 == v8 then goto L192ba4;
+  #L192b9e.  call `setMinHeight`(v7, v8) @signature `Lcom/google/android/material/chip/Chip;.setMinHeight:(I)V` @kind virtual;
+  #L192ba4.  call temp:= `getMinWidth`(v7) @signature `Lcom/google/android/material/chip/Chip;.getMinWidth:()I` @kind virtual;
+  #L192baa.  v4:= temp;
+  #L192bac.  if v4 == v8 then goto L192bc4;
+  #L192bb0.  call `setMinWidth`(v7, v8) @signature `Lcom/google/android/material/chip/Chip;.setMinWidth:(I)V` @kind virtual;
+  #L192bb6.  goto L192bc4;
+  #L192bb8.  call `setMinHeight`(v7, v8) @signature `Lcom/google/android/material/chip/Chip;.setMinHeight:(I)V` @kind virtual;
+  #L192bbe.  call `setMinWidth`(v7, v8) @signature `Lcom/google/android/material/chip/Chip;.setMinWidth:(I)V` @kind virtual;
+  #L192bc4.  call `insetChipBackgroundDrawable`(v7, v3, v1, v3, v1) @signature `Lcom/google/android/material/chip/Chip;.insetChipBackgroundDrawable:(IIII)V` @kind direct;
+  #L192bca.  return v5;
+}
+procedure `android.graphics.drawable.Drawable` `getBackgroundDrawable`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getBackgroundDrawable:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1928e8.  v0:= v1.`com.google.android.material.chip.Chip.insetBackgroundDrawable` @type ^`android.graphics.drawable.InsetDrawable` @kind object;
+  #L1928ec.  if v0 != 0 then goto L1928f6;
+  #L1928f0.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1928f4.  return v0 @kind object;
+  #L1928f6.  return v0 @kind object;
+}
+procedure `android.graphics.drawable.Drawable` `getCheckedIcon`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getCheckedIcon:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192908.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L19290c.  if v0 == 0 then goto L19291a;
+  #L192910.  call temp:= `getCheckedIcon`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getCheckedIcon:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L192916.  v0:= temp @kind object;
+  #L192918.  goto L19291c;
+  #L19291a.  v0:= 0I;
+  #L19291c.  return v0 @kind object;
+}
+procedure `android.content.res.ColorStateList` `getChipBackgroundColor`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getChipBackgroundColor:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192754.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L192758.  if v0 == 0 then goto L192766;
+  #L19275c.  call temp:= `getChipBackgroundColor`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getChipBackgroundColor:()Landroid/content/res/ColorStateList;` @kind virtual;
+  #L192762.  v0:= temp @kind object;
+  #L192764.  goto L192768;
+  #L192766.  v0:= 0I;
+  #L192768.  return v0 @kind object;
+}
+procedure `float` `getChipCornerRadius`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getChipCornerRadius:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192ffc.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193000.  if v0 == 0 then goto L19300e;
+  #L193004.  call temp:= `getChipCornerRadius`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getChipCornerRadius:()F` @kind virtual;
+  #L19300a.  v0:= temp;
+  #L19300c.  goto L193010;
+  #L19300e.  v0:= 0I;
+  #L193010.  return v0;
+}
+procedure `android.graphics.drawable.Drawable` `getChipDrawable`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getChipDrawable:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192930.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L192934.  return v0 @kind object;
+}
+procedure `float` `getChipEndPadding`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getChipEndPadding:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193024.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193028.  if v0 == 0 then goto L193036;
+  #L19302c.  call temp:= `getChipEndPadding`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getChipEndPadding:()F` @kind virtual;
+  #L193032.  v0:= temp;
+  #L193034.  goto L193038;
+  #L193036.  v0:= 0I;
+  #L193038.  return v0;
+}
+procedure `android.graphics.drawable.Drawable` `getChipIcon`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getChipIcon:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192948.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L19294c.  if v0 == 0 then goto L19295a;
+  #L192950.  call temp:= `getChipIcon`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getChipIcon:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L192956.  v0:= temp @kind object;
+  #L192958.  goto L19295c;
+  #L19295a.  v0:= 0I;
+  #L19295c.  return v0 @kind object;
+}
+procedure `float` `getChipIconSize`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getChipIconSize:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19304c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193050.  if v0 == 0 then goto L19305e;
+  #L193054.  call temp:= `getChipIconSize`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getChipIconSize:()F` @kind virtual;
+  #L19305a.  v0:= temp;
+  #L19305c.  goto L193060;
+  #L19305e.  v0:= 0I;
+  #L193060.  return v0;
+}
+procedure `android.content.res.ColorStateList` `getChipIconTint`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getChipIconTint:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19277c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L192780.  if v0 == 0 then goto L19278e;
+  #L192784.  call temp:= `getChipIconTint`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getChipIconTint:()Landroid/content/res/ColorStateList;` @kind virtual;
+  #L19278a.  v0:= temp @kind object;
+  #L19278c.  goto L192790;
+  #L19278e.  v0:= 0I;
+  #L192790.  return v0 @kind object;
+}
+procedure `float` `getChipMinHeight`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getChipMinHeight:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193074.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193078.  if v0 == 0 then goto L193086;
+  #L19307c.  call temp:= `getChipMinHeight`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getChipMinHeight:()F` @kind virtual;
+  #L193082.  v0:= temp;
+  #L193084.  goto L193088;
+  #L193086.  v0:= 0I;
+  #L193088.  return v0;
+}
+procedure `float` `getChipStartPadding`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getChipStartPadding:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19309c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1930a0.  if v0 == 0 then goto L1930ae;
+  #L1930a4.  call temp:= `getChipStartPadding`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getChipStartPadding:()F` @kind virtual;
+  #L1930aa.  v0:= temp;
+  #L1930ac.  goto L1930b0;
+  #L1930ae.  v0:= 0I;
+  #L1930b0.  return v0;
+}
+procedure `android.content.res.ColorStateList` `getChipStrokeColor`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getChipStrokeColor:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1927a4.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1927a8.  if v0 == 0 then goto L1927b6;
+  #L1927ac.  call temp:= `getChipStrokeColor`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getChipStrokeColor:()Landroid/content/res/ColorStateList;` @kind virtual;
+  #L1927b2.  v0:= temp @kind object;
+  #L1927b4.  goto L1927b8;
+  #L1927b6.  v0:= 0I;
+  #L1927b8.  return v0 @kind object;
+}
+procedure `float` `getChipStrokeWidth`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getChipStrokeWidth:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1930c4.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1930c8.  if v0 == 0 then goto L1930d6;
+  #L1930cc.  call temp:= `getChipStrokeWidth`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getChipStrokeWidth:()F` @kind virtual;
+  #L1930d2.  v0:= temp;
+  #L1930d4.  goto L1930d8;
+  #L1930d6.  v0:= 0I;
+  #L1930d8.  return v0;
+}
+procedure `java.lang.CharSequence` `getChipText`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getChipText:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193324.  call temp:= `getText`(v1) @signature `Lcom/google/android/material/chip/Chip;.getText:()Ljava/lang/CharSequence;` @kind virtual;
+  #L19332a.  v0:= temp @kind object;
+  #L19332c.  return v0 @kind object;
+}
+procedure `android.graphics.drawable.Drawable` `getCloseIcon`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getCloseIcon:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192970.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L192974.  if v0 == 0 then goto L192982;
+  #L192978.  call temp:= `getCloseIcon`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getCloseIcon:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L19297e.  v0:= temp @kind object;
+  #L192980.  goto L192984;
+  #L192982.  v0:= 0I;
+  #L192984.  return v0 @kind object;
+}
+procedure `java.lang.CharSequence` `getCloseIconContentDescription`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getCloseIconContentDescription:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193340.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193344.  if v0 == 0 then goto L193352;
+  #L193348.  call temp:= `getCloseIconContentDescription`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getCloseIconContentDescription:()Ljava/lang/CharSequence;` @kind virtual;
+  #L19334e.  v0:= temp @kind object;
+  #L193350.  goto L193354;
+  #L193352.  v0:= 0I;
+  #L193354.  return v0 @kind object;
+}
+procedure `float` `getCloseIconEndPadding`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getCloseIconEndPadding:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1930ec.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1930f0.  if v0 == 0 then goto L1930fe;
+  #L1930f4.  call temp:= `getCloseIconEndPadding`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getCloseIconEndPadding:()F` @kind virtual;
+  #L1930fa.  v0:= temp;
+  #L1930fc.  goto L193100;
+  #L1930fe.  v0:= 0I;
+  #L193100.  return v0;
+}
+procedure `float` `getCloseIconSize`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getCloseIconSize:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193114.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193118.  if v0 == 0 then goto L193126;
+  #L19311c.  call temp:= `getCloseIconSize`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getCloseIconSize:()F` @kind virtual;
+  #L193122.  v0:= temp;
+  #L193124.  goto L193128;
+  #L193126.  v0:= 0I;
+  #L193128.  return v0;
+}
+procedure `float` `getCloseIconStartPadding`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getCloseIconStartPadding:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19313c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193140.  if v0 == 0 then goto L19314e;
+  #L193144.  call temp:= `getCloseIconStartPadding`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getCloseIconStartPadding:()F` @kind virtual;
+  #L19314a.  v0:= temp;
+  #L19314c.  goto L193150;
+  #L19314e.  v0:= 0I;
+  #L193150.  return v0;
+}
+procedure `android.content.res.ColorStateList` `getCloseIconTint`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getCloseIconTint:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1927cc.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1927d0.  if v0 == 0 then goto L1927de;
+  #L1927d4.  call temp:= `getCloseIconTint`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getCloseIconTint:()Landroid/content/res/ColorStateList;` @kind virtual;
+  #L1927da.  v0:= temp @kind object;
+  #L1927dc.  goto L1927e0;
+  #L1927de.  v0:= 0I;
+  #L1927e0.  return v0 @kind object;
+}
+procedure `android.text.TextUtils$TruncateAt` `getEllipsize`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getEllipsize:()Landroid/text/TextUtils$TruncateAt;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192998.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L19299c.  if v0 == 0 then goto L1929aa;
+  #L1929a0.  call temp:= `getEllipsize`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getEllipsize:()Landroid/text/TextUtils$TruncateAt;` @kind virtual;
+  #L1929a6.  v0:= temp @kind object;
+  #L1929a8.  goto L1929ac;
+  #L1929aa.  v0:= 0I;
+  #L1929ac.  return v0 @kind object;
+}
+procedure `void` `getFocusedRect`(`com.google.android.material.chip.Chip` v2 @kind this, `android.graphics.Rect` v3 @kind object @name `r`) @signature `Lcom/google/android/material/chip/Chip;.getFocusedRect:(Landroid/graphics/Rect;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1935f4.  v0:= v2.`com.google.android.material.chip.Chip.touchHelper` @type ^`com.google.android.material.chip.Chip$ChipTouchHelper` @kind object;
+  #L1935f8.  call temp:= `getKeyboardFocusedVirtualViewId`(v0) @signature `Lcom/google/android/material/chip/Chip$ChipTouchHelper;.getKeyboardFocusedVirtualViewId:()I` @kind virtual;
+  #L1935fe.  v0:= temp;
+  #L193600.  v1:= 1I;
+  #L193602.  if v0 == v1 then goto L193620;
+  #L193606.  v0:= v2.`com.google.android.material.chip.Chip.touchHelper` @type ^`com.google.android.material.chip.Chip$ChipTouchHelper` @kind object;
+  #L19360a.  call temp:= `getAccessibilityFocusedVirtualViewId`(v0) @signature `Lcom/google/android/material/chip/Chip$ChipTouchHelper;.getAccessibilityFocusedVirtualViewId:()I` @kind virtual;
+  #L193610.  v0:= temp;
+  #L193612.  if v0 != v1 then goto L193618;
+  #L193616.  goto L193620;
+  #L193618.  call `getFocusedRect`(v2, v3) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.getFocusedRect:(Landroid/graphics/Rect;)V` @kind super;
+  #L19361e.  goto L19362e;
+  #L193620.  call temp:= `getCloseIconTouchBoundsInt`(v2) @signature `Lcom/google/android/material/chip/Chip;.getCloseIconTouchBoundsInt:()Landroid/graphics/Rect;` @kind direct;
+  #L193626.  v0:= temp @kind object;
+  #L193628.  call `set`(v3, v0) @signature `Landroid/graphics/Rect;.set:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L19362e.  return @kind void;
+}
+procedure `com.google.android.material.animation.MotionSpec` `getHideMotionSpec`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getHideMotionSpec:()Lcom/google/android/material/animation/MotionSpec;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192f4c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L192f50.  if v0 == 0 then goto L192f5e;
+  #L192f54.  call temp:= `getHideMotionSpec`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getHideMotionSpec:()Lcom/google/android/material/animation/MotionSpec;` @kind virtual;
+  #L192f5a.  v0:= temp @kind object;
+  #L192f5c.  goto L192f60;
+  #L192f5e.  v0:= 0I;
+  #L192f60.  return v0 @kind object;
+}
+procedure `float` `getIconEndPadding`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getIconEndPadding:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193164.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193168.  if v0 == 0 then goto L193176;
+  #L19316c.  call temp:= `getIconEndPadding`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getIconEndPadding:()F` @kind virtual;
+  #L193172.  v0:= temp;
+  #L193174.  goto L193178;
+  #L193176.  v0:= 0I;
+  #L193178.  return v0;
+}
+procedure `float` `getIconStartPadding`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getIconStartPadding:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19318c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193190.  if v0 == 0 then goto L19319e;
+  #L193194.  call temp:= `getIconStartPadding`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getIconStartPadding:()F` @kind virtual;
+  #L19319a.  v0:= temp;
+  #L19319c.  goto L1931a0;
+  #L19319e.  v0:= 0I;
+  #L1931a0.  return v0;
+}
+procedure `android.content.res.ColorStateList` `getRippleColor`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getRippleColor:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1927f4.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1927f8.  if v0 == 0 then goto L192806;
+  #L1927fc.  call temp:= `getRippleColor`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getRippleColor:()Landroid/content/res/ColorStateList;` @kind virtual;
+  #L192802.  v0:= temp @kind object;
+  #L192804.  goto L192808;
+  #L192806.  v0:= 0I;
+  #L192808.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.ShapeAppearanceModel` `getShapeAppearanceModel`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getShapeAppearanceModel:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192fdc.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L192fe0.  call temp:= `getShapeAppearanceModel`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getShapeAppearanceModel:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L192fe6.  v0:= temp @kind object;
+  #L192fe8.  return v0 @kind object;
+}
+procedure `com.google.android.material.animation.MotionSpec` `getShowMotionSpec`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getShowMotionSpec:()Lcom/google/android/material/animation/MotionSpec;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192f74.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L192f78.  if v0 == 0 then goto L192f86;
+  #L192f7c.  call temp:= `getShowMotionSpec`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getShowMotionSpec:()Lcom/google/android/material/animation/MotionSpec;` @kind virtual;
+  #L192f82.  v0:= temp @kind object;
+  #L192f84.  goto L192f88;
+  #L192f86.  v0:= 0I;
+  #L192f88.  return v0 @kind object;
+}
+procedure `float` `getTextEndPadding`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getTextEndPadding:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1931b4.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1931b8.  if v0 == 0 then goto L1931c6;
+  #L1931bc.  call temp:= `getTextEndPadding`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getTextEndPadding:()F` @kind virtual;
+  #L1931c2.  v0:= temp;
+  #L1931c4.  goto L1931c8;
+  #L1931c6.  v0:= 0I;
+  #L1931c8.  return v0;
+}
+procedure `float` `getTextStartPadding`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.getTextStartPadding:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1931dc.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1931e0.  if v0 == 0 then goto L1931ee;
+  #L1931e4.  call temp:= `getTextStartPadding`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getTextStartPadding:()F` @kind virtual;
+  #L1931ea.  v0:= temp;
+  #L1931ec.  goto L1931f0;
+  #L1931ee.  v0:= 0I;
+  #L1931f0.  return v0;
+}
+procedure `boolean` `isCheckable`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.isCheckable:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192cec.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L192cf0.  if v0 == 0 then goto L192d04;
+  #L192cf4.  call temp:= `isCheckable`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.isCheckable:()Z` @kind virtual;
+  #L192cfa.  v0:= temp;
+  #L192cfc.  if v0 == 0 then goto L192d04;
+  #L192d00.  v0:= 1I;
+  #L192d02.  goto L192d06;
+  #L192d04.  v0:= 0I;
+  #L192d06.  return v0;
+}
+procedure `boolean` `isCheckedIconEnabled`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.isCheckedIconEnabled:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192d18.  call temp:= `isCheckedIconVisible`(v1) @signature `Lcom/google/android/material/chip/Chip;.isCheckedIconVisible:()Z` @kind virtual;
+  #L192d1e.  v0:= temp;
+  #L192d20.  return v0;
+}
+procedure `boolean` `isCheckedIconVisible`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.isCheckedIconVisible:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192d34.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L192d38.  if v0 == 0 then goto L192d4c;
+  #L192d3c.  call temp:= `isCheckedIconVisible`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.isCheckedIconVisible:()Z` @kind virtual;
+  #L192d42.  v0:= temp;
+  #L192d44.  if v0 == 0 then goto L192d4c;
+  #L192d48.  v0:= 1I;
+  #L192d4a.  goto L192d4e;
+  #L192d4c.  v0:= 0I;
+  #L192d4e.  return v0;
+}
+procedure `boolean` `isChipIconEnabled`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.isChipIconEnabled:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192d60.  call temp:= `isChipIconVisible`(v1) @signature `Lcom/google/android/material/chip/Chip;.isChipIconVisible:()Z` @kind virtual;
+  #L192d66.  v0:= temp;
+  #L192d68.  return v0;
+}
+procedure `boolean` `isChipIconVisible`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.isChipIconVisible:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192d7c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L192d80.  if v0 == 0 then goto L192d94;
+  #L192d84.  call temp:= `isChipIconVisible`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.isChipIconVisible:()Z` @kind virtual;
+  #L192d8a.  v0:= temp;
+  #L192d8c.  if v0 == 0 then goto L192d94;
+  #L192d90.  v0:= 1I;
+  #L192d92.  goto L192d96;
+  #L192d94.  v0:= 0I;
+  #L192d96.  return v0;
+}
+procedure `boolean` `isCloseIconEnabled`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.isCloseIconEnabled:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192da8.  call temp:= `isCloseIconVisible`(v1) @signature `Lcom/google/android/material/chip/Chip;.isCloseIconVisible:()Z` @kind virtual;
+  #L192dae.  v0:= temp;
+  #L192db0.  return v0;
+}
+procedure `boolean` `isCloseIconVisible`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.isCloseIconVisible:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192dc4.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L192dc8.  if v0 == 0 then goto L192ddc;
+  #L192dcc.  call temp:= `isCloseIconVisible`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.isCloseIconVisible:()Z` @kind virtual;
+  #L192dd2.  v0:= temp;
+  #L192dd4.  if v0 == 0 then goto L192ddc;
+  #L192dd8.  v0:= 1I;
+  #L192dda.  goto L192dde;
+  #L192ddc.  v0:= 0I;
+  #L192dde.  return v0;
+}
+procedure `void` `onAttachedToWindow`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.onAttachedToWindow:()V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L193724.  call `onAttachedToWindow`(v1) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.onAttachedToWindow:()V` @kind super;
+  #L19372a.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L19372e.  call `setParentAbsoluteElevation`(v1, v0) @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.setParentAbsoluteElevation:(Landroid/view/View;Lcom/google/android/material/shape/MaterialShapeDrawable;)V` @kind static;
+  #L193734.  return @kind void;
+}
+procedure `void` `onChipDrawableSizeChange`(`com.google.android.material.chip.Chip` v2 @kind this) @signature `Lcom/google/android/material/chip/Chip;.onChipDrawableSizeChange:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L193748.  v0:= v2.`com.google.android.material.chip.Chip.minTouchTargetSize` @type ^`int`;
+  #L19374c.  call temp:= `ensureAccessibleTouchTarget`(v2, v0) @signature `Lcom/google/android/material/chip/Chip;.ensureAccessibleTouchTarget:(I)Z` @kind virtual;
+  #L193752.  call `updateBackgroundDrawable`(v2) @signature `Lcom/google/android/material/chip/Chip;.updateBackgroundDrawable:()V` @kind direct;
+  #L193758.  call `updatePaddingInternal`(v2) @signature `Lcom/google/android/material/chip/Chip;.updatePaddingInternal:()V` @kind direct;
+  #L19375e.  call `requestLayout`(v2) @signature `Lcom/google/android/material/chip/Chip;.requestLayout:()V` @kind virtual;
+  #L193764.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L193768.  v1:= 21I;
+  #L19376c.  if v0 < v1 then goto L193776;
+  #L193770.  call `invalidateOutline`(v2) @signature `Lcom/google/android/material/chip/Chip;.invalidateOutline:()V` @kind virtual;
+  #L193776.  return @kind void;
+}
+procedure `int`[] `onCreateDrawableState`(`com.google.android.material.chip.Chip` v2 @kind this, `int` v3 @name `extraSpace`) @signature `Lcom/google/android/material/chip/Chip;.onCreateDrawableState:(I)[I` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L1932d8.  v0:= v3 + 2;
+  #L1932dc.  call temp:= `onCreateDrawableState`(v2, v0) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.onCreateDrawableState:(I)[I` @kind super;
+  #L1932e2.  v0:= temp @kind object;
+  #L1932e4.  call temp:= `isChecked`(v2) @signature `Lcom/google/android/material/chip/Chip;.isChecked:()Z` @kind virtual;
+  #L1932ea.  v1:= temp;
+  #L1932ec.  if v1 == 0 then goto L1932fa;
+  #L1932f0.  v1:= `@@com.google.android.material.chip.Chip.SELECTED_STATE` @type ^`int`[] @kind object;
+  #L1932f4.  call temp:= `mergeDrawableStates`(v0, v1) @signature `Lcom/google/android/material/chip/Chip;.mergeDrawableStates:([I[I)[I` @kind static;
+  #L1932fa.  call temp:= `isCheckable`(v2) @signature `Lcom/google/android/material/chip/Chip;.isCheckable:()Z` @kind virtual;
+  #L193300.  v1:= temp;
+  #L193302.  if v1 == 0 then goto L193310;
+  #L193306.  v1:= `@@com.google.android.material.chip.Chip.CHECKABLE_STATE_SET` @type ^`int`[] @kind object;
+  #L19330a.  call temp:= `mergeDrawableStates`(v0, v1) @signature `Lcom/google/android/material/chip/Chip;.mergeDrawableStates:([I[I)[I` @kind static;
+  #L193310.  return v0 @kind object;
+}
+procedure `void` `onFocusChanged`(`com.google.android.material.chip.Chip` v1 @kind this, `boolean` v2 @name `focused`, `int` v3 @name `direction`, `android.graphics.Rect` v4 @kind object @name `previouslyFocusedRect`) @signature `Lcom/google/android/material/chip/Chip;.onFocusChanged:(ZILandroid/graphics/Rect;)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L193788.  call `onFocusChanged`(v1, v2, v3, v4) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.onFocusChanged:(ZILandroid/graphics/Rect;)V` @kind super;
+  #L19378e.  v0:= v1.`com.google.android.material.chip.Chip.touchHelper` @type ^`com.google.android.material.chip.Chip$ChipTouchHelper` @kind object;
+  #L193792.  call `onFocusChanged`(v0, v2, v3, v4) @signature `Lcom/google/android/material/chip/Chip$ChipTouchHelper;.onFocusChanged:(ZILandroid/graphics/Rect;)V` @kind virtual;
+  #L193798.  return @kind void;
+}
+procedure `boolean` `onHoverEvent`(`com.google.android.material.chip.Chip` v4 @kind this, `android.view.MotionEvent` v5 @kind object @name `event`) @signature `Lcom/google/android/material/chip/Chip;.onHoverEvent:(Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L192df0.  call temp:= `getActionMasked`(v5) @signature `Landroid/view/MotionEvent;.getActionMasked:()I` @kind virtual;
+  #L192df6.  v0:= temp;
+  #L192df8.  v1:= 7I;
+  #L192dfa.  if v0 == v1 then goto L192e12;
+  #L192dfe.  v1:= 10I;
+  #L192e02.  if v0 == v1 then goto L192e08;
+  #L192e06.  goto L192e3a;
+  #L192e08.  v1:= 0I;
+  #L192e0a.  call `setCloseIconHovered`(v4, v1) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconHovered:(Z)V` @kind direct;
+  #L192e10.  goto L192e3a;
+  #L192e12.  call temp:= `getCloseIconTouchBounds`(v4) @signature `Lcom/google/android/material/chip/Chip;.getCloseIconTouchBounds:()Landroid/graphics/RectF;` @kind direct;
+  #L192e18.  v1:= temp @kind object;
+  #L192e1a.  call temp:= `getX`(v5) @signature `Landroid/view/MotionEvent;.getX:()F` @kind virtual;
+  #L192e20.  v2:= temp;
+  #L192e22.  call temp:= `getY`(v5) @signature `Landroid/view/MotionEvent;.getY:()F` @kind virtual;
+  #L192e28.  v3:= temp;
+  #L192e2a.  call temp:= `contains`(v1, v2, v3) @signature `Landroid/graphics/RectF;.contains:(FF)Z` @kind virtual;
+  #L192e30.  v1:= temp;
+  #L192e32.  call `setCloseIconHovered`(v4, v1) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconHovered:(Z)V` @kind direct;
+  #L192e38.  
+  #L192e3a.  call temp:= `onHoverEvent`(v4, v5) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.onHoverEvent:(Landroid/view/MotionEvent;)Z` @kind super;
+  #L192e40.  v1:= temp;
+  #L192e42.  return v1;
+}
+procedure `void` `onInitializeAccessibilityNodeInfo`(`com.google.android.material.chip.Chip` v1 @kind this, `android.view.accessibility.AccessibilityNodeInfo` v2 @kind object @name `info`) @signature `Lcom/google/android/material/chip/Chip;.onInitializeAccessibilityNodeInfo:(Landroid/view/accessibility/AccessibilityNodeInfo;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1937ac.  call `onInitializeAccessibilityNodeInfo`(v1, v2) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.onInitializeAccessibilityNodeInfo:(Landroid/view/accessibility/AccessibilityNodeInfo;)V` @kind super;
+  #L1937b2.  call temp:= `isCheckable`(v1) @signature `Lcom/google/android/material/chip/Chip;.isCheckable:()Z` @kind virtual;
+  #L1937b8.  v0:= temp;
+  #L1937ba.  if v0 != 0 then goto L1937d8;
+  #L1937be.  call temp:= `isClickable`(v1) @signature `Lcom/google/android/material/chip/Chip;.isClickable:()Z` @kind virtual;
+  #L1937c4.  v0:= temp;
+  #L1937c6.  if v0 == 0 then goto L1937cc;
+  #L1937ca.  goto L1937d8;
+  #L1937cc.  v0:= "android.view.View" @kind object;
+  #L1937d0.  call `setClassName`(v2, v0) @signature `Landroid/view/accessibility/AccessibilityNodeInfo;.setClassName:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1937d6.  goto L1937f6;
+  #L1937d8.  
+  #L1937da.  call temp:= `isCheckable`(v1) @signature `Lcom/google/android/material/chip/Chip;.isCheckable:()Z` @kind virtual;
+  #L1937e0.  v0:= temp;
+  #L1937e2.  if v0 == 0 then goto L1937ec;
+  #L1937e6.  v0:= "android.widget.CompoundButton" @kind object;
+  #L1937ea.  goto L1937f0;
+  #L1937ec.  v0:= "android.widget.Button" @kind object;
+  #L1937f0.  call `setClassName`(v2, v0) @signature `Landroid/view/accessibility/AccessibilityNodeInfo;.setClassName:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1937f6.  call temp:= `isCheckable`(v1) @signature `Lcom/google/android/material/chip/Chip;.isCheckable:()Z` @kind virtual;
+  #L1937fc.  v0:= temp;
+  #L1937fe.  call `setCheckable`(v2, v0) @signature `Landroid/view/accessibility/AccessibilityNodeInfo;.setCheckable:(Z)V` @kind virtual;
+  #L193804.  call temp:= `isClickable`(v1) @signature `Lcom/google/android/material/chip/Chip;.isClickable:()Z` @kind virtual;
+  #L19380a.  v0:= temp;
+  #L19380c.  call `setClickable`(v2, v0) @signature `Landroid/view/accessibility/AccessibilityNodeInfo;.setClickable:(Z)V` @kind virtual;
+  #L193812.  return @kind void;
+}
+procedure `android.view.PointerIcon` `onResolvePointerIcon`(`com.google.android.material.chip.Chip` v3 @kind this, `android.view.MotionEvent` v4 @kind object @name `event`, `int` v5 @name `pointerIndex`) @signature `Lcom/google/android/material/chip/Chip;.onResolvePointerIcon:(Landroid/view/MotionEvent;I)Landroid/view/PointerIcon;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1929c0.  call temp:= `getCloseIconTouchBounds`(v3) @signature `Lcom/google/android/material/chip/Chip;.getCloseIconTouchBounds:()Landroid/graphics/RectF;` @kind direct;
+  #L1929c6.  v0:= temp @kind object;
+  #L1929c8.  call temp:= `getX`(v4) @signature `Landroid/view/MotionEvent;.getX:()F` @kind virtual;
+  #L1929ce.  v1:= temp;
+  #L1929d0.  call temp:= `getY`(v4) @signature `Landroid/view/MotionEvent;.getY:()F` @kind virtual;
+  #L1929d6.  v2:= temp;
+  #L1929d8.  call temp:= `contains`(v0, v1, v2) @signature `Landroid/graphics/RectF;.contains:(FF)Z` @kind virtual;
+  #L1929de.  v0:= temp;
+  #L1929e0.  if v0 == 0 then goto L192a06;
+  #L1929e4.  call temp:= `isEnabled`(v3) @signature `Lcom/google/android/material/chip/Chip;.isEnabled:()Z` @kind virtual;
+  #L1929ea.  v0:= temp;
+  #L1929ec.  if v0 == 0 then goto L192a06;
+  #L1929f0.  call temp:= `getContext`(v3) @signature `Lcom/google/android/material/chip/Chip;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1929f6.  v0:= temp @kind object;
+  #L1929f8.  v1:= 1002I;
+  #L1929fc.  call temp:= `getSystemIcon`(v0, v1) @signature `Landroid/view/PointerIcon;.getSystemIcon:(Landroid/content/Context;I)Landroid/view/PointerIcon;` @kind static;
+  #L192a02.  v0:= temp @kind object;
+  #L192a04.  return v0 @kind object;
+  #L192a06.  v0:= 0I;
+  #L192a08.  return v0 @kind object;
+}
+procedure `void` `onRtlPropertiesChanged`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `layoutDirection`) @signature `Lcom/google/android/material/chip/Chip;.onRtlPropertiesChanged:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193824.  call `onRtlPropertiesChanged`(v1, v2) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.onRtlPropertiesChanged:(I)V` @kind super;
+  #L19382a.  v0:= v1.`com.google.android.material.chip.Chip.lastLayoutDirection` @type ^`int`;
+  #L19382e.  if v0 == v2 then goto L19383c;
+  #L193832.  v1.`com.google.android.material.chip.Chip.lastLayoutDirection` @type ^`int` := v2;
+  #L193836.  call `updatePaddingInternal`(v1) @signature `Lcom/google/android/material/chip/Chip;.updatePaddingInternal:()V` @kind direct;
+  #L19383c.  return @kind void;
+}
+procedure `boolean` `onTouchEvent`(`com.google.android.material.chip.Chip` v6 @kind this, `android.view.MotionEvent` v7 @kind object @name `event`) @signature `Lcom/google/android/material/chip/Chip;.onTouchEvent:(Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L192e54.  v0:= 0I;
+  #L192e56.  call temp:= `getActionMasked`(v7) @signature `Landroid/view/MotionEvent;.getActionMasked:()I` @kind virtual;
+  #L192e5c.  v1:= temp;
+  #L192e5e.  call temp:= `getCloseIconTouchBounds`(v6) @signature `Lcom/google/android/material/chip/Chip;.getCloseIconTouchBounds:()Landroid/graphics/RectF;` @kind direct;
+  #L192e64.  v2:= temp @kind object;
+  #L192e66.  call temp:= `getX`(v7) @signature `Landroid/view/MotionEvent;.getX:()F` @kind virtual;
+  #L192e6c.  v3:= temp;
+  #L192e6e.  call temp:= `getY`(v7) @signature `Landroid/view/MotionEvent;.getY:()F` @kind virtual;
+  #L192e74.  v4:= temp;
+  #L192e76.  call temp:= `contains`(v2, v3, v4) @signature `Landroid/graphics/RectF;.contains:(FF)Z` @kind virtual;
+  #L192e7c.  v2:= temp;
+  #L192e7e.  v3:= 0I;
+  #L192e80.  v4:= 1I;
+  #L192e82.  if v1 == 0 then goto L192ec6;
+  #L192e86.  if v1 == v4 then goto L192eae;
+  #L192e8a.  v5:= 2I;
+  #L192e8c.  if v1 == v5 then goto L192e98;
+  #L192e90.  v5:= 3I;
+  #L192e92.  if v1 == v5 then goto L192ebe;
+  #L192e96.  goto L192ed2;
+  #L192e98.  v5:= v6.`com.google.android.material.chip.Chip.closeIconPressed` @type ^`boolean` @kind boolean;
+  #L192e9c.  if v5 == 0 then goto L192ed2;
+  #L192ea0.  if v2 != 0 then goto L192eaa;
+  #L192ea4.  call `setCloseIconPressed`(v6, v3) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconPressed:(Z)V` @kind direct;
+  #L192eaa.  v0:= 1I;
+  #L192eac.  goto L192ed2;
+  #L192eae.  v5:= v6.`com.google.android.material.chip.Chip.closeIconPressed` @type ^`boolean` @kind boolean;
+  #L192eb2.  if v5 == 0 then goto L192ebe;
+  #L192eb6.  call temp:= `performCloseIconClick`(v6) @signature `Lcom/google/android/material/chip/Chip;.performCloseIconClick:()Z` @kind virtual;
+  #L192ebc.  v0:= 1I;
+  #L192ebe.  call `setCloseIconPressed`(v6, v3) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconPressed:(Z)V` @kind direct;
+  #L192ec4.  goto L192ed2;
+  #L192ec6.  if v2 == 0 then goto L192ed2;
+  #L192eca.  call `setCloseIconPressed`(v6, v4) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconPressed:(Z)V` @kind direct;
+  #L192ed0.  v0:= 1I;
+  #L192ed2.  if v0 != 0 then goto L192ee2;
+  #L192ed6.  call temp:= `onTouchEvent`(v6, v7) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.onTouchEvent:(Landroid/view/MotionEvent;)Z` @kind super;
+  #L192edc.  v5:= temp;
+  #L192ede.  if v5 == 0 then goto L192ee4;
+  #L192ee2.  v3:= v4;
+  #L192ee4.  return v3;
+}
+procedure `boolean` `performCloseIconClick`(`com.google.android.material.chip.Chip` v3 @kind this) @signature `Lcom/google/android/material/chip/Chip;.performCloseIconClick:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L192ef8.  v0:= 0I;
+  #L192efa.  call `playSoundEffect`(v3, v0) @signature `Lcom/google/android/material/chip/Chip;.playSoundEffect:(I)V` @kind virtual;
+  #L192f00.  v0:= v3.`com.google.android.material.chip.Chip.onCloseIconClickListener` @type ^`android.view.View$OnClickListener` @kind object;
+  #L192f04.  if v0 == 0 then goto L192f12;
+  #L192f08.  call `onClick`(v0, v3) @signature `Landroid/view/View$OnClickListener;.onClick:(Landroid/view/View;)V` @kind interface;
+  #L192f0e.  v0:= 1I;
+  #L192f10.  goto L192f14;
+  #L192f12.  v0:= 0I;
+  #L192f14.  v1:= v3.`com.google.android.material.chip.Chip.touchHelper` @type ^`com.google.android.material.chip.Chip$ChipTouchHelper` @kind object;
+  #L192f18.  v2:= 1I;
+  #L192f1a.  call temp:= `sendEventForVirtualView`(v1, v2, v2) @signature `Lcom/google/android/material/chip/Chip$ChipTouchHelper;.sendEventForVirtualView:(II)Z` @kind virtual;
+  #L192f20.  return v0;
+}
+procedure `void` `setBackground`(`com.google.android.material.chip.Chip` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `background`) @signature `Lcom/google/android/material/chip/Chip;.setBackground:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L193890.  call temp:= `getBackgroundDrawable`(v2) @signature `Lcom/google/android/material/chip/Chip;.getBackgroundDrawable:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L193896.  v0:= temp @kind object;
+  #L193898.  if v3 == v0 then goto L1938b4;
+  #L19389c.  v0:= v2.`com.google.android.material.chip.Chip.ripple` @type ^`android.graphics.drawable.RippleDrawable` @kind object;
+  #L1938a0.  if v3 == v0 then goto L1938b4;
+  #L1938a4.  v0:= "Chip" @kind object;
+  #L1938a8.  v1:= "Do not set the background; Chip manages its own background drawable." @kind object;
+  #L1938ac.  call temp:= `w`(v0, v1) @signature `Landroid/util/Log;.w:(Ljava/lang/String;Ljava/lang/String;)I` @kind static;
+  #L1938b2.  goto L1938ba;
+  #L1938b4.  call `setBackground`(v2, v3) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setBackground:(Landroid/graphics/drawable/Drawable;)V` @kind super;
+  #L1938ba.  return @kind void;
+}
+procedure `void` `setBackgroundColor`(`com.google.android.material.chip.Chip` v2 @kind this, `int` v3 @name `color`) @signature `Lcom/google/android/material/chip/Chip;.setBackgroundColor:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1938cc.  v0:= "Chip" @kind object;
+  #L1938d0.  v1:= "Do not set the background color; Chip manages its own background drawable." @kind object;
+  #L1938d4.  call temp:= `w`(v0, v1) @signature `Landroid/util/Log;.w:(Ljava/lang/String;Ljava/lang/String;)I` @kind static;
+  #L1938da.  return @kind void;
+}
+procedure `void` `setBackgroundDrawable`(`com.google.android.material.chip.Chip` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `background`) @signature `Lcom/google/android/material/chip/Chip;.setBackgroundDrawable:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1938ec.  call temp:= `getBackgroundDrawable`(v2) @signature `Lcom/google/android/material/chip/Chip;.getBackgroundDrawable:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1938f2.  v0:= temp @kind object;
+  #L1938f4.  if v3 == v0 then goto L193910;
+  #L1938f8.  v0:= v2.`com.google.android.material.chip.Chip.ripple` @type ^`android.graphics.drawable.RippleDrawable` @kind object;
+  #L1938fc.  if v3 == v0 then goto L193910;
+  #L193900.  v0:= "Chip" @kind object;
+  #L193904.  v1:= "Do not set the background drawable; Chip manages its own background drawable." @kind object;
+  #L193908.  call temp:= `w`(v0, v1) @signature `Landroid/util/Log;.w:(Ljava/lang/String;Ljava/lang/String;)I` @kind static;
+  #L19390e.  goto L193916;
+  #L193910.  call `setBackgroundDrawable`(v2, v3) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setBackgroundDrawable:(Landroid/graphics/drawable/Drawable;)V` @kind super;
+  #L193916.  return @kind void;
+}
+procedure `void` `setBackgroundResource`(`com.google.android.material.chip.Chip` v2 @kind this, `int` v3 @name `resid`) @signature `Lcom/google/android/material/chip/Chip;.setBackgroundResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L193928.  v0:= "Chip" @kind object;
+  #L19392c.  v1:= "Do not set the background resource; Chip manages its own background drawable." @kind object;
+  #L193930.  call temp:= `w`(v0, v1) @signature `Landroid/util/Log;.w:(Ljava/lang/String;Ljava/lang/String;)I` @kind static;
+  #L193936.  return @kind void;
+}
+procedure `void` `setBackgroundTintList`(`com.google.android.material.chip.Chip` v2 @kind this, `android.content.res.ColorStateList` v3 @kind object @name `tint`) @signature `Lcom/google/android/material/chip/Chip;.setBackgroundTintList:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L193948.  v0:= "Chip" @kind object;
+  #L19394c.  v1:= "Do not set the background tint list; Chip manages its own background drawable." @kind object;
+  #L193950.  call temp:= `w`(v0, v1) @signature `Landroid/util/Log;.w:(Ljava/lang/String;Ljava/lang/String;)I` @kind static;
+  #L193956.  return @kind void;
+}
+procedure `void` `setBackgroundTintMode`(`com.google.android.material.chip.Chip` v2 @kind this, `android.graphics.PorterDuff$Mode` v3 @kind object @name `tintMode`) @signature `Lcom/google/android/material/chip/Chip;.setBackgroundTintMode:(Landroid/graphics/PorterDuff$Mode;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L193968.  v0:= "Chip" @kind object;
+  #L19396c.  v1:= "Do not set the background tint mode; Chip manages its own background drawable." @kind object;
+  #L193970.  call temp:= `w`(v0, v1) @signature `Landroid/util/Log;.w:(Ljava/lang/String;Ljava/lang/String;)I` @kind static;
+  #L193976.  return @kind void;
+}
+procedure `void` `setCheckable`(`com.google.android.material.chip.Chip` v1 @kind this, `boolean` v2 @name `checkable`) @signature `Lcom/google/android/material/chip/Chip;.setCheckable:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193988.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L19398c.  if v0 == 0 then goto L193996;
+  #L193990.  call `setCheckable`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCheckable:(Z)V` @kind virtual;
+  #L193996.  return @kind void;
+}
+procedure `void` `setCheckableResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setCheckableResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1939a8.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1939ac.  if v0 == 0 then goto L1939b6;
+  #L1939b0.  call `setCheckableResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCheckableResource:(I)V` @kind virtual;
+  #L1939b6.  return @kind void;
+}
+procedure `void` `setChecked`(`com.google.android.material.chip.Chip` v2 @kind this, `boolean` v3 @name `checked`) @signature `Lcom/google/android/material/chip/Chip;.setChecked:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1939c8.  v0:= v2.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1939cc.  if v0 != 0 then goto L1939d6;
+  #L1939d0.  v2.`com.google.android.material.chip.Chip.deferredCheckedValue` @type ^`boolean` := v3 @kind boolean;
+  #L1939d4.  goto L193a02;
+  #L1939d6.  call temp:= `isCheckable`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.isCheckable:()Z` @kind virtual;
+  #L1939dc.  v0:= temp;
+  #L1939de.  if v0 == 0 then goto L193a02;
+  #L1939e2.  call temp:= `isChecked`(v2) @signature `Lcom/google/android/material/chip/Chip;.isChecked:()Z` @kind virtual;
+  #L1939e8.  v0:= temp;
+  #L1939ea.  call `setChecked`(v2, v3) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setChecked:(Z)V` @kind super;
+  #L1939f0.  if v0 == v3 then goto L193a02;
+  #L1939f4.  v1:= v2.`com.google.android.material.chip.Chip.onCheckedChangeListenerInternal` @type ^`android.widget.CompoundButton$OnCheckedChangeListener` @kind object;
+  #L1939f8.  if v1 == 0 then goto L193a02;
+  #L1939fc.  call `onCheckedChanged`(v1, v2, v3) @signature `Landroid/widget/CompoundButton$OnCheckedChangeListener;.onCheckedChanged:(Landroid/widget/CompoundButton;Z)V` @kind interface;
+  #L193a02.  return @kind void;
+}
+procedure `void` `setCheckedIcon`(`com.google.android.material.chip.Chip` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `checkedIcon`) @signature `Lcom/google/android/material/chip/Chip;.setCheckedIcon:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193a14.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193a18.  if v0 == 0 then goto L193a22;
+  #L193a1c.  call `setCheckedIcon`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCheckedIcon:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L193a22.  return @kind void;
+}
+procedure `void` `setCheckedIconEnabled`(`com.google.android.material.chip.Chip` v0 @kind this, `boolean` v1 @name `checkedIconEnabled`) @signature `Lcom/google/android/material/chip/Chip;.setCheckedIconEnabled:(Z)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L193a34.  call `setCheckedIconVisible`(v0, v1) @signature `Lcom/google/android/material/chip/Chip;.setCheckedIconVisible:(Z)V` @kind virtual;
+  #L193a3a.  return @kind void;
+}
+procedure `void` `setCheckedIconEnabledResource`(`com.google.android.material.chip.Chip` v0 @kind this, `int` v1 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setCheckedIconEnabledResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L193a4c.  call `setCheckedIconVisible`(v0, v1) @signature `Lcom/google/android/material/chip/Chip;.setCheckedIconVisible:(I)V` @kind virtual;
+  #L193a52.  return @kind void;
+}
+procedure `void` `setCheckedIconResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setCheckedIconResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193a64.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193a68.  if v0 == 0 then goto L193a72;
+  #L193a6c.  call `setCheckedIconResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCheckedIconResource:(I)V` @kind virtual;
+  #L193a72.  return @kind void;
+}
+procedure `void` `setCheckedIconVisible`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setCheckedIconVisible:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193aa4.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193aa8.  if v0 == 0 then goto L193ab2;
+  #L193aac.  call `setCheckedIconVisible`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCheckedIconVisible:(I)V` @kind virtual;
+  #L193ab2.  return @kind void;
+}
+procedure `void` `setCheckedIconVisible`(`com.google.android.material.chip.Chip` v1 @kind this, `boolean` v2 @name `checkedIconVisible`) @signature `Lcom/google/android/material/chip/Chip;.setCheckedIconVisible:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193a84.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193a88.  if v0 == 0 then goto L193a92;
+  #L193a8c.  call `setCheckedIconVisible`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCheckedIconVisible:(Z)V` @kind virtual;
+  #L193a92.  return @kind void;
+}
+procedure `void` `setChipBackgroundColor`(`com.google.android.material.chip.Chip` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `chipBackgroundColor`) @signature `Lcom/google/android/material/chip/Chip;.setChipBackgroundColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193ac4.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193ac8.  if v0 == 0 then goto L193ad2;
+  #L193acc.  call `setChipBackgroundColor`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipBackgroundColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L193ad2.  return @kind void;
+}
+procedure `void` `setChipBackgroundColorResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setChipBackgroundColorResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193ae4.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193ae8.  if v0 == 0 then goto L193af2;
+  #L193aec.  call `setChipBackgroundColorResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipBackgroundColorResource:(I)V` @kind virtual;
+  #L193af2.  return @kind void;
+}
+procedure `void` `setChipCornerRadius`(`com.google.android.material.chip.Chip` v1 @kind this, `float` v2 @name `chipCornerRadius`) @signature `Lcom/google/android/material/chip/Chip;.setChipCornerRadius:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193b04.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193b08.  if v0 == 0 then goto L193b12;
+  #L193b0c.  call `setChipCornerRadius`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipCornerRadius:(F)V` @kind virtual;
+  #L193b12.  return @kind void;
+}
+procedure `void` `setChipCornerRadiusResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setChipCornerRadiusResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193b24.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193b28.  if v0 == 0 then goto L193b32;
+  #L193b2c.  call `setChipCornerRadiusResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipCornerRadiusResource:(I)V` @kind virtual;
+  #L193b32.  return @kind void;
+}
+procedure `void` `setChipDrawable`(`com.google.android.material.chip.Chip` v1 @kind this, `com.google.android.material.chip.ChipDrawable` v2 @kind object @name `drawable`) @signature `Lcom/google/android/material/chip/Chip;.setChipDrawable:(Lcom/google/android/material/chip/ChipDrawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193b44.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193b48.  if v0 == v2 then goto L193b78;
+  #L193b4c.  call `unapplyChipDrawable`(v1, v0) @signature `Lcom/google/android/material/chip/Chip;.unapplyChipDrawable:(Lcom/google/android/material/chip/ChipDrawable;)V` @kind direct;
+  #L193b52.  v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` := v2 @kind object;
+  #L193b56.  v0:= 0I;
+  #L193b58.  call `setShouldDrawText`(v2, v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.setShouldDrawText:(Z)V` @kind virtual;
+  #L193b5e.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193b62.  call `applyChipDrawable`(v1, v0) @signature `Lcom/google/android/material/chip/Chip;.applyChipDrawable:(Lcom/google/android/material/chip/ChipDrawable;)V` @kind direct;
+  #L193b68.  v0:= v1.`com.google.android.material.chip.Chip.minTouchTargetSize` @type ^`int`;
+  #L193b6c.  call temp:= `ensureAccessibleTouchTarget`(v1, v0) @signature `Lcom/google/android/material/chip/Chip;.ensureAccessibleTouchTarget:(I)Z` @kind virtual;
+  #L193b72.  call `updateBackgroundDrawable`(v1) @signature `Lcom/google/android/material/chip/Chip;.updateBackgroundDrawable:()V` @kind direct;
+  #L193b78.  return @kind void;
+}
+procedure `void` `setChipEndPadding`(`com.google.android.material.chip.Chip` v1 @kind this, `float` v2 @name `chipEndPadding`) @signature `Lcom/google/android/material/chip/Chip;.setChipEndPadding:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193b8c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193b90.  if v0 == 0 then goto L193b9a;
+  #L193b94.  call `setChipEndPadding`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipEndPadding:(F)V` @kind virtual;
+  #L193b9a.  return @kind void;
+}
+procedure `void` `setChipEndPaddingResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setChipEndPaddingResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193bac.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193bb0.  if v0 == 0 then goto L193bba;
+  #L193bb4.  call `setChipEndPaddingResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipEndPaddingResource:(I)V` @kind virtual;
+  #L193bba.  return @kind void;
+}
+procedure `void` `setChipIcon`(`com.google.android.material.chip.Chip` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `chipIcon`) @signature `Lcom/google/android/material/chip/Chip;.setChipIcon:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193bcc.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193bd0.  if v0 == 0 then goto L193bda;
+  #L193bd4.  call `setChipIcon`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipIcon:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L193bda.  return @kind void;
+}
+procedure `void` `setChipIconEnabled`(`com.google.android.material.chip.Chip` v0 @kind this, `boolean` v1 @name `chipIconEnabled`) @signature `Lcom/google/android/material/chip/Chip;.setChipIconEnabled:(Z)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L193bec.  call `setChipIconVisible`(v0, v1) @signature `Lcom/google/android/material/chip/Chip;.setChipIconVisible:(Z)V` @kind virtual;
+  #L193bf2.  return @kind void;
+}
+procedure `void` `setChipIconEnabledResource`(`com.google.android.material.chip.Chip` v0 @kind this, `int` v1 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setChipIconEnabledResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L193c04.  call `setChipIconVisible`(v0, v1) @signature `Lcom/google/android/material/chip/Chip;.setChipIconVisible:(I)V` @kind virtual;
+  #L193c0a.  return @kind void;
+}
+procedure `void` `setChipIconResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setChipIconResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193c1c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193c20.  if v0 == 0 then goto L193c2a;
+  #L193c24.  call `setChipIconResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipIconResource:(I)V` @kind virtual;
+  #L193c2a.  return @kind void;
+}
+procedure `void` `setChipIconSize`(`com.google.android.material.chip.Chip` v1 @kind this, `float` v2 @name `chipIconSize`) @signature `Lcom/google/android/material/chip/Chip;.setChipIconSize:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193c3c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193c40.  if v0 == 0 then goto L193c4a;
+  #L193c44.  call `setChipIconSize`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipIconSize:(F)V` @kind virtual;
+  #L193c4a.  return @kind void;
+}
+procedure `void` `setChipIconSizeResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setChipIconSizeResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193c5c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193c60.  if v0 == 0 then goto L193c6a;
+  #L193c64.  call `setChipIconSizeResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipIconSizeResource:(I)V` @kind virtual;
+  #L193c6a.  return @kind void;
+}
+procedure `void` `setChipIconTint`(`com.google.android.material.chip.Chip` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `chipIconTint`) @signature `Lcom/google/android/material/chip/Chip;.setChipIconTint:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193c7c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193c80.  if v0 == 0 then goto L193c8a;
+  #L193c84.  call `setChipIconTint`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipIconTint:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L193c8a.  return @kind void;
+}
+procedure `void` `setChipIconTintResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setChipIconTintResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193c9c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193ca0.  if v0 == 0 then goto L193caa;
+  #L193ca4.  call `setChipIconTintResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipIconTintResource:(I)V` @kind virtual;
+  #L193caa.  return @kind void;
+}
+procedure `void` `setChipIconVisible`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setChipIconVisible:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193cdc.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193ce0.  if v0 == 0 then goto L193cea;
+  #L193ce4.  call `setChipIconVisible`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipIconVisible:(I)V` @kind virtual;
+  #L193cea.  return @kind void;
+}
+procedure `void` `setChipIconVisible`(`com.google.android.material.chip.Chip` v1 @kind this, `boolean` v2 @name `chipIconVisible`) @signature `Lcom/google/android/material/chip/Chip;.setChipIconVisible:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193cbc.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193cc0.  if v0 == 0 then goto L193cca;
+  #L193cc4.  call `setChipIconVisible`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipIconVisible:(Z)V` @kind virtual;
+  #L193cca.  return @kind void;
+}
+procedure `void` `setChipMinHeight`(`com.google.android.material.chip.Chip` v1 @kind this, `float` v2 @name `minHeight`) @signature `Lcom/google/android/material/chip/Chip;.setChipMinHeight:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193cfc.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193d00.  if v0 == 0 then goto L193d0a;
+  #L193d04.  call `setChipMinHeight`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipMinHeight:(F)V` @kind virtual;
+  #L193d0a.  return @kind void;
+}
+procedure `void` `setChipMinHeightResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setChipMinHeightResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193d1c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193d20.  if v0 == 0 then goto L193d2a;
+  #L193d24.  call `setChipMinHeightResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipMinHeightResource:(I)V` @kind virtual;
+  #L193d2a.  return @kind void;
+}
+procedure `void` `setChipStartPadding`(`com.google.android.material.chip.Chip` v1 @kind this, `float` v2 @name `chipStartPadding`) @signature `Lcom/google/android/material/chip/Chip;.setChipStartPadding:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193d3c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193d40.  if v0 == 0 then goto L193d4a;
+  #L193d44.  call `setChipStartPadding`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipStartPadding:(F)V` @kind virtual;
+  #L193d4a.  return @kind void;
+}
+procedure `void` `setChipStartPaddingResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setChipStartPaddingResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193d5c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193d60.  if v0 == 0 then goto L193d6a;
+  #L193d64.  call `setChipStartPaddingResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipStartPaddingResource:(I)V` @kind virtual;
+  #L193d6a.  return @kind void;
+}
+procedure `void` `setChipStrokeColor`(`com.google.android.material.chip.Chip` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `chipStrokeColor`) @signature `Lcom/google/android/material/chip/Chip;.setChipStrokeColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193d7c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193d80.  if v0 == 0 then goto L193d8a;
+  #L193d84.  call `setChipStrokeColor`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipStrokeColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L193d8a.  return @kind void;
+}
+procedure `void` `setChipStrokeColorResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setChipStrokeColorResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193d9c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193da0.  if v0 == 0 then goto L193daa;
+  #L193da4.  call `setChipStrokeColorResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipStrokeColorResource:(I)V` @kind virtual;
+  #L193daa.  return @kind void;
+}
+procedure `void` `setChipStrokeWidth`(`com.google.android.material.chip.Chip` v1 @kind this, `float` v2 @name `chipStrokeWidth`) @signature `Lcom/google/android/material/chip/Chip;.setChipStrokeWidth:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193dbc.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193dc0.  if v0 == 0 then goto L193dca;
+  #L193dc4.  call `setChipStrokeWidth`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipStrokeWidth:(F)V` @kind virtual;
+  #L193dca.  return @kind void;
+}
+procedure `void` `setChipStrokeWidthResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setChipStrokeWidthResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193ddc.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193de0.  if v0 == 0 then goto L193dea;
+  #L193de4.  call `setChipStrokeWidthResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setChipStrokeWidthResource:(I)V` @kind virtual;
+  #L193dea.  return @kind void;
+}
+procedure `void` `setChipText`(`com.google.android.material.chip.Chip` v0 @kind this, `java.lang.CharSequence` v1 @kind object @name `chipText`) @signature `Lcom/google/android/material/chip/Chip;.setChipText:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L193dfc.  call `setText`(v0, v1) @signature `Lcom/google/android/material/chip/Chip;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L193e02.  return @kind void;
+}
+procedure `void` `setChipTextResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setChipTextResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193e14.  call temp:= `getResources`(v1) @signature `Lcom/google/android/material/chip/Chip;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L193e1a.  v0:= temp @kind object;
+  #L193e1c.  call temp:= `getString`(v0, v2) @signature `Landroid/content/res/Resources;.getString:(I)Ljava/lang/String;` @kind virtual;
+  #L193e22.  v0:= temp @kind object;
+  #L193e24.  call `setText`(v1, v0) @signature `Lcom/google/android/material/chip/Chip;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L193e2a.  return @kind void;
+}
+procedure `void` `setCloseIcon`(`com.google.android.material.chip.Chip` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `closeIcon`) @signature `Lcom/google/android/material/chip/Chip;.setCloseIcon:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193e3c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193e40.  if v0 == 0 then goto L193e4a;
+  #L193e44.  call `setCloseIcon`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCloseIcon:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L193e4a.  call `updateAccessibilityDelegate`(v1) @signature `Lcom/google/android/material/chip/Chip;.updateAccessibilityDelegate:()V` @kind direct;
+  #L193e50.  return @kind void;
+}
+procedure `void` `setCloseIconContentDescription`(`com.google.android.material.chip.Chip` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `closeIconContentDescription`) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconContentDescription:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193e64.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193e68.  if v0 == 0 then goto L193e72;
+  #L193e6c.  call `setCloseIconContentDescription`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCloseIconContentDescription:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L193e72.  return @kind void;
+}
+procedure `void` `setCloseIconEnabled`(`com.google.android.material.chip.Chip` v0 @kind this, `boolean` v1 @name `closeIconEnabled`) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconEnabled:(Z)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L193e84.  call `setCloseIconVisible`(v0, v1) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconVisible:(Z)V` @kind virtual;
+  #L193e8a.  return @kind void;
+}
+procedure `void` `setCloseIconEnabledResource`(`com.google.android.material.chip.Chip` v0 @kind this, `int` v1 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconEnabledResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L193e9c.  call `setCloseIconVisible`(v0, v1) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconVisible:(I)V` @kind virtual;
+  #L193ea2.  return @kind void;
+}
+procedure `void` `setCloseIconEndPadding`(`com.google.android.material.chip.Chip` v1 @kind this, `float` v2 @name `closeIconEndPadding`) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconEndPadding:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193eb4.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193eb8.  if v0 == 0 then goto L193ec2;
+  #L193ebc.  call `setCloseIconEndPadding`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCloseIconEndPadding:(F)V` @kind virtual;
+  #L193ec2.  return @kind void;
+}
+procedure `void` `setCloseIconEndPaddingResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconEndPaddingResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193ed4.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193ed8.  if v0 == 0 then goto L193ee2;
+  #L193edc.  call `setCloseIconEndPaddingResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCloseIconEndPaddingResource:(I)V` @kind virtual;
+  #L193ee2.  return @kind void;
+}
+procedure `void` `setCloseIconResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193f3c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193f40.  if v0 == 0 then goto L193f4a;
+  #L193f44.  call `setCloseIconResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCloseIconResource:(I)V` @kind virtual;
+  #L193f4a.  call `updateAccessibilityDelegate`(v1) @signature `Lcom/google/android/material/chip/Chip;.updateAccessibilityDelegate:()V` @kind direct;
+  #L193f50.  return @kind void;
+}
+procedure `void` `setCloseIconSize`(`com.google.android.material.chip.Chip` v1 @kind this, `float` v2 @name `closeIconSize`) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconSize:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193f64.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193f68.  if v0 == 0 then goto L193f72;
+  #L193f6c.  call `setCloseIconSize`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCloseIconSize:(F)V` @kind virtual;
+  #L193f72.  return @kind void;
+}
+procedure `void` `setCloseIconSizeResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconSizeResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193f84.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193f88.  if v0 == 0 then goto L193f92;
+  #L193f8c.  call `setCloseIconSizeResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCloseIconSizeResource:(I)V` @kind virtual;
+  #L193f92.  return @kind void;
+}
+procedure `void` `setCloseIconStartPadding`(`com.google.android.material.chip.Chip` v1 @kind this, `float` v2 @name `closeIconStartPadding`) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconStartPadding:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193fa4.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193fa8.  if v0 == 0 then goto L193fb2;
+  #L193fac.  call `setCloseIconStartPadding`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCloseIconStartPadding:(F)V` @kind virtual;
+  #L193fb2.  return @kind void;
+}
+procedure `void` `setCloseIconStartPaddingResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconStartPaddingResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193fc4.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193fc8.  if v0 == 0 then goto L193fd2;
+  #L193fcc.  call `setCloseIconStartPaddingResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCloseIconStartPaddingResource:(I)V` @kind virtual;
+  #L193fd2.  return @kind void;
+}
+procedure `void` `setCloseIconTint`(`com.google.android.material.chip.Chip` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `closeIconTint`) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconTint:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L193fe4.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L193fe8.  if v0 == 0 then goto L193ff2;
+  #L193fec.  call `setCloseIconTint`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCloseIconTint:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L193ff2.  return @kind void;
+}
+procedure `void` `setCloseIconTintResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconTintResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L194004.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L194008.  if v0 == 0 then goto L194012;
+  #L19400c.  call `setCloseIconTintResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCloseIconTintResource:(I)V` @kind virtual;
+  #L194012.  return @kind void;
+}
+procedure `void` `setCloseIconVisible`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconVisible:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19404c.  call temp:= `getResources`(v1) @signature `Lcom/google/android/material/chip/Chip;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L194052.  v0:= temp @kind object;
+  #L194054.  call temp:= `getBoolean`(v0, v2) @signature `Landroid/content/res/Resources;.getBoolean:(I)Z` @kind virtual;
+  #L19405a.  v0:= temp;
+  #L19405c.  call `setCloseIconVisible`(v1, v0) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconVisible:(Z)V` @kind virtual;
+  #L194062.  return @kind void;
+}
+procedure `void` `setCloseIconVisible`(`com.google.android.material.chip.Chip` v1 @kind this, `boolean` v2 @name `closeIconVisible`) @signature `Lcom/google/android/material/chip/Chip;.setCloseIconVisible:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L194024.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L194028.  if v0 == 0 then goto L194032;
+  #L19402c.  call `setCloseIconVisible`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setCloseIconVisible:(Z)V` @kind virtual;
+  #L194032.  call `updateAccessibilityDelegate`(v1) @signature `Lcom/google/android/material/chip/Chip;.updateAccessibilityDelegate:()V` @kind direct;
+  #L194038.  return @kind void;
+}
+procedure `void` `setCompoundDrawables`(`com.google.android.material.chip.Chip` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `left`, `android.graphics.drawable.Drawable` v4 @kind object @name `top`, `android.graphics.drawable.Drawable` v5 @kind object @name `right`, `android.graphics.drawable.Drawable` v6 @kind object @name `bottom`) @signature `Lcom/google/android/material/chip/Chip;.setCompoundDrawables:(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L194074.  if v3 != 0 then goto L194094;
+  #L194078.  if v5 != 0 then goto L194084;
+  #L19407c.  call `setCompoundDrawables`(v2, v3, v4, v5, v6) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setCompoundDrawables:(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V` @kind super;
+  #L194082.  return @kind void;
+  #L194084.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L194088.  v1:= "Please set end drawable using R.attr#closeIcon." @kind object;
+  #L19408c.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L194092.  throw v0;
+  #L194094.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L194098.  v1:= "Please set start drawable using R.attr#chipIcon." @kind object;
+  #L19409c.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1940a2.  throw v0;
+}
+procedure `void` `setCompoundDrawablesRelative`(`com.google.android.material.chip.Chip` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `start`, `android.graphics.drawable.Drawable` v4 @kind object @name `top`, `android.graphics.drawable.Drawable` v5 @kind object @name `end`, `android.graphics.drawable.Drawable` v6 @kind object @name `bottom`) @signature `Lcom/google/android/material/chip/Chip;.setCompoundDrawablesRelative:(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1940b4.  if v3 != 0 then goto L1940d4;
+  #L1940b8.  if v5 != 0 then goto L1940c4;
+  #L1940bc.  call `setCompoundDrawablesRelative`(v2, v3, v4, v5, v6) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setCompoundDrawablesRelative:(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V` @kind super;
+  #L1940c2.  return @kind void;
+  #L1940c4.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L1940c8.  v1:= "Please set end drawable using R.attr#closeIcon." @kind object;
+  #L1940cc.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1940d2.  throw v0;
+  #L1940d4.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L1940d8.  v1:= "Please set start drawable using R.attr#chipIcon." @kind object;
+  #L1940dc.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1940e2.  throw v0;
+}
+procedure `void` `setCompoundDrawablesRelativeWithIntrinsicBounds`(`com.google.android.material.chip.Chip` v2 @kind this, `int` v3 @name `start`, `int` v4 @name `top`, `int` v5 @name `end`, `int` v6 @name `bottom`) @signature `Lcom/google/android/material/chip/Chip;.setCompoundDrawablesRelativeWithIntrinsicBounds:(IIII)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L194134.  if v3 != 0 then goto L194154;
+  #L194138.  if v5 != 0 then goto L194144;
+  #L19413c.  call `setCompoundDrawablesRelativeWithIntrinsicBounds`(v2, v3, v4, v5, v6) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setCompoundDrawablesRelativeWithIntrinsicBounds:(IIII)V` @kind super;
+  #L194142.  return @kind void;
+  #L194144.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L194148.  v1:= "Please set end drawable using R.attr#closeIcon." @kind object;
+  #L19414c.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L194152.  throw v0;
+  #L194154.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L194158.  v1:= "Please set start drawable using R.attr#chipIcon." @kind object;
+  #L19415c.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L194162.  throw v0;
+}
+procedure `void` `setCompoundDrawablesRelativeWithIntrinsicBounds`(`com.google.android.material.chip.Chip` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `start`, `android.graphics.drawable.Drawable` v4 @kind object @name `top`, `android.graphics.drawable.Drawable` v5 @kind object @name `end`, `android.graphics.drawable.Drawable` v6 @kind object @name `bottom`) @signature `Lcom/google/android/material/chip/Chip;.setCompoundDrawablesRelativeWithIntrinsicBounds:(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1940f4.  if v3 != 0 then goto L194114;
+  #L1940f8.  if v5 != 0 then goto L194104;
+  #L1940fc.  call `setCompoundDrawablesRelativeWithIntrinsicBounds`(v2, v3, v4, v5, v6) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setCompoundDrawablesRelativeWithIntrinsicBounds:(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V` @kind super;
+  #L194102.  return @kind void;
+  #L194104.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L194108.  v1:= "Please set end drawable using R.attr#closeIcon." @kind object;
+  #L19410c.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L194112.  throw v0;
+  #L194114.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L194118.  v1:= "Please set start drawable using R.attr#chipIcon." @kind object;
+  #L19411c.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L194122.  throw v0;
+}
+procedure `void` `setCompoundDrawablesWithIntrinsicBounds`(`com.google.android.material.chip.Chip` v2 @kind this, `int` v3 @name `left`, `int` v4 @name `top`, `int` v5 @name `right`, `int` v6 @name `bottom`) @signature `Lcom/google/android/material/chip/Chip;.setCompoundDrawablesWithIntrinsicBounds:(IIII)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1941b4.  if v3 != 0 then goto L1941d4;
+  #L1941b8.  if v5 != 0 then goto L1941c4;
+  #L1941bc.  call `setCompoundDrawablesWithIntrinsicBounds`(v2, v3, v4, v5, v6) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setCompoundDrawablesWithIntrinsicBounds:(IIII)V` @kind super;
+  #L1941c2.  return @kind void;
+  #L1941c4.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L1941c8.  v1:= "Please set end drawable using R.attr#closeIcon." @kind object;
+  #L1941cc.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1941d2.  throw v0;
+  #L1941d4.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L1941d8.  v1:= "Please set start drawable using R.attr#chipIcon." @kind object;
+  #L1941dc.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1941e2.  throw v0;
+}
+procedure `void` `setCompoundDrawablesWithIntrinsicBounds`(`com.google.android.material.chip.Chip` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `left`, `android.graphics.drawable.Drawable` v4 @kind object @name `top`, `android.graphics.drawable.Drawable` v5 @kind object @name `right`, `android.graphics.drawable.Drawable` v6 @kind object @name `bottom`) @signature `Lcom/google/android/material/chip/Chip;.setCompoundDrawablesWithIntrinsicBounds:(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L194174.  if v3 != 0 then goto L194194;
+  #L194178.  if v5 != 0 then goto L194184;
+  #L19417c.  call `setCompoundDrawablesWithIntrinsicBounds`(v2, v3, v4, v5, v6) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setCompoundDrawablesWithIntrinsicBounds:(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V` @kind super;
+  #L194182.  return @kind void;
+  #L194184.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L194188.  v1:= "Please set right drawable using R.attr#closeIcon." @kind object;
+  #L19418c.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L194192.  throw v0;
+  #L194194.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L194198.  v1:= "Please set left drawable using R.attr#chipIcon." @kind object;
+  #L19419c.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1941a2.  throw v0;
+}
+procedure `void` `setElevation`(`com.google.android.material.chip.Chip` v1 @kind this, `float` v2 @name `elevation`) @signature `Lcom/google/android/material/chip/Chip;.setElevation:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1941f4.  call `setElevation`(v1, v2) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setElevation:(F)V` @kind super;
+  #L1941fa.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1941fe.  if v0 == 0 then goto L194208;
+  #L194202.  call `setElevation`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setElevation:(F)V` @kind virtual;
+  #L194208.  return @kind void;
+}
+procedure `void` `setEllipsize`(`com.google.android.material.chip.Chip` v2 @kind this, `android.text.TextUtils$TruncateAt` v3 @kind object @name `where`) @signature `Lcom/google/android/material/chip/Chip;.setEllipsize:(Landroid/text/TextUtils$TruncateAt;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19421c.  v0:= v2.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L194220.  if v0 != 0 then goto L194226;
+  #L194224.  return @kind void;
+  #L194226.  v0:= `@@android.text.TextUtils$TruncateAt.MARQUEE` @type ^`android.text.TextUtils$TruncateAt` @kind object;
+  #L19422a.  if v3 == v0 then goto L194244;
+  #L19422e.  call `setEllipsize`(v2, v3) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setEllipsize:(Landroid/text/TextUtils$TruncateAt;)V` @kind super;
+  #L194234.  v0:= v2.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L194238.  if v0 == 0 then goto L194242;
+  #L19423c.  call `setEllipsize`(v0, v3) @signature `Lcom/google/android/material/chip/ChipDrawable;.setEllipsize:(Landroid/text/TextUtils$TruncateAt;)V` @kind virtual;
+  #L194242.  return @kind void;
+  #L194244.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L194248.  v1:= "Text within a chip are not allowed to scroll." @kind object;
+  #L19424c.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L194252.  throw v0;
+}
+procedure `void` `setEnsureMinTouchTargetSize`(`com.google.android.material.chip.Chip` v1 @kind this, `boolean` v2 @name `flag`) @signature `Lcom/google/android/material/chip/Chip;.setEnsureMinTouchTargetSize:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L194264.  v1.`com.google.android.material.chip.Chip.ensureMinTouchTargetSize` @type ^`boolean` := v2 @kind boolean;
+  #L194268.  v0:= v1.`com.google.android.material.chip.Chip.minTouchTargetSize` @type ^`int`;
+  #L19426c.  call temp:= `ensureAccessibleTouchTarget`(v1, v0) @signature `Lcom/google/android/material/chip/Chip;.ensureAccessibleTouchTarget:(I)Z` @kind virtual;
+  #L194272.  return @kind void;
+}
+procedure `void` `setGravity`(`com.google.android.material.chip.Chip` v2 @kind this, `int` v3 @name `gravity`) @signature `Lcom/google/android/material/chip/Chip;.setGravity:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L194284.  v0:= 8388627I;
+  #L19428a.  if v3 == v0 then goto L19429e;
+  #L19428e.  v0:= "Chip" @kind object;
+  #L194292.  v1:= "Chip text must be vertically center and start aligned" @kind object;
+  #L194296.  call temp:= `w`(v0, v1) @signature `Landroid/util/Log;.w:(Ljava/lang/String;Ljava/lang/String;)I` @kind static;
+  #L19429c.  goto L1942a4;
+  #L19429e.  call `setGravity`(v2, v3) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setGravity:(I)V` @kind super;
+  #L1942a4.  return @kind void;
+}
+procedure `void` `setHideMotionSpec`(`com.google.android.material.chip.Chip` v1 @kind this, `com.google.android.material.animation.MotionSpec` v2 @kind object @name `hideMotionSpec`) @signature `Lcom/google/android/material/chip/Chip;.setHideMotionSpec:(Lcom/google/android/material/animation/MotionSpec;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1942b8.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1942bc.  if v0 == 0 then goto L1942c6;
+  #L1942c0.  call `setHideMotionSpec`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setHideMotionSpec:(Lcom/google/android/material/animation/MotionSpec;)V` @kind virtual;
+  #L1942c6.  return @kind void;
+}
+procedure `void` `setHideMotionSpecResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setHideMotionSpecResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1942d8.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1942dc.  if v0 == 0 then goto L1942e6;
+  #L1942e0.  call `setHideMotionSpecResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setHideMotionSpecResource:(I)V` @kind virtual;
+  #L1942e6.  return @kind void;
+}
+procedure `void` `setIconEndPadding`(`com.google.android.material.chip.Chip` v1 @kind this, `float` v2 @name `iconEndPadding`) @signature `Lcom/google/android/material/chip/Chip;.setIconEndPadding:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1942f8.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1942fc.  if v0 == 0 then goto L194306;
+  #L194300.  call `setIconEndPadding`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setIconEndPadding:(F)V` @kind virtual;
+  #L194306.  return @kind void;
+}
+procedure `void` `setIconEndPaddingResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setIconEndPaddingResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L194318.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L19431c.  if v0 == 0 then goto L194326;
+  #L194320.  call `setIconEndPaddingResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setIconEndPaddingResource:(I)V` @kind virtual;
+  #L194326.  return @kind void;
+}
+procedure `void` `setIconStartPadding`(`com.google.android.material.chip.Chip` v1 @kind this, `float` v2 @name `iconStartPadding`) @signature `Lcom/google/android/material/chip/Chip;.setIconStartPadding:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L194338.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L19433c.  if v0 == 0 then goto L194346;
+  #L194340.  call `setIconStartPadding`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setIconStartPadding:(F)V` @kind virtual;
+  #L194346.  return @kind void;
+}
+procedure `void` `setIconStartPaddingResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setIconStartPaddingResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L194358.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L19435c.  if v0 == 0 then goto L194366;
+  #L194360.  call `setIconStartPaddingResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setIconStartPaddingResource:(I)V` @kind virtual;
+  #L194366.  return @kind void;
+}
+procedure `void` `setLayoutDirection`(`com.google.android.material.chip.Chip` v2 @kind this, `int` v3 @name `layoutDirection`) @signature `Lcom/google/android/material/chip/Chip;.setLayoutDirection:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L194378.  v0:= v2.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L19437c.  if v0 != 0 then goto L194382;
+  #L194380.  return @kind void;
+  #L194382.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L194386.  v1:= 17I;
+  #L19438a.  if v0 < v1 then goto L194394;
+  #L19438e.  call `setLayoutDirection`(v2, v3) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setLayoutDirection:(I)V` @kind super;
+  #L194394.  return @kind void;
+}
+procedure `void` `setLines`(`com.google.android.material.chip.Chip` v2 @kind this, `int` v3 @name `lines`) @signature `Lcom/google/android/material/chip/Chip;.setLines:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1943a8.  v0:= 1I;
+  #L1943aa.  if v3 > v0 then goto L1943b6;
+  #L1943ae.  call `setLines`(v2, v3) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setLines:(I)V` @kind super;
+  #L1943b4.  return @kind void;
+  #L1943b6.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L1943ba.  v1:= "Chip does not support multi-line text" @kind object;
+  #L1943be.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1943c4.  throw v0;
+}
+procedure `void` `setMaxLines`(`com.google.android.material.chip.Chip` v2 @kind this, `int` v3 @name `maxLines`) @signature `Lcom/google/android/material/chip/Chip;.setMaxLines:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1943d8.  v0:= 1I;
+  #L1943da.  if v3 > v0 then goto L1943e6;
+  #L1943de.  call `setMaxLines`(v2, v3) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setMaxLines:(I)V` @kind super;
+  #L1943e4.  return @kind void;
+  #L1943e6.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L1943ea.  v1:= "Chip does not support multi-line text" @kind object;
+  #L1943ee.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1943f4.  throw v0;
+}
+procedure `void` `setMaxWidth`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `maxWidth`) @signature `Lcom/google/android/material/chip/Chip;.setMaxWidth:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L194408.  call `setMaxWidth`(v1, v2) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setMaxWidth:(I)V` @kind super;
+  #L19440e.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L194412.  if v0 == 0 then goto L19441c;
+  #L194416.  call `setMaxWidth`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setMaxWidth:(I)V` @kind virtual;
+  #L19441c.  return @kind void;
+}
+procedure `void` `setMinLines`(`com.google.android.material.chip.Chip` v2 @kind this, `int` v3 @name `minLines`) @signature `Lcom/google/android/material/chip/Chip;.setMinLines:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L194430.  v0:= 1I;
+  #L194432.  if v3 > v0 then goto L19443e;
+  #L194436.  call `setMinLines`(v2, v3) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setMinLines:(I)V` @kind super;
+  #L19443c.  return @kind void;
+  #L19443e.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L194442.  v1:= "Chip does not support multi-line text" @kind object;
+  #L194446.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L19444c.  throw v0;
+}
+procedure `void` `setOnCheckedChangeListenerInternal`(`com.google.android.material.chip.Chip` v0 @kind this, `android.widget.CompoundButton$OnCheckedChangeListener` v1 @kind object @name `listener`) @signature `Lcom/google/android/material/chip/Chip;.setOnCheckedChangeListenerInternal:(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V` @AccessFlag  {
+    temp;
+
+  #L194460.  v0.`com.google.android.material.chip.Chip.onCheckedChangeListenerInternal` @type ^`android.widget.CompoundButton$OnCheckedChangeListener` := v1 @kind object;
+  #L194464.  return @kind void;
+}
+procedure `void` `setOnCloseIconClickListener`(`com.google.android.material.chip.Chip` v0 @kind this, `android.view.View$OnClickListener` v1 @kind object @name `listener`) @signature `Lcom/google/android/material/chip/Chip;.setOnCloseIconClickListener:(Landroid/view/View$OnClickListener;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L194478.  v0.`com.google.android.material.chip.Chip.onCloseIconClickListener` @type ^`android.view.View$OnClickListener` := v1 @kind object;
+  #L19447c.  return @kind void;
+}
+procedure `void` `setRippleColor`(`com.google.android.material.chip.Chip` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `rippleColor`) @signature `Lcom/google/android/material/chip/Chip;.setRippleColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L194490.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L194494.  if v0 == 0 then goto L19449e;
+  #L194498.  call `setRippleColor`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setRippleColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L19449e.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1944a2.  call temp:= `getUseCompatRipple`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getUseCompatRipple:()Z` @kind virtual;
+  #L1944a8.  v0:= temp;
+  #L1944aa.  if v0 != 0 then goto L1944b4;
+  #L1944ae.  call `updateFrameworkRippleBackground`(v1) @signature `Lcom/google/android/material/chip/Chip;.updateFrameworkRippleBackground:()V` @kind direct;
+  #L1944b4.  return @kind void;
+}
+procedure `void` `setRippleColorResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setRippleColorResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1944c8.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1944cc.  if v0 == 0 then goto L1944ec;
+  #L1944d0.  call `setRippleColorResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setRippleColorResource:(I)V` @kind virtual;
+  #L1944d6.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1944da.  call temp:= `getUseCompatRipple`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.getUseCompatRipple:()Z` @kind virtual;
+  #L1944e0.  v0:= temp;
+  #L1944e2.  if v0 != 0 then goto L1944ec;
+  #L1944e6.  call `updateFrameworkRippleBackground`(v1) @signature `Lcom/google/android/material/chip/Chip;.updateFrameworkRippleBackground:()V` @kind direct;
+  #L1944ec.  return @kind void;
+}
+procedure `void` `setShapeAppearanceModel`(`com.google.android.material.chip.Chip` v1 @kind this, `com.google.android.material.shape.ShapeAppearanceModel` v2 @kind object @name `shapeAppearanceModel`) @signature `Lcom/google/android/material/chip/Chip;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L194500.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L194504.  call `setShapeAppearanceModel`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L19450a.  return @kind void;
+}
+procedure `void` `setShowMotionSpec`(`com.google.android.material.chip.Chip` v1 @kind this, `com.google.android.material.animation.MotionSpec` v2 @kind object @name `showMotionSpec`) @signature `Lcom/google/android/material/chip/Chip;.setShowMotionSpec:(Lcom/google/android/material/animation/MotionSpec;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19451c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L194520.  if v0 == 0 then goto L19452a;
+  #L194524.  call `setShowMotionSpec`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setShowMotionSpec:(Lcom/google/android/material/animation/MotionSpec;)V` @kind virtual;
+  #L19452a.  return @kind void;
+}
+procedure `void` `setShowMotionSpecResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setShowMotionSpecResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19453c.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L194540.  if v0 == 0 then goto L19454a;
+  #L194544.  call `setShowMotionSpecResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setShowMotionSpecResource:(I)V` @kind virtual;
+  #L19454a.  return @kind void;
+}
+procedure `void` `setSingleLine`(`com.google.android.material.chip.Chip` v2 @kind this, `boolean` v3 @name `singleLine`) @signature `Lcom/google/android/material/chip/Chip;.setSingleLine:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19455c.  if v3 == 0 then goto L194568;
+  #L194560.  call `setSingleLine`(v2, v3) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setSingleLine:(Z)V` @kind super;
+  #L194566.  return @kind void;
+  #L194568.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L19456c.  v1:= "Chip does not support multi-line text" @kind object;
+  #L194570.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L194576.  throw v0;
+}
+procedure `void` `setText`(`com.google.android.material.chip.Chip` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `text`, `android.widget.TextView$BufferType` v3 @kind object @name `type`) @signature `Lcom/google/android/material/chip/Chip;.setText:(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L194588.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L19458c.  if v0 != 0 then goto L194592;
+  #L194590.  return @kind void;
+  #L194592.  if v2 != 0 then goto L19459a;
+  #L194596.  v2:= "" @kind object;
+  #L19459a.  call temp:= `shouldDrawText`(v0) @signature `Lcom/google/android/material/chip/ChipDrawable;.shouldDrawText:()Z` @kind virtual;
+  #L1945a0.  v0:= temp;
+  #L1945a2.  if v0 == 0 then goto L1945aa;
+  #L1945a6.  v0:= 0I;
+  #L1945a8.  goto L1945ac;
+  #L1945aa.  v0:= v2 @kind object;
+  #L1945ac.  call `setText`(v1, v0, v3) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setText:(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V` @kind super;
+  #L1945b2.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1945b6.  if v0 == 0 then goto L1945c0;
+  #L1945ba.  call `setText`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1945c0.  return @kind void;
+}
+procedure `void` `setTextAppearance`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `resId`) @signature `Lcom/google/android/material/chip/Chip;.setTextAppearance:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L194628.  call `setTextAppearance`(v1, v2) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setTextAppearance:(I)V` @kind super;
+  #L19462e.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L194632.  if v0 == 0 then goto L19463c;
+  #L194636.  call `setTextAppearanceResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setTextAppearanceResource:(I)V` @kind virtual;
+  #L19463c.  call `updateTextPaintDrawState`(v1) @signature `Lcom/google/android/material/chip/Chip;.updateTextPaintDrawState:()V` @kind direct;
+  #L194642.  return @kind void;
+}
+procedure `void` `setTextAppearance`(`com.google.android.material.chip.Chip` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `int` v3 @name `resId`) @signature `Lcom/google/android/material/chip/Chip;.setTextAppearance:(Landroid/content/Context;I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1945d4.  call `setTextAppearance`(v1, v2, v3) @signature `Landroidx/appcompat/widget/AppCompatCheckBox;.setTextAppearance:(Landroid/content/Context;I)V` @kind super;
+  #L1945da.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1945de.  if v0 == 0 then goto L1945e8;
+  #L1945e2.  call `setTextAppearanceResource`(v0, v3) @signature `Lcom/google/android/material/chip/ChipDrawable;.setTextAppearanceResource:(I)V` @kind virtual;
+  #L1945e8.  call `updateTextPaintDrawState`(v1) @signature `Lcom/google/android/material/chip/Chip;.updateTextPaintDrawState:()V` @kind direct;
+  #L1945ee.  return @kind void;
+}
+procedure `void` `setTextAppearance`(`com.google.android.material.chip.Chip` v1 @kind this, `com.google.android.material.resources.TextAppearance` v2 @kind object @name `textAppearance`) @signature `Lcom/google/android/material/chip/Chip;.setTextAppearance:(Lcom/google/android/material/resources/TextAppearance;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L194600.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L194604.  if v0 == 0 then goto L19460e;
+  #L194608.  call `setTextAppearance`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setTextAppearance:(Lcom/google/android/material/resources/TextAppearance;)V` @kind virtual;
+  #L19460e.  call `updateTextPaintDrawState`(v1) @signature `Lcom/google/android/material/chip/Chip;.updateTextPaintDrawState:()V` @kind direct;
+  #L194614.  return @kind void;
+}
+procedure `void` `setTextAppearanceResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setTextAppearanceResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L194654.  call temp:= `getContext`(v1) @signature `Lcom/google/android/material/chip/Chip;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L19465a.  v0:= temp @kind object;
+  #L19465c.  call `setTextAppearance`(v1, v0, v2) @signature `Lcom/google/android/material/chip/Chip;.setTextAppearance:(Landroid/content/Context;I)V` @kind virtual;
+  #L194662.  return @kind void;
+}
+procedure `void` `setTextEndPadding`(`com.google.android.material.chip.Chip` v1 @kind this, `float` v2 @name `textEndPadding`) @signature `Lcom/google/android/material/chip/Chip;.setTextEndPadding:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L194674.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L194678.  if v0 == 0 then goto L194682;
+  #L19467c.  call `setTextEndPadding`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setTextEndPadding:(F)V` @kind virtual;
+  #L194682.  return @kind void;
+}
+procedure `void` `setTextEndPaddingResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setTextEndPaddingResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L194694.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L194698.  if v0 == 0 then goto L1946a2;
+  #L19469c.  call `setTextEndPaddingResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setTextEndPaddingResource:(I)V` @kind virtual;
+  #L1946a2.  return @kind void;
+}
+procedure `void` `setTextStartPadding`(`com.google.android.material.chip.Chip` v1 @kind this, `float` v2 @name `textStartPadding`) @signature `Lcom/google/android/material/chip/Chip;.setTextStartPadding:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1946b4.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1946b8.  if v0 == 0 then goto L1946c2;
+  #L1946bc.  call `setTextStartPadding`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setTextStartPadding:(F)V` @kind virtual;
+  #L1946c2.  return @kind void;
+}
+procedure `void` `setTextStartPaddingResource`(`com.google.android.material.chip.Chip` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/Chip;.setTextStartPaddingResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1946d4.  v0:= v1.`com.google.android.material.chip.Chip.chipDrawable` @type ^`com.google.android.material.chip.ChipDrawable` @kind object;
+  #L1946d8.  if v0 == 0 then goto L1946e2;
+  #L1946dc.  call `setTextStartPaddingResource`(v0, v2) @signature `Lcom/google/android/material/chip/ChipDrawable;.setTextStartPaddingResource:(I)V` @kind virtual;
+  #L1946e2.  return @kind void;
+}
+procedure `boolean` `shouldEnsureMinTouchTargetSize`(`com.google.android.material.chip.Chip` v1 @kind this) @signature `Lcom/google/android/material/chip/Chip;.shouldEnsureMinTouchTargetSize:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192f34.  v0:= v1.`com.google.android.material.chip.Chip.ensureMinTouchTargetSize` @type ^`boolean` @kind boolean;
+  #L192f38.  return v0;
+}

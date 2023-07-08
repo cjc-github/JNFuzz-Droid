@@ -1,0 +1,164 @@
+record `com.google.android.material.textview.MaterialTextView` @kind class @AccessFlag PUBLIC extends `androidx.appcompat.widget.AppCompatTextView` @kind class {
+}
+procedure `void` `<init>`(`com.google.android.material.textview.MaterialTextView` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/textview/MaterialTextView;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1bc124.  v0:= 0I;
+  #L1bc126.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/textview/MaterialTextView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1bc12c.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.textview.MaterialTextView` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/textview/MaterialTextView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1bc140.  v0:= 16842884I;
+  #L1bc146.  call `<init>`(v1, v2, v3, v0) @signature `Lcom/google/android/material/textview/MaterialTextView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1bc14c.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.textview.MaterialTextView` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`, `int` v4 @name `defStyleAttr`) @signature `Lcom/google/android/material/textview/MaterialTextView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1bc160.  v0:= 0I;
+  #L1bc162.  call `<init>`(v1, v2, v3, v4, v0) @signature `Lcom/google/android/material/textview/MaterialTextView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;II)V` @kind direct;
+  #L1bc168.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.textview.MaterialTextView` v3 @kind this, `android.content.Context` v4 @kind object @name `context`, `android.util.AttributeSet` v5 @kind object @name `attrs`, `int` v6 @name `defStyleAttr`, `int` v7 @name `defStyleRes`) @signature `Lcom/google/android/material/textview/MaterialTextView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;II)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1bc17c.  call `<init>`(v3, v4, v5, v6) @signature `Landroidx/appcompat/widget/AppCompatTextView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1bc182.  call temp:= `canApplyTextAppearanceLineHeight`(v4) @signature `Lcom/google/android/material/textview/MaterialTextView;.canApplyTextAppearanceLineHeight:(Landroid/content/Context;)Z` @kind static;
+  #L1bc188.  v0:= temp;
+  #L1bc18a.  if v0 == 0 then goto L1bc1b6;
+  #L1bc18e.  call temp:= `getTheme`(v4) @signature `Landroid/content/Context;.getTheme:()Landroid/content/res/Resources$Theme;` @kind virtual;
+  #L1bc194.  v0:= temp @kind object;
+  #L1bc196.  call temp:= `viewAttrsHasLineHeight`(v4, v0, v5, v6, v7) @signature `Lcom/google/android/material/textview/MaterialTextView;.viewAttrsHasLineHeight:(Landroid/content/Context;Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;II)Z` @kind static;
+  #L1bc19c.  v1:= temp;
+  #L1bc19e.  if v1 != 0 then goto L1bc1b6;
+  #L1bc1a2.  call temp:= `findViewAppearanceResourceId`(v0, v5, v6, v7) @signature `Lcom/google/android/material/textview/MaterialTextView;.findViewAppearanceResourceId:(Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;II)I` @kind static;
+  #L1bc1a8.  v1:= temp;
+  #L1bc1aa.  v2:= -1I;
+  #L1bc1ac.  if v1 == v2 then goto L1bc1b6;
+  #L1bc1b0.  call `applyLineHeightFromViewAppearance`(v3, v0, v1) @signature `Lcom/google/android/material/textview/MaterialTextView;.applyLineHeightFromViewAppearance:(Landroid/content/res/Resources$Theme;I)V` @kind direct;
+  #L1bc1b6.  return @kind void;
+}
+procedure `void` `applyLineHeightFromViewAppearance`(`com.google.android.material.textview.MaterialTextView` v5 @kind this, `android.content.res.Resources$Theme` v6 @kind object @name `theme`, `int` v7 @name `resId`) @signature `Lcom/google/android/material/textview/MaterialTextView;.applyLineHeightFromViewAppearance:(Landroid/content/res/Resources$Theme;I)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1bc1c8.  v0:= `@@com.google.android.material.R$styleable.MaterialTextAppearance` @type ^`int`[] @kind object;
+  #L1bc1cc.  call temp:= `obtainStyledAttributes`(v6, v7, v0) @signature `Landroid/content/res/Resources$Theme;.obtainStyledAttributes:(I[I)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1bc1d2.  v0:= temp @kind object;
+  #L1bc1d4.  
+  #L1bc1d6.  call temp:= `getContext`(v5) @signature `Lcom/google/android/material/textview/MaterialTextView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1bc1dc.  v1:= temp @kind object;
+  #L1bc1de.  v2:= 2I;
+  #L1bc1e0.  v2:= new `int`[v2];
+  #L1bc1e4.  v3:= `@@com.google.android.material.R$styleable.MaterialTextAppearance_android_lineHeight` @type ^`int`;
+  #L1bc1e8.  v4:= 0I;
+  #L1bc1ea.  v2[v4]:= v3;
+  #L1bc1ee.  v3:= `@@com.google.android.material.R$styleable.MaterialTextAppearance_lineHeight` @type ^`int`;
+  #L1bc1f2.  v4:= 1I;
+  #L1bc1f4.  v2[v4]:= v3;
+  #L1bc1f8.  call temp:= `readFirstAvailableDimension`(v1, v0, v2) @signature `Lcom/google/android/material/textview/MaterialTextView;.readFirstAvailableDimension:(Landroid/content/Context;Landroid/content/res/TypedArray;[I)I` @kind static;
+  #L1bc1fe.  v1:= temp;
+  #L1bc200.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1bc206.  if v1 < 0 then goto L1bc210;
+  #L1bc20a.  call `setLineHeight`(v5, v1) @signature `Lcom/google/android/material/textview/MaterialTextView;.setLineHeight:(I)V` @kind virtual;
+  #L1bc210.  return @kind void;
+}
+procedure `boolean` `canApplyTextAppearanceLineHeight`(`android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/textview/MaterialTextView;.canApplyTextAppearanceLineHeight:(Landroid/content/Context;)Z` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1bc04c.  v0:= `@@com.google.android.material.R$attr.textAppearanceLineHeightEnabled` @type ^`int`;
+  #L1bc050.  v1:= 1I;
+  #L1bc052.  call temp:= `resolveBoolean`(v2, v0, v1) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolveBoolean:(Landroid/content/Context;IZ)Z` @kind static;
+  #L1bc058.  v0:= temp;
+  #L1bc05a.  return v0;
+}
+procedure `int` `findViewAppearanceResourceId`(`android.content.res.Resources$Theme` v3 @kind object @name `theme`, `android.util.AttributeSet` v4 @kind object @name `attrs`, `int` v5 @name `defStyleAttr`, `int` v6 @name `defStyleRes`) @signature `Lcom/google/android/material/textview/MaterialTextView;.findViewAppearanceResourceId:(Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;II)I` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1bc0bc.  v0:= `@@com.google.android.material.R$styleable.MaterialTextView` @type ^`int`[] @kind object;
+  #L1bc0c0.  call temp:= `obtainStyledAttributes`(v3, v4, v0, v5, v6) @signature `Landroid/content/res/Resources$Theme;.obtainStyledAttributes:(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1bc0c6.  v0:= temp @kind object;
+  #L1bc0c8.  v1:= `@@com.google.android.material.R$styleable.MaterialTextView_android_textAppearance` @type ^`int`;
+  #L1bc0cc.  v2:= -1I;
+  #L1bc0ce.  call temp:= `getResourceId`(v0, v1, v2) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1bc0d4.  v1:= temp;
+  #L1bc0d6.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1bc0dc.  return v1;
+}
+procedure `int` `readFirstAvailableDimension`(`android.content.Context` v4 @kind object @name `context`, `android.content.res.TypedArray` v5 @kind object @name `attributes`, `int`[] v6 @kind object @name `indices`) @signature `Lcom/google/android/material/textview/MaterialTextView;.readFirstAvailableDimension:(Landroid/content/Context;Landroid/content/res/TypedArray;[I)I` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1bc0f0.  v0:= -1I;
+  #L1bc0f2.  v1:= 0I;
+  #L1bc0f4.  v2:= length @variable v6;
+  #L1bc0f6.  if v1 >= v2 then goto L1bc112;
+  #L1bc0fa.  if v0 >= 0 then goto L1bc112;
+  #L1bc0fe.  v2:= v6[v1];
+  #L1bc102.  v3:= -1I;
+  #L1bc104.  call temp:= `getDimensionPixelSize`(v4, v5, v2, v3) @signature `Lcom/google/android/material/resources/MaterialResources;.getDimensionPixelSize:(Landroid/content/Context;Landroid/content/res/TypedArray;II)I` @kind static;
+  #L1bc10a.  v0:= temp;
+  #L1bc10c.  v1:= v1 + 1;
+  #L1bc110.  goto L1bc0f4;
+  #L1bc112.  return v0;
+}
+procedure `boolean` `viewAttrsHasLineHeight`(`android.content.Context` v5 @kind object @name `context`, `android.content.res.Resources$Theme` v6 @kind object @name `theme`, `android.util.AttributeSet` v7 @kind object @name `attrs`, `int` v8 @name `defStyleAttr`, `int` v9 @name `defStyleRes`) @signature `Lcom/google/android/material/textview/MaterialTextView;.viewAttrsHasLineHeight:(Landroid/content/Context;Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;II)Z` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1bc06c.  v0:= `@@com.google.android.material.R$styleable.MaterialTextView` @type ^`int`[] @kind object;
+  #L1bc070.  call temp:= `obtainStyledAttributes`(v6, v7, v0, v8, v9) @signature `Landroid/content/res/Resources$Theme;.obtainStyledAttributes:(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1bc076.  v0:= temp @kind object;
+  #L1bc078.  v1:= 2I;
+  #L1bc07a.  v1:= new `int`[v1];
+  #L1bc07e.  v2:= `@@com.google.android.material.R$styleable.MaterialTextView_android_lineHeight` @type ^`int`;
+  #L1bc082.  v3:= 0I;
+  #L1bc084.  v1[v3]:= v2;
+  #L1bc088.  v2:= `@@com.google.android.material.R$styleable.MaterialTextView_lineHeight` @type ^`int`;
+  #L1bc08c.  v4:= 1I;
+  #L1bc08e.  v1[v4]:= v2;
+  #L1bc092.  call temp:= `readFirstAvailableDimension`(v5, v0, v1) @signature `Lcom/google/android/material/textview/MaterialTextView;.readFirstAvailableDimension:(Landroid/content/Context;Landroid/content/res/TypedArray;[I)I` @kind static;
+  #L1bc098.  v1:= temp;
+  #L1bc09a.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1bc0a0.  v2:= -1I;
+  #L1bc0a2.  if v1 == v2 then goto L1bc0a8;
+  #L1bc0a6.  v3:= v4;
+  #L1bc0a8.  return v3;
+}
+procedure `void` `setTextAppearance`(`com.google.android.material.textview.MaterialTextView` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `int` v3 @name `resId`) @signature `Lcom/google/android/material/textview/MaterialTextView;.setTextAppearance:(Landroid/content/Context;I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1bc224.  call `setTextAppearance`(v1, v2, v3) @signature `Landroidx/appcompat/widget/AppCompatTextView;.setTextAppearance:(Landroid/content/Context;I)V` @kind super;
+  #L1bc22a.  call temp:= `canApplyTextAppearanceLineHeight`(v2) @signature `Lcom/google/android/material/textview/MaterialTextView;.canApplyTextAppearanceLineHeight:(Landroid/content/Context;)Z` @kind static;
+  #L1bc230.  v0:= temp;
+  #L1bc232.  if v0 == 0 then goto L1bc244;
+  #L1bc236.  call temp:= `getTheme`(v2) @signature `Landroid/content/Context;.getTheme:()Landroid/content/res/Resources$Theme;` @kind virtual;
+  #L1bc23c.  v0:= temp @kind object;
+  #L1bc23e.  call `applyLineHeightFromViewAppearance`(v1, v0, v3) @signature `Lcom/google/android/material/textview/MaterialTextView;.applyLineHeightFromViewAppearance:(Landroid/content/res/Resources$Theme;I)V` @kind direct;
+  #L1bc244.  return @kind void;
+}

@@ -1,0 +1,386 @@
+record `androidx.transition.Transition` @kind class @AccessFlag PUBLIC_ABSTRACT extends `java.lang.Cloneable` @kind interface {
+  `java.util.ArrayList` `androidx.transition.Transition.mAnimators` @AccessFlag PRIVATE;
+  `boolean` `androidx.transition.Transition.mCanRemoveViews` @AccessFlag ;
+  `java.util.ArrayList` `androidx.transition.Transition.mCurrentAnimators` @AccessFlag ;
+  `long` `androidx.transition.Transition.mDuration` @AccessFlag ;
+  `androidx.transition.TransitionValuesMaps` `androidx.transition.Transition.mEndValues` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.transition.Transition.mEndValuesList` @AccessFlag PRIVATE;
+  `boolean` `androidx.transition.Transition.mEnded` @AccessFlag PRIVATE;
+  `androidx.transition.Transition$EpicenterCallback` `androidx.transition.Transition.mEpicenterCallback` @AccessFlag PRIVATE;
+  `android.animation.TimeInterpolator` `androidx.transition.Transition.mInterpolator` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.transition.Transition.mListeners` @AccessFlag PRIVATE;
+  `int`[] `androidx.transition.Transition.mMatchOrder` @AccessFlag PRIVATE;
+  `java.lang.String` `androidx.transition.Transition.mName` @AccessFlag PRIVATE;
+  `androidx.collection.ArrayMap` `androidx.transition.Transition.mNameOverrides` @AccessFlag PRIVATE;
+  `int` `androidx.transition.Transition.mNumInstances` @AccessFlag PRIVATE;
+  `androidx.transition.TransitionSet` `androidx.transition.Transition.mParent` @AccessFlag ;
+  `androidx.transition.PathMotion` `androidx.transition.Transition.mPathMotion` @AccessFlag PRIVATE;
+  `boolean` `androidx.transition.Transition.mPaused` @AccessFlag PRIVATE;
+  `androidx.transition.TransitionPropagation` `androidx.transition.Transition.mPropagation` @AccessFlag ;
+  `android.view.ViewGroup` `androidx.transition.Transition.mSceneRoot` @AccessFlag PRIVATE;
+  `long` `androidx.transition.Transition.mStartDelay` @AccessFlag PRIVATE;
+  `androidx.transition.TransitionValuesMaps` `androidx.transition.Transition.mStartValues` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.transition.Transition.mStartValuesList` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.transition.Transition.mTargetChildExcludes` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.transition.Transition.mTargetExcludes` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.transition.Transition.mTargetIdChildExcludes` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.transition.Transition.mTargetIdExcludes` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.transition.Transition.mTargetIds` @AccessFlag ;
+  `java.util.ArrayList` `androidx.transition.Transition.mTargetNameExcludes` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.transition.Transition.mTargetNames` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.transition.Transition.mTargetTypeChildExcludes` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.transition.Transition.mTargetTypeExcludes` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.transition.Transition.mTargetTypes` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.transition.Transition.mTargets` @AccessFlag ;
+}
+global `boolean` `@@androidx.transition.Transition.DBG` @AccessFlag STATIC_FINAL;
+global `int`[] `@@androidx.transition.Transition.DEFAULT_MATCH_ORDER` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.transition.Transition.LOG_TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.transition.Transition.MATCH_FIRST` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.transition.Transition.MATCH_ID` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.transition.Transition.MATCH_ID_STR` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.transition.Transition.MATCH_INSTANCE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.transition.Transition.MATCH_INSTANCE_STR` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.transition.Transition.MATCH_ITEM_ID` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.transition.Transition.MATCH_ITEM_ID_STR` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.transition.Transition.MATCH_LAST` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.transition.Transition.MATCH_NAME` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.transition.Transition.MATCH_NAME_STR` @AccessFlag PRIVATE_STATIC_FINAL;
+global `androidx.transition.PathMotion` `@@androidx.transition.Transition.STRAIGHT_PATH_MOTION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.ThreadLocal` `@@androidx.transition.Transition.sRunningAnimators` @AccessFlag PRIVATE_STATIC;
+procedure `void` `<clinit>`() @signature `Landroidx/transition/Transition;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.transition.Transition` v3 @kind this) @signature `Landroidx/transition/Transition;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.transition.Transition` v10 @kind this, `android.content.Context` v11 @kind object @name `context`, `android.util.AttributeSet` v12 @kind object @name `attrs`) @signature `Landroidx/transition/Transition;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `addUnmatched`(`androidx.transition.Transition` v4 @kind this, `androidx.collection.ArrayMap` v5 @kind object, `androidx.collection.ArrayMap` v6 @kind object) @signature `Landroidx/transition/Transition;.addUnmatched:(Landroidx/collection/ArrayMap;Landroidx/collection/ArrayMap;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `addViewValues`(`androidx.transition.TransitionValuesMaps` v9 @kind object @name `transitionValuesMaps`, `android.view.View` v10 @kind object @name `view`, `androidx.transition.TransitionValues` v11 @kind object @name `transitionValues`) @signature `Landroidx/transition/Transition;.addViewValues:(Landroidx/transition/TransitionValuesMaps;Landroid/view/View;Landroidx/transition/TransitionValues;)V` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `boolean` `alreadyContains`(`int`[] v3 @kind object @name `array`, `int` v4 @name `searchIndex`) @signature `Landroidx/transition/Transition;.alreadyContains:([II)Z` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `captureHierarchy`(`androidx.transition.Transition` v4 @kind this, `android.view.View` v5 @kind object @name `view`, `boolean` v6 @name `start`) @signature `Landroidx/transition/Transition;.captureHierarchy:(Landroid/view/View;Z)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `java.util.ArrayList` `excludeId`(`androidx.transition.Transition` v1 @kind this, `java.util.ArrayList` v2 @kind object, `int` v3 @name `targetId`, `boolean` v4 @name `exclude`) @signature `Landroidx/transition/Transition;.excludeId:(Ljava/util/ArrayList;IZ)Ljava/util/ArrayList;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `java.util.ArrayList` `excludeObject`(`java.util.ArrayList` v0 @kind object, `java.lang.Object` v1 @kind object, `boolean` v2 @name `exclude`) @signature `Landroidx/transition/Transition;.excludeObject:(Ljava/util/ArrayList;Ljava/lang/Object;Z)Ljava/util/ArrayList;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `java.util.ArrayList` `excludeType`(`androidx.transition.Transition` v0 @kind this, `java.util.ArrayList` v1 @kind object, `java.lang.Class` v2 @kind object, `boolean` v3 @name `exclude`) @signature `Landroidx/transition/Transition;.excludeType:(Ljava/util/ArrayList;Ljava/lang/Class;Z)Ljava/util/ArrayList;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `java.util.ArrayList` `excludeView`(`androidx.transition.Transition` v0 @kind this, `java.util.ArrayList` v1 @kind object, `android.view.View` v2 @kind object @name `target`, `boolean` v3 @name `exclude`) @signature `Landroidx/transition/Transition;.excludeView:(Ljava/util/ArrayList;Landroid/view/View;Z)Ljava/util/ArrayList;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.collection.ArrayMap` `getRunningAnimators`() @signature `Landroidx/transition/Transition;.getRunningAnimators:()Landroidx/collection/ArrayMap;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `boolean` `isValidMatch`(`int` v2 @name `match`) @signature `Landroidx/transition/Transition;.isValidMatch:(I)Z` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `boolean` `isValueChanged`(`androidx.transition.TransitionValues` v3 @kind object @name `oldValues`, `androidx.transition.TransitionValues` v4 @kind object @name `newValues`, `java.lang.String` v5 @kind object @name `key`) @signature `Landroidx/transition/Transition;.isValueChanged:(Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;Ljava/lang/String;)Z` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `matchIds`(`androidx.transition.Transition` v7 @kind this, `androidx.collection.ArrayMap` v8 @kind object, `androidx.collection.ArrayMap` v9 @kind object, `android.util.SparseArray` v10 @kind object, `android.util.SparseArray` v11 @kind object) @signature `Landroidx/transition/Transition;.matchIds:(Landroidx/collection/ArrayMap;Landroidx/collection/ArrayMap;Landroid/util/SparseArray;Landroid/util/SparseArray;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `matchInstances`(`androidx.transition.Transition` v5 @kind this, `androidx.collection.ArrayMap` v6 @kind object, `androidx.collection.ArrayMap` v7 @kind object) @signature `Landroidx/transition/Transition;.matchInstances:(Landroidx/collection/ArrayMap;Landroidx/collection/ArrayMap;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `matchItemIds`(`androidx.transition.Transition` v7 @kind this, `androidx.collection.ArrayMap` v8 @kind object, `androidx.collection.ArrayMap` v9 @kind object, `androidx.collection.LongSparseArray` v10 @kind object, `androidx.collection.LongSparseArray` v11 @kind object) @signature `Landroidx/transition/Transition;.matchItemIds:(Landroidx/collection/ArrayMap;Landroidx/collection/ArrayMap;Landroidx/collection/LongSparseArray;Landroidx/collection/LongSparseArray;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `matchNames`(`androidx.transition.Transition` v7 @kind this, `androidx.collection.ArrayMap` v8 @kind object, `androidx.collection.ArrayMap` v9 @kind object, `androidx.collection.ArrayMap` v10 @kind object, `androidx.collection.ArrayMap` v11 @kind object) @signature `Landroidx/transition/Transition;.matchNames:(Landroidx/collection/ArrayMap;Landroidx/collection/ArrayMap;Landroidx/collection/ArrayMap;Landroidx/collection/ArrayMap;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `matchStartAndEnd`(`androidx.transition.Transition` v5 @kind this, `androidx.transition.TransitionValuesMaps` v6 @kind object @name `startValues`, `androidx.transition.TransitionValuesMaps` v7 @kind object @name `endValues`) @signature `Landroidx/transition/Transition;.matchStartAndEnd:(Landroidx/transition/TransitionValuesMaps;Landroidx/transition/TransitionValuesMaps;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int`[] `parseMatchOrder`(`java.lang.String` v7 @kind object @name `matchOrderString`) @signature `Landroidx/transition/Transition;.parseMatchOrder:(Ljava/lang/String;)[I` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `runAnimator`(`androidx.transition.Transition` v1 @kind this, `android.animation.Animator` v2 @kind object @name `animator`, `androidx.collection.ArrayMap` v3 @kind object) @signature `Landroidx/transition/Transition;.runAnimator:(Landroid/animation/Animator;Landroidx/collection/ArrayMap;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `addListener`(`androidx.transition.Transition` v1 @kind this, `androidx.transition.Transition$TransitionListener` v2 @kind object @name `listener`) @signature `Landroidx/transition/Transition;.addListener:(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `addTarget`(`androidx.transition.Transition` v2 @kind this, `int` v3 @name `targetId`) @signature `Landroidx/transition/Transition;.addTarget:(I)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `addTarget`(`androidx.transition.Transition` v1 @kind this, `android.view.View` v2 @kind object @name `target`) @signature `Landroidx/transition/Transition;.addTarget:(Landroid/view/View;)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `addTarget`(`androidx.transition.Transition` v1 @kind this, `java.lang.Class` v2 @kind object) @signature `Landroidx/transition/Transition;.addTarget:(Ljava/lang/Class;)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `addTarget`(`androidx.transition.Transition` v1 @kind this, `java.lang.String` v2 @kind object @name `targetName`) @signature `Landroidx/transition/Transition;.addTarget:(Ljava/lang/String;)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `animate`(`androidx.transition.Transition` v4 @kind this, `android.animation.Animator` v5 @kind object @name `animator`) @signature `Landroidx/transition/Transition;.animate:(Landroid/animation/Animator;)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `cancel`(`androidx.transition.Transition` v5 @kind this) @signature `Landroidx/transition/Transition;.cancel:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `captureEndValues`(`androidx.transition.TransitionValues` v0 @kind object) @signature `Landroidx/transition/Transition;.captureEndValues:(Landroidx/transition/TransitionValues;)V` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `void` `capturePropagationValues`(`androidx.transition.Transition` v5 @kind this, `androidx.transition.TransitionValues` v6 @kind object @name `transitionValues`) @signature `Landroidx/transition/Transition;.capturePropagationValues:(Landroidx/transition/TransitionValues;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `captureStartValues`(`androidx.transition.TransitionValues` v0 @kind object) @signature `Landroidx/transition/Transition;.captureStartValues:(Landroidx/transition/TransitionValues;)V` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `void` `captureValues`(`androidx.transition.Transition` v6 @kind this, `android.view.ViewGroup` v7 @kind object @name `sceneRoot`, `boolean` v8 @name `start`) @signature `Landroidx/transition/Transition;.captureValues:(Landroid/view/ViewGroup;Z)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `clearValues`(`androidx.transition.Transition` v1 @kind this, `boolean` v2 @name `start`) @signature `Landroidx/transition/Transition;.clearValues:(Z)V` @AccessFlag  {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `clone`(`androidx.transition.Transition` v3 @kind this) @signature `Landroidx/transition/Transition;.clone:()Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.Object` `clone`(`androidx.transition.Transition` v1 @kind this) @signature `Landroidx/transition/Transition;.clone:()Ljava/lang/Object;` @AccessFlag PUBLIC_SYNTHETIC {
+
+  # return;
+}
+procedure `android.animation.Animator` `createAnimator`(`androidx.transition.Transition` v1 @kind this, `android.view.ViewGroup` v2 @kind object @name `sceneRoot`, `androidx.transition.TransitionValues` v3 @kind object @name `startValues`, `androidx.transition.TransitionValues` v4 @kind object @name `endValues`) @signature `Landroidx/transition/Transition;.createAnimator:(Landroid/view/ViewGroup;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Landroid/animation/Animator;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `createAnimators`(`androidx.transition.Transition` v23 @kind this, `android.view.ViewGroup` v24 @kind object @name `sceneRoot`, `androidx.transition.TransitionValuesMaps` v25 @kind object @name `startValues`, `androidx.transition.TransitionValuesMaps` v26 @kind object @name `endValues`, `java.util.ArrayList` v27 @kind object, `java.util.ArrayList` v28 @kind object) @signature `Landroidx/transition/Transition;.createAnimators:(Landroid/view/ViewGroup;Landroidx/transition/TransitionValuesMaps;Landroidx/transition/TransitionValuesMaps;Ljava/util/ArrayList;Ljava/util/ArrayList;)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `end`(`androidx.transition.Transition` v5 @kind this) @signature `Landroidx/transition/Transition;.end:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `excludeChildren`(`androidx.transition.Transition` v1 @kind this, `int` v2 @name `targetId`, `boolean` v3 @name `exclude`) @signature `Landroidx/transition/Transition;.excludeChildren:(IZ)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `excludeChildren`(`androidx.transition.Transition` v1 @kind this, `android.view.View` v2 @kind object @name `target`, `boolean` v3 @name `exclude`) @signature `Landroidx/transition/Transition;.excludeChildren:(Landroid/view/View;Z)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `excludeChildren`(`androidx.transition.Transition` v1 @kind this, `java.lang.Class` v2 @kind object, `boolean` v3 @name `exclude`) @signature `Landroidx/transition/Transition;.excludeChildren:(Ljava/lang/Class;Z)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `excludeTarget`(`androidx.transition.Transition` v1 @kind this, `int` v2 @name `targetId`, `boolean` v3 @name `exclude`) @signature `Landroidx/transition/Transition;.excludeTarget:(IZ)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `excludeTarget`(`androidx.transition.Transition` v1 @kind this, `android.view.View` v2 @kind object @name `target`, `boolean` v3 @name `exclude`) @signature `Landroidx/transition/Transition;.excludeTarget:(Landroid/view/View;Z)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `excludeTarget`(`androidx.transition.Transition` v1 @kind this, `java.lang.Class` v2 @kind object, `boolean` v3 @name `exclude`) @signature `Landroidx/transition/Transition;.excludeTarget:(Ljava/lang/Class;Z)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `excludeTarget`(`androidx.transition.Transition` v1 @kind this, `java.lang.String` v2 @kind object @name `targetName`, `boolean` v3 @name `exclude`) @signature `Landroidx/transition/Transition;.excludeTarget:(Ljava/lang/String;Z)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `forceToEnd`(`androidx.transition.Transition` v7 @kind this, `android.view.ViewGroup` v8 @kind object @name `sceneRoot`) @signature `Landroidx/transition/Transition;.forceToEnd:(Landroid/view/ViewGroup;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `long` `getDuration`(`androidx.transition.Transition` v2 @kind this) @signature `Landroidx/transition/Transition;.getDuration:()J` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.graphics.Rect` `getEpicenter`(`androidx.transition.Transition` v1 @kind this) @signature `Landroidx/transition/Transition;.getEpicenter:()Landroid/graphics/Rect;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.Transition$EpicenterCallback` `getEpicenterCallback`(`androidx.transition.Transition` v1 @kind this) @signature `Landroidx/transition/Transition;.getEpicenterCallback:()Landroidx/transition/Transition$EpicenterCallback;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.animation.TimeInterpolator` `getInterpolator`(`androidx.transition.Transition` v1 @kind this) @signature `Landroidx/transition/Transition;.getInterpolator:()Landroid/animation/TimeInterpolator;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.TransitionValues` `getMatchedTransitionValues`(`androidx.transition.Transition` v7 @kind this, `android.view.View` v8 @kind object @name `view`, `boolean` v9 @name `viewInStart`) @signature `Landroidx/transition/Transition;.getMatchedTransitionValues:(Landroid/view/View;Z)Landroidx/transition/TransitionValues;` @AccessFlag  {
+
+  # return;
+}
+procedure `java.lang.String` `getName`(`androidx.transition.Transition` v1 @kind this) @signature `Landroidx/transition/Transition;.getName:()Ljava/lang/String;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.PathMotion` `getPathMotion`(`androidx.transition.Transition` v1 @kind this) @signature `Landroidx/transition/Transition;.getPathMotion:()Landroidx/transition/PathMotion;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.TransitionPropagation` `getPropagation`(`androidx.transition.Transition` v1 @kind this) @signature `Landroidx/transition/Transition;.getPropagation:()Landroidx/transition/TransitionPropagation;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `long` `getStartDelay`(`androidx.transition.Transition` v2 @kind this) @signature `Landroidx/transition/Transition;.getStartDelay:()J` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.util.List` `getTargetIds`(`androidx.transition.Transition` v1 @kind this) @signature `Landroidx/transition/Transition;.getTargetIds:()Ljava/util/List;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.util.List` `getTargetNames`(`androidx.transition.Transition` v1 @kind this) @signature `Landroidx/transition/Transition;.getTargetNames:()Ljava/util/List;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.util.List` `getTargetTypes`(`androidx.transition.Transition` v1 @kind this) @signature `Landroidx/transition/Transition;.getTargetTypes:()Ljava/util/List;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.util.List` `getTargets`(`androidx.transition.Transition` v1 @kind this) @signature `Landroidx/transition/Transition;.getTargets:()Ljava/util/List;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.String`[] `getTransitionProperties`(`androidx.transition.Transition` v1 @kind this) @signature `Landroidx/transition/Transition;.getTransitionProperties:()[Ljava/lang/String;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.TransitionValues` `getTransitionValues`(`androidx.transition.Transition` v2 @kind this, `android.view.View` v3 @kind object @name `view`, `boolean` v4 @name `start`) @signature `Landroidx/transition/Transition;.getTransitionValues:(Landroid/view/View;Z)Landroidx/transition/TransitionValues;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isTransitionRequired`(`androidx.transition.Transition` v6 @kind this, `androidx.transition.TransitionValues` v7 @kind object @name `startValues`, `androidx.transition.TransitionValues` v8 @kind object @name `endValues`) @signature `Landroidx/transition/Transition;.isTransitionRequired:(Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isValidTarget`(`androidx.transition.Transition` v6 @kind this, `android.view.View` v7 @kind object @name `target`) @signature `Landroidx/transition/Transition;.isValidTarget:(Landroid/view/View;)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `pause`(`androidx.transition.Transition` v7 @kind this, `android.view.View` v8 @kind object @name `sceneRoot`) @signature `Landroidx/transition/Transition;.pause:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `playTransition`(`androidx.transition.Transition` v12 @kind this, `android.view.ViewGroup` v13 @kind object @name `sceneRoot`) @signature `Landroidx/transition/Transition;.playTransition:(Landroid/view/ViewGroup;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `removeListener`(`androidx.transition.Transition` v1 @kind this, `androidx.transition.Transition$TransitionListener` v2 @kind object @name `listener`) @signature `Landroidx/transition/Transition;.removeListener:(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `removeTarget`(`androidx.transition.Transition` v2 @kind this, `int` v3 @name `targetId`) @signature `Landroidx/transition/Transition;.removeTarget:(I)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `removeTarget`(`androidx.transition.Transition` v1 @kind this, `android.view.View` v2 @kind object @name `target`) @signature `Landroidx/transition/Transition;.removeTarget:(Landroid/view/View;)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `removeTarget`(`androidx.transition.Transition` v1 @kind this, `java.lang.Class` v2 @kind object) @signature `Landroidx/transition/Transition;.removeTarget:(Ljava/lang/Class;)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `removeTarget`(`androidx.transition.Transition` v1 @kind this, `java.lang.String` v2 @kind object @name `targetName`) @signature `Landroidx/transition/Transition;.removeTarget:(Ljava/lang/String;)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `resume`(`androidx.transition.Transition` v7 @kind this, `android.view.View` v8 @kind object @name `sceneRoot`) @signature `Landroidx/transition/Transition;.resume:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `runAnimators`(`androidx.transition.Transition` v4 @kind this) @signature `Landroidx/transition/Transition;.runAnimators:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `setCanRemoveViews`(`androidx.transition.Transition` v0 @kind this, `boolean` v1 @name `canRemoveViews`) @signature `Landroidx/transition/Transition;.setCanRemoveViews:(Z)V` @AccessFlag  {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `setDuration`(`androidx.transition.Transition` v0 @kind this, `long` v1 @name `duration`) @signature `Landroidx/transition/Transition;.setDuration:(J)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setEpicenterCallback`(`androidx.transition.Transition` v0 @kind this, `androidx.transition.Transition$EpicenterCallback` v1 @kind object @name `epicenterCallback`) @signature `Landroidx/transition/Transition;.setEpicenterCallback:(Landroidx/transition/Transition$EpicenterCallback;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `setInterpolator`(`androidx.transition.Transition` v0 @kind this, `android.animation.TimeInterpolator` v1 @kind object @name `interpolator`) @signature `Landroidx/transition/Transition;.setInterpolator:(Landroid/animation/TimeInterpolator;)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setMatchOrder`(`androidx.transition.Transition` v4 @kind this, `int`[] v5 @kind object @name `matches`) @signature `Landroidx/transition/Transition;.setMatchOrder:([I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setPathMotion`(`androidx.transition.Transition` v1 @kind this, `androidx.transition.PathMotion` v2 @kind object @name `pathMotion`) @signature `Landroidx/transition/Transition;.setPathMotion:(Landroidx/transition/PathMotion;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setPropagation`(`androidx.transition.Transition` v0 @kind this, `androidx.transition.TransitionPropagation` v1 @kind object @name `transitionPropagation`) @signature `Landroidx/transition/Transition;.setPropagation:(Landroidx/transition/TransitionPropagation;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `setSceneRoot`(`androidx.transition.Transition` v0 @kind this, `android.view.ViewGroup` v1 @kind object @name `sceneRoot`) @signature `Landroidx/transition/Transition;.setSceneRoot:(Landroid/view/ViewGroup;)Landroidx/transition/Transition;` @AccessFlag  {
+
+  # return;
+}
+procedure `androidx.transition.Transition` `setStartDelay`(`androidx.transition.Transition` v0 @kind this, `long` v1 @name `startDelay`) @signature `Landroidx/transition/Transition;.setStartDelay:(J)Landroidx/transition/Transition;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `start`(`androidx.transition.Transition` v4 @kind this) @signature `Landroidx/transition/Transition;.start:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `java.lang.String` `toString`(`androidx.transition.Transition` v1 @kind this) @signature `Landroidx/transition/Transition;.toString:()Ljava/lang/String;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.String` `toString`(`androidx.transition.Transition` v7 @kind this, `java.lang.String` v8 @kind object @name `indent`) @signature `Landroidx/transition/Transition;.toString:(Ljava/lang/String;)Ljava/lang/String;` @AccessFlag  {
+
+  # return;
+}

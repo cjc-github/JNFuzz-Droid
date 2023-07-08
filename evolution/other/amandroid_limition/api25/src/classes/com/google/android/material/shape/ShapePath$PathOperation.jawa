@@ -1,0 +1,17 @@
+record `com.google.android.material.shape.ShapePath$PathOperation` @kind class @AccessFlag PUBLIC_ABSTRACT {
+  `android.graphics.Matrix` `com.google.android.material.shape.ShapePath$PathOperation.matrix` @AccessFlag PROTECTED_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.ShapePath$PathOperation` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapePath$PathOperation;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1ae680.  call `<init>`(v1) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1ae686.  v0:= new `android.graphics.Matrix`;
+  #L1ae68a.  call `<init>`(v0) @signature `Landroid/graphics/Matrix;.<init>:()V` @kind direct;
+  #L1ae690.  v1.`com.google.android.material.shape.ShapePath$PathOperation.matrix` @type ^`android.graphics.Matrix` := v0 @kind object;
+  #L1ae694.  return @kind void;
+}
+procedure `void` `applyToPath`(`android.graphics.Matrix` v0 @kind object, `android.graphics.Path` v1 @kind object) @signature `Lcom/google/android/material/shape/ShapePath$PathOperation;.applyToPath:(Landroid/graphics/Matrix;Landroid/graphics/Path;)V` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}

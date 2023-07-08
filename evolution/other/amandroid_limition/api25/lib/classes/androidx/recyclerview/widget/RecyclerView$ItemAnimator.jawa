@@ -1,0 +1,133 @@
+record `androidx.recyclerview.widget.RecyclerView$ItemAnimator` @kind class @AccessFlag PUBLIC_ABSTRACT {
+  `long` `androidx.recyclerview.widget.RecyclerView$ItemAnimator.mAddDuration` @AccessFlag PRIVATE;
+  `long` `androidx.recyclerview.widget.RecyclerView$ItemAnimator.mChangeDuration` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.recyclerview.widget.RecyclerView$ItemAnimator.mFinishedListeners` @AccessFlag PRIVATE;
+  `androidx.recyclerview.widget.RecyclerView$ItemAnimator$ItemAnimatorListener` `androidx.recyclerview.widget.RecyclerView$ItemAnimator.mListener` @AccessFlag PRIVATE;
+  `long` `androidx.recyclerview.widget.RecyclerView$ItemAnimator.mMoveDuration` @AccessFlag PRIVATE;
+  `long` `androidx.recyclerview.widget.RecyclerView$ItemAnimator.mRemoveDuration` @AccessFlag PRIVATE;
+}
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ItemAnimator.FLAG_APPEARED_IN_PRE_LAYOUT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ItemAnimator.FLAG_CHANGED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ItemAnimator.FLAG_INVALIDATED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ItemAnimator.FLAG_MOVED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.RecyclerView$ItemAnimator.FLAG_REMOVED` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<init>`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v2 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `int` `buildAdapterChangeFlagsForAnimations`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v4 @kind object @name `viewHolder`) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.buildAdapterChangeFlagsForAnimations:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `boolean` `animateAppearance`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v0 @kind object, `androidx.recyclerview.widget.RecyclerView$ItemAnimator$ItemHolderInfo` v1 @kind object, `androidx.recyclerview.widget.RecyclerView$ItemAnimator$ItemHolderInfo` v2 @kind object) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.animateAppearance:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;)Z` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `boolean` `animateChange`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v0 @kind object, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind object, `androidx.recyclerview.widget.RecyclerView$ItemAnimator$ItemHolderInfo` v2 @kind object, `androidx.recyclerview.widget.RecyclerView$ItemAnimator$ItemHolderInfo` v3 @kind object) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.animateChange:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;)Z` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `boolean` `animateDisappearance`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v0 @kind object, `androidx.recyclerview.widget.RecyclerView$ItemAnimator$ItemHolderInfo` v1 @kind object, `androidx.recyclerview.widget.RecyclerView$ItemAnimator$ItemHolderInfo` v2 @kind object) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.animateDisappearance:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;)Z` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `boolean` `animatePersistence`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v0 @kind object, `androidx.recyclerview.widget.RecyclerView$ItemAnimator$ItemHolderInfo` v1 @kind object, `androidx.recyclerview.widget.RecyclerView$ItemAnimator$ItemHolderInfo` v2 @kind object) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.animatePersistence:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;)Z` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `boolean` `canReuseUpdatedViewHolder`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v2 @kind object @name `viewHolder`) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.canReuseUpdatedViewHolder:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `canReuseUpdatedViewHolder`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v2 @kind object @name `viewHolder`, `java.util.List` v3 @kind object) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.canReuseUpdatedViewHolder:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Ljava/util/List;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `dispatchAnimationFinished`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v2 @kind object @name `viewHolder`) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.dispatchAnimationFinished:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `void` `dispatchAnimationStarted`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v0 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind object @name `viewHolder`) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.dispatchAnimationStarted:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `void` `dispatchAnimationsFinished`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v3 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.dispatchAnimationsFinished:()V` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `void` `endAnimation`(`androidx.recyclerview.widget.RecyclerView$ViewHolder` v0 @kind object) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.endAnimation:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `void` `endAnimations`() @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.endAnimations:()V` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `long` `getAddDuration`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v2 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.getAddDuration:()J` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `long` `getChangeDuration`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v2 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.getChangeDuration:()J` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `long` `getMoveDuration`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v2 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.getMoveDuration:()J` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `long` `getRemoveDuration`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v2 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.getRemoveDuration:()J` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isRunning`() @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.isRunning:()Z` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `boolean` `isRunning`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v2 @kind this, `androidx.recyclerview.widget.RecyclerView$ItemAnimator$ItemAnimatorFinishedListener` v3 @kind object @name `listener`) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.isRunning:(Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemAnimatorFinishedListener;)Z` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.RecyclerView$ItemAnimator$ItemHolderInfo` `obtainHolderInfo`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v1 @kind this) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.obtainHolderInfo:()Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onAnimationFinished`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v0 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind object @name `viewHolder`) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.onAnimationFinished:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onAnimationStarted`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v0 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v1 @kind object @name `viewHolder`) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.onAnimationStarted:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.RecyclerView$ItemAnimator$ItemHolderInfo` `recordPostLayoutInformation`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v3 @kind object @name `viewHolder`) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.recordPostLayoutInformation:(Landroidx/recyclerview/widget/RecyclerView$State;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.RecyclerView$ItemAnimator$ItemHolderInfo` `recordPreLayoutInformation`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v3 @kind object @name `viewHolder`, `int` v4 @name `changeFlags`, `java.util.List` v5 @kind object) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.recordPreLayoutInformation:(Landroidx/recyclerview/widget/RecyclerView$State;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;ILjava/util/List;)Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemHolderInfo;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `runPendingAnimations`() @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.runPendingAnimations:()V` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `void` `setAddDuration`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v0 @kind this, `long` v1 @name `addDuration`) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.setAddDuration:(J)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setChangeDuration`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v0 @kind this, `long` v1 @name `changeDuration`) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.setChangeDuration:(J)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setListener`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v0 @kind this, `androidx.recyclerview.widget.RecyclerView$ItemAnimator$ItemAnimatorListener` v1 @kind object @name `listener`) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.setListener:(Landroidx/recyclerview/widget/RecyclerView$ItemAnimator$ItemAnimatorListener;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `setMoveDuration`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v0 @kind this, `long` v1 @name `moveDuration`) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.setMoveDuration:(J)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setRemoveDuration`(`androidx.recyclerview.widget.RecyclerView$ItemAnimator` v0 @kind this, `long` v1 @name `removeDuration`) @signature `Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;.setRemoveDuration:(J)V` @AccessFlag PUBLIC {
+
+  # return;
+}

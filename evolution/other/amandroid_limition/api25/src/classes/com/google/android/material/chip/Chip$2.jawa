@@ -1,0 +1,27 @@
+record `com.google.android.material.chip.Chip$2` @kind class @AccessFlag  extends `android.view.ViewOutlineProvider` @kind class {
+  `com.google.android.material.chip.Chip` `com.google.android.material.chip.Chip$2.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.chip.Chip$2` v0 @kind this, `com.google.android.material.chip.Chip` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/chip/Chip$2;.<init>:(Lcom/google/android/material/chip/Chip;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L18eea0.  v0.`com.google.android.material.chip.Chip$2.this$0` @type ^`com.google.android.material.chip.Chip` := v1 @kind object;
+  #L18eea4.  call `<init>`(v0) @signature `Landroid/view/ViewOutlineProvider;.<init>:()V` @kind direct;
+  #L18eeaa.  return @kind void;
+}
+procedure `void` `getOutline`(`com.google.android.material.chip.Chip$2` v1 @kind this, `android.view.View` v2 @kind object @name `view`, `android.graphics.Outline` v3 @kind object @name `outline`) @signature `Lcom/google/android/material/chip/Chip$2;.getOutline:(Landroid/view/View;Landroid/graphics/Outline;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18eebc.  v0:= v1.`com.google.android.material.chip.Chip$2.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18eec0.  call temp:= `access$000`(v0) @signature `Lcom/google/android/material/chip/Chip;.access$000:(Lcom/google/android/material/chip/Chip;)Lcom/google/android/material/chip/ChipDrawable;` @kind static;
+  #L18eec6.  v0:= temp @kind object;
+  #L18eec8.  if v0 == 0 then goto L18eee0;
+  #L18eecc.  v0:= v1.`com.google.android.material.chip.Chip$2.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18eed0.  call temp:= `access$000`(v0) @signature `Lcom/google/android/material/chip/Chip;.access$000:(Lcom/google/android/material/chip/Chip;)Lcom/google/android/material/chip/ChipDrawable;` @kind static;
+  #L18eed6.  v0:= temp @kind object;
+  #L18eed8.  call `getOutline`(v0, v3) @signature `Lcom/google/android/material/chip/ChipDrawable;.getOutline:(Landroid/graphics/Outline;)V` @kind virtual;
+  #L18eede.  goto L18eee8;
+  #L18eee0.  v0:= 0I;
+  #L18eee2.  call `setAlpha`(v3, v0) @signature `Landroid/graphics/Outline;.setAlpha:(F)V` @kind virtual;
+  #L18eee8.  return @kind void;
+}

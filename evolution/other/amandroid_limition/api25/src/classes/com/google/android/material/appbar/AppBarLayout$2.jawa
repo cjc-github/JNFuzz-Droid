@@ -1,0 +1,26 @@
+record `com.google.android.material.appbar.AppBarLayout$2` @kind class @AccessFlag  extends `android.animation.ValueAnimator$AnimatorUpdateListener` @kind interface {
+  `com.google.android.material.appbar.AppBarLayout` `com.google.android.material.appbar.AppBarLayout$2.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `com.google.android.material.shape.MaterialShapeDrawable` `com.google.android.material.appbar.AppBarLayout$2.val$background` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.AppBarLayout$2` v0 @kind this, `com.google.android.material.appbar.AppBarLayout` v1 @kind object @name `this$0`, `com.google.android.material.shape.MaterialShapeDrawable` v2 @kind object) @signature `Lcom/google/android/material/appbar/AppBarLayout$2;.<init>:(Lcom/google/android/material/appbar/AppBarLayout;Lcom/google/android/material/shape/MaterialShapeDrawable;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L17d97c.  v0.`com.google.android.material.appbar.AppBarLayout$2.this$0` @type ^`com.google.android.material.appbar.AppBarLayout` := v1 @kind object;
+  #L17d980.  v0.`com.google.android.material.appbar.AppBarLayout$2.val$background` @type ^`com.google.android.material.shape.MaterialShapeDrawable` := v2 @kind object;
+  #L17d984.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L17d98a.  return @kind void;
+}
+procedure `void` `onAnimationUpdate`(`com.google.android.material.appbar.AppBarLayout$2` v2 @kind this, `android.animation.ValueAnimator` v3 @kind object @name `valueAnimator`) @signature `Lcom/google/android/material/appbar/AppBarLayout$2;.onAnimationUpdate:(Landroid/animation/ValueAnimator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L17d99c.  v0:= v2.`com.google.android.material.appbar.AppBarLayout$2.val$background` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L17d9a0.  call temp:= `getAnimatedValue`(v3) @signature `Landroid/animation/ValueAnimator;.getAnimatedValue:()Ljava/lang/Object;` @kind virtual;
+  #L17d9a6.  v1:= temp @kind object;
+  #L17d9a8.  v1:= (`java.lang.Float`) v1 @kind object;
+  #L17d9ac.  call temp:= `floatValue`(v1) @signature `Ljava/lang/Float;.floatValue:()F` @kind virtual;
+  #L17d9b2.  v1:= temp;
+  #L17d9b4.  call `setElevation`(v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setElevation:(F)V` @kind virtual;
+  #L17d9ba.  return @kind void;
+}

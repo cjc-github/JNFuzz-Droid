@@ -1,0 +1,60 @@
+record `com.google.android.material.shape.CutCornerTreatment` @kind class @AccessFlag PUBLIC extends `com.google.android.material.shape.CornerTreatment` @kind class {
+  `float` `com.google.android.material.shape.CutCornerTreatment.size` @AccessFlag ;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.CutCornerTreatment` v1 @kind this) @signature `Lcom/google/android/material/shape/CutCornerTreatment;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1aab30.  call `<init>`(v1) @signature `Lcom/google/android/material/shape/CornerTreatment;.<init>:()V` @kind direct;
+  #L1aab36.  v0:= -1.0F;
+  #L1aab3a.  v1.`com.google.android.material.shape.CutCornerTreatment.size` @type ^`float` := v0;
+  #L1aab3e.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.CutCornerTreatment` v1 @kind this, `float` v2 @name `size`) @signature `Lcom/google/android/material/shape/CutCornerTreatment;.<init>:(F)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1aab50.  call `<init>`(v1) @signature `Lcom/google/android/material/shape/CornerTreatment;.<init>:()V` @kind direct;
+  #L1aab56.  v0:= -1.0F;
+  #L1aab5a.  v1.`com.google.android.material.shape.CutCornerTreatment.size` @type ^`float` := v0;
+  #L1aab5e.  v1.`com.google.android.material.shape.CutCornerTreatment.size` @type ^`float` := v2;
+  #L1aab62.  return @kind void;
+}
+procedure `void` `getCornerPath`(`com.google.android.material.shape.CutCornerTreatment` v5 @kind this, `com.google.android.material.shape.ShapePath` v6 @kind object @name `shapePath`, `float` v7 @name `angle`, `float` v8 @name `interpolation`, `float` v9 @name `radius`) @signature `Lcom/google/android/material/shape/CutCornerTreatment;.getCornerPath:(Lcom/google/android/material/shape/ShapePath;FFF)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1aab74.  v0:= v9 * v8 @kind float;
+  #L1aab78.  v1:= 180.0F;
+  #L1aab7c.  v2:= v1 - v7 @kind float;
+  #L1aab80.  v3:= 0I;
+  #L1aab82.  call `reset`(v6, v3, v0, v1, v2) @signature `Lcom/google/android/material/shape/ShapePath;.reset:(FFFF)V` @kind virtual;
+  #L1aab88.  v0:= (`double`) v7 @kind f2d;
+  #L1aab8a.  call temp:= `toRadians`(v0) @signature `Ljava/lang/Math;.toRadians:(D)D` @kind static;
+  #L1aab90.  v0:= temp @kind wide;
+  #L1aab92.  call temp:= `sin`(v0) @signature `Ljava/lang/Math;.sin:(D)D` @kind static;
+  #L1aab98.  v0:= temp @kind wide;
+  #L1aab9a.  v2:= (`double`) v9 @kind f2d;
+  #L1aab9c.  v0:= v0 * v2 @kind double;
+  #L1aab9e.  v2:= (`double`) v8 @kind f2d;
+  #L1aaba0.  v0:= v0 * v2 @kind double;
+  #L1aaba2.  v0:= (`float`) v0 @kind d2f;
+  #L1aaba4.  v1:= 90.0F;
+  #L1aaba8.  v1:= v1 - v7 @kind float;
+  #L1aabaa.  v1:= (`double`) v1 @kind f2d;
+  #L1aabac.  call temp:= `toRadians`(v1) @signature `Ljava/lang/Math;.toRadians:(D)D` @kind static;
+  #L1aabb2.  v1:= temp @kind wide;
+  #L1aabb4.  call temp:= `sin`(v1) @signature `Ljava/lang/Math;.sin:(D)D` @kind static;
+  #L1aabba.  v1:= temp @kind wide;
+  #L1aabbc.  v3:= (`double`) v9 @kind f2d;
+  #L1aabbe.  v1:= v1 * v3 @kind double;
+  #L1aabc0.  v3:= (`double`) v8 @kind f2d;
+  #L1aabc2.  v1:= v1 * v3 @kind double;
+  #L1aabc4.  v1:= (`float`) v1 @kind d2f;
+  #L1aabc6.  call `lineTo`(v6, v0, v1) @signature `Lcom/google/android/material/shape/ShapePath;.lineTo:(FF)V` @kind virtual;
+  #L1aabcc.  return @kind void;
+}

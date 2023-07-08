@@ -1,0 +1,535 @@
+record `com.google.android.material.shape.ShapeAppearanceModel` @kind class @AccessFlag PUBLIC {
+  `com.google.android.material.shape.EdgeTreatment` `com.google.android.material.shape.ShapeAppearanceModel.bottomEdge` @AccessFlag ;
+  `com.google.android.material.shape.CornerTreatment` `com.google.android.material.shape.ShapeAppearanceModel.bottomLeftCorner` @AccessFlag ;
+  `com.google.android.material.shape.CornerSize` `com.google.android.material.shape.ShapeAppearanceModel.bottomLeftCornerSize` @AccessFlag ;
+  `com.google.android.material.shape.CornerTreatment` `com.google.android.material.shape.ShapeAppearanceModel.bottomRightCorner` @AccessFlag ;
+  `com.google.android.material.shape.CornerSize` `com.google.android.material.shape.ShapeAppearanceModel.bottomRightCornerSize` @AccessFlag ;
+  `com.google.android.material.shape.EdgeTreatment` `com.google.android.material.shape.ShapeAppearanceModel.leftEdge` @AccessFlag ;
+  `com.google.android.material.shape.EdgeTreatment` `com.google.android.material.shape.ShapeAppearanceModel.rightEdge` @AccessFlag ;
+  `com.google.android.material.shape.EdgeTreatment` `com.google.android.material.shape.ShapeAppearanceModel.topEdge` @AccessFlag ;
+  `com.google.android.material.shape.CornerTreatment` `com.google.android.material.shape.ShapeAppearanceModel.topLeftCorner` @AccessFlag ;
+  `com.google.android.material.shape.CornerSize` `com.google.android.material.shape.ShapeAppearanceModel.topLeftCornerSize` @AccessFlag ;
+  `com.google.android.material.shape.CornerTreatment` `com.google.android.material.shape.ShapeAppearanceModel.topRightCorner` @AccessFlag ;
+  `com.google.android.material.shape.CornerSize` `com.google.android.material.shape.ShapeAppearanceModel.topRightCornerSize` @AccessFlag ;
+}
+global `com.google.android.material.shape.CornerSize` `@@com.google.android.material.shape.ShapeAppearanceModel.PILL` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L1ad910.  v0:= new `com.google.android.material.shape.RelativeCornerSize`;
+  #L1ad914.  v1:= 0.5F;
+  #L1ad918.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/shape/RelativeCornerSize;.<init>:(F)V` @kind direct;
+  #L1ad91e.  `@@com.google.android.material.shape.ShapeAppearanceModel.PILL` @type ^`com.google.android.material.shape.CornerSize` := v0 @kind object;
+  #L1ad922.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.ShapeAppearanceModel` v2 @kind this) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L1ad934.  call `<init>`(v2) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1ad93a.  call temp:= `createDefaultCornerTreatment`() @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.createDefaultCornerTreatment:()Lcom/google/android/material/shape/CornerTreatment;` @kind static;
+  #L1ad940.  v0:= temp @kind object;
+  #L1ad942.  v2.`com.google.android.material.shape.ShapeAppearanceModel.topLeftCorner` @type ^`com.google.android.material.shape.CornerTreatment` := v0 @kind object;
+  #L1ad946.  call temp:= `createDefaultCornerTreatment`() @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.createDefaultCornerTreatment:()Lcom/google/android/material/shape/CornerTreatment;` @kind static;
+  #L1ad94c.  v0:= temp @kind object;
+  #L1ad94e.  v2.`com.google.android.material.shape.ShapeAppearanceModel.topRightCorner` @type ^`com.google.android.material.shape.CornerTreatment` := v0 @kind object;
+  #L1ad952.  call temp:= `createDefaultCornerTreatment`() @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.createDefaultCornerTreatment:()Lcom/google/android/material/shape/CornerTreatment;` @kind static;
+  #L1ad958.  v0:= temp @kind object;
+  #L1ad95a.  v2.`com.google.android.material.shape.ShapeAppearanceModel.bottomRightCorner` @type ^`com.google.android.material.shape.CornerTreatment` := v0 @kind object;
+  #L1ad95e.  call temp:= `createDefaultCornerTreatment`() @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.createDefaultCornerTreatment:()Lcom/google/android/material/shape/CornerTreatment;` @kind static;
+  #L1ad964.  v0:= temp @kind object;
+  #L1ad966.  v2.`com.google.android.material.shape.ShapeAppearanceModel.bottomLeftCorner` @type ^`com.google.android.material.shape.CornerTreatment` := v0 @kind object;
+  #L1ad96a.  v0:= new `com.google.android.material.shape.AbsoluteCornerSize`;
+  #L1ad96e.  v1:= 0I;
+  #L1ad970.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/shape/AbsoluteCornerSize;.<init>:(F)V` @kind direct;
+  #L1ad976.  v2.`com.google.android.material.shape.ShapeAppearanceModel.topLeftCornerSize` @type ^`com.google.android.material.shape.CornerSize` := v0 @kind object;
+  #L1ad97a.  v0:= new `com.google.android.material.shape.AbsoluteCornerSize`;
+  #L1ad97e.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/shape/AbsoluteCornerSize;.<init>:(F)V` @kind direct;
+  #L1ad984.  v2.`com.google.android.material.shape.ShapeAppearanceModel.topRightCornerSize` @type ^`com.google.android.material.shape.CornerSize` := v0 @kind object;
+  #L1ad988.  v0:= new `com.google.android.material.shape.AbsoluteCornerSize`;
+  #L1ad98c.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/shape/AbsoluteCornerSize;.<init>:(F)V` @kind direct;
+  #L1ad992.  v2.`com.google.android.material.shape.ShapeAppearanceModel.bottomRightCornerSize` @type ^`com.google.android.material.shape.CornerSize` := v0 @kind object;
+  #L1ad996.  v0:= new `com.google.android.material.shape.AbsoluteCornerSize`;
+  #L1ad99a.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/shape/AbsoluteCornerSize;.<init>:(F)V` @kind direct;
+  #L1ad9a0.  v2.`com.google.android.material.shape.ShapeAppearanceModel.bottomLeftCornerSize` @type ^`com.google.android.material.shape.CornerSize` := v0 @kind object;
+  #L1ad9a4.  call temp:= `createDefaultEdgeTreatment`() @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.createDefaultEdgeTreatment:()Lcom/google/android/material/shape/EdgeTreatment;` @kind static;
+  #L1ad9aa.  v0:= temp @kind object;
+  #L1ad9ac.  v2.`com.google.android.material.shape.ShapeAppearanceModel.topEdge` @type ^`com.google.android.material.shape.EdgeTreatment` := v0 @kind object;
+  #L1ad9b0.  call temp:= `createDefaultEdgeTreatment`() @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.createDefaultEdgeTreatment:()Lcom/google/android/material/shape/EdgeTreatment;` @kind static;
+  #L1ad9b6.  v0:= temp @kind object;
+  #L1ad9b8.  v2.`com.google.android.material.shape.ShapeAppearanceModel.rightEdge` @type ^`com.google.android.material.shape.EdgeTreatment` := v0 @kind object;
+  #L1ad9bc.  call temp:= `createDefaultEdgeTreatment`() @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.createDefaultEdgeTreatment:()Lcom/google/android/material/shape/EdgeTreatment;` @kind static;
+  #L1ad9c2.  v0:= temp @kind object;
+  #L1ad9c4.  v2.`com.google.android.material.shape.ShapeAppearanceModel.bottomEdge` @type ^`com.google.android.material.shape.EdgeTreatment` := v0 @kind object;
+  #L1ad9c8.  call temp:= `createDefaultEdgeTreatment`() @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.createDefaultEdgeTreatment:()Lcom/google/android/material/shape/EdgeTreatment;` @kind static;
+  #L1ad9ce.  v0:= temp @kind object;
+  #L1ad9d0.  v2.`com.google.android.material.shape.ShapeAppearanceModel.leftEdge` @type ^`com.google.android.material.shape.EdgeTreatment` := v0 @kind object;
+  #L1ad9d4.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.ShapeAppearanceModel` v1 @kind this, `com.google.android.material.shape.ShapeAppearanceModel$Builder` v2 @kind object @name `builder`) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1ad9e8.  call `<init>`(v1) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1ad9ee.  call temp:= `access$100`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.access$100:(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/CornerTreatment;` @kind static;
+  #L1ad9f4.  v0:= temp @kind object;
+  #L1ad9f6.  v1.`com.google.android.material.shape.ShapeAppearanceModel.topLeftCorner` @type ^`com.google.android.material.shape.CornerTreatment` := v0 @kind object;
+  #L1ad9fa.  call temp:= `access$200`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.access$200:(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/CornerTreatment;` @kind static;
+  #L1ada00.  v0:= temp @kind object;
+  #L1ada02.  v1.`com.google.android.material.shape.ShapeAppearanceModel.topRightCorner` @type ^`com.google.android.material.shape.CornerTreatment` := v0 @kind object;
+  #L1ada06.  call temp:= `access$300`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.access$300:(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/CornerTreatment;` @kind static;
+  #L1ada0c.  v0:= temp @kind object;
+  #L1ada0e.  v1.`com.google.android.material.shape.ShapeAppearanceModel.bottomRightCorner` @type ^`com.google.android.material.shape.CornerTreatment` := v0 @kind object;
+  #L1ada12.  call temp:= `access$400`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.access$400:(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/CornerTreatment;` @kind static;
+  #L1ada18.  v0:= temp @kind object;
+  #L1ada1a.  v1.`com.google.android.material.shape.ShapeAppearanceModel.bottomLeftCorner` @type ^`com.google.android.material.shape.CornerTreatment` := v0 @kind object;
+  #L1ada1e.  call temp:= `access$500`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.access$500:(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/CornerSize;` @kind static;
+  #L1ada24.  v0:= temp @kind object;
+  #L1ada26.  v1.`com.google.android.material.shape.ShapeAppearanceModel.topLeftCornerSize` @type ^`com.google.android.material.shape.CornerSize` := v0 @kind object;
+  #L1ada2a.  call temp:= `access$600`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.access$600:(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/CornerSize;` @kind static;
+  #L1ada30.  v0:= temp @kind object;
+  #L1ada32.  v1.`com.google.android.material.shape.ShapeAppearanceModel.topRightCornerSize` @type ^`com.google.android.material.shape.CornerSize` := v0 @kind object;
+  #L1ada36.  call temp:= `access$700`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.access$700:(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/CornerSize;` @kind static;
+  #L1ada3c.  v0:= temp @kind object;
+  #L1ada3e.  v1.`com.google.android.material.shape.ShapeAppearanceModel.bottomRightCornerSize` @type ^`com.google.android.material.shape.CornerSize` := v0 @kind object;
+  #L1ada42.  call temp:= `access$800`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.access$800:(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/CornerSize;` @kind static;
+  #L1ada48.  v0:= temp @kind object;
+  #L1ada4a.  v1.`com.google.android.material.shape.ShapeAppearanceModel.bottomLeftCornerSize` @type ^`com.google.android.material.shape.CornerSize` := v0 @kind object;
+  #L1ada4e.  call temp:= `access$900`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.access$900:(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/EdgeTreatment;` @kind static;
+  #L1ada54.  v0:= temp @kind object;
+  #L1ada56.  v1.`com.google.android.material.shape.ShapeAppearanceModel.topEdge` @type ^`com.google.android.material.shape.EdgeTreatment` := v0 @kind object;
+  #L1ada5a.  call temp:= `access$1000`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.access$1000:(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/EdgeTreatment;` @kind static;
+  #L1ada60.  v0:= temp @kind object;
+  #L1ada62.  v1.`com.google.android.material.shape.ShapeAppearanceModel.rightEdge` @type ^`com.google.android.material.shape.EdgeTreatment` := v0 @kind object;
+  #L1ada66.  call temp:= `access$1100`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.access$1100:(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/EdgeTreatment;` @kind static;
+  #L1ada6c.  v0:= temp @kind object;
+  #L1ada6e.  v1.`com.google.android.material.shape.ShapeAppearanceModel.bottomEdge` @type ^`com.google.android.material.shape.EdgeTreatment` := v0 @kind object;
+  #L1ada72.  call temp:= `access$1200`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.access$1200:(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)Lcom/google/android/material/shape/EdgeTreatment;` @kind static;
+  #L1ada78.  v0:= temp @kind object;
+  #L1ada7a.  v1.`com.google.android.material.shape.ShapeAppearanceModel.leftEdge` @type ^`com.google.android.material.shape.EdgeTreatment` := v0 @kind object;
+  #L1ada7e.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.ShapeAppearanceModel` v0 @kind this, `com.google.android.material.shape.ShapeAppearanceModel$Builder` v1 @kind object @name `x0`, `com.google.android.material.shape.ShapeAppearanceModel$1` v2 @kind object @name `x1`) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;Lcom/google/android/material/shape/ShapeAppearanceModel$1;)V` @AccessFlag SYNTHETIC_CONSTRUCTOR {
+    temp;
+
+  #L1ada90.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;)V` @kind direct;
+  #L1ada96.  return @kind void;
+}
+procedure `com.google.android.material.shape.ShapeAppearanceModel$Builder` `builder`() @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.builder:()Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L1ad718.  v0:= new `com.google.android.material.shape.ShapeAppearanceModel$Builder`;
+  #L1ad71c.  call `<init>`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.<init>:()V` @kind direct;
+  #L1ad722.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.ShapeAppearanceModel$Builder` `builder`(`android.content.Context` v1 @kind object @name `context`, `int` v2 @name `shapeAppearanceResId`, `int` v3 @name `shapeAppearanceOverlayResId`) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.builder:(Landroid/content/Context;II)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L1ad7c0.  v0:= 0I;
+  #L1ad7c2.  call temp:= `builder`(v1, v2, v3, v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.builder:(Landroid/content/Context;III)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind static;
+  #L1ad7c8.  v0:= temp @kind object;
+  #L1ad7ca.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.ShapeAppearanceModel$Builder` `builder`(`android.content.Context` v2 @kind object @name `context`, `int` v3 @name `shapeAppearanceResId`, `int` v4 @name `shapeAppearanceOverlayResId`, `int` v5 @name `defaultCornerSize`) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.builder:(Landroid/content/Context;III)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1ad8cc.  v0:= new `com.google.android.material.shape.AbsoluteCornerSize`;
+  #L1ad8d0.  v1:= (`float`) v5 @kind i2f;
+  #L1ad8d2.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/shape/AbsoluteCornerSize;.<init>:(F)V` @kind direct;
+  #L1ad8d8.  call temp:= `builder`(v2, v3, v4, v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.builder:(Landroid/content/Context;IILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind static;
+  #L1ad8de.  v0:= temp @kind object;
+  #L1ad8e0.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.ShapeAppearanceModel$Builder` `builder`(`android.content.Context` v12 @kind object @name `context`, `int` v13 @name `shapeAppearanceResId`, `int` v14 @name `shapeAppearanceOverlayResId`, `com.google.android.material.shape.CornerSize` v15 @kind object @name `defaultCornerSize`) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.builder:(Landroid/content/Context;IILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+
+  #L1ad7dc.  if v14 == 0 then goto L1ad7ee;
+  #L1ad7e0.  v0:= new `android.view.ContextThemeWrapper`;
+  #L1ad7e4.  call `<init>`(v0, v12, v13) @signature `Landroid/view/ContextThemeWrapper;.<init>:(Landroid/content/Context;I)V` @kind direct;
+  #L1ad7ea.  v12:= v0 @kind object;
+  #L1ad7ec.  v13:= v14;
+  #L1ad7ee.  v0:= `@@com.google.android.material.R$styleable.ShapeAppearance` @type ^`int`[] @kind object;
+  #L1ad7f2.  call temp:= `obtainStyledAttributes`(v12, v13, v0) @signature `Landroid/content/Context;.obtainStyledAttributes:(I[I)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1ad7f8.  v0:= temp @kind object;
+  #L1ad7fa.  v1:= `@@com.google.android.material.R$styleable.ShapeAppearance_cornerFamily` @type ^`int`;
+  #L1ad7fe.  v2:= 0I;
+  #L1ad800.  call temp:= `getInt`(v0, v1, v2) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L1ad806.  v1:= temp;
+  #L1ad808.  v2:= `@@com.google.android.material.R$styleable.ShapeAppearance_cornerFamilyTopLeft` @type ^`int`;
+  #L1ad80c.  call temp:= `getInt`(v0, v2, v1) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L1ad812.  v2:= temp;
+  #L1ad814.  v3:= `@@com.google.android.material.R$styleable.ShapeAppearance_cornerFamilyTopRight` @type ^`int`;
+  #L1ad818.  call temp:= `getInt`(v0, v3, v1) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L1ad81e.  v3:= temp;
+  #L1ad820.  v4:= `@@com.google.android.material.R$styleable.ShapeAppearance_cornerFamilyBottomRight` @type ^`int`;
+  #L1ad824.  call temp:= `getInt`(v0, v4, v1) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L1ad82a.  v4:= temp;
+  #L1ad82c.  v5:= `@@com.google.android.material.R$styleable.ShapeAppearance_cornerFamilyBottomLeft` @type ^`int`;
+  #L1ad830.  call temp:= `getInt`(v0, v5, v1) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L1ad836.  v5:= temp;
+  #L1ad838.  v6:= `@@com.google.android.material.R$styleable.ShapeAppearance_cornerSize` @type ^`int`;
+  #L1ad83c.  call temp:= `getCornerSize`(v0, v6, v15) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getCornerSize:(Landroid/content/res/TypedArray;ILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/CornerSize;` @kind static;
+  #L1ad842.  v6:= temp @kind object;
+  #L1ad844.  v7:= `@@com.google.android.material.R$styleable.ShapeAppearance_cornerSizeTopLeft` @type ^`int`;
+  #L1ad848.  call temp:= `getCornerSize`(v0, v7, v6) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getCornerSize:(Landroid/content/res/TypedArray;ILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/CornerSize;` @kind static;
+  #L1ad84e.  v7:= temp @kind object;
+  #L1ad850.  v8:= `@@com.google.android.material.R$styleable.ShapeAppearance_cornerSizeTopRight` @type ^`int`;
+  #L1ad854.  call temp:= `getCornerSize`(v0, v8, v6) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getCornerSize:(Landroid/content/res/TypedArray;ILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/CornerSize;` @kind static;
+  #L1ad85a.  v8:= temp @kind object;
+  #L1ad85c.  v9:= `@@com.google.android.material.R$styleable.ShapeAppearance_cornerSizeBottomRight` @type ^`int`;
+  #L1ad860.  call temp:= `getCornerSize`(v0, v9, v6) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getCornerSize:(Landroid/content/res/TypedArray;ILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/CornerSize;` @kind static;
+  #L1ad866.  v9:= temp @kind object;
+  #L1ad868.  v10:= `@@com.google.android.material.R$styleable.ShapeAppearance_cornerSizeBottomLeft` @type ^`int`;
+  #L1ad86c.  call temp:= `getCornerSize`(v0, v10, v6) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getCornerSize:(Landroid/content/res/TypedArray;ILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/CornerSize;` @kind static;
+  #L1ad872.  v10:= temp @kind object;
+  #L1ad874.  v11:= new `com.google.android.material.shape.ShapeAppearanceModel$Builder`;
+  #L1ad878.  call `<init>`(v11) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.<init>:()V` @kind direct;
+  #L1ad87e.  call temp:= `setTopLeftCorner`(v11, v2, v7) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setTopLeftCorner:(ILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L1ad884.  v11:= temp @kind object;
+  #L1ad886.  call temp:= `setTopRightCorner`(v11, v3, v8) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setTopRightCorner:(ILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L1ad88c.  v11:= temp @kind object;
+  #L1ad88e.  call temp:= `setBottomRightCorner`(v11, v4, v9) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setBottomRightCorner:(ILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L1ad894.  v11:= temp @kind object;
+  #L1ad896.  call temp:= `setBottomLeftCorner`(v11, v5, v10) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setBottomLeftCorner:(ILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L1ad89c.  v11:= temp @kind object;
+  #L1ad89e.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1ad8a4.  return v11 @kind object;
+  #L1ad8a6.  v1:= Exception @type ^`java.lang.Throwable` @kind object;
+  #L1ad8a8.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1ad8ae.  throw v1;
+  catch `java.lang.Throwable` @[L1ad7fa..L1ad89e] goto L1ad8a6;
+}
+procedure `com.google.android.material.shape.ShapeAppearanceModel$Builder` `builder`(`android.content.Context` v1 @kind object @name `context`, `android.util.AttributeSet` v2 @kind object @name `attrs`, `int` v3 @name `defStyleAttr`, `int` v4 @name `defStyleRes`) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.builder:(Landroid/content/Context;Landroid/util/AttributeSet;II)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L1ad734.  v0:= 0I;
+  #L1ad736.  call temp:= `builder`(v1, v2, v3, v4, v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.builder:(Landroid/content/Context;Landroid/util/AttributeSet;III)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind static;
+  #L1ad73c.  v0:= temp @kind object;
+  #L1ad73e.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.ShapeAppearanceModel$Builder` `builder`(`android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`, `int` v4 @name `defStyleAttr`, `int` v5 @name `defStyleRes`, `int` v6 @name `defaultCornerSize`) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.builder:(Landroid/content/Context;Landroid/util/AttributeSet;III)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1ad798.  v0:= new `com.google.android.material.shape.AbsoluteCornerSize`;
+  #L1ad79c.  v1:= (`float`) v6 @kind i2f;
+  #L1ad79e.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/shape/AbsoluteCornerSize;.<init>:(F)V` @kind direct;
+  #L1ad7a4.  call temp:= `builder`(v2, v3, v4, v5, v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.builder:(Landroid/content/Context;Landroid/util/AttributeSet;IILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind static;
+  #L1ad7aa.  v0:= temp @kind object;
+  #L1ad7ac.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.ShapeAppearanceModel$Builder` `builder`(`android.content.Context` v4 @kind object @name `context`, `android.util.AttributeSet` v5 @kind object @name `attrs`, `int` v6 @name `defStyleAttr`, `int` v7 @name `defStyleRes`, `com.google.android.material.shape.CornerSize` v8 @kind object @name `defaultCornerSize`) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.builder:(Landroid/content/Context;Landroid/util/AttributeSet;IILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1ad750.  v0:= `@@com.google.android.material.R$styleable.MaterialShape` @type ^`int`[] @kind object;
+  #L1ad754.  call temp:= `obtainStyledAttributes`(v4, v5, v0, v6, v7) @signature `Landroid/content/Context;.obtainStyledAttributes:(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1ad75a.  v0:= temp @kind object;
+  #L1ad75c.  v1:= `@@com.google.android.material.R$styleable.MaterialShape_shapeAppearance` @type ^`int`;
+  #L1ad760.  v2:= 0I;
+  #L1ad762.  call temp:= `getResourceId`(v0, v1, v2) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1ad768.  v1:= temp;
+  #L1ad76a.  v3:= `@@com.google.android.material.R$styleable.MaterialShape_shapeAppearanceOverlay` @type ^`int`;
+  #L1ad76e.  call temp:= `getResourceId`(v0, v3, v2) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1ad774.  v2:= temp;
+  #L1ad776.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1ad77c.  call temp:= `builder`(v4, v1, v2, v8) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.builder:(Landroid/content/Context;IILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind static;
+  #L1ad782.  v3:= temp @kind object;
+  #L1ad784.  return v3 @kind object;
+}
+procedure `com.google.android.material.shape.CornerSize` `getCornerSize`(`android.content.res.TypedArray` v4 @kind object @name `a`, `int` v5 @name `index`, `com.google.android.material.shape.CornerSize` v6 @kind object @name `defaultValue`) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getCornerSize:(Landroid/content/res/TypedArray;ILcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/CornerSize;` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1ad4d4.  call temp:= `peekValue`(v4, v5) @signature `Landroid/content/res/TypedArray;.peekValue:(I)Landroid/util/TypedValue;` @kind virtual;
+  #L1ad4da.  v0:= temp @kind object;
+  #L1ad4dc.  if v0 != 0 then goto L1ad4e2;
+  #L1ad4e0.  return v6 @kind object;
+  #L1ad4e2.  v1:= v0.`android.util.TypedValue.type` @type ^`int`;
+  #L1ad4e6.  v2:= 5I;
+  #L1ad4e8.  if v1 != v2 then goto L1ad516;
+  #L1ad4ec.  v1:= new `com.google.android.material.shape.AbsoluteCornerSize`;
+  #L1ad4f0.  v2:= v0.`android.util.TypedValue.data` @type ^`int`;
+  #L1ad4f4.  call temp:= `getResources`(v4) @signature `Landroid/content/res/TypedArray;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1ad4fa.  v3:= temp @kind object;
+  #L1ad4fc.  call temp:= `getDisplayMetrics`(v3) @signature `Landroid/content/res/Resources;.getDisplayMetrics:()Landroid/util/DisplayMetrics;` @kind virtual;
+  #L1ad502.  v3:= temp @kind object;
+  #L1ad504.  call temp:= `complexToDimensionPixelSize`(v2, v3) @signature `Landroid/util/TypedValue;.complexToDimensionPixelSize:(ILandroid/util/DisplayMetrics;)I` @kind static;
+  #L1ad50a.  v2:= temp;
+  #L1ad50c.  v2:= (`float`) v2 @kind i2f;
+  #L1ad50e.  call `<init>`(v1, v2) @signature `Lcom/google/android/material/shape/AbsoluteCornerSize;.<init>:(F)V` @kind direct;
+  #L1ad514.  return v1 @kind object;
+  #L1ad516.  v1:= v0.`android.util.TypedValue.type` @type ^`int`;
+  #L1ad51a.  v2:= 6I;
+  #L1ad51c.  if v1 != v2 then goto L1ad538;
+  #L1ad520.  v1:= new `com.google.android.material.shape.RelativeCornerSize`;
+  #L1ad524.  v2:= 1.0F;
+  #L1ad528.  call temp:= `getFraction`(v0, v2, v2) @signature `Landroid/util/TypedValue;.getFraction:(FF)F` @kind virtual;
+  #L1ad52e.  v2:= temp;
+  #L1ad530.  call `<init>`(v1, v2) @signature `Lcom/google/android/material/shape/RelativeCornerSize;.<init>:(F)V` @kind direct;
+  #L1ad536.  return v1 @kind object;
+  #L1ad538.  return v6 @kind object;
+}
+procedure `com.google.android.material.shape.EdgeTreatment` `getBottomEdge`(`com.google.android.material.shape.ShapeAppearanceModel` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getBottomEdge:()Lcom/google/android/material/shape/EdgeTreatment;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ad5dc.  v0:= v1.`com.google.android.material.shape.ShapeAppearanceModel.bottomEdge` @type ^`com.google.android.material.shape.EdgeTreatment` @kind object;
+  #L1ad5e0.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.CornerTreatment` `getBottomLeftCorner`(`com.google.android.material.shape.ShapeAppearanceModel` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getBottomLeftCorner:()Lcom/google/android/material/shape/CornerTreatment;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ad57c.  v0:= v1.`com.google.android.material.shape.ShapeAppearanceModel.bottomLeftCorner` @type ^`com.google.android.material.shape.CornerTreatment` @kind object;
+  #L1ad580.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.CornerSize` `getBottomLeftCornerSize`(`com.google.android.material.shape.ShapeAppearanceModel` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getBottomLeftCornerSize:()Lcom/google/android/material/shape/CornerSize;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ad4a4.  v0:= v1.`com.google.android.material.shape.ShapeAppearanceModel.bottomLeftCornerSize` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L1ad4a8.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.CornerTreatment` `getBottomRightCorner`(`com.google.android.material.shape.ShapeAppearanceModel` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getBottomRightCorner:()Lcom/google/android/material/shape/CornerTreatment;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ad594.  v0:= v1.`com.google.android.material.shape.ShapeAppearanceModel.bottomRightCorner` @type ^`com.google.android.material.shape.CornerTreatment` @kind object;
+  #L1ad598.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.CornerSize` `getBottomRightCornerSize`(`com.google.android.material.shape.ShapeAppearanceModel` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getBottomRightCornerSize:()Lcom/google/android/material/shape/CornerSize;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ad4bc.  v0:= v1.`com.google.android.material.shape.ShapeAppearanceModel.bottomRightCornerSize` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L1ad4c0.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.EdgeTreatment` `getLeftEdge`(`com.google.android.material.shape.ShapeAppearanceModel` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getLeftEdge:()Lcom/google/android/material/shape/EdgeTreatment;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ad5f4.  v0:= v1.`com.google.android.material.shape.ShapeAppearanceModel.leftEdge` @type ^`com.google.android.material.shape.EdgeTreatment` @kind object;
+  #L1ad5f8.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.EdgeTreatment` `getRightEdge`(`com.google.android.material.shape.ShapeAppearanceModel` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getRightEdge:()Lcom/google/android/material/shape/EdgeTreatment;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ad60c.  v0:= v1.`com.google.android.material.shape.ShapeAppearanceModel.rightEdge` @type ^`com.google.android.material.shape.EdgeTreatment` @kind object;
+  #L1ad610.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.EdgeTreatment` `getTopEdge`(`com.google.android.material.shape.ShapeAppearanceModel` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getTopEdge:()Lcom/google/android/material/shape/EdgeTreatment;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ad624.  v0:= v1.`com.google.android.material.shape.ShapeAppearanceModel.topEdge` @type ^`com.google.android.material.shape.EdgeTreatment` @kind object;
+  #L1ad628.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.CornerTreatment` `getTopLeftCorner`(`com.google.android.material.shape.ShapeAppearanceModel` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getTopLeftCorner:()Lcom/google/android/material/shape/CornerTreatment;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ad5ac.  v0:= v1.`com.google.android.material.shape.ShapeAppearanceModel.topLeftCorner` @type ^`com.google.android.material.shape.CornerTreatment` @kind object;
+  #L1ad5b0.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.CornerSize` `getTopLeftCornerSize`(`com.google.android.material.shape.ShapeAppearanceModel` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getTopLeftCornerSize:()Lcom/google/android/material/shape/CornerSize;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ad54c.  v0:= v1.`com.google.android.material.shape.ShapeAppearanceModel.topLeftCornerSize` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L1ad550.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.CornerTreatment` `getTopRightCorner`(`com.google.android.material.shape.ShapeAppearanceModel` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getTopRightCorner:()Lcom/google/android/material/shape/CornerTreatment;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ad5c4.  v0:= v1.`com.google.android.material.shape.ShapeAppearanceModel.topRightCorner` @type ^`com.google.android.material.shape.CornerTreatment` @kind object;
+  #L1ad5c8.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.CornerSize` `getTopRightCornerSize`(`com.google.android.material.shape.ShapeAppearanceModel` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getTopRightCornerSize:()Lcom/google/android/material/shape/CornerSize;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ad564.  v0:= v1.`com.google.android.material.shape.ShapeAppearanceModel.topRightCornerSize` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L1ad568.  return v0 @kind object;
+}
+procedure `boolean` `isRoundRect`(`com.google.android.material.shape.ShapeAppearanceModel` v6 @kind this, `android.graphics.RectF` v7 @kind object @name `bounds`) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.isRoundRect:(Landroid/graphics/RectF;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1ad384.  v0:= v6.`com.google.android.material.shape.ShapeAppearanceModel.leftEdge` @type ^`com.google.android.material.shape.EdgeTreatment` @kind object;
+  #L1ad388.  call temp:= `getClass`(v0) @signature `Ljava/lang/Object;.getClass:()Ljava/lang/Class;` @kind virtual;
+  #L1ad38e.  v0:= temp @kind object;
+  #L1ad390.  v1:= constclass @type ^`com.google.android.material.shape.EdgeTreatment` @kind object;
+  #L1ad394.  call temp:= `equals`(v0, v1) @signature `Ljava/lang/Object;.equals:(Ljava/lang/Object;)Z` @kind virtual;
+  #L1ad39a.  v0:= temp;
+  #L1ad39c.  v1:= 1I;
+  #L1ad39e.  v2:= 0I;
+  #L1ad3a0.  if v0 == 0 then goto L1ad3fc;
+  #L1ad3a4.  v0:= v6.`com.google.android.material.shape.ShapeAppearanceModel.rightEdge` @type ^`com.google.android.material.shape.EdgeTreatment` @kind object;
+  #L1ad3a8.  call temp:= `getClass`(v0) @signature `Ljava/lang/Object;.getClass:()Ljava/lang/Class;` @kind virtual;
+  #L1ad3ae.  v0:= temp @kind object;
+  #L1ad3b0.  v3:= constclass @type ^`com.google.android.material.shape.EdgeTreatment` @kind object;
+  #L1ad3b4.  call temp:= `equals`(v0, v3) @signature `Ljava/lang/Object;.equals:(Ljava/lang/Object;)Z` @kind virtual;
+  #L1ad3ba.  v0:= temp;
+  #L1ad3bc.  if v0 == 0 then goto L1ad3fc;
+  #L1ad3c0.  v0:= v6.`com.google.android.material.shape.ShapeAppearanceModel.topEdge` @type ^`com.google.android.material.shape.EdgeTreatment` @kind object;
+  #L1ad3c4.  call temp:= `getClass`(v0) @signature `Ljava/lang/Object;.getClass:()Ljava/lang/Class;` @kind virtual;
+  #L1ad3ca.  v0:= temp @kind object;
+  #L1ad3cc.  v3:= constclass @type ^`com.google.android.material.shape.EdgeTreatment` @kind object;
+  #L1ad3d0.  call temp:= `equals`(v0, v3) @signature `Ljava/lang/Object;.equals:(Ljava/lang/Object;)Z` @kind virtual;
+  #L1ad3d6.  v0:= temp;
+  #L1ad3d8.  if v0 == 0 then goto L1ad3fc;
+  #L1ad3dc.  v0:= v6.`com.google.android.material.shape.ShapeAppearanceModel.bottomEdge` @type ^`com.google.android.material.shape.EdgeTreatment` @kind object;
+  #L1ad3e0.  call temp:= `getClass`(v0) @signature `Ljava/lang/Object;.getClass:()Ljava/lang/Class;` @kind virtual;
+  #L1ad3e6.  v0:= temp @kind object;
+  #L1ad3e8.  v3:= constclass @type ^`com.google.android.material.shape.EdgeTreatment` @kind object;
+  #L1ad3ec.  call temp:= `equals`(v0, v3) @signature `Ljava/lang/Object;.equals:(Ljava/lang/Object;)Z` @kind virtual;
+  #L1ad3f2.  v0:= temp;
+  #L1ad3f4.  if v0 == 0 then goto L1ad3fc;
+  #L1ad3f8.  v0:= v1;
+  #L1ad3fa.  goto L1ad3fe;
+  #L1ad3fc.  v0:= v2;
+  #L1ad3fe.  v3:= v6.`com.google.android.material.shape.ShapeAppearanceModel.topLeftCornerSize` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L1ad402.  call temp:= `getCornerSize`(v3, v7) @signature `Lcom/google/android/material/shape/CornerSize;.getCornerSize:(Landroid/graphics/RectF;)F` @kind interface;
+  #L1ad408.  v3:= temp;
+  #L1ad40a.  v4:= v6.`com.google.android.material.shape.ShapeAppearanceModel.topRightCornerSize` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L1ad40e.  call temp:= `getCornerSize`(v4, v7) @signature `Lcom/google/android/material/shape/CornerSize;.getCornerSize:(Landroid/graphics/RectF;)F` @kind interface;
+  #L1ad414.  v4:= temp;
+  #L1ad416.  v4:= fcmpl(v4, v3);
+  #L1ad41a.  if v4 != 0 then goto L1ad44a;
+  #L1ad41e.  v4:= v6.`com.google.android.material.shape.ShapeAppearanceModel.bottomLeftCornerSize` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L1ad422.  call temp:= `getCornerSize`(v4, v7) @signature `Lcom/google/android/material/shape/CornerSize;.getCornerSize:(Landroid/graphics/RectF;)F` @kind interface;
+  #L1ad428.  v4:= temp;
+  #L1ad42a.  v4:= fcmpl(v4, v3);
+  #L1ad42e.  if v4 != 0 then goto L1ad44a;
+  #L1ad432.  v4:= v6.`com.google.android.material.shape.ShapeAppearanceModel.bottomRightCornerSize` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L1ad436.  call temp:= `getCornerSize`(v4, v7) @signature `Lcom/google/android/material/shape/CornerSize;.getCornerSize:(Landroid/graphics/RectF;)F` @kind interface;
+  #L1ad43c.  v4:= temp;
+  #L1ad43e.  v4:= fcmpl(v4, v3);
+  #L1ad442.  if v4 != 0 then goto L1ad44a;
+  #L1ad446.  v4:= v1;
+  #L1ad448.  goto L1ad44c;
+  #L1ad44a.  v4:= v2;
+  #L1ad44c.  v5:= v6.`com.google.android.material.shape.ShapeAppearanceModel.topRightCorner` @type ^`com.google.android.material.shape.CornerTreatment` @kind object;
+  #L1ad450.  v5:= instanceof @variable v5 @type ^`com.google.android.material.shape.RoundedCornerTreatment` @kind boolean;
+  #L1ad454.  if v5 == 0 then goto L1ad480;
+  #L1ad458.  v5:= v6.`com.google.android.material.shape.ShapeAppearanceModel.topLeftCorner` @type ^`com.google.android.material.shape.CornerTreatment` @kind object;
+  #L1ad45c.  v5:= instanceof @variable v5 @type ^`com.google.android.material.shape.RoundedCornerTreatment` @kind boolean;
+  #L1ad460.  if v5 == 0 then goto L1ad480;
+  #L1ad464.  v5:= v6.`com.google.android.material.shape.ShapeAppearanceModel.bottomRightCorner` @type ^`com.google.android.material.shape.CornerTreatment` @kind object;
+  #L1ad468.  v5:= instanceof @variable v5 @type ^`com.google.android.material.shape.RoundedCornerTreatment` @kind boolean;
+  #L1ad46c.  if v5 == 0 then goto L1ad480;
+  #L1ad470.  v5:= v6.`com.google.android.material.shape.ShapeAppearanceModel.bottomLeftCorner` @type ^`com.google.android.material.shape.CornerTreatment` @kind object;
+  #L1ad474.  v5:= instanceof @variable v5 @type ^`com.google.android.material.shape.RoundedCornerTreatment` @kind boolean;
+  #L1ad478.  if v5 == 0 then goto L1ad480;
+  #L1ad47c.  v5:= v1;
+  #L1ad47e.  goto L1ad482;
+  #L1ad480.  v5:= v2;
+  #L1ad482.  if v0 == 0 then goto L1ad490;
+  #L1ad486.  if v4 == 0 then goto L1ad490;
+  #L1ad48a.  if v5 == 0 then goto L1ad490;
+  #L1ad48e.  goto L1ad492;
+  #L1ad490.  v1:= v2;
+  #L1ad492.  return v1;
+}
+procedure `com.google.android.material.shape.ShapeAppearanceModel$Builder` `toBuilder`(`com.google.android.material.shape.ShapeAppearanceModel` v1 @kind this) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.toBuilder:()Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ad8f4.  v0:= new `com.google.android.material.shape.ShapeAppearanceModel$Builder`;
+  #L1ad8f8.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L1ad8fe.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.ShapeAppearanceModel` `withCornerSize`(`com.google.android.material.shape.ShapeAppearanceModel` v1 @kind this, `float` v2 @name `cornerSize`) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.withCornerSize:(F)Lcom/google/android/material/shape/ShapeAppearanceModel;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ad668.  call temp:= `toBuilder`(v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.toBuilder:()Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L1ad66e.  v0:= temp @kind object;
+  #L1ad670.  call temp:= `setAllCornerSizes`(v0, v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setAllCornerSizes:(F)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L1ad676.  v0:= temp @kind object;
+  #L1ad678.  call temp:= `build`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.build:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L1ad67e.  v0:= temp @kind object;
+  #L1ad680.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.ShapeAppearanceModel` `withCornerSize`(`com.google.android.material.shape.ShapeAppearanceModel` v1 @kind this, `com.google.android.material.shape.CornerSize` v2 @kind object @name `cornerSize`) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.withCornerSize:(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ad63c.  call temp:= `toBuilder`(v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.toBuilder:()Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L1ad642.  v0:= temp @kind object;
+  #L1ad644.  call temp:= `setAllCornerSizes`(v0, v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setAllCornerSizes:(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L1ad64a.  v0:= temp @kind object;
+  #L1ad64c.  call temp:= `build`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.build:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L1ad652.  v0:= temp @kind object;
+  #L1ad654.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.ShapeAppearanceModel` `withTransformedCornerSizes`(`com.google.android.material.shape.ShapeAppearanceModel` v2 @kind this, `com.google.android.material.shape.ShapeAppearanceModel$CornerSizeUnaryOperator` v3 @kind object @name `op`) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.withTransformedCornerSizes:(Lcom/google/android/material/shape/ShapeAppearanceModel$CornerSizeUnaryOperator;)Lcom/google/android/material/shape/ShapeAppearanceModel;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1ad694.  call temp:= `toBuilder`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.toBuilder:()Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L1ad69a.  v0:= temp @kind object;
+  #L1ad69c.  call temp:= `getTopLeftCornerSize`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getTopLeftCornerSize:()Lcom/google/android/material/shape/CornerSize;` @kind virtual;
+  #L1ad6a2.  v1:= temp @kind object;
+  #L1ad6a4.  call temp:= `apply`(v3, v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$CornerSizeUnaryOperator;.apply:(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/CornerSize;` @kind interface;
+  #L1ad6aa.  v1:= temp @kind object;
+  #L1ad6ac.  call temp:= `setTopLeftCornerSize`(v0, v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setTopLeftCornerSize:(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L1ad6b2.  v0:= temp @kind object;
+  #L1ad6b4.  call temp:= `getTopRightCornerSize`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getTopRightCornerSize:()Lcom/google/android/material/shape/CornerSize;` @kind virtual;
+  #L1ad6ba.  v1:= temp @kind object;
+  #L1ad6bc.  call temp:= `apply`(v3, v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$CornerSizeUnaryOperator;.apply:(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/CornerSize;` @kind interface;
+  #L1ad6c2.  v1:= temp @kind object;
+  #L1ad6c4.  call temp:= `setTopRightCornerSize`(v0, v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setTopRightCornerSize:(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L1ad6ca.  v0:= temp @kind object;
+  #L1ad6cc.  call temp:= `getBottomLeftCornerSize`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getBottomLeftCornerSize:()Lcom/google/android/material/shape/CornerSize;` @kind virtual;
+  #L1ad6d2.  v1:= temp @kind object;
+  #L1ad6d4.  call temp:= `apply`(v3, v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$CornerSizeUnaryOperator;.apply:(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/CornerSize;` @kind interface;
+  #L1ad6da.  v1:= temp @kind object;
+  #L1ad6dc.  call temp:= `setBottomLeftCornerSize`(v0, v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setBottomLeftCornerSize:(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L1ad6e2.  v0:= temp @kind object;
+  #L1ad6e4.  call temp:= `getBottomRightCornerSize`(v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getBottomRightCornerSize:()Lcom/google/android/material/shape/CornerSize;` @kind virtual;
+  #L1ad6ea.  v1:= temp @kind object;
+  #L1ad6ec.  call temp:= `apply`(v3, v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$CornerSizeUnaryOperator;.apply:(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/CornerSize;` @kind interface;
+  #L1ad6f2.  v1:= temp @kind object;
+  #L1ad6f4.  call temp:= `setBottomRightCornerSize`(v0, v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setBottomRightCornerSize:(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L1ad6fa.  v0:= temp @kind object;
+  #L1ad6fc.  call temp:= `build`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.build:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L1ad702.  v0:= temp @kind object;
+  #L1ad704.  return v0 @kind object;
+}

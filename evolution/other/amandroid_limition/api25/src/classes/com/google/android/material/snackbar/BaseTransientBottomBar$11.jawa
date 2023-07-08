@@ -1,0 +1,22 @@
+record `com.google.android.material.snackbar.BaseTransientBottomBar$11` @kind class @AccessFlag  extends `android.animation.AnimatorListenerAdapter` @kind class {
+  `com.google.android.material.snackbar.BaseTransientBottomBar` `com.google.android.material.snackbar.BaseTransientBottomBar$11.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `int` `com.google.android.material.snackbar.BaseTransientBottomBar$11.val$event` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.snackbar.BaseTransientBottomBar$11` v0 @kind this, `com.google.android.material.snackbar.BaseTransientBottomBar` v1 @kind object @name `this$0`, `int` v2 ) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$11;.<init>:(Lcom/google/android/material/snackbar/BaseTransientBottomBar;I)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1aefa4.  v0.`com.google.android.material.snackbar.BaseTransientBottomBar$11.this$0` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar` := v1 @kind object;
+  #L1aefa8.  v0.`com.google.android.material.snackbar.BaseTransientBottomBar$11.val$event` @type ^`int` := v2;
+  #L1aefac.  call `<init>`(v0) @signature `Landroid/animation/AnimatorListenerAdapter;.<init>:()V` @kind direct;
+  #L1aefb2.  return @kind void;
+}
+procedure `void` `onAnimationEnd`(`com.google.android.material.snackbar.BaseTransientBottomBar$11` v2 @kind this, `android.animation.Animator` v3 @kind object @name `animator`) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$11;.onAnimationEnd:(Landroid/animation/Animator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1aefc4.  v0:= v2.`com.google.android.material.snackbar.BaseTransientBottomBar$11.this$0` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar` @kind object;
+  #L1aefc8.  v1:= v2.`com.google.android.material.snackbar.BaseTransientBottomBar$11.val$event` @type ^`int`;
+  #L1aefcc.  call `onViewHidden`(v0, v1) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar;.onViewHidden:(I)V` @kind virtual;
+  #L1aefd2.  return @kind void;
+}

@@ -1,0 +1,57 @@
+record `com.google.android.material.bottomnavigation.BottomNavigationPresenter$SavedState` @kind class @AccessFlag  extends `android.os.Parcelable` @kind interface {
+  `com.google.android.material.internal.ParcelableSparseArray` `com.google.android.material.bottomnavigation.BottomNavigationPresenter$SavedState.badgeSavedStates` @AccessFlag ;
+  `int` `com.google.android.material.bottomnavigation.BottomNavigationPresenter$SavedState.selectedItemId` @AccessFlag ;
+}
+global `android.os.Parcelable$Creator` `@@com.google.android.material.bottomnavigation.BottomNavigationPresenter$SavedState.CREATOR` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationPresenter$SavedState;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L187974.  v0:= new `com.google.android.material.bottomnavigation.BottomNavigationPresenter$SavedState$1`;
+  #L187978.  call `<init>`(v0) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationPresenter$SavedState$1;.<init>:()V` @kind direct;
+  #L18797e.  `@@com.google.android.material.bottomnavigation.BottomNavigationPresenter$SavedState.CREATOR` @type ^`android.os.Parcelable$Creator` := v0 @kind object;
+  #L187982.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomnavigation.BottomNavigationPresenter$SavedState` v0 @kind this) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationPresenter$SavedState;.<init>:()V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L187994.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L18799a.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomnavigation.BottomNavigationPresenter$SavedState` v1 @kind this, `android.os.Parcel` v2 @kind object @name `in`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationPresenter$SavedState;.<init>:(Landroid/os/Parcel;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1879ac.  call `<init>`(v1) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1879b2.  call temp:= `readInt`(v2) @signature `Landroid/os/Parcel;.readInt:()I` @kind virtual;
+  #L1879b8.  v0:= temp;
+  #L1879ba.  v1.`com.google.android.material.bottomnavigation.BottomNavigationPresenter$SavedState.selectedItemId` @type ^`int` := v0;
+  #L1879be.  call temp:= `getClass`(v1) @signature `Ljava/lang/Object;.getClass:()Ljava/lang/Class;` @kind virtual;
+  #L1879c4.  v0:= temp @kind object;
+  #L1879c6.  call temp:= `getClassLoader`(v0) @signature `Ljava/lang/Class;.getClassLoader:()Ljava/lang/ClassLoader;` @kind virtual;
+  #L1879cc.  v0:= temp @kind object;
+  #L1879ce.  call temp:= `readParcelable`(v2, v0) @signature `Landroid/os/Parcel;.readParcelable:(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;` @kind virtual;
+  #L1879d4.  v0:= temp @kind object;
+  #L1879d6.  v0:= (`com.google.android.material.internal.ParcelableSparseArray`) v0 @kind object;
+  #L1879da.  v1.`com.google.android.material.bottomnavigation.BottomNavigationPresenter$SavedState.badgeSavedStates` @type ^`com.google.android.material.internal.ParcelableSparseArray` := v0 @kind object;
+  #L1879de.  return @kind void;
+}
+procedure `int` `describeContents`(`com.google.android.material.bottomnavigation.BottomNavigationPresenter$SavedState` v1 @kind this) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationPresenter$SavedState;.describeContents:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L187960.  v0:= 0I;
+  #L187962.  return v0;
+}
+procedure `void` `writeToParcel`(`com.google.android.material.bottomnavigation.BottomNavigationPresenter$SavedState` v2 @kind this, `android.os.Parcel` v3 @kind object @name `out`, `int` v4 @name `flags`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationPresenter$SavedState;.writeToParcel:(Landroid/os/Parcel;I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1879f0.  v0:= v2.`com.google.android.material.bottomnavigation.BottomNavigationPresenter$SavedState.selectedItemId` @type ^`int`;
+  #L1879f4.  call `writeInt`(v3, v0) @signature `Landroid/os/Parcel;.writeInt:(I)V` @kind virtual;
+  #L1879fa.  v0:= v2.`com.google.android.material.bottomnavigation.BottomNavigationPresenter$SavedState.badgeSavedStates` @type ^`com.google.android.material.internal.ParcelableSparseArray` @kind object;
+  #L1879fe.  v1:= 0I;
+  #L187a00.  call `writeParcelable`(v3, v0, v1) @signature `Landroid/os/Parcel;.writeParcelable:(Landroid/os/Parcelable;I)V` @kind virtual;
+  #L187a06.  return @kind void;
+}

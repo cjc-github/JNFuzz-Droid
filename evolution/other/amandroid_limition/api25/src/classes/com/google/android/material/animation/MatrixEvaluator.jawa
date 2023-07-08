@@ -1,0 +1,62 @@
+record `com.google.android.material.animation.MatrixEvaluator` @kind class @AccessFlag PUBLIC extends `android.animation.TypeEvaluator` @kind interface {
+  `float`[] `com.google.android.material.animation.MatrixEvaluator.tempEndValues` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.Matrix` `com.google.android.material.animation.MatrixEvaluator.tempMatrix` @AccessFlag PRIVATE_FINAL;
+  `float`[] `com.google.android.material.animation.MatrixEvaluator.tempStartValues` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.animation.MatrixEvaluator` v2 @kind this) @signature `Lcom/google/android/material/animation/MatrixEvaluator;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L17d01c.  call `<init>`(v2) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L17d022.  v0:= 9I;
+  #L17d026.  v1:= new `float`[v0];
+  #L17d02a.  v2.`com.google.android.material.animation.MatrixEvaluator.tempStartValues` @type ^`float`[] := v1 @kind object;
+  #L17d02e.  v0:= new `float`[v0];
+  #L17d032.  v2.`com.google.android.material.animation.MatrixEvaluator.tempEndValues` @type ^`float`[] := v0 @kind object;
+  #L17d036.  v0:= new `android.graphics.Matrix`;
+  #L17d03a.  call `<init>`(v0) @signature `Landroid/graphics/Matrix;.<init>:()V` @kind direct;
+  #L17d040.  v2.`com.google.android.material.animation.MatrixEvaluator.tempMatrix` @type ^`android.graphics.Matrix` := v0 @kind object;
+  #L17d044.  return @kind void;
+}
+procedure `android.graphics.Matrix` `evaluate`(`com.google.android.material.animation.MatrixEvaluator` v5 @kind this, `float` v6 @name `fraction`, `android.graphics.Matrix` v7 @kind object @name `startValue`, `android.graphics.Matrix` v8 @kind object @name `endValue`) @signature `Lcom/google/android/material/animation/MatrixEvaluator;.evaluate:(FLandroid/graphics/Matrix;Landroid/graphics/Matrix;)Landroid/graphics/Matrix;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L17cf90.  v0:= v5.`com.google.android.material.animation.MatrixEvaluator.tempStartValues` @type ^`float`[] @kind object;
+  #L17cf94.  call `getValues`(v7, v0) @signature `Landroid/graphics/Matrix;.getValues:([F)V` @kind virtual;
+  #L17cf9a.  v0:= v5.`com.google.android.material.animation.MatrixEvaluator.tempEndValues` @type ^`float`[] @kind object;
+  #L17cf9e.  call `getValues`(v8, v0) @signature `Landroid/graphics/Matrix;.getValues:([F)V` @kind virtual;
+  #L17cfa4.  v0:= 0I;
+  #L17cfa6.  v1:= 9I;
+  #L17cfaa.  if v0 >= v1 then goto L17cfd4;
+  #L17cfae.  v1:= v5.`com.google.android.material.animation.MatrixEvaluator.tempEndValues` @type ^`float`[] @kind object;
+  #L17cfb2.  v2:= v1[v0];
+  #L17cfb6.  v3:= v5.`com.google.android.material.animation.MatrixEvaluator.tempStartValues` @type ^`float`[] @kind object;
+  #L17cfba.  v4:= v3[v0];
+  #L17cfbe.  v2:= v2 - v4 @kind float;
+  #L17cfc0.  v3:= v3[v0];
+  #L17cfc4.  v4:= v6 * v2 @kind float;
+  #L17cfc8.  v3:= v3 + v4 @kind float;
+  #L17cfca.  v1[v0]:= v3;
+  #L17cfce.  v0:= v0 + 1;
+  #L17cfd2.  goto L17cfa6;
+  #L17cfd4.  v0:= v5.`com.google.android.material.animation.MatrixEvaluator.tempMatrix` @type ^`android.graphics.Matrix` @kind object;
+  #L17cfd8.  v1:= v5.`com.google.android.material.animation.MatrixEvaluator.tempEndValues` @type ^`float`[] @kind object;
+  #L17cfdc.  call `setValues`(v0, v1) @signature `Landroid/graphics/Matrix;.setValues:([F)V` @kind virtual;
+  #L17cfe2.  v0:= v5.`com.google.android.material.animation.MatrixEvaluator.tempMatrix` @type ^`android.graphics.Matrix` @kind object;
+  #L17cfe6.  return v0 @kind object;
+}
+procedure `java.lang.Object` `evaluate`(`com.google.android.material.animation.MatrixEvaluator` v0 @kind this, `float` v1 , `java.lang.Object` v2 @kind object, `java.lang.Object` v3 @kind object) @signature `Lcom/google/android/material/animation/MatrixEvaluator;.evaluate:(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L17cff8.  v2:= (`android.graphics.Matrix`) v2 @kind object;
+  #L17cffc.  v3:= (`android.graphics.Matrix`) v3 @kind object;
+  #L17d000.  call temp:= `evaluate`(v0, v1, v2, v3) @signature `Lcom/google/android/material/animation/MatrixEvaluator;.evaluate:(FLandroid/graphics/Matrix;Landroid/graphics/Matrix;)Landroid/graphics/Matrix;` @kind virtual;
+  #L17d006.  v1:= temp @kind object;
+  #L17d008.  return v1 @kind object;
+}

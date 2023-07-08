@@ -1,0 +1,126 @@
+record `androidx.appcompat.widget.ActivityChooserModel` @kind class @AccessFlag  extends `android.database.DataSetObservable` @kind class {
+  `java.util.List` `androidx.appcompat.widget.ActivityChooserModel.mActivities` @AccessFlag PRIVATE_FINAL;
+  `androidx.appcompat.widget.ActivityChooserModel$OnChooseActivityListener` `androidx.appcompat.widget.ActivityChooserModel.mActivityChoserModelPolicy` @AccessFlag PRIVATE;
+  `androidx.appcompat.widget.ActivityChooserModel$ActivitySorter` `androidx.appcompat.widget.ActivityChooserModel.mActivitySorter` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.ActivityChooserModel.mCanReadHistoricalData` @AccessFlag ;
+  `android.content.Context` `androidx.appcompat.widget.ActivityChooserModel.mContext` @AccessFlag FINAL;
+  `java.util.List` `androidx.appcompat.widget.ActivityChooserModel.mHistoricalRecords` @AccessFlag PRIVATE_FINAL;
+  `boolean` `androidx.appcompat.widget.ActivityChooserModel.mHistoricalRecordsChanged` @AccessFlag PRIVATE;
+  `java.lang.String` `androidx.appcompat.widget.ActivityChooserModel.mHistoryFileName` @AccessFlag FINAL;
+  `int` `androidx.appcompat.widget.ActivityChooserModel.mHistoryMaxSize` @AccessFlag PRIVATE;
+  `java.lang.Object` `androidx.appcompat.widget.ActivityChooserModel.mInstanceLock` @AccessFlag PRIVATE_FINAL;
+  `android.content.Intent` `androidx.appcompat.widget.ActivityChooserModel.mIntent` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.ActivityChooserModel.mReadShareHistoryCalled` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.ActivityChooserModel.mReloadActivities` @AccessFlag PRIVATE;
+}
+global `java.lang.String` `@@androidx.appcompat.widget.ActivityChooserModel.ATTRIBUTE_ACTIVITY` @AccessFlag STATIC_FINAL;
+global `java.lang.String` `@@androidx.appcompat.widget.ActivityChooserModel.ATTRIBUTE_TIME` @AccessFlag STATIC_FINAL;
+global `java.lang.String` `@@androidx.appcompat.widget.ActivityChooserModel.ATTRIBUTE_WEIGHT` @AccessFlag STATIC_FINAL;
+global `boolean` `@@androidx.appcompat.widget.ActivityChooserModel.DEBUG` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.ActivityChooserModel.DEFAULT_ACTIVITY_INFLATION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `float` `@@androidx.appcompat.widget.ActivityChooserModel.DEFAULT_HISTORICAL_RECORD_WEIGHT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.appcompat.widget.ActivityChooserModel.DEFAULT_HISTORY_FILE_NAME` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.ActivityChooserModel.DEFAULT_HISTORY_MAX_LENGTH` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.appcompat.widget.ActivityChooserModel.HISTORY_FILE_EXTENSION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.ActivityChooserModel.INVALID_INDEX` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.appcompat.widget.ActivityChooserModel.LOG_TAG` @AccessFlag STATIC_FINAL;
+global `java.lang.String` `@@androidx.appcompat.widget.ActivityChooserModel.TAG_HISTORICAL_RECORD` @AccessFlag STATIC_FINAL;
+global `java.lang.String` `@@androidx.appcompat.widget.ActivityChooserModel.TAG_HISTORICAL_RECORDS` @AccessFlag STATIC_FINAL;
+global `java.util.Map` `@@androidx.appcompat.widget.ActivityChooserModel.sDataModelRegistry` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.Object` `@@androidx.appcompat.widget.ActivityChooserModel.sRegistryLock` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/appcompat/widget/ActivityChooserModel;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.widget.ActivityChooserModel` v2 @kind this, `android.content.Context` v3 @kind object @name `context`, `java.lang.String` v4 @kind object @name `historyFileName`) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.<init>:(Landroid/content/Context;Ljava/lang/String;)V` @AccessFlag PRIVATE_CONSTRUCTOR {
+
+  # return;
+}
+procedure `boolean` `addHistoricalRecord`(`androidx.appcompat.widget.ActivityChooserModel` v2 @kind this, `androidx.appcompat.widget.ActivityChooserModel$HistoricalRecord` v3 @kind object @name `historicalRecord`) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.addHistoricalRecord:(Landroidx/appcompat/widget/ActivityChooserModel$HistoricalRecord;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `ensureConsistentState`(`androidx.appcompat.widget.ActivityChooserModel` v2 @kind this) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.ensureConsistentState:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.appcompat.widget.ActivityChooserModel` `get`(`android.content.Context` v4 @kind object @name `context`, `java.lang.String` v5 @kind object @name `historyFileName`) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.get:(Landroid/content/Context;Ljava/lang/String;)Landroidx/appcompat/widget/ActivityChooserModel;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `loadActivitiesIfNeeded`(`androidx.appcompat.widget.ActivityChooserModel` v6 @kind this) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.loadActivitiesIfNeeded:()Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `persistHistoricalDataIfNeeded`(`androidx.appcompat.widget.ActivityChooserModel` v6 @kind this) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.persistHistoricalDataIfNeeded:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `pruneExcessiveHistoricalRecordsIfNeeded`(`androidx.appcompat.widget.ActivityChooserModel` v4 @kind this) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.pruneExcessiveHistoricalRecordsIfNeeded:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `readHistoricalDataIfNeeded`(`androidx.appcompat.widget.ActivityChooserModel` v2 @kind this) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.readHistoricalDataIfNeeded:()Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `readHistoricalDataImpl`(`androidx.appcompat.widget.ActivityChooserModel` v12 @kind this) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.readHistoricalDataImpl:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `sortActivitiesIfNeeded`(`androidx.appcompat.widget.ActivityChooserModel` v4 @kind this) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.sortActivitiesIfNeeded:()Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.content.Intent` `chooseActivity`(`androidx.appcompat.widget.ActivityChooserModel` v8 @kind this, `int` v9 @name `index`) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.chooseActivity:(I)Landroid/content/Intent;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.content.pm.ResolveInfo` `getActivity`(`androidx.appcompat.widget.ActivityChooserModel` v2 @kind this, `int` v3 @name `index`) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.getActivity:(I)Landroid/content/pm/ResolveInfo;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getActivityCount`(`androidx.appcompat.widget.ActivityChooserModel` v2 @kind this) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.getActivityCount:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getActivityIndex`(`androidx.appcompat.widget.ActivityChooserModel` v6 @kind this, `android.content.pm.ResolveInfo` v7 @kind object @name `activity`) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.getActivityIndex:(Landroid/content/pm/ResolveInfo;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.content.pm.ResolveInfo` `getDefaultActivity`(`androidx.appcompat.widget.ActivityChooserModel` v3 @kind this) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.getDefaultActivity:()Landroid/content/pm/ResolveInfo;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getHistoryMaxSize`(`androidx.appcompat.widget.ActivityChooserModel` v2 @kind this) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.getHistoryMaxSize:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getHistorySize`(`androidx.appcompat.widget.ActivityChooserModel` v2 @kind this) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.getHistorySize:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.content.Intent` `getIntent`(`androidx.appcompat.widget.ActivityChooserModel` v2 @kind this) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.getIntent:()Landroid/content/Intent;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setActivitySorter`(`androidx.appcompat.widget.ActivityChooserModel` v2 @kind this, `androidx.appcompat.widget.ActivityChooserModel$ActivitySorter` v3 @kind object @name `activitySorter`) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.setActivitySorter:(Landroidx/appcompat/widget/ActivityChooserModel$ActivitySorter;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDefaultActivity`(`androidx.appcompat.widget.ActivityChooserModel` v8 @kind this, `int` v9 @name `index`) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.setDefaultActivity:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHistoryMaxSize`(`androidx.appcompat.widget.ActivityChooserModel` v2 @kind this, `int` v3 @name `historyMaxSize`) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.setHistoryMaxSize:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setIntent`(`androidx.appcompat.widget.ActivityChooserModel` v2 @kind this, `android.content.Intent` v3 @kind object @name `intent`) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.setIntent:(Landroid/content/Intent;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOnChooseActivityListener`(`androidx.appcompat.widget.ActivityChooserModel` v2 @kind this, `androidx.appcompat.widget.ActivityChooserModel$OnChooseActivityListener` v3 @kind object @name `listener`) @signature `Landroidx/appcompat/widget/ActivityChooserModel;.setOnChooseActivityListener:(Landroidx/appcompat/widget/ActivityChooserModel$OnChooseActivityListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}

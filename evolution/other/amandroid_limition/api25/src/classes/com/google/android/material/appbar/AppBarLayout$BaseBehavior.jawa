@@ -1,0 +1,1193 @@
+record `com.google.android.material.appbar.AppBarLayout$BaseBehavior` @kind class @AccessFlag PUBLIC extends `com.google.android.material.appbar.HeaderBehavior` @kind class {
+  `java.lang.ref.WeakReference` `com.google.android.material.appbar.AppBarLayout$BaseBehavior.lastNestedScrollingChildRef` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.appbar.AppBarLayout$BaseBehavior.lastStartedType` @AccessFlag PRIVATE;
+  `android.animation.ValueAnimator` `com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetAnimator` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetDelta` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetToChildIndexOnLayout` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetToChildIndexOnLayoutIsMinHeight` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetToChildIndexOnLayoutPerc` @AccessFlag PRIVATE;
+  `com.google.android.material.appbar.AppBarLayout$BaseBehavior$BaseDragCallback` `com.google.android.material.appbar.AppBarLayout$BaseBehavior.onDragCallback` @AccessFlag PRIVATE;
+}
+global `int` `@@com.google.android.material.appbar.AppBarLayout$BaseBehavior.INVALID_POSITION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.appbar.AppBarLayout$BaseBehavior.MAX_OFFSET_ANIMATION_DURATION` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v1 @kind this) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L17e3f0.  call `<init>`(v1) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.<init>:()V` @kind direct;
+  #L17e3f6.  v0:= -1I;
+  #L17e3f8.  v1.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetToChildIndexOnLayout` @type ^`int` := v0;
+  #L17e3fc.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L17e410.  call `<init>`(v1, v2, v3) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L17e416.  v0:= -1I;
+  #L17e418.  v1.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetToChildIndexOnLayout` @type ^`int` := v0;
+  #L17e41c.  return @kind void;
+}
+procedure `int` `access$000`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.access$000:(Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;)I` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L17e0f0.  v0:= v1.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetDelta` @type ^`int`;
+  #L17e0f4.  return v0;
+}
+procedure `void` `animateOffsetTo`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v4 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v5 @kind object @name `coordinatorLayout`, `com.google.android.material.appbar.AppBarLayout` v6 @kind object, `int` v7 @name `offset`, `float` v8 @name `velocity`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.animateOffsetTo:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;IF)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L17e430.  call temp:= `getTopBottomOffsetForScrollingSibling`(v4) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getTopBottomOffsetForScrollingSibling:()I` @kind virtual;
+  #L17e436.  v0:= temp;
+  #L17e438.  v0:= v0 - v7 @kind int;
+  #L17e43a.  call temp:= `abs`(v0) @signature `Ljava/lang/Math;.abs:(I)I` @kind static;
+  #L17e440.  v0:= temp;
+  #L17e442.  call temp:= `abs`(v8) @signature `Ljava/lang/Math;.abs:(F)F` @kind static;
+  #L17e448.  v8:= temp;
+  #L17e44a.  v1:= 0I;
+  #L17e44c.  v1:= fcmpl(v8, v1);
+  #L17e450.  if v1 <= 0 then goto L17e46c;
+  #L17e454.  v1:= 1000.0F;
+  #L17e458.  v2:= (`float`) v0 @kind i2f;
+  #L17e45a.  v2:= v2 / v8 @kind float;
+  #L17e45c.  v2:= v2 * v1 @kind float;
+  #L17e45e.  call temp:= `round`(v2) @signature `Ljava/lang/Math;.round:(F)I` @kind static;
+  #L17e464.  v1:= temp;
+  #L17e466.  v1:= v1 * 3;
+  #L17e46a.  goto L17e48a;
+  #L17e46c.  v1:= (`float`) v0 @kind i2f;
+  #L17e46e.  call temp:= `getHeight`(v6) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getHeight:()I` @kind virtual;
+  #L17e474.  v2:= temp;
+  #L17e476.  v2:= (`float`) v2 @kind i2f;
+  #L17e478.  v1:= v1 / v2 @kind float;
+  #L17e47a.  v2:= 1.0F;
+  #L17e47e.  v2:= v2 + v1 @kind float;
+  #L17e480.  v3:= 150.0F;
+  #L17e484.  v2:= v2 * v3 @kind float;
+  #L17e486.  v2:= (`int`) v2 @kind f2i;
+  #L17e488.  v1:= v2;
+  #L17e48a.  call `animateOffsetWithDuration`(v4, v5, v6, v7, v1) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.animateOffsetWithDuration:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;II)V` @kind direct;
+  #L17e490.  return @kind void;
+}
+procedure `void` `animateOffsetWithDuration`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v4 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v5 @kind object @name `coordinatorLayout`, `com.google.android.material.appbar.AppBarLayout` v6 @kind object, `int` v7 @name `offset`, `int` v8 @name `duration`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.animateOffsetWithDuration:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;II)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L17e4a4.  call temp:= `getTopBottomOffsetForScrollingSibling`(v4) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getTopBottomOffsetForScrollingSibling:()I` @kind virtual;
+  #L17e4aa.  v0:= temp;
+  #L17e4ac.  if v0 != v7 then goto L17e4d0;
+  #L17e4b0.  v1:= v4.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L17e4b4.  if v1 == 0 then goto L17e4ce;
+  #L17e4b8.  call temp:= `isRunning`(v1) @signature `Landroid/animation/ValueAnimator;.isRunning:()Z` @kind virtual;
+  #L17e4be.  v1:= temp;
+  #L17e4c0.  if v1 == 0 then goto L17e4ce;
+  #L17e4c4.  v1:= v4.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L17e4c8.  call `cancel`(v1) @signature `Landroid/animation/ValueAnimator;.cancel:()V` @kind virtual;
+  #L17e4ce.  return @kind void;
+  #L17e4d0.  v1:= v4.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L17e4d4.  if v1 != 0 then goto L17e506;
+  #L17e4d8.  v1:= new `android.animation.ValueAnimator`;
+  #L17e4dc.  call `<init>`(v1) @signature `Landroid/animation/ValueAnimator;.<init>:()V` @kind direct;
+  #L17e4e2.  v4.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetAnimator` @type ^`android.animation.ValueAnimator` := v1 @kind object;
+  #L17e4e6.  v2:= `@@com.google.android.material.animation.AnimationUtils.DECELERATE_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L17e4ea.  call `setInterpolator`(v1, v2) @signature `Landroid/animation/ValueAnimator;.setInterpolator:(Landroid/animation/TimeInterpolator;)V` @kind virtual;
+  #L17e4f0.  v1:= v4.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L17e4f4.  v2:= new `com.google.android.material.appbar.AppBarLayout$BaseBehavior$1`;
+  #L17e4f8.  call `<init>`(v2, v4, v5, v6) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$1;.<init>:(Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;)V` @kind direct;
+  #L17e4fe.  call `addUpdateListener`(v1, v2) @signature `Landroid/animation/ValueAnimator;.addUpdateListener:(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V` @kind virtual;
+  #L17e504.  goto L17e50c;
+  #L17e506.  call `cancel`(v1) @signature `Landroid/animation/ValueAnimator;.cancel:()V` @kind virtual;
+  #L17e50c.  v1:= v4.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L17e510.  v2:= 600I;
+  #L17e514.  call temp:= `min`(v8, v2) @signature `Ljava/lang/Math;.min:(II)I` @kind static;
+  #L17e51a.  v2:= temp;
+  #L17e51c.  v2:= (`long`) v2 @kind i2l;
+  #L17e51e.  call temp:= `setDuration`(v1, v2) @signature `Landroid/animation/ValueAnimator;.setDuration:(J)Landroid/animation/ValueAnimator;` @kind virtual;
+  #L17e524.  v1:= v4.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L17e528.  v2:= 2I;
+  #L17e52a.  v2:= new `int`[v2];
+  #L17e52e.  v3:= 0I;
+  #L17e530.  v2[v3]:= v0;
+  #L17e534.  v3:= 1I;
+  #L17e536.  v2[v3]:= v7;
+  #L17e53a.  call `setIntValues`(v1, v2) @signature `Landroid/animation/ValueAnimator;.setIntValues:([I)V` @kind virtual;
+  #L17e540.  v1:= v4.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L17e544.  call `start`(v1) @signature `Landroid/animation/ValueAnimator;.start:()V` @kind virtual;
+  #L17e54a.  return @kind void;
+}
+procedure `boolean` `canScrollChildren`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v2 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v3 @kind object @name `parent`, `com.google.android.material.appbar.AppBarLayout` v4 @kind object, `android.view.View` v5 @kind object @name `directTargetChild`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.canScrollChildren:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;Landroid/view/View;)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L17dd98.  call temp:= `hasScrollableChildren`(v4) @signature `Lcom/google/android/material/appbar/AppBarLayout;.hasScrollableChildren:()Z` @kind virtual;
+  #L17dd9e.  v0:= temp;
+  #L17dda0.  if v0 == 0 then goto L17ddc6;
+  #L17dda4.  call temp:= `getHeight`(v3) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getHeight:()I` @kind virtual;
+  #L17ddaa.  v0:= temp;
+  #L17ddac.  call temp:= `getHeight`(v5) @signature `Landroid/view/View;.getHeight:()I` @kind virtual;
+  #L17ddb2.  v1:= temp;
+  #L17ddb4.  v0:= v0 - v1 @kind int;
+  #L17ddb6.  call temp:= `getHeight`(v4) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getHeight:()I` @kind virtual;
+  #L17ddbc.  v1:= temp;
+  #L17ddbe.  if v0 > v1 then goto L17ddc6;
+  #L17ddc2.  v0:= 1I;
+  #L17ddc4.  goto L17ddc8;
+  #L17ddc6.  v0:= 0I;
+  #L17ddc8.  return v0;
+}
+procedure `boolean` `checkFlag`(`int` v1 @name `flags`, `int` v2 @name `check`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.checkFlag:(II)Z` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+
+  #L17dddc.  v0:= v1 ^& v2 @kind int;
+  #L17dde0.  if v0 != v2 then goto L17dde8;
+  #L17dde4.  v0:= 1I;
+  #L17dde6.  goto L17ddea;
+  #L17dde8.  v0:= 0I;
+  #L17ddea.  return v0;
+}
+procedure `android.view.View` `findFirstScrollingChild`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v4 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v5 @kind object @name `parent`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.findFirstScrollingChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;)Landroid/view/View;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L17dc78.  v0:= 0I;
+  #L17dc7a.  call temp:= `getChildCount`(v5) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getChildCount:()I` @kind virtual;
+  #L17dc80.  v1:= temp;
+  #L17dc82.  if v0 >= v1 then goto L17dcb0;
+  #L17dc86.  call temp:= `getChildAt`(v5, v0) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L17dc8c.  v2:= temp @kind object;
+  #L17dc8e.  v3:= instanceof @variable v2 @type ^`androidx.core.view.NestedScrollingChild` @kind boolean;
+  #L17dc92.  if v3 != 0 then goto L17dcae;
+  #L17dc96.  v3:= instanceof @variable v2 @type ^`android.widget.ListView` @kind boolean;
+  #L17dc9a.  if v3 != 0 then goto L17dcae;
+  #L17dc9e.  v3:= instanceof @variable v2 @type ^`android.widget.ScrollView` @kind boolean;
+  #L17dca2.  if v3 == 0 then goto L17dca8;
+  #L17dca6.  goto L17dcae;
+  #L17dca8.  v0:= v0 + 1;
+  #L17dcac.  goto L17dc82;
+  #L17dcae.  return v2 @kind object;
+  #L17dcb0.  v0:= 0I;
+  #L17dcb2.  return v0 @kind object;
+}
+procedure `android.view.View` `getAppBarChildOnOffset`(`com.google.android.material.appbar.AppBarLayout` v5 @kind object @name `layout`, `int` v6 @name `offset`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getAppBarChildOnOffset:(Lcom/google/android/material/appbar/AppBarLayout;I)Landroid/view/View;` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L17dcc4.  call temp:= `abs`(v6) @signature `Ljava/lang/Math;.abs:(I)I` @kind static;
+  #L17dcca.  v0:= temp;
+  #L17dccc.  v1:= 0I;
+  #L17dcce.  call temp:= `getChildCount`(v5) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getChildCount:()I` @kind virtual;
+  #L17dcd4.  v2:= temp;
+  #L17dcd6.  if v1 >= v2 then goto L17dd02;
+  #L17dcda.  call temp:= `getChildAt`(v5, v1) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L17dce0.  v3:= temp @kind object;
+  #L17dce2.  call temp:= `getTop`(v3) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L17dce8.  v4:= temp;
+  #L17dcea.  if v0 < v4 then goto L17dcfc;
+  #L17dcee.  call temp:= `getBottom`(v3) @signature `Landroid/view/View;.getBottom:()I` @kind virtual;
+  #L17dcf4.  v4:= temp;
+  #L17dcf6.  if v0 > v4 then goto L17dcfc;
+  #L17dcfa.  return v3 @kind object;
+  #L17dcfc.  v1:= v1 + 1;
+  #L17dd00.  goto L17dcd6;
+  #L17dd02.  v1:= 0I;
+  #L17dd04.  return v1 @kind object;
+}
+procedure `int` `getChildIndexOnOffset`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v8 @kind this, `com.google.android.material.appbar.AppBarLayout` v9 @kind object, `int` v10 @name `offset`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getChildIndexOnOffset:(Lcom/google/android/material/appbar/AppBarLayout;I)I` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L17e108.  v0:= 0I;
+  #L17e10a.  call temp:= `getChildCount`(v9) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getChildCount:()I` @kind virtual;
+  #L17e110.  v1:= temp;
+  #L17e112.  if v0 >= v1 then goto L17e172;
+  #L17e116.  call temp:= `getChildAt`(v9, v0) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L17e11c.  v2:= temp @kind object;
+  #L17e11e.  call temp:= `getTop`(v2) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L17e124.  v3:= temp;
+  #L17e126.  call temp:= `getBottom`(v2) @signature `Landroid/view/View;.getBottom:()I` @kind virtual;
+  #L17e12c.  v4:= temp;
+  #L17e12e.  call temp:= `getLayoutParams`(v2) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L17e134.  v5:= temp @kind object;
+  #L17e136.  v5:= (`com.google.android.material.appbar.AppBarLayout$LayoutParams`) v5 @kind object;
+  #L17e13a.  call temp:= `getScrollFlags`(v5) @signature `Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;.getScrollFlags:()I` @kind virtual;
+  #L17e140.  v6:= temp;
+  #L17e142.  v7:= 32I;
+  #L17e146.  call temp:= `checkFlag`(v6, v7) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.checkFlag:(II)Z` @kind static;
+  #L17e14c.  v6:= temp;
+  #L17e14e.  if v6 == 0 then goto L17e15e;
+  #L17e152.  v6:= v5.`com.google.android.material.appbar.AppBarLayout$LayoutParams.topMargin` @type ^`int`;
+  #L17e156.  v3:= v3 - v6 @kind int;
+  #L17e158.  v6:= v5.`com.google.android.material.appbar.AppBarLayout$LayoutParams.bottomMargin` @type ^`int`;
+  #L17e15c.  v4:= v4 + v6 @kind int;
+  #L17e15e.  v6:= -v10 @kind int;
+  #L17e160.  if v3 > v6 then goto L17e16c;
+  #L17e164.  v6:= -v10 @kind int;
+  #L17e166.  if v4 < v6 then goto L17e16c;
+  #L17e16a.  return v0;
+  #L17e16c.  v0:= v0 + 1;
+  #L17e170.  goto L17e112;
+  #L17e172.  v0:= -1I;
+  #L17e174.  return v0;
+}
+procedure `int` `interpolateOffset`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v12 @kind this, `com.google.android.material.appbar.AppBarLayout` v13 @kind object, `int` v14 @name `offset`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.interpolateOffset:(Lcom/google/android/material/appbar/AppBarLayout;I)I` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+
+  #L17e220.  call temp:= `abs`(v14) @signature `Ljava/lang/Math;.abs:(I)I` @kind static;
+  #L17e226.  v0:= temp;
+  #L17e228.  v1:= 0I;
+  #L17e22a.  call temp:= `getChildCount`(v13) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getChildCount:()I` @kind virtual;
+  #L17e230.  v2:= temp;
+  #L17e232.  if v1 >= v2 then goto L17e306;
+  #L17e236.  call temp:= `getChildAt`(v13, v1) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L17e23c.  v3:= temp @kind object;
+  #L17e23e.  call temp:= `getLayoutParams`(v3) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L17e244.  v4:= temp @kind object;
+  #L17e246.  v4:= (`com.google.android.material.appbar.AppBarLayout$LayoutParams`) v4 @kind object;
+  #L17e24a.  call temp:= `getScrollInterpolator`(v4) @signature `Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;.getScrollInterpolator:()Landroid/view/animation/Interpolator;` @kind virtual;
+  #L17e250.  v5:= temp @kind object;
+  #L17e252.  call temp:= `getTop`(v3) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L17e258.  v6:= temp;
+  #L17e25a.  if v0 < v6 then goto L17e300;
+  #L17e25e.  call temp:= `getBottom`(v3) @signature `Landroid/view/View;.getBottom:()I` @kind virtual;
+  #L17e264.  v6:= temp;
+  #L17e266.  if v0 > v6 then goto L17e300;
+  #L17e26a.  if v5 == 0 then goto L17e306;
+  #L17e26e.  v6:= 0I;
+  #L17e270.  call temp:= `getScrollFlags`(v4) @signature `Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;.getScrollFlags:()I` @kind virtual;
+  #L17e276.  v7:= temp;
+  #L17e278.  v8:= v7 ^& 1;
+  #L17e27c.  if v8 == 0 then goto L17e2a8;
+  #L17e280.  call temp:= `getHeight`(v3) @signature `Landroid/view/View;.getHeight:()I` @kind virtual;
+  #L17e286.  v8:= temp;
+  #L17e288.  v9:= v4.`com.google.android.material.appbar.AppBarLayout$LayoutParams.topMargin` @type ^`int`;
+  #L17e28c.  v8:= v8 + v9 @kind int;
+  #L17e28e.  v9:= v4.`com.google.android.material.appbar.AppBarLayout$LayoutParams.bottomMargin` @type ^`int`;
+  #L17e292.  v8:= v8 + v9 @kind int;
+  #L17e294.  v6:= v6 + v8 @kind int;
+  #L17e296.  v8:= v7 ^& 2;
+  #L17e29a.  if v8 == 0 then goto L17e2a8;
+  #L17e29e.  call temp:= `getMinimumHeight`(v3) @signature `Landroidx/core/view/ViewCompat;.getMinimumHeight:(Landroid/view/View;)I` @kind static;
+  #L17e2a4.  v8:= temp;
+  #L17e2a6.  v6:= v6 - v8 @kind int;
+  #L17e2a8.  call temp:= `getFitsSystemWindows`(v3) @signature `Landroidx/core/view/ViewCompat;.getFitsSystemWindows:(Landroid/view/View;)Z` @kind static;
+  #L17e2ae.  v8:= temp;
+  #L17e2b0.  if v8 == 0 then goto L17e2be;
+  #L17e2b4.  call temp:= `getTopInset`(v13) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getTopInset:()I` @kind virtual;
+  #L17e2ba.  v8:= temp;
+  #L17e2bc.  v6:= v6 - v8 @kind int;
+  #L17e2be.  if v6 <= 0 then goto L17e2fe;
+  #L17e2c2.  call temp:= `getTop`(v3) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L17e2c8.  v8:= temp;
+  #L17e2ca.  v8:= v0 - v8 @kind int;
+  #L17e2ce.  v9:= (`float`) v6 @kind i2f;
+  #L17e2d0.  v10:= (`float`) v8 @kind i2f;
+  #L17e2d2.  v11:= (`float`) v6 @kind i2f;
+  #L17e2d4.  v10:= v10 / v11 @kind float;
+  #L17e2d6.  call temp:= `getInterpolation`(v5, v10) @signature `Landroid/view/animation/Interpolator;.getInterpolation:(F)F` @kind interface;
+  #L17e2dc.  v10:= temp;
+  #L17e2de.  v9:= v9 * v10 @kind float;
+  #L17e2e0.  call temp:= `round`(v9) @signature `Ljava/lang/Math;.round:(F)I` @kind static;
+  #L17e2e6.  v9:= temp;
+  #L17e2e8.  call temp:= `signum`(v14) @signature `Ljava/lang/Integer;.signum:(I)I` @kind static;
+  #L17e2ee.  v10:= temp;
+  #L17e2f0.  call temp:= `getTop`(v3) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L17e2f6.  v11:= temp;
+  #L17e2f8.  v11:= v11 + v9 @kind int;
+  #L17e2fa.  v10:= v10 * v11 @kind int;
+  #L17e2fc.  return v10;
+  #L17e2fe.  goto L17e306;
+  #L17e300.  v1:= v1 + 1;
+  #L17e304.  goto L17e232;
+  #L17e306.  return v14;
+}
+procedure `boolean` `shouldJumpElevationState`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v8 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v9 @kind object @name `parent`, `com.google.android.material.appbar.AppBarLayout` v10 @kind object) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.shouldJumpElevationState:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L17e080.  call temp:= `getDependents`(v9, v10) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getDependents:(Landroid/view/View;)Ljava/util/List;` @kind virtual;
+  #L17e086.  v0:= temp @kind object;
+  #L17e088.  v1:= 0I;
+  #L17e08a.  call temp:= `size`(v0) @signature `Ljava/util/List;.size:()I` @kind interface;
+  #L17e090.  v2:= temp;
+  #L17e092.  v3:= 0I;
+  #L17e094.  if v1 >= v2 then goto L17e0de;
+  #L17e098.  call temp:= `get`(v0, v1) @signature `Ljava/util/List;.get:(I)Ljava/lang/Object;` @kind interface;
+  #L17e09e.  v4:= temp @kind object;
+  #L17e0a0.  v4:= (`android.view.View`) v4 @kind object;
+  #L17e0a4.  
+  #L17e0a6.  call temp:= `getLayoutParams`(v4) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L17e0ac.  v5:= temp @kind object;
+  #L17e0ae.  v5:= (`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams`) v5 @kind object;
+  #L17e0b2.  call temp:= `getBehavior`(v5) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;.getBehavior:()Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;` @kind virtual;
+  #L17e0b8.  v6:= temp @kind object;
+  #L17e0ba.  v7:= instanceof @variable v6 @type ^`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` @kind boolean;
+  #L17e0be.  if v7 == 0 then goto L17e0d8;
+  #L17e0c2.  v7:= v6 @kind object;
+  #L17e0c4.  v7:= (`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior`) v7 @kind object;
+  #L17e0c8.  call temp:= `getOverlayTop`(v7) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.getOverlayTop:()I` @kind virtual;
+  #L17e0ce.  v7:= temp;
+  #L17e0d0.  if v7 == 0 then goto L17e0d6;
+  #L17e0d4.  v3:= 1I;
+  #L17e0d6.  return v3;
+  #L17e0d8.  v1:= v1 + 1;
+  #L17e0dc.  goto L17e092;
+  #L17e0de.  return v3;
+}
+procedure `void` `snapToChildIfNeeded`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v10 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v11 @kind object @name `coordinatorLayout`, `com.google.android.material.appbar.AppBarLayout` v12 @kind object) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.snapToChildIfNeeded:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+
+  #L17e7c8.  call temp:= `getTopBottomOffsetForScrollingSibling`(v10) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getTopBottomOffsetForScrollingSibling:()I` @kind virtual;
+  #L17e7ce.  v0:= temp;
+  #L17e7d0.  call temp:= `getChildIndexOnOffset`(v10, v12, v0) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getChildIndexOnOffset:(Lcom/google/android/material/appbar/AppBarLayout;I)I` @kind direct;
+  #L17e7d6.  v1:= temp;
+  #L17e7d8.  if v1 < 0 then goto L17e8b8;
+  #L17e7dc.  call temp:= `getChildAt`(v12, v1) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L17e7e2.  v2:= temp @kind object;
+  #L17e7e4.  call temp:= `getLayoutParams`(v2) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L17e7ea.  v3:= temp @kind object;
+  #L17e7ec.  v3:= (`com.google.android.material.appbar.AppBarLayout$LayoutParams`) v3 @kind object;
+  #L17e7f0.  call temp:= `getScrollFlags`(v3) @signature `Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;.getScrollFlags:()I` @kind virtual;
+  #L17e7f6.  v4:= temp;
+  #L17e7f8.  v5:= v4 ^& 17;
+  #L17e7fc.  v6:= 17I;
+  #L17e800.  if v5 != v6 then goto L17e8b8;
+  #L17e804.  call temp:= `getTop`(v2) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L17e80a.  v5:= temp;
+  #L17e80c.  v5:= -v5 @kind int;
+  #L17e80e.  call temp:= `getBottom`(v2) @signature `Landroid/view/View;.getBottom:()I` @kind virtual;
+  #L17e814.  v6:= temp;
+  #L17e816.  v6:= -v6 @kind int;
+  #L17e818.  call temp:= `getChildCount`(v12) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getChildCount:()I` @kind virtual;
+  #L17e81e.  v7:= temp;
+  #L17e820.  v7:= v7 + -1;
+  #L17e824.  if v1 != v7 then goto L17e832;
+  #L17e828.  call temp:= `getTopInset`(v12) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getTopInset:()I` @kind virtual;
+  #L17e82e.  v7:= temp;
+  #L17e830.  v6:= v6 + v7 @kind int;
+  #L17e832.  v7:= 2I;
+  #L17e834.  call temp:= `checkFlag`(v4, v7) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.checkFlag:(II)Z` @kind static;
+  #L17e83a.  v8:= temp;
+  #L17e83c.  if v8 == 0 then goto L17e84c;
+  #L17e840.  call temp:= `getMinimumHeight`(v2) @signature `Landroidx/core/view/ViewCompat;.getMinimumHeight:(Landroid/view/View;)I` @kind static;
+  #L17e846.  v8:= temp;
+  #L17e848.  v6:= v6 + v8 @kind int;
+  #L17e84a.  goto L17e86e;
+  #L17e84c.  v8:= 5I;
+  #L17e84e.  call temp:= `checkFlag`(v4, v8) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.checkFlag:(II)Z` @kind static;
+  #L17e854.  v8:= temp;
+  #L17e856.  if v8 == 0 then goto L17e86e;
+  #L17e85a.  call temp:= `getMinimumHeight`(v2) @signature `Landroidx/core/view/ViewCompat;.getMinimumHeight:(Landroid/view/View;)I` @kind static;
+  #L17e860.  v8:= temp;
+  #L17e862.  v8:= v8 + v6 @kind int;
+  #L17e864.  if v0 >= v8 then goto L17e86c;
+  #L17e868.  v5:= v8;
+  #L17e86a.  goto L17e86e;
+  #L17e86c.  v6:= v8;
+  #L17e86e.  v8:= 32I;
+  #L17e872.  call temp:= `checkFlag`(v4, v8) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.checkFlag:(II)Z` @kind static;
+  #L17e878.  v8:= temp;
+  #L17e87a.  if v8 == 0 then goto L17e88a;
+  #L17e87e.  v8:= v3.`com.google.android.material.appbar.AppBarLayout$LayoutParams.topMargin` @type ^`int`;
+  #L17e882.  v5:= v5 + v8 @kind int;
+  #L17e884.  v8:= v3.`com.google.android.material.appbar.AppBarLayout$LayoutParams.bottomMargin` @type ^`int`;
+  #L17e888.  v6:= v6 - v8 @kind int;
+  #L17e88a.  v8:= v6 + v5 @kind int;
+  #L17e88e.  v8:= v8 / v7 @kind int;
+  #L17e890.  if v0 >= v8 then goto L17e898;
+  #L17e894.  v7:= v6;
+  #L17e896.  goto L17e89a;
+  #L17e898.  v7:= v5;
+  #L17e89a.  
+  #L17e89c.  call temp:= `getTotalScrollRange`(v12) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getTotalScrollRange:()I` @kind virtual;
+  #L17e8a2.  v8:= temp;
+  #L17e8a4.  v8:= -v8 @kind int;
+  #L17e8a6.  v9:= 0I;
+  #L17e8a8.  call temp:= `clamp`(v7, v8, v9) @signature `Landroidx/core/math/MathUtils;.clamp:(III)I` @kind static;
+  #L17e8ae.  v8:= temp;
+  #L17e8b0.  v9:= 0I;
+  #L17e8b2.  call `animateOffsetTo`(v10, v11, v12, v8, v9) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.animateOffsetTo:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;IF)V` @kind direct;
+  #L17e8b8.  return @kind void;
+}
+procedure `void` `updateAppBarLayoutDrawableState`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v10 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v11 @kind object @name `parent`, `com.google.android.material.appbar.AppBarLayout` v12 @kind object, `int` v13 @name `offset`, `int` v14 @name `direction`, `boolean` v15 @name `forceJump`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.updateAppBarLayoutDrawableState:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;IIZ)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+
+  #L17e8cc.  call temp:= `getAppBarChildOnOffset`(v12, v13) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getAppBarChildOnOffset:(Lcom/google/android/material/appbar/AppBarLayout;I)Landroid/view/View;` @kind static;
+  #L17e8d2.  v0:= temp @kind object;
+  #L17e8d4.  if v0 == 0 then goto L17e992;
+  #L17e8d8.  call temp:= `getLayoutParams`(v0) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L17e8de.  v1:= temp @kind object;
+  #L17e8e0.  v1:= (`com.google.android.material.appbar.AppBarLayout$LayoutParams`) v1 @kind object;
+  #L17e8e4.  call temp:= `getScrollFlags`(v1) @signature `Lcom/google/android/material/appbar/AppBarLayout$LayoutParams;.getScrollFlags:()I` @kind virtual;
+  #L17e8ea.  v2:= temp;
+  #L17e8ec.  v3:= 0I;
+  #L17e8ee.  v4:= v2 ^& 1;
+  #L17e8f2.  if v4 == 0 then goto L17e954;
+  #L17e8f6.  call temp:= `getMinimumHeight`(v0) @signature `Landroidx/core/view/ViewCompat;.getMinimumHeight:(Landroid/view/View;)I` @kind static;
+  #L17e8fc.  v4:= temp;
+  #L17e8fe.  v5:= 0I;
+  #L17e900.  v6:= 1I;
+  #L17e902.  if v14 <= 0 then goto L17e92e;
+  #L17e906.  v7:= v2 ^& 12;
+  #L17e90a.  if v7 == 0 then goto L17e92e;
+  #L17e90e.  v7:= -v13 @kind int;
+  #L17e910.  call temp:= `getBottom`(v0) @signature `Landroid/view/View;.getBottom:()I` @kind virtual;
+  #L17e916.  v8:= temp;
+  #L17e918.  v8:= v8 - v4 @kind int;
+  #L17e91a.  call temp:= `getTopInset`(v12) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getTopInset:()I` @kind virtual;
+  #L17e920.  v9:= temp;
+  #L17e922.  v8:= v8 - v9 @kind int;
+  #L17e924.  if v7 < v8 then goto L17e92a;
+  #L17e928.  v5:= v6;
+  #L17e92a.  v3:= v5;
+  #L17e92c.  goto L17e954;
+  #L17e92e.  v7:= v2 ^& 2;
+  #L17e932.  if v7 == 0 then goto L17e954;
+  #L17e936.  v7:= -v13 @kind int;
+  #L17e938.  call temp:= `getBottom`(v0) @signature `Landroid/view/View;.getBottom:()I` @kind virtual;
+  #L17e93e.  v8:= temp;
+  #L17e940.  v8:= v8 - v4 @kind int;
+  #L17e942.  call temp:= `getTopInset`(v12) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getTopInset:()I` @kind virtual;
+  #L17e948.  v9:= temp;
+  #L17e94a.  v8:= v8 - v9 @kind int;
+  #L17e94c.  if v7 < v8 then goto L17e952;
+  #L17e950.  v5:= v6;
+  #L17e952.  v3:= v5;
+  #L17e954.  call temp:= `isLiftOnScroll`(v12) @signature `Lcom/google/android/material/appbar/AppBarLayout;.isLiftOnScroll:()Z` @kind virtual;
+  #L17e95a.  v4:= temp;
+  #L17e95c.  if v4 == 0 then goto L17e970;
+  #L17e960.  call temp:= `findFirstScrollingChild`(v10, v11) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.findFirstScrollingChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;)Landroid/view/View;` @kind direct;
+  #L17e966.  v4:= temp @kind object;
+  #L17e968.  call temp:= `shouldLift`(v12, v4) @signature `Lcom/google/android/material/appbar/AppBarLayout;.shouldLift:(Landroid/view/View;)Z` @kind virtual;
+  #L17e96e.  v3:= temp;
+  #L17e970.  call temp:= `setLiftedState`(v12, v3) @signature `Lcom/google/android/material/appbar/AppBarLayout;.setLiftedState:(Z)Z` @kind virtual;
+  #L17e976.  v4:= temp;
+  #L17e978.  if v15 != 0 then goto L17e98c;
+  #L17e97c.  if v4 == 0 then goto L17e992;
+  #L17e980.  call temp:= `shouldJumpElevationState`(v10, v11, v12) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.shouldJumpElevationState:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;)Z` @kind direct;
+  #L17e986.  v5:= temp;
+  #L17e988.  if v5 == 0 then goto L17e992;
+  #L17e98c.  call `jumpDrawablesToCurrentState`(v12) @signature `Lcom/google/android/material/appbar/AppBarLayout;.jumpDrawablesToCurrentState:()V` @kind virtual;
+  #L17e992.  return @kind void;
+}
+procedure `boolean` `canDragView`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v0 @kind this, `android.view.View` v1 @kind object) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.canDragView:(Landroid/view/View;)Z` @AccessFlag SYNTHETIC {
+    temp;
+
+  #L17dd18.  v1:= (`com.google.android.material.appbar.AppBarLayout`) v1 @kind object;
+  #L17dd1c.  call temp:= `canDragView`(v0, v1) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.canDragView:(Lcom/google/android/material/appbar/AppBarLayout;)Z` @kind virtual;
+  #L17dd22.  v1:= temp;
+  #L17dd24.  return v1;
+}
+procedure `boolean` `canDragView`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v3 @kind this, `com.google.android.material.appbar.AppBarLayout` v4 @kind object) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.canDragView:(Lcom/google/android/material/appbar/AppBarLayout;)Z` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L17dd38.  v0:= v3.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.onDragCallback` @type ^`com.google.android.material.appbar.AppBarLayout$BaseBehavior$BaseDragCallback` @kind object;
+  #L17dd3c.  if v0 == 0 then goto L17dd4a;
+  #L17dd40.  call temp:= `canDrag`(v0, v4) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$BaseDragCallback;.canDrag:(Lcom/google/android/material/appbar/AppBarLayout;)Z` @kind virtual;
+  #L17dd46.  v0:= temp;
+  #L17dd48.  return v0;
+  #L17dd4a.  v0:= v3.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.lastNestedScrollingChildRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L17dd4e.  v1:= 1I;
+  #L17dd50.  if v0 == 0 then goto L17dd84;
+  #L17dd54.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L17dd5a.  v0:= temp @kind object;
+  #L17dd5c.  v0:= (`android.view.View`) v0 @kind object;
+  #L17dd60.  if v0 == 0 then goto L17dd80;
+  #L17dd64.  call temp:= `isShown`(v0) @signature `Landroid/view/View;.isShown:()Z` @kind virtual;
+  #L17dd6a.  v2:= temp;
+  #L17dd6c.  if v2 == 0 then goto L17dd80;
+  #L17dd70.  v2:= -1I;
+  #L17dd72.  call temp:= `canScrollVertically`(v0, v2) @signature `Landroid/view/View;.canScrollVertically:(I)Z` @kind virtual;
+  #L17dd78.  v2:= temp;
+  #L17dd7a.  if v2 != 0 then goto L17dd80;
+  #L17dd7e.  goto L17dd82;
+  #L17dd80.  v1:= 0I;
+  #L17dd82.  return v1;
+  #L17dd84.  return v1;
+}
+procedure `int` `getMaxDragOffset`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v0 @kind this, `android.view.View` v1 @kind object) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getMaxDragOffset:(Landroid/view/View;)I` @AccessFlag SYNTHETIC {
+    temp;
+
+  #L17e188.  v1:= (`com.google.android.material.appbar.AppBarLayout`) v1 @kind object;
+  #L17e18c.  call temp:= `getMaxDragOffset`(v0, v1) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getMaxDragOffset:(Lcom/google/android/material/appbar/AppBarLayout;)I` @kind virtual;
+  #L17e192.  v1:= temp;
+  #L17e194.  return v1;
+}
+procedure `int` `getMaxDragOffset`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v1 @kind this, `com.google.android.material.appbar.AppBarLayout` v2 @kind object) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getMaxDragOffset:(Lcom/google/android/material/appbar/AppBarLayout;)I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L17e1a8.  call temp:= `getDownNestedScrollRange`(v2) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getDownNestedScrollRange:()I` @kind virtual;
+  #L17e1ae.  v0:= temp;
+  #L17e1b0.  v0:= -v0 @kind int;
+  #L17e1b2.  return v0;
+}
+procedure `int` `getScrollRangeForDragFling`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v0 @kind this, `android.view.View` v1 @kind object) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getScrollRangeForDragFling:(Landroid/view/View;)I` @AccessFlag SYNTHETIC {
+    temp;
+
+  #L17e1c4.  v1:= (`com.google.android.material.appbar.AppBarLayout`) v1 @kind object;
+  #L17e1c8.  call temp:= `getScrollRangeForDragFling`(v0, v1) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getScrollRangeForDragFling:(Lcom/google/android/material/appbar/AppBarLayout;)I` @kind virtual;
+  #L17e1ce.  v1:= temp;
+  #L17e1d0.  return v1;
+}
+procedure `int` `getScrollRangeForDragFling`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v1 @kind this, `com.google.android.material.appbar.AppBarLayout` v2 @kind object) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getScrollRangeForDragFling:(Lcom/google/android/material/appbar/AppBarLayout;)I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L17e1e4.  call temp:= `getTotalScrollRange`(v2) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getTotalScrollRange:()I` @kind virtual;
+  #L17e1ea.  v0:= temp;
+  #L17e1ec.  return v0;
+}
+procedure `int` `getTopBottomOffsetForScrollingSibling`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v2 @kind this) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getTopBottomOffsetForScrollingSibling:()I` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L17e200.  call temp:= `getTopAndBottomOffset`(v2) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getTopAndBottomOffset:()I` @kind virtual;
+  #L17e206.  v0:= temp;
+  #L17e208.  v1:= v2.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetDelta` @type ^`int`;
+  #L17e20c.  v0:= v0 + v1 @kind int;
+  #L17e20e.  return v0;
+}
+procedure `boolean` `isOffsetAnimatorRunning`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v1 @kind this) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.isOffsetAnimatorRunning:()Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L17ddfc.  v0:= v1.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L17de00.  if v0 == 0 then goto L17de14;
+  #L17de04.  call temp:= `isRunning`(v0) @signature `Landroid/animation/ValueAnimator;.isRunning:()Z` @kind virtual;
+  #L17de0a.  v0:= temp;
+  #L17de0c.  if v0 == 0 then goto L17de14;
+  #L17de10.  v0:= 1I;
+  #L17de12.  goto L17de16;
+  #L17de14.  v0:= 0I;
+  #L17de16.  return v0;
+}
+procedure `void` `onFlingFinished`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v0 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind object, `android.view.View` v2 @kind object) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onFlingFinished:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)V` @AccessFlag SYNTHETIC {
+    temp;
+
+  #L17e55c.  v2:= (`com.google.android.material.appbar.AppBarLayout`) v2 @kind object;
+  #L17e560.  call `onFlingFinished`(v0, v1, v2) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onFlingFinished:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;)V` @kind virtual;
+  #L17e566.  return @kind void;
+}
+procedure `void` `onFlingFinished`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v1 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind object @name `parent`, `com.google.android.material.appbar.AppBarLayout` v3 @kind object) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onFlingFinished:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L17e578.  call `snapToChildIfNeeded`(v1, v2, v3) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.snapToChildIfNeeded:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;)V` @kind direct;
+  #L17e57e.  call temp:= `isLiftOnScroll`(v3) @signature `Lcom/google/android/material/appbar/AppBarLayout;.isLiftOnScroll:()Z` @kind virtual;
+  #L17e584.  v0:= temp;
+  #L17e586.  if v0 == 0 then goto L17e5a0;
+  #L17e58a.  call temp:= `findFirstScrollingChild`(v1, v2) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.findFirstScrollingChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;)Landroid/view/View;` @kind direct;
+  #L17e590.  v0:= temp @kind object;
+  #L17e592.  call temp:= `shouldLift`(v3, v0) @signature `Lcom/google/android/material/appbar/AppBarLayout;.shouldLift:(Landroid/view/View;)Z` @kind virtual;
+  #L17e598.  v0:= temp;
+  #L17e59a.  call temp:= `setLiftedState`(v3, v0) @signature `Lcom/google/android/material/appbar/AppBarLayout;.setLiftedState:(Z)Z` @kind virtual;
+  #L17e5a0.  return @kind void;
+}
+procedure `boolean` `onLayoutChild`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v0 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind object, `android.view.View` v2 @kind object, `int` v3 ) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onLayoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)Z` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L17de28.  v2:= (`com.google.android.material.appbar.AppBarLayout`) v2 @kind object;
+  #L17de2c.  call temp:= `onLayoutChild`(v0, v1, v2, v3) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onLayoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;I)Z` @kind virtual;
+  #L17de32.  v1:= temp;
+  #L17de34.  return v1;
+}
+procedure `boolean` `onLayoutChild`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v9 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v10 @kind object @name `parent`, `com.google.android.material.appbar.AppBarLayout` v11 @kind object, `int` v12 @name `layoutDirection`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onLayoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;I)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L17de48.  call temp:= `onLayoutChild`(v9, v10, v11, v12) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.onLayoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)Z` @kind super;
+  #L17de4e.  v0:= temp;
+  #L17de50.  call temp:= `getPendingAction`(v11) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getPendingAction:()I` @kind virtual;
+  #L17de56.  v1:= temp;
+  #L17de58.  v2:= v9.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetToChildIndexOnLayout` @type ^`int`;
+  #L17de5c.  v3:= 0I;
+  #L17de5e.  if v2 < 0 then goto L17debc;
+  #L17de62.  v4:= v1 ^& 8;
+  #L17de66.  if v4 != 0 then goto L17debc;
+  #L17de6a.  call temp:= `getChildAt`(v11, v2) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L17de70.  v2:= temp @kind object;
+  #L17de72.  call temp:= `getBottom`(v2) @signature `Landroid/view/View;.getBottom:()I` @kind virtual;
+  #L17de78.  v4:= temp;
+  #L17de7a.  v4:= -v4 @kind int;
+  #L17de7c.  v5:= v9.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetToChildIndexOnLayoutIsMinHeight` @type ^`boolean` @kind boolean;
+  #L17de80.  if v5 == 0 then goto L17de9a;
+  #L17de84.  call temp:= `getMinimumHeight`(v2) @signature `Landroidx/core/view/ViewCompat;.getMinimumHeight:(Landroid/view/View;)I` @kind static;
+  #L17de8a.  v5:= temp;
+  #L17de8c.  call temp:= `getTopInset`(v11) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getTopInset:()I` @kind virtual;
+  #L17de92.  v6:= temp;
+  #L17de94.  v5:= v5 + v6 @kind int;
+  #L17de96.  v4:= v4 + v5 @kind int;
+  #L17de98.  goto L17deb4;
+  #L17de9a.  call temp:= `getHeight`(v2) @signature `Landroid/view/View;.getHeight:()I` @kind virtual;
+  #L17dea0.  v5:= temp;
+  #L17dea2.  v5:= (`float`) v5 @kind i2f;
+  #L17dea4.  v6:= v9.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetToChildIndexOnLayoutPerc` @type ^`float`;
+  #L17dea8.  v5:= v5 * v6 @kind float;
+  #L17deaa.  call temp:= `round`(v5) @signature `Ljava/lang/Math;.round:(F)I` @kind static;
+  #L17deb0.  v5:= temp;
+  #L17deb2.  v4:= v4 + v5 @kind int;
+  #L17deb4.  call temp:= `setHeaderTopBottomOffset`(v9, v10, v11, v4) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.setHeaderTopBottomOffset:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)I` @kind virtual;
+  #L17deba.  goto L17df14;
+  #L17debc.  if v1 == 0 then goto L17df14;
+  #L17dec0.  v2:= v1 ^& 4;
+  #L17dec4.  if v2 == 0 then goto L17decc;
+  #L17dec8.  v2:= 1I;
+  #L17deca.  goto L17dece;
+  #L17decc.  v2:= v3;
+  #L17dece.  v4:= v1 ^& 2;
+  #L17ded2.  v5:= 0I;
+  #L17ded4.  if v4 == 0 then goto L17def6;
+  #L17ded8.  call temp:= `getUpNestedPreScrollRange`(v11) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getUpNestedPreScrollRange:()I` @kind virtual;
+  #L17dede.  v4:= temp;
+  #L17dee0.  v4:= -v4 @kind int;
+  #L17dee2.  if v2 == 0 then goto L17deee;
+  #L17dee6.  call `animateOffsetTo`(v9, v10, v11, v4, v5) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.animateOffsetTo:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;IF)V` @kind direct;
+  #L17deec.  goto L17df12;
+  #L17deee.  call temp:= `setHeaderTopBottomOffset`(v9, v10, v11, v4) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.setHeaderTopBottomOffset:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)I` @kind virtual;
+  #L17def4.  goto L17df12;
+  #L17def6.  v4:= v1 ^& 1;
+  #L17defa.  if v4 == 0 then goto L17df12;
+  #L17defe.  if v2 == 0 then goto L17df0a;
+  #L17df02.  call `animateOffsetTo`(v9, v10, v11, v3, v5) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.animateOffsetTo:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;IF)V` @kind direct;
+  #L17df08.  goto L17df16;
+  #L17df0a.  call temp:= `setHeaderTopBottomOffset`(v9, v10, v11, v3) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.setHeaderTopBottomOffset:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)I` @kind virtual;
+  #L17df10.  goto L17df16;
+  #L17df12.  goto L17df16;
+  #L17df14.  
+  #L17df16.  call `resetPendingAction`(v11) @signature `Lcom/google/android/material/appbar/AppBarLayout;.resetPendingAction:()V` @kind virtual;
+  #L17df1c.  v2:= -1I;
+  #L17df1e.  v9.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetToChildIndexOnLayout` @type ^`int` := v2;
+  #L17df22.  
+  #L17df24.  call temp:= `getTopAndBottomOffset`(v9) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getTopAndBottomOffset:()I` @kind virtual;
+  #L17df2a.  v2:= temp;
+  #L17df2c.  call temp:= `getTotalScrollRange`(v11) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getTotalScrollRange:()I` @kind virtual;
+  #L17df32.  v4:= temp;
+  #L17df34.  v4:= -v4 @kind int;
+  #L17df36.  call temp:= `clamp`(v2, v4, v3) @signature `Landroidx/core/math/MathUtils;.clamp:(III)I` @kind static;
+  #L17df3c.  v2:= temp;
+  #L17df3e.  call temp:= `setTopAndBottomOffset`(v9, v2) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.setTopAndBottomOffset:(I)Z` @kind virtual;
+  #L17df44.  
+  #L17df46.  call temp:= `getTopAndBottomOffset`(v9) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getTopAndBottomOffset:()I` @kind virtual;
+  #L17df4c.  v6:= temp;
+  #L17df4e.  v7:= 0I;
+  #L17df50.  v8:= 1I;
+  #L17df52.  v3:= v9 @kind object;
+  #L17df54.  v4:= v10 @kind object;
+  #L17df56.  v5:= v11 @kind object;
+  #L17df58.  call `updateAppBarLayoutDrawableState`(v3, v4, v5, v6, v7, v8) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.updateAppBarLayoutDrawableState:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;IIZ)V` @kind direct;
+  #L17df5e.  call temp:= `getTopAndBottomOffset`(v9) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getTopAndBottomOffset:()I` @kind virtual;
+  #L17df64.  v2:= temp;
+  #L17df66.  call `onOffsetChanged`(v11, v2) @signature `Lcom/google/android/material/appbar/AppBarLayout;.onOffsetChanged:(I)V` @kind virtual;
+  #L17df6c.  return v0;
+}
+procedure `boolean` `onMeasureChild`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v7 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v8 @kind object, `android.view.View` v9 @kind object, `int` v10 , `int` v11 , `int` v12 , `int` v13 ) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onMeasureChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;IIII)Z` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L17df80.  v2:= v9 @kind object;
+  #L17df82.  v2:= (`com.google.android.material.appbar.AppBarLayout`) v2 @kind object;
+  #L17df86.  v0:= v7 @kind object;
+  #L17df88.  v1:= v8 @kind object;
+  #L17df8a.  v3:= v10;
+  #L17df8c.  v4:= v11;
+  #L17df8e.  v5:= v12;
+  #L17df90.  v6:= v13;
+  #L17df92.  call temp:= `onMeasureChild`(v0, v1, v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onMeasureChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;IIII)Z` @kind virtual;
+  #L17df98.  v8:= temp;
+  #L17df9a.  return v8;
+}
+procedure `boolean` `onMeasureChild`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v8 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v9 @kind object @name `parent`, `com.google.android.material.appbar.AppBarLayout` v10 @kind object, `int` v11 @name `parentWidthMeasureSpec`, `int` v12 @name `widthUsed`, `int` v13 @name `parentHeightMeasureSpec`, `int` v14 @name `heightUsed`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onMeasureChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;IIII)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L17dfac.  
+  #L17dfae.  call temp:= `getLayoutParams`(v10) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L17dfb4.  v0:= temp @kind object;
+  #L17dfb6.  v0:= (`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams`) v0 @kind object;
+  #L17dfba.  v1:= v0.`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams.height` @type ^`int`;
+  #L17dfbe.  v2:= -2I;
+  #L17dfc0.  if v1 != v2 then goto L17dfe4;
+  #L17dfc4.  
+  #L17dfc6.  v1:= 0I;
+  #L17dfc8.  call temp:= `makeMeasureSpec`(v1, v1) @signature `Landroid/view/View$MeasureSpec;.makeMeasureSpec:(II)I` @kind static;
+  #L17dfce.  v6:= temp;
+  #L17dfd0.  v2:= v9 @kind object;
+  #L17dfd2.  v3:= v10 @kind object;
+  #L17dfd4.  v4:= v11;
+  #L17dfd6.  v5:= v12;
+  #L17dfd8.  v7:= v14;
+  #L17dfda.  call `onMeasureChild`(v2, v3, v4, v5, v6, v7) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onMeasureChild:(Landroid/view/View;IIII)V` @kind virtual;
+  #L17dfe0.  v1:= 1I;
+  #L17dfe2.  return v1;
+  #L17dfe4.  call temp:= `onMeasureChild`(v8, v9, v10, v11, v12, v13, v14) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.onMeasureChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;IIII)Z` @kind super;
+  #L17dfea.  v1:= temp;
+  #L17dfec.  return v1;
+}
+procedure `void` `onNestedPreScroll`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v8 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v9 @kind object, `android.view.View` v10 @kind object, `android.view.View` v11 @kind object, `int` v12 , `int` v13 , `int`[] v14 @kind object, `int` v15 ) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onNestedPreScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;II[II)V` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L17e5b4.  v2:= v10 @kind object;
+  #L17e5b6.  v2:= (`com.google.android.material.appbar.AppBarLayout`) v2 @kind object;
+  #L17e5ba.  v0:= v8 @kind object;
+  #L17e5bc.  v1:= v9 @kind object;
+  #L17e5be.  v3:= v11 @kind object;
+  #L17e5c0.  v4:= v12;
+  #L17e5c2.  v5:= v13;
+  #L17e5c4.  v6:= v14 @kind object;
+  #L17e5c6.  v7:= v15;
+  #L17e5c8.  call `onNestedPreScroll`(v0, v1, v2, v3, v4, v5, v6, v7) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onNestedPreScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;Landroid/view/View;II[II)V` @kind virtual;
+  #L17e5ce.  return @kind void;
+}
+procedure `void` `onNestedPreScroll`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v9 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v10 @kind object @name `coordinatorLayout`, `com.google.android.material.appbar.AppBarLayout` v11 @kind object, `android.view.View` v12 @kind object @name `target`, `int` v13 @name `dx`, `int` v14 @name `dy`, `int`[] v15 @kind object @name `consumed`, `int` v16 @name `type`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onNestedPreScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;Landroid/view/View;II[II)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L17e5e0.  if v14 == 0 then goto L17e630;
+  #L17e5e4.  if v14 >= 0 then goto L17e602;
+  #L17e5e8.  call temp:= `getTotalScrollRange`(v11) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getTotalScrollRange:()I` @kind virtual;
+  #L17e5ee.  v0:= temp;
+  #L17e5f0.  v0:= -v0 @kind int;
+  #L17e5f2.  call temp:= `getDownNestedPreScrollRange`(v11) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getDownNestedPreScrollRange:()I` @kind virtual;
+  #L17e5f8.  v1:= temp;
+  #L17e5fa.  v1:= v1 + v0 @kind int;
+  #L17e5fc.  v6:= v0;
+  #L17e5fe.  v7:= v1;
+  #L17e600.  goto L17e612;
+  #L17e602.  call temp:= `getUpNestedPreScrollRange`(v11) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getUpNestedPreScrollRange:()I` @kind virtual;
+  #L17e608.  v0:= temp;
+  #L17e60a.  v0:= -v0 @kind int;
+  #L17e60c.  v1:= 0I;
+  #L17e60e.  v6:= v0;
+  #L17e610.  v7:= v1;
+  #L17e612.  if v6 == v7 then goto L17e630;
+  #L17e616.  v8:= 1I;
+  #L17e618.  v0:= v9 @kind object;
+  #L17e61a.  v1:= v10 @kind object;
+  #L17e61c.  v2:= v11 @kind object;
+  #L17e61e.  v3:= v14;
+  #L17e620.  v4:= v6;
+  #L17e622.  v5:= v7;
+  #L17e624.  call temp:= `scroll`(v0, v1, v2, v3, v4, v5) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.scroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;III)I` @kind virtual;
+  #L17e62a.  v0:= temp;
+  #L17e62c.  v15[v8]:= v0;
+  #L17e630.  call temp:= `isLiftOnScroll`(v11) @signature `Lcom/google/android/material/appbar/AppBarLayout;.isLiftOnScroll:()Z` @kind virtual;
+  #L17e636.  v0:= temp;
+  #L17e638.  if v0 == 0 then goto L17e64e;
+  #L17e63c.  call temp:= `shouldLift`(v11, v12) @signature `Lcom/google/android/material/appbar/AppBarLayout;.shouldLift:(Landroid/view/View;)Z` @kind virtual;
+  #L17e642.  v0:= temp;
+  #L17e644.  v1:= v11 @kind object;
+  #L17e646.  call temp:= `setLiftedState`(v11, v0) @signature `Lcom/google/android/material/appbar/AppBarLayout;.setLiftedState:(Z)Z` @kind virtual;
+  #L17e64c.  goto L17e650;
+  #L17e64e.  v1:= v11 @kind object;
+  #L17e650.  return @kind void;
+}
+procedure `void` `onNestedScroll`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v10 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v11 @kind object, `android.view.View` v12 @kind object, `android.view.View` v13 @kind object, `int` v14 , `int` v15 , `int` v16 , `int` v17 , `int` v18 , `int`[] v19 @kind object) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onNestedScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;IIIII[I)V` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+
+  #L17e664.  v2:= v12 @kind object;
+  #L17e666.  v2:= (`com.google.android.material.appbar.AppBarLayout`) v2 @kind object;
+  #L17e66a.  v0:= v10 @kind object;
+  #L17e66c.  v1:= v11 @kind object;
+  #L17e66e.  v3:= v13 @kind object;
+  #L17e670.  v4:= v14;
+  #L17e672.  v5:= v15;
+  #L17e674.  v6:= v16;
+  #L17e678.  v7:= v17;
+  #L17e67c.  v8:= v18;
+  #L17e680.  v9:= v19 @kind object;
+  #L17e684.  call `onNestedScroll`(v0, v1, v2, v3, v4, v5, v6, v7, v8, v9) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onNestedScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;Landroid/view/View;IIIII[I)V` @kind virtual;
+  #L17e68a.  return @kind void;
+}
+procedure `void` `onNestedScroll`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v7 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v8 @kind object @name `coordinatorLayout`, `com.google.android.material.appbar.AppBarLayout` v9 @kind object, `android.view.View` v10 @kind object @name `target`, `int` v11 @name `dxConsumed`, `int` v12 @name `dyConsumed`, `int` v13 @name `dxUnconsumed`, `int` v14 @name `dyUnconsumed`, `int` v15 @name `type`, `int`[] v16 @kind object @name `consumed`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onNestedScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;Landroid/view/View;IIIII[I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L17e69c.  if v14 >= 0 then goto L17e6c2;
+  #L17e6a0.  v6:= 1I;
+  #L17e6a2.  call temp:= `getDownNestedScrollRange`(v9) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getDownNestedScrollRange:()I` @kind virtual;
+  #L17e6a8.  v0:= temp;
+  #L17e6aa.  v4:= -v0 @kind int;
+  #L17e6ac.  v5:= 0I;
+  #L17e6ae.  v0:= v7 @kind object;
+  #L17e6b0.  v1:= v8 @kind object;
+  #L17e6b2.  v2:= v9 @kind object;
+  #L17e6b4.  v3:= v14;
+  #L17e6b6.  call temp:= `scroll`(v0, v1, v2, v3, v4, v5) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.scroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;III)I` @kind virtual;
+  #L17e6bc.  v0:= temp;
+  #L17e6be.  v16[v6]:= v0;
+  #L17e6c2.  return @kind void;
+}
+procedure `void` `onRestoreInstanceState`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v0 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind object, `android.view.View` v2 @kind object, `android.os.Parcelable` v3 @kind object) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onRestoreInstanceState:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/os/Parcelable;)V` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L17e6d4.  v2:= (`com.google.android.material.appbar.AppBarLayout`) v2 @kind object;
+  #L17e6d8.  call `onRestoreInstanceState`(v0, v1, v2, v3) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onRestoreInstanceState:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;Landroid/os/Parcelable;)V` @kind virtual;
+  #L17e6de.  return @kind void;
+}
+procedure `void` `onRestoreInstanceState`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v2 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v3 @kind object @name `parent`, `com.google.android.material.appbar.AppBarLayout` v4 @kind object, `android.os.Parcelable` v5 @kind object @name `state`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onRestoreInstanceState:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;Landroid/os/Parcelable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L17e6f0.  v0:= instanceof @variable v5 @type ^`com.google.android.material.appbar.AppBarLayout$BaseBehavior$SavedState` @kind boolean;
+  #L17e6f4.  if v0 == 0 then goto L17e726;
+  #L17e6f8.  v0:= v5 @kind object;
+  #L17e6fa.  v0:= (`com.google.android.material.appbar.AppBarLayout$BaseBehavior$SavedState`) v0 @kind object;
+  #L17e6fe.  call temp:= `getSuperState`(v0) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$SavedState;.getSuperState:()Landroid/os/Parcelable;` @kind virtual;
+  #L17e704.  v1:= temp @kind object;
+  #L17e706.  call `onRestoreInstanceState`(v2, v3, v4, v1) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.onRestoreInstanceState:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/os/Parcelable;)V` @kind super;
+  #L17e70c.  v1:= v0.`com.google.android.material.appbar.AppBarLayout$BaseBehavior$SavedState.firstVisibleChildIndex` @type ^`int`;
+  #L17e710.  v2.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetToChildIndexOnLayout` @type ^`int` := v1;
+  #L17e714.  v1:= v0.`com.google.android.material.appbar.AppBarLayout$BaseBehavior$SavedState.firstVisibleChildPercentageShown` @type ^`float`;
+  #L17e718.  v2.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetToChildIndexOnLayoutPerc` @type ^`float` := v1;
+  #L17e71c.  v1:= v0.`com.google.android.material.appbar.AppBarLayout$BaseBehavior$SavedState.firstVisibleChildAtMinimumHeight` @type ^`boolean` @kind boolean;
+  #L17e720.  v2.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetToChildIndexOnLayoutIsMinHeight` @type ^`boolean` := v1 @kind boolean;
+  #L17e724.  goto L17e732;
+  #L17e726.  call `onRestoreInstanceState`(v2, v3, v4, v5) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.onRestoreInstanceState:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/os/Parcelable;)V` @kind super;
+  #L17e72c.  v0:= -1I;
+  #L17e72e.  v2.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetToChildIndexOnLayout` @type ^`int` := v0;
+  #L17e732.  return @kind void;
+}
+procedure `android.os.Parcelable` `onSaveInstanceState`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v0 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind object, `android.view.View` v2 @kind object) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onSaveInstanceState:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)Landroid/os/Parcelable;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L17dbb8.  v2:= (`com.google.android.material.appbar.AppBarLayout`) v2 @kind object;
+  #L17dbbc.  call temp:= `onSaveInstanceState`(v0, v1, v2) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onSaveInstanceState:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;)Landroid/os/Parcelable;` @kind virtual;
+  #L17dbc2.  v1:= temp @kind object;
+  #L17dbc4.  return v1 @kind object;
+}
+procedure `android.os.Parcelable` `onSaveInstanceState`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v9 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v10 @kind object @name `parent`, `com.google.android.material.appbar.AppBarLayout` v11 @kind object) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onSaveInstanceState:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;)Landroid/os/Parcelable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L17dbd8.  call temp:= `onSaveInstanceState`(v9, v10, v11) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.onSaveInstanceState:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)Landroid/os/Parcelable;` @kind super;
+  #L17dbde.  v0:= temp @kind object;
+  #L17dbe0.  call temp:= `getTopAndBottomOffset`(v9) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getTopAndBottomOffset:()I` @kind virtual;
+  #L17dbe6.  v1:= temp;
+  #L17dbe8.  v2:= 0I;
+  #L17dbea.  call temp:= `getChildCount`(v11) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getChildCount:()I` @kind virtual;
+  #L17dbf0.  v3:= temp;
+  #L17dbf2.  if v2 >= v3 then goto L17dc64;
+  #L17dbf6.  call temp:= `getChildAt`(v11, v2) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L17dbfc.  v4:= temp @kind object;
+  #L17dbfe.  call temp:= `getBottom`(v4) @signature `Landroid/view/View;.getBottom:()I` @kind virtual;
+  #L17dc04.  v5:= temp;
+  #L17dc06.  v5:= v5 + v1 @kind int;
+  #L17dc08.  call temp:= `getTop`(v4) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L17dc0e.  v6:= temp;
+  #L17dc10.  v6:= v6 + v1 @kind int;
+  #L17dc12.  if v6 > 0 then goto L17dc5e;
+  #L17dc16.  if v5 < 0 then goto L17dc5e;
+  #L17dc1a.  v6:= new `com.google.android.material.appbar.AppBarLayout$BaseBehavior$SavedState`;
+  #L17dc1e.  call `<init>`(v6, v0) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$SavedState;.<init>:(Landroid/os/Parcelable;)V` @kind direct;
+  #L17dc24.  v6.`com.google.android.material.appbar.AppBarLayout$BaseBehavior$SavedState.firstVisibleChildIndex` @type ^`int` := v2;
+  #L17dc28.  
+  #L17dc2a.  call temp:= `getMinimumHeight`(v4) @signature `Landroidx/core/view/ViewCompat;.getMinimumHeight:(Landroid/view/View;)I` @kind static;
+  #L17dc30.  v7:= temp;
+  #L17dc32.  call temp:= `getTopInset`(v11) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getTopInset:()I` @kind virtual;
+  #L17dc38.  v8:= temp;
+  #L17dc3a.  v7:= v7 + v8 @kind int;
+  #L17dc3c.  if v5 != v7 then goto L17dc44;
+  #L17dc40.  v7:= 1I;
+  #L17dc42.  goto L17dc46;
+  #L17dc44.  v7:= 0I;
+  #L17dc46.  v6.`com.google.android.material.appbar.AppBarLayout$BaseBehavior$SavedState.firstVisibleChildAtMinimumHeight` @type ^`boolean` := v7 @kind boolean;
+  #L17dc4a.  v7:= (`float`) v5 @kind i2f;
+  #L17dc4c.  call temp:= `getHeight`(v4) @signature `Landroid/view/View;.getHeight:()I` @kind virtual;
+  #L17dc52.  v8:= temp;
+  #L17dc54.  v8:= (`float`) v8 @kind i2f;
+  #L17dc56.  v7:= v7 / v8 @kind float;
+  #L17dc58.  v6.`com.google.android.material.appbar.AppBarLayout$BaseBehavior$SavedState.firstVisibleChildPercentageShown` @type ^`float` := v7;
+  #L17dc5c.  return v6 @kind object;
+  #L17dc5e.  v2:= v2 + 1;
+  #L17dc62.  goto L17dbf2;
+  #L17dc64.  return v0 @kind object;
+}
+procedure `boolean` `onStartNestedScroll`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v7 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v8 @kind object, `android.view.View` v9 @kind object, `android.view.View` v10 @kind object, `android.view.View` v11 @kind object, `int` v12 , `int` v13 ) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onStartNestedScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;Landroid/view/View;II)Z` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L17e000.  v2:= v9 @kind object;
+  #L17e002.  v2:= (`com.google.android.material.appbar.AppBarLayout`) v2 @kind object;
+  #L17e006.  v0:= v7 @kind object;
+  #L17e008.  v1:= v8 @kind object;
+  #L17e00a.  v3:= v10 @kind object;
+  #L17e00c.  v4:= v11 @kind object;
+  #L17e00e.  v5:= v12;
+  #L17e010.  v6:= v13;
+  #L17e012.  call temp:= `onStartNestedScroll`(v0, v1, v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onStartNestedScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;Landroid/view/View;Landroid/view/View;II)Z` @kind virtual;
+  #L17e018.  v8:= temp;
+  #L17e01a.  return v8;
+}
+procedure `boolean` `onStartNestedScroll`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v2 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v3 @kind object @name `parent`, `com.google.android.material.appbar.AppBarLayout` v4 @kind object, `android.view.View` v5 @kind object @name `directTargetChild`, `android.view.View` v6 @kind object @name `target`, `int` v7 @name `nestedScrollAxes`, `int` v8 @name `type`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onStartNestedScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;Landroid/view/View;Landroid/view/View;II)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L17e02c.  v0:= v7 ^& 2;
+  #L17e030.  if v0 == 0 then goto L17e050;
+  #L17e034.  call temp:= `isLiftOnScroll`(v4) @signature `Lcom/google/android/material/appbar/AppBarLayout;.isLiftOnScroll:()Z` @kind virtual;
+  #L17e03a.  v0:= temp;
+  #L17e03c.  if v0 != 0 then goto L17e04c;
+  #L17e040.  call temp:= `canScrollChildren`(v2, v3, v4, v5) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.canScrollChildren:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;Landroid/view/View;)Z` @kind direct;
+  #L17e046.  v0:= temp;
+  #L17e048.  if v0 == 0 then goto L17e050;
+  #L17e04c.  v0:= 1I;
+  #L17e04e.  goto L17e052;
+  #L17e050.  v0:= 0I;
+  #L17e052.  if v0 == 0 then goto L17e064;
+  #L17e056.  v1:= v2.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L17e05a.  if v1 == 0 then goto L17e064;
+  #L17e05e.  call `cancel`(v1) @signature `Landroid/animation/ValueAnimator;.cancel:()V` @kind virtual;
+  #L17e064.  v1:= 0I;
+  #L17e066.  v2.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.lastNestedScrollingChildRef` @type ^`java.lang.ref.WeakReference` := v1 @kind object;
+  #L17e06a.  v2.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.lastStartedType` @type ^`int` := v8;
+  #L17e06e.  return v0;
+}
+procedure `void` `onStopNestedScroll`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v0 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind object, `android.view.View` v2 @kind object, `android.view.View` v3 @kind object, `int` v4 ) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onStopNestedScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;I)V` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L17e744.  v2:= (`com.google.android.material.appbar.AppBarLayout`) v2 @kind object;
+  #L17e748.  call `onStopNestedScroll`(v0, v1, v2, v3, v4) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onStopNestedScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;Landroid/view/View;I)V` @kind virtual;
+  #L17e74e.  return @kind void;
+}
+procedure `void` `onStopNestedScroll`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v1 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind object @name `coordinatorLayout`, `com.google.android.material.appbar.AppBarLayout` v3 @kind object, `android.view.View` v4 @kind object @name `target`, `int` v5 @name `type`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.onStopNestedScroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;Landroid/view/View;I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L17e760.  v0:= v1.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.lastStartedType` @type ^`int`;
+  #L17e764.  if v0 == 0 then goto L17e76e;
+  #L17e768.  v0:= 1I;
+  #L17e76a.  if v5 != v0 then goto L17e78e;
+  #L17e76e.  call `snapToChildIfNeeded`(v1, v2, v3) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.snapToChildIfNeeded:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;)V` @kind direct;
+  #L17e774.  call temp:= `isLiftOnScroll`(v3) @signature `Lcom/google/android/material/appbar/AppBarLayout;.isLiftOnScroll:()Z` @kind virtual;
+  #L17e77a.  v0:= temp;
+  #L17e77c.  if v0 == 0 then goto L17e78e;
+  #L17e780.  call temp:= `shouldLift`(v3, v4) @signature `Lcom/google/android/material/appbar/AppBarLayout;.shouldLift:(Landroid/view/View;)Z` @kind virtual;
+  #L17e786.  v0:= temp;
+  #L17e788.  call temp:= `setLiftedState`(v3, v0) @signature `Lcom/google/android/material/appbar/AppBarLayout;.setLiftedState:(Z)Z` @kind virtual;
+  #L17e78e.  v0:= new `java.lang.ref.WeakReference`;
+  #L17e792.  call `<init>`(v0, v4) @signature `Ljava/lang/ref/WeakReference;.<init>:(Ljava/lang/Object;)V` @kind direct;
+  #L17e798.  v1.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.lastNestedScrollingChildRef` @type ^`java.lang.ref.WeakReference` := v0 @kind object;
+  #L17e79c.  return @kind void;
+}
+procedure `void` `setDragCallback`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v0 @kind this, `com.google.android.material.appbar.AppBarLayout$BaseBehavior$BaseDragCallback` v1 @kind object @name `callback`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.setDragCallback:(Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$BaseDragCallback;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L17e7b0.  v0.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.onDragCallback` @type ^`com.google.android.material.appbar.AppBarLayout$BaseBehavior$BaseDragCallback` := v1 @kind object;
+  #L17e7b4.  return @kind void;
+}
+procedure `int` `setHeaderTopBottomOffset`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v6 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v7 @kind object, `android.view.View` v8 @kind object, `int` v9 , `int` v10 , `int` v11 ) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.setHeaderTopBottomOffset:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;III)I` @AccessFlag SYNTHETIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L17e318.  v2:= v8 @kind object;
+  #L17e31a.  v2:= (`com.google.android.material.appbar.AppBarLayout`) v2 @kind object;
+  #L17e31e.  v0:= v6 @kind object;
+  #L17e320.  v1:= v7 @kind object;
+  #L17e322.  v3:= v9;
+  #L17e324.  v4:= v10;
+  #L17e326.  v5:= v11;
+  #L17e328.  call temp:= `setHeaderTopBottomOffset`(v0, v1, v2, v3, v4, v5) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.setHeaderTopBottomOffset:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;III)I` @kind virtual;
+  #L17e32e.  v7:= temp;
+  #L17e330.  return v7;
+}
+procedure `int` `setHeaderTopBottomOffset`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior` v10 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v11 @kind object @name `coordinatorLayout`, `com.google.android.material.appbar.AppBarLayout` v12 @kind object, `int` v13 @name `newOffset`, `int` v14 @name `minOffset`, `int` v15 @name `maxOffset`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.setHeaderTopBottomOffset:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;III)I` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+
+  #L17e344.  call temp:= `getTopBottomOffsetForScrollingSibling`(v10) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getTopBottomOffsetForScrollingSibling:()I` @kind virtual;
+  #L17e34a.  v0:= temp;
+  #L17e34c.  v1:= 0I;
+  #L17e34e.  if v14 == 0 then goto L17e3d8;
+  #L17e352.  if v0 < v14 then goto L17e3d8;
+  #L17e356.  if v0 > v15 then goto L17e3d8;
+  #L17e35a.  call temp:= `clamp`(v13, v14, v15) @signature `Landroidx/core/math/MathUtils;.clamp:(III)I` @kind static;
+  #L17e360.  v13:= temp;
+  #L17e362.  if v0 == v13 then goto L17e3de;
+  #L17e366.  
+  #L17e368.  call temp:= `hasChildWithInterpolator`(v12) @signature `Lcom/google/android/material/appbar/AppBarLayout;.hasChildWithInterpolator:()Z` @kind virtual;
+  #L17e36e.  v2:= temp;
+  #L17e370.  if v2 == 0 then goto L17e37e;
+  #L17e374.  call temp:= `interpolateOffset`(v10, v12, v13) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.interpolateOffset:(Lcom/google/android/material/appbar/AppBarLayout;I)I` @kind direct;
+  #L17e37a.  v2:= temp;
+  #L17e37c.  goto L17e380;
+  #L17e37e.  v2:= v13;
+  #L17e380.  v8:= v2;
+  #L17e382.  call temp:= `setTopAndBottomOffset`(v10, v8) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.setTopAndBottomOffset:(I)Z` @kind virtual;
+  #L17e388.  v9:= temp;
+  #L17e38a.  v1:= v0 - v13 @kind int;
+  #L17e38e.  v2:= v13 - v8 @kind int;
+  #L17e392.  v10.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetDelta` @type ^`int` := v2;
+  #L17e396.  if v9 != 0 then goto L17e3ac;
+  #L17e39a.  call temp:= `hasChildWithInterpolator`(v12) @signature `Lcom/google/android/material/appbar/AppBarLayout;.hasChildWithInterpolator:()Z` @kind virtual;
+  #L17e3a0.  v2:= temp;
+  #L17e3a2.  if v2 == 0 then goto L17e3ac;
+  #L17e3a6.  call `dispatchDependentViewsChanged`(v11, v12) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.dispatchDependentViewsChanged:(Landroid/view/View;)V` @kind virtual;
+  #L17e3ac.  call temp:= `getTopAndBottomOffset`(v10) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getTopAndBottomOffset:()I` @kind virtual;
+  #L17e3b2.  v2:= temp;
+  #L17e3b4.  call `onOffsetChanged`(v12, v2) @signature `Lcom/google/android/material/appbar/AppBarLayout;.onOffsetChanged:(I)V` @kind virtual;
+  #L17e3ba.  if v13 >= v0 then goto L17e3c2;
+  #L17e3be.  v2:= -1I;
+  #L17e3c0.  goto L17e3c4;
+  #L17e3c2.  v2:= 1I;
+  #L17e3c4.  v6:= v2;
+  #L17e3c6.  v7:= 0I;
+  #L17e3c8.  v2:= v10 @kind object;
+  #L17e3ca.  v3:= v11 @kind object;
+  #L17e3cc.  v4:= v12 @kind object;
+  #L17e3ce.  v5:= v13;
+  #L17e3d0.  call `updateAppBarLayoutDrawableState`(v2, v3, v4, v5, v6, v7) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.updateAppBarLayoutDrawableState:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;IIZ)V` @kind direct;
+  #L17e3d6.  goto L17e3de;
+  #L17e3d8.  v2:= 0I;
+  #L17e3da.  v10.`com.google.android.material.appbar.AppBarLayout$BaseBehavior.offsetDelta` @type ^`int` := v2;
+  #L17e3de.  return v1;
+}

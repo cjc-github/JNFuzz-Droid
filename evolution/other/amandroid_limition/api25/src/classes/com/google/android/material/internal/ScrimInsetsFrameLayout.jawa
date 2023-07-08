@@ -1,0 +1,190 @@
+record `com.google.android.material.internal.ScrimInsetsFrameLayout` @kind class @AccessFlag PUBLIC extends `android.widget.FrameLayout` @kind class {
+  `boolean` `com.google.android.material.internal.ScrimInsetsFrameLayout.drawBottomInsetForeground` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.internal.ScrimInsetsFrameLayout.drawTopInsetForeground` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `com.google.android.material.internal.ScrimInsetsFrameLayout.insetForeground` @AccessFlag ;
+  `android.graphics.Rect` `com.google.android.material.internal.ScrimInsetsFrameLayout.insets` @AccessFlag ;
+  `android.graphics.Rect` `com.google.android.material.internal.ScrimInsetsFrameLayout.tempRect` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.ScrimInsetsFrameLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a67e0.  v0:= 0I;
+  #L1a67e2.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1a67e8.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.ScrimInsetsFrameLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a67fc.  v0:= 0I;
+  #L1a67fe.  call `<init>`(v1, v2, v3, v0) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1a6804.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.ScrimInsetsFrameLayout` v7 @kind this, `android.content.Context` v8 @kind object @name `context`, `android.util.AttributeSet` v9 @kind object @name `attrs`, `int` v10 @name `defStyleAttr`) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L1a6818.  call `<init>`(v7, v8, v9, v10) @signature `Landroid/widget/FrameLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1a681e.  v0:= new `android.graphics.Rect`;
+  #L1a6822.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L1a6828.  v7.`com.google.android.material.internal.ScrimInsetsFrameLayout.tempRect` @type ^`android.graphics.Rect` := v0 @kind object;
+  #L1a682c.  v0:= 1I;
+  #L1a682e.  v7.`com.google.android.material.internal.ScrimInsetsFrameLayout.drawTopInsetForeground` @type ^`boolean` := v0 @kind boolean;
+  #L1a6832.  v7.`com.google.android.material.internal.ScrimInsetsFrameLayout.drawBottomInsetForeground` @type ^`boolean` := v0 @kind boolean;
+  #L1a6836.  v3:= `@@com.google.android.material.R$styleable.ScrimInsetsFrameLayout` @type ^`int`[] @kind object;
+  #L1a683a.  v5:= `@@com.google.android.material.R$style.Widget_Design_ScrimInsetsFrameLayout` @type ^`int`;
+  #L1a683e.  v1:= 0I;
+  #L1a6840.  v6:= new `int`[v1];
+  #L1a6844.  v1:= v8 @kind object;
+  #L1a6846.  v2:= v9 @kind object;
+  #L1a6848.  v4:= v10;
+  #L1a684a.  call temp:= `obtainStyledAttributes`(v1, v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainStyledAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;` @kind static;
+  #L1a6850.  v1:= temp @kind object;
+  #L1a6852.  v2:= `@@com.google.android.material.R$styleable.ScrimInsetsFrameLayout_insetForeground` @type ^`int`;
+  #L1a6856.  call temp:= `getDrawable`(v1, v2) @signature `Landroid/content/res/TypedArray;.getDrawable:(I)Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1a685c.  v2:= temp @kind object;
+  #L1a685e.  v7.`com.google.android.material.internal.ScrimInsetsFrameLayout.insetForeground` @type ^`android.graphics.drawable.Drawable` := v2 @kind object;
+  #L1a6862.  call `recycle`(v1) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1a6868.  call `setWillNotDraw`(v7, v0) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.setWillNotDraw:(Z)V` @kind virtual;
+  #L1a686e.  v0:= new `com.google.android.material.internal.ScrimInsetsFrameLayout$1`;
+  #L1a6872.  call `<init>`(v0, v7) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout$1;.<init>:(Lcom/google/android/material/internal/ScrimInsetsFrameLayout;)V` @kind direct;
+  #L1a6878.  call `setOnApplyWindowInsetsListener`(v7, v0) @signature `Landroidx/core/view/ViewCompat;.setOnApplyWindowInsetsListener:(Landroid/view/View;Landroidx/core/view/OnApplyWindowInsetsListener;)V` @kind static;
+  #L1a687e.  return @kind void;
+}
+procedure `void` `draw`(`com.google.android.material.internal.ScrimInsetsFrameLayout` v8 @kind this, `android.graphics.Canvas` v9 @kind object @name `canvas`) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.draw:(Landroid/graphics/Canvas;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L1a6890.  call `draw`(v8, v9) @signature `Landroid/widget/FrameLayout;.draw:(Landroid/graphics/Canvas;)V` @kind super;
+  #L1a6896.  call temp:= `getWidth`(v8) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.getWidth:()I` @kind virtual;
+  #L1a689c.  v0:= temp;
+  #L1a689e.  call temp:= `getHeight`(v8) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.getHeight:()I` @kind virtual;
+  #L1a68a4.  v1:= temp;
+  #L1a68a6.  v2:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.insets` @type ^`android.graphics.Rect` @kind object;
+  #L1a68aa.  if v2 == 0 then goto L1a69c8;
+  #L1a68ae.  v2:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.insetForeground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a68b2.  if v2 == 0 then goto L1a69c8;
+  #L1a68b6.  call temp:= `save`(v9) @signature `Landroid/graphics/Canvas;.save:()I` @kind virtual;
+  #L1a68bc.  v2:= temp;
+  #L1a68be.  call temp:= `getScrollX`(v8) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.getScrollX:()I` @kind virtual;
+  #L1a68c4.  v3:= temp;
+  #L1a68c6.  v3:= (`float`) v3 @kind i2f;
+  #L1a68c8.  call temp:= `getScrollY`(v8) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.getScrollY:()I` @kind virtual;
+  #L1a68ce.  v4:= temp;
+  #L1a68d0.  v4:= (`float`) v4 @kind i2f;
+  #L1a68d2.  call `translate`(v9, v3, v4) @signature `Landroid/graphics/Canvas;.translate:(FF)V` @kind virtual;
+  #L1a68d8.  v3:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.drawTopInsetForeground` @type ^`boolean` @kind boolean;
+  #L1a68dc.  v4:= 0I;
+  #L1a68de.  if v3 == 0 then goto L1a690c;
+  #L1a68e2.  v3:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.tempRect` @type ^`android.graphics.Rect` @kind object;
+  #L1a68e6.  v5:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.insets` @type ^`android.graphics.Rect` @kind object;
+  #L1a68ea.  v5:= v5.`android.graphics.Rect.top` @type ^`int`;
+  #L1a68ee.  call `set`(v3, v4, v4, v0, v5) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L1a68f4.  v3:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.insetForeground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a68f8.  v5:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.tempRect` @type ^`android.graphics.Rect` @kind object;
+  #L1a68fc.  call `setBounds`(v3, v5) @signature `Landroid/graphics/drawable/Drawable;.setBounds:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L1a6902.  v3:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.insetForeground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a6906.  call `draw`(v3, v9) @signature `Landroid/graphics/drawable/Drawable;.draw:(Landroid/graphics/Canvas;)V` @kind virtual;
+  #L1a690c.  v3:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.drawBottomInsetForeground` @type ^`boolean` @kind boolean;
+  #L1a6910.  if v3 == 0 then goto L1a6942;
+  #L1a6914.  v3:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.tempRect` @type ^`android.graphics.Rect` @kind object;
+  #L1a6918.  v5:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.insets` @type ^`android.graphics.Rect` @kind object;
+  #L1a691c.  v5:= v5.`android.graphics.Rect.bottom` @type ^`int`;
+  #L1a6920.  v5:= v1 - v5 @kind int;
+  #L1a6924.  call `set`(v3, v4, v5, v0, v1) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L1a692a.  v3:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.insetForeground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a692e.  v5:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.tempRect` @type ^`android.graphics.Rect` @kind object;
+  #L1a6932.  call `setBounds`(v3, v5) @signature `Landroid/graphics/drawable/Drawable;.setBounds:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L1a6938.  v3:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.insetForeground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a693c.  call `draw`(v3, v9) @signature `Landroid/graphics/drawable/Drawable;.draw:(Landroid/graphics/Canvas;)V` @kind virtual;
+  #L1a6942.  v3:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.tempRect` @type ^`android.graphics.Rect` @kind object;
+  #L1a6946.  v5:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.insets` @type ^`android.graphics.Rect` @kind object;
+  #L1a694a.  v5:= v5.`android.graphics.Rect.top` @type ^`int`;
+  #L1a694e.  v6:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.insets` @type ^`android.graphics.Rect` @kind object;
+  #L1a6952.  v6:= v6.`android.graphics.Rect.left` @type ^`int`;
+  #L1a6956.  v7:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.insets` @type ^`android.graphics.Rect` @kind object;
+  #L1a695a.  v7:= v7.`android.graphics.Rect.bottom` @type ^`int`;
+  #L1a695e.  v7:= v1 - v7 @kind int;
+  #L1a6962.  call `set`(v3, v4, v5, v6, v7) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L1a6968.  v3:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.insetForeground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a696c.  v4:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.tempRect` @type ^`android.graphics.Rect` @kind object;
+  #L1a6970.  call `setBounds`(v3, v4) @signature `Landroid/graphics/drawable/Drawable;.setBounds:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L1a6976.  v3:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.insetForeground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a697a.  call `draw`(v3, v9) @signature `Landroid/graphics/drawable/Drawable;.draw:(Landroid/graphics/Canvas;)V` @kind virtual;
+  #L1a6980.  v3:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.tempRect` @type ^`android.graphics.Rect` @kind object;
+  #L1a6984.  v4:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.insets` @type ^`android.graphics.Rect` @kind object;
+  #L1a6988.  v4:= v4.`android.graphics.Rect.right` @type ^`int`;
+  #L1a698c.  v4:= v0 - v4 @kind int;
+  #L1a6990.  v5:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.insets` @type ^`android.graphics.Rect` @kind object;
+  #L1a6994.  v5:= v5.`android.graphics.Rect.top` @type ^`int`;
+  #L1a6998.  v6:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.insets` @type ^`android.graphics.Rect` @kind object;
+  #L1a699c.  v6:= v6.`android.graphics.Rect.bottom` @type ^`int`;
+  #L1a69a0.  v6:= v1 - v6 @kind int;
+  #L1a69a4.  call `set`(v3, v4, v5, v0, v6) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L1a69aa.  v3:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.insetForeground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a69ae.  v4:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.tempRect` @type ^`android.graphics.Rect` @kind object;
+  #L1a69b2.  call `setBounds`(v3, v4) @signature `Landroid/graphics/drawable/Drawable;.setBounds:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L1a69b8.  v3:= v8.`com.google.android.material.internal.ScrimInsetsFrameLayout.insetForeground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a69bc.  call `draw`(v3, v9) @signature `Landroid/graphics/drawable/Drawable;.draw:(Landroid/graphics/Canvas;)V` @kind virtual;
+  #L1a69c2.  call `restoreToCount`(v9, v2) @signature `Landroid/graphics/Canvas;.restoreToCount:(I)V` @kind virtual;
+  #L1a69c8.  return @kind void;
+}
+procedure `void` `onAttachedToWindow`(`com.google.android.material.internal.ScrimInsetsFrameLayout` v1 @kind this) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.onAttachedToWindow:()V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L1a69dc.  call `onAttachedToWindow`(v1) @signature `Landroid/widget/FrameLayout;.onAttachedToWindow:()V` @kind super;
+  #L1a69e2.  v0:= v1.`com.google.android.material.internal.ScrimInsetsFrameLayout.insetForeground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a69e6.  if v0 == 0 then goto L1a69f0;
+  #L1a69ea.  call `setCallback`(v0, v1) @signature `Landroid/graphics/drawable/Drawable;.setCallback:(Landroid/graphics/drawable/Drawable$Callback;)V` @kind virtual;
+  #L1a69f0.  return @kind void;
+}
+procedure `void` `onDetachedFromWindow`(`com.google.android.material.internal.ScrimInsetsFrameLayout` v2 @kind this) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.onDetachedFromWindow:()V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L1a6a04.  call `onDetachedFromWindow`(v2) @signature `Landroid/widget/FrameLayout;.onDetachedFromWindow:()V` @kind super;
+  #L1a6a0a.  v0:= v2.`com.google.android.material.internal.ScrimInsetsFrameLayout.insetForeground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a6a0e.  if v0 == 0 then goto L1a6a1a;
+  #L1a6a12.  v1:= 0I;
+  #L1a6a14.  call `setCallback`(v0, v1) @signature `Landroid/graphics/drawable/Drawable;.setCallback:(Landroid/graphics/drawable/Drawable$Callback;)V` @kind virtual;
+  #L1a6a1a.  return @kind void;
+}
+procedure `void` `onInsetsChanged`(`com.google.android.material.internal.ScrimInsetsFrameLayout` v0 @kind this, `androidx.core.view.WindowInsetsCompat` v1 @kind object @name `insets`) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.onInsetsChanged:(Landroidx/core/view/WindowInsetsCompat;)V` @AccessFlag PROTECTED {
+    temp;
+
+  #L1a6a2c.  return @kind void;
+}
+procedure `void` `setDrawBottomInsetForeground`(`com.google.android.material.internal.ScrimInsetsFrameLayout` v0 @kind this, `boolean` v1 @name `drawBottomInsetForeground`) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.setDrawBottomInsetForeground:(Z)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1a6a40.  v0.`com.google.android.material.internal.ScrimInsetsFrameLayout.drawBottomInsetForeground` @type ^`boolean` := v1 @kind boolean;
+  #L1a6a44.  return @kind void;
+}
+procedure `void` `setDrawTopInsetForeground`(`com.google.android.material.internal.ScrimInsetsFrameLayout` v0 @kind this, `boolean` v1 @name `drawTopInsetForeground`) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.setDrawTopInsetForeground:(Z)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1a6a58.  v0.`com.google.android.material.internal.ScrimInsetsFrameLayout.drawTopInsetForeground` @type ^`boolean` := v1 @kind boolean;
+  #L1a6a5c.  return @kind void;
+}
+procedure `void` `setScrimInsetForeground`(`com.google.android.material.internal.ScrimInsetsFrameLayout` v0 @kind this, `android.graphics.drawable.Drawable` v1 @kind object @name `drawable`) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.setScrimInsetForeground:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1a6a70.  v0.`com.google.android.material.internal.ScrimInsetsFrameLayout.insetForeground` @type ^`android.graphics.drawable.Drawable` := v1 @kind object;
+  #L1a6a74.  return @kind void;
+}

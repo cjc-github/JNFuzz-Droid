@@ -1,0 +1,872 @@
+record `com.google.android.material.datepicker.MaterialDatePicker` @kind class @AccessFlag PUBLIC_FINAL extends `androidx.fragment.app.DialogFragment` @kind class {
+  `com.google.android.material.shape.MaterialShapeDrawable` `com.google.android.material.datepicker.MaterialDatePicker.background` @AccessFlag PRIVATE;
+  `com.google.android.material.datepicker.MaterialCalendar` `com.google.android.material.datepicker.MaterialDatePicker.calendar` @AccessFlag PRIVATE;
+  `com.google.android.material.datepicker.CalendarConstraints` `com.google.android.material.datepicker.MaterialDatePicker.calendarConstraints` @AccessFlag PRIVATE;
+  `android.widget.Button` `com.google.android.material.datepicker.MaterialDatePicker.confirmButton` @AccessFlag PRIVATE;
+  `com.google.android.material.datepicker.DateSelector` `com.google.android.material.datepicker.MaterialDatePicker.dateSelector` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.datepicker.MaterialDatePicker.fullscreen` @AccessFlag PRIVATE;
+  `android.widget.TextView` `com.google.android.material.datepicker.MaterialDatePicker.headerSelectionText` @AccessFlag PRIVATE;
+  `com.google.android.material.internal.CheckableImageButton` `com.google.android.material.datepicker.MaterialDatePicker.headerToggleButton` @AccessFlag PRIVATE;
+  `java.util.LinkedHashSet` `com.google.android.material.datepicker.MaterialDatePicker.onCancelListeners` @AccessFlag PRIVATE_FINAL;
+  `java.util.LinkedHashSet` `com.google.android.material.datepicker.MaterialDatePicker.onDismissListeners` @AccessFlag PRIVATE_FINAL;
+  `java.util.LinkedHashSet` `com.google.android.material.datepicker.MaterialDatePicker.onNegativeButtonClickListeners` @AccessFlag PRIVATE_FINAL;
+  `java.util.LinkedHashSet` `com.google.android.material.datepicker.MaterialDatePicker.onPositiveButtonClickListeners` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.datepicker.MaterialDatePicker.overrideThemeResId` @AccessFlag PRIVATE;
+  `com.google.android.material.datepicker.PickerFragment` `com.google.android.material.datepicker.MaterialDatePicker.pickerFragment` @AccessFlag PRIVATE;
+  `java.lang.CharSequence` `com.google.android.material.datepicker.MaterialDatePicker.titleText` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.datepicker.MaterialDatePicker.titleTextResId` @AccessFlag PRIVATE;
+}
+global `java.lang.String` `@@com.google.android.material.datepicker.MaterialDatePicker.CALENDAR_CONSTRAINTS_KEY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.Object` `@@com.google.android.material.datepicker.MaterialDatePicker.CANCEL_BUTTON_TAG` @AccessFlag STATIC_FINAL;
+global `java.lang.Object` `@@com.google.android.material.datepicker.MaterialDatePicker.CONFIRM_BUTTON_TAG` @AccessFlag STATIC_FINAL;
+global `java.lang.String` `@@com.google.android.material.datepicker.MaterialDatePicker.DATE_SELECTOR_KEY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@com.google.android.material.datepicker.MaterialDatePicker.OVERRIDE_THEME_RES_ID` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@com.google.android.material.datepicker.MaterialDatePicker.TITLE_TEXT_KEY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@com.google.android.material.datepicker.MaterialDatePicker.TITLE_TEXT_RES_ID_KEY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.Object` `@@com.google.android.material.datepicker.MaterialDatePicker.TOGGLE_BUTTON_TAG` @AccessFlag STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1994f4.  v0:= "CONFIRM_BUTTON_TAG" @kind object;
+  #L1994f8.  `@@com.google.android.material.datepicker.MaterialDatePicker.CONFIRM_BUTTON_TAG` @type ^`java.lang.Object` := v0 @kind object;
+  #L1994fc.  v0:= "CANCEL_BUTTON_TAG" @kind object;
+  #L199500.  `@@com.google.android.material.datepicker.MaterialDatePicker.CANCEL_BUTTON_TAG` @type ^`java.lang.Object` := v0 @kind object;
+  #L199504.  v0:= "TOGGLE_BUTTON_TAG" @kind object;
+  #L199508.  `@@com.google.android.material.datepicker.MaterialDatePicker.TOGGLE_BUTTON_TAG` @type ^`java.lang.Object` := v0 @kind object;
+  #L19950c.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind this) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L199520.  call `<init>`(v1) @signature `Landroidx/fragment/app/DialogFragment;.<init>:()V` @kind direct;
+  #L199526.  v0:= new `java.util.LinkedHashSet`;
+  #L19952a.  call `<init>`(v0) @signature `Ljava/util/LinkedHashSet;.<init>:()V` @kind direct;
+  #L199530.  v1.`com.google.android.material.datepicker.MaterialDatePicker.onPositiveButtonClickListeners` @type ^`java.util.LinkedHashSet` := v0 @kind object;
+  #L199534.  v0:= new `java.util.LinkedHashSet`;
+  #L199538.  call `<init>`(v0) @signature `Ljava/util/LinkedHashSet;.<init>:()V` @kind direct;
+  #L19953e.  v1.`com.google.android.material.datepicker.MaterialDatePicker.onNegativeButtonClickListeners` @type ^`java.util.LinkedHashSet` := v0 @kind object;
+  #L199542.  v0:= new `java.util.LinkedHashSet`;
+  #L199546.  call `<init>`(v0) @signature `Ljava/util/LinkedHashSet;.<init>:()V` @kind direct;
+  #L19954c.  v1.`com.google.android.material.datepicker.MaterialDatePicker.onCancelListeners` @type ^`java.util.LinkedHashSet` := v0 @kind object;
+  #L199550.  v0:= new `java.util.LinkedHashSet`;
+  #L199554.  call `<init>`(v0) @signature `Ljava/util/LinkedHashSet;.<init>:()V` @kind direct;
+  #L19955a.  v1.`com.google.android.material.datepicker.MaterialDatePicker.onDismissListeners` @type ^`java.util.LinkedHashSet` := v0 @kind object;
+  #L19955e.  return @kind void;
+}
+procedure `java.util.LinkedHashSet` `access$000`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.access$000:(Lcom/google/android/material/datepicker/MaterialDatePicker;)Ljava/util/LinkedHashSet;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L199480.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.onPositiveButtonClickListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L199484.  return v0 @kind object;
+}
+procedure `java.util.LinkedHashSet` `access$100`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.access$100:(Lcom/google/android/material/datepicker/MaterialDatePicker;)Ljava/util/LinkedHashSet;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L199498.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.onNegativeButtonClickListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L19949c.  return v0 @kind object;
+}
+procedure `void` `access$200`(`com.google.android.material.datepicker.MaterialDatePicker` v0 @kind object @name `x0`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.access$200:(Lcom/google/android/material/datepicker/MaterialDatePicker;)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L199570.  call `updateHeader`(v0) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.updateHeader:()V` @kind direct;
+  #L199576.  return @kind void;
+}
+procedure `com.google.android.material.datepicker.DateSelector` `access$300`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.access$300:(Lcom/google/android/material/datepicker/MaterialDatePicker;)Lcom/google/android/material/datepicker/DateSelector;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L199284.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.dateSelector` @type ^`com.google.android.material.datepicker.DateSelector` @kind object;
+  #L199288.  return v0 @kind object;
+}
+procedure `android.widget.Button` `access$400`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.access$400:(Lcom/google/android/material/datepicker/MaterialDatePicker;)Landroid/widget/Button;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L199118.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.confirmButton` @type ^`android.widget.Button` @kind object;
+  #L19911c.  return v0 @kind object;
+}
+procedure `com.google.android.material.internal.CheckableImageButton` `access$500`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.access$500:(Lcom/google/android/material/datepicker/MaterialDatePicker;)Lcom/google/android/material/internal/CheckableImageButton;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L199310.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.headerToggleButton` @type ^`com.google.android.material.internal.CheckableImageButton` @kind object;
+  #L199314.  return v0 @kind object;
+}
+procedure `void` `access$600`(`com.google.android.material.datepicker.MaterialDatePicker` v0 @kind object @name `x0`, `com.google.android.material.internal.CheckableImageButton` v1 @kind object @name `x1`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.access$600:(Lcom/google/android/material/datepicker/MaterialDatePicker;Lcom/google/android/material/internal/CheckableImageButton;)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L199588.  call `updateToggleContentDescription`(v0, v1) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.updateToggleContentDescription:(Lcom/google/android/material/internal/CheckableImageButton;)V` @kind direct;
+  #L19958e.  return @kind void;
+}
+procedure `void` `access$700`(`com.google.android.material.datepicker.MaterialDatePicker` v0 @kind object @name `x0`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.access$700:(Lcom/google/android/material/datepicker/MaterialDatePicker;)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1995a0.  call `startPickerFragment`(v0) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.startPickerFragment:()V` @kind direct;
+  #L1995a6.  return @kind void;
+}
+procedure `android.graphics.drawable.Drawable` `createHeaderToggleDrawable`(`android.content.Context` v4 @kind object @name `context`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.createHeaderToggleDrawable:(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L198f2c.  v0:= new `android.graphics.drawable.StateListDrawable`;
+  #L198f30.  call `<init>`(v0) @signature `Landroid/graphics/drawable/StateListDrawable;.<init>:()V` @kind direct;
+  #L198f36.  v1:= 1I;
+  #L198f38.  v1:= new `int`[v1];
+  #L198f3c.  v2:= 16842912I;
+  #L198f42.  v3:= 0I;
+  #L198f44.  v1[v3]:= v2;
+  #L198f48.  v2:= `@@com.google.android.material.R$drawable.ic_calendar_black_24dp` @type ^`int`;
+  #L198f4c.  call temp:= `getDrawable`(v4, v2) @signature `Landroidx/appcompat/content/res/AppCompatResources;.getDrawable:(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;` @kind static;
+  #L198f52.  v2:= temp @kind object;
+  #L198f54.  call `addState`(v0, v1, v2) @signature `Landroid/graphics/drawable/StateListDrawable;.addState:([ILandroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L198f5a.  v1:= new `int`[v3];
+  #L198f5e.  v2:= `@@com.google.android.material.R$drawable.ic_edit_black_24dp` @type ^`int`;
+  #L198f62.  call temp:= `getDrawable`(v4, v2) @signature `Landroidx/appcompat/content/res/AppCompatResources;.getDrawable:(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;` @kind static;
+  #L198f68.  v2:= temp @kind object;
+  #L198f6a.  call `addState`(v0, v1, v2) @signature `Landroid/graphics/drawable/StateListDrawable;.addState:([ILandroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L198f70.  return v0 @kind object;
+}
+procedure `int` `getDialogPickerHeight`(`android.content.Context` v6 @kind object @name `context`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.getDialogPickerHeight:(Landroid/content/Context;)I` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L199328.  call temp:= `getResources`(v6) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L19932e.  v0:= temp @kind object;
+  #L199330.  v1:= `@@com.google.android.material.R$dimen.mtrl_calendar_navigation_height` @type ^`int`;
+  #L199334.  call temp:= `getDimensionPixelSize`(v0, v1) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L19933a.  v1:= temp;
+  #L19933c.  v2:= `@@com.google.android.material.R$dimen.mtrl_calendar_navigation_top_padding` @type ^`int`;
+  #L199340.  call temp:= `getDimensionPixelOffset`(v0, v2) @signature `Landroid/content/res/Resources;.getDimensionPixelOffset:(I)I` @kind virtual;
+  #L199346.  v2:= temp;
+  #L199348.  v1:= v1 + v2 @kind int;
+  #L19934a.  v2:= `@@com.google.android.material.R$dimen.mtrl_calendar_navigation_bottom_padding` @type ^`int`;
+  #L19934e.  call temp:= `getDimensionPixelOffset`(v0, v2) @signature `Landroid/content/res/Resources;.getDimensionPixelOffset:(I)I` @kind virtual;
+  #L199354.  v2:= temp;
+  #L199356.  v1:= v1 + v2 @kind int;
+  #L199358.  v2:= `@@com.google.android.material.R$dimen.mtrl_calendar_days_of_week_height` @type ^`int`;
+  #L19935c.  call temp:= `getDimensionPixelSize`(v0, v2) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L199362.  v2:= temp;
+  #L199364.  v3:= `@@com.google.android.material.datepicker.MonthAdapter.MAXIMUM_WEEKS` @type ^`int`;
+  #L199368.  v4:= `@@com.google.android.material.R$dimen.mtrl_calendar_day_height` @type ^`int`;
+  #L19936c.  call temp:= `getDimensionPixelSize`(v0, v4) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L199372.  v4:= temp;
+  #L199374.  v3:= v3 * v4 @kind int;
+  #L199376.  v4:= `@@com.google.android.material.datepicker.MonthAdapter.MAXIMUM_WEEKS` @type ^`int`;
+  #L19937a.  v4:= v4 + -1;
+  #L19937e.  v5:= `@@com.google.android.material.R$dimen.mtrl_calendar_month_vertical_padding` @type ^`int`;
+  #L199382.  call temp:= `getDimensionPixelOffset`(v0, v5) @signature `Landroid/content/res/Resources;.getDimensionPixelOffset:(I)I` @kind virtual;
+  #L199388.  v5:= temp;
+  #L19938a.  v4:= v4 * v5 @kind int;
+  #L19938c.  v3:= v3 + v4 @kind int;
+  #L19938e.  v4:= `@@com.google.android.material.R$dimen.mtrl_calendar_bottom_padding` @type ^`int`;
+  #L199392.  call temp:= `getDimensionPixelOffset`(v0, v4) @signature `Landroid/content/res/Resources;.getDimensionPixelOffset:(I)I` @kind virtual;
+  #L199398.  v4:= temp;
+  #L19939a.  v5:= v1 + v2 @kind int;
+  #L19939e.  v5:= v5 + v3 @kind int;
+  #L1993a0.  v5:= v5 + v4 @kind int;
+  #L1993a2.  return v5;
+}
+procedure `int` `getPaddedPickerWidth`(`android.content.Context` v7 @kind object @name `context`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.getPaddedPickerWidth:(Landroid/content/Context;)I` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L1993b4.  call temp:= `getResources`(v7) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1993ba.  v0:= temp @kind object;
+  #L1993bc.  v1:= `@@com.google.android.material.R$dimen.mtrl_calendar_content_padding` @type ^`int`;
+  #L1993c0.  call temp:= `getDimensionPixelOffset`(v0, v1) @signature `Landroid/content/res/Resources;.getDimensionPixelOffset:(I)I` @kind virtual;
+  #L1993c6.  v1:= temp;
+  #L1993c8.  call temp:= `today`() @signature `Lcom/google/android/material/datepicker/Month;.today:()Lcom/google/android/material/datepicker/Month;` @kind static;
+  #L1993ce.  v2:= temp @kind object;
+  #L1993d0.  v2:= v2.`com.google.android.material.datepicker.Month.daysInWeek` @type ^`int`;
+  #L1993d4.  v3:= `@@com.google.android.material.R$dimen.mtrl_calendar_day_width` @type ^`int`;
+  #L1993d8.  call temp:= `getDimensionPixelSize`(v0, v3) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L1993de.  v3:= temp;
+  #L1993e0.  v4:= `@@com.google.android.material.R$dimen.mtrl_calendar_month_horizontal_padding` @type ^`int`;
+  #L1993e4.  call temp:= `getDimensionPixelOffset`(v0, v4) @signature `Landroid/content/res/Resources;.getDimensionPixelOffset:(I)I` @kind virtual;
+  #L1993ea.  v4:= temp;
+  #L1993ec.  v5:= v1 * 2;
+  #L1993f0.  v6:= v2 * v3 @kind int;
+  #L1993f4.  v5:= v5 + v6 @kind int;
+  #L1993f6.  v6:= v2 + -1;
+  #L1993fa.  v6:= v6 * v4 @kind int;
+  #L1993fc.  v5:= v5 + v6 @kind int;
+  #L1993fe.  return v5;
+}
+procedure `int` `getThemeResId`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.getThemeResId:(Landroid/content/Context;)I` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L199410.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.overrideThemeResId` @type ^`int`;
+  #L199414.  if v0 == 0 then goto L19941a;
+  #L199418.  return v0;
+  #L19941a.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.dateSelector` @type ^`com.google.android.material.datepicker.DateSelector` @kind object;
+  #L19941e.  call temp:= `getDefaultThemeResId`(v0, v2) @signature `Lcom/google/android/material/datepicker/DateSelector;.getDefaultThemeResId:(Landroid/content/Context;)I` @kind interface;
+  #L199424.  v0:= temp;
+  #L199426.  return v0;
+}
+procedure `void` `initHeaderToggle`(`com.google.android.material.datepicker.MaterialDatePicker` v2 @kind this, `android.content.Context` v3 @kind object @name `context`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.initHeaderToggle:(Landroid/content/Context;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L199628.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker.headerToggleButton` @type ^`com.google.android.material.internal.CheckableImageButton` @kind object;
+  #L19962c.  v1:= `@@com.google.android.material.datepicker.MaterialDatePicker.TOGGLE_BUTTON_TAG` @type ^`java.lang.Object` @kind object;
+  #L199630.  call `setTag`(v0, v1) @signature `Lcom/google/android/material/internal/CheckableImageButton;.setTag:(Ljava/lang/Object;)V` @kind virtual;
+  #L199636.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker.headerToggleButton` @type ^`com.google.android.material.internal.CheckableImageButton` @kind object;
+  #L19963a.  call temp:= `createHeaderToggleDrawable`(v3) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.createHeaderToggleDrawable:(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;` @kind static;
+  #L199640.  v1:= temp @kind object;
+  #L199642.  call `setImageDrawable`(v0, v1) @signature `Lcom/google/android/material/internal/CheckableImageButton;.setImageDrawable:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L199648.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker.headerToggleButton` @type ^`com.google.android.material.internal.CheckableImageButton` @kind object;
+  #L19964c.  v1:= 0I;
+  #L19964e.  call `setAccessibilityDelegate`(v0, v1) @signature `Landroidx/core/view/ViewCompat;.setAccessibilityDelegate:(Landroid/view/View;Landroidx/core/view/AccessibilityDelegateCompat;)V` @kind static;
+  #L199654.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker.headerToggleButton` @type ^`com.google.android.material.internal.CheckableImageButton` @kind object;
+  #L199658.  call `updateToggleContentDescription`(v2, v0) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.updateToggleContentDescription:(Lcom/google/android/material/internal/CheckableImageButton;)V` @kind direct;
+  #L19965e.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker.headerToggleButton` @type ^`com.google.android.material.internal.CheckableImageButton` @kind object;
+  #L199662.  v1:= new `com.google.android.material.datepicker.MaterialDatePicker$4`;
+  #L199666.  call `<init>`(v1, v2) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$4;.<init>:(Lcom/google/android/material/datepicker/MaterialDatePicker;)V` @kind direct;
+  #L19966c.  call `setOnClickListener`(v0, v1) @signature `Lcom/google/android/material/internal/CheckableImageButton;.setOnClickListener:(Landroid/view/View$OnClickListener;)V` @kind virtual;
+  #L199672.  return @kind void;
+}
+procedure `boolean` `isFullscreen`(`android.content.Context` v4 @kind object @name `context`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.isFullscreen:(Landroid/content/Context;)Z` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1991b0.  v0:= `@@com.google.android.material.R$attr.materialCalendarStyle` @type ^`int`;
+  #L1991b4.  v1:= constclass @type ^`com.google.android.material.datepicker.MaterialCalendar` @kind object;
+  #L1991b8.  call temp:= `getCanonicalName`(v1) @signature `Ljava/lang/Class;.getCanonicalName:()Ljava/lang/String;` @kind virtual;
+  #L1991be.  v1:= temp @kind object;
+  #L1991c0.  call temp:= `resolveOrThrow`(v4, v0, v1) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolveOrThrow:(Landroid/content/Context;ILjava/lang/String;)I` @kind static;
+  #L1991c6.  v0:= temp;
+  #L1991c8.  v1:= 1I;
+  #L1991ca.  v1:= new `int`[v1];
+  #L1991ce.  v2:= 16843277I;
+  #L1991d4.  v3:= 0I;
+  #L1991d6.  v1[v3]:= v2;
+  #L1991da.  call temp:= `obtainStyledAttributes`(v4, v0, v1) @signature `Landroid/content/Context;.obtainStyledAttributes:(I[I)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1991e0.  v2:= temp @kind object;
+  #L1991e2.  call temp:= `getBoolean`(v2, v3, v3) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L1991e8.  v3:= temp;
+  #L1991ea.  call `recycle`(v2) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1991f0.  return v3;
+}
+procedure `com.google.android.material.datepicker.MaterialDatePicker` `newInstance`(`com.google.android.material.datepicker.MaterialDatePicker$Builder` v4 @kind object) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.newInstance:(Lcom/google/android/material/datepicker/MaterialDatePicker$Builder;)Lcom/google/android/material/datepicker/MaterialDatePicker;` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L19929c.  v0:= new `com.google.android.material.datepicker.MaterialDatePicker`;
+  #L1992a0.  call `<init>`(v0) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.<init>:()V` @kind direct;
+  #L1992a6.  v1:= new `android.os.Bundle`;
+  #L1992aa.  call `<init>`(v1) @signature `Landroid/os/Bundle;.<init>:()V` @kind direct;
+  #L1992b0.  v2:= v4.`com.google.android.material.datepicker.MaterialDatePicker$Builder.overrideThemeResId` @type ^`int`;
+  #L1992b4.  v3:= "OVERRIDE_THEME_RES_ID" @kind object;
+  #L1992b8.  call `putInt`(v1, v3, v2) @signature `Landroid/os/Bundle;.putInt:(Ljava/lang/String;I)V` @kind virtual;
+  #L1992be.  v2:= v4.`com.google.android.material.datepicker.MaterialDatePicker$Builder.dateSelector` @type ^`com.google.android.material.datepicker.DateSelector` @kind object;
+  #L1992c2.  v3:= "DATE_SELECTOR_KEY" @kind object;
+  #L1992c6.  call `putParcelable`(v1, v3, v2) @signature `Landroid/os/Bundle;.putParcelable:(Ljava/lang/String;Landroid/os/Parcelable;)V` @kind virtual;
+  #L1992cc.  v2:= v4.`com.google.android.material.datepicker.MaterialDatePicker$Builder.calendarConstraints` @type ^`com.google.android.material.datepicker.CalendarConstraints` @kind object;
+  #L1992d0.  v3:= "CALENDAR_CONSTRAINTS_KEY" @kind object;
+  #L1992d4.  call `putParcelable`(v1, v3, v2) @signature `Landroid/os/Bundle;.putParcelable:(Ljava/lang/String;Landroid/os/Parcelable;)V` @kind virtual;
+  #L1992da.  v2:= v4.`com.google.android.material.datepicker.MaterialDatePicker$Builder.titleTextResId` @type ^`int`;
+  #L1992de.  v3:= "TITLE_TEXT_RES_ID_KEY" @kind object;
+  #L1992e2.  call `putInt`(v1, v3, v2) @signature `Landroid/os/Bundle;.putInt:(Ljava/lang/String;I)V` @kind virtual;
+  #L1992e8.  v2:= v4.`com.google.android.material.datepicker.MaterialDatePicker$Builder.titleText` @type ^`java.lang.CharSequence` @kind object;
+  #L1992ec.  v3:= "TITLE_TEXT_KEY" @kind object;
+  #L1992f0.  call `putCharSequence`(v1, v3, v2) @signature `Landroid/os/Bundle;.putCharSequence:(Ljava/lang/String;Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1992f6.  call `setArguments`(v0, v1) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.setArguments:(Landroid/os/Bundle;)V` @kind virtual;
+  #L1992fc.  return v0 @kind object;
+}
+procedure `void` `startPickerFragment`(`com.google.android.material.datepicker.MaterialDatePicker` v3 @kind this) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.startPickerFragment:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L199914.  v0:= v3.`com.google.android.material.datepicker.MaterialDatePicker.dateSelector` @type ^`com.google.android.material.datepicker.DateSelector` @kind object;
+  #L199918.  call temp:= `requireContext`(v3) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.requireContext:()Landroid/content/Context;` @kind virtual;
+  #L19991e.  v1:= temp @kind object;
+  #L199920.  call temp:= `getThemeResId`(v3, v1) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.getThemeResId:(Landroid/content/Context;)I` @kind direct;
+  #L199926.  v1:= temp;
+  #L199928.  v2:= v3.`com.google.android.material.datepicker.MaterialDatePicker.calendarConstraints` @type ^`com.google.android.material.datepicker.CalendarConstraints` @kind object;
+  #L19992c.  call temp:= `newInstance`(v0, v1, v2) @signature `Lcom/google/android/material/datepicker/MaterialCalendar;.newInstance:(Lcom/google/android/material/datepicker/DateSelector;ILcom/google/android/material/datepicker/CalendarConstraints;)Lcom/google/android/material/datepicker/MaterialCalendar;` @kind static;
+  #L199932.  v0:= temp @kind object;
+  #L199934.  v3.`com.google.android.material.datepicker.MaterialDatePicker.calendar` @type ^`com.google.android.material.datepicker.MaterialCalendar` := v0 @kind object;
+  #L199938.  v0:= v3.`com.google.android.material.datepicker.MaterialDatePicker.headerToggleButton` @type ^`com.google.android.material.internal.CheckableImageButton` @kind object;
+  #L19993c.  call temp:= `isChecked`(v0) @signature `Lcom/google/android/material/internal/CheckableImageButton;.isChecked:()Z` @kind virtual;
+  #L199942.  v0:= temp;
+  #L199944.  if v0 == 0 then goto L19995a;
+  #L199948.  v0:= v3.`com.google.android.material.datepicker.MaterialDatePicker.dateSelector` @type ^`com.google.android.material.datepicker.DateSelector` @kind object;
+  #L19994c.  v1:= v3.`com.google.android.material.datepicker.MaterialDatePicker.calendarConstraints` @type ^`com.google.android.material.datepicker.CalendarConstraints` @kind object;
+  #L199950.  call temp:= `newInstance`(v0, v1) @signature `Lcom/google/android/material/datepicker/MaterialTextInputPicker;.newInstance:(Lcom/google/android/material/datepicker/DateSelector;Lcom/google/android/material/datepicker/CalendarConstraints;)Lcom/google/android/material/datepicker/MaterialTextInputPicker;` @kind static;
+  #L199956.  v0:= temp @kind object;
+  #L199958.  goto L19995e;
+  #L19995a.  v0:= v3.`com.google.android.material.datepicker.MaterialDatePicker.calendar` @type ^`com.google.android.material.datepicker.MaterialCalendar` @kind object;
+  #L19995e.  v3.`com.google.android.material.datepicker.MaterialDatePicker.pickerFragment` @type ^`com.google.android.material.datepicker.PickerFragment` := v0 @kind object;
+  #L199962.  call `updateHeader`(v3) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.updateHeader:()V` @kind direct;
+  #L199968.  call temp:= `getChildFragmentManager`(v3) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.getChildFragmentManager:()Landroidx/fragment/app/FragmentManager;` @kind virtual;
+  #L19996e.  v0:= temp @kind object;
+  #L199970.  call temp:= `beginTransaction`(v0) @signature `Landroidx/fragment/app/FragmentManager;.beginTransaction:()Landroidx/fragment/app/FragmentTransaction;` @kind virtual;
+  #L199976.  v0:= temp @kind object;
+  #L199978.  v1:= `@@com.google.android.material.R$id.mtrl_calendar_frame` @type ^`int`;
+  #L19997c.  v2:= v3.`com.google.android.material.datepicker.MaterialDatePicker.pickerFragment` @type ^`com.google.android.material.datepicker.PickerFragment` @kind object;
+  #L199980.  call temp:= `replace`(v0, v1, v2) @signature `Landroidx/fragment/app/FragmentTransaction;.replace:(ILandroidx/fragment/app/Fragment;)Landroidx/fragment/app/FragmentTransaction;` @kind virtual;
+  #L199986.  call `commitNow`(v0) @signature `Landroidx/fragment/app/FragmentTransaction;.commitNow:()V` @kind virtual;
+  #L19998c.  v1:= v3.`com.google.android.material.datepicker.MaterialDatePicker.pickerFragment` @type ^`com.google.android.material.datepicker.PickerFragment` @kind object;
+  #L199990.  v2:= new `com.google.android.material.datepicker.MaterialDatePicker$3`;
+  #L199994.  call `<init>`(v2, v3) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$3;.<init>:(Lcom/google/android/material/datepicker/MaterialDatePicker;)V` @kind direct;
+  #L19999a.  call temp:= `addOnSelectionChangedListener`(v1, v2) @signature `Lcom/google/android/material/datepicker/PickerFragment;.addOnSelectionChangedListener:(Lcom/google/android/material/datepicker/OnSelectionChangedListener;)Z` @kind virtual;
+  #L1999a0.  return @kind void;
+}
+procedure `long` `thisMonthInUtcMilliseconds`() @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.thisMonthInUtcMilliseconds:()J` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1994b0.  call temp:= `today`() @signature `Lcom/google/android/material/datepicker/Month;.today:()Lcom/google/android/material/datepicker/Month;` @kind static;
+  #L1994b6.  v0:= temp @kind object;
+  #L1994b8.  v0:= v0.`com.google.android.material.datepicker.Month.timeInMillis` @type ^`long` @kind wide;
+  #L1994bc.  return v0 @kind wide;
+}
+procedure `long` `todayInUtcMilliseconds`() @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.todayInUtcMilliseconds:()J` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1994d0.  call temp:= `getTodayCalendar`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getTodayCalendar:()Ljava/util/Calendar;` @kind static;
+  #L1994d6.  v0:= temp @kind object;
+  #L1994d8.  call temp:= `getTimeInMillis`(v0) @signature `Ljava/util/Calendar;.getTimeInMillis:()J` @kind virtual;
+  #L1994de.  v0:= temp @kind wide;
+  #L1994e0.  return v0 @kind wide;
+}
+procedure `void` `updateHeader`(`com.google.android.material.datepicker.MaterialDatePicker` v5 @kind this) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.updateHeader:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1999b4.  call temp:= `getHeaderText`(v5) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.getHeaderText:()Ljava/lang/String;` @kind virtual;
+  #L1999ba.  v0:= temp @kind object;
+  #L1999bc.  v1:= v5.`com.google.android.material.datepicker.MaterialDatePicker.headerSelectionText` @type ^`android.widget.TextView` @kind object;
+  #L1999c0.  v2:= `@@com.google.android.material.R$string.mtrl_picker_announce_current_selection` @type ^`int`;
+  #L1999c4.  call temp:= `getString`(v5, v2) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.getString:(I)Ljava/lang/String;` @kind virtual;
+  #L1999ca.  v2:= temp @kind object;
+  #L1999cc.  v3:= 1I;
+  #L1999ce.  v3:= new `java.lang.Object`[v3];
+  #L1999d2.  v4:= 0I;
+  #L1999d4.  v3[v4]:= v0 @kind object;
+  #L1999d8.  call temp:= `format`(v2, v3) @signature `Ljava/lang/String;.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;` @kind static;
+  #L1999de.  v2:= temp @kind object;
+  #L1999e0.  call `setContentDescription`(v1, v2) @signature `Landroid/widget/TextView;.setContentDescription:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1999e6.  v1:= v5.`com.google.android.material.datepicker.MaterialDatePicker.headerSelectionText` @type ^`android.widget.TextView` @kind object;
+  #L1999ea.  call `setText`(v1, v0) @signature `Landroid/widget/TextView;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1999f0.  return @kind void;
+}
+procedure `void` `updateToggleContentDescription`(`com.google.android.material.datepicker.MaterialDatePicker` v2 @kind this, `com.google.android.material.internal.CheckableImageButton` v3 @kind object @name `toggle`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.updateToggleContentDescription:(Lcom/google/android/material/internal/CheckableImageButton;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L199a04.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker.headerToggleButton` @type ^`com.google.android.material.internal.CheckableImageButton` @kind object;
+  #L199a08.  call temp:= `isChecked`(v0) @signature `Lcom/google/android/material/internal/CheckableImageButton;.isChecked:()Z` @kind virtual;
+  #L199a0e.  v0:= temp;
+  #L199a10.  if v0 == 0 then goto L199a2a;
+  #L199a14.  call temp:= `getContext`(v3) @signature `Lcom/google/android/material/internal/CheckableImageButton;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L199a1a.  v0:= temp @kind object;
+  #L199a1c.  v1:= `@@com.google.android.material.R$string.mtrl_picker_toggle_to_calendar_input_mode` @type ^`int`;
+  #L199a20.  call temp:= `getString`(v0, v1) @signature `Landroid/content/Context;.getString:(I)Ljava/lang/String;` @kind virtual;
+  #L199a26.  v0:= temp @kind object;
+  #L199a28.  goto L199a3e;
+  #L199a2a.  call temp:= `getContext`(v3) @signature `Lcom/google/android/material/internal/CheckableImageButton;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L199a30.  v0:= temp @kind object;
+  #L199a32.  v1:= `@@com.google.android.material.R$string.mtrl_picker_toggle_to_text_input_mode` @type ^`int`;
+  #L199a36.  call temp:= `getString`(v0, v1) @signature `Landroid/content/Context;.getString:(I)Ljava/lang/String;` @kind virtual;
+  #L199a3c.  v0:= temp @kind object;
+  #L199a3e.  
+  #L199a40.  v1:= v2.`com.google.android.material.datepicker.MaterialDatePicker.headerToggleButton` @type ^`com.google.android.material.internal.CheckableImageButton` @kind object;
+  #L199a44.  call `setContentDescription`(v1, v0) @signature `Lcom/google/android/material/internal/CheckableImageButton;.setContentDescription:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L199a4a.  return @kind void;
+}
+procedure `boolean` `addOnCancelListener`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind this, `android.content.DialogInterface$OnCancelListener` v2 @kind object @name `onCancelListener`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.addOnCancelListener:(Landroid/content/DialogInterface$OnCancelListener;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L199130.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.onCancelListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L199134.  call temp:= `add`(v0, v2) @signature `Ljava/util/LinkedHashSet;.add:(Ljava/lang/Object;)Z` @kind virtual;
+  #L19913a.  v0:= temp;
+  #L19913c.  return v0;
+}
+procedure `boolean` `addOnDismissListener`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind this, `android.content.DialogInterface$OnDismissListener` v2 @kind object @name `onDismissListener`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.addOnDismissListener:(Landroid/content/DialogInterface$OnDismissListener;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L199150.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.onDismissListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L199154.  call temp:= `add`(v0, v2) @signature `Ljava/util/LinkedHashSet;.add:(Ljava/lang/Object;)Z` @kind virtual;
+  #L19915a.  v0:= temp;
+  #L19915c.  return v0;
+}
+procedure `boolean` `addOnNegativeButtonClickListener`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind this, `android.view.View$OnClickListener` v2 @kind object @name `onNegativeButtonClickListener`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.addOnNegativeButtonClickListener:(Landroid/view/View$OnClickListener;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L199170.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.onNegativeButtonClickListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L199174.  call temp:= `add`(v0, v2) @signature `Ljava/util/LinkedHashSet;.add:(Ljava/lang/Object;)Z` @kind virtual;
+  #L19917a.  v0:= temp;
+  #L19917c.  return v0;
+}
+procedure `boolean` `addOnPositiveButtonClickListener`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind this, `com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener` v2 @kind object) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.addOnPositiveButtonClickListener:(Lcom/google/android/material/datepicker/MaterialPickerOnPositiveButtonClickListener;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L199190.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.onPositiveButtonClickListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L199194.  call temp:= `add`(v0, v2) @signature `Ljava/util/LinkedHashSet;.add:(Ljava/lang/Object;)Z` @kind virtual;
+  #L19919a.  v0:= temp;
+  #L19919c.  return v0;
+}
+procedure `void` `clearOnCancelListeners`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind this) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.clearOnCancelListeners:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1995b8.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.onCancelListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L1995bc.  call `clear`(v0) @signature `Ljava/util/LinkedHashSet;.clear:()V` @kind virtual;
+  #L1995c2.  return @kind void;
+}
+procedure `void` `clearOnDismissListeners`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind this) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.clearOnDismissListeners:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1995d4.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.onDismissListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L1995d8.  call `clear`(v0) @signature `Ljava/util/LinkedHashSet;.clear:()V` @kind virtual;
+  #L1995de.  return @kind void;
+}
+procedure `void` `clearOnNegativeButtonClickListeners`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind this) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.clearOnNegativeButtonClickListeners:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1995f0.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.onNegativeButtonClickListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L1995f4.  call `clear`(v0) @signature `Ljava/util/LinkedHashSet;.clear:()V` @kind virtual;
+  #L1995fa.  return @kind void;
+}
+procedure `void` `clearOnPositiveButtonClickListeners`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind this) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.clearOnPositiveButtonClickListeners:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19960c.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.onPositiveButtonClickListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L199610.  call `clear`(v0) @signature `Ljava/util/LinkedHashSet;.clear:()V` @kind virtual;
+  #L199616.  return @kind void;
+}
+procedure `java.lang.String` `getHeaderText`(`com.google.android.material.datepicker.MaterialDatePicker` v2 @kind this) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.getHeaderText:()Ljava/lang/String;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L199458.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker.dateSelector` @type ^`com.google.android.material.datepicker.DateSelector` @kind object;
+  #L19945c.  call temp:= `getContext`(v2) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L199462.  v1:= temp @kind object;
+  #L199464.  call temp:= `getSelectionDisplayString`(v0, v1) @signature `Lcom/google/android/material/datepicker/DateSelector;.getSelectionDisplayString:(Landroid/content/Context;)Ljava/lang/String;` @kind interface;
+  #L19946a.  v0:= temp @kind object;
+  #L19946c.  return v0 @kind object;
+}
+procedure `java.lang.Object` `getSelection`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind this) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.getSelection:()Ljava/lang/Object;` @AccessFlag PUBLIC_FINAL {
+    temp;
+    v0;
+
+  #L199438.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.dateSelector` @type ^`com.google.android.material.datepicker.DateSelector` @kind object;
+  #L19943c.  call temp:= `getSelection`(v0) @signature `Lcom/google/android/material/datepicker/DateSelector;.getSelection:()Ljava/lang/Object;` @kind interface;
+  #L199442.  v0:= temp @kind object;
+  #L199444.  return v0 @kind object;
+}
+procedure `void` `onCancel`(`com.google.android.material.datepicker.MaterialDatePicker` v2 @kind this, `android.content.DialogInterface` v3 @kind object @name `dialogInterface`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.onCancel:(Landroid/content/DialogInterface;)V` @AccessFlag PUBLIC_FINAL {
+    temp;
+    v0;
+    v1;
+
+  #L199684.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker.onCancelListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L199688.  call temp:= `iterator`(v0) @signature `Ljava/util/LinkedHashSet;.iterator:()Ljava/util/Iterator;` @kind virtual;
+  #L19968e.  v0:= temp @kind object;
+  #L199690.  call temp:= `hasNext`(v0) @signature `Ljava/util/Iterator;.hasNext:()Z` @kind interface;
+  #L199696.  v1:= temp;
+  #L199698.  if v1 == 0 then goto L1996b0;
+  #L19969c.  call temp:= `next`(v0) @signature `Ljava/util/Iterator;.next:()Ljava/lang/Object;` @kind interface;
+  #L1996a2.  v1:= temp @kind object;
+  #L1996a4.  v1:= (`android.content.DialogInterface$OnCancelListener`) v1 @kind object;
+  #L1996a8.  call `onCancel`(v1, v3) @signature `Landroid/content/DialogInterface$OnCancelListener;.onCancel:(Landroid/content/DialogInterface;)V` @kind interface;
+  #L1996ae.  goto L199690;
+  #L1996b0.  call `onCancel`(v2, v3) @signature `Landroidx/fragment/app/DialogFragment;.onCancel:(Landroid/content/DialogInterface;)V` @kind super;
+  #L1996b6.  return @kind void;
+}
+procedure `void` `onCreate`(`com.google.android.material.datepicker.MaterialDatePicker` v2 @kind this, `android.os.Bundle` v3 @kind object @name `bundle`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.onCreate:(Landroid/os/Bundle;)V` @AccessFlag PUBLIC_FINAL {
+    temp;
+    v0;
+    v1;
+
+  #L1996c8.  call `onCreate`(v2, v3) @signature `Landroidx/fragment/app/DialogFragment;.onCreate:(Landroid/os/Bundle;)V` @kind super;
+  #L1996ce.  if v3 != 0 then goto L1996dc;
+  #L1996d2.  call temp:= `getArguments`(v2) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.getArguments:()Landroid/os/Bundle;` @kind virtual;
+  #L1996d8.  v0:= temp @kind object;
+  #L1996da.  goto L1996de;
+  #L1996dc.  v0:= v3 @kind object;
+  #L1996de.  v1:= "OVERRIDE_THEME_RES_ID" @kind object;
+  #L1996e2.  call temp:= `getInt`(v0, v1) @signature `Landroid/os/Bundle;.getInt:(Ljava/lang/String;)I` @kind virtual;
+  #L1996e8.  v1:= temp;
+  #L1996ea.  v2.`com.google.android.material.datepicker.MaterialDatePicker.overrideThemeResId` @type ^`int` := v1;
+  #L1996ee.  v1:= "DATE_SELECTOR_KEY" @kind object;
+  #L1996f2.  call temp:= `getParcelable`(v0, v1) @signature `Landroid/os/Bundle;.getParcelable:(Ljava/lang/String;)Landroid/os/Parcelable;` @kind virtual;
+  #L1996f8.  v1:= temp @kind object;
+  #L1996fa.  v1:= (`com.google.android.material.datepicker.DateSelector`) v1 @kind object;
+  #L1996fe.  v2.`com.google.android.material.datepicker.MaterialDatePicker.dateSelector` @type ^`com.google.android.material.datepicker.DateSelector` := v1 @kind object;
+  #L199702.  v1:= "CALENDAR_CONSTRAINTS_KEY" @kind object;
+  #L199706.  call temp:= `getParcelable`(v0, v1) @signature `Landroid/os/Bundle;.getParcelable:(Ljava/lang/String;)Landroid/os/Parcelable;` @kind virtual;
+  #L19970c.  v1:= temp @kind object;
+  #L19970e.  v1:= (`com.google.android.material.datepicker.CalendarConstraints`) v1 @kind object;
+  #L199712.  v2.`com.google.android.material.datepicker.MaterialDatePicker.calendarConstraints` @type ^`com.google.android.material.datepicker.CalendarConstraints` := v1 @kind object;
+  #L199716.  v1:= "TITLE_TEXT_RES_ID_KEY" @kind object;
+  #L19971a.  call temp:= `getInt`(v0, v1) @signature `Landroid/os/Bundle;.getInt:(Ljava/lang/String;)I` @kind virtual;
+  #L199720.  v1:= temp;
+  #L199722.  v2.`com.google.android.material.datepicker.MaterialDatePicker.titleTextResId` @type ^`int` := v1;
+  #L199726.  v1:= "TITLE_TEXT_KEY" @kind object;
+  #L19972a.  call temp:= `getCharSequence`(v0, v1) @signature `Landroid/os/Bundle;.getCharSequence:(Ljava/lang/String;)Ljava/lang/CharSequence;` @kind virtual;
+  #L199730.  v1:= temp @kind object;
+  #L199732.  v2.`com.google.android.material.datepicker.MaterialDatePicker.titleText` @type ^`java.lang.CharSequence` := v1 @kind object;
+  #L199736.  return @kind void;
+}
+procedure `android.app.Dialog` `onCreateDialog`(`com.google.android.material.datepicker.MaterialDatePicker` v7 @kind this, `android.os.Bundle` v8 @kind object @name `bundle`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.onCreateDialog:(Landroid/os/Bundle;)Landroid/app/Dialog;` @AccessFlag PUBLIC_FINAL {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L198e78.  v0:= new `android.app.Dialog`;
+  #L198e7c.  call temp:= `requireContext`(v7) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.requireContext:()Landroid/content/Context;` @kind virtual;
+  #L198e82.  v1:= temp @kind object;
+  #L198e84.  call temp:= `requireContext`(v7) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.requireContext:()Landroid/content/Context;` @kind virtual;
+  #L198e8a.  v2:= temp @kind object;
+  #L198e8c.  call temp:= `getThemeResId`(v7, v2) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.getThemeResId:(Landroid/content/Context;)I` @kind direct;
+  #L198e92.  v2:= temp;
+  #L198e94.  call `<init>`(v0, v1, v2) @signature `Landroid/app/Dialog;.<init>:(Landroid/content/Context;I)V` @kind direct;
+  #L198e9a.  call temp:= `getContext`(v0) @signature `Landroid/app/Dialog;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L198ea0.  v1:= temp @kind object;
+  #L198ea2.  call temp:= `isFullscreen`(v1) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.isFullscreen:(Landroid/content/Context;)Z` @kind static;
+  #L198ea8.  v2:= temp;
+  #L198eaa.  v7.`com.google.android.material.datepicker.MaterialDatePicker.fullscreen` @type ^`boolean` := v2 @kind boolean;
+  #L198eae.  v2:= `@@com.google.android.material.R$attr.colorSurface` @type ^`int`;
+  #L198eb2.  v3:= constclass @type ^`com.google.android.material.datepicker.MaterialDatePicker` @kind object;
+  #L198eb6.  call temp:= `getCanonicalName`(v3) @signature `Ljava/lang/Class;.getCanonicalName:()Ljava/lang/String;` @kind virtual;
+  #L198ebc.  v3:= temp @kind object;
+  #L198ebe.  call temp:= `resolveOrThrow`(v1, v2, v3) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolveOrThrow:(Landroid/content/Context;ILjava/lang/String;)I` @kind static;
+  #L198ec4.  v2:= temp;
+  #L198ec6.  v3:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L198eca.  v4:= `@@com.google.android.material.R$attr.materialCalendarStyle` @type ^`int`;
+  #L198ece.  v5:= `@@com.google.android.material.R$style.Widget_MaterialComponents_MaterialCalendar` @type ^`int`;
+  #L198ed2.  v6:= 0I;
+  #L198ed4.  call `<init>`(v3, v1, v6, v4, v5) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;II)V` @kind direct;
+  #L198eda.  v7.`com.google.android.material.datepicker.MaterialDatePicker.background` @type ^`com.google.android.material.shape.MaterialShapeDrawable` := v3 @kind object;
+  #L198ede.  call `initializeElevationOverlay`(v3, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.initializeElevationOverlay:(Landroid/content/Context;)V` @kind virtual;
+  #L198ee4.  v3:= v7.`com.google.android.material.datepicker.MaterialDatePicker.background` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L198ee8.  call temp:= `valueOf`(v2) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L198eee.  v4:= temp @kind object;
+  #L198ef0.  call `setFillColor`(v3, v4) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L198ef6.  v3:= v7.`com.google.android.material.datepicker.MaterialDatePicker.background` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L198efa.  call temp:= `getWindow`(v0) @signature `Landroid/app/Dialog;.getWindow:()Landroid/view/Window;` @kind virtual;
+  #L198f00.  v4:= temp @kind object;
+  #L198f02.  call temp:= `getDecorView`(v4) @signature `Landroid/view/Window;.getDecorView:()Landroid/view/View;` @kind virtual;
+  #L198f08.  v4:= temp @kind object;
+  #L198f0a.  call temp:= `getElevation`(v4) @signature `Landroidx/core/view/ViewCompat;.getElevation:(Landroid/view/View;)F` @kind static;
+  #L198f10.  v4:= temp;
+  #L198f12.  call `setElevation`(v3, v4) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setElevation:(F)V` @kind virtual;
+  #L198f18.  return v0 @kind object;
+}
+procedure `android.view.View` `onCreateView`(`com.google.android.material.datepicker.MaterialDatePicker` v8 @kind this, `android.view.LayoutInflater` v9 @kind object @name `layoutInflater`, `android.view.ViewGroup` v10 @kind object @name `viewGroup`, `android.os.Bundle` v11 @kind object @name `bundle`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.onCreateView:(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;` @AccessFlag PUBLIC_FINAL {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L198f84.  v0:= v8.`com.google.android.material.datepicker.MaterialDatePicker.fullscreen` @type ^`boolean` @kind boolean;
+  #L198f88.  if v0 == 0 then goto L198f92;
+  #L198f8c.  v0:= `@@com.google.android.material.R$layout.mtrl_picker_fullscreen` @type ^`int`;
+  #L198f90.  goto L198f96;
+  #L198f92.  v0:= `@@com.google.android.material.R$layout.mtrl_picker_dialog` @type ^`int`;
+  #L198f96.  call temp:= `inflate`(v9, v0, v10) @signature `Landroid/view/LayoutInflater;.inflate:(ILandroid/view/ViewGroup;)Landroid/view/View;` @kind virtual;
+  #L198f9c.  v1:= temp @kind object;
+  #L198f9e.  call temp:= `getContext`(v1) @signature `Landroid/view/View;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L198fa4.  v2:= temp @kind object;
+  #L198fa6.  v3:= v8.`com.google.android.material.datepicker.MaterialDatePicker.fullscreen` @type ^`boolean` @kind boolean;
+  #L198faa.  if v3 == 0 then goto L198fd6;
+  #L198fae.  v3:= `@@com.google.android.material.R$id.mtrl_calendar_frame` @type ^`int`;
+  #L198fb2.  call temp:= `findViewById`(v1, v3) @signature `Landroid/view/View;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L198fb8.  v3:= temp @kind object;
+  #L198fba.  v4:= new `android.widget.LinearLayout$LayoutParams`;
+  #L198fbe.  call temp:= `getPaddedPickerWidth`(v2) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.getPaddedPickerWidth:(Landroid/content/Context;)I` @kind static;
+  #L198fc4.  v5:= temp;
+  #L198fc6.  v6:= -2I;
+  #L198fc8.  call `<init>`(v4, v5, v6) @signature `Landroid/widget/LinearLayout$LayoutParams;.<init>:(II)V` @kind direct;
+  #L198fce.  call `setLayoutParams`(v3, v4) @signature `Landroid/view/View;.setLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)V` @kind virtual;
+  #L198fd4.  goto L19901e;
+  #L198fd6.  v3:= `@@com.google.android.material.R$id.mtrl_calendar_main_pane` @type ^`int`;
+  #L198fda.  call temp:= `findViewById`(v1, v3) @signature `Landroid/view/View;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L198fe0.  v3:= temp @kind object;
+  #L198fe2.  v4:= `@@com.google.android.material.R$id.mtrl_calendar_frame` @type ^`int`;
+  #L198fe6.  call temp:= `findViewById`(v1, v4) @signature `Landroid/view/View;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L198fec.  v4:= temp @kind object;
+  #L198fee.  v5:= new `android.widget.LinearLayout$LayoutParams`;
+  #L198ff2.  call temp:= `getPaddedPickerWidth`(v2) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.getPaddedPickerWidth:(Landroid/content/Context;)I` @kind static;
+  #L198ff8.  v6:= temp;
+  #L198ffa.  v7:= -1I;
+  #L198ffc.  call `<init>`(v5, v6, v7) @signature `Landroid/widget/LinearLayout$LayoutParams;.<init>:(II)V` @kind direct;
+  #L199002.  call `setLayoutParams`(v3, v5) @signature `Landroid/view/View;.setLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)V` @kind virtual;
+  #L199008.  call temp:= `requireContext`(v8) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.requireContext:()Landroid/content/Context;` @kind virtual;
+  #L19900e.  v5:= temp @kind object;
+  #L199010.  call temp:= `getDialogPickerHeight`(v5) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.getDialogPickerHeight:(Landroid/content/Context;)I` @kind static;
+  #L199016.  v5:= temp;
+  #L199018.  call `setMinimumHeight`(v4, v5) @signature `Landroid/view/View;.setMinimumHeight:(I)V` @kind virtual;
+  #L19901e.  v3:= `@@com.google.android.material.R$id.mtrl_picker_header_selection_text` @type ^`int`;
+  #L199022.  call temp:= `findViewById`(v1, v3) @signature `Landroid/view/View;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L199028.  v3:= temp @kind object;
+  #L19902a.  v3:= (`android.widget.TextView`) v3 @kind object;
+  #L19902e.  v8.`com.google.android.material.datepicker.MaterialDatePicker.headerSelectionText` @type ^`android.widget.TextView` := v3 @kind object;
+  #L199032.  v4:= 1I;
+  #L199034.  call `setAccessibilityLiveRegion`(v3, v4) @signature `Landroidx/core/view/ViewCompat;.setAccessibilityLiveRegion:(Landroid/view/View;I)V` @kind static;
+  #L19903a.  v3:= `@@com.google.android.material.R$id.mtrl_picker_header_toggle` @type ^`int`;
+  #L19903e.  call temp:= `findViewById`(v1, v3) @signature `Landroid/view/View;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L199044.  v3:= temp @kind object;
+  #L199046.  v3:= (`com.google.android.material.internal.CheckableImageButton`) v3 @kind object;
+  #L19904a.  v8.`com.google.android.material.datepicker.MaterialDatePicker.headerToggleButton` @type ^`com.google.android.material.internal.CheckableImageButton` := v3 @kind object;
+  #L19904e.  v3:= `@@com.google.android.material.R$id.mtrl_picker_title_text` @type ^`int`;
+  #L199052.  call temp:= `findViewById`(v1, v3) @signature `Landroid/view/View;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L199058.  v3:= temp @kind object;
+  #L19905a.  v3:= (`android.widget.TextView`) v3 @kind object;
+  #L19905e.  v5:= v8.`com.google.android.material.datepicker.MaterialDatePicker.titleText` @type ^`java.lang.CharSequence` @kind object;
+  #L199062.  if v5 == 0 then goto L19906e;
+  #L199066.  call `setText`(v3, v5) @signature `Landroid/widget/TextView;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L19906c.  goto L199078;
+  #L19906e.  v5:= v8.`com.google.android.material.datepicker.MaterialDatePicker.titleTextResId` @type ^`int`;
+  #L199072.  call `setText`(v3, v5) @signature `Landroid/widget/TextView;.setText:(I)V` @kind virtual;
+  #L199078.  call `initHeaderToggle`(v8, v2) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.initHeaderToggle:(Landroid/content/Context;)V` @kind direct;
+  #L19907e.  v5:= `@@com.google.android.material.R$id.confirm_button` @type ^`int`;
+  #L199082.  call temp:= `findViewById`(v1, v5) @signature `Landroid/view/View;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L199088.  v5:= temp @kind object;
+  #L19908a.  v5:= (`android.widget.Button`) v5 @kind object;
+  #L19908e.  v8.`com.google.android.material.datepicker.MaterialDatePicker.confirmButton` @type ^`android.widget.Button` := v5 @kind object;
+  #L199092.  v5:= v8.`com.google.android.material.datepicker.MaterialDatePicker.dateSelector` @type ^`com.google.android.material.datepicker.DateSelector` @kind object;
+  #L199096.  call temp:= `isSelectionComplete`(v5) @signature `Lcom/google/android/material/datepicker/DateSelector;.isSelectionComplete:()Z` @kind interface;
+  #L19909c.  v5:= temp;
+  #L19909e.  if v5 == 0 then goto L1990ae;
+  #L1990a2.  v5:= v8.`com.google.android.material.datepicker.MaterialDatePicker.confirmButton` @type ^`android.widget.Button` @kind object;
+  #L1990a6.  call `setEnabled`(v5, v4) @signature `Landroid/widget/Button;.setEnabled:(Z)V` @kind virtual;
+  #L1990ac.  goto L1990ba;
+  #L1990ae.  v4:= v8.`com.google.android.material.datepicker.MaterialDatePicker.confirmButton` @type ^`android.widget.Button` @kind object;
+  #L1990b2.  v5:= 0I;
+  #L1990b4.  call `setEnabled`(v4, v5) @signature `Landroid/widget/Button;.setEnabled:(Z)V` @kind virtual;
+  #L1990ba.  v4:= v8.`com.google.android.material.datepicker.MaterialDatePicker.confirmButton` @type ^`android.widget.Button` @kind object;
+  #L1990be.  v5:= `@@com.google.android.material.datepicker.MaterialDatePicker.CONFIRM_BUTTON_TAG` @type ^`java.lang.Object` @kind object;
+  #L1990c2.  call `setTag`(v4, v5) @signature `Landroid/widget/Button;.setTag:(Ljava/lang/Object;)V` @kind virtual;
+  #L1990c8.  v4:= v8.`com.google.android.material.datepicker.MaterialDatePicker.confirmButton` @type ^`android.widget.Button` @kind object;
+  #L1990cc.  v5:= new `com.google.android.material.datepicker.MaterialDatePicker$1`;
+  #L1990d0.  call `<init>`(v5, v8) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$1;.<init>:(Lcom/google/android/material/datepicker/MaterialDatePicker;)V` @kind direct;
+  #L1990d6.  call `setOnClickListener`(v4, v5) @signature `Landroid/widget/Button;.setOnClickListener:(Landroid/view/View$OnClickListener;)V` @kind virtual;
+  #L1990dc.  v4:= `@@com.google.android.material.R$id.cancel_button` @type ^`int`;
+  #L1990e0.  call temp:= `findViewById`(v1, v4) @signature `Landroid/view/View;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L1990e6.  v4:= temp @kind object;
+  #L1990e8.  v4:= (`android.widget.Button`) v4 @kind object;
+  #L1990ec.  v5:= `@@com.google.android.material.datepicker.MaterialDatePicker.CANCEL_BUTTON_TAG` @type ^`java.lang.Object` @kind object;
+  #L1990f0.  call `setTag`(v4, v5) @signature `Landroid/widget/Button;.setTag:(Ljava/lang/Object;)V` @kind virtual;
+  #L1990f6.  v5:= new `com.google.android.material.datepicker.MaterialDatePicker$2`;
+  #L1990fa.  call `<init>`(v5, v8) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$2;.<init>:(Lcom/google/android/material/datepicker/MaterialDatePicker;)V` @kind direct;
+  #L199100.  call `setOnClickListener`(v4, v5) @signature `Landroid/widget/Button;.setOnClickListener:(Landroid/view/View$OnClickListener;)V` @kind virtual;
+  #L199106.  return v1 @kind object;
+}
+procedure `void` `onDismiss`(`com.google.android.material.datepicker.MaterialDatePicker` v2 @kind this, `android.content.DialogInterface` v3 @kind object @name `dialogInterface`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.onDismiss:(Landroid/content/DialogInterface;)V` @AccessFlag PUBLIC_FINAL {
+    temp;
+    v0;
+    v1;
+
+  #L199748.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker.onDismissListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L19974c.  call temp:= `iterator`(v0) @signature `Ljava/util/LinkedHashSet;.iterator:()Ljava/util/Iterator;` @kind virtual;
+  #L199752.  v0:= temp @kind object;
+  #L199754.  call temp:= `hasNext`(v0) @signature `Ljava/util/Iterator;.hasNext:()Z` @kind interface;
+  #L19975a.  v1:= temp;
+  #L19975c.  if v1 == 0 then goto L199774;
+  #L199760.  call temp:= `next`(v0) @signature `Ljava/util/Iterator;.next:()Ljava/lang/Object;` @kind interface;
+  #L199766.  v1:= temp @kind object;
+  #L199768.  v1:= (`android.content.DialogInterface$OnDismissListener`) v1 @kind object;
+  #L19976c.  call `onDismiss`(v1, v3) @signature `Landroid/content/DialogInterface$OnDismissListener;.onDismiss:(Landroid/content/DialogInterface;)V` @kind interface;
+  #L199772.  goto L199754;
+  #L199774.  call temp:= `getView`(v2) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.getView:()Landroid/view/View;` @kind virtual;
+  #L19977a.  v0:= temp @kind object;
+  #L19977c.  v0:= (`android.view.ViewGroup`) v0 @kind object;
+  #L199780.  if v0 == 0 then goto L19978a;
+  #L199784.  call `removeAllViews`(v0) @signature `Landroid/view/ViewGroup;.removeAllViews:()V` @kind virtual;
+  #L19978a.  call `onDismiss`(v2, v3) @signature `Landroidx/fragment/app/DialogFragment;.onDismiss:(Landroid/content/DialogInterface;)V` @kind super;
+  #L199790.  return @kind void;
+}
+procedure `void` `onSaveInstanceState`(`com.google.android.material.datepicker.MaterialDatePicker` v3 @kind this, `android.os.Bundle` v4 @kind object @name `bundle`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.onSaveInstanceState:(Landroid/os/Bundle;)V` @AccessFlag PUBLIC_FINAL {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1997a4.  call `onSaveInstanceState`(v3, v4) @signature `Landroidx/fragment/app/DialogFragment;.onSaveInstanceState:(Landroid/os/Bundle;)V` @kind super;
+  #L1997aa.  v0:= v3.`com.google.android.material.datepicker.MaterialDatePicker.overrideThemeResId` @type ^`int`;
+  #L1997ae.  v1:= "OVERRIDE_THEME_RES_ID" @kind object;
+  #L1997b2.  call `putInt`(v4, v1, v0) @signature `Landroid/os/Bundle;.putInt:(Ljava/lang/String;I)V` @kind virtual;
+  #L1997b8.  v0:= v3.`com.google.android.material.datepicker.MaterialDatePicker.dateSelector` @type ^`com.google.android.material.datepicker.DateSelector` @kind object;
+  #L1997bc.  v1:= "DATE_SELECTOR_KEY" @kind object;
+  #L1997c0.  call `putParcelable`(v4, v1, v0) @signature `Landroid/os/Bundle;.putParcelable:(Ljava/lang/String;Landroid/os/Parcelable;)V` @kind virtual;
+  #L1997c6.  v0:= new `com.google.android.material.datepicker.CalendarConstraints$Builder`;
+  #L1997ca.  v1:= v3.`com.google.android.material.datepicker.MaterialDatePicker.calendarConstraints` @type ^`com.google.android.material.datepicker.CalendarConstraints` @kind object;
+  #L1997ce.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$Builder;.<init>:(Lcom/google/android/material/datepicker/CalendarConstraints;)V` @kind direct;
+  #L1997d4.  v1:= v3.`com.google.android.material.datepicker.MaterialDatePicker.calendar` @type ^`com.google.android.material.datepicker.MaterialCalendar` @kind object;
+  #L1997d8.  call temp:= `getCurrentMonth`(v1) @signature `Lcom/google/android/material/datepicker/MaterialCalendar;.getCurrentMonth:()Lcom/google/android/material/datepicker/Month;` @kind virtual;
+  #L1997de.  v1:= temp @kind object;
+  #L1997e0.  if v1 == 0 then goto L1997fa;
+  #L1997e4.  v1:= v3.`com.google.android.material.datepicker.MaterialDatePicker.calendar` @type ^`com.google.android.material.datepicker.MaterialCalendar` @kind object;
+  #L1997e8.  call temp:= `getCurrentMonth`(v1) @signature `Lcom/google/android/material/datepicker/MaterialCalendar;.getCurrentMonth:()Lcom/google/android/material/datepicker/Month;` @kind virtual;
+  #L1997ee.  v1:= temp @kind object;
+  #L1997f0.  v1:= v1.`com.google.android.material.datepicker.Month.timeInMillis` @type ^`long` @kind wide;
+  #L1997f4.  call temp:= `setOpenAt`(v0, v1) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$Builder;.setOpenAt:(J)Lcom/google/android/material/datepicker/CalendarConstraints$Builder;` @kind virtual;
+  #L1997fa.  call temp:= `build`(v0) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$Builder;.build:()Lcom/google/android/material/datepicker/CalendarConstraints;` @kind virtual;
+  #L199800.  v1:= temp @kind object;
+  #L199802.  v2:= "CALENDAR_CONSTRAINTS_KEY" @kind object;
+  #L199806.  call `putParcelable`(v4, v2, v1) @signature `Landroid/os/Bundle;.putParcelable:(Ljava/lang/String;Landroid/os/Parcelable;)V` @kind virtual;
+  #L19980c.  v1:= v3.`com.google.android.material.datepicker.MaterialDatePicker.titleTextResId` @type ^`int`;
+  #L199810.  v2:= "TITLE_TEXT_RES_ID_KEY" @kind object;
+  #L199814.  call `putInt`(v4, v2, v1) @signature `Landroid/os/Bundle;.putInt:(Ljava/lang/String;I)V` @kind virtual;
+  #L19981a.  v1:= v3.`com.google.android.material.datepicker.MaterialDatePicker.titleText` @type ^`java.lang.CharSequence` @kind object;
+  #L19981e.  v2:= "TITLE_TEXT_KEY" @kind object;
+  #L199822.  call `putCharSequence`(v4, v2, v1) @signature `Landroid/os/Bundle;.putCharSequence:(Ljava/lang/String;Ljava/lang/CharSequence;)V` @kind virtual;
+  #L199828.  return @kind void;
+}
+procedure `void` `onStart`(`com.google.android.material.datepicker.MaterialDatePicker` v10 @kind this) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.onStart:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+
+  #L19983c.  call `onStart`(v10) @signature `Landroidx/fragment/app/DialogFragment;.onStart:()V` @kind super;
+  #L199842.  call temp:= `requireDialog`(v10) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.requireDialog:()Landroid/app/Dialog;` @kind virtual;
+  #L199848.  v0:= temp @kind object;
+  #L19984a.  call temp:= `getWindow`(v0) @signature `Landroid/app/Dialog;.getWindow:()Landroid/view/Window;` @kind virtual;
+  #L199850.  v0:= temp @kind object;
+  #L199852.  v1:= v10.`com.google.android.material.datepicker.MaterialDatePicker.fullscreen` @type ^`boolean` @kind boolean;
+  #L199856.  if v1 == 0 then goto L19986e;
+  #L19985a.  v1:= -1I;
+  #L19985c.  call `setLayout`(v0, v1, v1) @signature `Landroid/view/Window;.setLayout:(II)V` @kind virtual;
+  #L199862.  v1:= v10.`com.google.android.material.datepicker.MaterialDatePicker.background` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L199866.  call `setBackgroundDrawable`(v0, v1) @signature `Landroid/view/Window;.setBackgroundDrawable:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L19986c.  goto L1998d6;
+  #L19986e.  v1:= -2I;
+  #L199870.  call `setLayout`(v0, v1, v1) @signature `Landroid/view/Window;.setLayout:(II)V` @kind virtual;
+  #L199876.  
+  #L199878.  call temp:= `getResources`(v10) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L19987e.  v1:= temp @kind object;
+  #L199880.  v2:= `@@com.google.android.material.R$dimen.mtrl_calendar_dialog_background_inset` @type ^`int`;
+  #L199884.  call temp:= `getDimensionPixelOffset`(v1, v2) @signature `Landroid/content/res/Resources;.getDimensionPixelOffset:(I)I` @kind virtual;
+  #L19988a.  v1:= temp;
+  #L19988c.  v2:= new `android.graphics.Rect`;
+  #L199890.  call `<init>`(v2, v1, v1, v1, v1) @signature `Landroid/graphics/Rect;.<init>:(IIII)V` @kind direct;
+  #L199896.  v9:= new `android.graphics.drawable.InsetDrawable`;
+  #L19989a.  v4:= v10.`com.google.android.material.datepicker.MaterialDatePicker.background` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L19989e.  v3:= v9 @kind object;
+  #L1998a0.  v5:= v1;
+  #L1998a2.  v6:= v1;
+  #L1998a4.  v7:= v1;
+  #L1998a6.  v8:= v1;
+  #L1998a8.  call `<init>`(v3, v4, v5, v6, v7, v8) @signature `Landroid/graphics/drawable/InsetDrawable;.<init>:(Landroid/graphics/drawable/Drawable;IIII)V` @kind direct;
+  #L1998ae.  call `setBackgroundDrawable`(v0, v9) @signature `Landroid/view/Window;.setBackgroundDrawable:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L1998b4.  
+  #L1998b6.  call temp:= `getDecorView`(v0) @signature `Landroid/view/Window;.getDecorView:()Landroid/view/View;` @kind virtual;
+  #L1998bc.  v3:= temp @kind object;
+  #L1998be.  v4:= new `com.google.android.material.dialog.InsetDialogOnTouchListener`;
+  #L1998c2.  call temp:= `requireDialog`(v10) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.requireDialog:()Landroid/app/Dialog;` @kind virtual;
+  #L1998c8.  v5:= temp @kind object;
+  #L1998ca.  call `<init>`(v4, v5, v2) @signature `Lcom/google/android/material/dialog/InsetDialogOnTouchListener;.<init>:(Landroid/app/Dialog;Landroid/graphics/Rect;)V` @kind direct;
+  #L1998d0.  call `setOnTouchListener`(v3, v4) @signature `Landroid/view/View;.setOnTouchListener:(Landroid/view/View$OnTouchListener;)V` @kind virtual;
+  #L1998d6.  call `startPickerFragment`(v10) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.startPickerFragment:()V` @kind direct;
+  #L1998dc.  return @kind void;
+}
+procedure `void` `onStop`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind this) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.onStop:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1998f0.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.pickerFragment` @type ^`com.google.android.material.datepicker.PickerFragment` @kind object;
+  #L1998f4.  call `clearOnSelectionChangedListeners`(v0) @signature `Lcom/google/android/material/datepicker/PickerFragment;.clearOnSelectionChangedListeners:()V` @kind virtual;
+  #L1998fa.  call `onStop`(v1) @signature `Landroidx/fragment/app/DialogFragment;.onStop:()V` @kind super;
+  #L199900.  return @kind void;
+}
+procedure `boolean` `removeOnCancelListener`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind this, `android.content.DialogInterface$OnCancelListener` v2 @kind object @name `onCancelListener`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.removeOnCancelListener:(Landroid/content/DialogInterface$OnCancelListener;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L199204.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.onCancelListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L199208.  call temp:= `remove`(v0, v2) @signature `Ljava/util/LinkedHashSet;.remove:(Ljava/lang/Object;)Z` @kind virtual;
+  #L19920e.  v0:= temp;
+  #L199210.  return v0;
+}
+procedure `boolean` `removeOnDismissListener`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind this, `android.content.DialogInterface$OnDismissListener` v2 @kind object @name `onDismissListener`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.removeOnDismissListener:(Landroid/content/DialogInterface$OnDismissListener;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L199224.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.onDismissListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L199228.  call temp:= `remove`(v0, v2) @signature `Ljava/util/LinkedHashSet;.remove:(Ljava/lang/Object;)Z` @kind virtual;
+  #L19922e.  v0:= temp;
+  #L199230.  return v0;
+}
+procedure `boolean` `removeOnNegativeButtonClickListener`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind this, `android.view.View$OnClickListener` v2 @kind object @name `onNegativeButtonClickListener`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.removeOnNegativeButtonClickListener:(Landroid/view/View$OnClickListener;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L199244.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.onNegativeButtonClickListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L199248.  call temp:= `remove`(v0, v2) @signature `Ljava/util/LinkedHashSet;.remove:(Ljava/lang/Object;)Z` @kind virtual;
+  #L19924e.  v0:= temp;
+  #L199250.  return v0;
+}
+procedure `boolean` `removeOnPositiveButtonClickListener`(`com.google.android.material.datepicker.MaterialDatePicker` v1 @kind this, `com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener` v2 @kind object) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.removeOnPositiveButtonClickListener:(Lcom/google/android/material/datepicker/MaterialPickerOnPositiveButtonClickListener;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L199264.  v0:= v1.`com.google.android.material.datepicker.MaterialDatePicker.onPositiveButtonClickListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L199268.  call temp:= `remove`(v0, v2) @signature `Ljava/util/LinkedHashSet;.remove:(Ljava/lang/Object;)Z` @kind virtual;
+  #L19926e.  v0:= temp;
+  #L199270.  return v0;
+}

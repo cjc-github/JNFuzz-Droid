@@ -1,0 +1,154 @@
+record `com.google.android.material.tabs.TabLayoutMediator` @kind class @AccessFlag PUBLIC_FINAL {
+  `androidx.recyclerview.widget.RecyclerView$Adapter` `com.google.android.material.tabs.TabLayoutMediator.adapter` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.tabs.TabLayoutMediator.attached` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.tabs.TabLayoutMediator.autoRefresh` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback` `com.google.android.material.tabs.TabLayoutMediator.onPageChangeCallback` @AccessFlag PRIVATE;
+  `com.google.android.material.tabs.TabLayout$OnTabSelectedListener` `com.google.android.material.tabs.TabLayoutMediator.onTabSelectedListener` @AccessFlag PRIVATE;
+  `androidx.recyclerview.widget.RecyclerView$AdapterDataObserver` `com.google.android.material.tabs.TabLayoutMediator.pagerAdapterObserver` @AccessFlag PRIVATE;
+  `com.google.android.material.tabs.TabLayoutMediator$TabConfigurationStrategy` `com.google.android.material.tabs.TabLayoutMediator.tabConfigurationStrategy` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.tabs.TabLayout` `com.google.android.material.tabs.TabLayoutMediator.tabLayout` @AccessFlag PRIVATE_FINAL;
+  `androidx.viewpager2.widget.ViewPager2` `com.google.android.material.tabs.TabLayoutMediator.viewPager` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.tabs.TabLayoutMediator` v1 @kind this, `com.google.android.material.tabs.TabLayout` v2 @kind object @name `tabLayout`, `androidx.viewpager2.widget.ViewPager2` v3 @kind object @name `viewPager`, `com.google.android.material.tabs.TabLayoutMediator$TabConfigurationStrategy` v4 @kind object @name `tabConfigurationStrategy`) @signature `Lcom/google/android/material/tabs/TabLayoutMediator;.<init>:(Lcom/google/android/material/tabs/TabLayout;Landroidx/viewpager2/widget/ViewPager2;Lcom/google/android/material/tabs/TabLayoutMediator$TabConfigurationStrategy;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1b4108.  v0:= 1I;
+  #L1b410a.  call `<init>`(v1, v2, v3, v0, v4) @signature `Lcom/google/android/material/tabs/TabLayoutMediator;.<init>:(Lcom/google/android/material/tabs/TabLayout;Landroidx/viewpager2/widget/ViewPager2;ZLcom/google/android/material/tabs/TabLayoutMediator$TabConfigurationStrategy;)V` @kind direct;
+  #L1b4110.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.tabs.TabLayoutMediator` v0 @kind this, `com.google.android.material.tabs.TabLayout` v1 @kind object @name `tabLayout`, `androidx.viewpager2.widget.ViewPager2` v2 @kind object @name `viewPager`, `boolean` v3 @name `autoRefresh`, `com.google.android.material.tabs.TabLayoutMediator$TabConfigurationStrategy` v4 @kind object @name `tabConfigurationStrategy`) @signature `Lcom/google/android/material/tabs/TabLayoutMediator;.<init>:(Lcom/google/android/material/tabs/TabLayout;Landroidx/viewpager2/widget/ViewPager2;ZLcom/google/android/material/tabs/TabLayoutMediator$TabConfigurationStrategy;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1b40e0.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b40e6.  v0.`com.google.android.material.tabs.TabLayoutMediator.tabLayout` @type ^`com.google.android.material.tabs.TabLayout` := v1 @kind object;
+  #L1b40ea.  v0.`com.google.android.material.tabs.TabLayoutMediator.viewPager` @type ^`androidx.viewpager2.widget.ViewPager2` := v2 @kind object;
+  #L1b40ee.  v0.`com.google.android.material.tabs.TabLayoutMediator.autoRefresh` @type ^`boolean` := v3 @kind boolean;
+  #L1b40f2.  v0.`com.google.android.material.tabs.TabLayoutMediator.tabConfigurationStrategy` @type ^`com.google.android.material.tabs.TabLayoutMediator$TabConfigurationStrategy` := v4 @kind object;
+  #L1b40f6.  return @kind void;
+}
+procedure `void` `attach`(`com.google.android.material.tabs.TabLayoutMediator` v4 @kind this) @signature `Lcom/google/android/material/tabs/TabLayoutMediator;.attach:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b4124.  v0:= v4.`com.google.android.material.tabs.TabLayoutMediator.attached` @type ^`boolean` @kind boolean;
+  #L1b4128.  if v0 != 0 then goto L1b41ce;
+  #L1b412c.  v0:= v4.`com.google.android.material.tabs.TabLayoutMediator.viewPager` @type ^`androidx.viewpager2.widget.ViewPager2` @kind object;
+  #L1b4130.  call temp:= `getAdapter`(v0) @signature `Landroidx/viewpager2/widget/ViewPager2;.getAdapter:()Landroidx/recyclerview/widget/RecyclerView$Adapter;` @kind virtual;
+  #L1b4136.  v0:= temp @kind object;
+  #L1b4138.  v4.`com.google.android.material.tabs.TabLayoutMediator.adapter` @type ^`androidx.recyclerview.widget.RecyclerView$Adapter` := v0 @kind object;
+  #L1b413c.  if v0 == 0 then goto L1b41be;
+  #L1b4140.  v0:= 1I;
+  #L1b4142.  v4.`com.google.android.material.tabs.TabLayoutMediator.attached` @type ^`boolean` := v0 @kind boolean;
+  #L1b4146.  v1:= new `com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback`;
+  #L1b414a.  v2:= v4.`com.google.android.material.tabs.TabLayoutMediator.tabLayout` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b414e.  call `<init>`(v1, v2) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$TabLayoutOnPageChangeCallback;.<init>:(Lcom/google/android/material/tabs/TabLayout;)V` @kind direct;
+  #L1b4154.  v4.`com.google.android.material.tabs.TabLayoutMediator.onPageChangeCallback` @type ^`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback` := v1 @kind object;
+  #L1b4158.  v2:= v4.`com.google.android.material.tabs.TabLayoutMediator.viewPager` @type ^`androidx.viewpager2.widget.ViewPager2` @kind object;
+  #L1b415c.  call `registerOnPageChangeCallback`(v2, v1) @signature `Landroidx/viewpager2/widget/ViewPager2;.registerOnPageChangeCallback:(Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;)V` @kind virtual;
+  #L1b4162.  v1:= new `com.google.android.material.tabs.TabLayoutMediator$ViewPagerOnTabSelectedListener`;
+  #L1b4166.  v2:= v4.`com.google.android.material.tabs.TabLayoutMediator.viewPager` @type ^`androidx.viewpager2.widget.ViewPager2` @kind object;
+  #L1b416a.  call `<init>`(v1, v2) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$ViewPagerOnTabSelectedListener;.<init>:(Landroidx/viewpager2/widget/ViewPager2;)V` @kind direct;
+  #L1b4170.  v4.`com.google.android.material.tabs.TabLayoutMediator.onTabSelectedListener` @type ^`com.google.android.material.tabs.TabLayout$OnTabSelectedListener` := v1 @kind object;
+  #L1b4174.  v2:= v4.`com.google.android.material.tabs.TabLayoutMediator.tabLayout` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b4178.  call `addOnTabSelectedListener`(v2, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.addOnTabSelectedListener:(Lcom/google/android/material/tabs/TabLayout$OnTabSelectedListener;)V` @kind virtual;
+  #L1b417e.  v1:= v4.`com.google.android.material.tabs.TabLayoutMediator.autoRefresh` @type ^`boolean` @kind boolean;
+  #L1b4182.  if v1 == 0 then goto L1b419e;
+  #L1b4186.  v1:= new `com.google.android.material.tabs.TabLayoutMediator$PagerAdapterObserver`;
+  #L1b418a.  call `<init>`(v1, v4) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$PagerAdapterObserver;.<init>:(Lcom/google/android/material/tabs/TabLayoutMediator;)V` @kind direct;
+  #L1b4190.  v4.`com.google.android.material.tabs.TabLayoutMediator.pagerAdapterObserver` @type ^`androidx.recyclerview.widget.RecyclerView$AdapterDataObserver` := v1 @kind object;
+  #L1b4194.  v2:= v4.`com.google.android.material.tabs.TabLayoutMediator.adapter` @type ^`androidx.recyclerview.widget.RecyclerView$Adapter` @kind object;
+  #L1b4198.  call `registerAdapterDataObserver`(v2, v1) @signature `Landroidx/recyclerview/widget/RecyclerView$Adapter;.registerAdapterDataObserver:(Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;)V` @kind virtual;
+  #L1b419e.  call `populateTabsFromPagerAdapter`(v4) @signature `Lcom/google/android/material/tabs/TabLayoutMediator;.populateTabsFromPagerAdapter:()V` @kind virtual;
+  #L1b41a4.  v1:= v4.`com.google.android.material.tabs.TabLayoutMediator.tabLayout` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b41a8.  v2:= v4.`com.google.android.material.tabs.TabLayoutMediator.viewPager` @type ^`androidx.viewpager2.widget.ViewPager2` @kind object;
+  #L1b41ac.  call temp:= `getCurrentItem`(v2) @signature `Landroidx/viewpager2/widget/ViewPager2;.getCurrentItem:()I` @kind virtual;
+  #L1b41b2.  v2:= temp;
+  #L1b41b4.  v3:= 0I;
+  #L1b41b6.  call `setScrollPosition`(v1, v2, v3, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.setScrollPosition:(IFZ)V` @kind virtual;
+  #L1b41bc.  return @kind void;
+  #L1b41be.  v0:= new `java.lang.IllegalStateException`;
+  #L1b41c2.  v1:= "TabLayoutMediator attached before ViewPager2 has an adapter" @kind object;
+  #L1b41c6.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalStateException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1b41cc.  throw v0;
+  #L1b41ce.  v0:= new `java.lang.IllegalStateException`;
+  #L1b41d2.  v1:= "TabLayoutMediator is already attached" @kind object;
+  #L1b41d6.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalStateException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1b41dc.  throw v0;
+}
+procedure `void` `detach`(`com.google.android.material.tabs.TabLayoutMediator` v3 @kind this) @signature `Lcom/google/android/material/tabs/TabLayoutMediator;.detach:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b41f0.  v0:= v3.`com.google.android.material.tabs.TabLayoutMediator.autoRefresh` @type ^`boolean` @kind boolean;
+  #L1b41f4.  v1:= 0I;
+  #L1b41f6.  if v0 == 0 then goto L1b4210;
+  #L1b41fa.  v0:= v3.`com.google.android.material.tabs.TabLayoutMediator.adapter` @type ^`androidx.recyclerview.widget.RecyclerView$Adapter` @kind object;
+  #L1b41fe.  if v0 == 0 then goto L1b4210;
+  #L1b4202.  v2:= v3.`com.google.android.material.tabs.TabLayoutMediator.pagerAdapterObserver` @type ^`androidx.recyclerview.widget.RecyclerView$AdapterDataObserver` @kind object;
+  #L1b4206.  call `unregisterAdapterDataObserver`(v0, v2) @signature `Landroidx/recyclerview/widget/RecyclerView$Adapter;.unregisterAdapterDataObserver:(Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;)V` @kind virtual;
+  #L1b420c.  v3.`com.google.android.material.tabs.TabLayoutMediator.pagerAdapterObserver` @type ^`androidx.recyclerview.widget.RecyclerView$AdapterDataObserver` := v1 @kind object;
+  #L1b4210.  v0:= v3.`com.google.android.material.tabs.TabLayoutMediator.tabLayout` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b4214.  v2:= v3.`com.google.android.material.tabs.TabLayoutMediator.onTabSelectedListener` @type ^`com.google.android.material.tabs.TabLayout$OnTabSelectedListener` @kind object;
+  #L1b4218.  call `removeOnTabSelectedListener`(v0, v2) @signature `Lcom/google/android/material/tabs/TabLayout;.removeOnTabSelectedListener:(Lcom/google/android/material/tabs/TabLayout$OnTabSelectedListener;)V` @kind virtual;
+  #L1b421e.  v0:= v3.`com.google.android.material.tabs.TabLayoutMediator.viewPager` @type ^`androidx.viewpager2.widget.ViewPager2` @kind object;
+  #L1b4222.  v2:= v3.`com.google.android.material.tabs.TabLayoutMediator.onPageChangeCallback` @type ^`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback` @kind object;
+  #L1b4226.  call `unregisterOnPageChangeCallback`(v0, v2) @signature `Landroidx/viewpager2/widget/ViewPager2;.unregisterOnPageChangeCallback:(Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;)V` @kind virtual;
+  #L1b422c.  v3.`com.google.android.material.tabs.TabLayoutMediator.onTabSelectedListener` @type ^`com.google.android.material.tabs.TabLayout$OnTabSelectedListener` := v1 @kind object;
+  #L1b4230.  v3.`com.google.android.material.tabs.TabLayoutMediator.onPageChangeCallback` @type ^`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback` := v1 @kind object;
+  #L1b4234.  v3.`com.google.android.material.tabs.TabLayoutMediator.adapter` @type ^`androidx.recyclerview.widget.RecyclerView$Adapter` := v1 @kind object;
+  #L1b4238.  v0:= 0I;
+  #L1b423a.  v3.`com.google.android.material.tabs.TabLayoutMediator.attached` @type ^`boolean` := v0 @kind boolean;
+  #L1b423e.  return @kind void;
+}
+procedure `void` `populateTabsFromPagerAdapter`(`com.google.android.material.tabs.TabLayoutMediator` v5 @kind this) @signature `Lcom/google/android/material/tabs/TabLayoutMediator;.populateTabsFromPagerAdapter:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1b4250.  v0:= v5.`com.google.android.material.tabs.TabLayoutMediator.tabLayout` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b4254.  call `removeAllTabs`(v0) @signature `Lcom/google/android/material/tabs/TabLayout;.removeAllTabs:()V` @kind virtual;
+  #L1b425a.  v0:= v5.`com.google.android.material.tabs.TabLayoutMediator.adapter` @type ^`androidx.recyclerview.widget.RecyclerView$Adapter` @kind object;
+  #L1b425e.  if v0 == 0 then goto L1b42e2;
+  #L1b4262.  call temp:= `getItemCount`(v0) @signature `Landroidx/recyclerview/widget/RecyclerView$Adapter;.getItemCount:()I` @kind virtual;
+  #L1b4268.  v0:= temp;
+  #L1b426a.  v1:= 0I;
+  #L1b426c.  if v1 >= v0 then goto L1b4298;
+  #L1b4270.  v2:= v5.`com.google.android.material.tabs.TabLayoutMediator.tabLayout` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b4274.  call temp:= `newTab`(v2) @signature `Lcom/google/android/material/tabs/TabLayout;.newTab:()Lcom/google/android/material/tabs/TabLayout$Tab;` @kind virtual;
+  #L1b427a.  v2:= temp @kind object;
+  #L1b427c.  v3:= v5.`com.google.android.material.tabs.TabLayoutMediator.tabConfigurationStrategy` @type ^`com.google.android.material.tabs.TabLayoutMediator$TabConfigurationStrategy` @kind object;
+  #L1b4280.  call `onConfigureTab`(v3, v2, v1) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$TabConfigurationStrategy;.onConfigureTab:(Lcom/google/android/material/tabs/TabLayout$Tab;I)V` @kind interface;
+  #L1b4286.  v3:= v5.`com.google.android.material.tabs.TabLayoutMediator.tabLayout` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b428a.  v4:= 0I;
+  #L1b428c.  call `addTab`(v3, v2, v4) @signature `Lcom/google/android/material/tabs/TabLayout;.addTab:(Lcom/google/android/material/tabs/TabLayout$Tab;Z)V` @kind virtual;
+  #L1b4292.  v1:= v1 + 1;
+  #L1b4296.  goto L1b426c;
+  #L1b4298.  if v0 <= 0 then goto L1b42e2;
+  #L1b429c.  v1:= v5.`com.google.android.material.tabs.TabLayoutMediator.tabLayout` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b42a0.  call temp:= `getTabCount`(v1) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabCount:()I` @kind virtual;
+  #L1b42a6.  v1:= temp;
+  #L1b42a8.  v1:= v1 + -1;
+  #L1b42ac.  v2:= v5.`com.google.android.material.tabs.TabLayoutMediator.viewPager` @type ^`androidx.viewpager2.widget.ViewPager2` @kind object;
+  #L1b42b0.  call temp:= `getCurrentItem`(v2) @signature `Landroidx/viewpager2/widget/ViewPager2;.getCurrentItem:()I` @kind virtual;
+  #L1b42b6.  v2:= temp;
+  #L1b42b8.  call temp:= `min`(v2, v1) @signature `Ljava/lang/Math;.min:(II)I` @kind static;
+  #L1b42be.  v2:= temp;
+  #L1b42c0.  v3:= v5.`com.google.android.material.tabs.TabLayoutMediator.tabLayout` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b42c4.  call temp:= `getSelectedTabPosition`(v3) @signature `Lcom/google/android/material/tabs/TabLayout;.getSelectedTabPosition:()I` @kind virtual;
+  #L1b42ca.  v3:= temp;
+  #L1b42cc.  if v2 == v3 then goto L1b42e2;
+  #L1b42d0.  v3:= v5.`com.google.android.material.tabs.TabLayoutMediator.tabLayout` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b42d4.  call temp:= `getTabAt`(v3, v2) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabAt:(I)Lcom/google/android/material/tabs/TabLayout$Tab;` @kind virtual;
+  #L1b42da.  v4:= temp @kind object;
+  #L1b42dc.  call `selectTab`(v3, v4) @signature `Lcom/google/android/material/tabs/TabLayout;.selectTab:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @kind virtual;
+  #L1b42e2.  return @kind void;
+}

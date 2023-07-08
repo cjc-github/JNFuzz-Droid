@@ -1,0 +1,755 @@
+record `androidx.core.view.ViewCompat` @kind class @AccessFlag PUBLIC {
+}
+global `int`[] `@@androidx.core.view.ViewCompat.ACCESSIBILITY_ACTIONS_RESOURCE_IDS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.ACCESSIBILITY_LIVE_REGION_ASSERTIVE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.ACCESSIBILITY_LIVE_REGION_NONE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.ACCESSIBILITY_LIVE_REGION_POLITE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_AUTO` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_NO` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_YES` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.LAYER_TYPE_HARDWARE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.LAYER_TYPE_NONE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.LAYER_TYPE_SOFTWARE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.LAYOUT_DIRECTION_INHERIT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.LAYOUT_DIRECTION_LOCALE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.LAYOUT_DIRECTION_LTR` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.LAYOUT_DIRECTION_RTL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.MEASURED_HEIGHT_STATE_SHIFT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.MEASURED_SIZE_MASK` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.MEASURED_STATE_MASK` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.MEASURED_STATE_TOO_SMALL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.OVER_SCROLL_ALWAYS` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.OVER_SCROLL_IF_CONTENT_SCROLLS` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.OVER_SCROLL_NEVER` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.SCROLL_AXIS_HORIZONTAL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.SCROLL_AXIS_NONE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.SCROLL_AXIS_VERTICAL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.SCROLL_INDICATOR_BOTTOM` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.SCROLL_INDICATOR_END` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.SCROLL_INDICATOR_LEFT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.SCROLL_INDICATOR_RIGHT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.SCROLL_INDICATOR_START` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.SCROLL_INDICATOR_TOP` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.ViewCompat.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.TYPE_NON_TOUCH` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.ViewCompat.TYPE_TOUCH` @AccessFlag PUBLIC_STATIC_FINAL;
+global `boolean` `@@androidx.core.view.ViewCompat.sAccessibilityDelegateCheckFailed` @AccessFlag PRIVATE_STATIC;
+global `java.lang.reflect.Field` `@@androidx.core.view.ViewCompat.sAccessibilityDelegateField` @AccessFlag PRIVATE_STATIC;
+global `androidx.core.view.ViewCompat$AccessibilityPaneVisibilityManager` `@@androidx.core.view.ViewCompat.sAccessibilityPaneVisibilityManager` @AccessFlag PRIVATE_STATIC;
+global `java.lang.reflect.Method` `@@androidx.core.view.ViewCompat.sChildrenDrawingOrderMethod` @AccessFlag PRIVATE_STATIC;
+global `java.lang.reflect.Method` `@@androidx.core.view.ViewCompat.sDispatchFinishTemporaryDetach` @AccessFlag PRIVATE_STATIC;
+global `java.lang.reflect.Method` `@@androidx.core.view.ViewCompat.sDispatchStartTemporaryDetach` @AccessFlag PRIVATE_STATIC;
+global `java.lang.reflect.Field` `@@androidx.core.view.ViewCompat.sMinHeightField` @AccessFlag PRIVATE_STATIC;
+global `boolean` `@@androidx.core.view.ViewCompat.sMinHeightFieldFetched` @AccessFlag PRIVATE_STATIC;
+global `java.lang.reflect.Field` `@@androidx.core.view.ViewCompat.sMinWidthField` @AccessFlag PRIVATE_STATIC;
+global `boolean` `@@androidx.core.view.ViewCompat.sMinWidthFieldFetched` @AccessFlag PRIVATE_STATIC;
+global `java.util.concurrent.atomic.AtomicInteger` `@@androidx.core.view.ViewCompat.sNextGeneratedId` @AccessFlag PRIVATE_STATIC_FINAL;
+global `boolean` `@@androidx.core.view.ViewCompat.sTempDetachBound` @AccessFlag PRIVATE_STATIC;
+global `java.lang.ThreadLocal` `@@androidx.core.view.ViewCompat.sThreadLocalRect` @AccessFlag PRIVATE_STATIC;
+global `java.util.WeakHashMap` `@@androidx.core.view.ViewCompat.sTransitionNameMap` @AccessFlag PRIVATE_STATIC;
+global `java.util.WeakHashMap` `@@androidx.core.view.ViewCompat.sViewPropertyAnimatorMap` @AccessFlag PRIVATE_STATIC;
+procedure `void` `<clinit>`() @signature `Landroidx/core/view/ViewCompat;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.core.view.ViewCompat` v0 @kind this) @signature `Landroidx/core/view/ViewCompat;.<init>:()V` @AccessFlag PROTECTED_CONSTRUCTOR {
+
+  # return;
+}
+procedure `androidx.core.view.ViewCompat$AccessibilityViewProperty` `accessibilityHeadingProperty`() @signature `Landroidx/core/view/ViewCompat;.accessibilityHeadingProperty:()Landroidx/core/view/ViewCompat$AccessibilityViewProperty;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `int` `addAccessibilityAction`(`android.view.View` v2 @kind object @name `view`, `java.lang.CharSequence` v3 @kind object @name `label`, `androidx.core.view.accessibility.AccessibilityViewCommand` v4 @kind object @name `command`) @signature `Landroidx/core/view/ViewCompat;.addAccessibilityAction:(Landroid/view/View;Ljava/lang/CharSequence;Landroidx/core/view/accessibility/AccessibilityViewCommand;)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `addAccessibilityAction`(`android.view.View` v2 @kind object @name `view`, `androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat` v3 @kind object @name `action`) @signature `Landroidx/core/view/ViewCompat;.addAccessibilityAction:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;)V` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `addKeyboardNavigationClusters`(`android.view.View` v2 @kind object @name `view`, `java.util.Collection` v3 @kind object, `int` v4 @name `direction`) @signature `Landroidx/core/view/ViewCompat;.addKeyboardNavigationClusters:(Landroid/view/View;Ljava/util/Collection;I)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `addOnUnhandledKeyEventListener`(`android.view.View` v3 @kind object @name `v`, `androidx.core.view.ViewCompat$OnUnhandledKeyEventListenerCompat` v4 @kind object @name `listener`) @signature `Landroidx/core/view/ViewCompat;.addOnUnhandledKeyEventListener:(Landroid/view/View;Landroidx/core/view/ViewCompat$OnUnhandledKeyEventListenerCompat;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `androidx.core.view.ViewPropertyAnimatorCompat` `animate`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.animate:(Landroid/view/View;)Landroidx/core/view/ViewPropertyAnimatorCompat;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `bindTempDetach`() @signature `Landroidx/core/view/ViewCompat;.bindTempDetach:()V` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `boolean` `canScrollHorizontally`(`android.view.View` v1 @kind object @name `view`, `int` v2 @name `direction`) @signature `Landroidx/core/view/ViewCompat;.canScrollHorizontally:(Landroid/view/View;I)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `canScrollVertically`(`android.view.View` v1 @kind object @name `view`, `int` v2 @name `direction`) @signature `Landroidx/core/view/ViewCompat;.canScrollVertically:(Landroid/view/View;I)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `cancelDragAndDrop`(`android.view.View` v2 @kind object @name `v`) @signature `Landroidx/core/view/ViewCompat;.cancelDragAndDrop:(Landroid/view/View;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `combineMeasuredStates`(`int` v1 @name `curState`, `int` v2 @name `newState`) @signature `Landroidx/core/view/ViewCompat;.combineMeasuredStates:(II)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `compatOffsetLeftAndRight`(`android.view.View` v2 @kind object @name `view`, `int` v3 @name `offset`) @signature `Landroidx/core/view/ViewCompat;.compatOffsetLeftAndRight:(Landroid/view/View;I)V` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `compatOffsetTopAndBottom`(`android.view.View` v2 @kind object @name `view`, `int` v3 @name `offset`) @signature `Landroidx/core/view/ViewCompat;.compatOffsetTopAndBottom:(Landroid/view/View;I)V` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `androidx.core.view.WindowInsetsCompat` `dispatchApplyWindowInsets`(`android.view.View` v3 @kind object @name `view`, `androidx.core.view.WindowInsetsCompat` v4 @kind object @name `insets`) @signature `Landroidx/core/view/ViewCompat;.dispatchApplyWindowInsets:(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `dispatchFinishTemporaryDetach`(`android.view.View` v3 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.dispatchFinishTemporaryDetach:(Landroid/view/View;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `dispatchNestedFling`(`android.view.View` v2 @kind object @name `view`, `float` v3 @name `velocityX`, `float` v4 @name `velocityY`, `boolean` v5 @name `consumed`) @signature `Landroidx/core/view/ViewCompat;.dispatchNestedFling:(Landroid/view/View;FFZ)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `dispatchNestedPreFling`(`android.view.View` v2 @kind object @name `view`, `float` v3 @name `velocityX`, `float` v4 @name `velocityY`) @signature `Landroidx/core/view/ViewCompat;.dispatchNestedPreFling:(Landroid/view/View;FF)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `dispatchNestedPreScroll`(`android.view.View` v2 @kind object @name `view`, `int` v3 @name `dx`, `int` v4 @name `dy`, `int`[] v5 @kind object @name `consumed`, `int`[] v6 @kind object @name `offsetInWindow`) @signature `Landroidx/core/view/ViewCompat;.dispatchNestedPreScroll:(Landroid/view/View;II[I[I)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `dispatchNestedPreScroll`(`android.view.View` v7 @kind object @name `view`, `int` v8 @name `dx`, `int` v9 @name `dy`, `int`[] v10 @kind object @name `consumed`, `int`[] v11 @kind object @name `offsetInWindow`, `int` v12 @name `type`) @signature `Landroidx/core/view/ViewCompat;.dispatchNestedPreScroll:(Landroid/view/View;II[I[II)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `dispatchNestedScroll`(`android.view.View` v10 @kind object @name `view`, `int` v11 @name `dxConsumed`, `int` v12 @name `dyConsumed`, `int` v13 @name `dxUnconsumed`, `int` v14 @name `dyUnconsumed`, `int`[] v15 @kind object @name `offsetInWindow`, `int` v16 @name `type`, `int`[] v17 @kind object @name `consumed`) @signature `Landroidx/core/view/ViewCompat;.dispatchNestedScroll:(Landroid/view/View;IIII[II[I)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `dispatchNestedScroll`(`android.view.View` v7 @kind object @name `view`, `int` v8 @name `dxConsumed`, `int` v9 @name `dyConsumed`, `int` v10 @name `dxUnconsumed`, `int` v11 @name `dyUnconsumed`, `int`[] v12 @kind object @name `offsetInWindow`) @signature `Landroidx/core/view/ViewCompat;.dispatchNestedScroll:(Landroid/view/View;IIII[I)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `dispatchNestedScroll`(`android.view.View` v8 @kind object @name `view`, `int` v9 @name `dxConsumed`, `int` v10 @name `dyConsumed`, `int` v11 @name `dxUnconsumed`, `int` v12 @name `dyUnconsumed`, `int`[] v13 @kind object @name `offsetInWindow`, `int` v14 @name `type`) @signature `Landroidx/core/view/ViewCompat;.dispatchNestedScroll:(Landroid/view/View;IIII[II)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `dispatchStartTemporaryDetach`(`android.view.View` v3 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.dispatchStartTemporaryDetach:(Landroid/view/View;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `dispatchUnhandledKeyEventBeforeCallback`(`android.view.View` v2 @kind object @name `root`, `android.view.KeyEvent` v3 @kind object @name `evt`) @signature `Landroidx/core/view/ViewCompat;.dispatchUnhandledKeyEventBeforeCallback:(Landroid/view/View;Landroid/view/KeyEvent;)Z` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `boolean` `dispatchUnhandledKeyEventBeforeHierarchy`(`android.view.View` v2 @kind object @name `root`, `android.view.KeyEvent` v3 @kind object @name `evt`) @signature `Landroidx/core/view/ViewCompat;.dispatchUnhandledKeyEventBeforeHierarchy:(Landroid/view/View;Landroid/view/KeyEvent;)Z` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `void` `enableAccessibleClickableSpanSupport`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.enableAccessibleClickableSpanSupport:(Landroid/view/View;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `generateViewId`() @signature `Landroidx/core/view/ViewCompat;.generateViewId:()I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `androidx.core.view.AccessibilityDelegateCompat` `getAccessibilityDelegate`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getAccessibilityDelegate:(Landroid/view/View;)Landroidx/core/view/AccessibilityDelegateCompat;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `android.view.View$AccessibilityDelegate` `getAccessibilityDelegateInternal`(`android.view.View` v4 @kind object @name `v`) @signature `Landroidx/core/view/ViewCompat;.getAccessibilityDelegateInternal:(Landroid/view/View;)Landroid/view/View$AccessibilityDelegate;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `int` `getAccessibilityLiveRegion`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getAccessibilityLiveRegion:(Landroid/view/View;)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityNodeProviderCompat` `getAccessibilityNodeProvider`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getAccessibilityNodeProvider:(Landroid/view/View;)Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getAccessibilityPaneTitle`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getAccessibilityPaneTitle:(Landroid/view/View;)Ljava/lang/CharSequence;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `java.util.List` `getActionList`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getActionList:(Landroid/view/View;)Ljava/util/List;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `float` `getAlpha`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getAlpha:(Landroid/view/View;)F` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `getAvailableActionIdFromResources`(`android.view.View` v7 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getAvailableActionIdFromResources:(Landroid/view/View;)I` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `android.content.res.ColorStateList` `getBackgroundTintList`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getBackgroundTintList:(Landroid/view/View;)Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `android.graphics.PorterDuff$Mode` `getBackgroundTintMode`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getBackgroundTintMode:(Landroid/view/View;)Landroid/graphics/PorterDuff$Mode;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `android.graphics.Rect` `getClipBounds`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getClipBounds:(Landroid/view/View;)Landroid/graphics/Rect;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `android.view.Display` `getDisplay`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getDisplay:(Landroid/view/View;)Landroid/view/Display;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `float` `getElevation`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getElevation:(Landroid/view/View;)F` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `android.graphics.Rect` `getEmptyTempRect`() @signature `Landroidx/core/view/ViewCompat;.getEmptyTempRect:()Landroid/graphics/Rect;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `boolean` `getFitsSystemWindows`(`android.view.View` v2 @kind object @name `v`) @signature `Landroidx/core/view/ViewCompat;.getFitsSystemWindows:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `getImportantForAccessibility`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getImportantForAccessibility:(Landroid/view/View;)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `getImportantForAutofill`(`android.view.View` v2 @kind object @name `v`) @signature `Landroidx/core/view/ViewCompat;.getImportantForAutofill:(Landroid/view/View;)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `getLabelFor`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getLabelFor:(Landroid/view/View;)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `getLayerType`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getLayerType:(Landroid/view/View;)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `getLayoutDirection`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getLayoutDirection:(Landroid/view/View;)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `android.graphics.Matrix` `getMatrix`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getMatrix:(Landroid/view/View;)Landroid/graphics/Matrix;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `getMeasuredHeightAndState`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getMeasuredHeightAndState:(Landroid/view/View;)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `getMeasuredState`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getMeasuredState:(Landroid/view/View;)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `getMeasuredWidthAndState`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getMeasuredWidthAndState:(Landroid/view/View;)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `getMinimumHeight`(`android.view.View` v3 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getMinimumHeight:(Landroid/view/View;)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `getMinimumWidth`(`android.view.View` v3 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getMinimumWidth:(Landroid/view/View;)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `getNextClusterForwardId`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getNextClusterForwardId:(Landroid/view/View;)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `androidx.core.view.AccessibilityDelegateCompat` `getOrCreateAccessibilityDelegateCompat`(`android.view.View` v2 @kind object @name `v`) @signature `Landroidx/core/view/ViewCompat;.getOrCreateAccessibilityDelegateCompat:(Landroid/view/View;)Landroidx/core/view/AccessibilityDelegateCompat;` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `int` `getOverScrollMode`(`android.view.View` v1 @kind object @name `v`) @signature `Landroidx/core/view/ViewCompat;.getOverScrollMode:(Landroid/view/View;)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `getPaddingEnd`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getPaddingEnd:(Landroid/view/View;)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `getPaddingStart`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getPaddingStart:(Landroid/view/View;)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `android.view.ViewParent` `getParentForAccessibility`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getParentForAccessibility:(Landroid/view/View;)Landroid/view/ViewParent;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `float` `getPivotX`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getPivotX:(Landroid/view/View;)F` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `float` `getPivotY`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getPivotY:(Landroid/view/View;)F` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `float` `getRotation`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getRotation:(Landroid/view/View;)F` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `float` `getRotationX`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getRotationX:(Landroid/view/View;)F` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `float` `getRotationY`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getRotationY:(Landroid/view/View;)F` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `float` `getScaleX`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getScaleX:(Landroid/view/View;)F` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `float` `getScaleY`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getScaleY:(Landroid/view/View;)F` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `getScrollIndicators`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getScrollIndicators:(Landroid/view/View;)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `java.lang.String` `getTransitionName`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getTransitionName:(Landroid/view/View;)Ljava/lang/String;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `float` `getTranslationX`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getTranslationX:(Landroid/view/View;)F` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `float` `getTranslationY`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getTranslationY:(Landroid/view/View;)F` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `float` `getTranslationZ`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getTranslationZ:(Landroid/view/View;)F` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `getWindowSystemUiVisibility`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getWindowSystemUiVisibility:(Landroid/view/View;)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `float` `getX`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getX:(Landroid/view/View;)F` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `float` `getY`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getY:(Landroid/view/View;)F` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `float` `getZ`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.getZ:(Landroid/view/View;)F` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `hasAccessibilityDelegate`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.hasAccessibilityDelegate:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `hasExplicitFocusable`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.hasExplicitFocusable:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `hasNestedScrollingParent`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.hasNestedScrollingParent:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `hasNestedScrollingParent`(`android.view.View` v1 @kind object @name `view`, `int` v2 @name `type`) @signature `Landroidx/core/view/ViewCompat;.hasNestedScrollingParent:(Landroid/view/View;I)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `hasOnClickListeners`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.hasOnClickListeners:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `hasOverlappingRendering`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.hasOverlappingRendering:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `hasTransientState`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.hasTransientState:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `isAccessibilityHeading`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.isAccessibilityHeading:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `isAttachedToWindow`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.isAttachedToWindow:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `isFocusedByDefault`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.isFocusedByDefault:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `isImportantForAccessibility`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.isImportantForAccessibility:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `isImportantForAutofill`(`android.view.View` v2 @kind object @name `v`) @signature `Landroidx/core/view/ViewCompat;.isImportantForAutofill:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `isInLayout`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.isInLayout:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `isKeyboardNavigationCluster`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.isKeyboardNavigationCluster:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `isLaidOut`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.isLaidOut:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `isLayoutDirectionResolved`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.isLayoutDirectionResolved:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `isNestedScrollingEnabled`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.isNestedScrollingEnabled:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `isOpaque`(`android.view.View` v1 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.isOpaque:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `isPaddingRelative`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.isPaddingRelative:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `isScreenReaderFocusable`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.isScreenReaderFocusable:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `jumpDrawablesToCurrentState`(`android.view.View` v0 @kind object @name `v`) @signature `Landroidx/core/view/ViewCompat;.jumpDrawablesToCurrentState:(Landroid/view/View;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `android.view.View` `keyboardNavigationClusterSearch`(`android.view.View` v2 @kind object @name `view`, `android.view.View` v3 @kind object @name `currentCluster`, `int` v4 @name `direction`) @signature `Landroidx/core/view/ViewCompat;.keyboardNavigationClusterSearch:(Landroid/view/View;Landroid/view/View;I)Landroid/view/View;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `notifyViewAccessibilityStateChangedIfNeeded`(`android.view.View` v5 @kind object @name `view`, `int` v6 @name `changeType`) @signature `Landroidx/core/view/ViewCompat;.notifyViewAccessibilityStateChangedIfNeeded:(Landroid/view/View;I)V` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `void` `offsetLeftAndRight`(`android.view.View` v8 @kind object @name `view`, `int` v9 @name `offset`) @signature `Landroidx/core/view/ViewCompat;.offsetLeftAndRight:(Landroid/view/View;I)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `offsetTopAndBottom`(`android.view.View` v8 @kind object @name `view`, `int` v9 @name `offset`) @signature `Landroidx/core/view/ViewCompat;.offsetTopAndBottom:(Landroid/view/View;I)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `androidx.core.view.WindowInsetsCompat` `onApplyWindowInsets`(`android.view.View` v3 @kind object @name `view`, `androidx.core.view.WindowInsetsCompat` v4 @kind object @name `insets`) @signature `Landroidx/core/view/ViewCompat;.onApplyWindowInsets:(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `onInitializeAccessibilityEvent`(`android.view.View` v0 @kind object @name `v`, `android.view.accessibility.AccessibilityEvent` v1 @kind object @name `event`) @signature `Landroidx/core/view/ViewCompat;.onInitializeAccessibilityEvent:(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `onInitializeAccessibilityNodeInfo`(`android.view.View` v1 @kind object @name `v`, `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind object @name `info`) @signature `Landroidx/core/view/ViewCompat;.onInitializeAccessibilityNodeInfo:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `onPopulateAccessibilityEvent`(`android.view.View` v0 @kind object @name `v`, `android.view.accessibility.AccessibilityEvent` v1 @kind object @name `event`) @signature `Landroidx/core/view/ViewCompat;.onPopulateAccessibilityEvent:(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `androidx.core.view.ViewCompat$AccessibilityViewProperty` `paneTitleProperty`() @signature `Landroidx/core/view/ViewCompat;.paneTitleProperty:()Landroidx/core/view/ViewCompat$AccessibilityViewProperty;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `boolean` `performAccessibilityAction`(`android.view.View` v2 @kind object @name `view`, `int` v3 @name `action`, `android.os.Bundle` v4 @kind object @name `arguments`) @signature `Landroidx/core/view/ViewCompat;.performAccessibilityAction:(Landroid/view/View;ILandroid/os/Bundle;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `postInvalidateOnAnimation`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.postInvalidateOnAnimation:(Landroid/view/View;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `postInvalidateOnAnimation`(`android.view.View` v2 @kind object @name `view`, `int` v3 @name `left`, `int` v4 @name `top`, `int` v5 @name `right`, `int` v6 @name `bottom`) @signature `Landroidx/core/view/ViewCompat;.postInvalidateOnAnimation:(Landroid/view/View;IIII)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `postOnAnimation`(`android.view.View` v2 @kind object @name `view`, `java.lang.Runnable` v3 @kind object @name `action`) @signature `Landroidx/core/view/ViewCompat;.postOnAnimation:(Landroid/view/View;Ljava/lang/Runnable;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `postOnAnimationDelayed`(`android.view.View` v2 @kind object @name `view`, `java.lang.Runnable` v3 @kind object @name `action`, `long` v4 @name `delayMillis`) @signature `Landroidx/core/view/ViewCompat;.postOnAnimationDelayed:(Landroid/view/View;Ljava/lang/Runnable;J)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `removeAccessibilityAction`(`android.view.View` v2 @kind object @name `view`, `int` v3 @name `actionId`) @signature `Landroidx/core/view/ViewCompat;.removeAccessibilityAction:(Landroid/view/View;I)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `removeActionWithId`(`int` v3 @name `actionId`, `android.view.View` v4 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.removeActionWithId:(ILandroid/view/View;)V` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `removeOnUnhandledKeyEventListener`(`android.view.View` v2 @kind object @name `v`, `androidx.core.view.ViewCompat$OnUnhandledKeyEventListenerCompat` v3 @kind object @name `listener`) @signature `Landroidx/core/view/ViewCompat;.removeOnUnhandledKeyEventListener:(Landroid/view/View;Landroidx/core/view/ViewCompat$OnUnhandledKeyEventListenerCompat;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `replaceAccessibilityAction`(`android.view.View` v1 @kind object @name `view`, `androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat` v2 @kind object @name `replacedAction`, `java.lang.CharSequence` v3 @kind object @name `label`, `androidx.core.view.accessibility.AccessibilityViewCommand` v4 @kind object @name `command`) @signature `Landroidx/core/view/ViewCompat;.replaceAccessibilityAction:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;Ljava/lang/CharSequence;Landroidx/core/view/accessibility/AccessibilityViewCommand;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `requestApplyInsets`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.requestApplyInsets:(Landroid/view/View;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `android.view.View` `requireViewById`(`android.view.View` v3 @kind object @name `view`, `int` v4 @name `id`) @signature `Landroidx/core/view/ViewCompat;.requireViewById:(Landroid/view/View;I)Landroid/view/View;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `int` `resolveSizeAndState`(`int` v1 @name `size`, `int` v2 @name `measureSpec`, `int` v3 @name `childMeasuredState`) @signature `Landroidx/core/view/ViewCompat;.resolveSizeAndState:(III)I` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `restoreDefaultFocus`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.restoreDefaultFocus:(Landroid/view/View;)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `androidx.core.view.ViewCompat$AccessibilityViewProperty` `screenReaderFocusableProperty`() @signature `Landroidx/core/view/ViewCompat;.screenReaderFocusableProperty:()Landroidx/core/view/ViewCompat$AccessibilityViewProperty;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `setAccessibilityDelegate`(`android.view.View` v1 @kind object @name `v`, `androidx.core.view.AccessibilityDelegateCompat` v2 @kind object @name `delegate`) @signature `Landroidx/core/view/ViewCompat;.setAccessibilityDelegate:(Landroid/view/View;Landroidx/core/view/AccessibilityDelegateCompat;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setAccessibilityHeading`(`android.view.View` v2 @kind object @name `view`, `boolean` v3 @name `isHeading`) @signature `Landroidx/core/view/ViewCompat;.setAccessibilityHeading:(Landroid/view/View;Z)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setAccessibilityLiveRegion`(`android.view.View` v2 @kind object @name `view`, `int` v3 @name `mode`) @signature `Landroidx/core/view/ViewCompat;.setAccessibilityLiveRegion:(Landroid/view/View;I)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setAccessibilityPaneTitle`(`android.view.View` v2 @kind object @name `view`, `java.lang.CharSequence` v3 @kind object @name `accessibilityPaneTitle`) @signature `Landroidx/core/view/ViewCompat;.setAccessibilityPaneTitle:(Landroid/view/View;Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setActivated`(`android.view.View` v0 @kind object @name `view`, `boolean` v1 @name `activated`) @signature `Landroidx/core/view/ViewCompat;.setActivated:(Landroid/view/View;Z)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setAlpha`(`android.view.View` v0 @kind object @name `view`, `float` v1 @name `value`) @signature `Landroidx/core/view/ViewCompat;.setAlpha:(Landroid/view/View;F)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setAutofillHints`(`android.view.View` v2 @kind object @name `v`, `java.lang.String`[] v3 @kind object @name `autofillHints`) @signature `Landroidx/core/view/ViewCompat;.setAutofillHints:(Landroid/view/View;[Ljava/lang/String;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setBackground`(`android.view.View` v2 @kind object @name `view`, `android.graphics.drawable.Drawable` v3 @kind object @name `background`) @signature `Landroidx/core/view/ViewCompat;.setBackground:(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setBackgroundTintList`(`android.view.View` v3 @kind object @name `view`, `android.content.res.ColorStateList` v4 @kind object @name `tintList`) @signature `Landroidx/core/view/ViewCompat;.setBackgroundTintList:(Landroid/view/View;Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setBackgroundTintMode`(`android.view.View` v3 @kind object @name `view`, `android.graphics.PorterDuff$Mode` v4 @kind object @name `mode`) @signature `Landroidx/core/view/ViewCompat;.setBackgroundTintMode:(Landroid/view/View;Landroid/graphics/PorterDuff$Mode;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setChildrenDrawingOrderEnabled`(`android.view.ViewGroup` v8 @kind object @name `viewGroup`, `boolean` v9 @name `enabled`) @signature `Landroidx/core/view/ViewCompat;.setChildrenDrawingOrderEnabled:(Landroid/view/ViewGroup;Z)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setClipBounds`(`android.view.View` v2 @kind object @name `view`, `android.graphics.Rect` v3 @kind object @name `clipBounds`) @signature `Landroidx/core/view/ViewCompat;.setClipBounds:(Landroid/view/View;Landroid/graphics/Rect;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setElevation`(`android.view.View` v2 @kind object @name `view`, `float` v3 @name `elevation`) @signature `Landroidx/core/view/ViewCompat;.setElevation:(Landroid/view/View;F)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setFitsSystemWindows`(`android.view.View` v0 @kind object @name `view`, `boolean` v1 @name `fitSystemWindows`) @signature `Landroidx/core/view/ViewCompat;.setFitsSystemWindows:(Landroid/view/View;Z)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setFocusedByDefault`(`android.view.View` v2 @kind object @name `view`, `boolean` v3 @name `isFocusedByDefault`) @signature `Landroidx/core/view/ViewCompat;.setFocusedByDefault:(Landroid/view/View;Z)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setHasTransientState`(`android.view.View` v2 @kind object @name `view`, `boolean` v3 @name `hasTransientState`) @signature `Landroidx/core/view/ViewCompat;.setHasTransientState:(Landroid/view/View;Z)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setImportantForAccessibility`(`android.view.View` v2 @kind object @name `view`, `int` v3 @name `mode`) @signature `Landroidx/core/view/ViewCompat;.setImportantForAccessibility:(Landroid/view/View;I)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setImportantForAutofill`(`android.view.View` v2 @kind object @name `v`, `int` v3 @name `mode`) @signature `Landroidx/core/view/ViewCompat;.setImportantForAutofill:(Landroid/view/View;I)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setKeyboardNavigationCluster`(`android.view.View` v2 @kind object @name `view`, `boolean` v3 @name `isCluster`) @signature `Landroidx/core/view/ViewCompat;.setKeyboardNavigationCluster:(Landroid/view/View;Z)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setLabelFor`(`android.view.View` v2 @kind object @name `view`, `int` v3 @name `labeledId`) @signature `Landroidx/core/view/ViewCompat;.setLabelFor:(Landroid/view/View;I)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setLayerPaint`(`android.view.View` v2 @kind object @name `view`, `android.graphics.Paint` v3 @kind object @name `paint`) @signature `Landroidx/core/view/ViewCompat;.setLayerPaint:(Landroid/view/View;Landroid/graphics/Paint;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setLayerType`(`android.view.View` v0 @kind object @name `view`, `int` v1 @name `layerType`, `android.graphics.Paint` v2 @kind object @name `paint`) @signature `Landroidx/core/view/ViewCompat;.setLayerType:(Landroid/view/View;ILandroid/graphics/Paint;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setLayoutDirection`(`android.view.View` v2 @kind object @name `view`, `int` v3 @name `layoutDirection`) @signature `Landroidx/core/view/ViewCompat;.setLayoutDirection:(Landroid/view/View;I)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setNestedScrollingEnabled`(`android.view.View` v2 @kind object @name `view`, `boolean` v3 @name `enabled`) @signature `Landroidx/core/view/ViewCompat;.setNestedScrollingEnabled:(Landroid/view/View;Z)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setNextClusterForwardId`(`android.view.View` v2 @kind object @name `view`, `int` v3 @name `nextClusterForwardId`) @signature `Landroidx/core/view/ViewCompat;.setNextClusterForwardId:(Landroid/view/View;I)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setOnApplyWindowInsetsListener`(`android.view.View` v2 @kind object @name `v`, `androidx.core.view.OnApplyWindowInsetsListener` v3 @kind object @name `listener`) @signature `Landroidx/core/view/ViewCompat;.setOnApplyWindowInsetsListener:(Landroid/view/View;Landroidx/core/view/OnApplyWindowInsetsListener;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setOverScrollMode`(`android.view.View` v0 @kind object @name `v`, `int` v1 @name `overScrollMode`) @signature `Landroidx/core/view/ViewCompat;.setOverScrollMode:(Landroid/view/View;I)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setPaddingRelative`(`android.view.View` v2 @kind object @name `view`, `int` v3 @name `start`, `int` v4 @name `top`, `int` v5 @name `end`, `int` v6 @name `bottom`) @signature `Landroidx/core/view/ViewCompat;.setPaddingRelative:(Landroid/view/View;IIII)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setPivotX`(`android.view.View` v0 @kind object @name `view`, `float` v1 @name `value`) @signature `Landroidx/core/view/ViewCompat;.setPivotX:(Landroid/view/View;F)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setPivotY`(`android.view.View` v0 @kind object @name `view`, `float` v1 @name `value`) @signature `Landroidx/core/view/ViewCompat;.setPivotY:(Landroid/view/View;F)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setPointerIcon`(`android.view.View` v2 @kind object @name `view`, `androidx.core.view.PointerIconCompat` v3 @kind object @name `pointerIcon`) @signature `Landroidx/core/view/ViewCompat;.setPointerIcon:(Landroid/view/View;Landroidx/core/view/PointerIconCompat;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setRotation`(`android.view.View` v0 @kind object @name `view`, `float` v1 @name `value`) @signature `Landroidx/core/view/ViewCompat;.setRotation:(Landroid/view/View;F)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setRotationX`(`android.view.View` v0 @kind object @name `view`, `float` v1 @name `value`) @signature `Landroidx/core/view/ViewCompat;.setRotationX:(Landroid/view/View;F)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setRotationY`(`android.view.View` v0 @kind object @name `view`, `float` v1 @name `value`) @signature `Landroidx/core/view/ViewCompat;.setRotationY:(Landroid/view/View;F)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setSaveFromParentEnabled`(`android.view.View` v0 @kind object @name `v`, `boolean` v1 @name `enabled`) @signature `Landroidx/core/view/ViewCompat;.setSaveFromParentEnabled:(Landroid/view/View;Z)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setScaleX`(`android.view.View` v0 @kind object @name `view`, `float` v1 @name `value`) @signature `Landroidx/core/view/ViewCompat;.setScaleX:(Landroid/view/View;F)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setScaleY`(`android.view.View` v0 @kind object @name `view`, `float` v1 @name `value`) @signature `Landroidx/core/view/ViewCompat;.setScaleY:(Landroid/view/View;F)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setScreenReaderFocusable`(`android.view.View` v2 @kind object @name `view`, `boolean` v3 @name `screenReaderFocusable`) @signature `Landroidx/core/view/ViewCompat;.setScreenReaderFocusable:(Landroid/view/View;Z)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setScrollIndicators`(`android.view.View` v2 @kind object @name `view`, `int` v3 @name `indicators`) @signature `Landroidx/core/view/ViewCompat;.setScrollIndicators:(Landroid/view/View;I)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setScrollIndicators`(`android.view.View` v2 @kind object @name `view`, `int` v3 @name `indicators`, `int` v4 @name `mask`) @signature `Landroidx/core/view/ViewCompat;.setScrollIndicators:(Landroid/view/View;II)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setTooltipText`(`android.view.View` v2 @kind object @name `view`, `java.lang.CharSequence` v3 @kind object @name `tooltipText`) @signature `Landroidx/core/view/ViewCompat;.setTooltipText:(Landroid/view/View;Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setTransitionName`(`android.view.View` v2 @kind object @name `view`, `java.lang.String` v3 @kind object @name `transitionName`) @signature `Landroidx/core/view/ViewCompat;.setTransitionName:(Landroid/view/View;Ljava/lang/String;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setTranslationX`(`android.view.View` v0 @kind object @name `view`, `float` v1 @name `value`) @signature `Landroidx/core/view/ViewCompat;.setTranslationX:(Landroid/view/View;F)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setTranslationY`(`android.view.View` v0 @kind object @name `view`, `float` v1 @name `value`) @signature `Landroidx/core/view/ViewCompat;.setTranslationY:(Landroid/view/View;F)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setTranslationZ`(`android.view.View` v2 @kind object @name `view`, `float` v3 @name `translationZ`) @signature `Landroidx/core/view/ViewCompat;.setTranslationZ:(Landroid/view/View;F)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setX`(`android.view.View` v0 @kind object @name `view`, `float` v1 @name `value`) @signature `Landroidx/core/view/ViewCompat;.setX:(Landroid/view/View;F)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setY`(`android.view.View` v0 @kind object @name `view`, `float` v1 @name `value`) @signature `Landroidx/core/view/ViewCompat;.setY:(Landroid/view/View;F)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `setZ`(`android.view.View` v2 @kind object @name `view`, `float` v3 @name `z`) @signature `Landroidx/core/view/ViewCompat;.setZ:(Landroid/view/View;F)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `startDragAndDrop`(`android.view.View` v2 @kind object @name `v`, `android.content.ClipData` v3 @kind object @name `data`, `android.view.View$DragShadowBuilder` v4 @kind object @name `shadowBuilder`, `java.lang.Object` v5 @kind object @name `localState`, `int` v6 @name `flags`) @signature `Landroidx/core/view/ViewCompat;.startDragAndDrop:(Landroid/view/View;Landroid/content/ClipData;Landroid/view/View$DragShadowBuilder;Ljava/lang/Object;I)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `startNestedScroll`(`android.view.View` v2 @kind object @name `view`, `int` v3 @name `axes`) @signature `Landroidx/core/view/ViewCompat;.startNestedScroll:(Landroid/view/View;I)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `startNestedScroll`(`android.view.View` v1 @kind object @name `view`, `int` v2 @name `axes`, `int` v3 @name `type`) @signature `Landroidx/core/view/ViewCompat;.startNestedScroll:(Landroid/view/View;II)Z` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `stopNestedScroll`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.stopNestedScroll:(Landroid/view/View;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `stopNestedScroll`(`android.view.View` v1 @kind object @name `view`, `int` v2 @name `type`) @signature `Landroidx/core/view/ViewCompat;.stopNestedScroll:(Landroid/view/View;I)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `tickleInvalidationFlag`(`android.view.View` v2 @kind object @name `view`) @signature `Landroidx/core/view/ViewCompat;.tickleInvalidationFlag:(Landroid/view/View;)V` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `updateDragShadow`(`android.view.View` v2 @kind object @name `v`, `android.view.View$DragShadowBuilder` v3 @kind object @name `shadowBuilder`) @signature `Landroidx/core/view/ViewCompat;.updateDragShadow:(Landroid/view/View;Landroid/view/View$DragShadowBuilder;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}

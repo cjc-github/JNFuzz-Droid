@@ -1,0 +1,22 @@
+record `com.google.android.material.textfield.NoEndIconDelegate` @kind class @AccessFlag  extends `com.google.android.material.textfield.EndIconDelegate` @kind class {
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.NoEndIconDelegate` v0 @kind this, `com.google.android.material.textfield.TextInputLayout` v1 @kind object @name `textInputLayout`) @signature `Lcom/google/android/material/textfield/NoEndIconDelegate;.<init>:(Lcom/google/android/material/textfield/TextInputLayout;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b7ea0.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/textfield/EndIconDelegate;.<init>:(Lcom/google/android/material/textfield/TextInputLayout;)V` @kind direct;
+  #L1b7ea6.  return @kind void;
+}
+procedure `void` `initialize`(`com.google.android.material.textfield.NoEndIconDelegate` v2 @kind this) @signature `Lcom/google/android/material/textfield/NoEndIconDelegate;.initialize:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L1b7eb8.  v0:= v2.`com.google.android.material.textfield.NoEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b7ebc.  v1:= 0I;
+  #L1b7ebe.  call `setEndIconOnClickListener`(v0, v1) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setEndIconOnClickListener:(Landroid/view/View$OnClickListener;)V` @kind virtual;
+  #L1b7ec4.  v0:= v2.`com.google.android.material.textfield.NoEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b7ec8.  call `setEndIconDrawable`(v0, v1) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setEndIconDrawable:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L1b7ece.  v0:= v2.`com.google.android.material.textfield.NoEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b7ed2.  call `setEndIconContentDescription`(v0, v1) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setEndIconContentDescription:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1b7ed8.  return @kind void;
+}

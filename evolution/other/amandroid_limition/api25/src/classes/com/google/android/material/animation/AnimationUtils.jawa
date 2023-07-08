@@ -1,0 +1,55 @@
+record `com.google.android.material.animation.AnimationUtils` @kind class @AccessFlag PUBLIC {
+}
+global `android.animation.TimeInterpolator` `@@com.google.android.material.animation.AnimationUtils.DECELERATE_INTERPOLATOR` @AccessFlag PUBLIC_STATIC_FINAL;
+global `android.animation.TimeInterpolator` `@@com.google.android.material.animation.AnimationUtils.FAST_OUT_LINEAR_IN_INTERPOLATOR` @AccessFlag PUBLIC_STATIC_FINAL;
+global `android.animation.TimeInterpolator` `@@com.google.android.material.animation.AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR` @AccessFlag PUBLIC_STATIC_FINAL;
+global `android.animation.TimeInterpolator` `@@com.google.android.material.animation.AnimationUtils.LINEAR_INTERPOLATOR` @AccessFlag PUBLIC_STATIC_FINAL;
+global `android.animation.TimeInterpolator` `@@com.google.android.material.animation.AnimationUtils.LINEAR_OUT_SLOW_IN_INTERPOLATOR` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/animation/AnimationUtils;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L17c9ac.  v0:= new `android.view.animation.LinearInterpolator`;
+  #L17c9b0.  call `<init>`(v0) @signature `Landroid/view/animation/LinearInterpolator;.<init>:()V` @kind direct;
+  #L17c9b6.  `@@com.google.android.material.animation.AnimationUtils.LINEAR_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` := v0 @kind object;
+  #L17c9ba.  v0:= new `androidx.interpolator.view.animation.FastOutSlowInInterpolator`;
+  #L17c9be.  call `<init>`(v0) @signature `Landroidx/interpolator/view/animation/FastOutSlowInInterpolator;.<init>:()V` @kind direct;
+  #L17c9c4.  `@@com.google.android.material.animation.AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` := v0 @kind object;
+  #L17c9c8.  v0:= new `androidx.interpolator.view.animation.FastOutLinearInInterpolator`;
+  #L17c9cc.  call `<init>`(v0) @signature `Landroidx/interpolator/view/animation/FastOutLinearInInterpolator;.<init>:()V` @kind direct;
+  #L17c9d2.  `@@com.google.android.material.animation.AnimationUtils.FAST_OUT_LINEAR_IN_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` := v0 @kind object;
+  #L17c9d6.  v0:= new `androidx.interpolator.view.animation.LinearOutSlowInInterpolator`;
+  #L17c9da.  call `<init>`(v0) @signature `Landroidx/interpolator/view/animation/LinearOutSlowInInterpolator;.<init>:()V` @kind direct;
+  #L17c9e0.  `@@com.google.android.material.animation.AnimationUtils.LINEAR_OUT_SLOW_IN_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` := v0 @kind object;
+  #L17c9e4.  v0:= new `android.view.animation.DecelerateInterpolator`;
+  #L17c9e8.  call `<init>`(v0) @signature `Landroid/view/animation/DecelerateInterpolator;.<init>:()V` @kind direct;
+  #L17c9ee.  `@@com.google.android.material.animation.AnimationUtils.DECELERATE_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` := v0 @kind object;
+  #L17c9f2.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.animation.AnimationUtils` v0 @kind this) @signature `Lcom/google/android/material/animation/AnimationUtils;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L17ca04.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L17ca0a.  return @kind void;
+}
+procedure `float` `lerp`(`float` v1 @name `startValue`, `float` v2 @name `endValue`, `float` v3 @name `fraction`) @signature `Lcom/google/android/material/animation/AnimationUtils;.lerp:(FFF)F` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L17c96c.  v0:= v2 - v1 @kind float;
+  #L17c970.  v0:= v0 * v3 @kind float;
+  #L17c972.  v0:= v0 + v1 @kind float;
+  #L17c974.  return v0;
+}
+procedure `int` `lerp`(`int` v1 @name `startValue`, `int` v2 @name `endValue`, `float` v3 @name `fraction`) @signature `Lcom/google/android/material/animation/AnimationUtils;.lerp:(IIF)I` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L17c988.  v0:= v2 - v1 @kind int;
+  #L17c98c.  v0:= (`float`) v0 @kind i2f;
+  #L17c98e.  v0:= v0 * v3 @kind float;
+  #L17c990.  call temp:= `round`(v0) @signature `Ljava/lang/Math;.round:(F)I` @kind static;
+  #L17c996.  v0:= temp;
+  #L17c998.  v0:= v0 + v1 @kind int;
+  #L17c99a.  return v0;
+}

@@ -1,0 +1,56 @@
+record `com.google.android.material.internal.ScrimInsetsFrameLayout$1` @kind class @AccessFlag  extends `androidx.core.view.OnApplyWindowInsetsListener` @kind interface {
+  `com.google.android.material.internal.ScrimInsetsFrameLayout` `com.google.android.material.internal.ScrimInsetsFrameLayout$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.ScrimInsetsFrameLayout$1` v0 @kind this, `com.google.android.material.internal.ScrimInsetsFrameLayout` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout$1;.<init>:(Lcom/google/android/material/internal/ScrimInsetsFrameLayout;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1a67c4.  v0.`com.google.android.material.internal.ScrimInsetsFrameLayout$1.this$0` @type ^`com.google.android.material.internal.ScrimInsetsFrameLayout` := v1 @kind object;
+  #L1a67c8.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1a67ce.  return @kind void;
+}
+procedure `androidx.core.view.WindowInsetsCompat` `onApplyWindowInsets`(`com.google.android.material.internal.ScrimInsetsFrameLayout$1` v5 @kind this, `android.view.View` v6 @kind object @name `v`, `androidx.core.view.WindowInsetsCompat` v7 @kind object @name `insets`) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout$1;.onApplyWindowInsets:(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1a6720.  v0:= v5.`com.google.android.material.internal.ScrimInsetsFrameLayout$1.this$0` @type ^`com.google.android.material.internal.ScrimInsetsFrameLayout` @kind object;
+  #L1a6724.  v0:= v0.`com.google.android.material.internal.ScrimInsetsFrameLayout.insets` @type ^`android.graphics.Rect` @kind object;
+  #L1a6728.  if v0 != 0 then goto L1a673e;
+  #L1a672c.  v0:= v5.`com.google.android.material.internal.ScrimInsetsFrameLayout$1.this$0` @type ^`com.google.android.material.internal.ScrimInsetsFrameLayout` @kind object;
+  #L1a6730.  v1:= new `android.graphics.Rect`;
+  #L1a6734.  call `<init>`(v1) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L1a673a.  v0.`com.google.android.material.internal.ScrimInsetsFrameLayout.insets` @type ^`android.graphics.Rect` := v1 @kind object;
+  #L1a673e.  v0:= v5.`com.google.android.material.internal.ScrimInsetsFrameLayout$1.this$0` @type ^`com.google.android.material.internal.ScrimInsetsFrameLayout` @kind object;
+  #L1a6742.  v0:= v0.`com.google.android.material.internal.ScrimInsetsFrameLayout.insets` @type ^`android.graphics.Rect` @kind object;
+  #L1a6746.  call temp:= `getSystemWindowInsetLeft`(v7) @signature `Landroidx/core/view/WindowInsetsCompat;.getSystemWindowInsetLeft:()I` @kind virtual;
+  #L1a674c.  v1:= temp;
+  #L1a674e.  call temp:= `getSystemWindowInsetTop`(v7) @signature `Landroidx/core/view/WindowInsetsCompat;.getSystemWindowInsetTop:()I` @kind virtual;
+  #L1a6754.  v2:= temp;
+  #L1a6756.  call temp:= `getSystemWindowInsetRight`(v7) @signature `Landroidx/core/view/WindowInsetsCompat;.getSystemWindowInsetRight:()I` @kind virtual;
+  #L1a675c.  v3:= temp;
+  #L1a675e.  call temp:= `getSystemWindowInsetBottom`(v7) @signature `Landroidx/core/view/WindowInsetsCompat;.getSystemWindowInsetBottom:()I` @kind virtual;
+  #L1a6764.  v4:= temp;
+  #L1a6766.  call `set`(v0, v1, v2, v3, v4) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L1a676c.  v0:= v5.`com.google.android.material.internal.ScrimInsetsFrameLayout$1.this$0` @type ^`com.google.android.material.internal.ScrimInsetsFrameLayout` @kind object;
+  #L1a6770.  call `onInsetsChanged`(v0, v7) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.onInsetsChanged:(Landroidx/core/view/WindowInsetsCompat;)V` @kind virtual;
+  #L1a6776.  v0:= v5.`com.google.android.material.internal.ScrimInsetsFrameLayout$1.this$0` @type ^`com.google.android.material.internal.ScrimInsetsFrameLayout` @kind object;
+  #L1a677a.  call temp:= `hasSystemWindowInsets`(v7) @signature `Landroidx/core/view/WindowInsetsCompat;.hasSystemWindowInsets:()Z` @kind virtual;
+  #L1a6780.  v1:= temp;
+  #L1a6782.  if v1 == 0 then goto L1a6798;
+  #L1a6786.  v1:= v5.`com.google.android.material.internal.ScrimInsetsFrameLayout$1.this$0` @type ^`com.google.android.material.internal.ScrimInsetsFrameLayout` @kind object;
+  #L1a678a.  v1:= v1.`com.google.android.material.internal.ScrimInsetsFrameLayout.insetForeground` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a678e.  if v1 != 0 then goto L1a6794;
+  #L1a6792.  goto L1a6798;
+  #L1a6794.  v1:= 0I;
+  #L1a6796.  goto L1a679a;
+  #L1a6798.  v1:= 1I;
+  #L1a679a.  call `setWillNotDraw`(v0, v1) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.setWillNotDraw:(Z)V` @kind virtual;
+  #L1a67a0.  v0:= v5.`com.google.android.material.internal.ScrimInsetsFrameLayout$1.this$0` @type ^`com.google.android.material.internal.ScrimInsetsFrameLayout` @kind object;
+  #L1a67a4.  call `postInvalidateOnAnimation`(v0) @signature `Landroidx/core/view/ViewCompat;.postInvalidateOnAnimation:(Landroid/view/View;)V` @kind static;
+  #L1a67aa.  call temp:= `consumeSystemWindowInsets`(v7) @signature `Landroidx/core/view/WindowInsetsCompat;.consumeSystemWindowInsets:()Landroidx/core/view/WindowInsetsCompat;` @kind virtual;
+  #L1a67b0.  v0:= temp @kind object;
+  #L1a67b2.  return v0 @kind object;
+}

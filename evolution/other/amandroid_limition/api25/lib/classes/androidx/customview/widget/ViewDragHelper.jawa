@@ -1,0 +1,245 @@
+record `androidx.customview.widget.ViewDragHelper` @kind class @AccessFlag PUBLIC {
+  `int` `androidx.customview.widget.ViewDragHelper.mActivePointerId` @AccessFlag PRIVATE;
+  `androidx.customview.widget.ViewDragHelper$Callback` `androidx.customview.widget.ViewDragHelper.mCallback` @AccessFlag PRIVATE_FINAL;
+  `android.view.View` `androidx.customview.widget.ViewDragHelper.mCapturedView` @AccessFlag PRIVATE;
+  `int` `androidx.customview.widget.ViewDragHelper.mDragState` @AccessFlag PRIVATE;
+  `int`[] `androidx.customview.widget.ViewDragHelper.mEdgeDragsInProgress` @AccessFlag PRIVATE;
+  `int`[] `androidx.customview.widget.ViewDragHelper.mEdgeDragsLocked` @AccessFlag PRIVATE;
+  `int` `androidx.customview.widget.ViewDragHelper.mEdgeSize` @AccessFlag PRIVATE;
+  `int`[] `androidx.customview.widget.ViewDragHelper.mInitialEdgesTouched` @AccessFlag PRIVATE;
+  `float`[] `androidx.customview.widget.ViewDragHelper.mInitialMotionX` @AccessFlag PRIVATE;
+  `float`[] `androidx.customview.widget.ViewDragHelper.mInitialMotionY` @AccessFlag PRIVATE;
+  `float`[] `androidx.customview.widget.ViewDragHelper.mLastMotionX` @AccessFlag PRIVATE;
+  `float`[] `androidx.customview.widget.ViewDragHelper.mLastMotionY` @AccessFlag PRIVATE;
+  `float` `androidx.customview.widget.ViewDragHelper.mMaxVelocity` @AccessFlag PRIVATE;
+  `float` `androidx.customview.widget.ViewDragHelper.mMinVelocity` @AccessFlag PRIVATE;
+  `android.view.ViewGroup` `androidx.customview.widget.ViewDragHelper.mParentView` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.customview.widget.ViewDragHelper.mPointersDown` @AccessFlag PRIVATE;
+  `boolean` `androidx.customview.widget.ViewDragHelper.mReleaseInProgress` @AccessFlag PRIVATE;
+  `android.widget.OverScroller` `androidx.customview.widget.ViewDragHelper.mScroller` @AccessFlag PRIVATE;
+  `java.lang.Runnable` `androidx.customview.widget.ViewDragHelper.mSetIdleRunnable` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.customview.widget.ViewDragHelper.mTouchSlop` @AccessFlag PRIVATE;
+  `int` `androidx.customview.widget.ViewDragHelper.mTrackingEdges` @AccessFlag PRIVATE;
+  `android.view.VelocityTracker` `androidx.customview.widget.ViewDragHelper.mVelocityTracker` @AccessFlag PRIVATE;
+}
+global `int` `@@androidx.customview.widget.ViewDragHelper.BASE_SETTLE_DURATION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.customview.widget.ViewDragHelper.DIRECTION_ALL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.customview.widget.ViewDragHelper.DIRECTION_HORIZONTAL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.customview.widget.ViewDragHelper.DIRECTION_VERTICAL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.customview.widget.ViewDragHelper.EDGE_ALL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.customview.widget.ViewDragHelper.EDGE_BOTTOM` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.customview.widget.ViewDragHelper.EDGE_LEFT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.customview.widget.ViewDragHelper.EDGE_RIGHT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.customview.widget.ViewDragHelper.EDGE_SIZE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.customview.widget.ViewDragHelper.EDGE_TOP` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.customview.widget.ViewDragHelper.INVALID_POINTER` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.customview.widget.ViewDragHelper.MAX_SETTLE_DURATION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.customview.widget.ViewDragHelper.STATE_DRAGGING` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.customview.widget.ViewDragHelper.STATE_IDLE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.customview.widget.ViewDragHelper.STATE_SETTLING` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.customview.widget.ViewDragHelper.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `android.view.animation.Interpolator` `@@androidx.customview.widget.ViewDragHelper.sInterpolator` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/customview/widget/ViewDragHelper;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.customview.widget.ViewDragHelper` v4 @kind this, `android.content.Context` v5 @kind object @name `context`, `android.view.ViewGroup` v6 @kind object @name `forParent`, `androidx.customview.widget.ViewDragHelper$Callback` v7 @kind object @name `cb`) @signature `Landroidx/customview/widget/ViewDragHelper;.<init>:(Landroid/content/Context;Landroid/view/ViewGroup;Landroidx/customview/widget/ViewDragHelper$Callback;)V` @AccessFlag PRIVATE_CONSTRUCTOR {
+
+  # return;
+}
+procedure `boolean` `checkNewEdgeDrag`(`androidx.customview.widget.ViewDragHelper` v5 @kind this, `float` v6 @name `delta`, `float` v7 @name `odelta`, `int` v8 @name `pointerId`, `int` v9 @name `edge`) @signature `Landroidx/customview/widget/ViewDragHelper;.checkNewEdgeDrag:(FFII)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `checkTouchSlop`(`androidx.customview.widget.ViewDragHelper` v6 @kind this, `android.view.View` v7 @kind object @name `child`, `float` v8 @name `dx`, `float` v9 @name `dy`) @signature `Landroidx/customview/widget/ViewDragHelper;.checkTouchSlop:(Landroid/view/View;FF)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `float` `clampMag`(`androidx.customview.widget.ViewDragHelper` v3 @kind this, `float` v4 @name `value`, `float` v5 @name `absMin`, `float` v6 @name `absMax`) @signature `Landroidx/customview/widget/ViewDragHelper;.clampMag:(FFF)F` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `clampMag`(`androidx.customview.widget.ViewDragHelper` v2 @kind this, `int` v3 @name `value`, `int` v4 @name `absMin`, `int` v5 @name `absMax`) @signature `Landroidx/customview/widget/ViewDragHelper;.clampMag:(III)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `clearMotionHistory`(`androidx.customview.widget.ViewDragHelper` v2 @kind this) @signature `Landroidx/customview/widget/ViewDragHelper;.clearMotionHistory:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `clearMotionHistory`(`androidx.customview.widget.ViewDragHelper` v2 @kind this, `int` v3 @name `pointerId`) @signature `Landroidx/customview/widget/ViewDragHelper;.clearMotionHistory:(I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `computeAxisDuration`(`androidx.customview.widget.ViewDragHelper` v7 @kind this, `int` v8 @name `delta`, `int` v9 @name `velocity`, `int` v10 @name `motionRange`) @signature `Landroidx/customview/widget/ViewDragHelper;.computeAxisDuration:(III)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `computeSettleDuration`(`androidx.customview.widget.ViewDragHelper` v16 @kind this, `android.view.View` v17 @kind object @name `child`, `int` v18 @name `dx`, `int` v19 @name `dy`, `int` v20 @name `xvel`, `int` v21 @name `yvel`) @signature `Landroidx/customview/widget/ViewDragHelper;.computeSettleDuration:(Landroid/view/View;IIII)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.customview.widget.ViewDragHelper` `create`(`android.view.ViewGroup` v3 @kind object @name `forParent`, `float` v4 @name `sensitivity`, `androidx.customview.widget.ViewDragHelper$Callback` v5 @kind object @name `cb`) @signature `Landroidx/customview/widget/ViewDragHelper;.create:(Landroid/view/ViewGroup;FLandroidx/customview/widget/ViewDragHelper$Callback;)Landroidx/customview/widget/ViewDragHelper;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `androidx.customview.widget.ViewDragHelper` `create`(`android.view.ViewGroup` v2 @kind object @name `forParent`, `androidx.customview.widget.ViewDragHelper$Callback` v3 @kind object @name `cb`) @signature `Landroidx/customview/widget/ViewDragHelper;.create:(Landroid/view/ViewGroup;Landroidx/customview/widget/ViewDragHelper$Callback;)Landroidx/customview/widget/ViewDragHelper;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `dispatchViewReleased`(`androidx.customview.widget.ViewDragHelper` v3 @kind this, `float` v4 @name `xvel`, `float` v5 @name `yvel`) @signature `Landroidx/customview/widget/ViewDragHelper;.dispatchViewReleased:(FF)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `float` `distanceInfluenceForSnapDuration`(`androidx.customview.widget.ViewDragHelper` v2 @kind this, `float` v3 @name `f`) @signature `Landroidx/customview/widget/ViewDragHelper;.distanceInfluenceForSnapDuration:(F)F` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `dragTo`(`androidx.customview.widget.ViewDragHelper` v16 @kind this, `int` v17 @name `left`, `int` v18 @name `top`, `int` v19 @name `dx`, `int` v20 @name `dy`) @signature `Landroidx/customview/widget/ViewDragHelper;.dragTo:(IIII)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `ensureMotionHistorySizeForId`(`androidx.customview.widget.ViewDragHelper` v10 @kind this, `int` v11 @name `pointerId`) @signature `Landroidx/customview/widget/ViewDragHelper;.ensureMotionHistorySizeForId:(I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `forceSettleCapturedViewAt`(`androidx.customview.widget.ViewDragHelper` v11 @kind this, `int` v12 @name `finalLeft`, `int` v13 @name `finalTop`, `int` v14 @name `xvel`, `int` v15 @name `yvel`) @signature `Landroidx/customview/widget/ViewDragHelper;.forceSettleCapturedViewAt:(IIII)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `getEdgesTouched`(`androidx.customview.widget.ViewDragHelper` v3 @kind this, `int` v4 @name `x`, `int` v5 @name `y`) @signature `Landroidx/customview/widget/ViewDragHelper;.getEdgesTouched:(II)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `isValidPointerForActionMove`(`androidx.customview.widget.ViewDragHelper` v2 @kind this, `int` v3 @name `pointerId`) @signature `Landroidx/customview/widget/ViewDragHelper;.isValidPointerForActionMove:(I)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `releaseViewForPointerUp`(`androidx.customview.widget.ViewDragHelper` v4 @kind this) @signature `Landroidx/customview/widget/ViewDragHelper;.releaseViewForPointerUp:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `reportNewEdgeDrags`(`androidx.customview.widget.ViewDragHelper` v3 @kind this, `float` v4 @name `dx`, `float` v5 @name `dy`, `int` v6 @name `pointerId`) @signature `Landroidx/customview/widget/ViewDragHelper;.reportNewEdgeDrags:(FFI)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `saveInitialMotion`(`androidx.customview.widget.ViewDragHelper` v3 @kind this, `float` v4 @name `x`, `float` v5 @name `y`, `int` v6 @name `pointerId`) @signature `Landroidx/customview/widget/ViewDragHelper;.saveInitialMotion:(FFI)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `saveLastMotion`(`androidx.customview.widget.ViewDragHelper` v6 @kind this, `android.view.MotionEvent` v7 @kind object @name `ev`) @signature `Landroidx/customview/widget/ViewDragHelper;.saveLastMotion:(Landroid/view/MotionEvent;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `abort`(`androidx.customview.widget.ViewDragHelper` v10 @kind this) @signature `Landroidx/customview/widget/ViewDragHelper;.abort:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `canScroll`(`androidx.customview.widget.ViewDragHelper` v15 @kind this, `android.view.View` v16 @kind object @name `v`, `boolean` v17 @name `checkV`, `int` v18 @name `dx`, `int` v19 @name `dy`, `int` v20 @name `x`, `int` v21 @name `y`) @signature `Landroidx/customview/widget/ViewDragHelper;.canScroll:(Landroid/view/View;ZIIII)Z` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `cancel`(`androidx.customview.widget.ViewDragHelper` v1 @kind this) @signature `Landroidx/customview/widget/ViewDragHelper;.cancel:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `captureChildView`(`androidx.customview.widget.ViewDragHelper` v3 @kind this, `android.view.View` v4 @kind object @name `childView`, `int` v5 @name `activePointerId`) @signature `Landroidx/customview/widget/ViewDragHelper;.captureChildView:(Landroid/view/View;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `checkTouchSlop`(`androidx.customview.widget.ViewDragHelper` v3 @kind this, `int` v4 @name `directions`) @signature `Landroidx/customview/widget/ViewDragHelper;.checkTouchSlop:(I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `checkTouchSlop`(`androidx.customview.widget.ViewDragHelper` v8 @kind this, `int` v9 @name `directions`, `int` v10 @name `pointerId`) @signature `Landroidx/customview/widget/ViewDragHelper;.checkTouchSlop:(II)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `continueSettling`(`androidx.customview.widget.ViewDragHelper` v13 @kind this, `boolean` v14 @name `deferCallbacks`) @signature `Landroidx/customview/widget/ViewDragHelper;.continueSettling:(Z)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View` `findTopChildUnder`(`androidx.customview.widget.ViewDragHelper` v4 @kind this, `int` v5 @name `x`, `int` v6 @name `y`) @signature `Landroidx/customview/widget/ViewDragHelper;.findTopChildUnder:(II)Landroid/view/View;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `flingCapturedView`(`androidx.customview.widget.ViewDragHelper` v10 @kind this, `int` v11 @name `minLeft`, `int` v12 @name `minTop`, `int` v13 @name `maxLeft`, `int` v14 @name `maxTop`) @signature `Landroidx/customview/widget/ViewDragHelper;.flingCapturedView:(IIII)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getActivePointerId`(`androidx.customview.widget.ViewDragHelper` v1 @kind this) @signature `Landroidx/customview/widget/ViewDragHelper;.getActivePointerId:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View` `getCapturedView`(`androidx.customview.widget.ViewDragHelper` v1 @kind this) @signature `Landroidx/customview/widget/ViewDragHelper;.getCapturedView:()Landroid/view/View;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getEdgeSize`(`androidx.customview.widget.ViewDragHelper` v1 @kind this) @signature `Landroidx/customview/widget/ViewDragHelper;.getEdgeSize:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `float` `getMinVelocity`(`androidx.customview.widget.ViewDragHelper` v1 @kind this) @signature `Landroidx/customview/widget/ViewDragHelper;.getMinVelocity:()F` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getTouchSlop`(`androidx.customview.widget.ViewDragHelper` v1 @kind this) @signature `Landroidx/customview/widget/ViewDragHelper;.getTouchSlop:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getViewDragState`(`androidx.customview.widget.ViewDragHelper` v1 @kind this) @signature `Landroidx/customview/widget/ViewDragHelper;.getViewDragState:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isCapturedViewUnder`(`androidx.customview.widget.ViewDragHelper` v1 @kind this, `int` v2 @name `x`, `int` v3 @name `y`) @signature `Landroidx/customview/widget/ViewDragHelper;.isCapturedViewUnder:(II)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isEdgeTouched`(`androidx.customview.widget.ViewDragHelper` v3 @kind this, `int` v4 @name `edges`) @signature `Landroidx/customview/widget/ViewDragHelper;.isEdgeTouched:(I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isEdgeTouched`(`androidx.customview.widget.ViewDragHelper` v1 @kind this, `int` v2 @name `edges`, `int` v3 @name `pointerId`) @signature `Landroidx/customview/widget/ViewDragHelper;.isEdgeTouched:(II)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isPointerDown`(`androidx.customview.widget.ViewDragHelper` v3 @kind this, `int` v4 @name `pointerId`) @signature `Landroidx/customview/widget/ViewDragHelper;.isPointerDown:(I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isViewUnder`(`androidx.customview.widget.ViewDragHelper` v2 @kind this, `android.view.View` v3 @kind object @name `view`, `int` v4 @name `x`, `int` v5 @name `y`) @signature `Landroidx/customview/widget/ViewDragHelper;.isViewUnder:(Landroid/view/View;II)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `processTouchEvent`(`androidx.customview.widget.ViewDragHelper` v12 @kind this, `android.view.MotionEvent` v13 @kind object @name `ev`) @signature `Landroidx/customview/widget/ViewDragHelper;.processTouchEvent:(Landroid/view/MotionEvent;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDragState`(`androidx.customview.widget.ViewDragHelper` v2 @kind this, `int` v3 @name `state`) @signature `Landroidx/customview/widget/ViewDragHelper;.setDragState:(I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `setEdgeTrackingEnabled`(`androidx.customview.widget.ViewDragHelper` v0 @kind this, `int` v1 @name `edgeFlags`) @signature `Landroidx/customview/widget/ViewDragHelper;.setEdgeTrackingEnabled:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setMinVelocity`(`androidx.customview.widget.ViewDragHelper` v0 @kind this, `float` v1 @name `minVel`) @signature `Landroidx/customview/widget/ViewDragHelper;.setMinVelocity:(F)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `settleCapturedViewAt`(`androidx.customview.widget.ViewDragHelper` v3 @kind this, `int` v4 @name `finalLeft`, `int` v5 @name `finalTop`) @signature `Landroidx/customview/widget/ViewDragHelper;.settleCapturedViewAt:(II)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `shouldInterceptTouchEvent`(`androidx.customview.widget.ViewDragHelper` v21 @kind this, `android.view.MotionEvent` v22 @kind object @name `ev`) @signature `Landroidx/customview/widget/ViewDragHelper;.shouldInterceptTouchEvent:(Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `smoothSlideViewTo`(`androidx.customview.widget.ViewDragHelper` v2 @kind this, `android.view.View` v3 @kind object @name `child`, `int` v4 @name `finalLeft`, `int` v5 @name `finalTop`) @signature `Landroidx/customview/widget/ViewDragHelper;.smoothSlideViewTo:(Landroid/view/View;II)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `tryCaptureViewForDrag`(`androidx.customview.widget.ViewDragHelper` v2 @kind this, `android.view.View` v3 @kind object @name `toCapture`, `int` v4 @name `pointerId`) @signature `Landroidx/customview/widget/ViewDragHelper;.tryCaptureViewForDrag:(Landroid/view/View;I)Z` @AccessFlag  {
+
+  # return;
+}

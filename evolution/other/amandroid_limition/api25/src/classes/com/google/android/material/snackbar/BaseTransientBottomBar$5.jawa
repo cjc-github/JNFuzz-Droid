@@ -1,0 +1,44 @@
+record `com.google.android.material.snackbar.BaseTransientBottomBar$5` @kind class @AccessFlag  extends `com.google.android.material.snackbar.SnackbarManager$Callback` @kind interface {
+  `com.google.android.material.snackbar.BaseTransientBottomBar` `com.google.android.material.snackbar.BaseTransientBottomBar$5.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.snackbar.BaseTransientBottomBar$5` v0 @kind this, `com.google.android.material.snackbar.BaseTransientBottomBar` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$5;.<init>:(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1af49c.  v0.`com.google.android.material.snackbar.BaseTransientBottomBar$5.this$0` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar` := v1 @kind object;
+  #L1af4a0.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1af4a6.  return @kind void;
+}
+procedure `void` `dismiss`(`com.google.android.material.snackbar.BaseTransientBottomBar$5` v5 @kind this, `int` v6 @name `event`) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$5;.dismiss:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1af4b8.  v0:= `@@com.google.android.material.snackbar.BaseTransientBottomBar.handler` @type ^`android.os.Handler` @kind object;
+  #L1af4bc.  v1:= `@@com.google.android.material.snackbar.BaseTransientBottomBar.handler` @type ^`android.os.Handler` @kind object;
+  #L1af4c0.  v2:= v5.`com.google.android.material.snackbar.BaseTransientBottomBar$5.this$0` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar` @kind object;
+  #L1af4c4.  v3:= 1I;
+  #L1af4c6.  v4:= 0I;
+  #L1af4c8.  call temp:= `obtainMessage`(v1, v3, v6, v4, v2) @signature `Landroid/os/Handler;.obtainMessage:(IIILjava/lang/Object;)Landroid/os/Message;` @kind virtual;
+  #L1af4ce.  v1:= temp @kind object;
+  #L1af4d0.  call temp:= `sendMessage`(v0, v1) @signature `Landroid/os/Handler;.sendMessage:(Landroid/os/Message;)Z` @kind virtual;
+  #L1af4d6.  return @kind void;
+}
+procedure `void` `show`(`com.google.android.material.snackbar.BaseTransientBottomBar$5` v4 @kind this) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$5;.show:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1af4e8.  v0:= `@@com.google.android.material.snackbar.BaseTransientBottomBar.handler` @type ^`android.os.Handler` @kind object;
+  #L1af4ec.  v1:= `@@com.google.android.material.snackbar.BaseTransientBottomBar.handler` @type ^`android.os.Handler` @kind object;
+  #L1af4f0.  v2:= v4.`com.google.android.material.snackbar.BaseTransientBottomBar$5.this$0` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar` @kind object;
+  #L1af4f4.  v3:= 0I;
+  #L1af4f6.  call temp:= `obtainMessage`(v1, v3, v2) @signature `Landroid/os/Handler;.obtainMessage:(ILjava/lang/Object;)Landroid/os/Message;` @kind virtual;
+  #L1af4fc.  v1:= temp @kind object;
+  #L1af4fe.  call temp:= `sendMessage`(v0, v1) @signature `Landroid/os/Handler;.sendMessage:(Landroid/os/Message;)Z` @kind virtual;
+  #L1af504.  return @kind void;
+}

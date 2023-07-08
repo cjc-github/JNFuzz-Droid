@@ -1,0 +1,369 @@
+record `com.google.android.material.internal.FlowLayout` @kind class @AccessFlag PUBLIC extends `android.view.ViewGroup` @kind class {
+  `int` `com.google.android.material.internal.FlowLayout.itemSpacing` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.internal.FlowLayout.lineSpacing` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.internal.FlowLayout.singleLine` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.FlowLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/internal/FlowLayout;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a4078.  v0:= 0I;
+  #L1a407a.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/internal/FlowLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1a4080.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.FlowLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/internal/FlowLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a4094.  v0:= 0I;
+  #L1a4096.  call `<init>`(v1, v2, v3, v0) @signature `Lcom/google/android/material/internal/FlowLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1a409c.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.FlowLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`, `int` v4 @name `defStyleAttr`) @signature `Lcom/google/android/material/internal/FlowLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a40b0.  call `<init>`(v1, v2, v3, v4) @signature `Landroid/view/ViewGroup;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1a40b6.  v0:= 0I;
+  #L1a40b8.  v1.`com.google.android.material.internal.FlowLayout.singleLine` @type ^`boolean` := v0 @kind boolean;
+  #L1a40bc.  call `loadFromAttributes`(v1, v2, v3) @signature `Lcom/google/android/material/internal/FlowLayout;.loadFromAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1a40c2.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.FlowLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`, `int` v4 @name `defStyleAttr`, `int` v5 @name `defStyleRes`) @signature `Lcom/google/android/material/internal/FlowLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;II)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a40d4.  call `<init>`(v1, v2, v3, v4, v5) @signature `Landroid/view/ViewGroup;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;II)V` @kind direct;
+  #L1a40da.  v0:= 0I;
+  #L1a40dc.  v1.`com.google.android.material.internal.FlowLayout.singleLine` @type ^`boolean` := v0 @kind boolean;
+  #L1a40e0.  call `loadFromAttributes`(v1, v2, v3) @signature `Lcom/google/android/material/internal/FlowLayout;.loadFromAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1a40e6.  return @kind void;
+}
+procedure `int` `getMeasuredDimension`(`int` v1 @name `size`, `int` v2 @name `mode`, `int` v3 @name `childrenEdge`) @signature `Lcom/google/android/material/internal/FlowLayout;.getMeasuredDimension:(III)I` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+
+  #L1a4048.  v0:= -2147483648I;
+  #L1a404c.  if v2 == v0 then goto L1a405c;
+  #L1a4050.  v0:= 2.0F;
+  #L1a4054.  if v2 == v0 then goto L1a405a;
+  #L1a4058.  return v3;
+  #L1a405a.  return v1;
+  #L1a405c.  call temp:= `min`(v3, v1) @signature `Ljava/lang/Math;.min:(II)I` @kind static;
+  #L1a4062.  v0:= temp;
+  #L1a4064.  return v0;
+}
+procedure `void` `loadFromAttributes`(`com.google.android.material.internal.FlowLayout` v3 @kind this, `android.content.Context` v4 @kind object @name `context`, `android.util.AttributeSet` v5 @kind object @name `attrs`) @signature `Lcom/google/android/material/internal/FlowLayout;.loadFromAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a40f8.  
+  #L1a40fa.  call temp:= `getTheme`(v4) @signature `Landroid/content/Context;.getTheme:()Landroid/content/res/Resources$Theme;` @kind virtual;
+  #L1a4100.  v0:= temp @kind object;
+  #L1a4102.  v1:= `@@com.google.android.material.R$styleable.FlowLayout` @type ^`int`[] @kind object;
+  #L1a4106.  v2:= 0I;
+  #L1a4108.  call temp:= `obtainStyledAttributes`(v0, v5, v1, v2, v2) @signature `Landroid/content/res/Resources$Theme;.obtainStyledAttributes:(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1a410e.  v0:= temp @kind object;
+  #L1a4110.  v1:= `@@com.google.android.material.R$styleable.FlowLayout_lineSpacing` @type ^`int`;
+  #L1a4114.  call temp:= `getDimensionPixelSize`(v0, v1, v2) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1a411a.  v1:= temp;
+  #L1a411c.  v3.`com.google.android.material.internal.FlowLayout.lineSpacing` @type ^`int` := v1;
+  #L1a4120.  v1:= `@@com.google.android.material.R$styleable.FlowLayout_itemSpacing` @type ^`int`;
+  #L1a4124.  call temp:= `getDimensionPixelSize`(v0, v1, v2) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1a412a.  v1:= temp;
+  #L1a412c.  v3.`com.google.android.material.internal.FlowLayout.itemSpacing` @type ^`int` := v1;
+  #L1a4130.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1a4136.  return @kind void;
+}
+procedure `int` `getItemSpacing`(`com.google.android.material.internal.FlowLayout` v1 @kind this) @signature `Lcom/google/android/material/internal/FlowLayout;.getItemSpacing:()I` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L1a4018.  v0:= v1.`com.google.android.material.internal.FlowLayout.itemSpacing` @type ^`int`;
+  #L1a401c.  return v0;
+}
+procedure `int` `getLineSpacing`(`com.google.android.material.internal.FlowLayout` v1 @kind this) @signature `Lcom/google/android/material/internal/FlowLayout;.getLineSpacing:()I` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L1a4030.  v0:= v1.`com.google.android.material.internal.FlowLayout.lineSpacing` @type ^`int`;
+  #L1a4034.  return v0;
+}
+procedure `boolean` `isSingleLine`(`com.google.android.material.internal.FlowLayout` v1 @kind this) @signature `Lcom/google/android/material/internal/FlowLayout;.isSingleLine:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a4000.  v0:= v1.`com.google.android.material.internal.FlowLayout.singleLine` @type ^`boolean` @kind boolean;
+  #L1a4004.  return v0;
+}
+procedure `void` `onLayout`(`com.google.android.material.internal.FlowLayout` v16 @kind this, `boolean` v17 @name `sizeChanged`, `int` v18 @name `left`, `int` v19 @name `top`, `int` v20 @name `right`, `int` v21 @name `bottom`) @signature `Lcom/google/android/material/internal/FlowLayout;.onLayout:(ZIIII)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+    v12;
+    v13;
+    v14;
+    v15;
+
+  #L1a4148.  v0:= v16 @kind object;
+  #L1a414c.  call temp:= `getChildCount`(v16) @signature `Lcom/google/android/material/internal/FlowLayout;.getChildCount:()I` @kind virtual;
+  #L1a4152.  v1:= temp;
+  #L1a4154.  if v1 != 0 then goto L1a415a;
+  #L1a4158.  return @kind void;
+  #L1a415a.  call temp:= `getLayoutDirection`(v16) @signature `Landroidx/core/view/ViewCompat;.getLayoutDirection:(Landroid/view/View;)I` @kind static;
+  #L1a4160.  v1:= temp;
+  #L1a4162.  v2:= 1I;
+  #L1a4164.  if v1 != v2 then goto L1a416a;
+  #L1a4168.  goto L1a416c;
+  #L1a416a.  v2:= 0I;
+  #L1a416c.  v1:= v2;
+  #L1a416e.  if v1 == 0 then goto L1a417c;
+  #L1a4172.  call temp:= `getPaddingRight`(v16) @signature `Lcom/google/android/material/internal/FlowLayout;.getPaddingRight:()I` @kind virtual;
+  #L1a4178.  v2:= temp;
+  #L1a417a.  goto L1a4184;
+  #L1a417c.  call temp:= `getPaddingLeft`(v16) @signature `Lcom/google/android/material/internal/FlowLayout;.getPaddingLeft:()I` @kind virtual;
+  #L1a4182.  v2:= temp;
+  #L1a4184.  if v1 == 0 then goto L1a4192;
+  #L1a4188.  call temp:= `getPaddingLeft`(v16) @signature `Lcom/google/android/material/internal/FlowLayout;.getPaddingLeft:()I` @kind virtual;
+  #L1a418e.  v3:= temp;
+  #L1a4190.  goto L1a419a;
+  #L1a4192.  call temp:= `getPaddingRight`(v16) @signature `Lcom/google/android/material/internal/FlowLayout;.getPaddingRight:()I` @kind virtual;
+  #L1a4198.  v3:= temp;
+  #L1a419a.  v4:= v2;
+  #L1a419c.  call temp:= `getPaddingTop`(v16) @signature `Lcom/google/android/material/internal/FlowLayout;.getPaddingTop:()I` @kind virtual;
+  #L1a41a2.  v5:= temp;
+  #L1a41a4.  v6:= v5;
+  #L1a41a6.  v7:= v20 - v18 @kind int;
+  #L1a41aa.  v7:= v7 - v3 @kind int;
+  #L1a41ac.  v8:= 0I;
+  #L1a41ae.  call temp:= `getChildCount`(v16) @signature `Lcom/google/android/material/internal/FlowLayout;.getChildCount:()I` @kind virtual;
+  #L1a41b4.  v9:= temp;
+  #L1a41b6.  if v8 >= v9 then goto L1a4278;
+  #L1a41ba.  call temp:= `getChildAt`(v0, v8) @signature `Lcom/google/android/material/internal/FlowLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1a41c0.  v9:= temp @kind object;
+  #L1a41c2.  call temp:= `getVisibility`(v9) @signature `Landroid/view/View;.getVisibility:()I` @kind virtual;
+  #L1a41c8.  v10:= temp;
+  #L1a41ca.  v11:= 8I;
+  #L1a41ce.  if v10 != v11 then goto L1a41d4;
+  #L1a41d2.  goto L1a4272;
+  #L1a41d4.  call temp:= `getLayoutParams`(v9) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L1a41da.  v10:= temp @kind object;
+  #L1a41dc.  v11:= 0I;
+  #L1a41de.  v12:= 0I;
+  #L1a41e0.  v13:= instanceof @variable v10 @type ^`android.view.ViewGroup$MarginLayoutParams` @kind boolean;
+  #L1a41e4.  if v13 == 0 then goto L1a41fe;
+  #L1a41e8.  v13:= v10 @kind object;
+  #L1a41ea.  v13:= (`android.view.ViewGroup$MarginLayoutParams`) v13 @kind object;
+  #L1a41ee.  call temp:= `getMarginStart`(v13) @signature `Landroidx/core/view/MarginLayoutParamsCompat;.getMarginStart:(Landroid/view/ViewGroup$MarginLayoutParams;)I` @kind static;
+  #L1a41f4.  v11:= temp;
+  #L1a41f6.  call temp:= `getMarginEnd`(v13) @signature `Landroidx/core/view/MarginLayoutParamsCompat;.getMarginEnd:(Landroid/view/ViewGroup$MarginLayoutParams;)I` @kind static;
+  #L1a41fc.  v12:= temp;
+  #L1a41fe.  v13:= v4 + v11 @kind int;
+  #L1a4202.  call temp:= `getMeasuredWidth`(v9) @signature `Landroid/view/View;.getMeasuredWidth:()I` @kind virtual;
+  #L1a4208.  v14:= temp;
+  #L1a420a.  v13:= v13 + v14 @kind int;
+  #L1a420c.  v14:= v0.`com.google.android.material.internal.FlowLayout.singleLine` @type ^`boolean` @kind boolean;
+  #L1a4210.  if v14 != 0 then goto L1a4222;
+  #L1a4214.  if v13 <= v7 then goto L1a4222;
+  #L1a4218.  v4:= v2;
+  #L1a421a.  v14:= v0.`com.google.android.material.internal.FlowLayout.lineSpacing` @type ^`int`;
+  #L1a421e.  v5:= v6 + v14 @kind int;
+  #L1a4222.  v14:= v4 + v11 @kind int;
+  #L1a4226.  call temp:= `getMeasuredWidth`(v9) @signature `Landroid/view/View;.getMeasuredWidth:()I` @kind virtual;
+  #L1a422c.  v15:= temp;
+  #L1a422e.  v14:= v14 + v15 @kind int;
+  #L1a4230.  call temp:= `getMeasuredHeight`(v9) @signature `Landroid/view/View;.getMeasuredHeight:()I` @kind virtual;
+  #L1a4236.  v13:= temp;
+  #L1a4238.  v13:= v13 + v5 @kind int;
+  #L1a423a.  if v1 == 0 then goto L1a4250;
+  #L1a423e.  v6:= v7 - v14 @kind int;
+  #L1a4242.  v15:= v7 - v4 @kind int;
+  #L1a4246.  v15:= v15 - v11 @kind int;
+  #L1a4248.  call `layout`(v9, v6, v5, v15, v13) @signature `Landroid/view/View;.layout:(IIII)V` @kind virtual;
+  #L1a424e.  goto L1a425a;
+  #L1a4250.  v6:= v4 + v11 @kind int;
+  #L1a4254.  call `layout`(v9, v6, v5, v14, v13) @signature `Landroid/view/View;.layout:(IIII)V` @kind virtual;
+  #L1a425a.  v6:= v11 + v12 @kind int;
+  #L1a425e.  call temp:= `getMeasuredWidth`(v9) @signature `Landroid/view/View;.getMeasuredWidth:()I` @kind virtual;
+  #L1a4264.  v15:= temp;
+  #L1a4266.  v6:= v6 + v15 @kind int;
+  #L1a4268.  v15:= v0.`com.google.android.material.internal.FlowLayout.itemSpacing` @type ^`int`;
+  #L1a426c.  v6:= v6 + v15 @kind int;
+  #L1a426e.  v4:= v4 + v6 @kind int;
+  #L1a4270.  v6:= v13;
+  #L1a4272.  v8:= v8 + 1;
+  #L1a4276.  goto L1a41ae;
+  #L1a4278.  return @kind void;
+}
+procedure `void` `onMeasure`(`com.google.android.material.internal.FlowLayout` v21 @kind this, `int` v22 @name `widthMeasureSpec`, `int` v23 @name `heightMeasureSpec`) @signature `Lcom/google/android/material/internal/FlowLayout;.onMeasure:(II)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+    v12;
+    v13;
+    v14;
+    v15;
+    v16;
+    v17;
+    v18;
+    v19;
+    v20;
+
+  #L1a428c.  v0:= v21 @kind object;
+  #L1a4290.  call temp:= `getSize`(v22) @signature `Landroid/view/View$MeasureSpec;.getSize:(I)I` @kind static;
+  #L1a4296.  v1:= temp;
+  #L1a4298.  call temp:= `getMode`(v22) @signature `Landroid/view/View$MeasureSpec;.getMode:(I)I` @kind static;
+  #L1a429e.  v2:= temp;
+  #L1a42a0.  call temp:= `getSize`(v23) @signature `Landroid/view/View$MeasureSpec;.getSize:(I)I` @kind static;
+  #L1a42a6.  v3:= temp;
+  #L1a42a8.  call temp:= `getMode`(v23) @signature `Landroid/view/View$MeasureSpec;.getMode:(I)I` @kind static;
+  #L1a42ae.  v4:= temp;
+  #L1a42b0.  v5:= -2147483648I;
+  #L1a42b4.  if v2 == v5 then goto L1a42ca;
+  #L1a42b8.  v5:= 2.0F;
+  #L1a42bc.  if v2 != v5 then goto L1a42c2;
+  #L1a42c0.  goto L1a42ca;
+  #L1a42c2.  v5:= 2147483647I;
+  #L1a42c8.  goto L1a42cc;
+  #L1a42ca.  v5:= v1;
+  #L1a42cc.  call temp:= `getPaddingLeft`(v21) @signature `Lcom/google/android/material/internal/FlowLayout;.getPaddingLeft:()I` @kind virtual;
+  #L1a42d2.  v6:= temp;
+  #L1a42d4.  call temp:= `getPaddingTop`(v21) @signature `Lcom/google/android/material/internal/FlowLayout;.getPaddingTop:()I` @kind virtual;
+  #L1a42da.  v7:= temp;
+  #L1a42dc.  v8:= v7;
+  #L1a42de.  v9:= v6;
+  #L1a42e0.  v10:= 0I;
+  #L1a42e2.  call temp:= `getPaddingRight`(v21) @signature `Lcom/google/android/material/internal/FlowLayout;.getPaddingRight:()I` @kind virtual;
+  #L1a42e8.  v11:= temp;
+  #L1a42ea.  v11:= v5 - v11 @kind int;
+  #L1a42ee.  v12:= 0I;
+  #L1a42f0.  call temp:= `getChildCount`(v21) @signature `Lcom/google/android/material/internal/FlowLayout;.getChildCount:()I` @kind virtual;
+  #L1a42f6.  v13:= temp;
+  #L1a42f8.  if v12 >= v13 then goto L1a440a;
+  #L1a42fc.  call temp:= `getChildAt`(v0, v12) @signature `Lcom/google/android/material/internal/FlowLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1a4302.  v13:= temp @kind object;
+  #L1a4304.  call temp:= `getVisibility`(v13) @signature `Landroid/view/View;.getVisibility:()I` @kind virtual;
+  #L1a430a.  v14:= temp;
+  #L1a430c.  v15:= 8I;
+  #L1a4310.  if v14 != v15 then goto L1a4324;
+  #L1a4314.  v14:= v22;
+  #L1a4318.  v15:= v23;
+  #L1a431c.  v16:= v5;
+  #L1a4320.  goto L1a43fe;
+  #L1a4324.  v14:= v22;
+  #L1a4328.  v15:= v23;
+  #L1a432c.  call `measureChild`(v0, v13, v14, v15) @signature `Lcom/google/android/material/internal/FlowLayout;.measureChild:(Landroid/view/View;II)V` @kind virtual;
+  #L1a4332.  v16:= v5;
+  #L1a4336.  call temp:= `getLayoutParams`(v13) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L1a433c.  v5:= temp @kind object;
+  #L1a433e.  v17:= 0I;
+  #L1a4342.  v18:= 0I;
+  #L1a4346.  v19:= v7;
+  #L1a434a.  v7:= instanceof @variable v5 @type ^`android.view.ViewGroup$MarginLayoutParams` @kind boolean;
+  #L1a434e.  if v7 == 0 then goto L1a436e;
+  #L1a4352.  v7:= v5 @kind object;
+  #L1a4354.  v7:= (`android.view.ViewGroup$MarginLayoutParams`) v7 @kind object;
+  #L1a4358.  v20:= v5 @kind object;
+  #L1a435c.  v5:= v7.`android.view.ViewGroup$MarginLayoutParams.leftMargin` @type ^`int`;
+  #L1a4360.  v17:= v17 + v5 @kind int;
+  #L1a4364.  v5:= v7.`android.view.ViewGroup$MarginLayoutParams.rightMargin` @type ^`int`;
+  #L1a4368.  v18:= v18 + v5 @kind int;
+  #L1a436c.  goto L1a4372;
+  #L1a436e.  v20:= v5 @kind object;
+  #L1a4372.  v5:= v6 + v17 @kind int;
+  #L1a4376.  call temp:= `getMeasuredWidth`(v13) @signature `Landroid/view/View;.getMeasuredWidth:()I` @kind virtual;
+  #L1a437c.  v7:= temp;
+  #L1a437e.  v5:= v5 + v7 @kind int;
+  #L1a4380.  if v5 <= v11 then goto L1a43a0;
+  #L1a4384.  call temp:= `isSingleLine`(v21) @signature `Lcom/google/android/material/internal/FlowLayout;.isSingleLine:()Z` @kind virtual;
+  #L1a438a.  v7:= temp;
+  #L1a438c.  if v7 != 0 then goto L1a43a0;
+  #L1a4390.  call temp:= `getPaddingLeft`(v21) @signature `Lcom/google/android/material/internal/FlowLayout;.getPaddingLeft:()I` @kind virtual;
+  #L1a4396.  v6:= temp;
+  #L1a4398.  v7:= v0.`com.google.android.material.internal.FlowLayout.lineSpacing` @type ^`int`;
+  #L1a439c.  v7:= v7 + v8 @kind int;
+  #L1a439e.  goto L1a43a4;
+  #L1a43a0.  v7:= v19;
+  #L1a43a4.  v9:= v6 + v17 @kind int;
+  #L1a43a8.  call temp:= `getMeasuredWidth`(v13) @signature `Landroid/view/View;.getMeasuredWidth:()I` @kind virtual;
+  #L1a43ae.  v19:= temp;
+  #L1a43b0.  v9:= v9 + v19 @kind int;
+  #L1a43b4.  call temp:= `getMeasuredHeight`(v13) @signature `Landroid/view/View;.getMeasuredHeight:()I` @kind virtual;
+  #L1a43ba.  v5:= temp;
+  #L1a43bc.  v5:= v5 + v7 @kind int;
+  #L1a43be.  if v9 <= v10 then goto L1a43c4;
+  #L1a43c2.  v10:= v9;
+  #L1a43c4.  v8:= v17 + v18 @kind int;
+  #L1a43c8.  call temp:= `getMeasuredWidth`(v13) @signature `Landroid/view/View;.getMeasuredWidth:()I` @kind virtual;
+  #L1a43ce.  v19:= temp;
+  #L1a43d0.  v8:= v8 + v19 @kind int;
+  #L1a43d4.  v19:= v5;
+  #L1a43d8.  v5:= v0.`com.google.android.material.internal.FlowLayout.itemSpacing` @type ^`int`;
+  #L1a43dc.  v8:= v8 + v5 @kind int;
+  #L1a43de.  v6:= v6 + v8 @kind int;
+  #L1a43e0.  call temp:= `getChildCount`(v21) @signature `Lcom/google/android/material/internal/FlowLayout;.getChildCount:()I` @kind virtual;
+  #L1a43e6.  v5:= temp;
+  #L1a43e8.  v5:= v5 + -1;
+  #L1a43ec.  if v12 != v5 then goto L1a43fa;
+  #L1a43f0.  v10:= v10 + v18 @kind int;
+  #L1a43f4.  v8:= v19;
+  #L1a43f8.  goto L1a43fe;
+  #L1a43fa.  v8:= v19;
+  #L1a43fe.  v12:= v12 + 1;
+  #L1a4402.  v5:= v16;
+  #L1a4406.  goto L1a42f0;
+  #L1a440a.  v16:= v5;
+  #L1a440e.  v19:= v7;
+  #L1a4412.  call temp:= `getPaddingRight`(v21) @signature `Lcom/google/android/material/internal/FlowLayout;.getPaddingRight:()I` @kind virtual;
+  #L1a4418.  v5:= temp;
+  #L1a441a.  v10:= v10 + v5 @kind int;
+  #L1a441c.  call temp:= `getPaddingBottom`(v21) @signature `Lcom/google/android/material/internal/FlowLayout;.getPaddingBottom:()I` @kind virtual;
+  #L1a4422.  v5:= temp;
+  #L1a4424.  v8:= v8 + v5 @kind int;
+  #L1a4426.  call temp:= `getMeasuredDimension`(v1, v2, v10) @signature `Lcom/google/android/material/internal/FlowLayout;.getMeasuredDimension:(III)I` @kind static;
+  #L1a442c.  v5:= temp;
+  #L1a442e.  call temp:= `getMeasuredDimension`(v3, v4, v8) @signature `Lcom/google/android/material/internal/FlowLayout;.getMeasuredDimension:(III)I` @kind static;
+  #L1a4434.  v7:= temp;
+  #L1a4436.  call `setMeasuredDimension`(v0, v5, v7) @signature `Lcom/google/android/material/internal/FlowLayout;.setMeasuredDimension:(II)V` @kind virtual;
+  #L1a443c.  return @kind void;
+}
+procedure `void` `setItemSpacing`(`com.google.android.material.internal.FlowLayout` v0 @kind this, `int` v1 @name `itemSpacing`) @signature `Lcom/google/android/material/internal/FlowLayout;.setItemSpacing:(I)V` @AccessFlag PROTECTED {
+    temp;
+
+  #L1a4450.  v0.`com.google.android.material.internal.FlowLayout.itemSpacing` @type ^`int` := v1;
+  #L1a4454.  return @kind void;
+}
+procedure `void` `setLineSpacing`(`com.google.android.material.internal.FlowLayout` v0 @kind this, `int` v1 @name `lineSpacing`) @signature `Lcom/google/android/material/internal/FlowLayout;.setLineSpacing:(I)V` @AccessFlag PROTECTED {
+    temp;
+
+  #L1a4468.  v0.`com.google.android.material.internal.FlowLayout.lineSpacing` @type ^`int` := v1;
+  #L1a446c.  return @kind void;
+}
+procedure `void` `setSingleLine`(`com.google.android.material.internal.FlowLayout` v0 @kind this, `boolean` v1 @name `singleLine`) @signature `Lcom/google/android/material/internal/FlowLayout;.setSingleLine:(Z)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1a4480.  v0.`com.google.android.material.internal.FlowLayout.singleLine` @type ^`boolean` := v1 @kind boolean;
+  #L1a4484.  return @kind void;
+}

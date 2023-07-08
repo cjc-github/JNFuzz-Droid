@@ -1,0 +1,911 @@
+record `com.google.android.material.badge.BadgeDrawable` @kind class @AccessFlag PUBLIC extends `android.graphics.drawable.Drawable` @kind class, `com.google.android.material.internal.TextDrawableHelper$TextDrawableDelegate` @kind interface {
+  `java.lang.ref.WeakReference` `com.google.android.material.badge.BadgeDrawable.anchorViewRef` @AccessFlag PRIVATE;
+  `android.graphics.Rect` `com.google.android.material.badge.BadgeDrawable.badgeBounds` @AccessFlag PRIVATE_FINAL;
+  `float` `com.google.android.material.badge.BadgeDrawable.badgeCenterX` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.badge.BadgeDrawable.badgeCenterY` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.badge.BadgeDrawable.badgeRadius` @AccessFlag PRIVATE_FINAL;
+  `float` `com.google.android.material.badge.BadgeDrawable.badgeWidePadding` @AccessFlag PRIVATE_FINAL;
+  `float` `com.google.android.material.badge.BadgeDrawable.badgeWithTextRadius` @AccessFlag PRIVATE_FINAL;
+  `java.lang.ref.WeakReference` `com.google.android.material.badge.BadgeDrawable.contextRef` @AccessFlag PRIVATE_FINAL;
+  `float` `com.google.android.material.badge.BadgeDrawable.cornerRadius` @AccessFlag PRIVATE;
+  `java.lang.ref.WeakReference` `com.google.android.material.badge.BadgeDrawable.customBadgeParentRef` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.badge.BadgeDrawable.halfBadgeHeight` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.badge.BadgeDrawable.halfBadgeWidth` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.badge.BadgeDrawable.maxBadgeNumber` @AccessFlag PRIVATE;
+  `com.google.android.material.badge.BadgeDrawable$SavedState` `com.google.android.material.badge.BadgeDrawable.savedState` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.shape.MaterialShapeDrawable` `com.google.android.material.badge.BadgeDrawable.shapeDrawable` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.internal.TextDrawableHelper` `com.google.android.material.badge.BadgeDrawable.textDrawableHelper` @AccessFlag PRIVATE_FINAL;
+}
+global `int` `@@com.google.android.material.badge.BadgeDrawable.BADGE_NUMBER_NONE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.badge.BadgeDrawable.BOTTOM_END` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.badge.BadgeDrawable.BOTTOM_START` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@com.google.android.material.badge.BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX` @AccessFlag STATIC_FINAL;
+global `int` `@@com.google.android.material.badge.BadgeDrawable.DEFAULT_MAX_BADGE_CHARACTER_COUNT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.badge.BadgeDrawable.DEFAULT_STYLE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.badge.BadgeDrawable.DEFAULT_THEME_ATTR` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.badge.BadgeDrawable.MAX_CIRCULAR_BADGE_NUMBER_COUNT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.badge.BadgeDrawable.TOP_END` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.badge.BadgeDrawable.TOP_START` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/badge/BadgeDrawable;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L183040.  v0:= `@@com.google.android.material.R$style.Widget_MaterialComponents_Badge` @type ^`int`;
+  #L183044.  `@@com.google.android.material.badge.BadgeDrawable.DEFAULT_STYLE` @type ^`int` := v0;
+  #L183048.  v0:= `@@com.google.android.material.R$attr.badgeStyle` @type ^`int`;
+  #L18304c.  `@@com.google.android.material.badge.BadgeDrawable.DEFAULT_THEME_ATTR` @type ^`int` := v0;
+  #L183050.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.badge.BadgeDrawable` v3 @kind this, `android.content.Context` v4 @kind object @name `context`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.<init>:(Landroid/content/Context;)V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L183064.  call `<init>`(v3) @signature `Landroid/graphics/drawable/Drawable;.<init>:()V` @kind direct;
+  #L18306a.  v0:= new `java.lang.ref.WeakReference`;
+  #L18306e.  call `<init>`(v0, v4) @signature `Ljava/lang/ref/WeakReference;.<init>:(Ljava/lang/Object;)V` @kind direct;
+  #L183074.  v3.`com.google.android.material.badge.BadgeDrawable.contextRef` @type ^`java.lang.ref.WeakReference` := v0 @kind object;
+  #L183078.  call `checkMaterialTheme`(v4) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.checkMaterialTheme:(Landroid/content/Context;)V` @kind static;
+  #L18307e.  call temp:= `getResources`(v4) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L183084.  v0:= temp @kind object;
+  #L183086.  v1:= new `android.graphics.Rect`;
+  #L18308a.  call `<init>`(v1) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L183090.  v3.`com.google.android.material.badge.BadgeDrawable.badgeBounds` @type ^`android.graphics.Rect` := v1 @kind object;
+  #L183094.  v1:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L183098.  call `<init>`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:()V` @kind direct;
+  #L18309e.  v3.`com.google.android.material.badge.BadgeDrawable.shapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` := v1 @kind object;
+  #L1830a2.  v1:= `@@com.google.android.material.R$dimen.mtrl_badge_radius` @type ^`int`;
+  #L1830a6.  call temp:= `getDimensionPixelSize`(v0, v1) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L1830ac.  v1:= temp;
+  #L1830ae.  v1:= (`float`) v1 @kind i2f;
+  #L1830b0.  v3.`com.google.android.material.badge.BadgeDrawable.badgeRadius` @type ^`float` := v1;
+  #L1830b4.  v1:= `@@com.google.android.material.R$dimen.mtrl_badge_long_text_horizontal_padding` @type ^`int`;
+  #L1830b8.  call temp:= `getDimensionPixelSize`(v0, v1) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L1830be.  v1:= temp;
+  #L1830c0.  v1:= (`float`) v1 @kind i2f;
+  #L1830c2.  v3.`com.google.android.material.badge.BadgeDrawable.badgeWidePadding` @type ^`float` := v1;
+  #L1830c6.  v1:= `@@com.google.android.material.R$dimen.mtrl_badge_with_text_radius` @type ^`int`;
+  #L1830ca.  call temp:= `getDimensionPixelSize`(v0, v1) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L1830d0.  v1:= temp;
+  #L1830d2.  v1:= (`float`) v1 @kind i2f;
+  #L1830d4.  v3.`com.google.android.material.badge.BadgeDrawable.badgeWithTextRadius` @type ^`float` := v1;
+  #L1830d8.  v1:= new `com.google.android.material.internal.TextDrawableHelper`;
+  #L1830dc.  call `<init>`(v1, v3) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.<init>:(Lcom/google/android/material/internal/TextDrawableHelper$TextDrawableDelegate;)V` @kind direct;
+  #L1830e2.  v3.`com.google.android.material.badge.BadgeDrawable.textDrawableHelper` @type ^`com.google.android.material.internal.TextDrawableHelper` := v1 @kind object;
+  #L1830e6.  call temp:= `getTextPaint`(v1) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.getTextPaint:()Landroid/text/TextPaint;` @kind virtual;
+  #L1830ec.  v1:= temp @kind object;
+  #L1830ee.  v2:= `@@android.graphics.Paint$Align.CENTER` @type ^`android.graphics.Paint$Align` @kind object;
+  #L1830f2.  call `setTextAlign`(v1, v2) @signature `Landroid/text/TextPaint;.setTextAlign:(Landroid/graphics/Paint$Align;)V` @kind virtual;
+  #L1830f8.  v1:= new `com.google.android.material.badge.BadgeDrawable$SavedState`;
+  #L1830fc.  call `<init>`(v1, v4) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L183102.  v3.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` := v1 @kind object;
+  #L183106.  v1:= `@@com.google.android.material.R$style.TextAppearance_MaterialComponents_Badge` @type ^`int`;
+  #L18310a.  call `setTextAppearanceResource`(v3, v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setTextAppearanceResource:(I)V` @kind direct;
+  #L183110.  return @kind void;
+}
+procedure `void` `calculateCenterAndBounds`(`com.google.android.material.badge.BadgeDrawable` v4 @kind this, `android.content.Context` v5 @kind object @name `context`, `android.graphics.Rect` v6 @kind object @name `anchorRect`, `android.view.View` v7 @kind object @name `anchorView`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.calculateCenterAndBounds:(Landroid/content/Context;Landroid/graphics/Rect;Landroid/view/View;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L183124.  v0:= v4.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L183128.  call temp:= `access$400`(v0) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$400:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)I` @kind static;
+  #L18312e.  v0:= temp;
+  #L183130.  v1:= 8388691I;
+  #L183136.  if v0 == v1 then goto L183150;
+  #L18313a.  v2:= 8388693I;
+  #L183140.  if v0 == v2 then goto L183150;
+  #L183144.  v0:= v6.`android.graphics.Rect.top` @type ^`int`;
+  #L183148.  v0:= (`float`) v0 @kind i2f;
+  #L18314a.  v4.`com.google.android.material.badge.BadgeDrawable.badgeCenterY` @type ^`float` := v0;
+  #L18314e.  goto L18315c;
+  #L183150.  v0:= v6.`android.graphics.Rect.bottom` @type ^`int`;
+  #L183154.  v0:= (`float`) v0 @kind i2f;
+  #L183156.  v4.`com.google.android.material.badge.BadgeDrawable.badgeCenterY` @type ^`float` := v0;
+  #L18315a.  
+  #L18315c.  call temp:= `getNumber`(v4) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getNumber:()I` @kind virtual;
+  #L183162.  v0:= temp;
+  #L183164.  v2:= 9I;
+  #L183168.  if v0 > v2 then goto L183190;
+  #L18316c.  call temp:= `hasNumber`(v4) @signature `Lcom/google/android/material/badge/BadgeDrawable;.hasNumber:()Z` @kind virtual;
+  #L183172.  v0:= temp;
+  #L183174.  if v0 != 0 then goto L18317e;
+  #L183178.  v0:= v4.`com.google.android.material.badge.BadgeDrawable.badgeRadius` @type ^`float`;
+  #L18317c.  goto L183182;
+  #L18317e.  v0:= v4.`com.google.android.material.badge.BadgeDrawable.badgeWithTextRadius` @type ^`float`;
+  #L183182.  v4.`com.google.android.material.badge.BadgeDrawable.cornerRadius` @type ^`float` := v0;
+  #L183186.  v4.`com.google.android.material.badge.BadgeDrawable.halfBadgeHeight` @type ^`float` := v0;
+  #L18318a.  v4.`com.google.android.material.badge.BadgeDrawable.halfBadgeWidth` @type ^`float` := v0;
+  #L18318e.  goto L1831c0;
+  #L183190.  v0:= v4.`com.google.android.material.badge.BadgeDrawable.badgeWithTextRadius` @type ^`float`;
+  #L183194.  v4.`com.google.android.material.badge.BadgeDrawable.cornerRadius` @type ^`float` := v0;
+  #L183198.  v4.`com.google.android.material.badge.BadgeDrawable.halfBadgeHeight` @type ^`float` := v0;
+  #L18319c.  call temp:= `getBadgeText`(v4) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getBadgeText:()Ljava/lang/String;` @kind direct;
+  #L1831a2.  v0:= temp @kind object;
+  #L1831a4.  v2:= v4.`com.google.android.material.badge.BadgeDrawable.textDrawableHelper` @type ^`com.google.android.material.internal.TextDrawableHelper` @kind object;
+  #L1831a8.  call temp:= `getTextWidth`(v2, v0) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.getTextWidth:(Ljava/lang/String;)F` @kind virtual;
+  #L1831ae.  v2:= temp;
+  #L1831b0.  v3:= 2.0F;
+  #L1831b4.  v2:= v2 / v3 @kind float;
+  #L1831b6.  v3:= v4.`com.google.android.material.badge.BadgeDrawable.badgeWidePadding` @type ^`float`;
+  #L1831ba.  v2:= v2 + v3 @kind float;
+  #L1831bc.  v4.`com.google.android.material.badge.BadgeDrawable.halfBadgeWidth` @type ^`float` := v2;
+  #L1831c0.  
+  #L1831c2.  call temp:= `getResources`(v5) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1831c8.  v0:= temp @kind object;
+  #L1831ca.  call temp:= `hasNumber`(v4) @signature `Lcom/google/android/material/badge/BadgeDrawable;.hasNumber:()Z` @kind virtual;
+  #L1831d0.  v2:= temp;
+  #L1831d2.  if v2 == 0 then goto L1831dc;
+  #L1831d6.  v2:= `@@com.google.android.material.R$dimen.mtrl_badge_text_horizontal_edge_offset` @type ^`int`;
+  #L1831da.  goto L1831e0;
+  #L1831dc.  v2:= `@@com.google.android.material.R$dimen.mtrl_badge_horizontal_edge_offset` @type ^`int`;
+  #L1831e0.  call temp:= `getDimensionPixelSize`(v0, v2) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L1831e6.  v0:= temp;
+  #L1831e8.  v2:= v4.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L1831ec.  call temp:= `access$400`(v2) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$400:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)I` @kind static;
+  #L1831f2.  v2:= temp;
+  #L1831f4.  v3:= 8388659I;
+  #L1831fa.  if v2 == v3 then goto L183238;
+  #L1831fe.  if v2 == v1 then goto L183238;
+  #L183202.  
+  #L183204.  call temp:= `getLayoutDirection`(v7) @signature `Landroidx/core/view/ViewCompat;.getLayoutDirection:(Landroid/view/View;)I` @kind static;
+  #L18320a.  v1:= temp;
+  #L18320c.  if v1 != 0 then goto L183222;
+  #L183210.  v1:= v6.`android.graphics.Rect.right` @type ^`int`;
+  #L183214.  v1:= (`float`) v1 @kind i2f;
+  #L183216.  v2:= v4.`com.google.android.material.badge.BadgeDrawable.halfBadgeWidth` @type ^`float`;
+  #L18321a.  v1:= v1 + v2 @kind float;
+  #L18321c.  v2:= (`float`) v0 @kind i2f;
+  #L18321e.  v1:= v1 - v2 @kind float;
+  #L183220.  goto L183232;
+  #L183222.  v1:= v6.`android.graphics.Rect.left` @type ^`int`;
+  #L183226.  v1:= (`float`) v1 @kind i2f;
+  #L183228.  v2:= v4.`com.google.android.material.badge.BadgeDrawable.halfBadgeWidth` @type ^`float`;
+  #L18322c.  v1:= v1 - v2 @kind float;
+  #L18322e.  v2:= (`float`) v0 @kind i2f;
+  #L183230.  v1:= v1 + v2 @kind float;
+  #L183232.  v4.`com.google.android.material.badge.BadgeDrawable.badgeCenterX` @type ^`float` := v1;
+  #L183236.  goto L18326e;
+  #L183238.  
+  #L18323a.  call temp:= `getLayoutDirection`(v7) @signature `Landroidx/core/view/ViewCompat;.getLayoutDirection:(Landroid/view/View;)I` @kind static;
+  #L183240.  v1:= temp;
+  #L183242.  if v1 != 0 then goto L183258;
+  #L183246.  v1:= v6.`android.graphics.Rect.left` @type ^`int`;
+  #L18324a.  v1:= (`float`) v1 @kind i2f;
+  #L18324c.  v2:= v4.`com.google.android.material.badge.BadgeDrawable.halfBadgeWidth` @type ^`float`;
+  #L183250.  v1:= v1 - v2 @kind float;
+  #L183252.  v2:= (`float`) v0 @kind i2f;
+  #L183254.  v1:= v1 + v2 @kind float;
+  #L183256.  goto L183268;
+  #L183258.  v1:= v6.`android.graphics.Rect.right` @type ^`int`;
+  #L18325c.  v1:= (`float`) v1 @kind i2f;
+  #L18325e.  v2:= v4.`com.google.android.material.badge.BadgeDrawable.halfBadgeWidth` @type ^`float`;
+  #L183262.  v1:= v1 + v2 @kind float;
+  #L183264.  v2:= (`float`) v0 @kind i2f;
+  #L183266.  v1:= v1 - v2 @kind float;
+  #L183268.  v4.`com.google.android.material.badge.BadgeDrawable.badgeCenterX` @type ^`float` := v1;
+  #L18326c.  
+  #L18326e.  return @kind void;
+}
+procedure `com.google.android.material.badge.BadgeDrawable` `create`(`android.content.Context` v3 @kind object @name `context`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.create:(Landroid/content/Context;)Lcom/google/android/material/badge/BadgeDrawable;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L182d04.  v0:= `@@com.google.android.material.badge.BadgeDrawable.DEFAULT_THEME_ATTR` @type ^`int`;
+  #L182d08.  v1:= `@@com.google.android.material.badge.BadgeDrawable.DEFAULT_STYLE` @type ^`int`;
+  #L182d0c.  v2:= 0I;
+  #L182d0e.  call temp:= `createFromAttributes`(v3, v2, v0, v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.createFromAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;II)Lcom/google/android/material/badge/BadgeDrawable;` @kind static;
+  #L182d14.  v0:= temp @kind object;
+  #L182d16.  return v0 @kind object;
+}
+procedure `com.google.android.material.badge.BadgeDrawable` `createFromAttributes`(`android.content.Context` v1 @kind object @name `context`, `android.util.AttributeSet` v2 @kind object @name `attrs`, `int` v3 @name `defStyleAttr`, `int` v4 @name `defStyleRes`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.createFromAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;II)Lcom/google/android/material/badge/BadgeDrawable;` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+
+  #L182d28.  v0:= new `com.google.android.material.badge.BadgeDrawable`;
+  #L182d2c.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L182d32.  call `loadDefaultStateFromAttributes`(v0, v1, v2, v3, v4) @signature `Lcom/google/android/material/badge/BadgeDrawable;.loadDefaultStateFromAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;II)V` @kind direct;
+  #L182d38.  return v0 @kind object;
+}
+procedure `com.google.android.material.badge.BadgeDrawable` `createFromResource`(`android.content.Context` v3 @kind object @name `context`, `int` v4 @name `id`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.createFromResource:(Landroid/content/Context;I)Lcom/google/android/material/badge/BadgeDrawable;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L182d4c.  v0:= "badge" @kind object;
+  #L182d50.  call temp:= `parseDrawableXml`(v3, v4, v0) @signature `Lcom/google/android/material/drawable/DrawableUtils;.parseDrawableXml:(Landroid/content/Context;ILjava/lang/CharSequence;)Landroid/util/AttributeSet;` @kind static;
+  #L182d56.  v0:= temp @kind object;
+  #L182d58.  call temp:= `getStyleAttribute`(v0) @signature `Landroid/util/AttributeSet;.getStyleAttribute:()I` @kind interface;
+  #L182d5e.  v1:= temp;
+  #L182d60.  if v1 != 0 then goto L182d68;
+  #L182d64.  v1:= `@@com.google.android.material.badge.BadgeDrawable.DEFAULT_STYLE` @type ^`int`;
+  #L182d68.  v2:= `@@com.google.android.material.badge.BadgeDrawable.DEFAULT_THEME_ATTR` @type ^`int`;
+  #L182d6c.  call temp:= `createFromAttributes`(v3, v0, v2, v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.createFromAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;II)Lcom/google/android/material/badge/BadgeDrawable;` @kind static;
+  #L182d72.  v2:= temp @kind object;
+  #L182d74.  return v2 @kind object;
+}
+procedure `com.google.android.material.badge.BadgeDrawable` `createFromSavedState`(`android.content.Context` v1 @kind object @name `context`, `com.google.android.material.badge.BadgeDrawable$SavedState` v2 @kind object @name `savedState`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.createFromSavedState:(Landroid/content/Context;Lcom/google/android/material/badge/BadgeDrawable$SavedState;)Lcom/google/android/material/badge/BadgeDrawable;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L182d88.  v0:= new `com.google.android.material.badge.BadgeDrawable`;
+  #L182d8c.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L182d92.  call `restoreFromSavedState`(v0, v2) @signature `Lcom/google/android/material/badge/BadgeDrawable;.restoreFromSavedState:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)V` @kind direct;
+  #L182d98.  return v0 @kind object;
+}
+procedure `void` `drawText`(`com.google.android.material.badge.BadgeDrawable` v5 @kind this, `android.graphics.Canvas` v6 @kind object @name `canvas`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.drawText:(Landroid/graphics/Canvas;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L183304.  v0:= new `android.graphics.Rect`;
+  #L183308.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L18330e.  call temp:= `getBadgeText`(v5) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getBadgeText:()Ljava/lang/String;` @kind direct;
+  #L183314.  v1:= temp @kind object;
+  #L183316.  v2:= v5.`com.google.android.material.badge.BadgeDrawable.textDrawableHelper` @type ^`com.google.android.material.internal.TextDrawableHelper` @kind object;
+  #L18331a.  call temp:= `getTextPaint`(v2) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.getTextPaint:()Landroid/text/TextPaint;` @kind virtual;
+  #L183320.  v2:= temp @kind object;
+  #L183322.  call temp:= `length`(v1) @signature `Ljava/lang/String;.length:()I` @kind virtual;
+  #L183328.  v3:= temp;
+  #L18332a.  v4:= 0I;
+  #L18332c.  call `getTextBounds`(v2, v1, v4, v3, v0) @signature `Landroid/text/TextPaint;.getTextBounds:(Ljava/lang/String;IILandroid/graphics/Rect;)V` @kind virtual;
+  #L183332.  v2:= v5.`com.google.android.material.badge.BadgeDrawable.badgeCenterX` @type ^`float`;
+  #L183336.  v3:= v5.`com.google.android.material.badge.BadgeDrawable.badgeCenterY` @type ^`float`;
+  #L18333a.  call temp:= `height`(v0) @signature `Landroid/graphics/Rect;.height:()I` @kind virtual;
+  #L183340.  v4:= temp;
+  #L183342.  v4:= v4 / 2;
+  #L183346.  v4:= (`float`) v4 @kind i2f;
+  #L183348.  v3:= v3 + v4 @kind float;
+  #L18334a.  v4:= v5.`com.google.android.material.badge.BadgeDrawable.textDrawableHelper` @type ^`com.google.android.material.internal.TextDrawableHelper` @kind object;
+  #L18334e.  call temp:= `getTextPaint`(v4) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.getTextPaint:()Landroid/text/TextPaint;` @kind virtual;
+  #L183354.  v4:= temp @kind object;
+  #L183356.  call `drawText`(v6, v1, v2, v3, v4) @signature `Landroid/graphics/Canvas;.drawText:(Ljava/lang/String;FFLandroid/graphics/Paint;)V` @kind virtual;
+  #L18335c.  return @kind void;
+}
+procedure `java.lang.String` `getBadgeText`(`com.google.android.material.badge.BadgeDrawable` v5 @kind this) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getBadgeText:()Ljava/lang/String;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L182fc4.  call temp:= `getNumber`(v5) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getNumber:()I` @kind virtual;
+  #L182fca.  v0:= temp;
+  #L182fcc.  v1:= v5.`com.google.android.material.badge.BadgeDrawable.maxBadgeNumber` @type ^`int`;
+  #L182fd0.  if v0 > v1 then goto L182fe6;
+  #L182fd4.  call temp:= `getNumber`(v5) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getNumber:()I` @kind virtual;
+  #L182fda.  v0:= temp;
+  #L182fdc.  call temp:= `toString`(v0) @signature `Ljava/lang/Integer;.toString:(I)Ljava/lang/String;` @kind static;
+  #L182fe2.  v0:= temp @kind object;
+  #L182fe4.  return v0 @kind object;
+  #L182fe6.  v0:= v5.`com.google.android.material.badge.BadgeDrawable.contextRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L182fea.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L182ff0.  v0:= temp @kind object;
+  #L182ff2.  v0:= (`android.content.Context`) v0 @kind object;
+  #L182ff6.  if v0 != 0 then goto L183000;
+  #L182ffa.  v1:= "" @kind object;
+  #L182ffe.  return v1 @kind object;
+  #L183000.  v1:= `@@com.google.android.material.R$string.mtrl_exceed_max_badge_number_suffix` @type ^`int`;
+  #L183004.  v2:= 2I;
+  #L183006.  v2:= new `java.lang.Object`[v2];
+  #L18300a.  v3:= 0I;
+  #L18300c.  v4:= v5.`com.google.android.material.badge.BadgeDrawable.maxBadgeNumber` @type ^`int`;
+  #L183010.  call temp:= `valueOf`(v4) @signature `Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer;` @kind static;
+  #L183016.  v4:= temp @kind object;
+  #L183018.  v2[v3]:= v4 @kind object;
+  #L18301c.  v3:= 1I;
+  #L18301e.  v4:= "+" @kind object;
+  #L183022.  v2[v3]:= v4 @kind object;
+  #L183026.  call temp:= `getString`(v0, v1, v2) @signature `Landroid/content/Context;.getString:(I[Ljava/lang/Object;)Ljava/lang/String;` @kind virtual;
+  #L18302c.  v1:= temp @kind object;
+  #L18302e.  return v1 @kind object;
+}
+procedure `void` `loadDefaultStateFromAttributes`(`com.google.android.material.badge.BadgeDrawable` v7 @kind this, `android.content.Context` v8 @kind object @name `context`, `android.util.AttributeSet` v9 @kind object @name `attrs`, `int` v10 @name `defStyleAttr`, `int` v11 @name `defStyleRes`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.loadDefaultStateFromAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;II)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L183370.  v2:= `@@com.google.android.material.R$styleable.Badge` @type ^`int`[] @kind object;
+  #L183374.  v6:= 0I;
+  #L183376.  v5:= new `int`[v6];
+  #L18337a.  v0:= v8 @kind object;
+  #L18337c.  v1:= v9 @kind object;
+  #L18337e.  v3:= v10;
+  #L183380.  v4:= v11;
+  #L183382.  call temp:= `obtainStyledAttributes`(v0, v1, v2, v3, v4, v5) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainStyledAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;` @kind static;
+  #L183388.  v0:= temp @kind object;
+  #L18338a.  v1:= `@@com.google.android.material.R$styleable.Badge_maxCharacterCount` @type ^`int`;
+  #L18338e.  v2:= 4I;
+  #L183390.  call temp:= `getInt`(v0, v1, v2) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L183396.  v1:= temp;
+  #L183398.  call `setMaxCharacterCount`(v7, v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setMaxCharacterCount:(I)V` @kind virtual;
+  #L18339e.  v1:= `@@com.google.android.material.R$styleable.Badge_number` @type ^`int`;
+  #L1833a2.  call temp:= `hasValue`(v0, v1) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1833a8.  v1:= temp;
+  #L1833aa.  if v1 == 0 then goto L1833c0;
+  #L1833ae.  v1:= `@@com.google.android.material.R$styleable.Badge_number` @type ^`int`;
+  #L1833b2.  call temp:= `getInt`(v0, v1, v6) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L1833b8.  v1:= temp;
+  #L1833ba.  call `setNumber`(v7, v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setNumber:(I)V` @kind virtual;
+  #L1833c0.  v1:= `@@com.google.android.material.R$styleable.Badge_backgroundColor` @type ^`int`;
+  #L1833c4.  call temp:= `readColorFromAttributes`(v8, v0, v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.readColorFromAttributes:(Landroid/content/Context;Landroid/content/res/TypedArray;I)I` @kind static;
+  #L1833ca.  v1:= temp;
+  #L1833cc.  call `setBackgroundColor`(v7, v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setBackgroundColor:(I)V` @kind virtual;
+  #L1833d2.  v1:= `@@com.google.android.material.R$styleable.Badge_badgeTextColor` @type ^`int`;
+  #L1833d6.  call temp:= `hasValue`(v0, v1) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1833dc.  v1:= temp;
+  #L1833de.  if v1 == 0 then goto L1833f4;
+  #L1833e2.  v1:= `@@com.google.android.material.R$styleable.Badge_badgeTextColor` @type ^`int`;
+  #L1833e6.  call temp:= `readColorFromAttributes`(v8, v0, v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.readColorFromAttributes:(Landroid/content/Context;Landroid/content/res/TypedArray;I)I` @kind static;
+  #L1833ec.  v1:= temp;
+  #L1833ee.  call `setBadgeTextColor`(v7, v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setBadgeTextColor:(I)V` @kind virtual;
+  #L1833f4.  v1:= `@@com.google.android.material.R$styleable.Badge_badgeGravity` @type ^`int`;
+  #L1833f8.  v2:= 8388661I;
+  #L1833fe.  call temp:= `getInt`(v0, v1, v2) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L183404.  v1:= temp;
+  #L183406.  call `setBadgeGravity`(v7, v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setBadgeGravity:(I)V` @kind virtual;
+  #L18340c.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L183412.  return @kind void;
+}
+procedure `int` `readColorFromAttributes`(`android.content.Context` v1 @kind object @name `context`, `android.content.res.TypedArray` v2 @kind object @name `a`, `int` v3 @name `index`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.readColorFromAttributes:(Landroid/content/Context;Landroid/content/res/TypedArray;I)I` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+
+  #L182ef8.  call temp:= `getColorStateList`(v1, v2, v3) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L182efe.  v0:= temp @kind object;
+  #L182f00.  call temp:= `getDefaultColor`(v0) @signature `Landroid/content/res/ColorStateList;.getDefaultColor:()I` @kind virtual;
+  #L182f06.  v0:= temp;
+  #L182f08.  return v0;
+}
+procedure `void` `restoreFromSavedState`(`com.google.android.material.badge.BadgeDrawable` v2 @kind this, `com.google.android.material.badge.BadgeDrawable$SavedState` v3 @kind object @name `savedState`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.restoreFromSavedState:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L18343c.  call temp:= `access$000`(v3) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$000:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)I` @kind static;
+  #L183442.  v0:= temp;
+  #L183444.  call `setMaxCharacterCount`(v2, v0) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setMaxCharacterCount:(I)V` @kind virtual;
+  #L18344a.  call temp:= `access$100`(v3) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$100:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)I` @kind static;
+  #L183450.  v0:= temp;
+  #L183452.  v1:= -1I;
+  #L183454.  if v0 == v1 then goto L183466;
+  #L183458.  call temp:= `access$100`(v3) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$100:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)I` @kind static;
+  #L18345e.  v0:= temp;
+  #L183460.  call `setNumber`(v2, v0) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setNumber:(I)V` @kind virtual;
+  #L183466.  call temp:= `access$200`(v3) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$200:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)I` @kind static;
+  #L18346c.  v0:= temp;
+  #L18346e.  call `setBackgroundColor`(v2, v0) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setBackgroundColor:(I)V` @kind virtual;
+  #L183474.  call temp:= `access$300`(v3) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$300:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)I` @kind static;
+  #L18347a.  v0:= temp;
+  #L18347c.  call `setBadgeTextColor`(v2, v0) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setBadgeTextColor:(I)V` @kind virtual;
+  #L183482.  call temp:= `access$400`(v3) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$400:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)I` @kind static;
+  #L183488.  v0:= temp;
+  #L18348a.  call `setBadgeGravity`(v2, v0) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setBadgeGravity:(I)V` @kind virtual;
+  #L183490.  return @kind void;
+}
+procedure `void` `setTextAppearance`(`com.google.android.material.badge.BadgeDrawable` v2 @kind this, `com.google.android.material.resources.TextAppearance` v3 @kind object @name `textAppearance`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setTextAppearance:(Lcom/google/android/material/resources/TextAppearance;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1836c0.  v0:= v2.`com.google.android.material.badge.BadgeDrawable.textDrawableHelper` @type ^`com.google.android.material.internal.TextDrawableHelper` @kind object;
+  #L1836c4.  call temp:= `getTextAppearance`(v0) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.getTextAppearance:()Lcom/google/android/material/resources/TextAppearance;` @kind virtual;
+  #L1836ca.  v0:= temp @kind object;
+  #L1836cc.  if v0 != v3 then goto L1836d2;
+  #L1836d0.  return @kind void;
+  #L1836d2.  v0:= v2.`com.google.android.material.badge.BadgeDrawable.contextRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L1836d6.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L1836dc.  v0:= temp @kind object;
+  #L1836de.  v0:= (`android.content.Context`) v0 @kind object;
+  #L1836e2.  if v0 != 0 then goto L1836e8;
+  #L1836e6.  return @kind void;
+  #L1836e8.  v1:= v2.`com.google.android.material.badge.BadgeDrawable.textDrawableHelper` @type ^`com.google.android.material.internal.TextDrawableHelper` @kind object;
+  #L1836ec.  call `setTextAppearance`(v1, v3, v0) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.setTextAppearance:(Lcom/google/android/material/resources/TextAppearance;Landroid/content/Context;)V` @kind virtual;
+  #L1836f2.  call `updateCenterAndBounds`(v2) @signature `Lcom/google/android/material/badge/BadgeDrawable;.updateCenterAndBounds:()V` @kind direct;
+  #L1836f8.  return @kind void;
+}
+procedure `void` `setTextAppearanceResource`(`com.google.android.material.badge.BadgeDrawable` v2 @kind this, `int` v3 @name `id`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setTextAppearanceResource:(I)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L18370c.  v0:= v2.`com.google.android.material.badge.BadgeDrawable.contextRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L183710.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L183716.  v0:= temp @kind object;
+  #L183718.  v0:= (`android.content.Context`) v0 @kind object;
+  #L18371c.  if v0 != 0 then goto L183722;
+  #L183720.  return @kind void;
+  #L183722.  v1:= new `com.google.android.material.resources.TextAppearance`;
+  #L183726.  call `<init>`(v1, v0, v3) @signature `Lcom/google/android/material/resources/TextAppearance;.<init>:(Landroid/content/Context;I)V` @kind direct;
+  #L18372c.  call `setTextAppearance`(v2, v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setTextAppearance:(Lcom/google/android/material/resources/TextAppearance;)V` @kind direct;
+  #L183732.  return @kind void;
+}
+procedure `void` `updateCenterAndBounds`(`com.google.android.material.badge.BadgeDrawable` v10 @kind this) @signature `Lcom/google/android/material/badge/BadgeDrawable;.updateCenterAndBounds:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+
+  #L18379c.  v0:= v10.`com.google.android.material.badge.BadgeDrawable.contextRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L1837a0.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L1837a6.  v0:= temp @kind object;
+  #L1837a8.  v0:= (`android.content.Context`) v0 @kind object;
+  #L1837ac.  v1:= v10.`com.google.android.material.badge.BadgeDrawable.anchorViewRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L1837b0.  v2:= 0I;
+  #L1837b2.  if v1 == 0 then goto L1837c4;
+  #L1837b6.  call temp:= `get`(v1) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L1837bc.  v1:= temp @kind object;
+  #L1837be.  v1:= (`android.view.View`) v1 @kind object;
+  #L1837c2.  goto L1837c6;
+  #L1837c4.  v1:= v2 @kind object;
+  #L1837c6.  if v0 == 0 then goto L18387c;
+  #L1837ca.  if v1 != 0 then goto L1837d0;
+  #L1837ce.  goto L18387c;
+  #L1837d0.  v3:= new `android.graphics.Rect`;
+  #L1837d4.  call `<init>`(v3) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L1837da.  v4:= v10.`com.google.android.material.badge.BadgeDrawable.badgeBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1837de.  call `set`(v3, v4) @signature `Landroid/graphics/Rect;.set:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L1837e4.  v4:= new `android.graphics.Rect`;
+  #L1837e8.  call `<init>`(v4) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L1837ee.  call `getDrawingRect`(v1, v4) @signature `Landroid/view/View;.getDrawingRect:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L1837f4.  v5:= v10.`com.google.android.material.badge.BadgeDrawable.customBadgeParentRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L1837f8.  if v5 == 0 then goto L183808;
+  #L1837fc.  call temp:= `get`(v5) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L183802.  v2:= temp @kind object;
+  #L183804.  v2:= (`android.view.ViewGroup`) v2 @kind object;
+  #L183808.  if v2 != 0 then goto L183814;
+  #L18380c.  v5:= `@@com.google.android.material.badge.BadgeUtils.USE_COMPAT_PARENT` @type ^`boolean` @kind boolean;
+  #L183810.  if v5 == 0 then goto L18382e;
+  #L183814.  if v2 != 0 then goto L183826;
+  #L183818.  call temp:= `getParent`(v1) @signature `Landroid/view/View;.getParent:()Landroid/view/ViewParent;` @kind virtual;
+  #L18381e.  v5:= temp @kind object;
+  #L183820.  v5:= (`android.view.ViewGroup`) v5 @kind object;
+  #L183824.  goto L183828;
+  #L183826.  v5:= v2 @kind object;
+  #L183828.  call `offsetDescendantRectToMyCoords`(v5, v1, v4) @signature `Landroid/view/ViewGroup;.offsetDescendantRectToMyCoords:(Landroid/view/View;Landroid/graphics/Rect;)V` @kind virtual;
+  #L18382e.  call `calculateCenterAndBounds`(v10, v0, v4, v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.calculateCenterAndBounds:(Landroid/content/Context;Landroid/graphics/Rect;Landroid/view/View;)V` @kind direct;
+  #L183834.  v5:= v10.`com.google.android.material.badge.BadgeDrawable.badgeBounds` @type ^`android.graphics.Rect` @kind object;
+  #L183838.  v6:= v10.`com.google.android.material.badge.BadgeDrawable.badgeCenterX` @type ^`float`;
+  #L18383c.  v7:= v10.`com.google.android.material.badge.BadgeDrawable.badgeCenterY` @type ^`float`;
+  #L183840.  v8:= v10.`com.google.android.material.badge.BadgeDrawable.halfBadgeWidth` @type ^`float`;
+  #L183844.  v9:= v10.`com.google.android.material.badge.BadgeDrawable.halfBadgeHeight` @type ^`float`;
+  #L183848.  call `updateBadgeBounds`(v5, v6, v7, v8, v9) @signature `Lcom/google/android/material/badge/BadgeUtils;.updateBadgeBounds:(Landroid/graphics/Rect;FFFF)V` @kind static;
+  #L18384e.  v5:= v10.`com.google.android.material.badge.BadgeDrawable.shapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L183852.  v6:= v10.`com.google.android.material.badge.BadgeDrawable.cornerRadius` @type ^`float`;
+  #L183856.  call `setCornerSize`(v5, v6) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setCornerSize:(F)V` @kind virtual;
+  #L18385c.  v5:= v10.`com.google.android.material.badge.BadgeDrawable.badgeBounds` @type ^`android.graphics.Rect` @kind object;
+  #L183860.  call temp:= `equals`(v3, v5) @signature `Landroid/graphics/Rect;.equals:(Ljava/lang/Object;)Z` @kind virtual;
+  #L183866.  v5:= temp;
+  #L183868.  if v5 != 0 then goto L18387a;
+  #L18386c.  v5:= v10.`com.google.android.material.badge.BadgeDrawable.shapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L183870.  v6:= v10.`com.google.android.material.badge.BadgeDrawable.badgeBounds` @type ^`android.graphics.Rect` @kind object;
+  #L183874.  call `setBounds`(v5, v6) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setBounds:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L18387a.  return @kind void;
+  #L18387c.  return @kind void;
+}
+procedure `void` `updateMaxBadgeNumber`(`com.google.android.material.badge.BadgeDrawable` v4 @kind this) @signature `Lcom/google/android/material/badge/BadgeDrawable;.updateMaxBadgeNumber:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L183890.  call temp:= `getMaxCharacterCount`(v4) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getMaxCharacterCount:()I` @kind virtual;
+  #L183896.  v0:= temp;
+  #L183898.  v0:= (`double`) v0 @kind i2d;
+  #L18389a.  v2:= 1.0D;
+  #L18389e.  v0:= v0 - v2 @kind double;
+  #L1838a0.  v2:= 10.0D;
+  #L1838a4.  call temp:= `pow`(v2, v0) @signature `Ljava/lang/Math;.pow:(DD)D` @kind static;
+  #L1838aa.  v0:= temp @kind wide;
+  #L1838ac.  v0:= (`int`) v0 @kind d2i;
+  #L1838ae.  v0:= v0 + -1;
+  #L1838b2.  v4.`com.google.android.material.badge.BadgeDrawable.maxBadgeNumber` @type ^`int` := v0;
+  #L1838b6.  return @kind void;
+}
+procedure `void` `clearNumber`(`com.google.android.material.badge.BadgeDrawable` v2 @kind this) @signature `Lcom/google/android/material/badge/BadgeDrawable;.clearNumber:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L183280.  v0:= v2.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L183284.  v1:= -1I;
+  #L183286.  call temp:= `access$102`(v0, v1) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$102:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;I)I` @kind static;
+  #L18328c.  call `invalidateSelf`(v2) @signature `Lcom/google/android/material/badge/BadgeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L183292.  return @kind void;
+}
+procedure `void` `draw`(`com.google.android.material.badge.BadgeDrawable` v2 @kind this, `android.graphics.Canvas` v3 @kind object @name `canvas`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.draw:(Landroid/graphics/Canvas;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1832a4.  call temp:= `getBounds`(v2) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getBounds:()Landroid/graphics/Rect;` @kind virtual;
+  #L1832aa.  v0:= temp @kind object;
+  #L1832ac.  call temp:= `isEmpty`(v0) @signature `Landroid/graphics/Rect;.isEmpty:()Z` @kind virtual;
+  #L1832b2.  v1:= temp;
+  #L1832b4.  if v1 != 0 then goto L1832f0;
+  #L1832b8.  call temp:= `getAlpha`(v2) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getAlpha:()I` @kind virtual;
+  #L1832be.  v1:= temp;
+  #L1832c0.  if v1 == 0 then goto L1832f0;
+  #L1832c4.  call temp:= `isVisible`(v2) @signature `Lcom/google/android/material/badge/BadgeDrawable;.isVisible:()Z` @kind virtual;
+  #L1832ca.  v1:= temp;
+  #L1832cc.  if v1 != 0 then goto L1832d2;
+  #L1832d0.  goto L1832f0;
+  #L1832d2.  v1:= v2.`com.google.android.material.badge.BadgeDrawable.shapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L1832d6.  call `draw`(v1, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.draw:(Landroid/graphics/Canvas;)V` @kind virtual;
+  #L1832dc.  call temp:= `hasNumber`(v2) @signature `Lcom/google/android/material/badge/BadgeDrawable;.hasNumber:()Z` @kind virtual;
+  #L1832e2.  v1:= temp;
+  #L1832e4.  if v1 == 0 then goto L1832ee;
+  #L1832e8.  call `drawText`(v2, v3) @signature `Lcom/google/android/material/badge/BadgeDrawable;.drawText:(Landroid/graphics/Canvas;)V` @kind direct;
+  #L1832ee.  return @kind void;
+  #L1832f0.  return @kind void;
+}
+procedure `int` `getAlpha`(`com.google.android.material.badge.BadgeDrawable` v1 @kind this) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getAlpha:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L182dc4.  v0:= v1.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L182dc8.  call temp:= `access$500`(v0) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$500:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)I` @kind static;
+  #L182dce.  v0:= temp;
+  #L182dd0.  return v0;
+}
+procedure `int` `getBackgroundColor`(`com.google.android.material.badge.BadgeDrawable` v1 @kind this) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getBackgroundColor:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L182de4.  v0:= v1.`com.google.android.material.badge.BadgeDrawable.shapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L182de8.  call temp:= `getFillColor`(v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getFillColor:()Landroid/content/res/ColorStateList;` @kind virtual;
+  #L182dee.  v0:= temp @kind object;
+  #L182df0.  call temp:= `getDefaultColor`(v0) @signature `Landroid/content/res/ColorStateList;.getDefaultColor:()I` @kind virtual;
+  #L182df6.  v0:= temp;
+  #L182df8.  return v0;
+}
+procedure `int` `getBadgeGravity`(`com.google.android.material.badge.BadgeDrawable` v1 @kind this) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getBadgeGravity:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L182e0c.  v0:= v1.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L182e10.  call temp:= `access$400`(v0) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$400:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)I` @kind static;
+  #L182e16.  v0:= temp;
+  #L182e18.  return v0;
+}
+procedure `int` `getBadgeTextColor`(`com.google.android.material.badge.BadgeDrawable` v1 @kind this) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getBadgeTextColor:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L182e2c.  v0:= v1.`com.google.android.material.badge.BadgeDrawable.textDrawableHelper` @type ^`com.google.android.material.internal.TextDrawableHelper` @kind object;
+  #L182e30.  call temp:= `getTextPaint`(v0) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.getTextPaint:()Landroid/text/TextPaint;` @kind virtual;
+  #L182e36.  v0:= temp @kind object;
+  #L182e38.  call temp:= `getColor`(v0) @signature `Landroid/text/TextPaint;.getColor:()I` @kind virtual;
+  #L182e3e.  v0:= temp;
+  #L182e40.  return v0;
+}
+procedure `java.lang.CharSequence` `getContentDescription`(`com.google.android.material.badge.BadgeDrawable` v7 @kind this) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getContentDescription:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L182f1c.  call temp:= `isVisible`(v7) @signature `Lcom/google/android/material/badge/BadgeDrawable;.isVisible:()Z` @kind virtual;
+  #L182f22.  v0:= temp;
+  #L182f24.  v1:= 0I;
+  #L182f26.  if v0 != 0 then goto L182f2c;
+  #L182f2a.  return v1 @kind object;
+  #L182f2c.  call temp:= `hasNumber`(v7) @signature `Lcom/google/android/material/badge/BadgeDrawable;.hasNumber:()Z` @kind virtual;
+  #L182f32.  v0:= temp;
+  #L182f34.  if v0 == 0 then goto L182fa4;
+  #L182f38.  v0:= v7.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L182f3c.  call temp:= `access$700`(v0) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$700:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)I` @kind static;
+  #L182f42.  v0:= temp;
+  #L182f44.  if v0 <= 0 then goto L182fa2;
+  #L182f48.  v0:= v7.`com.google.android.material.badge.BadgeDrawable.contextRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L182f4c.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L182f52.  v0:= temp @kind object;
+  #L182f54.  v0:= (`android.content.Context`) v0 @kind object;
+  #L182f58.  if v0 != 0 then goto L182f5e;
+  #L182f5c.  return v1 @kind object;
+  #L182f5e.  
+  #L182f60.  call temp:= `getResources`(v0) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L182f66.  v1:= temp @kind object;
+  #L182f68.  v2:= v7.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L182f6c.  call temp:= `access$700`(v2) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$700:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)I` @kind static;
+  #L182f72.  v2:= temp;
+  #L182f74.  call temp:= `getNumber`(v7) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getNumber:()I` @kind virtual;
+  #L182f7a.  v3:= temp;
+  #L182f7c.  v4:= 1I;
+  #L182f7e.  v4:= new `java.lang.Object`[v4];
+  #L182f82.  v5:= 0I;
+  #L182f84.  call temp:= `getNumber`(v7) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getNumber:()I` @kind virtual;
+  #L182f8a.  v6:= temp;
+  #L182f8c.  call temp:= `valueOf`(v6) @signature `Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer;` @kind static;
+  #L182f92.  v6:= temp @kind object;
+  #L182f94.  v4[v5]:= v6 @kind object;
+  #L182f98.  call temp:= `getQuantityString`(v1, v2, v3, v4) @signature `Landroid/content/res/Resources;.getQuantityString:(II[Ljava/lang/Object;)Ljava/lang/String;` @kind virtual;
+  #L182f9e.  v1:= temp @kind object;
+  #L182fa0.  return v1 @kind object;
+  #L182fa2.  return v1 @kind object;
+  #L182fa4.  v0:= v7.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L182fa8.  call temp:= `access$600`(v0) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$600:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)Ljava/lang/CharSequence;` @kind static;
+  #L182fae.  v0:= temp @kind object;
+  #L182fb0.  return v0 @kind object;
+}
+procedure `int` `getIntrinsicHeight`(`com.google.android.material.badge.BadgeDrawable` v1 @kind this) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getIntrinsicHeight:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L182e54.  v0:= v1.`com.google.android.material.badge.BadgeDrawable.badgeBounds` @type ^`android.graphics.Rect` @kind object;
+  #L182e58.  call temp:= `height`(v0) @signature `Landroid/graphics/Rect;.height:()I` @kind virtual;
+  #L182e5e.  v0:= temp;
+  #L182e60.  return v0;
+}
+procedure `int` `getIntrinsicWidth`(`com.google.android.material.badge.BadgeDrawable` v1 @kind this) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getIntrinsicWidth:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L182e74.  v0:= v1.`com.google.android.material.badge.BadgeDrawable.badgeBounds` @type ^`android.graphics.Rect` @kind object;
+  #L182e78.  call temp:= `width`(v0) @signature `Landroid/graphics/Rect;.width:()I` @kind virtual;
+  #L182e7e.  v0:= temp;
+  #L182e80.  return v0;
+}
+procedure `int` `getMaxCharacterCount`(`com.google.android.material.badge.BadgeDrawable` v1 @kind this) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getMaxCharacterCount:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L182e94.  v0:= v1.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L182e98.  call temp:= `access$000`(v0) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$000:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)I` @kind static;
+  #L182e9e.  v0:= temp;
+  #L182ea0.  return v0;
+}
+procedure `int` `getNumber`(`com.google.android.material.badge.BadgeDrawable` v1 @kind this) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getNumber:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L182eb4.  call temp:= `hasNumber`(v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.hasNumber:()Z` @kind virtual;
+  #L182eba.  v0:= temp;
+  #L182ebc.  if v0 != 0 then goto L182ec4;
+  #L182ec0.  v0:= 0I;
+  #L182ec2.  return v0;
+  #L182ec4.  v0:= v1.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L182ec8.  call temp:= `access$100`(v0) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$100:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)I` @kind static;
+  #L182ece.  v0:= temp;
+  #L182ed0.  return v0;
+}
+procedure `int` `getOpacity`(`com.google.android.material.badge.BadgeDrawable` v1 @kind this) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getOpacity:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L182ee4.  v0:= -3I;
+  #L182ee6.  return v0;
+}
+procedure `com.google.android.material.badge.BadgeDrawable$SavedState` `getSavedState`(`com.google.android.material.badge.BadgeDrawable` v1 @kind this) @signature `Lcom/google/android/material/badge/BadgeDrawable;.getSavedState:()Lcom/google/android/material/badge/BadgeDrawable$SavedState;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L182dac.  v0:= v1.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L182db0.  return v0 @kind object;
+}
+procedure `boolean` `hasNumber`(`com.google.android.material.badge.BadgeDrawable` v2 @kind this) @signature `Lcom/google/android/material/badge/BadgeDrawable;.hasNumber:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L182ca8.  v0:= v2.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L182cac.  call temp:= `access$100`(v0) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$100:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)I` @kind static;
+  #L182cb2.  v0:= temp;
+  #L182cb4.  v1:= -1I;
+  #L182cb6.  if v0 == v1 then goto L182cbe;
+  #L182cba.  v0:= 1I;
+  #L182cbc.  goto L182cc0;
+  #L182cbe.  v0:= 0I;
+  #L182cc0.  return v0;
+}
+procedure `boolean` `isStateful`(`com.google.android.material.badge.BadgeDrawable` v1 @kind this) @signature `Lcom/google/android/material/badge/BadgeDrawable;.isStateful:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L182cd4.  v0:= 0I;
+  #L182cd6.  return v0;
+}
+procedure `boolean` `onStateChange`(`com.google.android.material.badge.BadgeDrawable` v1 @kind this, `int`[] v2 @kind object @name `state`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.onStateChange:([I)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L182ce8.  call temp:= `onStateChange`(v1, v2) @signature `Landroid/graphics/drawable/Drawable;.onStateChange:([I)Z` @kind super;
+  #L182cee.  v0:= temp;
+  #L182cf0.  return v0;
+}
+procedure `void` `onTextSizeChange`(`com.google.android.material.badge.BadgeDrawable` v0 @kind this) @signature `Lcom/google/android/material/badge/BadgeDrawable;.onTextSizeChange:()V` @AccessFlag PUBLIC {
+    temp;
+
+  #L183424.  call `invalidateSelf`(v0) @signature `Lcom/google/android/material/badge/BadgeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L18342a.  return @kind void;
+}
+procedure `void` `setAlpha`(`com.google.android.material.badge.BadgeDrawable` v1 @kind this, `int` v2 @name `alpha`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setAlpha:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1834a4.  v0:= v1.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L1834a8.  call temp:= `access$502`(v0, v2) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$502:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;I)I` @kind static;
+  #L1834ae.  v0:= v1.`com.google.android.material.badge.BadgeDrawable.textDrawableHelper` @type ^`com.google.android.material.internal.TextDrawableHelper` @kind object;
+  #L1834b2.  call temp:= `getTextPaint`(v0) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.getTextPaint:()Landroid/text/TextPaint;` @kind virtual;
+  #L1834b8.  v0:= temp @kind object;
+  #L1834ba.  call `setAlpha`(v0, v2) @signature `Landroid/text/TextPaint;.setAlpha:(I)V` @kind virtual;
+  #L1834c0.  call `invalidateSelf`(v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L1834c6.  return @kind void;
+}
+procedure `void` `setBackgroundColor`(`com.google.android.material.badge.BadgeDrawable` v2 @kind this, `int` v3 @name `backgroundColor`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setBackgroundColor:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1834d8.  v0:= v2.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L1834dc.  call temp:= `access$202`(v0, v3) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$202:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;I)I` @kind static;
+  #L1834e2.  call temp:= `valueOf`(v3) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1834e8.  v0:= temp @kind object;
+  #L1834ea.  v1:= v2.`com.google.android.material.badge.BadgeDrawable.shapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L1834ee.  call temp:= `getFillColor`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getFillColor:()Landroid/content/res/ColorStateList;` @kind virtual;
+  #L1834f4.  v1:= temp @kind object;
+  #L1834f6.  if v1 == v0 then goto L18350a;
+  #L1834fa.  v1:= v2.`com.google.android.material.badge.BadgeDrawable.shapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L1834fe.  call `setFillColor`(v1, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L183504.  call `invalidateSelf`(v2) @signature `Lcom/google/android/material/badge/BadgeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L18350a.  return @kind void;
+}
+procedure `void` `setBadgeGravity`(`com.google.android.material.badge.BadgeDrawable` v2 @kind this, `int` v3 @name `gravity`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setBadgeGravity:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L18351c.  v0:= v2.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L183520.  call temp:= `access$400`(v0) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$400:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)I` @kind static;
+  #L183526.  v0:= temp;
+  #L183528.  if v0 == v3 then goto L183578;
+  #L18352c.  v0:= v2.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L183530.  call temp:= `access$402`(v0, v3) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$402:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;I)I` @kind static;
+  #L183536.  v0:= v2.`com.google.android.material.badge.BadgeDrawable.anchorViewRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L18353a.  if v0 == 0 then goto L183578;
+  #L18353e.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L183544.  v0:= temp @kind object;
+  #L183546.  if v0 == 0 then goto L183578;
+  #L18354a.  v0:= v2.`com.google.android.material.badge.BadgeDrawable.anchorViewRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L18354e.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L183554.  v0:= temp @kind object;
+  #L183556.  v0:= (`android.view.View`) v0 @kind object;
+  #L18355a.  v1:= v2.`com.google.android.material.badge.BadgeDrawable.customBadgeParentRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L18355e.  if v1 == 0 then goto L183570;
+  #L183562.  call temp:= `get`(v1) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L183568.  v1:= temp @kind object;
+  #L18356a.  v1:= (`android.view.ViewGroup`) v1 @kind object;
+  #L18356e.  goto L183572;
+  #L183570.  v1:= 0I;
+  #L183572.  call `updateBadgeCoordinates`(v2, v0, v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.updateBadgeCoordinates:(Landroid/view/View;Landroid/view/ViewGroup;)V` @kind virtual;
+  #L183578.  return @kind void;
+}
+procedure `void` `setBadgeTextColor`(`com.google.android.material.badge.BadgeDrawable` v1 @kind this, `int` v2 @name `badgeTextColor`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setBadgeTextColor:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18358c.  v0:= v1.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L183590.  call temp:= `access$302`(v0, v2) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$302:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;I)I` @kind static;
+  #L183596.  v0:= v1.`com.google.android.material.badge.BadgeDrawable.textDrawableHelper` @type ^`com.google.android.material.internal.TextDrawableHelper` @kind object;
+  #L18359a.  call temp:= `getTextPaint`(v0) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.getTextPaint:()Landroid/text/TextPaint;` @kind virtual;
+  #L1835a0.  v0:= temp @kind object;
+  #L1835a2.  call temp:= `getColor`(v0) @signature `Landroid/text/TextPaint;.getColor:()I` @kind virtual;
+  #L1835a8.  v0:= temp;
+  #L1835aa.  if v0 == v2 then goto L1835c6;
+  #L1835ae.  v0:= v1.`com.google.android.material.badge.BadgeDrawable.textDrawableHelper` @type ^`com.google.android.material.internal.TextDrawableHelper` @kind object;
+  #L1835b2.  call temp:= `getTextPaint`(v0) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.getTextPaint:()Landroid/text/TextPaint;` @kind virtual;
+  #L1835b8.  v0:= temp @kind object;
+  #L1835ba.  call `setColor`(v0, v2) @signature `Landroid/text/TextPaint;.setColor:(I)V` @kind virtual;
+  #L1835c0.  call `invalidateSelf`(v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L1835c6.  return @kind void;
+}
+procedure `void` `setColorFilter`(`com.google.android.material.badge.BadgeDrawable` v0 @kind this, `android.graphics.ColorFilter` v1 @kind object @name `colorFilter`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setColorFilter:(Landroid/graphics/ColorFilter;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1835d8.  return @kind void;
+}
+procedure `void` `setContentDescriptionNumberless`(`com.google.android.material.badge.BadgeDrawable` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `charSequence`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setContentDescriptionNumberless:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1835ec.  v0:= v1.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L1835f0.  call temp:= `access$602`(v0, v2) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$602:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;` @kind static;
+  #L1835f6.  return @kind void;
+}
+procedure `void` `setContentDescriptionQuantityStringsResource`(`com.google.android.material.badge.BadgeDrawable` v1 @kind this, `int` v2 @name `stringsResource`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setContentDescriptionQuantityStringsResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L183608.  v0:= v1.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L18360c.  call temp:= `access$702`(v0, v2) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$702:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;I)I` @kind static;
+  #L183612.  return @kind void;
+}
+procedure `void` `setMaxCharacterCount`(`com.google.android.material.badge.BadgeDrawable` v2 @kind this, `int` v3 @name `maxCharacterCount`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setMaxCharacterCount:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L183624.  v0:= v2.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L183628.  call temp:= `access$000`(v0) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$000:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)I` @kind static;
+  #L18362e.  v0:= temp;
+  #L183630.  if v0 == v3 then goto L18365c;
+  #L183634.  v0:= v2.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L183638.  call temp:= `access$002`(v0, v3) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$002:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;I)I` @kind static;
+  #L18363e.  call `updateMaxBadgeNumber`(v2) @signature `Lcom/google/android/material/badge/BadgeDrawable;.updateMaxBadgeNumber:()V` @kind direct;
+  #L183644.  v0:= v2.`com.google.android.material.badge.BadgeDrawable.textDrawableHelper` @type ^`com.google.android.material.internal.TextDrawableHelper` @kind object;
+  #L183648.  v1:= 1I;
+  #L18364a.  call `setTextWidthDirty`(v0, v1) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.setTextWidthDirty:(Z)V` @kind virtual;
+  #L183650.  call `updateCenterAndBounds`(v2) @signature `Lcom/google/android/material/badge/BadgeDrawable;.updateCenterAndBounds:()V` @kind direct;
+  #L183656.  call `invalidateSelf`(v2) @signature `Lcom/google/android/material/badge/BadgeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L18365c.  return @kind void;
+}
+procedure `void` `setNumber`(`com.google.android.material.badge.BadgeDrawable` v2 @kind this, `int` v3 @name `number`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setNumber:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L183670.  v0:= 0I;
+  #L183672.  call temp:= `max`(v0, v3) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L183678.  v3:= temp;
+  #L18367a.  v0:= v2.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L18367e.  call temp:= `access$100`(v0) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$100:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;)I` @kind static;
+  #L183684.  v0:= temp;
+  #L183686.  if v0 == v3 then goto L1836ac;
+  #L18368a.  v0:= v2.`com.google.android.material.badge.BadgeDrawable.savedState` @type ^`com.google.android.material.badge.BadgeDrawable$SavedState` @kind object;
+  #L18368e.  call temp:= `access$102`(v0, v3) @signature `Lcom/google/android/material/badge/BadgeDrawable$SavedState;.access$102:(Lcom/google/android/material/badge/BadgeDrawable$SavedState;I)I` @kind static;
+  #L183694.  v0:= v2.`com.google.android.material.badge.BadgeDrawable.textDrawableHelper` @type ^`com.google.android.material.internal.TextDrawableHelper` @kind object;
+  #L183698.  v1:= 1I;
+  #L18369a.  call `setTextWidthDirty`(v0, v1) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.setTextWidthDirty:(Z)V` @kind virtual;
+  #L1836a0.  call `updateCenterAndBounds`(v2) @signature `Lcom/google/android/material/badge/BadgeDrawable;.updateCenterAndBounds:()V` @kind direct;
+  #L1836a6.  call `invalidateSelf`(v2) @signature `Lcom/google/android/material/badge/BadgeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L1836ac.  return @kind void;
+}
+procedure `void` `setVisible`(`com.google.android.material.badge.BadgeDrawable` v1 @kind this, `boolean` v2 @name `visible`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setVisible:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L183744.  v0:= 0I;
+  #L183746.  call temp:= `setVisible`(v1, v2, v0) @signature `Lcom/google/android/material/badge/BadgeDrawable;.setVisible:(ZZ)Z` @kind virtual;
+  #L18374c.  return @kind void;
+}
+procedure `void` `updateBadgeCoordinates`(`com.google.android.material.badge.BadgeDrawable` v1 @kind this, `android.view.View` v2 @kind object @name `anchorView`, `android.view.ViewGroup` v3 @kind object @name `customBadgeParent`) @signature `Lcom/google/android/material/badge/BadgeDrawable;.updateBadgeCoordinates:(Landroid/view/View;Landroid/view/ViewGroup;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L183760.  v0:= new `java.lang.ref.WeakReference`;
+  #L183764.  call `<init>`(v0, v2) @signature `Ljava/lang/ref/WeakReference;.<init>:(Ljava/lang/Object;)V` @kind direct;
+  #L18376a.  v1.`com.google.android.material.badge.BadgeDrawable.anchorViewRef` @type ^`java.lang.ref.WeakReference` := v0 @kind object;
+  #L18376e.  v0:= new `java.lang.ref.WeakReference`;
+  #L183772.  call `<init>`(v0, v3) @signature `Ljava/lang/ref/WeakReference;.<init>:(Ljava/lang/Object;)V` @kind direct;
+  #L183778.  v1.`com.google.android.material.badge.BadgeDrawable.customBadgeParentRef` @type ^`java.lang.ref.WeakReference` := v0 @kind object;
+  #L18377c.  call `updateCenterAndBounds`(v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.updateCenterAndBounds:()V` @kind direct;
+  #L183782.  call `invalidateSelf`(v1) @signature `Lcom/google/android/material/badge/BadgeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L183788.  return @kind void;
+}

@@ -1,0 +1,30 @@
+record `com.google.android.material.snackbar.BaseTransientBottomBar$1` @kind class @AccessFlag FINAL extends `android.os.Handler$Callback` @kind interface {
+}
+procedure `void` `<init>`(`com.google.android.material.snackbar.BaseTransientBottomBar$1` v0 @kind this) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$1;.<init>:()V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1af2b4.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1af2ba.  return @kind void;
+}
+procedure `boolean` `handleMessage`(`com.google.android.material.snackbar.BaseTransientBottomBar$1` v3 @kind this, `android.os.Message` v4 @kind object @name `message`) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$1;.handleMessage:(Landroid/os/Message;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1af26c.  v0:= v4.`android.os.Message.what` @type ^`int`;
+  #L1af270.  v1:= 1I;
+  #L1af272.  if v0 == 0 then goto L1af292;
+  #L1af276.  if v0 == v1 then goto L1af27e;
+  #L1af27a.  v0:= 0I;
+  #L1af27c.  return v0;
+  #L1af27e.  v0:= v4.`android.os.Message.obj` @type ^`java.lang.Object` @kind object;
+  #L1af282.  v0:= (`com.google.android.material.snackbar.BaseTransientBottomBar`) v0 @kind object;
+  #L1af286.  v2:= v4.`android.os.Message.arg1` @type ^`int`;
+  #L1af28a.  call `hideView`(v0, v2) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar;.hideView:(I)V` @kind virtual;
+  #L1af290.  return v1;
+  #L1af292.  v0:= v4.`android.os.Message.obj` @type ^`java.lang.Object` @kind object;
+  #L1af296.  v0:= (`com.google.android.material.snackbar.BaseTransientBottomBar`) v0 @kind object;
+  #L1af29a.  call `showView`(v0) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar;.showView:()V` @kind virtual;
+  #L1af2a0.  return v1;
+}

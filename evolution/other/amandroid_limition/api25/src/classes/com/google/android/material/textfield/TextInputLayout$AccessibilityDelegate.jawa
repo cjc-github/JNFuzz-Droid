@@ -1,0 +1,81 @@
+record `com.google.android.material.textfield.TextInputLayout$AccessibilityDelegate` @kind class @AccessFlag PUBLIC extends `androidx.core.view.AccessibilityDelegateCompat` @kind class {
+  `com.google.android.material.textfield.TextInputLayout` `com.google.android.material.textfield.TextInputLayout$AccessibilityDelegate.layout` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.TextInputLayout$AccessibilityDelegate` v0 @kind this, `com.google.android.material.textfield.TextInputLayout` v1 @kind object @name `layout`) @signature `Lcom/google/android/material/textfield/TextInputLayout$AccessibilityDelegate;.<init>:(Lcom/google/android/material/textfield/TextInputLayout;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1b84d4.  call `<init>`(v0) @signature `Landroidx/core/view/AccessibilityDelegateCompat;.<init>:()V` @kind direct;
+  #L1b84da.  v0.`com.google.android.material.textfield.TextInputLayout$AccessibilityDelegate.layout` @type ^`com.google.android.material.textfield.TextInputLayout` := v1 @kind object;
+  #L1b84de.  return @kind void;
+}
+procedure `void` `onInitializeAccessibilityNodeInfo`(`com.google.android.material.textfield.TextInputLayout$AccessibilityDelegate` v11 @kind this, `android.view.View` v12 @kind object @name `host`, `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v13 @kind object @name `info`) @signature `Lcom/google/android/material/textfield/TextInputLayout$AccessibilityDelegate;.onInitializeAccessibilityNodeInfo:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+
+  #L1b84f0.  call `onInitializeAccessibilityNodeInfo`(v11, v12, v13) @signature `Landroidx/core/view/AccessibilityDelegateCompat;.onInitializeAccessibilityNodeInfo:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V` @kind super;
+  #L1b84f6.  v0:= v11.`com.google.android.material.textfield.TextInputLayout$AccessibilityDelegate.layout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b84fa.  call temp:= `getEditText`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getEditText:()Landroid/widget/EditText;` @kind virtual;
+  #L1b8500.  v0:= temp @kind object;
+  #L1b8502.  if v0 == 0 then goto L1b8510;
+  #L1b8506.  call temp:= `getText`(v0) @signature `Landroid/widget/EditText;.getText:()Landroid/text/Editable;` @kind virtual;
+  #L1b850c.  v1:= temp @kind object;
+  #L1b850e.  goto L1b8512;
+  #L1b8510.  v1:= 0I;
+  #L1b8512.  v2:= v11.`com.google.android.material.textfield.TextInputLayout$AccessibilityDelegate.layout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b8516.  call temp:= `getHint`(v2) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getHint:()Ljava/lang/CharSequence;` @kind virtual;
+  #L1b851c.  v2:= temp @kind object;
+  #L1b851e.  v3:= v11.`com.google.android.material.textfield.TextInputLayout$AccessibilityDelegate.layout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b8522.  call temp:= `getError`(v3) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getError:()Ljava/lang/CharSequence;` @kind virtual;
+  #L1b8528.  v3:= temp @kind object;
+  #L1b852a.  v4:= v11.`com.google.android.material.textfield.TextInputLayout$AccessibilityDelegate.layout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b852e.  call temp:= `getCounterOverflowDescription`(v4) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getCounterOverflowDescription:()Ljava/lang/CharSequence;` @kind virtual;
+  #L1b8534.  v4:= temp @kind object;
+  #L1b8536.  call temp:= `isEmpty`(v1) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L1b853c.  v5:= temp;
+  #L1b853e.  v6:= 1I;
+  #L1b8540.  v5:= v5 ^~ v6 @kind int;
+  #L1b8542.  call temp:= `isEmpty`(v2) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L1b8548.  v7:= temp;
+  #L1b854a.  v7:= v7 ^~ v6 @kind int;
+  #L1b854c.  call temp:= `isEmpty`(v3) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L1b8552.  v8:= temp;
+  #L1b8554.  v8:= v8 ^~ v6 @kind int;
+  #L1b8556.  v9:= 0I;
+  #L1b8558.  if v8 != 0 then goto L1b856e;
+  #L1b855c.  call temp:= `isEmpty`(v4) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L1b8562.  v10:= temp;
+  #L1b8564.  if v10 != 0 then goto L1b856a;
+  #L1b8568.  goto L1b856e;
+  #L1b856a.  v10:= v9;
+  #L1b856c.  goto L1b8570;
+  #L1b856e.  v10:= v6;
+  #L1b8570.  if v5 == 0 then goto L1b857c;
+  #L1b8574.  call `setText`(v13, v1) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1b857a.  goto L1b8586;
+  #L1b857c.  if v7 == 0 then goto L1b8586;
+  #L1b8580.  call `setText`(v13, v2) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1b8586.  if v7 == 0 then goto L1b85a0;
+  #L1b858a.  call `setHintText`(v13, v2) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setHintText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1b8590.  if v5 != 0 then goto L1b859a;
+  #L1b8594.  if v7 == 0 then goto L1b859a;
+  #L1b8598.  v9:= v6;
+  #L1b859a.  call `setShowingHintText`(v13, v9) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setShowingHintText:(Z)V` @kind virtual;
+  #L1b85a0.  if v10 == 0 then goto L1b85ba;
+  #L1b85a4.  if v8 == 0 then goto L1b85ac;
+  #L1b85a8.  v9:= v3 @kind object;
+  #L1b85aa.  goto L1b85ae;
+  #L1b85ac.  v9:= v4 @kind object;
+  #L1b85ae.  call `setError`(v13, v9) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setError:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1b85b4.  call `setContentInvalid`(v13, v6) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setContentInvalid:(Z)V` @kind virtual;
+  #L1b85ba.  return @kind void;
+}

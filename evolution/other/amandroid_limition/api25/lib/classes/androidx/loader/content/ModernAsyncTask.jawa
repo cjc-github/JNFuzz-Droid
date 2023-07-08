@@ -1,0 +1,106 @@
+record `androidx.loader.content.ModernAsyncTask` @kind class @AccessFlag ABSTRACT {
+  `java.util.concurrent.atomic.AtomicBoolean` `androidx.loader.content.ModernAsyncTask.mCancelled` @AccessFlag FINAL;
+  `java.util.concurrent.FutureTask` `androidx.loader.content.ModernAsyncTask.mFuture` @AccessFlag PRIVATE_FINAL;
+  `androidx.loader.content.ModernAsyncTask$Status` `androidx.loader.content.ModernAsyncTask.mStatus` @AccessFlag PRIVATE_VOLATILE;
+  `java.util.concurrent.atomic.AtomicBoolean` `androidx.loader.content.ModernAsyncTask.mTaskInvoked` @AccessFlag FINAL;
+  `androidx.loader.content.ModernAsyncTask$WorkerRunnable` `androidx.loader.content.ModernAsyncTask.mWorker` @AccessFlag PRIVATE_FINAL;
+}
+global `int` `@@androidx.loader.content.ModernAsyncTask.CORE_POOL_SIZE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.loader.content.ModernAsyncTask.KEEP_ALIVE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.loader.content.ModernAsyncTask.LOG_TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.loader.content.ModernAsyncTask.MAXIMUM_POOL_SIZE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.loader.content.ModernAsyncTask.MESSAGE_POST_PROGRESS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.loader.content.ModernAsyncTask.MESSAGE_POST_RESULT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.util.concurrent.Executor` `@@androidx.loader.content.ModernAsyncTask.THREAD_POOL_EXECUTOR` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.util.concurrent.Executor` `@@androidx.loader.content.ModernAsyncTask.sDefaultExecutor` @AccessFlag PRIVATE_STATIC_VOLATILE;
+global `androidx.loader.content.ModernAsyncTask$InternalHandler` `@@androidx.loader.content.ModernAsyncTask.sHandler` @AccessFlag PRIVATE_STATIC;
+global `java.util.concurrent.BlockingQueue` `@@androidx.loader.content.ModernAsyncTask.sPoolWorkQueue` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.util.concurrent.ThreadFactory` `@@androidx.loader.content.ModernAsyncTask.sThreadFactory` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/loader/content/ModernAsyncTask;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.loader.content.ModernAsyncTask` v2 @kind this) @signature `Landroidx/loader/content/ModernAsyncTask;.<init>:()V` @AccessFlag CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `execute`(`java.lang.Runnable` v1 @kind object @name `runnable`) @signature `Landroidx/loader/content/ModernAsyncTask;.execute:(Ljava/lang/Runnable;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `android.os.Handler` `getHandler`() @signature `Landroidx/loader/content/ModernAsyncTask;.getHandler:()Landroid/os/Handler;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `setDefaultExecutor`(`java.util.concurrent.Executor` v0 @kind object @name `exec`) @signature `Landroidx/loader/content/ModernAsyncTask;.setDefaultExecutor:(Ljava/util/concurrent/Executor;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `boolean` `cancel`(`androidx.loader.content.ModernAsyncTask` v2 @kind this, `boolean` v3 @name `mayInterruptIfRunning`) @signature `Landroidx/loader/content/ModernAsyncTask;.cancel:(Z)Z` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `java.lang.Object` `doInBackground`(`java.lang.Object`[] v0 @kind object) @signature `Landroidx/loader/content/ModernAsyncTask;.doInBackground:([Ljava/lang/Object;)Ljava/lang/Object;` @AccessFlag PROTECTED_ABSTRACT {
+
+  # return;
+}
+procedure `androidx.loader.content.ModernAsyncTask` `execute`(`androidx.loader.content.ModernAsyncTask` v1 @kind this, `java.lang.Object`[] v2 @kind object) @signature `Landroidx/loader/content/ModernAsyncTask;.execute:([Ljava/lang/Object;)Landroidx/loader/content/ModernAsyncTask;` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `androidx.loader.content.ModernAsyncTask` `executeOnExecutor`(`androidx.loader.content.ModernAsyncTask` v2 @kind this, `java.util.concurrent.Executor` v3 @kind object @name `exec`, `java.lang.Object`[] v4 @kind object) @signature `Landroidx/loader/content/ModernAsyncTask;.executeOnExecutor:(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroidx/loader/content/ModernAsyncTask;` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `void` `finish`(`androidx.loader.content.ModernAsyncTask` v1 @kind this, `java.lang.Object` v2 @kind object) @signature `Landroidx/loader/content/ModernAsyncTask;.finish:(Ljava/lang/Object;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `java.lang.Object` `get`(`androidx.loader.content.ModernAsyncTask` v1 @kind this) @signature `Landroidx/loader/content/ModernAsyncTask;.get:()Ljava/lang/Object;` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `java.lang.Object` `get`(`androidx.loader.content.ModernAsyncTask` v1 @kind this, `long` v2 @name `timeout`, `java.util.concurrent.TimeUnit` v4 @kind object @name `unit`) @signature `Landroidx/loader/content/ModernAsyncTask;.get:(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `androidx.loader.content.ModernAsyncTask$Status` `getStatus`(`androidx.loader.content.ModernAsyncTask` v1 @kind this) @signature `Landroidx/loader/content/ModernAsyncTask;.getStatus:()Landroidx/loader/content/ModernAsyncTask$Status;` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `boolean` `isCancelled`(`androidx.loader.content.ModernAsyncTask` v1 @kind this) @signature `Landroidx/loader/content/ModernAsyncTask;.isCancelled:()Z` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `void` `onCancelled`(`androidx.loader.content.ModernAsyncTask` v0 @kind this) @signature `Landroidx/loader/content/ModernAsyncTask;.onCancelled:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onCancelled`(`androidx.loader.content.ModernAsyncTask` v0 @kind this, `java.lang.Object` v1 @kind object) @signature `Landroidx/loader/content/ModernAsyncTask;.onCancelled:(Ljava/lang/Object;)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onPostExecute`(`androidx.loader.content.ModernAsyncTask` v0 @kind this, `java.lang.Object` v1 @kind object) @signature `Landroidx/loader/content/ModernAsyncTask;.onPostExecute:(Ljava/lang/Object;)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onPreExecute`(`androidx.loader.content.ModernAsyncTask` v0 @kind this) @signature `Landroidx/loader/content/ModernAsyncTask;.onPreExecute:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onProgressUpdate`(`androidx.loader.content.ModernAsyncTask` v0 @kind this, `java.lang.Object`[] v1 @kind object) @signature `Landroidx/loader/content/ModernAsyncTask;.onProgressUpdate:([Ljava/lang/Object;)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `java.lang.Object` `postResult`(`androidx.loader.content.ModernAsyncTask` v5 @kind this, `java.lang.Object` v6 @kind object) @signature `Landroidx/loader/content/ModernAsyncTask;.postResult:(Ljava/lang/Object;)Ljava/lang/Object;` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `postResultIfNotInvoked`(`androidx.loader.content.ModernAsyncTask` v1 @kind this, `java.lang.Object` v2 @kind object) @signature `Landroidx/loader/content/ModernAsyncTask;.postResultIfNotInvoked:(Ljava/lang/Object;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `publishProgress`(`androidx.loader.content.ModernAsyncTask` v3 @kind this, `java.lang.Object`[] v4 @kind object) @signature `Landroidx/loader/content/ModernAsyncTask;.publishProgress:([Ljava/lang/Object;)V` @AccessFlag PROTECTED_FINAL {
+
+  # return;
+}

@@ -1,0 +1,34 @@
+record `com.google.android.material.textfield.ClearTextEndIconDelegate$2` @kind class @AccessFlag  extends `com.google.android.material.textfield.TextInputLayout$OnEditTextAttachedListener` @kind interface {
+  `com.google.android.material.textfield.ClearTextEndIconDelegate` `com.google.android.material.textfield.ClearTextEndIconDelegate$2.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.ClearTextEndIconDelegate$2` v0 @kind this, `com.google.android.material.textfield.ClearTextEndIconDelegate` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/textfield/ClearTextEndIconDelegate$2;.<init>:(Lcom/google/android/material/textfield/ClearTextEndIconDelegate;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b5e50.  v0.`com.google.android.material.textfield.ClearTextEndIconDelegate$2.this$0` @type ^`com.google.android.material.textfield.ClearTextEndIconDelegate` := v1 @kind object;
+  #L1b5e54.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b5e5a.  return @kind void;
+}
+procedure `void` `onEditTextAttached`(`com.google.android.material.textfield.ClearTextEndIconDelegate$2` v2 @kind this, `com.google.android.material.textfield.TextInputLayout` v3 @kind object @name `textInputLayout`) @signature `Lcom/google/android/material/textfield/ClearTextEndIconDelegate$2;.onEditTextAttached:(Lcom/google/android/material/textfield/TextInputLayout;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b5e6c.  call temp:= `getEditText`(v3) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getEditText:()Landroid/widget/EditText;` @kind virtual;
+  #L1b5e72.  v0:= temp @kind object;
+  #L1b5e74.  call temp:= `getText`(v0) @signature `Landroid/widget/EditText;.getText:()Landroid/text/Editable;` @kind virtual;
+  #L1b5e7a.  v1:= temp @kind object;
+  #L1b5e7c.  call temp:= `access$000`(v1) @signature `Lcom/google/android/material/textfield/ClearTextEndIconDelegate;.access$000:(Landroid/text/Editable;)Z` @kind static;
+  #L1b5e82.  v1:= temp;
+  #L1b5e84.  call `setEndIconVisible`(v3, v1) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setEndIconVisible:(Z)V` @kind virtual;
+  #L1b5e8a.  v1:= 0I;
+  #L1b5e8c.  call `setEndIconCheckable`(v3, v1) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setEndIconCheckable:(Z)V` @kind virtual;
+  #L1b5e92.  v1:= v2.`com.google.android.material.textfield.ClearTextEndIconDelegate$2.this$0` @type ^`com.google.android.material.textfield.ClearTextEndIconDelegate` @kind object;
+  #L1b5e96.  call temp:= `access$300`(v1) @signature `Lcom/google/android/material/textfield/ClearTextEndIconDelegate;.access$300:(Lcom/google/android/material/textfield/ClearTextEndIconDelegate;)Landroid/text/TextWatcher;` @kind static;
+  #L1b5e9c.  v1:= temp @kind object;
+  #L1b5e9e.  call `removeTextChangedListener`(v0, v1) @signature `Landroid/widget/EditText;.removeTextChangedListener:(Landroid/text/TextWatcher;)V` @kind virtual;
+  #L1b5ea4.  v1:= v2.`com.google.android.material.textfield.ClearTextEndIconDelegate$2.this$0` @type ^`com.google.android.material.textfield.ClearTextEndIconDelegate` @kind object;
+  #L1b5ea8.  call temp:= `access$300`(v1) @signature `Lcom/google/android/material/textfield/ClearTextEndIconDelegate;.access$300:(Lcom/google/android/material/textfield/ClearTextEndIconDelegate;)Landroid/text/TextWatcher;` @kind static;
+  #L1b5eae.  v1:= temp @kind object;
+  #L1b5eb0.  call `addTextChangedListener`(v0, v1) @signature `Landroid/widget/EditText;.addTextChangedListener:(Landroid/text/TextWatcher;)V` @kind virtual;
+  #L1b5eb6.  return @kind void;
+}

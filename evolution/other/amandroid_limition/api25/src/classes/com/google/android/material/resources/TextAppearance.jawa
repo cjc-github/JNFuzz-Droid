@@ -1,0 +1,353 @@
+record `com.google.android.material.resources.TextAppearance` @kind class @AccessFlag PUBLIC {
+  `android.graphics.Typeface` `com.google.android.material.resources.TextAppearance.font` @AccessFlag PRIVATE;
+  `java.lang.String` `com.google.android.material.resources.TextAppearance.fontFamily` @AccessFlag PUBLIC_FINAL;
+  `int` `com.google.android.material.resources.TextAppearance.fontFamilyResourceId` @AccessFlag PRIVATE_FINAL;
+  `boolean` `com.google.android.material.resources.TextAppearance.fontResolved` @AccessFlag PRIVATE;
+  `android.content.res.ColorStateList` `com.google.android.material.resources.TextAppearance.shadowColor` @AccessFlag PUBLIC_FINAL;
+  `float` `com.google.android.material.resources.TextAppearance.shadowDx` @AccessFlag PUBLIC_FINAL;
+  `float` `com.google.android.material.resources.TextAppearance.shadowDy` @AccessFlag PUBLIC_FINAL;
+  `float` `com.google.android.material.resources.TextAppearance.shadowRadius` @AccessFlag PUBLIC_FINAL;
+  `boolean` `com.google.android.material.resources.TextAppearance.textAllCaps` @AccessFlag PUBLIC_FINAL;
+  `android.content.res.ColorStateList` `com.google.android.material.resources.TextAppearance.textColor` @AccessFlag PUBLIC_FINAL;
+  `android.content.res.ColorStateList` `com.google.android.material.resources.TextAppearance.textColorHint` @AccessFlag PUBLIC_FINAL;
+  `android.content.res.ColorStateList` `com.google.android.material.resources.TextAppearance.textColorLink` @AccessFlag PUBLIC_FINAL;
+  `float` `com.google.android.material.resources.TextAppearance.textSize` @AccessFlag PUBLIC_FINAL;
+  `int` `com.google.android.material.resources.TextAppearance.textStyle` @AccessFlag PUBLIC_FINAL;
+  `int` `com.google.android.material.resources.TextAppearance.typeface` @AccessFlag PUBLIC_FINAL;
+}
+global `java.lang.String` `@@com.google.android.material.resources.TextAppearance.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.resources.TextAppearance.TYPEFACE_MONOSPACE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.resources.TextAppearance.TYPEFACE_SANS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.resources.TextAppearance.TYPEFACE_SERIF` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.resources.TextAppearance` v5 @kind this, `android.content.Context` v6 @kind object @name `context`, `int` v7 @name `id`) @signature `Lcom/google/android/material/resources/TextAppearance;.<init>:(Landroid/content/Context;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1a90ac.  call `<init>`(v5) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1a90b2.  v0:= 0I;
+  #L1a90b4.  v5.`com.google.android.material.resources.TextAppearance.fontResolved` @type ^`boolean` := v0 @kind boolean;
+  #L1a90b8.  v1:= `@@com.google.android.material.R$styleable.TextAppearance` @type ^`int`[] @kind object;
+  #L1a90bc.  call temp:= `obtainStyledAttributes`(v6, v7, v1) @signature `Landroid/content/Context;.obtainStyledAttributes:(I[I)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1a90c2.  v1:= temp @kind object;
+  #L1a90c4.  v2:= `@@com.google.android.material.R$styleable.TextAppearance_android_textSize` @type ^`int`;
+  #L1a90c8.  v3:= 0I;
+  #L1a90ca.  call temp:= `getDimension`(v1, v2, v3) @signature `Landroid/content/res/TypedArray;.getDimension:(IF)F` @kind virtual;
+  #L1a90d0.  v2:= temp;
+  #L1a90d2.  v5.`com.google.android.material.resources.TextAppearance.textSize` @type ^`float` := v2;
+  #L1a90d6.  v2:= `@@com.google.android.material.R$styleable.TextAppearance_android_textColor` @type ^`int`;
+  #L1a90da.  call temp:= `getColorStateList`(v6, v1, v2) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1a90e0.  v2:= temp @kind object;
+  #L1a90e2.  v5.`com.google.android.material.resources.TextAppearance.textColor` @type ^`android.content.res.ColorStateList` := v2 @kind object;
+  #L1a90e6.  v2:= `@@com.google.android.material.R$styleable.TextAppearance_android_textColorHint` @type ^`int`;
+  #L1a90ea.  call temp:= `getColorStateList`(v6, v1, v2) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1a90f0.  v2:= temp @kind object;
+  #L1a90f2.  v5.`com.google.android.material.resources.TextAppearance.textColorHint` @type ^`android.content.res.ColorStateList` := v2 @kind object;
+  #L1a90f6.  v2:= `@@com.google.android.material.R$styleable.TextAppearance_android_textColorLink` @type ^`int`;
+  #L1a90fa.  call temp:= `getColorStateList`(v6, v1, v2) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1a9100.  v2:= temp @kind object;
+  #L1a9102.  v5.`com.google.android.material.resources.TextAppearance.textColorLink` @type ^`android.content.res.ColorStateList` := v2 @kind object;
+  #L1a9106.  v2:= `@@com.google.android.material.R$styleable.TextAppearance_android_textStyle` @type ^`int`;
+  #L1a910a.  call temp:= `getInt`(v1, v2, v0) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L1a9110.  v2:= temp;
+  #L1a9112.  v5.`com.google.android.material.resources.TextAppearance.textStyle` @type ^`int` := v2;
+  #L1a9116.  v2:= `@@com.google.android.material.R$styleable.TextAppearance_android_typeface` @type ^`int`;
+  #L1a911a.  v4:= 1I;
+  #L1a911c.  call temp:= `getInt`(v1, v2, v4) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L1a9122.  v2:= temp;
+  #L1a9124.  v5.`com.google.android.material.resources.TextAppearance.typeface` @type ^`int` := v2;
+  #L1a9128.  v2:= `@@com.google.android.material.R$styleable.TextAppearance_fontFamily` @type ^`int`;
+  #L1a912c.  v4:= `@@com.google.android.material.R$styleable.TextAppearance_android_fontFamily` @type ^`int`;
+  #L1a9130.  call temp:= `getIndexWithValue`(v1, v2, v4) @signature `Lcom/google/android/material/resources/MaterialResources;.getIndexWithValue:(Landroid/content/res/TypedArray;II)I` @kind static;
+  #L1a9136.  v2:= temp;
+  #L1a9138.  call temp:= `getResourceId`(v1, v2, v0) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1a913e.  v4:= temp;
+  #L1a9140.  v5.`com.google.android.material.resources.TextAppearance.fontFamilyResourceId` @type ^`int` := v4;
+  #L1a9144.  call temp:= `getString`(v1, v2) @signature `Landroid/content/res/TypedArray;.getString:(I)Ljava/lang/String;` @kind virtual;
+  #L1a914a.  v4:= temp @kind object;
+  #L1a914c.  v5.`com.google.android.material.resources.TextAppearance.fontFamily` @type ^`java.lang.String` := v4 @kind object;
+  #L1a9150.  v4:= `@@com.google.android.material.R$styleable.TextAppearance_textAllCaps` @type ^`int`;
+  #L1a9154.  call temp:= `getBoolean`(v1, v4, v0) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L1a915a.  v0:= temp;
+  #L1a915c.  v5.`com.google.android.material.resources.TextAppearance.textAllCaps` @type ^`boolean` := v0 @kind boolean;
+  #L1a9160.  v0:= `@@com.google.android.material.R$styleable.TextAppearance_android_shadowColor` @type ^`int`;
+  #L1a9164.  call temp:= `getColorStateList`(v6, v1, v0) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1a916a.  v0:= temp @kind object;
+  #L1a916c.  v5.`com.google.android.material.resources.TextAppearance.shadowColor` @type ^`android.content.res.ColorStateList` := v0 @kind object;
+  #L1a9170.  v0:= `@@com.google.android.material.R$styleable.TextAppearance_android_shadowDx` @type ^`int`;
+  #L1a9174.  call temp:= `getFloat`(v1, v0, v3) @signature `Landroid/content/res/TypedArray;.getFloat:(IF)F` @kind virtual;
+  #L1a917a.  v0:= temp;
+  #L1a917c.  v5.`com.google.android.material.resources.TextAppearance.shadowDx` @type ^`float` := v0;
+  #L1a9180.  v0:= `@@com.google.android.material.R$styleable.TextAppearance_android_shadowDy` @type ^`int`;
+  #L1a9184.  call temp:= `getFloat`(v1, v0, v3) @signature `Landroid/content/res/TypedArray;.getFloat:(IF)F` @kind virtual;
+  #L1a918a.  v0:= temp;
+  #L1a918c.  v5.`com.google.android.material.resources.TextAppearance.shadowDy` @type ^`float` := v0;
+  #L1a9190.  v0:= `@@com.google.android.material.R$styleable.TextAppearance_android_shadowRadius` @type ^`int`;
+  #L1a9194.  call temp:= `getFloat`(v1, v0, v3) @signature `Landroid/content/res/TypedArray;.getFloat:(IF)F` @kind virtual;
+  #L1a919a.  v0:= temp;
+  #L1a919c.  v5.`com.google.android.material.resources.TextAppearance.shadowRadius` @type ^`float` := v0;
+  #L1a91a0.  call `recycle`(v1) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1a91a6.  return @kind void;
+}
+procedure `android.graphics.Typeface` `access$000`(`com.google.android.material.resources.TextAppearance` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/resources/TextAppearance;.access$000:(Lcom/google/android/material/resources/TextAppearance;)Landroid/graphics/Typeface;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1a8f94.  v0:= v1.`com.google.android.material.resources.TextAppearance.font` @type ^`android.graphics.Typeface` @kind object;
+  #L1a8f98.  return v0 @kind object;
+}
+procedure `android.graphics.Typeface` `access$002`(`com.google.android.material.resources.TextAppearance` v0 @kind object @name `x0`, `android.graphics.Typeface` v1 @kind object @name `x1`) @signature `Lcom/google/android/material/resources/TextAppearance;.access$002:(Lcom/google/android/material/resources/TextAppearance;Landroid/graphics/Typeface;)Landroid/graphics/Typeface;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1a8fac.  v0.`com.google.android.material.resources.TextAppearance.font` @type ^`android.graphics.Typeface` := v1 @kind object;
+  #L1a8fb0.  return v1 @kind object;
+}
+procedure `boolean` `access$102`(`com.google.android.material.resources.TextAppearance` v0 @kind object @name `x0`, `boolean` v1 @name `x1`) @signature `Lcom/google/android/material/resources/TextAppearance;.access$102:(Lcom/google/android/material/resources/TextAppearance;Z)Z` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1a9094.  v0.`com.google.android.material.resources.TextAppearance.fontResolved` @type ^`boolean` := v1 @kind boolean;
+  #L1a9098.  return v1;
+}
+procedure `void` `createFallbackFont`(`com.google.android.material.resources.TextAppearance` v2 @kind this) @signature `Lcom/google/android/material/resources/TextAppearance;.createFallbackFont:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1a91b8.  v0:= v2.`com.google.android.material.resources.TextAppearance.font` @type ^`android.graphics.Typeface` @kind object;
+  #L1a91bc.  if v0 != 0 then goto L1a91d8;
+  #L1a91c0.  v0:= v2.`com.google.android.material.resources.TextAppearance.fontFamily` @type ^`java.lang.String` @kind object;
+  #L1a91c4.  if v0 == 0 then goto L1a91d8;
+  #L1a91c8.  v1:= v2.`com.google.android.material.resources.TextAppearance.textStyle` @type ^`int`;
+  #L1a91cc.  call temp:= `create`(v0, v1) @signature `Landroid/graphics/Typeface;.create:(Ljava/lang/String;I)Landroid/graphics/Typeface;` @kind static;
+  #L1a91d2.  v0:= temp @kind object;
+  #L1a91d4.  v2.`com.google.android.material.resources.TextAppearance.font` @type ^`android.graphics.Typeface` := v0 @kind object;
+  #L1a91d8.  v0:= v2.`com.google.android.material.resources.TextAppearance.font` @type ^`android.graphics.Typeface` @kind object;
+  #L1a91dc.  if v0 != 0 then goto L1a9232;
+  #L1a91e0.  v0:= v2.`com.google.android.material.resources.TextAppearance.typeface` @type ^`int`;
+  #L1a91e4.  v1:= 1I;
+  #L1a91e6.  if v0 == v1 then goto L1a9214;
+  #L1a91ea.  v1:= 2I;
+  #L1a91ec.  if v0 == v1 then goto L1a920a;
+  #L1a91f0.  v1:= 3I;
+  #L1a91f2.  if v0 == v1 then goto L1a9200;
+  #L1a91f6.  v0:= `@@android.graphics.Typeface.DEFAULT` @type ^`android.graphics.Typeface` @kind object;
+  #L1a91fa.  v2.`com.google.android.material.resources.TextAppearance.font` @type ^`android.graphics.Typeface` := v0 @kind object;
+  #L1a91fe.  goto L1a921e;
+  #L1a9200.  v0:= `@@android.graphics.Typeface.MONOSPACE` @type ^`android.graphics.Typeface` @kind object;
+  #L1a9204.  v2.`com.google.android.material.resources.TextAppearance.font` @type ^`android.graphics.Typeface` := v0 @kind object;
+  #L1a9208.  goto L1a921e;
+  #L1a920a.  v0:= `@@android.graphics.Typeface.SERIF` @type ^`android.graphics.Typeface` @kind object;
+  #L1a920e.  v2.`com.google.android.material.resources.TextAppearance.font` @type ^`android.graphics.Typeface` := v0 @kind object;
+  #L1a9212.  goto L1a921e;
+  #L1a9214.  v0:= `@@android.graphics.Typeface.SANS_SERIF` @type ^`android.graphics.Typeface` @kind object;
+  #L1a9218.  v2.`com.google.android.material.resources.TextAppearance.font` @type ^`android.graphics.Typeface` := v0 @kind object;
+  #L1a921c.  
+  #L1a921e.  v0:= v2.`com.google.android.material.resources.TextAppearance.font` @type ^`android.graphics.Typeface` @kind object;
+  #L1a9222.  v1:= v2.`com.google.android.material.resources.TextAppearance.textStyle` @type ^`int`;
+  #L1a9226.  call temp:= `create`(v0, v1) @signature `Landroid/graphics/Typeface;.create:(Landroid/graphics/Typeface;I)Landroid/graphics/Typeface;` @kind static;
+  #L1a922c.  v0:= temp @kind object;
+  #L1a922e.  v2.`com.google.android.material.resources.TextAppearance.font` @type ^`android.graphics.Typeface` := v0 @kind object;
+  #L1a9232.  return @kind void;
+}
+procedure `android.graphics.Typeface` `getFallbackFont`(`com.google.android.material.resources.TextAppearance` v1 @kind this) @signature `Lcom/google/android/material/resources/TextAppearance;.getFallbackFont:()Landroid/graphics/Typeface;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a8fc4.  call `createFallbackFont`(v1) @signature `Lcom/google/android/material/resources/TextAppearance;.createFallbackFont:()V` @kind direct;
+  #L1a8fca.  v0:= v1.`com.google.android.material.resources.TextAppearance.font` @type ^`android.graphics.Typeface` @kind object;
+  #L1a8fce.  return v0 @kind object;
+}
+procedure `android.graphics.Typeface` `getFont`(`com.google.android.material.resources.TextAppearance` v3 @kind this, `android.content.Context` v4 @kind object @name `context`) @signature `Lcom/google/android/material/resources/TextAppearance;.getFont:(Landroid/content/Context;)Landroid/graphics/Typeface;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a8fe0.  v0:= v3.`com.google.android.material.resources.TextAppearance.fontResolved` @type ^`boolean` @kind boolean;
+  #L1a8fe4.  if v0 == 0 then goto L1a8fee;
+  #L1a8fe8.  v0:= v3.`com.google.android.material.resources.TextAppearance.font` @type ^`android.graphics.Typeface` @kind object;
+  #L1a8fec.  return v0 @kind object;
+  #L1a8fee.  call temp:= `isRestricted`(v4) @signature `Landroid/content/Context;.isRestricted:()Z` @kind virtual;
+  #L1a8ff4.  v0:= temp;
+  #L1a8ff6.  if v0 != 0 then goto L1a905e;
+  #L1a8ffa.  v0:= v3.`com.google.android.material.resources.TextAppearance.fontFamilyResourceId` @type ^`int`;
+  #L1a8ffe.  call temp:= `getFont`(v4, v0) @signature `Landroidx/core/content/res/ResourcesCompat;.getFont:(Landroid/content/Context;I)Landroid/graphics/Typeface;` @kind static;
+  #L1a9004.  v0:= temp @kind object;
+  #L1a9006.  v3.`com.google.android.material.resources.TextAppearance.font` @type ^`android.graphics.Typeface` := v0 @kind object;
+  #L1a900a.  if v0 == 0 then goto L1a905e;
+  #L1a900e.  v1:= v3.`com.google.android.material.resources.TextAppearance.textStyle` @type ^`int`;
+  #L1a9012.  call temp:= `create`(v0, v1) @signature `Landroid/graphics/Typeface;.create:(Landroid/graphics/Typeface;I)Landroid/graphics/Typeface;` @kind static;
+  #L1a9018.  v0:= temp @kind object;
+  #L1a901a.  v3.`com.google.android.material.resources.TextAppearance.font` @type ^`android.graphics.Typeface` := v0 @kind object;
+  #L1a901e.  goto L1a905e;
+  #L1a9020.  v0:= Exception @type ^`java.lang.Exception` @kind object;
+  #L1a9022.  v1:= new `java.lang.StringBuilder`;
+  #L1a9026.  call `<init>`(v1) @signature `Ljava/lang/StringBuilder;.<init>:()V` @kind direct;
+  #L1a902c.  v2:= "Error loading font " @kind object;
+  #L1a9030.  call temp:= `append`(v1, v2) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L1a9036.  v1:= temp @kind object;
+  #L1a9038.  v2:= v3.`com.google.android.material.resources.TextAppearance.fontFamily` @type ^`java.lang.String` @kind object;
+  #L1a903c.  call temp:= `append`(v1, v2) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L1a9042.  v1:= temp @kind object;
+  #L1a9044.  call temp:= `toString`(v1) @signature `Ljava/lang/StringBuilder;.toString:()Ljava/lang/String;` @kind virtual;
+  #L1a904a.  v1:= temp @kind object;
+  #L1a904c.  v2:= "TextAppearance" @kind object;
+  #L1a9050.  call temp:= `d`(v2, v1, v0) @signature `Landroid/util/Log;.d:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I` @kind static;
+  #L1a9056.  goto L1a905e;
+  #L1a9058.  v0:= Exception @type ^`android.content.res.Resources$NotFoundException` @kind object;
+  #L1a905a.  goto L1a905e;
+  #L1a905c.  v0:= Exception @type ^`java.lang.UnsupportedOperationException` @kind object;
+  #L1a905e.  call `createFallbackFont`(v3) @signature `Lcom/google/android/material/resources/TextAppearance;.createFallbackFont:()V` @kind direct;
+  #L1a9064.  v0:= 1I;
+  #L1a9066.  v3.`com.google.android.material.resources.TextAppearance.fontResolved` @type ^`boolean` := v0 @kind boolean;
+  #L1a906a.  v0:= v3.`com.google.android.material.resources.TextAppearance.font` @type ^`android.graphics.Typeface` @kind object;
+  #L1a906e.  return v0 @kind object;
+  catch `java.lang.UnsupportedOperationException` @[L1a8ffa..L1a901e] goto L1a905c;
+  catch `android.content.res.Resources$NotFoundException` @[L1a8ffa..L1a901e] goto L1a9058;
+  catch `java.lang.Exception` @[L1a8ffa..L1a901e] goto L1a9020;
+}
+procedure `void` `getFontAsync`(`com.google.android.material.resources.TextAppearance` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.text.TextPaint` v3 @kind object @name `textPaint`, `com.google.android.material.resources.TextAppearanceFontCallback` v4 @kind object @name `callback`) @signature `Lcom/google/android/material/resources/TextAppearance;.getFontAsync:(Landroid/content/Context;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a9244.  call temp:= `getFallbackFont`(v1) @signature `Lcom/google/android/material/resources/TextAppearance;.getFallbackFont:()Landroid/graphics/Typeface;` @kind virtual;
+  #L1a924a.  v0:= temp @kind object;
+  #L1a924c.  call `updateTextPaintMeasureState`(v1, v3, v0) @signature `Lcom/google/android/material/resources/TextAppearance;.updateTextPaintMeasureState:(Landroid/text/TextPaint;Landroid/graphics/Typeface;)V` @kind virtual;
+  #L1a9252.  v0:= new `com.google.android.material.resources.TextAppearance$2`;
+  #L1a9256.  call `<init>`(v0, v1, v3, v4) @signature `Lcom/google/android/material/resources/TextAppearance$2;.<init>:(Lcom/google/android/material/resources/TextAppearance;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V` @kind direct;
+  #L1a925c.  call `getFontAsync`(v1, v2, v0) @signature `Lcom/google/android/material/resources/TextAppearance;.getFontAsync:(Landroid/content/Context;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V` @kind virtual;
+  #L1a9262.  return @kind void;
+}
+procedure `void` `getFontAsync`(`com.google.android.material.resources.TextAppearance` v4 @kind this, `android.content.Context` v5 @kind object @name `context`, `com.google.android.material.resources.TextAppearanceFontCallback` v6 @kind object @name `callback`) @signature `Lcom/google/android/material/resources/TextAppearance;.getFontAsync:(Landroid/content/Context;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1a9274.  call temp:= `shouldLoadFontSynchronously`() @signature `Lcom/google/android/material/resources/TextAppearanceConfig;.shouldLoadFontSynchronously:()Z` @kind static;
+  #L1a927a.  v0:= temp;
+  #L1a927c.  if v0 == 0 then goto L1a9288;
+  #L1a9280.  call temp:= `getFont`(v4, v5) @signature `Lcom/google/android/material/resources/TextAppearance;.getFont:(Landroid/content/Context;)Landroid/graphics/Typeface;` @kind virtual;
+  #L1a9286.  goto L1a928e;
+  #L1a9288.  call `createFallbackFont`(v4) @signature `Lcom/google/android/material/resources/TextAppearance;.createFallbackFont:()V` @kind direct;
+  #L1a928e.  v0:= v4.`com.google.android.material.resources.TextAppearance.fontFamilyResourceId` @type ^`int`;
+  #L1a9292.  v1:= 1I;
+  #L1a9294.  if v0 != 0 then goto L1a929c;
+  #L1a9298.  v4.`com.google.android.material.resources.TextAppearance.fontResolved` @type ^`boolean` := v1 @kind boolean;
+  #L1a929c.  v2:= v4.`com.google.android.material.resources.TextAppearance.fontResolved` @type ^`boolean` @kind boolean;
+  #L1a92a0.  if v2 == 0 then goto L1a92b0;
+  #L1a92a4.  v0:= v4.`com.google.android.material.resources.TextAppearance.font` @type ^`android.graphics.Typeface` @kind object;
+  #L1a92a8.  call `onFontRetrieved`(v6, v0, v1) @signature `Lcom/google/android/material/resources/TextAppearanceFontCallback;.onFontRetrieved:(Landroid/graphics/Typeface;Z)V` @kind virtual;
+  #L1a92ae.  return @kind void;
+  #L1a92b0.  v2:= new `com.google.android.material.resources.TextAppearance$1`;
+  #L1a92b4.  call `<init>`(v2, v4, v6) @signature `Lcom/google/android/material/resources/TextAppearance$1;.<init>:(Lcom/google/android/material/resources/TextAppearance;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V` @kind direct;
+  #L1a92ba.  v3:= 0I;
+  #L1a92bc.  call `getFont`(v5, v0, v2, v3) @signature `Landroidx/core/content/res/ResourcesCompat;.getFont:(Landroid/content/Context;ILandroidx/core/content/res/ResourcesCompat$FontCallback;Landroid/os/Handler;)V` @kind static;
+  #L1a92c2.  goto L1a9314;
+  #L1a92c4.  v0:= Exception @type ^`java.lang.Exception` @kind object;
+  #L1a92c6.  v2:= new `java.lang.StringBuilder`;
+  #L1a92ca.  call `<init>`(v2) @signature `Ljava/lang/StringBuilder;.<init>:()V` @kind direct;
+  #L1a92d0.  v3:= "Error loading font " @kind object;
+  #L1a92d4.  call temp:= `append`(v2, v3) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L1a92da.  v2:= temp @kind object;
+  #L1a92dc.  v3:= v4.`com.google.android.material.resources.TextAppearance.fontFamily` @type ^`java.lang.String` @kind object;
+  #L1a92e0.  call temp:= `append`(v2, v3) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L1a92e6.  v2:= temp @kind object;
+  #L1a92e8.  call temp:= `toString`(v2) @signature `Ljava/lang/StringBuilder;.toString:()Ljava/lang/String;` @kind virtual;
+  #L1a92ee.  v2:= temp @kind object;
+  #L1a92f0.  v3:= "TextAppearance" @kind object;
+  #L1a92f4.  call temp:= `d`(v3, v2, v0) @signature `Landroid/util/Log;.d:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I` @kind static;
+  #L1a92fa.  v4.`com.google.android.material.resources.TextAppearance.fontResolved` @type ^`boolean` := v1 @kind boolean;
+  #L1a92fe.  v1:= -3I;
+  #L1a9300.  call `onFontRetrievalFailed`(v6, v1) @signature `Lcom/google/android/material/resources/TextAppearanceFontCallback;.onFontRetrievalFailed:(I)V` @kind virtual;
+  #L1a9306.  goto L1a9316;
+  #L1a9308.  v0:= Exception @type ^`android.content.res.Resources$NotFoundException` @kind object;
+  #L1a930a.  v4.`com.google.android.material.resources.TextAppearance.fontResolved` @type ^`boolean` := v1 @kind boolean;
+  #L1a930e.  call `onFontRetrievalFailed`(v6, v1) @signature `Lcom/google/android/material/resources/TextAppearanceFontCallback;.onFontRetrievalFailed:(I)V` @kind virtual;
+  #L1a9314.  
+  #L1a9316.  return @kind void;
+  catch `android.content.res.Resources$NotFoundException` @[L1a92b0..L1a92c2] goto L1a9308;
+  catch `java.lang.Exception` @[L1a92b0..L1a92c2] goto L1a92c4;
+}
+procedure `void` `updateDrawState`(`com.google.android.material.resources.TextAppearance` v6 @kind this, `android.content.Context` v7 @kind object @name `context`, `android.text.TextPaint` v8 @kind object @name `textPaint`, `com.google.android.material.resources.TextAppearanceFontCallback` v9 @kind object @name `callback`) @signature `Lcom/google/android/material/resources/TextAppearance;.updateDrawState:(Landroid/content/Context;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1a9338.  call `updateMeasureState`(v6, v7, v8, v9) @signature `Lcom/google/android/material/resources/TextAppearance;.updateMeasureState:(Landroid/content/Context;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V` @kind virtual;
+  #L1a933e.  v0:= v6.`com.google.android.material.resources.TextAppearance.textColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a9342.  if v0 == 0 then goto L1a9360;
+  #L1a9346.  v1:= v8.`android.text.TextPaint.drawableState` @type ^`int`[] @kind object;
+  #L1a934a.  v2:= v6.`com.google.android.material.resources.TextAppearance.textColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a934e.  call temp:= `getDefaultColor`(v2) @signature `Landroid/content/res/ColorStateList;.getDefaultColor:()I` @kind virtual;
+  #L1a9354.  v2:= temp;
+  #L1a9356.  call temp:= `getColorForState`(v0, v1, v2) @signature `Landroid/content/res/ColorStateList;.getColorForState:([II)I` @kind virtual;
+  #L1a935c.  v0:= temp;
+  #L1a935e.  goto L1a9364;
+  #L1a9360.  v0:= -16777216I;
+  #L1a9364.  call `setColor`(v8, v0) @signature `Landroid/text/TextPaint;.setColor:(I)V` @kind virtual;
+  #L1a936a.  v0:= v6.`com.google.android.material.resources.TextAppearance.shadowRadius` @type ^`float`;
+  #L1a936e.  v1:= v6.`com.google.android.material.resources.TextAppearance.shadowDx` @type ^`float`;
+  #L1a9372.  v2:= v6.`com.google.android.material.resources.TextAppearance.shadowDy` @type ^`float`;
+  #L1a9376.  v3:= v6.`com.google.android.material.resources.TextAppearance.shadowColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a937a.  if v3 == 0 then goto L1a9398;
+  #L1a937e.  v4:= v8.`android.text.TextPaint.drawableState` @type ^`int`[] @kind object;
+  #L1a9382.  v5:= v6.`com.google.android.material.resources.TextAppearance.shadowColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a9386.  call temp:= `getDefaultColor`(v5) @signature `Landroid/content/res/ColorStateList;.getDefaultColor:()I` @kind virtual;
+  #L1a938c.  v5:= temp;
+  #L1a938e.  call temp:= `getColorForState`(v3, v4, v5) @signature `Landroid/content/res/ColorStateList;.getColorForState:([II)I` @kind virtual;
+  #L1a9394.  v3:= temp;
+  #L1a9396.  goto L1a939a;
+  #L1a9398.  v3:= 0I;
+  #L1a939a.  call `setShadowLayer`(v8, v0, v1, v2, v3) @signature `Landroid/text/TextPaint;.setShadowLayer:(FFFI)V` @kind virtual;
+  #L1a93a0.  return @kind void;
+}
+procedure `void` `updateMeasureState`(`com.google.android.material.resources.TextAppearance` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.text.TextPaint` v3 @kind object @name `textPaint`, `com.google.android.material.resources.TextAppearanceFontCallback` v4 @kind object @name `callback`) @signature `Lcom/google/android/material/resources/TextAppearance;.updateMeasureState:(Landroid/content/Context;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a93b4.  call temp:= `shouldLoadFontSynchronously`() @signature `Lcom/google/android/material/resources/TextAppearanceConfig;.shouldLoadFontSynchronously:()Z` @kind static;
+  #L1a93ba.  v0:= temp;
+  #L1a93bc.  if v0 == 0 then goto L1a93d0;
+  #L1a93c0.  call temp:= `getFont`(v1, v2) @signature `Lcom/google/android/material/resources/TextAppearance;.getFont:(Landroid/content/Context;)Landroid/graphics/Typeface;` @kind virtual;
+  #L1a93c6.  v0:= temp @kind object;
+  #L1a93c8.  call `updateTextPaintMeasureState`(v1, v3, v0) @signature `Lcom/google/android/material/resources/TextAppearance;.updateTextPaintMeasureState:(Landroid/text/TextPaint;Landroid/graphics/Typeface;)V` @kind virtual;
+  #L1a93ce.  goto L1a93d6;
+  #L1a93d0.  call `getFontAsync`(v1, v2, v3, v4) @signature `Lcom/google/android/material/resources/TextAppearance;.getFontAsync:(Landroid/content/Context;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V` @kind virtual;
+  #L1a93d6.  return @kind void;
+}
+procedure `void` `updateTextPaintMeasureState`(`com.google.android.material.resources.TextAppearance` v2 @kind this, `android.text.TextPaint` v3 @kind object @name `textPaint`, `android.graphics.Typeface` v4 @kind object @name `typeface`) @signature `Lcom/google/android/material/resources/TextAppearance;.updateTextPaintMeasureState:(Landroid/text/TextPaint;Landroid/graphics/Typeface;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a93e8.  call temp:= `setTypeface`(v3, v4) @signature `Landroid/text/TextPaint;.setTypeface:(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;` @kind virtual;
+  #L1a93ee.  v0:= v2.`com.google.android.material.resources.TextAppearance.textStyle` @type ^`int`;
+  #L1a93f2.  call temp:= `getStyle`(v4) @signature `Landroid/graphics/Typeface;.getStyle:()I` @kind virtual;
+  #L1a93f8.  v1:= temp;
+  #L1a93fa.  v1:= ~v1 @kind int;
+  #L1a93fc.  v0:= v0 ^& v1 @kind int;
+  #L1a93fe.  v1:= v0 ^& 1;
+  #L1a9402.  if v1 == 0 then goto L1a940a;
+  #L1a9406.  v1:= 1I;
+  #L1a9408.  goto L1a940c;
+  #L1a940a.  v1:= 0I;
+  #L1a940c.  call `setFakeBoldText`(v3, v1) @signature `Landroid/text/TextPaint;.setFakeBoldText:(Z)V` @kind virtual;
+  #L1a9412.  v1:= v0 ^& 2;
+  #L1a9416.  if v1 == 0 then goto L1a9420;
+  #L1a941a.  v1:= -0.25F;
+  #L1a941e.  goto L1a9422;
+  #L1a9420.  v1:= 0I;
+  #L1a9422.  call `setTextSkewX`(v3, v1) @signature `Landroid/text/TextPaint;.setTextSkewX:(F)V` @kind virtual;
+  #L1a9428.  v1:= v2.`com.google.android.material.resources.TextAppearance.textSize` @type ^`float`;
+  #L1a942c.  call `setTextSize`(v3, v1) @signature `Landroid/text/TextPaint;.setTextSize:(F)V` @kind virtual;
+  #L1a9432.  return @kind void;
+}

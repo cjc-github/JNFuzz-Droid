@@ -1,0 +1,126 @@
+record `com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout` @kind class @AccessFlag PUBLIC extends `androidx.coordinatorlayout.widget.CoordinatorLayout` @kind class, `com.google.android.material.circularreveal.CircularRevealWidget` @kind interface {
+  `com.google.android.material.circularreveal.CircularRevealHelper` `com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout.helper` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/circularreveal/coordinatorlayout/CircularRevealCoordinatorLayout;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L195f4c.  v0:= 0I;
+  #L195f4e.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/circularreveal/coordinatorlayout/CircularRevealCoordinatorLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L195f54.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/circularreveal/coordinatorlayout/CircularRevealCoordinatorLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L195f68.  call `<init>`(v1, v2, v3) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L195f6e.  v0:= new `com.google.android.material.circularreveal.CircularRevealHelper`;
+  #L195f72.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/circularreveal/CircularRevealHelper;.<init>:(Lcom/google/android/material/circularreveal/CircularRevealHelper$Delegate;)V` @kind direct;
+  #L195f78.  v1.`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout.helper` @type ^`com.google.android.material.circularreveal.CircularRevealHelper` := v0 @kind object;
+  #L195f7c.  return @kind void;
+}
+procedure `void` `actualDraw`(`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout` v0 @kind this, `android.graphics.Canvas` v1 @kind object @name `canvas`) @signature `Lcom/google/android/material/circularreveal/coordinatorlayout/CircularRevealCoordinatorLayout;.actualDraw:(Landroid/graphics/Canvas;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L195f90.  call `draw`(v0, v1) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.draw:(Landroid/graphics/Canvas;)V` @kind super;
+  #L195f96.  return @kind void;
+}
+procedure `boolean` `actualIsOpaque`(`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout` v1 @kind this) @signature `Lcom/google/android/material/circularreveal/coordinatorlayout/CircularRevealCoordinatorLayout;.actualIsOpaque:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L195ec4.  call temp:= `isOpaque`(v1) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.isOpaque:()Z` @kind super;
+  #L195eca.  v0:= temp;
+  #L195ecc.  return v0;
+}
+procedure `void` `buildCircularRevealCache`(`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout` v1 @kind this) @signature `Lcom/google/android/material/circularreveal/coordinatorlayout/CircularRevealCoordinatorLayout;.buildCircularRevealCache:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L195fa8.  v0:= v1.`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout.helper` @type ^`com.google.android.material.circularreveal.CircularRevealHelper` @kind object;
+  #L195fac.  call `buildCircularRevealCache`(v0) @signature `Lcom/google/android/material/circularreveal/CircularRevealHelper;.buildCircularRevealCache:()V` @kind virtual;
+  #L195fb2.  return @kind void;
+}
+procedure `void` `destroyCircularRevealCache`(`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout` v1 @kind this) @signature `Lcom/google/android/material/circularreveal/coordinatorlayout/CircularRevealCoordinatorLayout;.destroyCircularRevealCache:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L195fc4.  v0:= v1.`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout.helper` @type ^`com.google.android.material.circularreveal.CircularRevealHelper` @kind object;
+  #L195fc8.  call `destroyCircularRevealCache`(v0) @signature `Lcom/google/android/material/circularreveal/CircularRevealHelper;.destroyCircularRevealCache:()V` @kind virtual;
+  #L195fce.  return @kind void;
+}
+procedure `void` `draw`(`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout` v1 @kind this, `android.graphics.Canvas` v2 @kind object @name `canvas`) @signature `Lcom/google/android/material/circularreveal/coordinatorlayout/CircularRevealCoordinatorLayout;.draw:(Landroid/graphics/Canvas;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L195fe0.  v0:= v1.`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout.helper` @type ^`com.google.android.material.circularreveal.CircularRevealHelper` @kind object;
+  #L195fe4.  if v0 == 0 then goto L195ff0;
+  #L195fe8.  call `draw`(v0, v2) @signature `Lcom/google/android/material/circularreveal/CircularRevealHelper;.draw:(Landroid/graphics/Canvas;)V` @kind virtual;
+  #L195fee.  goto L195ff6;
+  #L195ff0.  call `draw`(v1, v2) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.draw:(Landroid/graphics/Canvas;)V` @kind super;
+  #L195ff6.  return @kind void;
+}
+procedure `android.graphics.drawable.Drawable` `getCircularRevealOverlayDrawable`(`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout` v1 @kind this) @signature `Lcom/google/android/material/circularreveal/coordinatorlayout/CircularRevealCoordinatorLayout;.getCircularRevealOverlayDrawable:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L195ea4.  v0:= v1.`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout.helper` @type ^`com.google.android.material.circularreveal.CircularRevealHelper` @kind object;
+  #L195ea8.  call temp:= `getCircularRevealOverlayDrawable`(v0) @signature `Lcom/google/android/material/circularreveal/CircularRevealHelper;.getCircularRevealOverlayDrawable:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L195eae.  v0:= temp @kind object;
+  #L195eb0.  return v0 @kind object;
+}
+procedure `int` `getCircularRevealScrimColor`(`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout` v1 @kind this) @signature `Lcom/google/android/material/circularreveal/coordinatorlayout/CircularRevealCoordinatorLayout;.getCircularRevealScrimColor:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L195f2c.  v0:= v1.`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout.helper` @type ^`com.google.android.material.circularreveal.CircularRevealHelper` @kind object;
+  #L195f30.  call temp:= `getCircularRevealScrimColor`(v0) @signature `Lcom/google/android/material/circularreveal/CircularRevealHelper;.getCircularRevealScrimColor:()I` @kind virtual;
+  #L195f36.  v0:= temp;
+  #L195f38.  return v0;
+}
+procedure `com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` `getRevealInfo`(`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout` v1 @kind this) @signature `Lcom/google/android/material/circularreveal/coordinatorlayout/CircularRevealCoordinatorLayout;.getRevealInfo:()Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L195f0c.  v0:= v1.`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout.helper` @type ^`com.google.android.material.circularreveal.CircularRevealHelper` @kind object;
+  #L195f10.  call temp:= `getRevealInfo`(v0) @signature `Lcom/google/android/material/circularreveal/CircularRevealHelper;.getRevealInfo:()Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;` @kind virtual;
+  #L195f16.  v0:= temp @kind object;
+  #L195f18.  return v0 @kind object;
+}
+procedure `boolean` `isOpaque`(`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout` v1 @kind this) @signature `Lcom/google/android/material/circularreveal/coordinatorlayout/CircularRevealCoordinatorLayout;.isOpaque:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L195ee0.  v0:= v1.`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout.helper` @type ^`com.google.android.material.circularreveal.CircularRevealHelper` @kind object;
+  #L195ee4.  if v0 == 0 then goto L195ef2;
+  #L195ee8.  call temp:= `isOpaque`(v0) @signature `Lcom/google/android/material/circularreveal/CircularRevealHelper;.isOpaque:()Z` @kind virtual;
+  #L195eee.  v0:= temp;
+  #L195ef0.  return v0;
+  #L195ef2.  call temp:= `isOpaque`(v1) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.isOpaque:()Z` @kind super;
+  #L195ef8.  v0:= temp;
+  #L195efa.  return v0;
+}
+procedure `void` `setCircularRevealOverlayDrawable`(`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `drawable`) @signature `Lcom/google/android/material/circularreveal/coordinatorlayout/CircularRevealCoordinatorLayout;.setCircularRevealOverlayDrawable:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L196008.  v0:= v1.`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout.helper` @type ^`com.google.android.material.circularreveal.CircularRevealHelper` @kind object;
+  #L19600c.  call `setCircularRevealOverlayDrawable`(v0, v2) @signature `Lcom/google/android/material/circularreveal/CircularRevealHelper;.setCircularRevealOverlayDrawable:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L196012.  return @kind void;
+}
+procedure `void` `setCircularRevealScrimColor`(`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout` v1 @kind this, `int` v2 @name `color`) @signature `Lcom/google/android/material/circularreveal/coordinatorlayout/CircularRevealCoordinatorLayout;.setCircularRevealScrimColor:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L196024.  v0:= v1.`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout.helper` @type ^`com.google.android.material.circularreveal.CircularRevealHelper` @kind object;
+  #L196028.  call `setCircularRevealScrimColor`(v0, v2) @signature `Lcom/google/android/material/circularreveal/CircularRevealHelper;.setCircularRevealScrimColor:(I)V` @kind virtual;
+  #L19602e.  return @kind void;
+}
+procedure `void` `setRevealInfo`(`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout` v1 @kind this, `com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` v2 @kind object @name `revealInfo`) @signature `Lcom/google/android/material/circularreveal/coordinatorlayout/CircularRevealCoordinatorLayout;.setRevealInfo:(Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L196040.  v0:= v1.`com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout.helper` @type ^`com.google.android.material.circularreveal.CircularRevealHelper` @kind object;
+  #L196044.  call `setRevealInfo`(v0, v2) @signature `Lcom/google/android/material/circularreveal/CircularRevealHelper;.setRevealInfo:(Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;)V` @kind virtual;
+  #L19604a.  return @kind void;
+}

@@ -1,0 +1,321 @@
+record `com.google.android.material.internal.ThemeEnforcement` @kind class @AccessFlag PUBLIC_FINAL {
+}
+global `int`[] `@@com.google.android.material.internal.ThemeEnforcement.ANDROID_THEME_OVERLAY_ATTRS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int`[] `@@com.google.android.material.internal.ThemeEnforcement.APPCOMPAT_CHECK_ATTRS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@com.google.android.material.internal.ThemeEnforcement.APPCOMPAT_THEME_NAME` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int`[] `@@com.google.android.material.internal.ThemeEnforcement.MATERIAL_CHECK_ATTRS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@com.google.android.material.internal.ThemeEnforcement.MATERIAL_THEME_NAME` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int`[] `@@com.google.android.material.internal.ThemeEnforcement.MATERIAL_THEME_OVERLAY_ATTR` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/internal/ThemeEnforcement;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1a72ac.  v0:= 1I;
+  #L1a72ae.  v1:= new `int`[v0];
+  #L1a72b2.  v2:= `@@com.google.android.material.R$attr.colorPrimary` @type ^`int`;
+  #L1a72b6.  v3:= 0I;
+  #L1a72b8.  v1[v3]:= v2;
+  #L1a72bc.  `@@com.google.android.material.internal.ThemeEnforcement.APPCOMPAT_CHECK_ATTRS` @type ^`int`[] := v1 @kind object;
+  #L1a72c0.  v1:= new `int`[v0];
+  #L1a72c4.  v2:= `@@com.google.android.material.R$attr.colorPrimaryVariant` @type ^`int`;
+  #L1a72c8.  v1[v3]:= v2;
+  #L1a72cc.  `@@com.google.android.material.internal.ThemeEnforcement.MATERIAL_CHECK_ATTRS` @type ^`int`[] := v1 @kind object;
+  #L1a72d0.  v1:= 2I;
+  #L1a72d2.  v1:= new `int`[v1];
+  #L1a72d6.  v2:= 16842752I;
+  #L1a72da.  v1[v3]:= v2;
+  #L1a72de.  v2:= `@@com.google.android.material.R$attr.theme` @type ^`int`;
+  #L1a72e2.  v1[v0]:= v2;
+  #L1a72e6.  `@@com.google.android.material.internal.ThemeEnforcement.ANDROID_THEME_OVERLAY_ATTRS` @type ^`int`[] := v1 @kind object;
+  #L1a72ea.  v0:= new `int`[v0];
+  #L1a72ee.  v1:= `@@com.google.android.material.R$attr.materialThemeOverlay` @type ^`int`;
+  #L1a72f2.  v0[v3]:= v1;
+  #L1a72f6.  `@@com.google.android.material.internal.ThemeEnforcement.MATERIAL_THEME_OVERLAY_ATTR` @type ^`int`[] := v0 @kind object;
+  #L1a72fa.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.ThemeEnforcement` v0 @kind this) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.<init>:()V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+
+  #L1a730c.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1a7312.  return @kind void;
+}
+procedure `void` `checkAppCompatTheme`(`android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.checkAppCompatTheme:(Landroid/content/Context;)V` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a7324.  v0:= `@@com.google.android.material.internal.ThemeEnforcement.APPCOMPAT_CHECK_ATTRS` @type ^`int`[] @kind object;
+  #L1a7328.  v1:= "Theme.AppCompat" @kind object;
+  #L1a732c.  call `checkTheme`(v2, v0, v1) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.checkTheme:(Landroid/content/Context;[ILjava/lang/String;)V` @kind static;
+  #L1a7332.  return @kind void;
+}
+procedure `void` `checkCompatibleTheme`(`android.content.Context` v6 @kind object @name `context`, `android.util.AttributeSet` v7 @kind object @name `set`, `int` v8 @name `defStyleAttr`, `int` v9 @name `defStyleRes`) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.checkCompatibleTheme:(Landroid/content/Context;Landroid/util/AttributeSet;II)V` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1a7344.  v0:= `@@com.google.android.material.R$styleable.ThemeEnforcement` @type ^`int`[] @kind object;
+  #L1a7348.  call temp:= `obtainStyledAttributes`(v6, v7, v0, v8, v9) @signature `Landroid/content/Context;.obtainStyledAttributes:(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1a734e.  v0:= temp @kind object;
+  #L1a7350.  v1:= `@@com.google.android.material.R$styleable.ThemeEnforcement_enforceMaterialTheme` @type ^`int`;
+  #L1a7354.  v2:= 0I;
+  #L1a7356.  call temp:= `getBoolean`(v0, v1, v2) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L1a735c.  v1:= temp;
+  #L1a735e.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1a7364.  if v1 == 0 then goto L1a73a8;
+  #L1a7368.  v2:= new `android.util.TypedValue`;
+  #L1a736c.  call `<init>`(v2) @signature `Landroid/util/TypedValue;.<init>:()V` @kind direct;
+  #L1a7372.  
+  #L1a7374.  call temp:= `getTheme`(v6) @signature `Landroid/content/Context;.getTheme:()Landroid/content/res/Resources$Theme;` @kind virtual;
+  #L1a737a.  v3:= temp @kind object;
+  #L1a737c.  v4:= `@@com.google.android.material.R$attr.isMaterialTheme` @type ^`int`;
+  #L1a7380.  v5:= 1I;
+  #L1a7382.  call temp:= `resolveAttribute`(v3, v4, v2, v5) @signature `Landroid/content/res/Resources$Theme;.resolveAttribute:(ILandroid/util/TypedValue;Z)Z` @kind virtual;
+  #L1a7388.  v3:= temp;
+  #L1a738a.  if v3 == 0 then goto L1a73a2;
+  #L1a738e.  v4:= v2.`android.util.TypedValue.type` @type ^`int`;
+  #L1a7392.  v5:= 18I;
+  #L1a7396.  if v4 != v5 then goto L1a73a8;
+  #L1a739a.  v4:= v2.`android.util.TypedValue.data` @type ^`int`;
+  #L1a739e.  if v4 != 0 then goto L1a73a8;
+  #L1a73a2.  call `checkMaterialTheme`(v6) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.checkMaterialTheme:(Landroid/content/Context;)V` @kind static;
+  #L1a73a8.  call `checkAppCompatTheme`(v6) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.checkAppCompatTheme:(Landroid/content/Context;)V` @kind static;
+  #L1a73ae.  return @kind void;
+}
+procedure `void` `checkMaterialTheme`(`android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.checkMaterialTheme:(Landroid/content/Context;)V` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a73c0.  v0:= `@@com.google.android.material.internal.ThemeEnforcement.MATERIAL_CHECK_ATTRS` @type ^`int`[] @kind object;
+  #L1a73c4.  v1:= "Theme.MaterialComponents" @kind object;
+  #L1a73c8.  call `checkTheme`(v2, v0, v1) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.checkTheme:(Landroid/content/Context;[ILjava/lang/String;)V` @kind static;
+  #L1a73ce.  return @kind void;
+}
+procedure `void` `checkTextAppearance`(`android.content.Context` v5 @kind object @name `context`, `android.util.AttributeSet` v6 @kind object @name `set`, `int`[] v7 @kind object @name `attrs`, `int` v8 @name `defStyleAttr`, `int` v9 @name `defStyleRes`, `int`[] v10 @kind object @name `textAppearanceResIndices`) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.checkTextAppearance:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)V` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1a73e0.  v0:= `@@com.google.android.material.R$styleable.ThemeEnforcement` @type ^`int`[] @kind object;
+  #L1a73e4.  call temp:= `obtainStyledAttributes`(v5, v6, v0, v8, v9) @signature `Landroid/content/Context;.obtainStyledAttributes:(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1a73ea.  v0:= temp @kind object;
+  #L1a73ec.  v1:= `@@com.google.android.material.R$styleable.ThemeEnforcement_enforceTextAppearance` @type ^`int`;
+  #L1a73f0.  v2:= 0I;
+  #L1a73f2.  call temp:= `getBoolean`(v0, v1, v2) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L1a73f8.  v1:= temp;
+  #L1a73fa.  if v1 != 0 then goto L1a7406;
+  #L1a73fe.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1a7404.  return @kind void;
+  #L1a7406.  if v10 == 0 then goto L1a741e;
+  #L1a740a.  v3:= length @variable v10;
+  #L1a740c.  if v3 != 0 then goto L1a7412;
+  #L1a7410.  goto L1a741e;
+  #L1a7412.  
+  #L1a7414.  call temp:= `isCustomTextAppearanceValid`(v5, v6, v7, v8, v9, v10) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.isCustomTextAppearanceValid:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Z` @kind static;
+  #L1a741a.  v2:= temp;
+  #L1a741c.  goto L1a7432;
+  #L1a741e.  v3:= `@@com.google.android.material.R$styleable.ThemeEnforcement_android_textAppearance` @type ^`int`;
+  #L1a7422.  v4:= -1I;
+  #L1a7424.  call temp:= `getResourceId`(v0, v3, v4) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1a742a.  v3:= temp;
+  #L1a742c.  if v3 == v4 then goto L1a7432;
+  #L1a7430.  v2:= 1I;
+  #L1a7432.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1a7438.  if v2 == 0 then goto L1a743e;
+  #L1a743c.  return @kind void;
+  #L1a743e.  v3:= new `java.lang.IllegalArgumentException`;
+  #L1a7442.  v4:= "This component requires that you specify a valid TextAppearance attribute. Update your app theme to inherit from Theme.MaterialComponents (or a descendant)." @kind object;
+  #L1a7446.  call `<init>`(v3, v4) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1a744c.  throw v3;
+}
+procedure `void` `checkTheme`(`android.content.Context` v3 @kind object @name `context`, `int`[] v4 @kind object @name `themeAttributes`, `java.lang.String` v5 @kind object @name `themeName`) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.checkTheme:(Landroid/content/Context;[ILjava/lang/String;)V` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a7460.  call temp:= `isTheme`(v3, v4) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.isTheme:(Landroid/content/Context;[I)Z` @kind static;
+  #L1a7466.  v0:= temp;
+  #L1a7468.  if v0 == 0 then goto L1a746e;
+  #L1a746c.  return @kind void;
+  #L1a746e.  v0:= new `java.lang.IllegalArgumentException`;
+  #L1a7472.  v1:= new `java.lang.StringBuilder`;
+  #L1a7476.  call `<init>`(v1) @signature `Ljava/lang/StringBuilder;.<init>:()V` @kind direct;
+  #L1a747c.  v2:= "The style on this component requires your app theme to be " @kind object;
+  #L1a7480.  call temp:= `append`(v1, v2) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L1a7486.  v1:= temp @kind object;
+  #L1a7488.  call temp:= `append`(v1, v5) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L1a748e.  v1:= temp @kind object;
+  #L1a7490.  v2:= " (or a descendant)." @kind object;
+  #L1a7494.  call temp:= `append`(v1, v2) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L1a749a.  v1:= temp @kind object;
+  #L1a749c.  call temp:= `toString`(v1) @signature `Ljava/lang/StringBuilder;.toString:()Ljava/lang/String;` @kind virtual;
+  #L1a74a2.  v1:= temp @kind object;
+  #L1a74a4.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1a74aa.  throw v0;
+}
+procedure `android.content.Context` `createThemedContext`(`android.content.Context` v3 @kind object @name `context`, `android.util.AttributeSet` v4 @kind object @name `attrs`, `int` v5 @name `defStyleAttr`, `int` v6 @name `defStyleRes`) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.createThemedContext:(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/content/Context;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a70b4.  
+  #L1a70b6.  call temp:= `obtainMaterialThemeOverlayId`(v3, v4, v5, v6) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainMaterialThemeOverlayId:(Landroid/content/Context;Landroid/util/AttributeSet;II)I` @kind static;
+  #L1a70bc.  v0:= temp;
+  #L1a70be.  if v0 == 0 then goto L1a7100;
+  #L1a70c2.  v1:= instanceof @variable v3 @type ^`androidx.appcompat.view.ContextThemeWrapper` @kind boolean;
+  #L1a70c6.  if v1 == 0 then goto L1a70dc;
+  #L1a70ca.  v1:= v3 @kind object;
+  #L1a70cc.  v1:= (`androidx.appcompat.view.ContextThemeWrapper`) v1 @kind object;
+  #L1a70d0.  call temp:= `getThemeResId`(v1) @signature `Landroidx/appcompat/view/ContextThemeWrapper;.getThemeResId:()I` @kind virtual;
+  #L1a70d6.  v1:= temp;
+  #L1a70d8.  if v1 == v0 then goto L1a7100;
+  #L1a70dc.  v1:= new `androidx.appcompat.view.ContextThemeWrapper`;
+  #L1a70e0.  call `<init>`(v1, v3, v0) @signature `Landroidx/appcompat/view/ContextThemeWrapper;.<init>:(Landroid/content/Context;I)V` @kind direct;
+  #L1a70e6.  v3:= v1 @kind object;
+  #L1a70e8.  call temp:= `obtainAndroidThemeOverlayId`(v3, v4) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainAndroidThemeOverlayId:(Landroid/content/Context;Landroid/util/AttributeSet;)I` @kind static;
+  #L1a70ee.  v1:= temp;
+  #L1a70f0.  if v1 == 0 then goto L1a7100;
+  #L1a70f4.  v2:= new `androidx.appcompat.view.ContextThemeWrapper`;
+  #L1a70f8.  call `<init>`(v2, v3, v1) @signature `Landroidx/appcompat/view/ContextThemeWrapper;.<init>:(Landroid/content/Context;I)V` @kind direct;
+  #L1a70fe.  v3:= v2 @kind object;
+  #L1a7100.  return v3 @kind object;
+}
+procedure `boolean` `isAppCompatTheme`(`android.content.Context` v1 @kind object @name `context`) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.isAppCompatTheme:(Landroid/content/Context;)Z` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L1a7164.  v0:= `@@com.google.android.material.internal.ThemeEnforcement.APPCOMPAT_CHECK_ATTRS` @type ^`int`[] @kind object;
+  #L1a7168.  call temp:= `isTheme`(v1, v0) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.isTheme:(Landroid/content/Context;[I)Z` @kind static;
+  #L1a716e.  v0:= temp;
+  #L1a7170.  return v0;
+}
+procedure `boolean` `isCustomTextAppearanceValid`(`android.content.Context` v7 @kind object @name `context`, `android.util.AttributeSet` v8 @kind object @name `set`, `int`[] v9 @kind object @name `attrs`, `int` v10 @name `defStyleAttr`, `int` v11 @name `defStyleRes`, `int`[] v12 @kind object @name `textAppearanceResIndices`) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.isCustomTextAppearanceValid:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Z` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L1a7184.  
+  #L1a7186.  call temp:= `obtainStyledAttributes`(v7, v8, v9, v10, v11) @signature `Landroid/content/Context;.obtainStyledAttributes:(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1a718c.  v0:= temp @kind object;
+  #L1a718e.  v1:= length @variable v12;
+  #L1a7190.  v2:= 0I;
+  #L1a7192.  v3:= v2;
+  #L1a7194.  if v3 >= v1 then goto L1a71b8;
+  #L1a7198.  v4:= v12[v3];
+  #L1a719c.  v5:= -1I;
+  #L1a719e.  call temp:= `getResourceId`(v0, v4, v5) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1a71a4.  v6:= temp;
+  #L1a71a6.  if v6 != v5 then goto L1a71b2;
+  #L1a71aa.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1a71b0.  return v2;
+  #L1a71b2.  v3:= v3 + 1;
+  #L1a71b6.  goto L1a7194;
+  #L1a71b8.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1a71be.  v1:= 1I;
+  #L1a71c0.  return v1;
+}
+procedure `boolean` `isMaterialTheme`(`android.content.Context` v1 @kind object @name `context`) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.isMaterialTheme:(Landroid/content/Context;)Z` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L1a71d4.  v0:= `@@com.google.android.material.internal.ThemeEnforcement.MATERIAL_CHECK_ATTRS` @type ^`int`[] @kind object;
+  #L1a71d8.  call temp:= `isTheme`(v1, v0) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.isTheme:(Landroid/content/Context;[I)Z` @kind static;
+  #L1a71de.  v0:= temp;
+  #L1a71e0.  return v0;
+}
+procedure `boolean` `isTheme`(`android.content.Context` v3 @kind object @name `context`, `int`[] v4 @kind object @name `themeAttributes`) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.isTheme:(Landroid/content/Context;[I)Z` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a71f4.  call temp:= `obtainStyledAttributes`(v3, v4) @signature `Landroid/content/Context;.obtainStyledAttributes:([I)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1a71fa.  v0:= temp @kind object;
+  #L1a71fc.  v1:= 0I;
+  #L1a71fe.  v2:= length @variable v4;
+  #L1a7200.  if v1 >= v2 then goto L1a7220;
+  #L1a7204.  call temp:= `hasValue`(v0, v1) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1a720a.  v2:= temp;
+  #L1a720c.  if v2 != 0 then goto L1a721a;
+  #L1a7210.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1a7216.  v2:= 0I;
+  #L1a7218.  return v2;
+  #L1a721a.  v1:= v1 + 1;
+  #L1a721e.  goto L1a71fe;
+  #L1a7220.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1a7226.  v1:= 1I;
+  #L1a7228.  return v1;
+}
+procedure `int` `obtainAndroidThemeOverlayId`(`android.content.Context` v4 @kind object @name `context`, `android.util.AttributeSet` v5 @kind object @name `attrs`) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainAndroidThemeOverlayId:(Landroid/content/Context;Landroid/util/AttributeSet;)I` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1a723c.  v0:= `@@com.google.android.material.internal.ThemeEnforcement.ANDROID_THEME_OVERLAY_ATTRS` @type ^`int`[] @kind object;
+  #L1a7240.  call temp:= `obtainStyledAttributes`(v4, v5, v0) @signature `Landroid/content/Context;.obtainStyledAttributes:(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1a7246.  v0:= temp @kind object;
+  #L1a7248.  v1:= 0I;
+  #L1a724a.  call temp:= `getResourceId`(v0, v1, v1) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1a7250.  v2:= temp;
+  #L1a7252.  v3:= 1I;
+  #L1a7254.  call temp:= `getResourceId`(v0, v3, v1) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1a725a.  v1:= temp;
+  #L1a725c.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1a7262.  if v2 == 0 then goto L1a7268;
+  #L1a7266.  return v2;
+  #L1a7268.  return v1;
+}
+procedure `int` `obtainMaterialThemeOverlayId`(`android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`, `int` v4 @name `defStyleAttr`, `int` v5 @name `defStyleRes`) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainMaterialThemeOverlayId:(Landroid/content/Context;Landroid/util/AttributeSet;II)I` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a727c.  v0:= `@@com.google.android.material.internal.ThemeEnforcement.MATERIAL_THEME_OVERLAY_ATTR` @type ^`int`[] @kind object;
+  #L1a7280.  call temp:= `obtainStyledAttributes`(v2, v3, v0, v4, v5) @signature `Landroid/content/Context;.obtainStyledAttributes:(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1a7286.  v0:= temp @kind object;
+  #L1a7288.  v1:= 0I;
+  #L1a728a.  call temp:= `getResourceId`(v0, v1, v1) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1a7290.  v1:= temp;
+  #L1a7292.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1a7298.  return v1;
+}
+procedure `android.content.res.TypedArray` `obtainStyledAttributes`(`android.content.Context` v1 @kind object @name `context`, `android.util.AttributeSet` v2 @kind object @name `set`, `int`[] v3 @kind object @name `attrs`, `int` v4 @name `defStyleAttr`, `int` v5 @name `defStyleRes`, `int`[] v6 @kind object @name `textAppearanceResIndices`) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainStyledAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L1a7114.  call `checkCompatibleTheme`(v1, v2, v4, v5) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.checkCompatibleTheme:(Landroid/content/Context;Landroid/util/AttributeSet;II)V` @kind static;
+  #L1a711a.  call `checkTextAppearance`(v1, v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.checkTextAppearance:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)V` @kind static;
+  #L1a7120.  call temp:= `obtainStyledAttributes`(v1, v2, v3, v4, v5) @signature `Landroid/content/Context;.obtainStyledAttributes:(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1a7126.  v0:= temp @kind object;
+  #L1a7128.  return v0 @kind object;
+}
+procedure `androidx.appcompat.widget.TintTypedArray` `obtainTintedStyledAttributes`(`android.content.Context` v1 @kind object @name `context`, `android.util.AttributeSet` v2 @kind object @name `set`, `int`[] v3 @kind object @name `attrs`, `int` v4 @name `defStyleAttr`, `int` v5 @name `defStyleRes`, `int`[] v6 @kind object @name `textAppearanceResIndices`) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainTintedStyledAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroidx/appcompat/widget/TintTypedArray;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L1a713c.  call `checkCompatibleTheme`(v1, v2, v4, v5) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.checkCompatibleTheme:(Landroid/content/Context;Landroid/util/AttributeSet;II)V` @kind static;
+  #L1a7142.  call `checkTextAppearance`(v1, v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.checkTextAppearance:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)V` @kind static;
+  #L1a7148.  call temp:= `obtainStyledAttributes`(v1, v2, v3, v4, v5) @signature `Landroidx/appcompat/widget/TintTypedArray;.obtainStyledAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;[III)Landroidx/appcompat/widget/TintTypedArray;` @kind static;
+  #L1a714e.  v0:= temp @kind object;
+  #L1a7150.  return v0 @kind object;
+}

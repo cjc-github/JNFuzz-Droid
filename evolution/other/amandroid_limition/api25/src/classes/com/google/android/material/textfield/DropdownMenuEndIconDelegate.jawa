@@ -1,0 +1,611 @@
+record `com.google.android.material.textfield.DropdownMenuEndIconDelegate` @kind class @AccessFlag  extends `com.google.android.material.textfield.EndIconDelegate` @kind class {
+  `com.google.android.material.textfield.TextInputLayout$AccessibilityDelegate` `com.google.android.material.textfield.DropdownMenuEndIconDelegate.accessibilityDelegate` @AccessFlag PRIVATE_FINAL;
+  `android.view.accessibility.AccessibilityManager` `com.google.android.material.textfield.DropdownMenuEndIconDelegate.accessibilityManager` @AccessFlag PRIVATE;
+  `com.google.android.material.textfield.TextInputLayout$OnEditTextAttachedListener` `com.google.android.material.textfield.DropdownMenuEndIconDelegate.dropdownMenuOnEditTextAttachedListener` @AccessFlag PRIVATE_FINAL;
+  `long` `com.google.android.material.textfield.DropdownMenuEndIconDelegate.dropdownPopupActivatedAt` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.textfield.DropdownMenuEndIconDelegate.dropdownPopupDirty` @AccessFlag PRIVATE;
+  `android.text.TextWatcher` `com.google.android.material.textfield.DropdownMenuEndIconDelegate.exposedDropdownEndIconTextWatcher` @AccessFlag PRIVATE_FINAL;
+  `android.animation.ValueAnimator` `com.google.android.material.textfield.DropdownMenuEndIconDelegate.fadeInAnim` @AccessFlag PRIVATE;
+  `android.animation.ValueAnimator` `com.google.android.material.textfield.DropdownMenuEndIconDelegate.fadeOutAnim` @AccessFlag PRIVATE;
+  `android.graphics.drawable.StateListDrawable` `com.google.android.material.textfield.DropdownMenuEndIconDelegate.filledPopupBackground` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.textfield.DropdownMenuEndIconDelegate.isEndIconChecked` @AccessFlag PRIVATE;
+  `com.google.android.material.shape.MaterialShapeDrawable` `com.google.android.material.textfield.DropdownMenuEndIconDelegate.outlinedPopupBackground` @AccessFlag PRIVATE;
+}
+global `int` `@@com.google.android.material.textfield.DropdownMenuEndIconDelegate.ANIMATION_FADE_IN_DURATION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.textfield.DropdownMenuEndIconDelegate.ANIMATION_FADE_OUT_DURATION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `boolean` `@@com.google.android.material.textfield.DropdownMenuEndIconDelegate.IS_LOLLIPOP` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L1b6c2c.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1b6c30.  v1:= 21I;
+  #L1b6c34.  if v0 < v1 then goto L1b6c3c;
+  #L1b6c38.  v0:= 1I;
+  #L1b6c3a.  goto L1b6c3e;
+  #L1b6c3c.  v0:= 0I;
+  #L1b6c3e.  `@@com.google.android.material.textfield.DropdownMenuEndIconDelegate.IS_LOLLIPOP` @type ^`boolean` := v0 @kind boolean;
+  #L1b6c42.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v2 @kind this, `com.google.android.material.textfield.TextInputLayout` v3 @kind object @name `textInputLayout`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.<init>:(Lcom/google/android/material/textfield/TextInputLayout;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L1b6c54.  call `<init>`(v2, v3) @signature `Lcom/google/android/material/textfield/EndIconDelegate;.<init>:(Lcom/google/android/material/textfield/TextInputLayout;)V` @kind direct;
+  #L1b6c5a.  v0:= new `com.google.android.material.textfield.DropdownMenuEndIconDelegate$1`;
+  #L1b6c5e.  call `<init>`(v0, v2) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$1;.<init>:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)V` @kind direct;
+  #L1b6c64.  v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.exposedDropdownEndIconTextWatcher` @type ^`android.text.TextWatcher` := v0 @kind object;
+  #L1b6c68.  v0:= new `com.google.android.material.textfield.DropdownMenuEndIconDelegate$2`;
+  #L1b6c6c.  v1:= v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b6c70.  call `<init>`(v0, v2, v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$2;.<init>:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Lcom/google/android/material/textfield/TextInputLayout;)V` @kind direct;
+  #L1b6c76.  v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.accessibilityDelegate` @type ^`com.google.android.material.textfield.TextInputLayout$AccessibilityDelegate` := v0 @kind object;
+  #L1b6c7a.  v0:= new `com.google.android.material.textfield.DropdownMenuEndIconDelegate$3`;
+  #L1b6c7e.  call `<init>`(v0, v2) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$3;.<init>:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)V` @kind direct;
+  #L1b6c84.  v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.dropdownMenuOnEditTextAttachedListener` @type ^`com.google.android.material.textfield.TextInputLayout$OnEditTextAttachedListener` := v0 @kind object;
+  #L1b6c88.  v0:= 0I;
+  #L1b6c8a.  v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.dropdownPopupDirty` @type ^`boolean` := v0 @kind boolean;
+  #L1b6c8e.  v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.isEndIconChecked` @type ^`boolean` := v0 @kind boolean;
+  #L1b6c92.  v0:= 9223372036854775807L;
+  #L1b6c9c.  v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.dropdownPopupActivatedAt` @type ^`long` := v0 @kind wide;
+  #L1b6ca0.  return @kind void;
+}
+procedure `android.widget.AutoCompleteTextView` `access$000`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v1 @kind object @name `x0`, `android.widget.EditText` v2 @kind object @name `x1`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$000:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Landroid/widget/EditText;)Landroid/widget/AutoCompleteTextView;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1b6a98.  call temp:= `castAutoCompleteTextViewOrThrow`(v1, v2) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.castAutoCompleteTextViewOrThrow:(Landroid/widget/EditText;)Landroid/widget/AutoCompleteTextView;` @kind direct;
+  #L1b6a9e.  v0:= temp @kind object;
+  #L1b6aa0.  return v0 @kind object;
+}
+procedure `void` `access$100`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v0 @kind object @name `x0`, `boolean` v1 @name `x1`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$100:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Z)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1b6cb4.  call `setEndIconChecked`(v0, v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.setEndIconChecked:(Z)V` @kind direct;
+  #L1b6cba.  return @kind void;
+}
+procedure `boolean` `access$1000`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$1000:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)Z` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1b6ae4.  call temp:= `isDropdownPopupActive`(v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.isDropdownPopupActive:()Z` @kind direct;
+  #L1b6aea.  v0:= temp;
+  #L1b6aec.  return v0;
+}
+procedure `long` `access$1102`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v0 @kind object @name `x0`, `long` v1 @name `x1`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$1102:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;J)J` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1b6c14.  v0.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.dropdownPopupActivatedAt` @type ^`long` := v1 @kind wide;
+  #L1b6c18.  return v1 @kind wide;
+}
+procedure `boolean` `access$1200`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$1200:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)Z` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1b6b00.  v0:= v1.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.isEndIconChecked` @type ^`boolean` @kind boolean;
+  #L1b6b04.  return v0;
+}
+procedure `android.animation.ValueAnimator` `access$1300`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$1300:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)Landroid/animation/ValueAnimator;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1b6a14.  v0:= v1.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.fadeInAnim` @type ^`android.animation.ValueAnimator` @kind object;
+  #L1b6a18.  return v0 @kind object;
+}
+procedure `boolean` `access$202`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v0 @kind object @name `x0`, `boolean` v1 @name `x1`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$202:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Z)Z` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1b6b18.  v0.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.dropdownPopupDirty` @type ^`boolean` := v1 @kind boolean;
+  #L1b6b1c.  return v1;
+}
+procedure `android.view.accessibility.AccessibilityManager` `access$300`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$300:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)Landroid/view/accessibility/AccessibilityManager;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1b6a80.  v0:= v1.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.accessibilityManager` @type ^`android.view.accessibility.AccessibilityManager` @kind object;
+  #L1b6a84.  return v0 @kind object;
+}
+procedure `void` `access$400`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v0 @kind object @name `x0`, `android.widget.AutoCompleteTextView` v1 @kind object @name `x1`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$400:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Landroid/widget/AutoCompleteTextView;)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1b6ccc.  call `showHideDropdown`(v0, v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.showHideDropdown:(Landroid/widget/AutoCompleteTextView;)V` @kind direct;
+  #L1b6cd2.  return @kind void;
+}
+procedure `void` `access$500`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v0 @kind object @name `x0`, `android.widget.AutoCompleteTextView` v1 @kind object @name `x1`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$500:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Landroid/widget/AutoCompleteTextView;)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1b6ce4.  call `setPopupBackground`(v0, v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.setPopupBackground:(Landroid/widget/AutoCompleteTextView;)V` @kind direct;
+  #L1b6cea.  return @kind void;
+}
+procedure `void` `access$600`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v0 @kind object @name `x0`, `android.widget.AutoCompleteTextView` v1 @kind object @name `x1`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$600:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Landroid/widget/AutoCompleteTextView;)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1b6cfc.  call `addRippleEffect`(v0, v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.addRippleEffect:(Landroid/widget/AutoCompleteTextView;)V` @kind direct;
+  #L1b6d02.  return @kind void;
+}
+procedure `void` `access$700`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v0 @kind object @name `x0`, `android.widget.AutoCompleteTextView` v1 @kind object @name `x1`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$700:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Landroid/widget/AutoCompleteTextView;)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1b6d14.  call `setUpDropdownShowHideBehavior`(v0, v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.setUpDropdownShowHideBehavior:(Landroid/widget/AutoCompleteTextView;)V` @kind direct;
+  #L1b6d1a.  return @kind void;
+}
+procedure `android.text.TextWatcher` `access$800`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$800:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)Landroid/text/TextWatcher;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1b6a68.  v0:= v1.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.exposedDropdownEndIconTextWatcher` @type ^`android.text.TextWatcher` @kind object;
+  #L1b6a6c.  return v0 @kind object;
+}
+procedure `com.google.android.material.textfield.TextInputLayout$AccessibilityDelegate` `access$900`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$900:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)Lcom/google/android/material/textfield/TextInputLayout$AccessibilityDelegate;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1b6bfc.  v0:= v1.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.accessibilityDelegate` @type ^`com.google.android.material.textfield.TextInputLayout$AccessibilityDelegate` @kind object;
+  #L1b6c00.  return v0 @kind object;
+}
+procedure `void` `addRippleEffect`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v9 @kind this, `android.widget.AutoCompleteTextView` v10 @kind object @name `editText`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.addRippleEffect:(Landroid/widget/AutoCompleteTextView;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L1b6d2c.  call temp:= `getKeyListener`(v10) @signature `Landroid/widget/AutoCompleteTextView;.getKeyListener:()Landroid/text/method/KeyListener;` @kind virtual;
+  #L1b6d32.  v0:= temp @kind object;
+  #L1b6d34.  if v0 == 0 then goto L1b6d3a;
+  #L1b6d38.  return @kind void;
+  #L1b6d3a.  v0:= v9.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b6d3e.  call temp:= `getBoxBackgroundMode`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getBoxBackgroundMode:()I` @kind virtual;
+  #L1b6d44.  v0:= temp;
+  #L1b6d46.  v1:= v9.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b6d4a.  call temp:= `getBoxBackground`(v1) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getBoxBackground:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind virtual;
+  #L1b6d50.  v1:= temp @kind object;
+  #L1b6d52.  v2:= `@@com.google.android.material.R$attr.colorControlHighlight` @type ^`int`;
+  #L1b6d56.  call temp:= `getColor`(v10, v2) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/view/View;I)I` @kind static;
+  #L1b6d5c.  v2:= temp;
+  #L1b6d5e.  v3:= 2I;
+  #L1b6d60.  v4:= new `int`[][v3];
+  #L1b6d64.  v5:= 1I;
+  #L1b6d66.  v6:= new `int`[v5];
+  #L1b6d6a.  v7:= 16842919I;
+  #L1b6d70.  v8:= 0I;
+  #L1b6d72.  v6[v8]:= v7;
+  #L1b6d76.  v4[v8]:= v6 @kind object;
+  #L1b6d7a.  v6:= new `int`[v8];
+  #L1b6d7e.  v4[v5]:= v6 @kind object;
+  #L1b6d82.  if v0 != v3 then goto L1b6d8e;
+  #L1b6d86.  call `addRippleEffectOnOutlinedLayout`(v9, v10, v2, v4, v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.addRippleEffectOnOutlinedLayout:(Landroid/widget/AutoCompleteTextView;I[[ILcom/google/android/material/shape/MaterialShapeDrawable;)V` @kind direct;
+  #L1b6d8c.  goto L1b6d98;
+  #L1b6d8e.  if v0 != v5 then goto L1b6d98;
+  #L1b6d92.  call `addRippleEffectOnFilledLayout`(v9, v10, v2, v4, v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.addRippleEffectOnFilledLayout:(Landroid/widget/AutoCompleteTextView;I[[ILcom/google/android/material/shape/MaterialShapeDrawable;)V` @kind direct;
+  #L1b6d98.  return @kind void;
+}
+procedure `void` `addRippleEffectOnFilledLayout`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v10 @kind this, `android.widget.AutoCompleteTextView` v11 @kind object @name `editText`, `int` v12 @name `rippleColor`, `int`[][] v13 @kind object @name `states`, `com.google.android.material.shape.MaterialShapeDrawable` v14 @kind object @name `boxBackground`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.addRippleEffectOnFilledLayout:(Landroid/widget/AutoCompleteTextView;I[[ILcom/google/android/material/shape/MaterialShapeDrawable;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+
+  #L1b6dac.  v0:= v10.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b6db0.  call temp:= `getBoxBackgroundColor`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getBoxBackgroundColor:()I` @kind virtual;
+  #L1b6db6.  v0:= temp;
+  #L1b6db8.  v1:= 1036831949I;
+  #L1b6dbe.  call temp:= `layer`(v12, v0, v1) @signature `Lcom/google/android/material/color/MaterialColors;.layer:(IIF)I` @kind static;
+  #L1b6dc4.  v1:= temp;
+  #L1b6dc6.  v2:= 2I;
+  #L1b6dc8.  v3:= new `int`[v2];
+  #L1b6dcc.  v4:= 0I;
+  #L1b6dce.  v3[v4]:= v1;
+  #L1b6dd2.  v5:= 1I;
+  #L1b6dd4.  v3[v5]:= v0;
+  #L1b6dd8.  v6:= `@@com.google.android.material.textfield.DropdownMenuEndIconDelegate.IS_LOLLIPOP` @type ^`boolean` @kind boolean;
+  #L1b6ddc.  if v6 == 0 then goto L1b6dfc;
+  #L1b6de0.  v2:= new `android.content.res.ColorStateList`;
+  #L1b6de4.  call `<init>`(v2, v13, v3) @signature `Landroid/content/res/ColorStateList;.<init>:([[I[I)V` @kind direct;
+  #L1b6dea.  v4:= new `android.graphics.drawable.RippleDrawable`;
+  #L1b6dee.  call `<init>`(v4, v2, v14, v14) @signature `Landroid/graphics/drawable/RippleDrawable;.<init>:(Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V` @kind direct;
+  #L1b6df4.  call `setBackground`(v11, v4) @signature `Landroidx/core/view/ViewCompat;.setBackground:(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V` @kind static;
+  #L1b6dfa.  goto L1b6e60;
+  #L1b6dfc.  v6:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L1b6e00.  call temp:= `getShapeAppearanceModel`(v14) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShapeAppearanceModel:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L1b6e06.  v7:= temp @kind object;
+  #L1b6e08.  call `<init>`(v6, v7) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L1b6e0e.  v7:= new `android.content.res.ColorStateList`;
+  #L1b6e12.  call `<init>`(v7, v13, v3) @signature `Landroid/content/res/ColorStateList;.<init>:([[I[I)V` @kind direct;
+  #L1b6e18.  call `setFillColor`(v6, v7) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1b6e1e.  v2:= new `android.graphics.drawable.Drawable`[v2];
+  #L1b6e22.  v2[v4]:= v14 @kind object;
+  #L1b6e26.  v2[v5]:= v6 @kind object;
+  #L1b6e2a.  v4:= new `android.graphics.drawable.LayerDrawable`;
+  #L1b6e2e.  call `<init>`(v4, v2) @signature `Landroid/graphics/drawable/LayerDrawable;.<init>:([Landroid/graphics/drawable/Drawable;)V` @kind direct;
+  #L1b6e34.  call temp:= `getPaddingStart`(v11) @signature `Landroidx/core/view/ViewCompat;.getPaddingStart:(Landroid/view/View;)I` @kind static;
+  #L1b6e3a.  v5:= temp;
+  #L1b6e3c.  call temp:= `getPaddingTop`(v11) @signature `Landroid/widget/AutoCompleteTextView;.getPaddingTop:()I` @kind virtual;
+  #L1b6e42.  v7:= temp;
+  #L1b6e44.  call temp:= `getPaddingEnd`(v11) @signature `Landroidx/core/view/ViewCompat;.getPaddingEnd:(Landroid/view/View;)I` @kind static;
+  #L1b6e4a.  v8:= temp;
+  #L1b6e4c.  call temp:= `getPaddingBottom`(v11) @signature `Landroid/widget/AutoCompleteTextView;.getPaddingBottom:()I` @kind virtual;
+  #L1b6e52.  v9:= temp;
+  #L1b6e54.  call `setBackground`(v11, v4) @signature `Landroidx/core/view/ViewCompat;.setBackground:(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V` @kind static;
+  #L1b6e5a.  call `setPaddingRelative`(v11, v5, v7, v8, v9) @signature `Landroidx/core/view/ViewCompat;.setPaddingRelative:(Landroid/view/View;IIII)V` @kind static;
+  #L1b6e60.  return @kind void;
+}
+procedure `void` `addRippleEffectOnOutlinedLayout`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v11 @kind this, `android.widget.AutoCompleteTextView` v12 @kind object @name `editText`, `int` v13 @name `rippleColor`, `int`[][] v14 @kind object @name `states`, `com.google.android.material.shape.MaterialShapeDrawable` v15 @kind object @name `boxBackground`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.addRippleEffectOnOutlinedLayout:(Landroid/widget/AutoCompleteTextView;I[[ILcom/google/android/material/shape/MaterialShapeDrawable;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+
+  #L1b6e74.  v0:= `@@com.google.android.material.R$attr.colorSurface` @type ^`int`;
+  #L1b6e78.  call temp:= `getColor`(v12, v0) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/view/View;I)I` @kind static;
+  #L1b6e7e.  v0:= temp;
+  #L1b6e80.  v1:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L1b6e84.  call temp:= `getShapeAppearanceModel`(v15) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShapeAppearanceModel:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L1b6e8a.  v2:= temp @kind object;
+  #L1b6e8c.  call `<init>`(v1, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L1b6e92.  v2:= 1036831949I;
+  #L1b6e98.  call temp:= `layer`(v13, v0, v2) @signature `Lcom/google/android/material/color/MaterialColors;.layer:(IIF)I` @kind static;
+  #L1b6e9e.  v2:= temp;
+  #L1b6ea0.  v3:= 2I;
+  #L1b6ea2.  v4:= new `int`[v3];
+  #L1b6ea6.  v5:= 0I;
+  #L1b6ea8.  v4[v5]:= v2;
+  #L1b6eac.  v6:= 1I;
+  #L1b6eae.  v4[v6]:= v5;
+  #L1b6eb2.  v7:= new `android.content.res.ColorStateList`;
+  #L1b6eb6.  call `<init>`(v7, v14, v4) @signature `Landroid/content/res/ColorStateList;.<init>:([[I[I)V` @kind direct;
+  #L1b6ebc.  call `setFillColor`(v1, v7) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1b6ec2.  v7:= `@@com.google.android.material.textfield.DropdownMenuEndIconDelegate.IS_LOLLIPOP` @type ^`boolean` @kind boolean;
+  #L1b6ec6.  if v7 == 0 then goto L1b6f24;
+  #L1b6eca.  call `setTint`(v1, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setTint:(I)V` @kind virtual;
+  #L1b6ed0.  v7:= new `int`[v3];
+  #L1b6ed4.  v7[v5]:= v2;
+  #L1b6ed8.  v7[v6]:= v0;
+  #L1b6edc.  v8:= new `android.content.res.ColorStateList`;
+  #L1b6ee0.  call `<init>`(v8, v14, v7) @signature `Landroid/content/res/ColorStateList;.<init>:([[I[I)V` @kind direct;
+  #L1b6ee6.  v9:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L1b6eea.  call temp:= `getShapeAppearanceModel`(v15) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShapeAppearanceModel:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L1b6ef0.  v10:= temp @kind object;
+  #L1b6ef2.  call `<init>`(v9, v10) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L1b6ef8.  v10:= -1I;
+  #L1b6efa.  call `setTint`(v9, v10) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setTint:(I)V` @kind virtual;
+  #L1b6f00.  v10:= new `android.graphics.drawable.RippleDrawable`;
+  #L1b6f04.  call `<init>`(v10, v8, v1, v9) @signature `Landroid/graphics/drawable/RippleDrawable;.<init>:(Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V` @kind direct;
+  #L1b6f0a.  v3:= new `android.graphics.drawable.Drawable`[v3];
+  #L1b6f0e.  v3[v5]:= v10 @kind object;
+  #L1b6f12.  v3[v6]:= v15 @kind object;
+  #L1b6f16.  v5:= new `android.graphics.drawable.LayerDrawable`;
+  #L1b6f1a.  call `<init>`(v5, v3) @signature `Landroid/graphics/drawable/LayerDrawable;.<init>:([Landroid/graphics/drawable/Drawable;)V` @kind direct;
+  #L1b6f20.  v3:= v5 @kind object;
+  #L1b6f22.  goto L1b6f3c;
+  #L1b6f24.  v3:= new `android.graphics.drawable.Drawable`[v3];
+  #L1b6f28.  v3[v5]:= v1 @kind object;
+  #L1b6f2c.  v3[v6]:= v15 @kind object;
+  #L1b6f30.  v5:= new `android.graphics.drawable.LayerDrawable`;
+  #L1b6f34.  call `<init>`(v5, v3) @signature `Landroid/graphics/drawable/LayerDrawable;.<init>:([Landroid/graphics/drawable/Drawable;)V` @kind direct;
+  #L1b6f3a.  v3:= v5 @kind object;
+  #L1b6f3c.  call `setBackground`(v12, v3) @signature `Landroidx/core/view/ViewCompat;.setBackground:(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V` @kind static;
+  #L1b6f42.  return @kind void;
+}
+procedure `android.widget.AutoCompleteTextView` `castAutoCompleteTextViewOrThrow`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v2 @kind this, `android.widget.EditText` v3 @kind object @name `editText`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.castAutoCompleteTextViewOrThrow:(Landroid/widget/EditText;)Landroid/widget/AutoCompleteTextView;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b6ab4.  v0:= instanceof @variable v3 @type ^`android.widget.AutoCompleteTextView` @kind boolean;
+  #L1b6ab8.  if v0 == 0 then goto L1b6ac4;
+  #L1b6abc.  v0:= v3 @kind object;
+  #L1b6abe.  v0:= (`android.widget.AutoCompleteTextView`) v0 @kind object;
+  #L1b6ac2.  return v0 @kind object;
+  #L1b6ac4.  v0:= new `java.lang.RuntimeException`;
+  #L1b6ac8.  v1:= "EditText needs to be an AutoCompleteTextView if an Exposed Dropdown Menu is being used." @kind object;
+  #L1b6acc.  call `<init>`(v0, v1) @signature `Ljava/lang/RuntimeException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1b6ad2.  throw v0;
+}
+procedure `android.animation.ValueAnimator` `getAlphaAnimator`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v3 @kind this, `int` v4 @name `duration`, `float`[] v5 @kind object @name `values`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.getAlphaAnimator:(I[F)Landroid/animation/ValueAnimator;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b6a2c.  call temp:= `ofFloat`(v5) @signature `Landroid/animation/ValueAnimator;.ofFloat:([F)Landroid/animation/ValueAnimator;` @kind static;
+  #L1b6a32.  v0:= temp @kind object;
+  #L1b6a34.  v1:= `@@com.google.android.material.animation.AnimationUtils.LINEAR_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L1b6a38.  call `setInterpolator`(v0, v1) @signature `Landroid/animation/ValueAnimator;.setInterpolator:(Landroid/animation/TimeInterpolator;)V` @kind virtual;
+  #L1b6a3e.  v1:= (`long`) v4 @kind i2l;
+  #L1b6a40.  call temp:= `setDuration`(v0, v1) @signature `Landroid/animation/ValueAnimator;.setDuration:(J)Landroid/animation/ValueAnimator;` @kind virtual;
+  #L1b6a46.  v1:= new `com.google.android.material.textfield.DropdownMenuEndIconDelegate$9`;
+  #L1b6a4a.  call `<init>`(v1, v3) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$9;.<init>:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)V` @kind direct;
+  #L1b6a50.  call `addUpdateListener`(v0, v1) @signature `Landroid/animation/ValueAnimator;.addUpdateListener:(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V` @kind virtual;
+  #L1b6a56.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.MaterialShapeDrawable` `getPopUpMaterialShapeDrawable`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v3 @kind this, `float` v4 @name `topCornerRadius`, `float` v5 @name `bottomCornerRadius`, `float` v6 @name `elevation`, `int` v7 @name `verticalPadding`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.getPopUpMaterialShapeDrawable:(FFFI)Lcom/google/android/material/shape/MaterialShapeDrawable;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b6ba0.  call temp:= `builder`() @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.builder:()Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind static;
+  #L1b6ba6.  v0:= temp @kind object;
+  #L1b6ba8.  call temp:= `setTopLeftCornerSize`(v0, v4) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setTopLeftCornerSize:(F)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L1b6bae.  v0:= temp @kind object;
+  #L1b6bb0.  call temp:= `setTopRightCornerSize`(v0, v4) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setTopRightCornerSize:(F)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L1b6bb6.  v0:= temp @kind object;
+  #L1b6bb8.  call temp:= `setBottomLeftCornerSize`(v0, v5) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setBottomLeftCornerSize:(F)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L1b6bbe.  v0:= temp @kind object;
+  #L1b6bc0.  call temp:= `setBottomRightCornerSize`(v0, v5) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setBottomRightCornerSize:(F)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L1b6bc6.  v0:= temp @kind object;
+  #L1b6bc8.  call temp:= `build`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.build:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L1b6bce.  v0:= temp @kind object;
+  #L1b6bd0.  v1:= v3.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.context` @type ^`android.content.Context` @kind object;
+  #L1b6bd4.  call temp:= `createWithElevationOverlay`(v1, v6) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.createWithElevationOverlay:(Landroid/content/Context;F)Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind static;
+  #L1b6bda.  v1:= temp @kind object;
+  #L1b6bdc.  call `setShapeAppearanceModel`(v1, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L1b6be2.  v2:= 0I;
+  #L1b6be4.  call `setPadding`(v1, v2, v7, v2, v7) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setPadding:(IIII)V` @kind virtual;
+  #L1b6bea.  return v1 @kind object;
+}
+procedure `void` `initAnimators`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v3 @kind this) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.initAnimators:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b6f54.  v0:= 2I;
+  #L1b6f56.  v1:= new `float`[v0];
+  #L1b6f5a.  goto L1b6f9c;
+  #L1b6f60.  v2:= 67I;
+  #L1b6f64.  call temp:= `getAlphaAnimator`(v3, v2, v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.getAlphaAnimator:(I[F)Landroid/animation/ValueAnimator;` @kind direct;
+  #L1b6f6a.  v1:= temp @kind object;
+  #L1b6f6c.  v3.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.fadeInAnim` @type ^`android.animation.ValueAnimator` := v1 @kind object;
+  #L1b6f70.  v0:= new `float`[v0];
+  #L1b6f74.  goto L1b6fac;
+  #L1b6f7a.  v1:= 50I;
+  #L1b6f7e.  call temp:= `getAlphaAnimator`(v3, v1, v0) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.getAlphaAnimator:(I[F)Landroid/animation/ValueAnimator;` @kind direct;
+  #L1b6f84.  v0:= temp @kind object;
+  #L1b6f86.  v3.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.fadeOutAnim` @type ^`android.animation.ValueAnimator` := v0 @kind object;
+  #L1b6f8a.  v1:= new `com.google.android.material.textfield.DropdownMenuEndIconDelegate$8`;
+  #L1b6f8e.  call `<init>`(v1, v3) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$8;.<init>:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)V` @kind direct;
+  #L1b6f94.  call `addListener`(v0, v1) @signature `Landroid/animation/ValueAnimator;.addListener:(Landroid/animation/Animator$AnimatorListener;)V` @kind virtual;
+  #L1b6f9a.  return @kind void;
+  #L1b6f9c.  v1:= (0I, 1065353216I) @kind object;
+  #L1b6fab.  goto L1b6f60;
+  #L1b6fac.  v0:= (1065353216I, 0I) @kind object;
+  #L1b6fbb.  goto L1b6f7a;
+}
+procedure `boolean` `isDropdownPopupActive`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v4 @kind this) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.isDropdownPopupActive:()Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b6b4c.  call temp:= `currentTimeMillis`() @signature `Ljava/lang/System;.currentTimeMillis:()J` @kind static;
+  #L1b6b52.  v0:= temp @kind wide;
+  #L1b6b54.  v2:= v4.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.dropdownPopupActivatedAt` @type ^`long` @kind wide;
+  #L1b6b58.  v0:= v0 - v2 @kind long;
+  #L1b6b5a.  v2:= 0L;
+  #L1b6b5e.  v2:= lcmp(v0, v2);
+  #L1b6b62.  if v2 < 0 then goto L1b6b78;
+  #L1b6b66.  v2:= 300L;
+  #L1b6b6a.  v2:= lcmp(v0, v2);
+  #L1b6b6e.  if v2 <= 0 then goto L1b6b74;
+  #L1b6b72.  goto L1b6b78;
+  #L1b6b74.  v2:= 0I;
+  #L1b6b76.  goto L1b6b7a;
+  #L1b6b78.  v2:= 1I;
+  #L1b6b7a.  return v2;
+}
+procedure `void` `setEndIconChecked`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v1 @kind this, `boolean` v2 @name `checked`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.setEndIconChecked:(Z)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1b7110.  v0:= v1.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.isEndIconChecked` @type ^`boolean` @kind boolean;
+  #L1b7114.  if v0 == v2 then goto L1b7130;
+  #L1b7118.  v1.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.isEndIconChecked` @type ^`boolean` := v2 @kind boolean;
+  #L1b711c.  v0:= v1.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.fadeInAnim` @type ^`android.animation.ValueAnimator` @kind object;
+  #L1b7120.  call `cancel`(v0) @signature `Landroid/animation/ValueAnimator;.cancel:()V` @kind virtual;
+  #L1b7126.  v0:= v1.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.fadeOutAnim` @type ^`android.animation.ValueAnimator` @kind object;
+  #L1b712a.  call `start`(v0) @signature `Landroid/animation/ValueAnimator;.start:()V` @kind virtual;
+  #L1b7130.  return @kind void;
+}
+procedure `void` `setPopupBackground`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v2 @kind this, `android.widget.AutoCompleteTextView` v3 @kind object @name `editText`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.setPopupBackground:(Landroid/widget/AutoCompleteTextView;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b7144.  v0:= `@@com.google.android.material.textfield.DropdownMenuEndIconDelegate.IS_LOLLIPOP` @type ^`boolean` @kind boolean;
+  #L1b7148.  if v0 == 0 then goto L1b717a;
+  #L1b714c.  v0:= v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b7150.  call temp:= `getBoxBackgroundMode`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getBoxBackgroundMode:()I` @kind virtual;
+  #L1b7156.  v0:= temp;
+  #L1b7158.  v1:= 2I;
+  #L1b715a.  if v0 != v1 then goto L1b716a;
+  #L1b715e.  v1:= v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.outlinedPopupBackground` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L1b7162.  call `setDropDownBackgroundDrawable`(v3, v1) @signature `Landroid/widget/AutoCompleteTextView;.setDropDownBackgroundDrawable:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L1b7168.  goto L1b717a;
+  #L1b716a.  v1:= 1I;
+  #L1b716c.  if v0 != v1 then goto L1b717a;
+  #L1b7170.  v1:= v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.filledPopupBackground` @type ^`android.graphics.drawable.StateListDrawable` @kind object;
+  #L1b7174.  call `setDropDownBackgroundDrawable`(v3, v1) @signature `Landroid/widget/AutoCompleteTextView;.setDropDownBackgroundDrawable:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L1b717a.  return @kind void;
+}
+procedure `void` `setUpDropdownShowHideBehavior`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v1 @kind this, `android.widget.AutoCompleteTextView` v2 @kind object @name `editText`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.setUpDropdownShowHideBehavior:(Landroid/widget/AutoCompleteTextView;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1b718c.  v0:= new `com.google.android.material.textfield.DropdownMenuEndIconDelegate$5`;
+  #L1b7190.  call `<init>`(v0, v1, v2) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$5;.<init>:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Landroid/widget/AutoCompleteTextView;)V` @kind direct;
+  #L1b7196.  call `setOnTouchListener`(v2, v0) @signature `Landroid/widget/AutoCompleteTextView;.setOnTouchListener:(Landroid/view/View$OnTouchListener;)V` @kind virtual;
+  #L1b719c.  v0:= new `com.google.android.material.textfield.DropdownMenuEndIconDelegate$6`;
+  #L1b71a0.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$6;.<init>:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)V` @kind direct;
+  #L1b71a6.  call `setOnFocusChangeListener`(v2, v0) @signature `Landroid/widget/AutoCompleteTextView;.setOnFocusChangeListener:(Landroid/view/View$OnFocusChangeListener;)V` @kind virtual;
+  #L1b71ac.  v0:= `@@com.google.android.material.textfield.DropdownMenuEndIconDelegate.IS_LOLLIPOP` @type ^`boolean` @kind boolean;
+  #L1b71b0.  if v0 == 0 then goto L1b71c4;
+  #L1b71b4.  v0:= new `com.google.android.material.textfield.DropdownMenuEndIconDelegate$7`;
+  #L1b71b8.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$7;.<init>:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)V` @kind direct;
+  #L1b71be.  call `setOnDismissListener`(v2, v0) @signature `Landroid/widget/AutoCompleteTextView;.setOnDismissListener:(Landroid/widget/AutoCompleteTextView$OnDismissListener;)V` @kind virtual;
+  #L1b71c4.  return @kind void;
+}
+procedure `void` `showHideDropdown`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v2 @kind this, `android.widget.AutoCompleteTextView` v3 @kind object @name `editText`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.showHideDropdown:(Landroid/widget/AutoCompleteTextView;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b71d8.  if v3 != 0 then goto L1b71de;
+  #L1b71dc.  return @kind void;
+  #L1b71de.  call temp:= `isDropdownPopupActive`(v2) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.isDropdownPopupActive:()Z` @kind direct;
+  #L1b71e4.  v0:= temp;
+  #L1b71e6.  v1:= 0I;
+  #L1b71e8.  if v0 == 0 then goto L1b71f0;
+  #L1b71ec.  v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.dropdownPopupDirty` @type ^`boolean` := v1 @kind boolean;
+  #L1b71f0.  v0:= v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.dropdownPopupDirty` @type ^`boolean` @kind boolean;
+  #L1b71f4.  if v0 != 0 then goto L1b7244;
+  #L1b71f8.  v0:= `@@com.google.android.material.textfield.DropdownMenuEndIconDelegate.IS_LOLLIPOP` @type ^`boolean` @kind boolean;
+  #L1b71fc.  if v0 == 0 then goto L1b7210;
+  #L1b7200.  v0:= v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.isEndIconChecked` @type ^`boolean` @kind boolean;
+  #L1b7204.  v0:= v0 ^~ 1;
+  #L1b7208.  call `setEndIconChecked`(v2, v0) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.setEndIconChecked:(Z)V` @kind direct;
+  #L1b720e.  goto L1b7226;
+  #L1b7210.  v0:= v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.isEndIconChecked` @type ^`boolean` @kind boolean;
+  #L1b7214.  v0:= v0 ^~ 1;
+  #L1b7218.  v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.isEndIconChecked` @type ^`boolean` := v0 @kind boolean;
+  #L1b721c.  v0:= v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.endIconView` @type ^`com.google.android.material.internal.CheckableImageButton` @kind object;
+  #L1b7220.  call `toggle`(v0) @signature `Lcom/google/android/material/internal/CheckableImageButton;.toggle:()V` @kind virtual;
+  #L1b7226.  v0:= v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.isEndIconChecked` @type ^`boolean` @kind boolean;
+  #L1b722a.  if v0 == 0 then goto L1b723c;
+  #L1b722e.  call temp:= `requestFocus`(v3) @signature `Landroid/widget/AutoCompleteTextView;.requestFocus:()Z` @kind virtual;
+  #L1b7234.  call `showDropDown`(v3) @signature `Landroid/widget/AutoCompleteTextView;.showDropDown:()V` @kind virtual;
+  #L1b723a.  goto L1b7248;
+  #L1b723c.  call `dismissDropDown`(v3) @signature `Landroid/widget/AutoCompleteTextView;.dismissDropDown:()V` @kind virtual;
+  #L1b7242.  goto L1b7248;
+  #L1b7244.  v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.dropdownPopupDirty` @type ^`boolean` := v1 @kind boolean;
+  #L1b7248.  return @kind void;
+}
+procedure `void` `initialize`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v9 @kind this) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.initialize:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L1b6fcc.  v0:= v9.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.context` @type ^`android.content.Context` @kind object;
+  #L1b6fd0.  call temp:= `getResources`(v0) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1b6fd6.  v0:= temp @kind object;
+  #L1b6fd8.  v1:= `@@com.google.android.material.R$dimen.mtrl_shape_corner_size_small_component` @type ^`int`;
+  #L1b6fdc.  call temp:= `getDimensionPixelOffset`(v0, v1) @signature `Landroid/content/res/Resources;.getDimensionPixelOffset:(I)I` @kind virtual;
+  #L1b6fe2.  v0:= temp;
+  #L1b6fe4.  v0:= (`float`) v0 @kind i2f;
+  #L1b6fe6.  v1:= v9.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.context` @type ^`android.content.Context` @kind object;
+  #L1b6fea.  call temp:= `getResources`(v1) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1b6ff0.  v1:= temp @kind object;
+  #L1b6ff2.  v2:= `@@com.google.android.material.R$dimen.mtrl_exposed_dropdown_menu_popup_elevation` @type ^`int`;
+  #L1b6ff6.  call temp:= `getDimensionPixelOffset`(v1, v2) @signature `Landroid/content/res/Resources;.getDimensionPixelOffset:(I)I` @kind virtual;
+  #L1b6ffc.  v1:= temp;
+  #L1b6ffe.  v1:= (`float`) v1 @kind i2f;
+  #L1b7000.  v2:= v9.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.context` @type ^`android.content.Context` @kind object;
+  #L1b7004.  call temp:= `getResources`(v2) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1b700a.  v2:= temp @kind object;
+  #L1b700c.  v3:= `@@com.google.android.material.R$dimen.mtrl_exposed_dropdown_menu_popup_vertical_padding` @type ^`int`;
+  #L1b7010.  call temp:= `getDimensionPixelOffset`(v2, v3) @signature `Landroid/content/res/Resources;.getDimensionPixelOffset:(I)I` @kind virtual;
+  #L1b7016.  v2:= temp;
+  #L1b7018.  
+  #L1b701a.  call temp:= `getPopUpMaterialShapeDrawable`(v9, v0, v0, v1, v2) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.getPopUpMaterialShapeDrawable:(FFFI)Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind direct;
+  #L1b7020.  v3:= temp @kind object;
+  #L1b7022.  
+  #L1b7024.  v4:= 0I;
+  #L1b7026.  call temp:= `getPopUpMaterialShapeDrawable`(v9, v4, v0, v1, v2) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.getPopUpMaterialShapeDrawable:(FFFI)Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind direct;
+  #L1b702c.  v4:= temp @kind object;
+  #L1b702e.  v9.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.outlinedPopupBackground` @type ^`com.google.android.material.shape.MaterialShapeDrawable` := v3 @kind object;
+  #L1b7032.  v5:= new `android.graphics.drawable.StateListDrawable`;
+  #L1b7036.  call `<init>`(v5) @signature `Landroid/graphics/drawable/StateListDrawable;.<init>:()V` @kind direct;
+  #L1b703c.  v9.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.filledPopupBackground` @type ^`android.graphics.drawable.StateListDrawable` := v5 @kind object;
+  #L1b7040.  v6:= 1I;
+  #L1b7042.  v6:= new `int`[v6];
+  #L1b7046.  v7:= 16842922I;
+  #L1b704c.  v8:= 0I;
+  #L1b704e.  v6[v8]:= v7;
+  #L1b7052.  call `addState`(v5, v6, v3) @signature `Landroid/graphics/drawable/StateListDrawable;.addState:([ILandroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L1b7058.  v5:= v9.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.filledPopupBackground` @type ^`android.graphics.drawable.StateListDrawable` @kind object;
+  #L1b705c.  v6:= new `int`[v8];
+  #L1b7060.  call `addState`(v5, v6, v4) @signature `Landroid/graphics/drawable/StateListDrawable;.addState:([ILandroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L1b7066.  v5:= `@@com.google.android.material.textfield.DropdownMenuEndIconDelegate.IS_LOLLIPOP` @type ^`boolean` @kind boolean;
+  #L1b706a.  if v5 == 0 then goto L1b7074;
+  #L1b706e.  v5:= `@@com.google.android.material.R$drawable.mtrl_dropdown_arrow` @type ^`int`;
+  #L1b7072.  goto L1b7078;
+  #L1b7074.  v5:= `@@com.google.android.material.R$drawable.mtrl_ic_arrow_drop_down` @type ^`int`;
+  #L1b7078.  v6:= v9.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b707c.  v7:= v9.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.context` @type ^`android.content.Context` @kind object;
+  #L1b7080.  call temp:= `getDrawable`(v7, v5) @signature `Landroidx/appcompat/content/res/AppCompatResources;.getDrawable:(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;` @kind static;
+  #L1b7086.  v7:= temp @kind object;
+  #L1b7088.  call `setEndIconDrawable`(v6, v7) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setEndIconDrawable:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L1b708e.  v6:= v9.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b7092.  v7:= v9.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b7096.  call temp:= `getResources`(v7) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1b709c.  v7:= temp @kind object;
+  #L1b709e.  v8:= `@@com.google.android.material.R$string.exposed_dropdown_menu_content_description` @type ^`int`;
+  #L1b70a2.  call temp:= `getText`(v7, v8) @signature `Landroid/content/res/Resources;.getText:(I)Ljava/lang/CharSequence;` @kind virtual;
+  #L1b70a8.  v7:= temp @kind object;
+  #L1b70aa.  call `setEndIconContentDescription`(v6, v7) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setEndIconContentDescription:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1b70b0.  v6:= v9.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b70b4.  v7:= new `com.google.android.material.textfield.DropdownMenuEndIconDelegate$4`;
+  #L1b70b8.  call `<init>`(v7, v9) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$4;.<init>:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)V` @kind direct;
+  #L1b70be.  call `setEndIconOnClickListener`(v6, v7) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setEndIconOnClickListener:(Landroid/view/View$OnClickListener;)V` @kind virtual;
+  #L1b70c4.  v6:= v9.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b70c8.  v7:= v9.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.dropdownMenuOnEditTextAttachedListener` @type ^`com.google.android.material.textfield.TextInputLayout$OnEditTextAttachedListener` @kind object;
+  #L1b70cc.  call `addOnEditTextAttachedListener`(v6, v7) @signature `Lcom/google/android/material/textfield/TextInputLayout;.addOnEditTextAttachedListener:(Lcom/google/android/material/textfield/TextInputLayout$OnEditTextAttachedListener;)V` @kind virtual;
+  #L1b70d2.  call `initAnimators`(v9) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.initAnimators:()V` @kind direct;
+  #L1b70d8.  v6:= v9.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.endIconView` @type ^`com.google.android.material.internal.CheckableImageButton` @kind object;
+  #L1b70dc.  v7:= 2I;
+  #L1b70de.  call `setImportantForAccessibility`(v6, v7) @signature `Landroidx/core/view/ViewCompat;.setImportantForAccessibility:(Landroid/view/View;I)V` @kind static;
+  #L1b70e4.  v6:= v9.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.context` @type ^`android.content.Context` @kind object;
+  #L1b70e8.  v7:= "accessibility" @kind object;
+  #L1b70ec.  call temp:= `getSystemService`(v6, v7) @signature `Landroid/content/Context;.getSystemService:(Ljava/lang/String;)Ljava/lang/Object;` @kind virtual;
+  #L1b70f2.  v6:= temp @kind object;
+  #L1b70f4.  v6:= (`android.view.accessibility.AccessibilityManager`) v6 @kind object;
+  #L1b70f8.  v9.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.accessibilityManager` @type ^`android.view.accessibility.AccessibilityManager` := v6 @kind object;
+  #L1b70fc.  return @kind void;
+}
+procedure `boolean` `isBoxBackgroundModeSupported`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v1 @kind this, `int` v2 @name `boxBackgroundMode`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.isBoxBackgroundModeSupported:(I)Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b6b30.  if v2 == 0 then goto L1b6b38;
+  #L1b6b34.  v0:= 1I;
+  #L1b6b36.  goto L1b6b3a;
+  #L1b6b38.  v0:= 0I;
+  #L1b6b3a.  return v0;
+}
+procedure `boolean` `shouldTintIconOnError`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate` v1 @kind this) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.shouldTintIconOnError:()Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b6b8c.  v0:= 1I;
+  #L1b6b8e.  return v0;
+}

@@ -1,0 +1,26 @@
+record `com.google.android.material.textfield.DropdownMenuEndIconDelegate$6` @kind class @AccessFlag  extends `android.view.View$OnFocusChangeListener` @kind interface {
+  `com.google.android.material.textfield.DropdownMenuEndIconDelegate` `com.google.android.material.textfield.DropdownMenuEndIconDelegate$6.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate$6` v0 @kind this, `com.google.android.material.textfield.DropdownMenuEndIconDelegate` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$6;.<init>:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b68b8.  v0.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$6.this$0` @type ^`com.google.android.material.textfield.DropdownMenuEndIconDelegate` := v1 @kind object;
+  #L1b68bc.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b68c2.  return @kind void;
+}
+procedure `void` `onFocusChange`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate$6` v2 @kind this, `android.view.View` v3 @kind object @name `view`, `boolean` v4 @name `hasFocus`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$6;.onFocusChange:(Landroid/view/View;Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b68d4.  v0:= v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$6.this$0` @type ^`com.google.android.material.textfield.DropdownMenuEndIconDelegate` @kind object;
+  #L1b68d8.  v0:= v0.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b68dc.  call `setEndIconActivated`(v0, v4) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setEndIconActivated:(Z)V` @kind virtual;
+  #L1b68e2.  if v4 != 0 then goto L1b68fc;
+  #L1b68e6.  v0:= v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$6.this$0` @type ^`com.google.android.material.textfield.DropdownMenuEndIconDelegate` @kind object;
+  #L1b68ea.  v1:= 0I;
+  #L1b68ec.  call `access$100`(v0, v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$100:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Z)V` @kind static;
+  #L1b68f2.  v0:= v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$6.this$0` @type ^`com.google.android.material.textfield.DropdownMenuEndIconDelegate` @kind object;
+  #L1b68f6.  call temp:= `access$202`(v0, v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$202:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Z)Z` @kind static;
+  #L1b68fc.  return @kind void;
+}

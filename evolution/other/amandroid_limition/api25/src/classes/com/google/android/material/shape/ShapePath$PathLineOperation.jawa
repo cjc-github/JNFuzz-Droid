@@ -1,0 +1,51 @@
+record `com.google.android.material.shape.ShapePath$PathLineOperation` @kind class @AccessFlag PUBLIC extends `com.google.android.material.shape.ShapePath$PathOperation` @kind class {
+  `float` `com.google.android.material.shape.ShapePath$PathLineOperation.x` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.shape.ShapePath$PathLineOperation.y` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.ShapePath$PathLineOperation` v0 @kind this) @signature `Lcom/google/android/material/shape/ShapePath$PathLineOperation;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1ae630.  call `<init>`(v0) @signature `Lcom/google/android/material/shape/ShapePath$PathOperation;.<init>:()V` @kind direct;
+  #L1ae636.  return @kind void;
+}
+procedure `float` `access$000`(`com.google.android.material.shape.ShapePath$PathLineOperation` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/shape/ShapePath$PathLineOperation;.access$000:(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1ae5d0.  v0:= v1.`com.google.android.material.shape.ShapePath$PathLineOperation.x` @type ^`float`;
+  #L1ae5d4.  return v0;
+}
+procedure `float` `access$002`(`com.google.android.material.shape.ShapePath$PathLineOperation` v0 @kind object @name `x0`, `float` v1 @name `x1`) @signature `Lcom/google/android/material/shape/ShapePath$PathLineOperation;.access$002:(Lcom/google/android/material/shape/ShapePath$PathLineOperation;F)F` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1ae5e8.  v0.`com.google.android.material.shape.ShapePath$PathLineOperation.x` @type ^`float` := v1;
+  #L1ae5ec.  return v1;
+}
+procedure `float` `access$100`(`com.google.android.material.shape.ShapePath$PathLineOperation` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/shape/ShapePath$PathLineOperation;.access$100:(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1ae600.  v0:= v1.`com.google.android.material.shape.ShapePath$PathLineOperation.y` @type ^`float`;
+  #L1ae604.  return v0;
+}
+procedure `float` `access$102`(`com.google.android.material.shape.ShapePath$PathLineOperation` v0 @kind object @name `x0`, `float` v1 @name `x1`) @signature `Lcom/google/android/material/shape/ShapePath$PathLineOperation;.access$102:(Lcom/google/android/material/shape/ShapePath$PathLineOperation;F)F` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1ae618.  v0.`com.google.android.material.shape.ShapePath$PathLineOperation.y` @type ^`float` := v1;
+  #L1ae61c.  return v1;
+}
+procedure `void` `applyToPath`(`com.google.android.material.shape.ShapePath$PathLineOperation` v3 @kind this, `android.graphics.Matrix` v4 @kind object @name `transform`, `android.graphics.Path` v5 @kind object @name `path`) @signature `Lcom/google/android/material/shape/ShapePath$PathLineOperation;.applyToPath:(Landroid/graphics/Matrix;Landroid/graphics/Path;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1ae648.  v0:= v3.`com.google.android.material.shape.ShapePath$PathLineOperation.matrix` @type ^`android.graphics.Matrix` @kind object;
+  #L1ae64c.  call temp:= `invert`(v4, v0) @signature `Landroid/graphics/Matrix;.invert:(Landroid/graphics/Matrix;)Z` @kind virtual;
+  #L1ae652.  call `transform`(v5, v0) @signature `Landroid/graphics/Path;.transform:(Landroid/graphics/Matrix;)V` @kind virtual;
+  #L1ae658.  v1:= v3.`com.google.android.material.shape.ShapePath$PathLineOperation.x` @type ^`float`;
+  #L1ae65c.  v2:= v3.`com.google.android.material.shape.ShapePath$PathLineOperation.y` @type ^`float`;
+  #L1ae660.  call `lineTo`(v5, v1, v2) @signature `Landroid/graphics/Path;.lineTo:(FF)V` @kind virtual;
+  #L1ae666.  call `transform`(v5, v4) @signature `Landroid/graphics/Path;.transform:(Landroid/graphics/Matrix;)V` @kind virtual;
+  #L1ae66c.  return @kind void;
+}

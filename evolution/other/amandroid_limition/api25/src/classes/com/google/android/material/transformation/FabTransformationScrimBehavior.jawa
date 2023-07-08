@@ -1,0 +1,125 @@
+record `com.google.android.material.transformation.FabTransformationScrimBehavior` @kind class @AccessFlag PUBLIC extends `com.google.android.material.transformation.ExpandableTransformationBehavior` @kind class {
+  `com.google.android.material.animation.MotionTiming` `com.google.android.material.transformation.FabTransformationScrimBehavior.collapseTiming` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.animation.MotionTiming` `com.google.android.material.transformation.FabTransformationScrimBehavior.expandTiming` @AccessFlag PRIVATE_FINAL;
+}
+global `long` `@@com.google.android.material.transformation.FabTransformationScrimBehavior.COLLAPSE_DELAY` @AccessFlag PUBLIC_STATIC_FINAL;
+global `long` `@@com.google.android.material.transformation.FabTransformationScrimBehavior.COLLAPSE_DURATION` @AccessFlag PUBLIC_STATIC_FINAL;
+global `long` `@@com.google.android.material.transformation.FabTransformationScrimBehavior.EXPAND_DELAY` @AccessFlag PUBLIC_STATIC_FINAL;
+global `long` `@@com.google.android.material.transformation.FabTransformationScrimBehavior.EXPAND_DURATION` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.transformation.FabTransformationScrimBehavior` v5 @kind this) @signature `Lcom/google/android/material/transformation/FabTransformationScrimBehavior;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1bd7f0.  call `<init>`(v5) @signature `Lcom/google/android/material/transformation/ExpandableTransformationBehavior;.<init>:()V` @kind direct;
+  #L1bd7f6.  v0:= new `com.google.android.material.animation.MotionTiming`;
+  #L1bd7fa.  v1:= 75L;
+  #L1bd7fe.  v3:= 150L;
+  #L1bd802.  call `<init>`(v0, v1, v3) @signature `Lcom/google/android/material/animation/MotionTiming;.<init>:(JJ)V` @kind direct;
+  #L1bd808.  v5.`com.google.android.material.transformation.FabTransformationScrimBehavior.expandTiming` @type ^`com.google.android.material.animation.MotionTiming` := v0 @kind object;
+  #L1bd80c.  v0:= new `com.google.android.material.animation.MotionTiming`;
+  #L1bd810.  v1:= 0L;
+  #L1bd814.  call `<init>`(v0, v1, v3) @signature `Lcom/google/android/material/animation/MotionTiming;.<init>:(JJ)V` @kind direct;
+  #L1bd81a.  v5.`com.google.android.material.transformation.FabTransformationScrimBehavior.collapseTiming` @type ^`com.google.android.material.animation.MotionTiming` := v0 @kind object;
+  #L1bd81e.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.transformation.FabTransformationScrimBehavior` v5 @kind this, `android.content.Context` v6 @kind object @name `context`, `android.util.AttributeSet` v7 @kind object @name `attrs`) @signature `Lcom/google/android/material/transformation/FabTransformationScrimBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1bd830.  call `<init>`(v5, v6, v7) @signature `Lcom/google/android/material/transformation/ExpandableTransformationBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1bd836.  v0:= new `com.google.android.material.animation.MotionTiming`;
+  #L1bd83a.  v1:= 75L;
+  #L1bd83e.  v3:= 150L;
+  #L1bd842.  call `<init>`(v0, v1, v3) @signature `Lcom/google/android/material/animation/MotionTiming;.<init>:(JJ)V` @kind direct;
+  #L1bd848.  v5.`com.google.android.material.transformation.FabTransformationScrimBehavior.expandTiming` @type ^`com.google.android.material.animation.MotionTiming` := v0 @kind object;
+  #L1bd84c.  v0:= new `com.google.android.material.animation.MotionTiming`;
+  #L1bd850.  v1:= 0L;
+  #L1bd854.  call `<init>`(v0, v1, v3) @signature `Lcom/google/android/material/animation/MotionTiming;.<init>:(JJ)V` @kind direct;
+  #L1bd85a.  v5.`com.google.android.material.transformation.FabTransformationScrimBehavior.collapseTiming` @type ^`com.google.android.material.animation.MotionTiming` := v0 @kind object;
+  #L1bd85e.  return @kind void;
+}
+procedure `void` `createScrimAnimation`(`com.google.android.material.transformation.FabTransformationScrimBehavior` v5 @kind this, `android.view.View` v6 @kind object @name `child`, `boolean` v7 @name `expanded`, `boolean` v8 @name `currentlyAnimating`, `java.util.List` v9 @kind object, `java.util.List` v10 @kind object) @signature `Lcom/google/android/material/transformation/FabTransformationScrimBehavior;.createScrimAnimation:(Landroid/view/View;ZZLjava/util/List;Ljava/util/List;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1bd870.  if v7 == 0 then goto L1bd87a;
+  #L1bd874.  v0:= v5.`com.google.android.material.transformation.FabTransformationScrimBehavior.expandTiming` @type ^`com.google.android.material.animation.MotionTiming` @kind object;
+  #L1bd878.  goto L1bd87e;
+  #L1bd87a.  v0:= v5.`com.google.android.material.transformation.FabTransformationScrimBehavior.collapseTiming` @type ^`com.google.android.material.animation.MotionTiming` @kind object;
+  #L1bd87e.  v1:= 0I;
+  #L1bd880.  v2:= 0I;
+  #L1bd882.  v3:= 1I;
+  #L1bd884.  if v7 == 0 then goto L1bd8ac;
+  #L1bd888.  if v8 != 0 then goto L1bd892;
+  #L1bd88c.  call `setAlpha`(v6, v1) @signature `Landroid/view/View;.setAlpha:(F)V` @kind virtual;
+  #L1bd892.  v1:= `@@android.view.View.ALPHA` @type ^`android.util.Property` @kind object;
+  #L1bd896.  v3:= new `float`[v3];
+  #L1bd89a.  v4:= 1.0F;
+  #L1bd89e.  v3[v2]:= v4;
+  #L1bd8a2.  call temp:= `ofFloat`(v6, v1, v3) @signature `Landroid/animation/ObjectAnimator;.ofFloat:(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;` @kind static;
+  #L1bd8a8.  v1:= temp @kind object;
+  #L1bd8aa.  goto L1bd8c0;
+  #L1bd8ac.  v4:= `@@android.view.View.ALPHA` @type ^`android.util.Property` @kind object;
+  #L1bd8b0.  v3:= new `float`[v3];
+  #L1bd8b4.  v3[v2]:= v1;
+  #L1bd8b8.  call temp:= `ofFloat`(v6, v4, v3) @signature `Landroid/animation/ObjectAnimator;.ofFloat:(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;` @kind static;
+  #L1bd8be.  v1:= temp @kind object;
+  #L1bd8c0.  call `apply`(v0, v1) @signature `Lcom/google/android/material/animation/MotionTiming;.apply:(Landroid/animation/Animator;)V` @kind virtual;
+  #L1bd8c6.  call temp:= `add`(v9, v1) @signature `Ljava/util/List;.add:(Ljava/lang/Object;)Z` @kind interface;
+  #L1bd8cc.  return @kind void;
+}
+procedure `boolean` `layoutDependsOn`(`com.google.android.material.transformation.FabTransformationScrimBehavior` v1 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind object @name `parent`, `android.view.View` v3 @kind object @name `child`, `android.view.View` v4 @kind object @name `dependency`) @signature `Lcom/google/android/material/transformation/FabTransformationScrimBehavior;.layoutDependsOn:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1bd7bc.  v0:= instanceof @variable v4 @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind boolean;
+  #L1bd7c0.  return v0;
+}
+procedure `android.animation.AnimatorSet` `onCreateExpandedStateChangeAnimation`(`com.google.android.material.transformation.FabTransformationScrimBehavior` v7 @kind this, `android.view.View` v8 @kind object @name `dependency`, `android.view.View` v9 @kind object @name `child`, `boolean` v10 @name `expanded`, `boolean` v11 @name `isAnimating`) @signature `Lcom/google/android/material/transformation/FabTransformationScrimBehavior;.onCreateExpandedStateChangeAnimation:(Landroid/view/View;Landroid/view/View;ZZ)Landroid/animation/AnimatorSet;` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L1bd764.  v0:= new `java.util.ArrayList`;
+  #L1bd768.  call `<init>`(v0) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L1bd76e.  v6:= new `java.util.ArrayList`;
+  #L1bd772.  call `<init>`(v6) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L1bd778.  v1:= v7 @kind object;
+  #L1bd77a.  v2:= v9 @kind object;
+  #L1bd77c.  v3:= v10;
+  #L1bd77e.  v4:= v11;
+  #L1bd780.  v5:= v0 @kind object;
+  #L1bd782.  call `createScrimAnimation`(v1, v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/transformation/FabTransformationScrimBehavior;.createScrimAnimation:(Landroid/view/View;ZZLjava/util/List;Ljava/util/List;)V` @kind direct;
+  #L1bd788.  v1:= new `android.animation.AnimatorSet`;
+  #L1bd78c.  call `<init>`(v1) @signature `Landroid/animation/AnimatorSet;.<init>:()V` @kind direct;
+  #L1bd792.  call `playTogether`(v1, v0) @signature `Lcom/google/android/material/animation/AnimatorSetCompat;.playTogether:(Landroid/animation/AnimatorSet;Ljava/util/List;)V` @kind static;
+  #L1bd798.  v2:= new `com.google.android.material.transformation.FabTransformationScrimBehavior$1`;
+  #L1bd79c.  call `<init>`(v2, v7, v10, v9) @signature `Lcom/google/android/material/transformation/FabTransformationScrimBehavior$1;.<init>:(Lcom/google/android/material/transformation/FabTransformationScrimBehavior;ZLandroid/view/View;)V` @kind direct;
+  #L1bd7a2.  call `addListener`(v1, v2) @signature `Landroid/animation/AnimatorSet;.addListener:(Landroid/animation/Animator$AnimatorListener;)V` @kind virtual;
+  #L1bd7a8.  return v1 @kind object;
+}
+procedure `boolean` `onTouchEvent`(`com.google.android.material.transformation.FabTransformationScrimBehavior` v1 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind object @name `parent`, `android.view.View` v3 @kind object @name `child`, `android.view.MotionEvent` v4 @kind object @name `ev`) @signature `Lcom/google/android/material/transformation/FabTransformationScrimBehavior;.onTouchEvent:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1bd7d4.  call temp:= `onTouchEvent`(v1, v2, v3, v4) @signature `Lcom/google/android/material/transformation/ExpandableTransformationBehavior;.onTouchEvent:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z` @kind super;
+  #L1bd7da.  v0:= temp;
+  #L1bd7dc.  return v0;
+}

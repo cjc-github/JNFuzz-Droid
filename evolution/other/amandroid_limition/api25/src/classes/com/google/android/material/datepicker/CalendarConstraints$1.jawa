@@ -1,0 +1,80 @@
+record `com.google.android.material.datepicker.CalendarConstraints$1` @kind class @AccessFlag FINAL extends `android.os.Parcelable$Creator` @kind interface {
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.CalendarConstraints$1` v0 @kind this) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$1;.<init>:()V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L196274.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L19627a.  return @kind void;
+}
+procedure `com.google.android.material.datepicker.CalendarConstraints` `createFromParcel`(`com.google.android.material.datepicker.CalendarConstraints$1` v11 @kind this, `android.os.Parcel` v12 @kind object @name `source`) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$1;.createFromParcel:(Landroid/os/Parcel;)Lcom/google/android/material/datepicker/CalendarConstraints;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+
+  #L196194.  v0:= constclass @type ^`com.google.android.material.datepicker.Month` @kind object;
+  #L196198.  call temp:= `getClassLoader`(v0) @signature `Ljava/lang/Class;.getClassLoader:()Ljava/lang/ClassLoader;` @kind virtual;
+  #L19619e.  v0:= temp @kind object;
+  #L1961a0.  call temp:= `readParcelable`(v12, v0) @signature `Landroid/os/Parcel;.readParcelable:(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;` @kind virtual;
+  #L1961a6.  v0:= temp @kind object;
+  #L1961a8.  v0:= (`com.google.android.material.datepicker.Month`) v0 @kind object;
+  #L1961ac.  v1:= constclass @type ^`com.google.android.material.datepicker.Month` @kind object;
+  #L1961b0.  call temp:= `getClassLoader`(v1) @signature `Ljava/lang/Class;.getClassLoader:()Ljava/lang/ClassLoader;` @kind virtual;
+  #L1961b6.  v1:= temp @kind object;
+  #L1961b8.  call temp:= `readParcelable`(v12, v1) @signature `Landroid/os/Parcel;.readParcelable:(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;` @kind virtual;
+  #L1961be.  v1:= temp @kind object;
+  #L1961c0.  v7:= v1 @kind object;
+  #L1961c2.  v7:= (`com.google.android.material.datepicker.Month`) v7 @kind object;
+  #L1961c6.  v1:= constclass @type ^`com.google.android.material.datepicker.Month` @kind object;
+  #L1961ca.  call temp:= `getClassLoader`(v1) @signature `Ljava/lang/Class;.getClassLoader:()Ljava/lang/ClassLoader;` @kind virtual;
+  #L1961d0.  v1:= temp @kind object;
+  #L1961d2.  call temp:= `readParcelable`(v12, v1) @signature `Landroid/os/Parcel;.readParcelable:(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;` @kind virtual;
+  #L1961d8.  v1:= temp @kind object;
+  #L1961da.  v8:= v1 @kind object;
+  #L1961dc.  v8:= (`com.google.android.material.datepicker.Month`) v8 @kind object;
+  #L1961e0.  v1:= constclass @type ^`com.google.android.material.datepicker.CalendarConstraints$DateValidator` @kind object;
+  #L1961e4.  call temp:= `getClassLoader`(v1) @signature `Ljava/lang/Class;.getClassLoader:()Ljava/lang/ClassLoader;` @kind virtual;
+  #L1961ea.  v1:= temp @kind object;
+  #L1961ec.  call temp:= `readParcelable`(v12, v1) @signature `Landroid/os/Parcel;.readParcelable:(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;` @kind virtual;
+  #L1961f2.  v1:= temp @kind object;
+  #L1961f4.  v9:= v1 @kind object;
+  #L1961f6.  v9:= (`com.google.android.material.datepicker.CalendarConstraints$DateValidator`) v9 @kind object;
+  #L1961fa.  v10:= new `com.google.android.material.datepicker.CalendarConstraints`;
+  #L1961fe.  v6:= 0I;
+  #L196200.  v1:= v10 @kind object;
+  #L196202.  v2:= v0 @kind object;
+  #L196204.  v3:= v7 @kind object;
+  #L196206.  v4:= v8 @kind object;
+  #L196208.  v5:= v9 @kind object;
+  #L19620a.  call `<init>`(v1, v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/datepicker/CalendarConstraints;.<init>:(Lcom/google/android/material/datepicker/Month;Lcom/google/android/material/datepicker/Month;Lcom/google/android/material/datepicker/Month;Lcom/google/android/material/datepicker/CalendarConstraints$DateValidator;Lcom/google/android/material/datepicker/CalendarConstraints$1;)V` @kind direct;
+  #L196210.  return v10 @kind object;
+}
+procedure `java.lang.Object` `createFromParcel`(`com.google.android.material.datepicker.CalendarConstraints$1` v0 @kind this, `android.os.Parcel` v1 @kind object) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$1;.createFromParcel:(Landroid/os/Parcel;)Ljava/lang/Object;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19623c.  call temp:= `createFromParcel`(v0, v1) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$1;.createFromParcel:(Landroid/os/Parcel;)Lcom/google/android/material/datepicker/CalendarConstraints;` @kind virtual;
+  #L196242.  v1:= temp @kind object;
+  #L196244.  return v1 @kind object;
+}
+procedure `com.google.android.material.datepicker.CalendarConstraints`[] `newArray`(`com.google.android.material.datepicker.CalendarConstraints$1` v1 @kind this, `int` v2 @name `size`) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$1;.newArray:(I)[Lcom/google/android/material/datepicker/CalendarConstraints;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L196224.  v0:= new `com.google.android.material.datepicker.CalendarConstraints`[v2];
+  #L196228.  return v0 @kind object;
+}
+procedure `java.lang.Object`[] `newArray`(`com.google.android.material.datepicker.CalendarConstraints$1` v0 @kind this, `int` v1 ) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$1;.newArray:(I)[Ljava/lang/Object;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L196258.  call temp:= `newArray`(v0, v1) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$1;.newArray:(I)[Lcom/google/android/material/datepicker/CalendarConstraints;` @kind virtual;
+  #L19625e.  v1:= temp @kind object;
+  #L196260.  return v1 @kind object;
+}

@@ -1,0 +1,380 @@
+record `androidx.appcompat.widget.SearchView` @kind class @AccessFlag PUBLIC extends `androidx.appcompat.widget.LinearLayoutCompat` @kind class, `androidx.appcompat.view.CollapsibleActionView` @kind interface {
+  `android.os.Bundle` `androidx.appcompat.widget.SearchView.mAppSearchData` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.SearchView.mClearingFocus` @AccessFlag PRIVATE;
+  `android.widget.ImageView` `androidx.appcompat.widget.SearchView.mCloseButton` @AccessFlag FINAL;
+  `android.widget.ImageView` `androidx.appcompat.widget.SearchView.mCollapsedIcon` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.appcompat.widget.SearchView.mCollapsedImeOptions` @AccessFlag PRIVATE;
+  `java.lang.CharSequence` `androidx.appcompat.widget.SearchView.mDefaultQueryHint` @AccessFlag PRIVATE_FINAL;
+  `android.view.View` `androidx.appcompat.widget.SearchView.mDropDownAnchor` @AccessFlag PRIVATE_FINAL;
+  `boolean` `androidx.appcompat.widget.SearchView.mExpandedInActionView` @AccessFlag PRIVATE;
+  `android.widget.ImageView` `androidx.appcompat.widget.SearchView.mGoButton` @AccessFlag FINAL;
+  `boolean` `androidx.appcompat.widget.SearchView.mIconified` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.SearchView.mIconifiedByDefault` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.SearchView.mMaxWidth` @AccessFlag PRIVATE;
+  `java.lang.CharSequence` `androidx.appcompat.widget.SearchView.mOldQueryText` @AccessFlag PRIVATE;
+  `android.view.View$OnClickListener` `androidx.appcompat.widget.SearchView.mOnClickListener` @AccessFlag PRIVATE_FINAL;
+  `androidx.appcompat.widget.SearchView$OnCloseListener` `androidx.appcompat.widget.SearchView.mOnCloseListener` @AccessFlag PRIVATE;
+  `android.widget.TextView$OnEditorActionListener` `androidx.appcompat.widget.SearchView.mOnEditorActionListener` @AccessFlag PRIVATE_FINAL;
+  `android.widget.AdapterView$OnItemClickListener` `androidx.appcompat.widget.SearchView.mOnItemClickListener` @AccessFlag PRIVATE_FINAL;
+  `android.widget.AdapterView$OnItemSelectedListener` `androidx.appcompat.widget.SearchView.mOnItemSelectedListener` @AccessFlag PRIVATE_FINAL;
+  `androidx.appcompat.widget.SearchView$OnQueryTextListener` `androidx.appcompat.widget.SearchView.mOnQueryChangeListener` @AccessFlag PRIVATE;
+  `android.view.View$OnFocusChangeListener` `androidx.appcompat.widget.SearchView.mOnQueryTextFocusChangeListener` @AccessFlag ;
+  `android.view.View$OnClickListener` `androidx.appcompat.widget.SearchView.mOnSearchClickListener` @AccessFlag PRIVATE;
+  `androidx.appcompat.widget.SearchView$OnSuggestionListener` `androidx.appcompat.widget.SearchView.mOnSuggestionListener` @AccessFlag PRIVATE;
+  `java.util.WeakHashMap` `androidx.appcompat.widget.SearchView.mOutsideDrawablesCache` @AccessFlag PRIVATE_FINAL;
+  `java.lang.CharSequence` `androidx.appcompat.widget.SearchView.mQueryHint` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.SearchView.mQueryRefinement` @AccessFlag PRIVATE;
+  `java.lang.Runnable` `androidx.appcompat.widget.SearchView.mReleaseCursorRunnable` @AccessFlag PRIVATE;
+  `android.widget.ImageView` `androidx.appcompat.widget.SearchView.mSearchButton` @AccessFlag FINAL;
+  `android.view.View` `androidx.appcompat.widget.SearchView.mSearchEditFrame` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.drawable.Drawable` `androidx.appcompat.widget.SearchView.mSearchHintIcon` @AccessFlag PRIVATE_FINAL;
+  `android.view.View` `androidx.appcompat.widget.SearchView.mSearchPlate` @AccessFlag PRIVATE_FINAL;
+  `androidx.appcompat.widget.SearchView$SearchAutoComplete` `androidx.appcompat.widget.SearchView.mSearchSrcTextView` @AccessFlag FINAL;
+  `android.graphics.Rect` `androidx.appcompat.widget.SearchView.mSearchSrcTextViewBounds` @AccessFlag PRIVATE;
+  `android.graphics.Rect` `androidx.appcompat.widget.SearchView.mSearchSrtTextViewBoundsExpanded` @AccessFlag PRIVATE;
+  `android.app.SearchableInfo` `androidx.appcompat.widget.SearchView.mSearchable` @AccessFlag ;
+  `android.view.View` `androidx.appcompat.widget.SearchView.mSubmitArea` @AccessFlag PRIVATE_FINAL;
+  `boolean` `androidx.appcompat.widget.SearchView.mSubmitButtonEnabled` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.SearchView.mSuggestionCommitIconResId` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.appcompat.widget.SearchView.mSuggestionRowLayout` @AccessFlag PRIVATE_FINAL;
+  `androidx.cursoradapter.widget.CursorAdapter` `androidx.appcompat.widget.SearchView.mSuggestionsAdapter` @AccessFlag ;
+  `int`[] `androidx.appcompat.widget.SearchView.mTemp` @AccessFlag PRIVATE;
+  `int`[] `androidx.appcompat.widget.SearchView.mTemp2` @AccessFlag PRIVATE;
+  `android.view.View$OnKeyListener` `androidx.appcompat.widget.SearchView.mTextKeyListener` @AccessFlag ;
+  `android.text.TextWatcher` `androidx.appcompat.widget.SearchView.mTextWatcher` @AccessFlag PRIVATE;
+  `androidx.appcompat.widget.SearchView$UpdatableTouchDelegate` `androidx.appcompat.widget.SearchView.mTouchDelegate` @AccessFlag PRIVATE;
+  `java.lang.Runnable` `androidx.appcompat.widget.SearchView.mUpdateDrawableStateRunnable` @AccessFlag PRIVATE_FINAL;
+  `java.lang.CharSequence` `androidx.appcompat.widget.SearchView.mUserQuery` @AccessFlag PRIVATE;
+  `android.content.Intent` `androidx.appcompat.widget.SearchView.mVoiceAppSearchIntent` @AccessFlag PRIVATE_FINAL;
+  `android.widget.ImageView` `androidx.appcompat.widget.SearchView.mVoiceButton` @AccessFlag FINAL;
+  `boolean` `androidx.appcompat.widget.SearchView.mVoiceButtonEnabled` @AccessFlag PRIVATE;
+  `android.content.Intent` `androidx.appcompat.widget.SearchView.mVoiceWebSearchIntent` @AccessFlag PRIVATE_FINAL;
+}
+global `boolean` `@@androidx.appcompat.widget.SearchView.DBG` @AccessFlag STATIC_FINAL;
+global `androidx.appcompat.widget.SearchView$AutoCompleteTextViewReflector` `@@androidx.appcompat.widget.SearchView.HIDDEN_METHOD_INVOKER` @AccessFlag STATIC_FINAL;
+global `java.lang.String` `@@androidx.appcompat.widget.SearchView.IME_OPTION_NO_MICROPHONE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.appcompat.widget.SearchView.LOG_TAG` @AccessFlag STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/appcompat/widget/SearchView;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.widget.SearchView` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Landroidx/appcompat/widget/SearchView;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.widget.SearchView` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Landroidx/appcompat/widget/SearchView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.widget.SearchView` v17 @kind this, `android.content.Context` v18 @kind object @name `context`, `android.util.AttributeSet` v19 @kind object @name `attrs`, `int` v20 @name `defStyleAttr`) @signature `Landroidx/appcompat/widget/SearchView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `android.content.Intent` `createIntent`(`androidx.appcompat.widget.SearchView` v3 @kind this, `java.lang.String` v4 @kind object @name `action`, `android.net.Uri` v5 @kind object @name `data`, `java.lang.String` v6 @kind object @name `extraData`, `java.lang.String` v7 @kind object @name `query`, `int` v8 @name `actionKey`, `java.lang.String` v9 @kind object @name `actionMsg`) @signature `Landroidx/appcompat/widget/SearchView;.createIntent:(Ljava/lang/String;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Landroid/content/Intent;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.content.Intent` `createIntentFromSuggestion`(`androidx.appcompat.widget.SearchView` v10 @kind this, `android.database.Cursor` v11 @kind object @name `c`, `int` v12 @name `actionKey`, `java.lang.String` v13 @kind object @name `actionMsg`) @signature `Landroidx/appcompat/widget/SearchView;.createIntentFromSuggestion:(Landroid/database/Cursor;ILjava/lang/String;)Landroid/content/Intent;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.content.Intent` `createVoiceAppSearchIntent`(`androidx.appcompat.widget.SearchView` v12 @kind this, `android.content.Intent` v13 @kind object @name `baseIntent`, `android.app.SearchableInfo` v14 @kind object @name `searchable`) @signature `Landroidx/appcompat/widget/SearchView;.createVoiceAppSearchIntent:(Landroid/content/Intent;Landroid/app/SearchableInfo;)Landroid/content/Intent;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.content.Intent` `createVoiceWebSearchIntent`(`androidx.appcompat.widget.SearchView` v4 @kind this, `android.content.Intent` v5 @kind object @name `baseIntent`, `android.app.SearchableInfo` v6 @kind object @name `searchable`) @signature `Landroidx/appcompat/widget/SearchView;.createVoiceWebSearchIntent:(Landroid/content/Intent;Landroid/app/SearchableInfo;)Landroid/content/Intent;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `dismissSuggestions`(`androidx.appcompat.widget.SearchView` v1 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.dismissSuggestions:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `getChildBoundsWithinSearchView`(`androidx.appcompat.widget.SearchView` v4 @kind this, `android.view.View` v5 @kind object @name `view`, `android.graphics.Rect` v6 @kind object @name `rect`) @signature `Landroidx/appcompat/widget/SearchView;.getChildBoundsWithinSearchView:(Landroid/view/View;Landroid/graphics/Rect;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getDecoratedHint`(`androidx.appcompat.widget.SearchView` v6 @kind this, `java.lang.CharSequence` v7 @kind object @name `hintText`) @signature `Landroidx/appcompat/widget/SearchView;.getDecoratedHint:(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `getPreferredHeight`(`androidx.appcompat.widget.SearchView` v2 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.getPreferredHeight:()I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `getPreferredWidth`(`androidx.appcompat.widget.SearchView` v2 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.getPreferredWidth:()I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `hasVoiceSearch`(`androidx.appcompat.widget.SearchView` v4 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.hasVoiceSearch:()Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `isLandscapeMode`(`android.content.Context` v2 @kind object @name `context`) @signature `Landroidx/appcompat/widget/SearchView;.isLandscapeMode:(Landroid/content/Context;)Z` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `boolean` `isSubmitAreaEnabled`(`androidx.appcompat.widget.SearchView` v1 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.isSubmitAreaEnabled:()Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `launchIntent`(`androidx.appcompat.widget.SearchView` v3 @kind this, `android.content.Intent` v4 @kind object @name `intent`) @signature `Landroidx/appcompat/widget/SearchView;.launchIntent:(Landroid/content/Intent;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `launchSuggestion`(`androidx.appcompat.widget.SearchView` v3 @kind this, `int` v4 @name `position`, `int` v5 @name `actionKey`, `java.lang.String` v6 @kind object @name `actionMsg`) @signature `Landroidx/appcompat/widget/SearchView;.launchSuggestion:(IILjava/lang/String;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `postUpdateFocusedState`(`androidx.appcompat.widget.SearchView` v1 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.postUpdateFocusedState:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `rewriteQueryFromSuggestion`(`androidx.appcompat.widget.SearchView` v3 @kind this, `int` v4 @name `position`) @signature `Landroidx/appcompat/widget/SearchView;.rewriteQueryFromSuggestion:(I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `setQuery`(`androidx.appcompat.widget.SearchView` v2 @kind this, `java.lang.CharSequence` v3 @kind object @name `query`) @signature `Landroidx/appcompat/widget/SearchView;.setQuery:(Ljava/lang/CharSequence;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateCloseButton`(`androidx.appcompat.widget.SearchView` v4 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.updateCloseButton:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateQueryHint`(`androidx.appcompat.widget.SearchView` v3 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.updateQueryHint:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateSearchAutoComplete`(`androidx.appcompat.widget.SearchView` v6 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.updateSearchAutoComplete:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateSubmitArea`(`androidx.appcompat.widget.SearchView` v2 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.updateSubmitArea:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateSubmitButton`(`androidx.appcompat.widget.SearchView` v2 @kind this, `boolean` v3 @name `hasText`) @signature `Landroidx/appcompat/widget/SearchView;.updateSubmitButton:(Z)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateViewsVisibility`(`androidx.appcompat.widget.SearchView` v6 @kind this, `boolean` v7 @name `collapsed`) @signature `Landroidx/appcompat/widget/SearchView;.updateViewsVisibility:(Z)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateVoiceButton`(`androidx.appcompat.widget.SearchView` v3 @kind this, `boolean` v4 @name `empty`) @signature `Landroidx/appcompat/widget/SearchView;.updateVoiceButton:(Z)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `adjustDropDownSizeAndPosition`(`androidx.appcompat.widget.SearchView` v8 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.adjustDropDownSizeAndPosition:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `clearFocus`(`androidx.appcompat.widget.SearchView` v2 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.clearFocus:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `forceSuggestionQuery`(`androidx.appcompat.widget.SearchView` v2 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.forceSuggestionQuery:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `getImeOptions`(`androidx.appcompat.widget.SearchView` v1 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.getImeOptions:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getInputType`(`androidx.appcompat.widget.SearchView` v1 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.getInputType:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getMaxWidth`(`androidx.appcompat.widget.SearchView` v1 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.getMaxWidth:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getQuery`(`androidx.appcompat.widget.SearchView` v1 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.getQuery:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getQueryHint`(`androidx.appcompat.widget.SearchView` v2 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.getQueryHint:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getSuggestionCommitIconResId`(`androidx.appcompat.widget.SearchView` v1 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.getSuggestionCommitIconResId:()I` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `getSuggestionRowLayout`(`androidx.appcompat.widget.SearchView` v1 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.getSuggestionRowLayout:()I` @AccessFlag  {
+
+  # return;
+}
+procedure `androidx.cursoradapter.widget.CursorAdapter` `getSuggestionsAdapter`(`androidx.appcompat.widget.SearchView` v1 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.getSuggestionsAdapter:()Landroidx/cursoradapter/widget/CursorAdapter;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isIconfiedByDefault`(`androidx.appcompat.widget.SearchView` v1 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.isIconfiedByDefault:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isIconified`(`androidx.appcompat.widget.SearchView` v1 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.isIconified:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isQueryRefinementEnabled`(`androidx.appcompat.widget.SearchView` v1 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.isQueryRefinementEnabled:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isSubmitButtonEnabled`(`androidx.appcompat.widget.SearchView` v1 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.isSubmitButtonEnabled:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `launchQuerySearch`(`androidx.appcompat.widget.SearchView` v8 @kind this, `int` v9 @name `actionKey`, `java.lang.String` v10 @kind object @name `actionMsg`, `java.lang.String` v11 @kind object @name `query`) @signature `Landroidx/appcompat/widget/SearchView;.launchQuerySearch:(ILjava/lang/String;Ljava/lang/String;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onActionViewCollapsed`(`androidx.appcompat.widget.SearchView` v3 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.onActionViewCollapsed:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onActionViewExpanded`(`androidx.appcompat.widget.SearchView` v3 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.onActionViewExpanded:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onCloseClicked`(`androidx.appcompat.widget.SearchView` v4 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.onCloseClicked:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onDetachedFromWindow`(`androidx.appcompat.widget.SearchView` v1 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.onDetachedFromWindow:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `boolean` `onItemClicked`(`androidx.appcompat.widget.SearchView` v2 @kind this, `int` v3 @name `position`, `int` v4 @name `actionKey`, `java.lang.String` v5 @kind object @name `actionMsg`) @signature `Landroidx/appcompat/widget/SearchView;.onItemClicked:(IILjava/lang/String;)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `onItemSelected`(`androidx.appcompat.widget.SearchView` v1 @kind this, `int` v2 @name `position`) @signature `Landroidx/appcompat/widget/SearchView;.onItemSelected:(I)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onLayout`(`androidx.appcompat.widget.SearchView` v5 @kind this, `boolean` v6 @name `changed`, `int` v7 @name `left`, `int` v8 @name `top`, `int` v9 @name `right`, `int` v10 @name `bottom`) @signature `Landroidx/appcompat/widget/SearchView;.onLayout:(ZIIII)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onMeasure`(`androidx.appcompat.widget.SearchView` v6 @kind this, `int` v7 @name `widthMeasureSpec`, `int` v8 @name `heightMeasureSpec`) @signature `Landroidx/appcompat/widget/SearchView;.onMeasure:(II)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onQueryRefine`(`androidx.appcompat.widget.SearchView` v0 @kind this, `java.lang.CharSequence` v1 @kind object @name `queryText`) @signature `Landroidx/appcompat/widget/SearchView;.onQueryRefine:(Ljava/lang/CharSequence;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onRestoreInstanceState`(`androidx.appcompat.widget.SearchView` v2 @kind this, `android.os.Parcelable` v3 @kind object @name `state`) @signature `Landroidx/appcompat/widget/SearchView;.onRestoreInstanceState:(Landroid/os/Parcelable;)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `android.os.Parcelable` `onSaveInstanceState`(`androidx.appcompat.widget.SearchView` v3 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.onSaveInstanceState:()Landroid/os/Parcelable;` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onSearchClicked`(`androidx.appcompat.widget.SearchView` v2 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.onSearchClicked:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onSubmitQuery`(`androidx.appcompat.widget.SearchView` v4 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.onSubmitQuery:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `onSuggestionsKey`(`androidx.appcompat.widget.SearchView` v4 @kind this, `android.view.View` v5 @kind object @name `v`, `int` v6 @name `keyCode`, `android.view.KeyEvent` v7 @kind object @name `event`) @signature `Landroidx/appcompat/widget/SearchView;.onSuggestionsKey:(Landroid/view/View;ILandroid/view/KeyEvent;)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onTextChanged`(`androidx.appcompat.widget.SearchView` v4 @kind this, `java.lang.CharSequence` v5 @kind object @name `newText`) @signature `Landroidx/appcompat/widget/SearchView;.onTextChanged:(Ljava/lang/CharSequence;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onTextFocusChanged`(`androidx.appcompat.widget.SearchView` v1 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.onTextFocusChanged:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onVoiceClicked`(`androidx.appcompat.widget.SearchView` v4 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.onVoiceClicked:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onWindowFocusChanged`(`androidx.appcompat.widget.SearchView` v0 @kind this, `boolean` v1 @name `hasWindowFocus`) @signature `Landroidx/appcompat/widget/SearchView;.onWindowFocusChanged:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `requestFocus`(`androidx.appcompat.widget.SearchView` v2 @kind this, `int` v3 @name `direction`, `android.graphics.Rect` v4 @kind object @name `previouslyFocusedRect`) @signature `Landroidx/appcompat/widget/SearchView;.requestFocus:(ILandroid/graphics/Rect;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setAppSearchData`(`androidx.appcompat.widget.SearchView` v0 @kind this, `android.os.Bundle` v1 @kind object @name `appSearchData`) @signature `Landroidx/appcompat/widget/SearchView;.setAppSearchData:(Landroid/os/Bundle;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setIconified`(`androidx.appcompat.widget.SearchView` v0 @kind this, `boolean` v1 @name `iconify`) @signature `Landroidx/appcompat/widget/SearchView;.setIconified:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setIconifiedByDefault`(`androidx.appcompat.widget.SearchView` v1 @kind this, `boolean` v2 @name `iconified`) @signature `Landroidx/appcompat/widget/SearchView;.setIconifiedByDefault:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setImeOptions`(`androidx.appcompat.widget.SearchView` v1 @kind this, `int` v2 @name `imeOptions`) @signature `Landroidx/appcompat/widget/SearchView;.setImeOptions:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setInputType`(`androidx.appcompat.widget.SearchView` v1 @kind this, `int` v2 @name `inputType`) @signature `Landroidx/appcompat/widget/SearchView;.setInputType:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setMaxWidth`(`androidx.appcompat.widget.SearchView` v0 @kind this, `int` v1 @name `maxpixels`) @signature `Landroidx/appcompat/widget/SearchView;.setMaxWidth:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOnCloseListener`(`androidx.appcompat.widget.SearchView` v0 @kind this, `androidx.appcompat.widget.SearchView$OnCloseListener` v1 @kind object @name `listener`) @signature `Landroidx/appcompat/widget/SearchView;.setOnCloseListener:(Landroidx/appcompat/widget/SearchView$OnCloseListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOnQueryTextFocusChangeListener`(`androidx.appcompat.widget.SearchView` v0 @kind this, `android.view.View$OnFocusChangeListener` v1 @kind object @name `listener`) @signature `Landroidx/appcompat/widget/SearchView;.setOnQueryTextFocusChangeListener:(Landroid/view/View$OnFocusChangeListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOnQueryTextListener`(`androidx.appcompat.widget.SearchView` v0 @kind this, `androidx.appcompat.widget.SearchView$OnQueryTextListener` v1 @kind object @name `listener`) @signature `Landroidx/appcompat/widget/SearchView;.setOnQueryTextListener:(Landroidx/appcompat/widget/SearchView$OnQueryTextListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOnSearchClickListener`(`androidx.appcompat.widget.SearchView` v0 @kind this, `android.view.View$OnClickListener` v1 @kind object @name `listener`) @signature `Landroidx/appcompat/widget/SearchView;.setOnSearchClickListener:(Landroid/view/View$OnClickListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOnSuggestionListener`(`androidx.appcompat.widget.SearchView` v0 @kind this, `androidx.appcompat.widget.SearchView$OnSuggestionListener` v1 @kind object @name `listener`) @signature `Landroidx/appcompat/widget/SearchView;.setOnSuggestionListener:(Landroidx/appcompat/widget/SearchView$OnSuggestionListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setQuery`(`androidx.appcompat.widget.SearchView` v2 @kind this, `java.lang.CharSequence` v3 @kind object @name `query`, `boolean` v4 @name `submit`) @signature `Landroidx/appcompat/widget/SearchView;.setQuery:(Ljava/lang/CharSequence;Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setQueryHint`(`androidx.appcompat.widget.SearchView` v0 @kind this, `java.lang.CharSequence` v1 @kind object @name `hint`) @signature `Landroidx/appcompat/widget/SearchView;.setQueryHint:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setQueryRefinementEnabled`(`androidx.appcompat.widget.SearchView` v2 @kind this, `boolean` v3 @name `enable`) @signature `Landroidx/appcompat/widget/SearchView;.setQueryRefinementEnabled:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSearchableInfo`(`androidx.appcompat.widget.SearchView` v2 @kind this, `android.app.SearchableInfo` v3 @kind object @name `searchable`) @signature `Landroidx/appcompat/widget/SearchView;.setSearchableInfo:(Landroid/app/SearchableInfo;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSubmitButtonEnabled`(`androidx.appcompat.widget.SearchView` v1 @kind this, `boolean` v2 @name `enabled`) @signature `Landroidx/appcompat/widget/SearchView;.setSubmitButtonEnabled:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSuggestionsAdapter`(`androidx.appcompat.widget.SearchView` v1 @kind this, `androidx.cursoradapter.widget.CursorAdapter` v2 @kind object @name `adapter`) @signature `Landroidx/appcompat/widget/SearchView;.setSuggestionsAdapter:(Landroidx/cursoradapter/widget/CursorAdapter;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `updateFocusedState`(`androidx.appcompat.widget.SearchView` v4 @kind this) @signature `Landroidx/appcompat/widget/SearchView;.updateFocusedState:()V` @AccessFlag  {
+
+  # return;
+}

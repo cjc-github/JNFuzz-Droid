@@ -1,0 +1,202 @@
+record `com.google.android.material.datepicker.CalendarItemStyle` @kind class @AccessFlag FINAL {
+  `android.content.res.ColorStateList` `com.google.android.material.datepicker.CalendarItemStyle.backgroundColor` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.Rect` `com.google.android.material.datepicker.CalendarItemStyle.insets` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.shape.ShapeAppearanceModel` `com.google.android.material.datepicker.CalendarItemStyle.itemShape` @AccessFlag PRIVATE_FINAL;
+  `android.content.res.ColorStateList` `com.google.android.material.datepicker.CalendarItemStyle.strokeColor` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.datepicker.CalendarItemStyle.strokeWidth` @AccessFlag PRIVATE_FINAL;
+  `android.content.res.ColorStateList` `com.google.android.material.datepicker.CalendarItemStyle.textColor` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.CalendarItemStyle` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `backgroundColor`, `android.content.res.ColorStateList` v3 @kind object @name `textColor`, `android.content.res.ColorStateList` v4 @kind object @name `strokeColor`, `int` v5 @name `strokeWidth`, `com.google.android.material.shape.ShapeAppearanceModel` v6 @kind object @name `itemShape`, `android.graphics.Rect` v7 @kind object @name `insets`) @signature `Lcom/google/android/material/datepicker/CalendarItemStyle;.<init>:(Landroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;ILcom/google/android/material/shape/ShapeAppearanceModel;Landroid/graphics/Rect;)V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L196918.  call `<init>`(v1) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L19691e.  v0:= v7.`android.graphics.Rect.left` @type ^`int`;
+  #L196922.  call temp:= `checkArgumentNonnegative`(v0) @signature `Landroidx/core/util/Preconditions;.checkArgumentNonnegative:(I)I` @kind static;
+  #L196928.  v0:= v7.`android.graphics.Rect.top` @type ^`int`;
+  #L19692c.  call temp:= `checkArgumentNonnegative`(v0) @signature `Landroidx/core/util/Preconditions;.checkArgumentNonnegative:(I)I` @kind static;
+  #L196932.  v0:= v7.`android.graphics.Rect.right` @type ^`int`;
+  #L196936.  call temp:= `checkArgumentNonnegative`(v0) @signature `Landroidx/core/util/Preconditions;.checkArgumentNonnegative:(I)I` @kind static;
+  #L19693c.  v0:= v7.`android.graphics.Rect.bottom` @type ^`int`;
+  #L196940.  call temp:= `checkArgumentNonnegative`(v0) @signature `Landroidx/core/util/Preconditions;.checkArgumentNonnegative:(I)I` @kind static;
+  #L196946.  v1.`com.google.android.material.datepicker.CalendarItemStyle.insets` @type ^`android.graphics.Rect` := v7 @kind object;
+  #L19694a.  v1.`com.google.android.material.datepicker.CalendarItemStyle.textColor` @type ^`android.content.res.ColorStateList` := v3 @kind object;
+  #L19694e.  v1.`com.google.android.material.datepicker.CalendarItemStyle.backgroundColor` @type ^`android.content.res.ColorStateList` := v2 @kind object;
+  #L196952.  v1.`com.google.android.material.datepicker.CalendarItemStyle.strokeColor` @type ^`android.content.res.ColorStateList` := v4 @kind object;
+  #L196956.  v1.`com.google.android.material.datepicker.CalendarItemStyle.strokeWidth` @type ^`int` := v5;
+  #L19695a.  v1.`com.google.android.material.datepicker.CalendarItemStyle.itemShape` @type ^`com.google.android.material.shape.ShapeAppearanceModel` := v6 @kind object;
+  #L19695e.  return @kind void;
+}
+procedure `com.google.android.material.datepicker.CalendarItemStyle` `create`(`android.content.Context` v22 @kind object @name `context`, `int` v23 @name `materialCalendarItemStyle`) @signature `Lcom/google/android/material/datepicker/CalendarItemStyle;.create:(Landroid/content/Context;I)Lcom/google/android/material/datepicker/CalendarItemStyle;` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+    v12;
+    v13;
+    v14;
+    v15;
+    v16;
+    v17;
+    v18;
+    v19;
+    v20;
+    v21;
+
+  #L1967ac.  v0:= v22 @kind object;
+  #L1967b0.  v1:= v23;
+  #L1967b4.  v2:= 0I;
+  #L1967b6.  if v1 == 0 then goto L1967be;
+  #L1967ba.  v3:= 1I;
+  #L1967bc.  goto L1967c0;
+  #L1967be.  v3:= v2;
+  #L1967c0.  v4:= "Cannot create a CalendarItemStyle with a styleResId of 0" @kind object;
+  #L1967c4.  call `checkArgument`(v3, v4) @signature `Landroidx/core/util/Preconditions;.checkArgument:(ZLjava/lang/Object;)V` @kind static;
+  #L1967ca.  v3:= `@@com.google.android.material.R$styleable.MaterialCalendarItem` @type ^`int`[] @kind object;
+  #L1967ce.  call temp:= `obtainStyledAttributes`(v0, v1, v3) @signature `Landroid/content/Context;.obtainStyledAttributes:(I[I)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1967d4.  v3:= temp @kind object;
+  #L1967d6.  v4:= `@@com.google.android.material.R$styleable.MaterialCalendarItem_android_insetLeft` @type ^`int`;
+  #L1967da.  call temp:= `getDimensionPixelOffset`(v3, v4, v2) @signature `Landroid/content/res/TypedArray;.getDimensionPixelOffset:(II)I` @kind virtual;
+  #L1967e0.  v4:= temp;
+  #L1967e2.  v5:= `@@com.google.android.material.R$styleable.MaterialCalendarItem_android_insetTop` @type ^`int`;
+  #L1967e6.  call temp:= `getDimensionPixelOffset`(v3, v5, v2) @signature `Landroid/content/res/TypedArray;.getDimensionPixelOffset:(II)I` @kind virtual;
+  #L1967ec.  v5:= temp;
+  #L1967ee.  v6:= `@@com.google.android.material.R$styleable.MaterialCalendarItem_android_insetRight` @type ^`int`;
+  #L1967f2.  call temp:= `getDimensionPixelOffset`(v3, v6, v2) @signature `Landroid/content/res/TypedArray;.getDimensionPixelOffset:(II)I` @kind virtual;
+  #L1967f8.  v6:= temp;
+  #L1967fa.  v7:= `@@com.google.android.material.R$styleable.MaterialCalendarItem_android_insetBottom` @type ^`int`;
+  #L1967fe.  call temp:= `getDimensionPixelOffset`(v3, v7, v2) @signature `Landroid/content/res/TypedArray;.getDimensionPixelOffset:(II)I` @kind virtual;
+  #L196804.  v7:= temp;
+  #L196806.  v14:= new `android.graphics.Rect`;
+  #L19680a.  call `<init>`(v14, v4, v5, v6, v7) @signature `Landroid/graphics/Rect;.<init>:(IIII)V` @kind direct;
+  #L196810.  v8:= `@@com.google.android.material.R$styleable.MaterialCalendarItem_itemFillColor` @type ^`int`;
+  #L196814.  call temp:= `getColorStateList`(v0, v3, v8) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L19681a.  v15:= temp @kind object;
+  #L19681c.  v8:= `@@com.google.android.material.R$styleable.MaterialCalendarItem_itemTextColor` @type ^`int`;
+  #L196820.  call temp:= `getColorStateList`(v0, v3, v8) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L196826.  v16:= temp @kind object;
+  #L196828.  v8:= `@@com.google.android.material.R$styleable.MaterialCalendarItem_itemStrokeColor` @type ^`int`;
+  #L19682c.  call temp:= `getColorStateList`(v0, v3, v8) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L196832.  v17:= temp @kind object;
+  #L196834.  v8:= `@@com.google.android.material.R$styleable.MaterialCalendarItem_itemStrokeWidth` @type ^`int`;
+  #L196838.  call temp:= `getDimensionPixelSize`(v3, v8, v2) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L19683e.  v18:= temp;
+  #L196840.  v8:= `@@com.google.android.material.R$styleable.MaterialCalendarItem_itemShapeAppearance` @type ^`int`;
+  #L196844.  call temp:= `getResourceId`(v3, v8, v2) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L19684a.  v13:= temp;
+  #L19684c.  v8:= `@@com.google.android.material.R$styleable.MaterialCalendarItem_itemShapeAppearanceOverlay` @type ^`int`;
+  #L196850.  call temp:= `getResourceId`(v3, v8, v2) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L196856.  v2:= temp;
+  #L196858.  
+  #L19685a.  call temp:= `builder`(v0, v13, v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.builder:(Landroid/content/Context;II)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind static;
+  #L196860.  v8:= temp @kind object;
+  #L196862.  call temp:= `build`(v8) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.build:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L196868.  v19:= temp @kind object;
+  #L19686a.  call `recycle`(v3) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L196870.  v20:= new `com.google.android.material.datepicker.CalendarItemStyle`;
+  #L196874.  v8:= v20 @kind object;
+  #L196878.  v9:= v15 @kind object;
+  #L19687a.  v10:= v16 @kind object;
+  #L19687e.  v11:= v17 @kind object;
+  #L196882.  v12:= v18;
+  #L196886.  v21:= v13;
+  #L19688a.  v13:= v19 @kind object;
+  #L19688e.  call `<init>`(v8, v9, v10, v11, v12, v13, v14) @signature `Lcom/google/android/material/datepicker/CalendarItemStyle;.<init>:(Landroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;Landroid/content/res/ColorStateList;ILcom/google/android/material/shape/ShapeAppearanceModel;Landroid/graphics/Rect;)V` @kind direct;
+  #L196894.  return v20 @kind object;
+}
+procedure `int` `getBottomInset`(`com.google.android.material.datepicker.CalendarItemStyle` v1 @kind this) @signature `Lcom/google/android/material/datepicker/CalendarItemStyle;.getBottomInset:()I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1968a8.  v0:= v1.`com.google.android.material.datepicker.CalendarItemStyle.insets` @type ^`android.graphics.Rect` @kind object;
+  #L1968ac.  v0:= v0.`android.graphics.Rect.bottom` @type ^`int`;
+  #L1968b0.  return v0;
+}
+procedure `int` `getLeftInset`(`com.google.android.material.datepicker.CalendarItemStyle` v1 @kind this) @signature `Lcom/google/android/material/datepicker/CalendarItemStyle;.getLeftInset:()I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1968c4.  v0:= v1.`com.google.android.material.datepicker.CalendarItemStyle.insets` @type ^`android.graphics.Rect` @kind object;
+  #L1968c8.  v0:= v0.`android.graphics.Rect.left` @type ^`int`;
+  #L1968cc.  return v0;
+}
+procedure `int` `getRightInset`(`com.google.android.material.datepicker.CalendarItemStyle` v1 @kind this) @signature `Lcom/google/android/material/datepicker/CalendarItemStyle;.getRightInset:()I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1968e0.  v0:= v1.`com.google.android.material.datepicker.CalendarItemStyle.insets` @type ^`android.graphics.Rect` @kind object;
+  #L1968e4.  v0:= v0.`android.graphics.Rect.right` @type ^`int`;
+  #L1968e8.  return v0;
+}
+procedure `int` `getTopInset`(`com.google.android.material.datepicker.CalendarItemStyle` v1 @kind this) @signature `Lcom/google/android/material/datepicker/CalendarItemStyle;.getTopInset:()I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1968fc.  v0:= v1.`com.google.android.material.datepicker.CalendarItemStyle.insets` @type ^`android.graphics.Rect` @kind object;
+  #L196900.  v0:= v0.`android.graphics.Rect.top` @type ^`int`;
+  #L196904.  return v0;
+}
+procedure `void` `styleItem`(`com.google.android.material.datepicker.CalendarItemStyle` v10 @kind this, `android.widget.TextView` v11 @kind object @name `item`) @signature `Lcom/google/android/material/datepicker/CalendarItemStyle;.styleItem:(Landroid/widget/TextView;)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+
+  #L196970.  v0:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L196974.  call `<init>`(v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:()V` @kind direct;
+  #L19697a.  v1:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L19697e.  call `<init>`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:()V` @kind direct;
+  #L196984.  v2:= v10.`com.google.android.material.datepicker.CalendarItemStyle.itemShape` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L196988.  call `setShapeAppearanceModel`(v0, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L19698e.  v2:= v10.`com.google.android.material.datepicker.CalendarItemStyle.itemShape` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L196992.  call `setShapeAppearanceModel`(v1, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L196998.  v2:= v10.`com.google.android.material.datepicker.CalendarItemStyle.backgroundColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L19699c.  call `setFillColor`(v0, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1969a2.  v2:= v10.`com.google.android.material.datepicker.CalendarItemStyle.strokeWidth` @type ^`int`;
+  #L1969a6.  v2:= (`float`) v2 @kind i2f;
+  #L1969a8.  v3:= v10.`com.google.android.material.datepicker.CalendarItemStyle.strokeColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1969ac.  call `setStroke`(v0, v2, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setStroke:(FLandroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1969b2.  v2:= v10.`com.google.android.material.datepicker.CalendarItemStyle.textColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1969b6.  call `setTextColor`(v11, v2) @signature `Landroid/widget/TextView;.setTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1969bc.  v2:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1969c0.  v3:= 21I;
+  #L1969c4.  if v2 < v3 then goto L1969e4;
+  #L1969c8.  v2:= new `android.graphics.drawable.RippleDrawable`;
+  #L1969cc.  v3:= v10.`com.google.android.material.datepicker.CalendarItemStyle.textColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1969d0.  v4:= 30I;
+  #L1969d4.  call temp:= `withAlpha`(v3, v4) @signature `Landroid/content/res/ColorStateList;.withAlpha:(I)Landroid/content/res/ColorStateList;` @kind virtual;
+  #L1969da.  v3:= temp @kind object;
+  #L1969dc.  call `<init>`(v2, v3, v0, v1) @signature `Landroid/graphics/drawable/RippleDrawable;.<init>:(Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V` @kind direct;
+  #L1969e2.  goto L1969e6;
+  #L1969e4.  v2:= v0 @kind object;
+  #L1969e6.  v9:= new `android.graphics.drawable.InsetDrawable`;
+  #L1969ea.  v3:= v10.`com.google.android.material.datepicker.CalendarItemStyle.insets` @type ^`android.graphics.Rect` @kind object;
+  #L1969ee.  v5:= v3.`android.graphics.Rect.left` @type ^`int`;
+  #L1969f2.  v3:= v10.`com.google.android.material.datepicker.CalendarItemStyle.insets` @type ^`android.graphics.Rect` @kind object;
+  #L1969f6.  v6:= v3.`android.graphics.Rect.top` @type ^`int`;
+  #L1969fa.  v3:= v10.`com.google.android.material.datepicker.CalendarItemStyle.insets` @type ^`android.graphics.Rect` @kind object;
+  #L1969fe.  v7:= v3.`android.graphics.Rect.right` @type ^`int`;
+  #L196a02.  v3:= v10.`com.google.android.material.datepicker.CalendarItemStyle.insets` @type ^`android.graphics.Rect` @kind object;
+  #L196a06.  v8:= v3.`android.graphics.Rect.bottom` @type ^`int`;
+  #L196a0a.  v3:= v9 @kind object;
+  #L196a0c.  v4:= v2 @kind object;
+  #L196a0e.  call `<init>`(v3, v4, v5, v6, v7, v8) @signature `Landroid/graphics/drawable/InsetDrawable;.<init>:(Landroid/graphics/drawable/Drawable;IIII)V` @kind direct;
+  #L196a14.  call `setBackground`(v11, v9) @signature `Landroidx/core/view/ViewCompat;.setBackground:(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V` @kind static;
+  #L196a1a.  return @kind void;
+}

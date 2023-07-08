@@ -1,0 +1,49 @@
+record `com.google.android.material.datepicker.RangeDateSelector$2` @kind class @AccessFlag  extends `com.google.android.material.datepicker.DateFormatTextWatcher` @kind class {
+  `com.google.android.material.datepicker.RangeDateSelector` `com.google.android.material.datepicker.RangeDateSelector$2.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `com.google.android.material.textfield.TextInputLayout` `com.google.android.material.datepicker.RangeDateSelector$2.val$endTextInput` @AccessFlag FINAL_SYNTHETIC;
+  `com.google.android.material.datepicker.OnSelectionChangedListener` `com.google.android.material.datepicker.RangeDateSelector$2.val$listener` @AccessFlag FINAL_SYNTHETIC;
+  `com.google.android.material.textfield.TextInputLayout` `com.google.android.material.datepicker.RangeDateSelector$2.val$startTextInput` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.RangeDateSelector$2` v0 @kind this, `com.google.android.material.datepicker.RangeDateSelector` v1 @kind object @name `this$0`, `java.lang.String` v2 @kind object @name `formatHint`, `java.text.DateFormat` v3 @kind object @name `dateFormat`, `com.google.android.material.textfield.TextInputLayout` v4 @kind object @name `textInputLayout`, `com.google.android.material.datepicker.CalendarConstraints` v5 @kind object @name `constraints`, `com.google.android.material.textfield.TextInputLayout` v6 @kind object, `com.google.android.material.textfield.TextInputLayout` v7 @kind object, `com.google.android.material.datepicker.OnSelectionChangedListener` v8 @kind object) @signature `Lcom/google/android/material/datepicker/RangeDateSelector$2;.<init>:(Lcom/google/android/material/datepicker/RangeDateSelector;Ljava/lang/String;Ljava/text/DateFormat;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/CalendarConstraints;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L19aa70.  v0.`com.google.android.material.datepicker.RangeDateSelector$2.this$0` @type ^`com.google.android.material.datepicker.RangeDateSelector` := v1 @kind object;
+  #L19aa74.  v0.`com.google.android.material.datepicker.RangeDateSelector$2.val$startTextInput` @type ^`com.google.android.material.textfield.TextInputLayout` := v6 @kind object;
+  #L19aa78.  v0.`com.google.android.material.datepicker.RangeDateSelector$2.val$endTextInput` @type ^`com.google.android.material.textfield.TextInputLayout` := v7 @kind object;
+  #L19aa7c.  v0.`com.google.android.material.datepicker.RangeDateSelector$2.val$listener` @type ^`com.google.android.material.datepicker.OnSelectionChangedListener` := v8 @kind object;
+  #L19aa80.  call `<init>`(v0, v2, v3, v4, v5) @signature `Lcom/google/android/material/datepicker/DateFormatTextWatcher;.<init>:(Ljava/lang/String;Ljava/text/DateFormat;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/CalendarConstraints;)V` @kind direct;
+  #L19aa86.  return @kind void;
+}
+procedure `void` `onInvalidDate`(`com.google.android.material.datepicker.RangeDateSelector$2` v4 @kind this) @signature `Lcom/google/android/material/datepicker/RangeDateSelector$2;.onInvalidDate:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L19aa98.  v0:= v4.`com.google.android.material.datepicker.RangeDateSelector$2.this$0` @type ^`com.google.android.material.datepicker.RangeDateSelector` @kind object;
+  #L19aa9c.  v1:= 0I;
+  #L19aa9e.  call temp:= `access$202`(v0, v1) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.access$202:(Lcom/google/android/material/datepicker/RangeDateSelector;Ljava/lang/Long;)Ljava/lang/Long;` @kind static;
+  #L19aaa4.  v0:= v4.`com.google.android.material.datepicker.RangeDateSelector$2.this$0` @type ^`com.google.android.material.datepicker.RangeDateSelector` @kind object;
+  #L19aaa8.  v1:= v4.`com.google.android.material.datepicker.RangeDateSelector$2.val$startTextInput` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L19aaac.  v2:= v4.`com.google.android.material.datepicker.RangeDateSelector$2.val$endTextInput` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L19aab0.  v3:= v4.`com.google.android.material.datepicker.RangeDateSelector$2.val$listener` @type ^`com.google.android.material.datepicker.OnSelectionChangedListener` @kind object;
+  #L19aab4.  call `access$100`(v0, v1, v2, v3) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.access$100:(Lcom/google/android/material/datepicker/RangeDateSelector;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)V` @kind static;
+  #L19aaba.  return @kind void;
+}
+procedure `void` `onValidDate`(`com.google.android.material.datepicker.RangeDateSelector$2` v4 @kind this, `java.lang.Long` v5 @kind object @name `day`) @signature `Lcom/google/android/material/datepicker/RangeDateSelector$2;.onValidDate:(Ljava/lang/Long;)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L19aacc.  v0:= v4.`com.google.android.material.datepicker.RangeDateSelector$2.this$0` @type ^`com.google.android.material.datepicker.RangeDateSelector` @kind object;
+  #L19aad0.  call temp:= `access$202`(v0, v5) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.access$202:(Lcom/google/android/material/datepicker/RangeDateSelector;Ljava/lang/Long;)Ljava/lang/Long;` @kind static;
+  #L19aad6.  v0:= v4.`com.google.android.material.datepicker.RangeDateSelector$2.this$0` @type ^`com.google.android.material.datepicker.RangeDateSelector` @kind object;
+  #L19aada.  v1:= v4.`com.google.android.material.datepicker.RangeDateSelector$2.val$startTextInput` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L19aade.  v2:= v4.`com.google.android.material.datepicker.RangeDateSelector$2.val$endTextInput` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L19aae2.  v3:= v4.`com.google.android.material.datepicker.RangeDateSelector$2.val$listener` @type ^`com.google.android.material.datepicker.OnSelectionChangedListener` @kind object;
+  #L19aae6.  call `access$100`(v0, v1, v2, v3) @signature `Lcom/google/android/material/datepicker/RangeDateSelector;.access$100:(Lcom/google/android/material/datepicker/RangeDateSelector;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)V` @kind static;
+  #L19aaec.  return @kind void;
+}

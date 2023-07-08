@@ -1,0 +1,153 @@
+record `androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` @kind class @AccessFlag  {
+  `float` `androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.mAutoSizeMaxTextSizeInPx` @AccessFlag PRIVATE;
+  `float` `androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.mAutoSizeMinTextSizeInPx` @AccessFlag PRIVATE;
+  `float` `androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.mAutoSizeStepGranularityInPx` @AccessFlag PRIVATE;
+  `int`[] `androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.mAutoSizeTextSizesInPx` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.mAutoSizeTextType` @AccessFlag PRIVATE;
+  `android.content.Context` `androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.mContext` @AccessFlag PRIVATE_FINAL;
+  `boolean` `androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.mHasPresetAutoSizeValues` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.mNeedsAutoSizeText` @AccessFlag PRIVATE;
+  `android.text.TextPaint` `androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.mTempTextPaint` @AccessFlag PRIVATE;
+  `android.widget.TextView` `androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.mTextView` @AccessFlag PRIVATE_FINAL;
+}
+global `int` `@@androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.DEFAULT_AUTO_SIZE_GRANULARITY_IN_PX` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.DEFAULT_AUTO_SIZE_MAX_TEXT_SIZE_IN_SP` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.DEFAULT_AUTO_SIZE_MIN_TEXT_SIZE_IN_SP` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `android.graphics.RectF` `@@androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.TEMP_RECTF` @AccessFlag PRIVATE_STATIC_FINAL;
+global `float` `@@androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.VERY_WIDE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.util.concurrent.ConcurrentHashMap` `@@androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.sTextViewFieldByNameCache` @AccessFlag PRIVATE_STATIC;
+global `java.util.concurrent.ConcurrentHashMap` `@@androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper.sTextViewMethodByNameCache` @AccessFlag PRIVATE_STATIC;
+procedure `void` `<clinit>`() @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v2 @kind this, `android.widget.TextView` v3 @kind object @name `textView`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.<init>:(Landroid/widget/TextView;)V` @AccessFlag CONSTRUCTOR {
+
+  # return;
+}
+procedure `java.lang.Object` `accessAndReturnWithDefault`(`java.lang.Object` v3 @kind object @name `object`, `java.lang.String` v4 @kind object @name `fieldName`, `java.lang.Object` v5 @kind object) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.accessAndReturnWithDefault:(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `int`[] `cleanupAutoSizePresetSizes`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v6 @kind this, `int`[] v7 @kind object @name `presetValues`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.cleanupAutoSizePresetSizes:([I)[I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `clearAutoSizeConfiguration`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v2 @kind this) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.clearAutoSizeConfiguration:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.text.StaticLayout` `createStaticLayoutForMeasuring`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v4 @kind this, `java.lang.CharSequence` v5 @kind object @name `text`, `android.text.Layout$Alignment` v6 @kind object @name `alignment`, `int` v7 @name `availableWidth`, `int` v8 @name `maxLines`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.createStaticLayoutForMeasuring:(Ljava/lang/CharSequence;Landroid/text/Layout$Alignment;II)Landroid/text/StaticLayout;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.text.StaticLayout` `createStaticLayoutForMeasuringPre16`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v12 @kind this, `java.lang.CharSequence` v13 @kind object @name `text`, `android.text.Layout$Alignment` v14 @kind object @name `alignment`, `int` v15 @name `availableWidth`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.createStaticLayoutForMeasuringPre16:(Ljava/lang/CharSequence;Landroid/text/Layout$Alignment;I)Landroid/text/StaticLayout;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.text.StaticLayout` `createStaticLayoutForMeasuringPre23`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v12 @kind this, `java.lang.CharSequence` v13 @kind object @name `text`, `android.text.Layout$Alignment` v14 @kind object @name `alignment`, `int` v15 @name `availableWidth`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.createStaticLayoutForMeasuringPre23:(Ljava/lang/CharSequence;Landroid/text/Layout$Alignment;I)Landroid/text/StaticLayout;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `findLargestTextSizeWhichFits`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v6 @kind this, `android.graphics.RectF` v7 @kind object @name `availableSpace`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.findLargestTextSizeWhichFits:(Landroid/graphics/RectF;)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `java.lang.reflect.Field` `getTextViewField`(`java.lang.String` v3 @kind object @name `fieldName`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.getTextViewField:(Ljava/lang/String;)Ljava/lang/reflect/Field;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `java.lang.reflect.Method` `getTextViewMethod`(`java.lang.String` v3 @kind object @name `methodName`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.getTextViewMethod:(Ljava/lang/String;)Ljava/lang/reflect/Method;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `java.lang.Object` `invokeAndReturnWithDefault`(`java.lang.Object` v6 @kind object @name `object`, `java.lang.String` v7 @kind object @name `methodName`, `java.lang.Object` v8 @kind object) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.invokeAndReturnWithDefault:(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `setRawTextSize`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v5 @kind this, `float` v6 @name `size`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.setRawTextSize:(F)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `setupAutoSizeText`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v7 @kind this) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.setupAutoSizeText:()Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `setupAutoSizeUniformPresetSizes`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v4 @kind this, `android.content.res.TypedArray` v5 @kind object @name `textSizes`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.setupAutoSizeUniformPresetSizes:(Landroid/content/res/TypedArray;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `setupAutoSizeUniformPresetSizesConfiguration`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v5 @kind this) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.setupAutoSizeUniformPresetSizesConfiguration:()Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `suggestedSizeFitsInSpace`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v9 @kind this, `int` v10 @name `suggestedSizeInPx`, `android.graphics.RectF` v11 @kind object @name `availableSpace`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.suggestedSizeFitsInSpace:(ILandroid/graphics/RectF;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `supportsAutoSizeText`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v1 @kind this) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.supportsAutoSizeText:()Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `validateAndSetAutoSizeTextTypeUniformConfiguration`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v4 @kind this, `float` v5 @name `autoSizeMinTextSizeInPx`, `float` v6 @name `autoSizeMaxTextSizeInPx`, `float` v7 @name `autoSizeStepGranularityInPx`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.validateAndSetAutoSizeTextTypeUniformConfiguration:(FFF)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `autoSizeText`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v7 @kind this) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.autoSizeText:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `android.text.StaticLayout` `createLayout`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v2 @kind this, `java.lang.CharSequence` v3 @kind object @name `text`, `android.text.Layout$Alignment` v4 @kind object @name `alignment`, `int` v5 @name `availableWidth`, `int` v6 @name `maxLines`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.createLayout:(Ljava/lang/CharSequence;Landroid/text/Layout$Alignment;II)Landroid/text/StaticLayout;` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `getAutoSizeMaxTextSize`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v1 @kind this) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.getAutoSizeMaxTextSize:()I` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `getAutoSizeMinTextSize`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v1 @kind this) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.getAutoSizeMinTextSize:()I` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `getAutoSizeStepGranularity`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v1 @kind this) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.getAutoSizeStepGranularity:()I` @AccessFlag  {
+
+  # return;
+}
+procedure `int`[] `getAutoSizeTextAvailableSizes`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v1 @kind this) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.getAutoSizeTextAvailableSizes:()[I` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `getAutoSizeTextType`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v1 @kind this) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.getAutoSizeTextType:()I` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `initTempTextPaint`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v2 @kind this, `int` v3 @name `suggestedSizeInPx`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.initTempTextPaint:(I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isAutoSizeEnabled`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v1 @kind this) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.isAutoSizeEnabled:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `loadFromAttributes`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v8 @kind this, `android.util.AttributeSet` v9 @kind object @name `attrs`, `int` v10 @name `defStyleAttr`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.loadFromAttributes:(Landroid/util/AttributeSet;I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `setAutoSizeTextTypeUniformWithConfiguration`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v5 @kind this, `int` v6 @name `autoSizeMinTextSize`, `int` v7 @name `autoSizeMaxTextSize`, `int` v8 @name `autoSizeStepGranularity`, `int` v9 @name `unit`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.setAutoSizeTextTypeUniformWithConfiguration:(IIII)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `setAutoSizeTextTypeUniformWithPresetSizes`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v5 @kind this, `int`[] v6 @kind object @name `presetSizes`, `int` v7 @name `unit`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.setAutoSizeTextTypeUniformWithPresetSizes:([II)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `setAutoSizeTextTypeWithDefaults`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v4 @kind this, `int` v5 @name `autoSizeTextType`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.setAutoSizeTextTypeWithDefaults:(I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `setTextSizeInternal`(`androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper` v2 @kind this, `int` v3 @name `unit`, `float` v4 @name `size`) @signature `Landroidx/appcompat/widget/AppCompatTextViewAutoSizeHelper;.setTextSizeInternal:(IF)V` @AccessFlag  {
+
+  # return;
+}

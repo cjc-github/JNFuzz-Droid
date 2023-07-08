@@ -1,0 +1,52 @@
+record `com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable` @kind class @AccessFlag  extends `java.lang.Runnable` @kind interface {
+  `boolean` `com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable.isPosted` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable.targetState` @AccessFlag ;
+  `com.google.android.material.bottomsheet.BottomSheetBehavior` `com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `android.view.View` `com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable.view` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable` v0 @kind this, `com.google.android.material.bottomsheet.BottomSheetBehavior` v1 @kind object, `android.view.View` v2 @kind object @name `view`, `int` v3 @name `targetState`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SettleRunnable;.<init>:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;Landroid/view/View;I)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L188f70.  v0.`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable.this$0` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior` := v1 @kind object;
+  #L188f74.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L188f7a.  v0.`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable.view` @type ^`android.view.View` := v2 @kind object;
+  #L188f7e.  v0.`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable.targetState` @type ^`int` := v3;
+  #L188f82.  return @kind void;
+}
+procedure `boolean` `access$100`(`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SettleRunnable;.access$100:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SettleRunnable;)Z` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L188f40.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable.isPosted` @type ^`boolean` @kind boolean;
+  #L188f44.  return v0;
+}
+procedure `boolean` `access$102`(`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable` v0 @kind object @name `x0`, `boolean` v1 @name `x1`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SettleRunnable;.access$102:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SettleRunnable;Z)Z` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L188f58.  v0.`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable.isPosted` @type ^`boolean` := v1 @kind boolean;
+  #L188f5c.  return v1;
+}
+procedure `void` `run`(`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable` v2 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior$SettleRunnable;.run:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L188f94.  v0:= v2.`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable.this$0` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior` @kind object;
+  #L188f98.  v0:= v0.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` @kind object;
+  #L188f9c.  if v0 == 0 then goto L188fc2;
+  #L188fa0.  v0:= v2.`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable.this$0` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior` @kind object;
+  #L188fa4.  v0:= v0.`com.google.android.material.bottomsheet.BottomSheetBehavior.viewDragHelper` @type ^`androidx.customview.widget.ViewDragHelper` @kind object;
+  #L188fa8.  v1:= 1I;
+  #L188faa.  call temp:= `continueSettling`(v0, v1) @signature `Landroidx/customview/widget/ViewDragHelper;.continueSettling:(Z)Z` @kind virtual;
+  #L188fb0.  v0:= temp;
+  #L188fb2.  if v0 == 0 then goto L188fc2;
+  #L188fb6.  v0:= v2.`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable.view` @type ^`android.view.View` @kind object;
+  #L188fba.  call `postOnAnimation`(v0, v2) @signature `Landroidx/core/view/ViewCompat;.postOnAnimation:(Landroid/view/View;Ljava/lang/Runnable;)V` @kind static;
+  #L188fc0.  goto L188fd0;
+  #L188fc2.  v0:= v2.`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable.this$0` @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior` @kind object;
+  #L188fc6.  v1:= v2.`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable.targetState` @type ^`int`;
+  #L188fca.  call `setStateInternal`(v0, v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setStateInternal:(I)V` @kind virtual;
+  #L188fd0.  v0:= 0I;
+  #L188fd2.  v2.`com.google.android.material.bottomsheet.BottomSheetBehavior$SettleRunnable.isPosted` @type ^`boolean` := v0 @kind boolean;
+  #L188fd6.  return @kind void;
+}

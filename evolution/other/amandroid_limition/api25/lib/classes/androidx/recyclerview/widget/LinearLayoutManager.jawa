@@ -1,0 +1,412 @@
+record `androidx.recyclerview.widget.LinearLayoutManager` @kind class @AccessFlag PUBLIC extends `androidx.recyclerview.widget.RecyclerView$LayoutManager` @kind class, `androidx.recyclerview.widget.ItemTouchHelper$ViewDropHandler` @kind interface, `androidx.recyclerview.widget.RecyclerView$SmoothScroller$ScrollVectorProvider` @kind interface {
+  `androidx.recyclerview.widget.LinearLayoutManager$AnchorInfo` `androidx.recyclerview.widget.LinearLayoutManager.mAnchorInfo` @AccessFlag FINAL;
+  `int` `androidx.recyclerview.widget.LinearLayoutManager.mInitialPrefetchItemCount` @AccessFlag PRIVATE;
+  `boolean` `androidx.recyclerview.widget.LinearLayoutManager.mLastStackFromEnd` @AccessFlag PRIVATE;
+  `androidx.recyclerview.widget.LinearLayoutManager$LayoutChunkResult` `androidx.recyclerview.widget.LinearLayoutManager.mLayoutChunkResult` @AccessFlag PRIVATE_FINAL;
+  `androidx.recyclerview.widget.LinearLayoutManager$LayoutState` `androidx.recyclerview.widget.LinearLayoutManager.mLayoutState` @AccessFlag PRIVATE;
+  `int` `androidx.recyclerview.widget.LinearLayoutManager.mOrientation` @AccessFlag ;
+  `androidx.recyclerview.widget.OrientationHelper` `androidx.recyclerview.widget.LinearLayoutManager.mOrientationHelper` @AccessFlag ;
+  `androidx.recyclerview.widget.LinearLayoutManager$SavedState` `androidx.recyclerview.widget.LinearLayoutManager.mPendingSavedState` @AccessFlag ;
+  `int` `androidx.recyclerview.widget.LinearLayoutManager.mPendingScrollPosition` @AccessFlag ;
+  `int` `androidx.recyclerview.widget.LinearLayoutManager.mPendingScrollPositionOffset` @AccessFlag ;
+  `boolean` `androidx.recyclerview.widget.LinearLayoutManager.mRecycleChildrenOnDetach` @AccessFlag PRIVATE;
+  `int`[] `androidx.recyclerview.widget.LinearLayoutManager.mReusableIntPair` @AccessFlag PRIVATE;
+  `boolean` `androidx.recyclerview.widget.LinearLayoutManager.mReverseLayout` @AccessFlag PRIVATE;
+  `boolean` `androidx.recyclerview.widget.LinearLayoutManager.mShouldReverseLayout` @AccessFlag ;
+  `boolean` `androidx.recyclerview.widget.LinearLayoutManager.mSmoothScrollbarEnabled` @AccessFlag PRIVATE;
+  `boolean` `androidx.recyclerview.widget.LinearLayoutManager.mStackFromEnd` @AccessFlag PRIVATE;
+}
+global `boolean` `@@androidx.recyclerview.widget.LinearLayoutManager.DEBUG` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.LinearLayoutManager.INVALID_OFFSET` @AccessFlag PUBLIC_STATIC_FINAL;
+global `float` `@@androidx.recyclerview.widget.LinearLayoutManager.MAX_SCROLL_FACTOR` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.recyclerview.widget.LinearLayoutManager.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.LinearLayoutManager.VERTICAL` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<init>`(`androidx.recyclerview.widget.LinearLayoutManager` v2 @kind this, `android.content.Context` v3 @kind object @name `context`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.recyclerview.widget.LinearLayoutManager` v2 @kind this, `android.content.Context` v3 @kind object @name `context`, `int` v4 @name `orientation`, `boolean` v5 @name `reverseLayout`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.<init>:(Landroid/content/Context;IZ)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.recyclerview.widget.LinearLayoutManager` v2 @kind this, `android.content.Context` v3 @kind object @name `context`, `android.util.AttributeSet` v4 @kind object @name `attrs`, `int` v5 @name `defStyleAttr`, `int` v6 @name `defStyleRes`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;II)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `int` `computeScrollExtent`(`androidx.recyclerview.widget.LinearLayoutManager` v7 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v8 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.computeScrollExtent:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `computeScrollOffset`(`androidx.recyclerview.widget.LinearLayoutManager` v8 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v9 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.computeScrollOffset:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `computeScrollRange`(`androidx.recyclerview.widget.LinearLayoutManager` v7 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v8 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.computeScrollRange:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.view.View` `findFirstPartiallyOrCompletelyInvisibleChild`(`androidx.recyclerview.widget.LinearLayoutManager` v2 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findFirstPartiallyOrCompletelyInvisibleChild:()Landroid/view/View;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.view.View` `findFirstReferenceChild`(`androidx.recyclerview.widget.LinearLayoutManager` v6 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v7 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v8 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findFirstReferenceChild:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)Landroid/view/View;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.view.View` `findLastPartiallyOrCompletelyInvisibleChild`(`androidx.recyclerview.widget.LinearLayoutManager` v2 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findLastPartiallyOrCompletelyInvisibleChild:()Landroid/view/View;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.view.View` `findLastReferenceChild`(`androidx.recyclerview.widget.LinearLayoutManager` v7 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v8 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v9 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findLastReferenceChild:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)Landroid/view/View;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.view.View` `findPartiallyOrCompletelyInvisibleChildClosestToEnd`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findPartiallyOrCompletelyInvisibleChildClosestToEnd:()Landroid/view/View;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.view.View` `findPartiallyOrCompletelyInvisibleChildClosestToStart`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findPartiallyOrCompletelyInvisibleChildClosestToStart:()Landroid/view/View;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.view.View` `findReferenceChildClosestToEnd`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v2 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v3 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findReferenceChildClosestToEnd:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)Landroid/view/View;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.view.View` `findReferenceChildClosestToStart`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v2 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v3 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findReferenceChildClosestToStart:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)Landroid/view/View;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `fixLayoutEndGap`(`androidx.recyclerview.widget.LinearLayoutManager` v3 @kind this, `int` v4 @name `endOffset`, `androidx.recyclerview.widget.RecyclerView$Recycler` v5 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v6 @kind object @name `state`, `boolean` v7 @name `canOffsetChildren`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.fixLayoutEndGap:(ILandroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;Z)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `fixLayoutStartGap`(`androidx.recyclerview.widget.LinearLayoutManager` v4 @kind this, `int` v5 @name `startOffset`, `androidx.recyclerview.widget.RecyclerView$Recycler` v6 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v7 @kind object @name `state`, `boolean` v8 @name `canOffsetChildren`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.fixLayoutStartGap:(ILandroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;Z)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.view.View` `getChildClosestToEnd`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.getChildClosestToEnd:()Landroid/view/View;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.view.View` `getChildClosestToStart`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.getChildClosestToStart:()Landroid/view/View;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `layoutForPredictiveAnimations`(`androidx.recyclerview.widget.LinearLayoutManager` v16 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v17 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v18 @kind object @name `state`, `int` v19 @name `startOffset`, `int` v20 @name `endOffset`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.layoutForPredictiveAnimations:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;II)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `logChildren`(`androidx.recyclerview.widget.LinearLayoutManager` v5 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.logChildren:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `recycleByLayoutState`(`androidx.recyclerview.widget.LinearLayoutManager` v4 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v5 @kind object @name `recycler`, `androidx.recyclerview.widget.LinearLayoutManager$LayoutState` v6 @kind object @name `layoutState`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.recycleByLayoutState:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/LinearLayoutManager$LayoutState;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `recycleChildren`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v2 @kind object @name `recycler`, `int` v3 @name `startIndex`, `int` v4 @name `endIndex`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.recycleChildren:(Landroidx/recyclerview/widget/RecyclerView$Recycler;II)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `recycleViewsFromEnd`(`androidx.recyclerview.widget.LinearLayoutManager` v5 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v6 @kind object @name `recycler`, `int` v7 @name `scrollingOffset`, `int` v8 @name `noRecycleSpace`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.recycleViewsFromEnd:(Landroidx/recyclerview/widget/RecyclerView$Recycler;II)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `recycleViewsFromStart`(`androidx.recyclerview.widget.LinearLayoutManager` v5 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v6 @kind object @name `recycler`, `int` v7 @name `scrollingOffset`, `int` v8 @name `noRecycleSpace`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.recycleViewsFromStart:(Landroidx/recyclerview/widget/RecyclerView$Recycler;II)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `resolveShouldLayoutReverse`(`androidx.recyclerview.widget.LinearLayoutManager` v2 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.resolveShouldLayoutReverse:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `updateAnchorFromChildren`(`androidx.recyclerview.widget.LinearLayoutManager` v6 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v7 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v8 @kind object @name `state`, `androidx.recyclerview.widget.LinearLayoutManager$AnchorInfo` v9 @kind object @name `anchorInfo`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.updateAnchorFromChildren:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `updateAnchorFromPendingData`(`androidx.recyclerview.widget.LinearLayoutManager` v7 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v8 @kind object @name `state`, `androidx.recyclerview.widget.LinearLayoutManager$AnchorInfo` v9 @kind object @name `anchorInfo`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.updateAnchorFromPendingData:(Landroidx/recyclerview/widget/RecyclerView$State;Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateAnchorInfoForLayout`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v2 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v3 @kind object @name `state`, `androidx.recyclerview.widget.LinearLayoutManager$AnchorInfo` v4 @kind object @name `anchorInfo`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.updateAnchorInfoForLayout:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateLayoutState`(`androidx.recyclerview.widget.LinearLayoutManager` v9 @kind this, `int` v10 @name `layoutDirection`, `int` v11 @name `requiredSpace`, `boolean` v12 @name `canUseExistingSpace`, `androidx.recyclerview.widget.RecyclerView$State` v13 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.updateLayoutState:(IIZLandroidx/recyclerview/widget/RecyclerView$State;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateLayoutStateToFillEnd`(`androidx.recyclerview.widget.LinearLayoutManager` v3 @kind this, `int` v4 @name `itemPosition`, `int` v5 @name `offset`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.updateLayoutStateToFillEnd:(II)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateLayoutStateToFillEnd`(`androidx.recyclerview.widget.LinearLayoutManager` v2 @kind this, `androidx.recyclerview.widget.LinearLayoutManager$AnchorInfo` v3 @kind object @name `anchorInfo`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.updateLayoutStateToFillEnd:(Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateLayoutStateToFillStart`(`androidx.recyclerview.widget.LinearLayoutManager` v3 @kind this, `int` v4 @name `itemPosition`, `int` v5 @name `offset`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.updateLayoutStateToFillStart:(II)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateLayoutStateToFillStart`(`androidx.recyclerview.widget.LinearLayoutManager` v2 @kind this, `androidx.recyclerview.widget.LinearLayoutManager$AnchorInfo` v3 @kind object @name `anchorInfo`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.updateLayoutStateToFillStart:(Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `assertNotInLayoutOrScroll`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `java.lang.String` v2 @kind object @name `message`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.assertNotInLayoutOrScroll:(Ljava/lang/String;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `calculateExtraLayoutSpace`(`androidx.recyclerview.widget.LinearLayoutManager` v5 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v6 @kind object @name `state`, `int`[] v7 @kind object @name `extraLayoutSpace`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.calculateExtraLayoutSpace:(Landroidx/recyclerview/widget/RecyclerView$State;[I)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `boolean` `canScrollHorizontally`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.canScrollHorizontally:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `canScrollVertically`(`androidx.recyclerview.widget.LinearLayoutManager` v2 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.canScrollVertically:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `collectAdjacentPrefetchPositions`(`androidx.recyclerview.widget.LinearLayoutManager` v4 @kind this, `int` v5 @name `dx`, `int` v6 @name `dy`, `androidx.recyclerview.widget.RecyclerView$State` v7 @kind object @name `state`, `androidx.recyclerview.widget.RecyclerView$LayoutManager$LayoutPrefetchRegistry` v8 @kind object @name `layoutPrefetchRegistry`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.collectAdjacentPrefetchPositions:(IILandroidx/recyclerview/widget/RecyclerView$State;Landroidx/recyclerview/widget/RecyclerView$LayoutManager$LayoutPrefetchRegistry;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `collectInitialPrefetchPositions`(`androidx.recyclerview.widget.LinearLayoutManager` v7 @kind this, `int` v8 @name `adapterItemCount`, `androidx.recyclerview.widget.RecyclerView$LayoutManager$LayoutPrefetchRegistry` v9 @kind object @name `layoutPrefetchRegistry`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.collectInitialPrefetchPositions:(ILandroidx/recyclerview/widget/RecyclerView$LayoutManager$LayoutPrefetchRegistry;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `collectPrefetchPositionsForLayoutState`(`androidx.recyclerview.widget.LinearLayoutManager` v3 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v4 @kind object @name `state`, `androidx.recyclerview.widget.LinearLayoutManager$LayoutState` v5 @kind object @name `layoutState`, `androidx.recyclerview.widget.RecyclerView$LayoutManager$LayoutPrefetchRegistry` v6 @kind object @name `layoutPrefetchRegistry`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.collectPrefetchPositionsForLayoutState:(Landroidx/recyclerview/widget/RecyclerView$State;Landroidx/recyclerview/widget/LinearLayoutManager$LayoutState;Landroidx/recyclerview/widget/RecyclerView$LayoutManager$LayoutPrefetchRegistry;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `computeHorizontalScrollExtent`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.computeHorizontalScrollExtent:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `computeHorizontalScrollOffset`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.computeHorizontalScrollOffset:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `computeHorizontalScrollRange`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.computeHorizontalScrollRange:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.graphics.PointF` `computeScrollVectorForPosition`(`androidx.recyclerview.widget.LinearLayoutManager` v5 @kind this, `int` v6 @name `targetPosition`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.computeScrollVectorForPosition:(I)Landroid/graphics/PointF;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `computeVerticalScrollExtent`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.computeVerticalScrollExtent:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `computeVerticalScrollOffset`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.computeVerticalScrollOffset:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `computeVerticalScrollRange`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.computeVerticalScrollRange:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `convertFocusDirectionToLayoutDirection`(`androidx.recyclerview.widget.LinearLayoutManager` v4 @kind this, `int` v5 @name `focusDirection`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.convertFocusDirectionToLayoutDirection:(I)I` @AccessFlag  {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.LinearLayoutManager$LayoutState` `createLayoutState`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.createLayoutState:()Landroidx/recyclerview/widget/LinearLayoutManager$LayoutState;` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `ensureLayoutState`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.ensureLayoutState:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `fill`(`androidx.recyclerview.widget.LinearLayoutManager` v7 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v8 @kind object @name `recycler`, `androidx.recyclerview.widget.LinearLayoutManager$LayoutState` v9 @kind object @name `layoutState`, `androidx.recyclerview.widget.RecyclerView$State` v10 @kind object @name `state`, `boolean` v11 @name `stopOnFocusable`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.fill:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/LinearLayoutManager$LayoutState;Landroidx/recyclerview/widget/RecyclerView$State;Z)I` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `findFirstCompletelyVisibleItemPosition`(`androidx.recyclerview.widget.LinearLayoutManager` v3 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findFirstCompletelyVisibleItemPosition:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View` `findFirstVisibleChildClosestToEnd`(`androidx.recyclerview.widget.LinearLayoutManager` v2 @kind this, `boolean` v3 @name `completelyVisible`, `boolean` v4 @name `acceptPartiallyVisible`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findFirstVisibleChildClosestToEnd:(ZZ)Landroid/view/View;` @AccessFlag  {
+
+  # return;
+}
+procedure `android.view.View` `findFirstVisibleChildClosestToStart`(`androidx.recyclerview.widget.LinearLayoutManager` v2 @kind this, `boolean` v3 @name `completelyVisible`, `boolean` v4 @name `acceptPartiallyVisible`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findFirstVisibleChildClosestToStart:(ZZ)Landroid/view/View;` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `findFirstVisibleItemPosition`(`androidx.recyclerview.widget.LinearLayoutManager` v3 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findFirstVisibleItemPosition:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `findLastCompletelyVisibleItemPosition`(`androidx.recyclerview.widget.LinearLayoutManager` v4 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findLastCompletelyVisibleItemPosition:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `findLastVisibleItemPosition`(`androidx.recyclerview.widget.LinearLayoutManager` v4 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findLastVisibleItemPosition:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View` `findOnePartiallyOrCompletelyInvisibleChild`(`androidx.recyclerview.widget.LinearLayoutManager` v5 @kind this, `int` v6 @name `fromIndex`, `int` v7 @name `toIndex`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findOnePartiallyOrCompletelyInvisibleChild:(II)Landroid/view/View;` @AccessFlag  {
+
+  # return;
+}
+procedure `android.view.View` `findOneVisibleChild`(`androidx.recyclerview.widget.LinearLayoutManager` v3 @kind this, `int` v4 @name `fromIndex`, `int` v5 @name `toIndex`, `boolean` v6 @name `completelyVisible`, `boolean` v7 @name `acceptPartiallyVisible`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findOneVisibleChild:(IIZZ)Landroid/view/View;` @AccessFlag  {
+
+  # return;
+}
+procedure `android.view.View` `findReferenceChild`(`androidx.recyclerview.widget.LinearLayoutManager` v9 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v10 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v11 @kind object @name `state`, `int` v12 @name `start`, `int` v13 @name `end`, `int` v14 @name `itemCount`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findReferenceChild:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;III)Landroid/view/View;` @AccessFlag  {
+
+  # return;
+}
+procedure `android.view.View` `findViewByPosition`(`androidx.recyclerview.widget.LinearLayoutManager` v5 @kind this, `int` v6 @name `position`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findViewByPosition:(I)Landroid/view/View;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.RecyclerView$LayoutParams` `generateDefaultLayoutParams`(`androidx.recyclerview.widget.LinearLayoutManager` v2 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.generateDefaultLayoutParams:()Landroidx/recyclerview/widget/RecyclerView$LayoutParams;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getExtraLayoutSpace`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.getExtraLayoutSpace:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `int` `getInitialPrefetchItemCount`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.getInitialPrefetchItemCount:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getOrientation`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.getOrientation:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `getRecycleChildrenOnDetach`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.getRecycleChildrenOnDetach:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `getReverseLayout`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.getReverseLayout:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `getStackFromEnd`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.getStackFromEnd:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isAutoMeasureEnabled`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.isAutoMeasureEnabled:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isLayoutRTL`(`androidx.recyclerview.widget.LinearLayoutManager` v2 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.isLayoutRTL:()Z` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `boolean` `isSmoothScrollbarEnabled`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.isSmoothScrollbarEnabled:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `layoutChunk`(`androidx.recyclerview.widget.LinearLayoutManager` v17 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v18 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v19 @kind object @name `state`, `androidx.recyclerview.widget.LinearLayoutManager$LayoutState` v20 @kind object @name `layoutState`, `androidx.recyclerview.widget.LinearLayoutManager$LayoutChunkResult` v21 @kind object @name `result`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.layoutChunk:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;Landroidx/recyclerview/widget/LinearLayoutManager$LayoutState;Landroidx/recyclerview/widget/LinearLayoutManager$LayoutChunkResult;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onAnchorReady`(`androidx.recyclerview.widget.LinearLayoutManager` v0 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v1 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`, `androidx.recyclerview.widget.LinearLayoutManager$AnchorInfo` v3 @kind object @name `anchorInfo`, `int` v4 @name `firstLayoutItemDirection`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.onAnchorReady:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo;I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onDetachedFromWindow`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView` v2 @kind object @name `view`, `androidx.recyclerview.widget.RecyclerView$Recycler` v3 @kind object @name `recycler`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.onDetachedFromWindow:(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$Recycler;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View` `onFocusSearchFailed`(`androidx.recyclerview.widget.LinearLayoutManager` v6 @kind this, `android.view.View` v7 @kind object @name `focused`, `int` v8 @name `focusDirection`, `androidx.recyclerview.widget.RecyclerView$Recycler` v9 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v10 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.onFocusSearchFailed:(Landroid/view/View;ILandroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)Landroid/view/View;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onInitializeAccessibilityEvent`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `android.view.accessibility.AccessibilityEvent` v2 @kind object @name `event`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.onInitializeAccessibilityEvent:(Landroid/view/accessibility/AccessibilityEvent;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onLayoutChildren`(`androidx.recyclerview.widget.LinearLayoutManager` v11 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v12 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v13 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.onLayoutChildren:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onLayoutCompleted`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.onLayoutCompleted:(Landroidx/recyclerview/widget/RecyclerView$State;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onRestoreInstanceState`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `android.os.Parcelable` v2 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.onRestoreInstanceState:(Landroid/os/Parcelable;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.os.Parcelable` `onSaveInstanceState`(`androidx.recyclerview.widget.LinearLayoutManager` v5 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.onSaveInstanceState:()Landroid/os/Parcelable;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `prepareForDrop`(`androidx.recyclerview.widget.LinearLayoutManager` v6 @kind this, `android.view.View` v7 @kind object @name `view`, `android.view.View` v8 @kind object @name `target`, `int` v9 @name `x`, `int` v10 @name `y`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.prepareForDrop:(Landroid/view/View;Landroid/view/View;II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `resolveIsInfinite`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.resolveIsInfinite:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `scrollBy`(`androidx.recyclerview.widget.LinearLayoutManager` v6 @kind this, `int` v7 @name `delta`, `androidx.recyclerview.widget.RecyclerView$Recycler` v8 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v9 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.scrollBy:(ILandroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `scrollHorizontallyBy`(`androidx.recyclerview.widget.LinearLayoutManager` v2 @kind this, `int` v3 @name `dx`, `androidx.recyclerview.widget.RecyclerView$Recycler` v4 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v5 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.scrollHorizontallyBy:(ILandroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `scrollToPosition`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `int` v2 @name `position`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.scrollToPosition:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `scrollToPositionWithOffset`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `int` v2 @name `position`, `int` v3 @name `offset`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.scrollToPositionWithOffset:(II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `scrollVerticallyBy`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `int` v2 @name `dy`, `androidx.recyclerview.widget.RecyclerView$Recycler` v3 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v4 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.scrollVerticallyBy:(ILandroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setInitialPrefetchItemCount`(`androidx.recyclerview.widget.LinearLayoutManager` v0 @kind this, `int` v1 @name `itemCount`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.setInitialPrefetchItemCount:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOrientation`(`androidx.recyclerview.widget.LinearLayoutManager` v3 @kind this, `int` v4 @name `orientation`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.setOrientation:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setRecycleChildrenOnDetach`(`androidx.recyclerview.widget.LinearLayoutManager` v0 @kind this, `boolean` v1 @name `recycleChildrenOnDetach`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.setRecycleChildrenOnDetach:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setReverseLayout`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `boolean` v2 @name `reverseLayout`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.setReverseLayout:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSmoothScrollbarEnabled`(`androidx.recyclerview.widget.LinearLayoutManager` v0 @kind this, `boolean` v1 @name `enabled`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.setSmoothScrollbarEnabled:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setStackFromEnd`(`androidx.recyclerview.widget.LinearLayoutManager` v1 @kind this, `boolean` v2 @name `stackFromEnd`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.setStackFromEnd:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `shouldMeasureTwice`(`androidx.recyclerview.widget.LinearLayoutManager` v2 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.shouldMeasureTwice:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `smoothScrollToPosition`(`androidx.recyclerview.widget.LinearLayoutManager` v2 @kind this, `androidx.recyclerview.widget.RecyclerView` v3 @kind object @name `recyclerView`, `androidx.recyclerview.widget.RecyclerView$State` v4 @kind object @name `state`, `int` v5 @name `position`) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.smoothScrollToPosition:(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `supportsPredictiveItemAnimations`(`androidx.recyclerview.widget.LinearLayoutManager` v2 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.supportsPredictiveItemAnimations:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `validateChildOrder`(`androidx.recyclerview.widget.LinearLayoutManager` v11 @kind this) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.validateChildOrder:()V` @AccessFlag  {
+
+  # return;
+}

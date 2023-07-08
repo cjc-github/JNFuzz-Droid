@@ -1,0 +1,117 @@
+record `com.google.android.material.bottomsheet.BottomSheetDialogFragment` @kind class @AccessFlag PUBLIC extends `androidx.appcompat.app.AppCompatDialogFragment` @kind class {
+  `boolean` `com.google.android.material.bottomsheet.BottomSheetDialogFragment.waitingForDismissAllowingStateLoss` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomsheet.BottomSheetDialogFragment` v0 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L18a9c4.  call `<init>`(v0) @signature `Landroidx/appcompat/app/AppCompatDialogFragment;.<init>:()V` @kind direct;
+  #L18a9ca.  return @kind void;
+}
+procedure `void` `access$100`(`com.google.android.material.bottomsheet.BottomSheetDialogFragment` v0 @kind object @name `x0`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;.access$100:(Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L18a9dc.  call `dismissAfterAnimation`(v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;.dismissAfterAnimation:()V` @kind direct;
+  #L18a9e2.  return @kind void;
+}
+procedure `void` `dismissAfterAnimation`(`com.google.android.material.bottomsheet.BottomSheetDialogFragment` v1 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;.dismissAfterAnimation:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L18aa1c.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetDialogFragment.waitingForDismissAllowingStateLoss` @type ^`boolean` @kind boolean;
+  #L18aa20.  if v0 == 0 then goto L18aa2c;
+  #L18aa24.  call `dismissAllowingStateLoss`(v1) @signature `Landroidx/appcompat/app/AppCompatDialogFragment;.dismissAllowingStateLoss:()V` @kind super;
+  #L18aa2a.  goto L18aa32;
+  #L18aa2c.  call `dismiss`(v1) @signature `Landroidx/appcompat/app/AppCompatDialogFragment;.dismiss:()V` @kind super;
+  #L18aa32.  return @kind void;
+}
+procedure `void` `dismissWithAnimation`(`com.google.android.material.bottomsheet.BottomSheetDialogFragment` v3 @kind this, `com.google.android.material.bottomsheet.BottomSheetBehavior` v4 @kind object, `boolean` v5 @name `allowingStateLoss`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;.dismissWithAnimation:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;Z)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18aa6c.  v3.`com.google.android.material.bottomsheet.BottomSheetDialogFragment.waitingForDismissAllowingStateLoss` @type ^`boolean` := v5 @kind boolean;
+  #L18aa70.  call temp:= `getState`(v4) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.getState:()I` @kind virtual;
+  #L18aa76.  v0:= temp;
+  #L18aa78.  v1:= 5I;
+  #L18aa7a.  if v0 != v1 then goto L18aa86;
+  #L18aa7e.  call `dismissAfterAnimation`(v3) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;.dismissAfterAnimation:()V` @kind direct;
+  #L18aa84.  goto L18aac0;
+  #L18aa86.  call temp:= `getDialog`(v3) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;.getDialog:()Landroid/app/Dialog;` @kind virtual;
+  #L18aa8c.  v0:= temp @kind object;
+  #L18aa8e.  v0:= instanceof @variable v0 @type ^`com.google.android.material.bottomsheet.BottomSheetDialog` @kind boolean;
+  #L18aa92.  if v0 == 0 then goto L18aaa8;
+  #L18aa96.  call temp:= `getDialog`(v3) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;.getDialog:()Landroid/app/Dialog;` @kind virtual;
+  #L18aa9c.  v0:= temp @kind object;
+  #L18aa9e.  v0:= (`com.google.android.material.bottomsheet.BottomSheetDialog`) v0 @kind object;
+  #L18aaa2.  call `removeDefaultCallback`(v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.removeDefaultCallback:()V` @kind virtual;
+  #L18aaa8.  v0:= new `com.google.android.material.bottomsheet.BottomSheetDialogFragment$BottomSheetDismissCallback`;
+  #L18aaac.  v2:= 0I;
+  #L18aaae.  call `<init>`(v0, v3, v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment$BottomSheetDismissCallback;.<init>:(Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment$1;)V` @kind direct;
+  #L18aab4.  call `addBottomSheetCallback`(v4, v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.addBottomSheetCallback:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior$BottomSheetCallback;)V` @kind virtual;
+  #L18aaba.  call `setState`(v4, v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.setState:(I)V` @kind virtual;
+  #L18aac0.  return @kind void;
+}
+procedure `boolean` `tryDismissWithAnimation`(`com.google.android.material.bottomsheet.BottomSheetDialogFragment` v4 @kind this, `boolean` v5 @name `allowingStateLoss`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;.tryDismissWithAnimation:(Z)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18a970.  call temp:= `getDialog`(v4) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;.getDialog:()Landroid/app/Dialog;` @kind virtual;
+  #L18a976.  v0:= temp @kind object;
+  #L18a978.  v1:= instanceof @variable v0 @type ^`com.google.android.material.bottomsheet.BottomSheetDialog` @kind boolean;
+  #L18a97c.  if v1 == 0 then goto L18a9b0;
+  #L18a980.  v1:= v0 @kind object;
+  #L18a982.  v1:= (`com.google.android.material.bottomsheet.BottomSheetDialog`) v1 @kind object;
+  #L18a986.  call temp:= `getBehavior`(v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.getBehavior:()Lcom/google/android/material/bottomsheet/BottomSheetBehavior;` @kind virtual;
+  #L18a98c.  v2:= temp @kind object;
+  #L18a98e.  call temp:= `isHideable`(v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetBehavior;.isHideable:()Z` @kind virtual;
+  #L18a994.  v3:= temp;
+  #L18a996.  if v3 == 0 then goto L18a9b0;
+  #L18a99a.  call temp:= `getDismissWithAnimation`(v1) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.getDismissWithAnimation:()Z` @kind virtual;
+  #L18a9a0.  v3:= temp;
+  #L18a9a2.  if v3 == 0 then goto L18a9b0;
+  #L18a9a6.  call `dismissWithAnimation`(v4, v2, v5) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;.dismissWithAnimation:(Lcom/google/android/material/bottomsheet/BottomSheetBehavior;Z)V` @kind direct;
+  #L18a9ac.  v3:= 1I;
+  #L18a9ae.  return v3;
+  #L18a9b0.  v1:= 0I;
+  #L18a9b2.  return v1;
+}
+procedure `void` `dismiss`(`com.google.android.material.bottomsheet.BottomSheetDialogFragment` v1 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;.dismiss:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18a9f4.  v0:= 0I;
+  #L18a9f6.  call temp:= `tryDismissWithAnimation`(v1, v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;.tryDismissWithAnimation:(Z)Z` @kind direct;
+  #L18a9fc.  v0:= temp;
+  #L18a9fe.  if v0 != 0 then goto L18aa08;
+  #L18aa02.  call `dismiss`(v1) @signature `Landroidx/appcompat/app/AppCompatDialogFragment;.dismiss:()V` @kind super;
+  #L18aa08.  return @kind void;
+}
+procedure `void` `dismissAllowingStateLoss`(`com.google.android.material.bottomsheet.BottomSheetDialogFragment` v1 @kind this) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;.dismissAllowingStateLoss:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18aa44.  v0:= 1I;
+  #L18aa46.  call temp:= `tryDismissWithAnimation`(v1, v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;.tryDismissWithAnimation:(Z)Z` @kind direct;
+  #L18aa4c.  v0:= temp;
+  #L18aa4e.  if v0 != 0 then goto L18aa58;
+  #L18aa52.  call `dismissAllowingStateLoss`(v1) @signature `Landroidx/appcompat/app/AppCompatDialogFragment;.dismissAllowingStateLoss:()V` @kind super;
+  #L18aa58.  return @kind void;
+}
+procedure `android.app.Dialog` `onCreateDialog`(`com.google.android.material.bottomsheet.BottomSheetDialogFragment` v3 @kind this, `android.os.Bundle` v4 @kind object @name `savedInstanceState`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;.onCreateDialog:(Landroid/os/Bundle;)Landroid/app/Dialog;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18a944.  v0:= new `com.google.android.material.bottomsheet.BottomSheetDialog`;
+  #L18a948.  call temp:= `getContext`(v3) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L18a94e.  v1:= temp @kind object;
+  #L18a950.  call temp:= `getTheme`(v3) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialogFragment;.getTheme:()I` @kind virtual;
+  #L18a956.  v2:= temp;
+  #L18a958.  call `<init>`(v0, v1, v2) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.<init>:(Landroid/content/Context;I)V` @kind direct;
+  #L18a95e.  return v0 @kind object;
+}

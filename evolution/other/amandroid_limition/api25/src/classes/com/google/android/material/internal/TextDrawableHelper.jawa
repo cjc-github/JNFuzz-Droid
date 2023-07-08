@@ -1,0 +1,161 @@
+record `com.google.android.material.internal.TextDrawableHelper` @kind class @AccessFlag PUBLIC {
+  `java.lang.ref.WeakReference` `com.google.android.material.internal.TextDrawableHelper.delegate` @AccessFlag PRIVATE;
+  `com.google.android.material.resources.TextAppearanceFontCallback` `com.google.android.material.internal.TextDrawableHelper.fontCallback` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.resources.TextAppearance` `com.google.android.material.internal.TextDrawableHelper.textAppearance` @AccessFlag PRIVATE;
+  `android.text.TextPaint` `com.google.android.material.internal.TextDrawableHelper.textPaint` @AccessFlag PRIVATE_FINAL;
+  `float` `com.google.android.material.internal.TextDrawableHelper.textWidth` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.internal.TextDrawableHelper.textWidthDirty` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.TextDrawableHelper` v2 @kind this, `com.google.android.material.internal.TextDrawableHelper$TextDrawableDelegate` v3 @kind object @name `delegate`) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.<init>:(Lcom/google/android/material/internal/TextDrawableHelper$TextDrawableDelegate;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L1a6dc0.  call `<init>`(v2) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1a6dc6.  v0:= new `android.text.TextPaint`;
+  #L1a6dca.  v1:= 1I;
+  #L1a6dcc.  call `<init>`(v0, v1) @signature `Landroid/text/TextPaint;.<init>:(I)V` @kind direct;
+  #L1a6dd2.  v2.`com.google.android.material.internal.TextDrawableHelper.textPaint` @type ^`android.text.TextPaint` := v0 @kind object;
+  #L1a6dd6.  v0:= new `com.google.android.material.internal.TextDrawableHelper$1`;
+  #L1a6dda.  call `<init>`(v0, v2) @signature `Lcom/google/android/material/internal/TextDrawableHelper$1;.<init>:(Lcom/google/android/material/internal/TextDrawableHelper;)V` @kind direct;
+  #L1a6de0.  v2.`com.google.android.material.internal.TextDrawableHelper.fontCallback` @type ^`com.google.android.material.resources.TextAppearanceFontCallback` := v0 @kind object;
+  #L1a6de4.  v2.`com.google.android.material.internal.TextDrawableHelper.textWidthDirty` @type ^`boolean` := v1 @kind boolean;
+  #L1a6de8.  v0:= new `java.lang.ref.WeakReference`;
+  #L1a6dec.  v1:= 0I;
+  #L1a6dee.  call `<init>`(v0, v1) @signature `Ljava/lang/ref/WeakReference;.<init>:(Ljava/lang/Object;)V` @kind direct;
+  #L1a6df4.  v2.`com.google.android.material.internal.TextDrawableHelper.delegate` @type ^`java.lang.ref.WeakReference` := v0 @kind object;
+  #L1a6df8.  call `setDelegate`(v2, v3) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.setDelegate:(Lcom/google/android/material/internal/TextDrawableHelper$TextDrawableDelegate;)V` @kind virtual;
+  #L1a6dfe.  return @kind void;
+}
+procedure `boolean` `access$002`(`com.google.android.material.internal.TextDrawableHelper` v0 @kind object @name `x0`, `boolean` v1 @name `x1`) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.access$002:(Lcom/google/android/material/internal/TextDrawableHelper;Z)Z` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1a6cfc.  v0.`com.google.android.material.internal.TextDrawableHelper.textWidthDirty` @type ^`boolean` := v1 @kind boolean;
+  #L1a6d00.  return v1;
+}
+procedure `java.lang.ref.WeakReference` `access$100`(`com.google.android.material.internal.TextDrawableHelper` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.access$100:(Lcom/google/android/material/internal/TextDrawableHelper;)Ljava/lang/ref/WeakReference;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1a6da8.  v0:= v1.`com.google.android.material.internal.TextDrawableHelper.delegate` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L1a6dac.  return v0 @kind object;
+}
+procedure `float` `calculateTextWidth`(`com.google.android.material.internal.TextDrawableHelper` v3 @kind this, `java.lang.CharSequence` v4 @kind object @name `charSequence`) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.calculateTextWidth:(Ljava/lang/CharSequence;)F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a6d44.  if v4 != 0 then goto L1a6d4c;
+  #L1a6d48.  v0:= 0I;
+  #L1a6d4a.  return v0;
+  #L1a6d4c.  v0:= v3.`com.google.android.material.internal.TextDrawableHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a6d50.  v1:= 0I;
+  #L1a6d52.  call temp:= `length`(v4) @signature `Ljava/lang/CharSequence;.length:()I` @kind interface;
+  #L1a6d58.  v2:= temp;
+  #L1a6d5a.  call temp:= `measureText`(v0, v4, v1, v2) @signature `Landroid/text/TextPaint;.measureText:(Ljava/lang/CharSequence;II)F` @kind virtual;
+  #L1a6d60.  v0:= temp;
+  #L1a6d62.  return v0;
+}
+procedure `com.google.android.material.resources.TextAppearance` `getTextAppearance`(`com.google.android.material.internal.TextDrawableHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.getTextAppearance:()Lcom/google/android/material/resources/TextAppearance;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a6d2c.  v0:= v1.`com.google.android.material.internal.TextDrawableHelper.textAppearance` @type ^`com.google.android.material.resources.TextAppearance` @kind object;
+  #L1a6d30.  return v0 @kind object;
+}
+procedure `android.text.TextPaint` `getTextPaint`(`com.google.android.material.internal.TextDrawableHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.getTextPaint:()Landroid/text/TextPaint;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a6ce4.  v0:= v1.`com.google.android.material.internal.TextDrawableHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a6ce8.  return v0 @kind object;
+}
+procedure `float` `getTextWidth`(`com.google.android.material.internal.TextDrawableHelper` v2 @kind this, `java.lang.String` v3 @kind object @name `text`) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.getTextWidth:(Ljava/lang/String;)F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a6d74.  v0:= v2.`com.google.android.material.internal.TextDrawableHelper.textWidthDirty` @type ^`boolean` @kind boolean;
+  #L1a6d78.  if v0 != 0 then goto L1a6d82;
+  #L1a6d7c.  v0:= v2.`com.google.android.material.internal.TextDrawableHelper.textWidth` @type ^`float`;
+  #L1a6d80.  return v0;
+  #L1a6d82.  call temp:= `calculateTextWidth`(v2, v3) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.calculateTextWidth:(Ljava/lang/CharSequence;)F` @kind direct;
+  #L1a6d88.  v0:= temp;
+  #L1a6d8a.  v2.`com.google.android.material.internal.TextDrawableHelper.textWidth` @type ^`float` := v0;
+  #L1a6d8e.  v1:= 0I;
+  #L1a6d90.  v2.`com.google.android.material.internal.TextDrawableHelper.textWidthDirty` @type ^`boolean` := v1 @kind boolean;
+  #L1a6d94.  return v0;
+}
+procedure `boolean` `isTextWidthDirty`(`com.google.android.material.internal.TextDrawableHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.isTextWidthDirty:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a6d14.  v0:= v1.`com.google.android.material.internal.TextDrawableHelper.textWidthDirty` @type ^`boolean` @kind boolean;
+  #L1a6d18.  return v0;
+}
+procedure `void` `setDelegate`(`com.google.android.material.internal.TextDrawableHelper` v1 @kind this, `com.google.android.material.internal.TextDrawableHelper$TextDrawableDelegate` v2 @kind object @name `delegate`) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.setDelegate:(Lcom/google/android/material/internal/TextDrawableHelper$TextDrawableDelegate;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a6e10.  v0:= new `java.lang.ref.WeakReference`;
+  #L1a6e14.  call `<init>`(v0, v2) @signature `Ljava/lang/ref/WeakReference;.<init>:(Ljava/lang/Object;)V` @kind direct;
+  #L1a6e1a.  v1.`com.google.android.material.internal.TextDrawableHelper.delegate` @type ^`java.lang.ref.WeakReference` := v0 @kind object;
+  #L1a6e1e.  return @kind void;
+}
+procedure `void` `setTextAppearance`(`com.google.android.material.internal.TextDrawableHelper` v3 @kind this, `com.google.android.material.resources.TextAppearance` v4 @kind object @name `textAppearance`, `android.content.Context` v5 @kind object @name `context`) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.setTextAppearance:(Lcom/google/android/material/resources/TextAppearance;Landroid/content/Context;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a6e30.  v0:= v3.`com.google.android.material.internal.TextDrawableHelper.textAppearance` @type ^`com.google.android.material.resources.TextAppearance` @kind object;
+  #L1a6e34.  if v0 == v4 then goto L1a6eae;
+  #L1a6e38.  v3.`com.google.android.material.internal.TextDrawableHelper.textAppearance` @type ^`com.google.android.material.resources.TextAppearance` := v4 @kind object;
+  #L1a6e3c.  if v4 == 0 then goto L1a6e86;
+  #L1a6e40.  v0:= v3.`com.google.android.material.internal.TextDrawableHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a6e44.  v1:= v3.`com.google.android.material.internal.TextDrawableHelper.fontCallback` @type ^`com.google.android.material.resources.TextAppearanceFontCallback` @kind object;
+  #L1a6e48.  call `updateMeasureState`(v4, v5, v0, v1) @signature `Lcom/google/android/material/resources/TextAppearance;.updateMeasureState:(Landroid/content/Context;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V` @kind virtual;
+  #L1a6e4e.  v0:= v3.`com.google.android.material.internal.TextDrawableHelper.delegate` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L1a6e52.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L1a6e58.  v0:= temp @kind object;
+  #L1a6e5a.  v0:= (`com.google.android.material.internal.TextDrawableHelper$TextDrawableDelegate`) v0 @kind object;
+  #L1a6e5e.  if v0 == 0 then goto L1a6e72;
+  #L1a6e62.  v1:= v3.`com.google.android.material.internal.TextDrawableHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a6e66.  call temp:= `getState`(v0) @signature `Lcom/google/android/material/internal/TextDrawableHelper$TextDrawableDelegate;.getState:()[I` @kind interface;
+  #L1a6e6c.  v2:= temp @kind object;
+  #L1a6e6e.  v1.`android.text.TextPaint.drawableState` @type ^`int`[] := v2 @kind object;
+  #L1a6e72.  v1:= v3.`com.google.android.material.internal.TextDrawableHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a6e76.  v2:= v3.`com.google.android.material.internal.TextDrawableHelper.fontCallback` @type ^`com.google.android.material.resources.TextAppearanceFontCallback` @kind object;
+  #L1a6e7a.  call `updateDrawState`(v4, v5, v1, v2) @signature `Lcom/google/android/material/resources/TextAppearance;.updateDrawState:(Landroid/content/Context;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V` @kind virtual;
+  #L1a6e80.  v1:= 1I;
+  #L1a6e82.  v3.`com.google.android.material.internal.TextDrawableHelper.textWidthDirty` @type ^`boolean` := v1 @kind boolean;
+  #L1a6e86.  v0:= v3.`com.google.android.material.internal.TextDrawableHelper.delegate` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L1a6e8a.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L1a6e90.  v0:= temp @kind object;
+  #L1a6e92.  v0:= (`com.google.android.material.internal.TextDrawableHelper$TextDrawableDelegate`) v0 @kind object;
+  #L1a6e96.  if v0 == 0 then goto L1a6eae;
+  #L1a6e9a.  call `onTextSizeChange`(v0) @signature `Lcom/google/android/material/internal/TextDrawableHelper$TextDrawableDelegate;.onTextSizeChange:()V` @kind interface;
+  #L1a6ea0.  call temp:= `getState`(v0) @signature `Lcom/google/android/material/internal/TextDrawableHelper$TextDrawableDelegate;.getState:()[I` @kind interface;
+  #L1a6ea6.  v1:= temp @kind object;
+  #L1a6ea8.  call temp:= `onStateChange`(v0, v1) @signature `Lcom/google/android/material/internal/TextDrawableHelper$TextDrawableDelegate;.onStateChange:([I)Z` @kind interface;
+  #L1a6eae.  return @kind void;
+}
+procedure `void` `setTextWidthDirty`(`com.google.android.material.internal.TextDrawableHelper` v0 @kind this, `boolean` v1 @name `dirty`) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.setTextWidthDirty:(Z)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1a6ec0.  v0.`com.google.android.material.internal.TextDrawableHelper.textWidthDirty` @type ^`boolean` := v1 @kind boolean;
+  #L1a6ec4.  return @kind void;
+}
+procedure `void` `updateTextPaintDrawState`(`com.google.android.material.internal.TextDrawableHelper` v3 @kind this, `android.content.Context` v4 @kind object @name `context`) @signature `Lcom/google/android/material/internal/TextDrawableHelper;.updateTextPaintDrawState:(Landroid/content/Context;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a6ed8.  v0:= v3.`com.google.android.material.internal.TextDrawableHelper.textAppearance` @type ^`com.google.android.material.resources.TextAppearance` @kind object;
+  #L1a6edc.  v1:= v3.`com.google.android.material.internal.TextDrawableHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a6ee0.  v2:= v3.`com.google.android.material.internal.TextDrawableHelper.fontCallback` @type ^`com.google.android.material.resources.TextAppearanceFontCallback` @kind object;
+  #L1a6ee4.  call `updateDrawState`(v0, v4, v1, v2) @signature `Lcom/google/android/material/resources/TextAppearance;.updateDrawState:(Landroid/content/Context;Landroid/text/TextPaint;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V` @kind virtual;
+  #L1a6eea.  return @kind void;
+}

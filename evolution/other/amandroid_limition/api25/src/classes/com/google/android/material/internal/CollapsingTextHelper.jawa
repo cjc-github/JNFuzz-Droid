@@ -1,0 +1,1469 @@
+record `com.google.android.material.internal.CollapsingTextHelper` @kind class @AccessFlag PUBLIC_FINAL {
+  `boolean` `com.google.android.material.internal.CollapsingTextHelper.boundsChanged` @AccessFlag PRIVATE;
+  `android.graphics.Rect` `com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @AccessFlag PRIVATE_FINAL;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.collapsedDrawX` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.collapsedDrawY` @AccessFlag PRIVATE;
+  `com.google.android.material.resources.CancelableFontCallback` `com.google.android.material.internal.CollapsingTextHelper.collapsedFontCallback` @AccessFlag PRIVATE;
+  `android.content.res.ColorStateList` `com.google.android.material.internal.CollapsingTextHelper.collapsedShadowColor` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.collapsedShadowDx` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.collapsedShadowDy` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.collapsedShadowRadius` @AccessFlag PRIVATE;
+  `android.content.res.ColorStateList` `com.google.android.material.internal.CollapsingTextHelper.collapsedTextColor` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.internal.CollapsingTextHelper.collapsedTextGravity` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.collapsedTextSize` @AccessFlag PRIVATE;
+  `android.graphics.Typeface` `com.google.android.material.internal.CollapsingTextHelper.collapsedTypeface` @AccessFlag PRIVATE;
+  `android.graphics.RectF` `com.google.android.material.internal.CollapsingTextHelper.currentBounds` @AccessFlag PRIVATE_FINAL;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.currentDrawX` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.currentDrawY` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.currentTextSize` @AccessFlag PRIVATE;
+  `android.graphics.Typeface` `com.google.android.material.internal.CollapsingTextHelper.currentTypeface` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.internal.CollapsingTextHelper.drawTitle` @AccessFlag PRIVATE;
+  `android.graphics.Rect` `com.google.android.material.internal.CollapsingTextHelper.expandedBounds` @AccessFlag PRIVATE_FINAL;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.expandedDrawX` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.expandedDrawY` @AccessFlag PRIVATE;
+  `com.google.android.material.resources.CancelableFontCallback` `com.google.android.material.internal.CollapsingTextHelper.expandedFontCallback` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.expandedFraction` @AccessFlag PRIVATE;
+  `android.content.res.ColorStateList` `com.google.android.material.internal.CollapsingTextHelper.expandedShadowColor` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.expandedShadowDx` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.expandedShadowDy` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.expandedShadowRadius` @AccessFlag PRIVATE;
+  `android.content.res.ColorStateList` `com.google.android.material.internal.CollapsingTextHelper.expandedTextColor` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.internal.CollapsingTextHelper.expandedTextGravity` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.expandedTextSize` @AccessFlag PRIVATE;
+  `android.graphics.Bitmap` `com.google.android.material.internal.CollapsingTextHelper.expandedTitleTexture` @AccessFlag PRIVATE;
+  `android.graphics.Typeface` `com.google.android.material.internal.CollapsingTextHelper.expandedTypeface` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.internal.CollapsingTextHelper.isRtl` @AccessFlag PRIVATE;
+  `android.animation.TimeInterpolator` `com.google.android.material.internal.CollapsingTextHelper.positionInterpolator` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.scale` @AccessFlag PRIVATE;
+  `int`[] `com.google.android.material.internal.CollapsingTextHelper.state` @AccessFlag PRIVATE;
+  `java.lang.CharSequence` `com.google.android.material.internal.CollapsingTextHelper.text` @AccessFlag PRIVATE;
+  `android.text.TextPaint` `com.google.android.material.internal.CollapsingTextHelper.textPaint` @AccessFlag PRIVATE_FINAL;
+  `android.animation.TimeInterpolator` `com.google.android.material.internal.CollapsingTextHelper.textSizeInterpolator` @AccessFlag PRIVATE;
+  `java.lang.CharSequence` `com.google.android.material.internal.CollapsingTextHelper.textToDraw` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.textureAscent` @AccessFlag PRIVATE;
+  `float` `com.google.android.material.internal.CollapsingTextHelper.textureDescent` @AccessFlag PRIVATE;
+  `android.graphics.Paint` `com.google.android.material.internal.CollapsingTextHelper.texturePaint` @AccessFlag PRIVATE;
+  `android.text.TextPaint` `com.google.android.material.internal.CollapsingTextHelper.tmpPaint` @AccessFlag PRIVATE_FINAL;
+  `boolean` `com.google.android.material.internal.CollapsingTextHelper.useTexture` @AccessFlag PRIVATE;
+  `android.view.View` `com.google.android.material.internal.CollapsingTextHelper.view` @AccessFlag PRIVATE_FINAL;
+}
+global `boolean` `@@com.google.android.material.internal.CollapsingTextHelper.DEBUG_DRAW` @AccessFlag PRIVATE_STATIC_FINAL;
+global `android.graphics.Paint` `@@com.google.android.material.internal.CollapsingTextHelper.DEBUG_DRAW_PAINT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `boolean` `@@com.google.android.material.internal.CollapsingTextHelper.USE_SCALING_TEXTURE` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a2f94.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1a2f98.  v1:= 1I;
+  #L1a2f9a.  v2:= 18I;
+  #L1a2f9e.  if v0 >= v2 then goto L1a2fa6;
+  #L1a2fa2.  v0:= v1;
+  #L1a2fa4.  goto L1a2fa8;
+  #L1a2fa6.  v0:= 0I;
+  #L1a2fa8.  `@@com.google.android.material.internal.CollapsingTextHelper.USE_SCALING_TEXTURE` @type ^`boolean` := v0 @kind boolean;
+  #L1a2fac.  v0:= 0I;
+  #L1a2fae.  `@@com.google.android.material.internal.CollapsingTextHelper.DEBUG_DRAW_PAINT` @type ^`android.graphics.Paint` := v0 @kind object;
+  #L1a2fb2.  if v0 == 0 then goto L1a2fc8;
+  #L1a2fb6.  call `setAntiAlias`(v0, v1) @signature `Landroid/graphics/Paint;.setAntiAlias:(Z)V` @kind virtual;
+  #L1a2fbc.  v1:= -65281I;
+  #L1a2fc2.  call `setColor`(v0, v1) @signature `Landroid/graphics/Paint;.setColor:(I)V` @kind virtual;
+  #L1a2fc8.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.CollapsingTextHelper` v2 @kind this, `android.view.View` v3 @kind object @name `view`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.<init>:(Landroid/view/View;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L1a2fdc.  call `<init>`(v2) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1a2fe2.  v0:= 16I;
+  #L1a2fe6.  v2.`com.google.android.material.internal.CollapsingTextHelper.expandedTextGravity` @type ^`int` := v0;
+  #L1a2fea.  v2.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextGravity` @type ^`int` := v0;
+  #L1a2fee.  v0:= 15.0F;
+  #L1a2ff2.  v2.`com.google.android.material.internal.CollapsingTextHelper.expandedTextSize` @type ^`float` := v0;
+  #L1a2ff6.  v2.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextSize` @type ^`float` := v0;
+  #L1a2ffa.  v2.`com.google.android.material.internal.CollapsingTextHelper.view` @type ^`android.view.View` := v3 @kind object;
+  #L1a2ffe.  v0:= new `android.text.TextPaint`;
+  #L1a3002.  v1:= 129I;
+  #L1a3006.  call `<init>`(v0, v1) @signature `Landroid/text/TextPaint;.<init>:(I)V` @kind direct;
+  #L1a300c.  v2.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` := v0 @kind object;
+  #L1a3010.  v1:= new `android.text.TextPaint`;
+  #L1a3014.  call `<init>`(v1, v0) @signature `Landroid/text/TextPaint;.<init>:(Landroid/graphics/Paint;)V` @kind direct;
+  #L1a301a.  v2.`com.google.android.material.internal.CollapsingTextHelper.tmpPaint` @type ^`android.text.TextPaint` := v1 @kind object;
+  #L1a301e.  v0:= new `android.graphics.Rect`;
+  #L1a3022.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L1a3028.  v2.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` := v0 @kind object;
+  #L1a302c.  v0:= new `android.graphics.Rect`;
+  #L1a3030.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L1a3036.  v2.`com.google.android.material.internal.CollapsingTextHelper.expandedBounds` @type ^`android.graphics.Rect` := v0 @kind object;
+  #L1a303a.  v0:= new `android.graphics.RectF`;
+  #L1a303e.  call `<init>`(v0) @signature `Landroid/graphics/RectF;.<init>:()V` @kind direct;
+  #L1a3044.  v2.`com.google.android.material.internal.CollapsingTextHelper.currentBounds` @type ^`android.graphics.RectF` := v0 @kind object;
+  #L1a3048.  return @kind void;
+}
+procedure `int` `blendColors`(`int` v9 @name `color1`, `int` v10 @name `color2`, `float` v11 @name `ratio`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.blendColors:(IIF)I` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L1a2e48.  v0:= 1.0F;
+  #L1a2e4c.  v0:= v0 - v11 @kind float;
+  #L1a2e4e.  call temp:= `alpha`(v9) @signature `Landroid/graphics/Color;.alpha:(I)I` @kind static;
+  #L1a2e54.  v1:= temp;
+  #L1a2e56.  v1:= (`float`) v1 @kind i2f;
+  #L1a2e58.  v1:= v1 * v0 @kind float;
+  #L1a2e5a.  call temp:= `alpha`(v10) @signature `Landroid/graphics/Color;.alpha:(I)I` @kind static;
+  #L1a2e60.  v2:= temp;
+  #L1a2e62.  v2:= (`float`) v2 @kind i2f;
+  #L1a2e64.  v2:= v2 * v11 @kind float;
+  #L1a2e66.  v1:= v1 + v2 @kind float;
+  #L1a2e68.  call temp:= `red`(v9) @signature `Landroid/graphics/Color;.red:(I)I` @kind static;
+  #L1a2e6e.  v2:= temp;
+  #L1a2e70.  v2:= (`float`) v2 @kind i2f;
+  #L1a2e72.  v2:= v2 * v0 @kind float;
+  #L1a2e74.  call temp:= `red`(v10) @signature `Landroid/graphics/Color;.red:(I)I` @kind static;
+  #L1a2e7a.  v3:= temp;
+  #L1a2e7c.  v3:= (`float`) v3 @kind i2f;
+  #L1a2e7e.  v3:= v3 * v11 @kind float;
+  #L1a2e80.  v2:= v2 + v3 @kind float;
+  #L1a2e82.  call temp:= `green`(v9) @signature `Landroid/graphics/Color;.green:(I)I` @kind static;
+  #L1a2e88.  v3:= temp;
+  #L1a2e8a.  v3:= (`float`) v3 @kind i2f;
+  #L1a2e8c.  v3:= v3 * v0 @kind float;
+  #L1a2e8e.  call temp:= `green`(v10) @signature `Landroid/graphics/Color;.green:(I)I` @kind static;
+  #L1a2e94.  v4:= temp;
+  #L1a2e96.  v4:= (`float`) v4 @kind i2f;
+  #L1a2e98.  v4:= v4 * v11 @kind float;
+  #L1a2e9a.  v3:= v3 + v4 @kind float;
+  #L1a2e9c.  call temp:= `blue`(v9) @signature `Landroid/graphics/Color;.blue:(I)I` @kind static;
+  #L1a2ea2.  v4:= temp;
+  #L1a2ea4.  v4:= (`float`) v4 @kind i2f;
+  #L1a2ea6.  v4:= v4 * v0 @kind float;
+  #L1a2ea8.  call temp:= `blue`(v10) @signature `Landroid/graphics/Color;.blue:(I)I` @kind static;
+  #L1a2eae.  v5:= temp;
+  #L1a2eb0.  v5:= (`float`) v5 @kind i2f;
+  #L1a2eb2.  v5:= v5 * v11 @kind float;
+  #L1a2eb4.  v4:= v4 + v5 @kind float;
+  #L1a2eb6.  v5:= (`int`) v1 @kind f2i;
+  #L1a2eb8.  v6:= (`int`) v2 @kind f2i;
+  #L1a2eba.  v7:= (`int`) v3 @kind f2i;
+  #L1a2ebc.  v8:= (`int`) v4 @kind f2i;
+  #L1a2ebe.  call temp:= `argb`(v5, v6, v7, v8) @signature `Landroid/graphics/Color;.argb:(IIII)I` @kind static;
+  #L1a2ec4.  v5:= temp;
+  #L1a2ec6.  return v5;
+}
+procedure `void` `calculateBaseOffsets`(`com.google.android.material.internal.CollapsingTextHelper` v13 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.calculateBaseOffsets:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+    v12;
+
+  #L1a305c.  v0:= v13.`com.google.android.material.internal.CollapsingTextHelper.currentTextSize` @type ^`float`;
+  #L1a3060.  v1:= v13.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextSize` @type ^`float`;
+  #L1a3064.  call `calculateUsingTextSize`(v13, v1) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.calculateUsingTextSize:(F)V` @kind direct;
+  #L1a306a.  v1:= v13.`com.google.android.material.internal.CollapsingTextHelper.textToDraw` @type ^`java.lang.CharSequence` @kind object;
+  #L1a306e.  v2:= 0I;
+  #L1a3070.  v3:= 0I;
+  #L1a3072.  if v1 == 0 then goto L1a308c;
+  #L1a3076.  v4:= v13.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a307a.  call temp:= `length`(v1) @signature `Ljava/lang/CharSequence;.length:()I` @kind interface;
+  #L1a3080.  v5:= temp;
+  #L1a3082.  call temp:= `measureText`(v4, v1, v2, v5) @signature `Landroid/text/TextPaint;.measureText:(Ljava/lang/CharSequence;II)F` @kind virtual;
+  #L1a3088.  v1:= temp;
+  #L1a308a.  goto L1a308e;
+  #L1a308c.  v1:= v3;
+  #L1a308e.  v4:= v13.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextGravity` @type ^`int`;
+  #L1a3092.  v5:= v13.`com.google.android.material.internal.CollapsingTextHelper.isRtl` @type ^`boolean` @kind boolean;
+  #L1a3096.  call temp:= `getAbsoluteGravity`(v4, v5) @signature `Landroidx/core/view/GravityCompat;.getAbsoluteGravity:(II)I` @kind static;
+  #L1a309c.  v4:= temp;
+  #L1a309e.  v5:= v4 ^& 112;
+  #L1a30a2.  v6:= 80I;
+  #L1a30a6.  v7:= 48I;
+  #L1a30aa.  v8:= 2.0F;
+  #L1a30ae.  if v5 == v7 then goto L1a3108;
+  #L1a30b2.  if v5 == v6 then goto L1a30f8;
+  #L1a30b6.  v5:= v13.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a30ba.  call temp:= `descent`(v5) @signature `Landroid/text/TextPaint;.descent:()F` @kind virtual;
+  #L1a30c0.  v5:= temp;
+  #L1a30c2.  v9:= v13.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a30c6.  call temp:= `ascent`(v9) @signature `Landroid/text/TextPaint;.ascent:()F` @kind virtual;
+  #L1a30cc.  v9:= temp;
+  #L1a30ce.  v5:= v5 - v9 @kind float;
+  #L1a30d0.  v9:= v5 / v8 @kind float;
+  #L1a30d4.  v10:= v13.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a30d8.  call temp:= `descent`(v10) @signature `Landroid/text/TextPaint;.descent:()F` @kind virtual;
+  #L1a30de.  v10:= temp;
+  #L1a30e0.  v9:= v9 - v10 @kind float;
+  #L1a30e2.  v10:= v13.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a30e6.  call temp:= `centerY`(v10) @signature `Landroid/graphics/Rect;.centerY:()I` @kind virtual;
+  #L1a30ec.  v10:= temp;
+  #L1a30ee.  v10:= (`float`) v10 @kind i2f;
+  #L1a30f0.  v10:= v10 + v9 @kind float;
+  #L1a30f2.  v13.`com.google.android.material.internal.CollapsingTextHelper.collapsedDrawY` @type ^`float` := v10;
+  #L1a30f6.  goto L1a3126;
+  #L1a30f8.  v5:= v13.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a30fc.  v5:= v5.`android.graphics.Rect.bottom` @type ^`int`;
+  #L1a3100.  v5:= (`float`) v5 @kind i2f;
+  #L1a3102.  v13.`com.google.android.material.internal.CollapsingTextHelper.collapsedDrawY` @type ^`float` := v5;
+  #L1a3106.  goto L1a3126;
+  #L1a3108.  v5:= v13.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a310c.  v5:= v5.`android.graphics.Rect.top` @type ^`int`;
+  #L1a3110.  v5:= (`float`) v5 @kind i2f;
+  #L1a3112.  v9:= v13.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a3116.  call temp:= `ascent`(v9) @signature `Landroid/text/TextPaint;.ascent:()F` @kind virtual;
+  #L1a311c.  v9:= temp;
+  #L1a311e.  v5:= v5 - v9 @kind float;
+  #L1a3120.  v13.`com.google.android.material.internal.CollapsingTextHelper.collapsedDrawY` @type ^`float` := v5;
+  #L1a3124.  
+  #L1a3126.  v5:= 8388615I;
+  #L1a312c.  v9:= v4 ^& v5 @kind int;
+  #L1a3130.  v10:= 5I;
+  #L1a3132.  v11:= 1I;
+  #L1a3134.  if v9 == v11 then goto L1a315e;
+  #L1a3138.  if v9 == v10 then goto L1a314c;
+  #L1a313c.  v9:= v13.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a3140.  v9:= v9.`android.graphics.Rect.left` @type ^`int`;
+  #L1a3144.  v9:= (`float`) v9 @kind i2f;
+  #L1a3146.  v13.`com.google.android.material.internal.CollapsingTextHelper.collapsedDrawX` @type ^`float` := v9;
+  #L1a314a.  goto L1a3178;
+  #L1a314c.  v9:= v13.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a3150.  v9:= v9.`android.graphics.Rect.right` @type ^`int`;
+  #L1a3154.  v9:= (`float`) v9 @kind i2f;
+  #L1a3156.  v9:= v9 - v1 @kind float;
+  #L1a3158.  v13.`com.google.android.material.internal.CollapsingTextHelper.collapsedDrawX` @type ^`float` := v9;
+  #L1a315c.  goto L1a3178;
+  #L1a315e.  v9:= v13.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a3162.  call temp:= `centerX`(v9) @signature `Landroid/graphics/Rect;.centerX:()I` @kind virtual;
+  #L1a3168.  v9:= temp;
+  #L1a316a.  v9:= (`float`) v9 @kind i2f;
+  #L1a316c.  v12:= v1 / v8 @kind float;
+  #L1a3170.  v9:= v9 - v12 @kind float;
+  #L1a3172.  v13.`com.google.android.material.internal.CollapsingTextHelper.collapsedDrawX` @type ^`float` := v9;
+  #L1a3176.  
+  #L1a3178.  v9:= v13.`com.google.android.material.internal.CollapsingTextHelper.expandedTextSize` @type ^`float`;
+  #L1a317c.  call `calculateUsingTextSize`(v13, v9) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.calculateUsingTextSize:(F)V` @kind direct;
+  #L1a3182.  v9:= v13.`com.google.android.material.internal.CollapsingTextHelper.textToDraw` @type ^`java.lang.CharSequence` @kind object;
+  #L1a3186.  if v9 == 0 then goto L1a319e;
+  #L1a318a.  v3:= v13.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a318e.  call temp:= `length`(v9) @signature `Ljava/lang/CharSequence;.length:()I` @kind interface;
+  #L1a3194.  v12:= temp;
+  #L1a3196.  call temp:= `measureText`(v3, v9, v2, v12) @signature `Landroid/text/TextPaint;.measureText:(Ljava/lang/CharSequence;II)F` @kind virtual;
+  #L1a319c.  v3:= temp;
+  #L1a319e.  v1:= v3;
+  #L1a31a0.  v2:= v13.`com.google.android.material.internal.CollapsingTextHelper.expandedTextGravity` @type ^`int`;
+  #L1a31a4.  v3:= v13.`com.google.android.material.internal.CollapsingTextHelper.isRtl` @type ^`boolean` @kind boolean;
+  #L1a31a8.  call temp:= `getAbsoluteGravity`(v2, v3) @signature `Landroidx/core/view/GravityCompat;.getAbsoluteGravity:(II)I` @kind static;
+  #L1a31ae.  v2:= temp;
+  #L1a31b0.  v3:= v2 ^& 112;
+  #L1a31b4.  if v3 == v7 then goto L1a320e;
+  #L1a31b8.  if v3 == v6 then goto L1a31fe;
+  #L1a31bc.  v3:= v13.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a31c0.  call temp:= `descent`(v3) @signature `Landroid/text/TextPaint;.descent:()F` @kind virtual;
+  #L1a31c6.  v3:= temp;
+  #L1a31c8.  v6:= v13.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a31cc.  call temp:= `ascent`(v6) @signature `Landroid/text/TextPaint;.ascent:()F` @kind virtual;
+  #L1a31d2.  v6:= temp;
+  #L1a31d4.  v3:= v3 - v6 @kind float;
+  #L1a31d6.  v6:= v3 / v8 @kind float;
+  #L1a31da.  v7:= v13.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a31de.  call temp:= `descent`(v7) @signature `Landroid/text/TextPaint;.descent:()F` @kind virtual;
+  #L1a31e4.  v7:= temp;
+  #L1a31e6.  v6:= v6 - v7 @kind float;
+  #L1a31e8.  v7:= v13.`com.google.android.material.internal.CollapsingTextHelper.expandedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a31ec.  call temp:= `centerY`(v7) @signature `Landroid/graphics/Rect;.centerY:()I` @kind virtual;
+  #L1a31f2.  v7:= temp;
+  #L1a31f4.  v7:= (`float`) v7 @kind i2f;
+  #L1a31f6.  v7:= v7 + v6 @kind float;
+  #L1a31f8.  v13.`com.google.android.material.internal.CollapsingTextHelper.expandedDrawY` @type ^`float` := v7;
+  #L1a31fc.  goto L1a322c;
+  #L1a31fe.  v3:= v13.`com.google.android.material.internal.CollapsingTextHelper.expandedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a3202.  v3:= v3.`android.graphics.Rect.bottom` @type ^`int`;
+  #L1a3206.  v3:= (`float`) v3 @kind i2f;
+  #L1a3208.  v13.`com.google.android.material.internal.CollapsingTextHelper.expandedDrawY` @type ^`float` := v3;
+  #L1a320c.  goto L1a322c;
+  #L1a320e.  v3:= v13.`com.google.android.material.internal.CollapsingTextHelper.expandedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a3212.  v3:= v3.`android.graphics.Rect.top` @type ^`int`;
+  #L1a3216.  v3:= (`float`) v3 @kind i2f;
+  #L1a3218.  v6:= v13.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a321c.  call temp:= `ascent`(v6) @signature `Landroid/text/TextPaint;.ascent:()F` @kind virtual;
+  #L1a3222.  v6:= temp;
+  #L1a3224.  v3:= v3 - v6 @kind float;
+  #L1a3226.  v13.`com.google.android.material.internal.CollapsingTextHelper.expandedDrawY` @type ^`float` := v3;
+  #L1a322a.  
+  #L1a322c.  v3:= v2 ^& v5 @kind int;
+  #L1a3230.  if v3 == v11 then goto L1a325a;
+  #L1a3234.  if v3 == v10 then goto L1a3248;
+  #L1a3238.  v3:= v13.`com.google.android.material.internal.CollapsingTextHelper.expandedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a323c.  v3:= v3.`android.graphics.Rect.left` @type ^`int`;
+  #L1a3240.  v3:= (`float`) v3 @kind i2f;
+  #L1a3242.  v13.`com.google.android.material.internal.CollapsingTextHelper.expandedDrawX` @type ^`float` := v3;
+  #L1a3246.  goto L1a3274;
+  #L1a3248.  v3:= v13.`com.google.android.material.internal.CollapsingTextHelper.expandedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a324c.  v3:= v3.`android.graphics.Rect.right` @type ^`int`;
+  #L1a3250.  v3:= (`float`) v3 @kind i2f;
+  #L1a3252.  v3:= v3 - v1 @kind float;
+  #L1a3254.  v13.`com.google.android.material.internal.CollapsingTextHelper.expandedDrawX` @type ^`float` := v3;
+  #L1a3258.  goto L1a3274;
+  #L1a325a.  v3:= v13.`com.google.android.material.internal.CollapsingTextHelper.expandedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a325e.  call temp:= `centerX`(v3) @signature `Landroid/graphics/Rect;.centerX:()I` @kind virtual;
+  #L1a3264.  v3:= temp;
+  #L1a3266.  v3:= (`float`) v3 @kind i2f;
+  #L1a3268.  v5:= v1 / v8 @kind float;
+  #L1a326c.  v3:= v3 - v5 @kind float;
+  #L1a326e.  v13.`com.google.android.material.internal.CollapsingTextHelper.expandedDrawX` @type ^`float` := v3;
+  #L1a3272.  
+  #L1a3274.  call `clearTexture`(v13) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.clearTexture:()V` @kind direct;
+  #L1a327a.  call `setInterpolatedTextSize`(v13, v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setInterpolatedTextSize:(F)V` @kind direct;
+  #L1a3280.  return @kind void;
+}
+procedure `void` `calculateCurrentOffsets`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.calculateCurrentOffsets:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1a3294.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedFraction` @type ^`float`;
+  #L1a3298.  call `calculateOffsets`(v1, v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.calculateOffsets:(F)V` @kind direct;
+  #L1a329e.  return @kind void;
+}
+procedure `boolean` `calculateIsRtl`(`com.google.android.material.internal.CollapsingTextHelper` v4 @kind this, `java.lang.CharSequence` v5 @kind object @name `text`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.calculateIsRtl:(Ljava/lang/CharSequence;)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1a2bac.  v0:= v4.`com.google.android.material.internal.CollapsingTextHelper.view` @type ^`android.view.View` @kind object;
+  #L1a2bb0.  call temp:= `getLayoutDirection`(v0) @signature `Landroidx/core/view/ViewCompat;.getLayoutDirection:(Landroid/view/View;)I` @kind static;
+  #L1a2bb6.  v0:= temp;
+  #L1a2bb8.  v1:= 0I;
+  #L1a2bba.  v2:= 1I;
+  #L1a2bbc.  if v0 != v2 then goto L1a2bc2;
+  #L1a2bc0.  goto L1a2bc4;
+  #L1a2bc2.  v2:= v1;
+  #L1a2bc4.  v0:= v2;
+  #L1a2bc6.  if v0 == 0 then goto L1a2bd0;
+  #L1a2bca.  v2:= `@@androidx.core.text.TextDirectionHeuristicsCompat.FIRSTSTRONG_RTL` @type ^`androidx.core.text.TextDirectionHeuristicCompat` @kind object;
+  #L1a2bce.  goto L1a2bd4;
+  #L1a2bd0.  v2:= `@@androidx.core.text.TextDirectionHeuristicsCompat.FIRSTSTRONG_LTR` @type ^`androidx.core.text.TextDirectionHeuristicCompat` @kind object;
+  #L1a2bd4.  call temp:= `length`(v5) @signature `Ljava/lang/CharSequence;.length:()I` @kind interface;
+  #L1a2bda.  v3:= temp;
+  #L1a2bdc.  call temp:= `isRtl`(v2, v5, v1, v3) @signature `Landroidx/core/text/TextDirectionHeuristicCompat;.isRtl:(Ljava/lang/CharSequence;II)Z` @kind interface;
+  #L1a2be2.  v1:= temp;
+  #L1a2be4.  return v1;
+}
+procedure `void` `calculateOffsets`(`com.google.android.material.internal.CollapsingTextHelper` v6 @kind this, `float` v7 @name `fraction`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.calculateOffsets:(F)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1a32b0.  call `interpolateBounds`(v6, v7) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.interpolateBounds:(F)V` @kind direct;
+  #L1a32b6.  v0:= v6.`com.google.android.material.internal.CollapsingTextHelper.expandedDrawX` @type ^`float`;
+  #L1a32ba.  v1:= v6.`com.google.android.material.internal.CollapsingTextHelper.collapsedDrawX` @type ^`float`;
+  #L1a32be.  v2:= v6.`com.google.android.material.internal.CollapsingTextHelper.positionInterpolator` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L1a32c2.  call temp:= `lerp`(v0, v1, v7, v2) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.lerp:(FFFLandroid/animation/TimeInterpolator;)F` @kind static;
+  #L1a32c8.  v0:= temp;
+  #L1a32ca.  v6.`com.google.android.material.internal.CollapsingTextHelper.currentDrawX` @type ^`float` := v0;
+  #L1a32ce.  v0:= v6.`com.google.android.material.internal.CollapsingTextHelper.expandedDrawY` @type ^`float`;
+  #L1a32d2.  v1:= v6.`com.google.android.material.internal.CollapsingTextHelper.collapsedDrawY` @type ^`float`;
+  #L1a32d6.  v2:= v6.`com.google.android.material.internal.CollapsingTextHelper.positionInterpolator` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L1a32da.  call temp:= `lerp`(v0, v1, v7, v2) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.lerp:(FFFLandroid/animation/TimeInterpolator;)F` @kind static;
+  #L1a32e0.  v0:= temp;
+  #L1a32e2.  v6.`com.google.android.material.internal.CollapsingTextHelper.currentDrawY` @type ^`float` := v0;
+  #L1a32e6.  v0:= v6.`com.google.android.material.internal.CollapsingTextHelper.expandedTextSize` @type ^`float`;
+  #L1a32ea.  v1:= v6.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextSize` @type ^`float`;
+  #L1a32ee.  v2:= v6.`com.google.android.material.internal.CollapsingTextHelper.textSizeInterpolator` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L1a32f2.  call temp:= `lerp`(v0, v1, v7, v2) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.lerp:(FFFLandroid/animation/TimeInterpolator;)F` @kind static;
+  #L1a32f8.  v0:= temp;
+  #L1a32fa.  call `setInterpolatedTextSize`(v6, v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setInterpolatedTextSize:(F)V` @kind direct;
+  #L1a3300.  v0:= v6.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a3304.  v1:= v6.`com.google.android.material.internal.CollapsingTextHelper.expandedTextColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a3308.  if v0 == v1 then goto L1a3330;
+  #L1a330c.  v0:= v6.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a3310.  call temp:= `getCurrentExpandedTextColor`(v6) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCurrentExpandedTextColor:()I` @kind direct;
+  #L1a3316.  v1:= temp;
+  #L1a3318.  call temp:= `getCurrentCollapsedTextColor`(v6) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCurrentCollapsedTextColor:()I` @kind virtual;
+  #L1a331e.  v2:= temp;
+  #L1a3320.  call temp:= `blendColors`(v1, v2, v7) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.blendColors:(IIF)I` @kind static;
+  #L1a3326.  v1:= temp;
+  #L1a3328.  call `setColor`(v0, v1) @signature `Landroid/text/TextPaint;.setColor:(I)V` @kind virtual;
+  #L1a332e.  goto L1a3342;
+  #L1a3330.  v0:= v6.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a3334.  call temp:= `getCurrentCollapsedTextColor`(v6) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCurrentCollapsedTextColor:()I` @kind virtual;
+  #L1a333a.  v1:= temp;
+  #L1a333c.  call `setColor`(v0, v1) @signature `Landroid/text/TextPaint;.setColor:(I)V` @kind virtual;
+  #L1a3342.  v0:= v6.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a3346.  v1:= v6.`com.google.android.material.internal.CollapsingTextHelper.expandedShadowRadius` @type ^`float`;
+  #L1a334a.  v2:= v6.`com.google.android.material.internal.CollapsingTextHelper.collapsedShadowRadius` @type ^`float`;
+  #L1a334e.  v3:= 0I;
+  #L1a3350.  call temp:= `lerp`(v1, v2, v7, v3) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.lerp:(FFFLandroid/animation/TimeInterpolator;)F` @kind static;
+  #L1a3356.  v1:= temp;
+  #L1a3358.  v2:= v6.`com.google.android.material.internal.CollapsingTextHelper.expandedShadowDx` @type ^`float`;
+  #L1a335c.  v4:= v6.`com.google.android.material.internal.CollapsingTextHelper.collapsedShadowDx` @type ^`float`;
+  #L1a3360.  call temp:= `lerp`(v2, v4, v7, v3) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.lerp:(FFFLandroid/animation/TimeInterpolator;)F` @kind static;
+  #L1a3366.  v2:= temp;
+  #L1a3368.  v4:= v6.`com.google.android.material.internal.CollapsingTextHelper.expandedShadowDy` @type ^`float`;
+  #L1a336c.  v5:= v6.`com.google.android.material.internal.CollapsingTextHelper.collapsedShadowDy` @type ^`float`;
+  #L1a3370.  call temp:= `lerp`(v4, v5, v7, v3) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.lerp:(FFFLandroid/animation/TimeInterpolator;)F` @kind static;
+  #L1a3376.  v3:= temp;
+  #L1a3378.  v4:= v6.`com.google.android.material.internal.CollapsingTextHelper.expandedShadowColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a337c.  call temp:= `getCurrentColor`(v6, v4) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCurrentColor:(Landroid/content/res/ColorStateList;)I` @kind direct;
+  #L1a3382.  v4:= temp;
+  #L1a3384.  v5:= v6.`com.google.android.material.internal.CollapsingTextHelper.collapsedShadowColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a3388.  call temp:= `getCurrentColor`(v6, v5) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCurrentColor:(Landroid/content/res/ColorStateList;)I` @kind direct;
+  #L1a338e.  v5:= temp;
+  #L1a3390.  call temp:= `blendColors`(v4, v5, v7) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.blendColors:(IIF)I` @kind static;
+  #L1a3396.  v4:= temp;
+  #L1a3398.  call `setShadowLayer`(v0, v1, v2, v3, v4) @signature `Landroid/text/TextPaint;.setShadowLayer:(FFFI)V` @kind virtual;
+  #L1a339e.  v0:= v6.`com.google.android.material.internal.CollapsingTextHelper.view` @type ^`android.view.View` @kind object;
+  #L1a33a2.  call `postInvalidateOnAnimation`(v0) @signature `Landroidx/core/view/ViewCompat;.postInvalidateOnAnimation:(Landroid/view/View;)V` @kind static;
+  #L1a33a8.  return @kind void;
+}
+procedure `void` `calculateUsingTextSize`(`com.google.android.material.internal.CollapsingTextHelper` v10 @kind this, `float` v11 @name `textSize`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.calculateUsingTextSize:(F)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+
+  #L1a33bc.  v0:= v10.`com.google.android.material.internal.CollapsingTextHelper.text` @type ^`java.lang.CharSequence` @kind object;
+  #L1a33c0.  if v0 != 0 then goto L1a33c6;
+  #L1a33c4.  return @kind void;
+  #L1a33c6.  v0:= v10.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a33ca.  call temp:= `width`(v0) @signature `Landroid/graphics/Rect;.width:()I` @kind virtual;
+  #L1a33d0.  v0:= temp;
+  #L1a33d2.  v0:= (`float`) v0 @kind i2f;
+  #L1a33d4.  v1:= v10.`com.google.android.material.internal.CollapsingTextHelper.expandedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a33d8.  call temp:= `width`(v1) @signature `Landroid/graphics/Rect;.width:()I` @kind virtual;
+  #L1a33de.  v1:= temp;
+  #L1a33e0.  v1:= (`float`) v1 @kind i2f;
+  #L1a33e2.  v2:= 0I;
+  #L1a33e4.  v3:= v10.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextSize` @type ^`float`;
+  #L1a33e8.  call temp:= `isClose`(v11, v3) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.isClose:(FF)Z` @kind static;
+  #L1a33ee.  v3:= temp;
+  #L1a33f0.  v4:= 1.0F;
+  #L1a33f4.  if v3 == 0 then goto L1a3416;
+  #L1a33f8.  v3:= v10.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextSize` @type ^`float`;
+  #L1a33fc.  v10.`com.google.android.material.internal.CollapsingTextHelper.scale` @type ^`float` := v4;
+  #L1a3400.  v5:= v10.`com.google.android.material.internal.CollapsingTextHelper.currentTypeface` @type ^`android.graphics.Typeface` @kind object;
+  #L1a3404.  v6:= v10.`com.google.android.material.internal.CollapsingTextHelper.collapsedTypeface` @type ^`android.graphics.Typeface` @kind object;
+  #L1a3408.  if v5 == v6 then goto L1a3412;
+  #L1a340c.  v10.`com.google.android.material.internal.CollapsingTextHelper.currentTypeface` @type ^`android.graphics.Typeface` := v6 @kind object;
+  #L1a3410.  v2:= 1I;
+  #L1a3412.  v5:= v0;
+  #L1a3414.  goto L1a3478;
+  #L1a3416.  v3:= v10.`com.google.android.material.internal.CollapsingTextHelper.expandedTextSize` @type ^`float`;
+  #L1a341a.  v5:= v10.`com.google.android.material.internal.CollapsingTextHelper.currentTypeface` @type ^`android.graphics.Typeface` @kind object;
+  #L1a341e.  v6:= v10.`com.google.android.material.internal.CollapsingTextHelper.expandedTypeface` @type ^`android.graphics.Typeface` @kind object;
+  #L1a3422.  if v5 == v6 then goto L1a342c;
+  #L1a3426.  v10.`com.google.android.material.internal.CollapsingTextHelper.currentTypeface` @type ^`android.graphics.Typeface` := v6 @kind object;
+  #L1a342a.  v2:= 1I;
+  #L1a342c.  v5:= v10.`com.google.android.material.internal.CollapsingTextHelper.expandedTextSize` @type ^`float`;
+  #L1a3430.  call temp:= `isClose`(v11, v5) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.isClose:(FF)Z` @kind static;
+  #L1a3436.  v5:= temp;
+  #L1a3438.  if v5 == 0 then goto L1a3442;
+  #L1a343c.  v10.`com.google.android.material.internal.CollapsingTextHelper.scale` @type ^`float` := v4;
+  #L1a3440.  goto L1a344e;
+  #L1a3442.  v5:= v10.`com.google.android.material.internal.CollapsingTextHelper.expandedTextSize` @type ^`float`;
+  #L1a3446.  v5:= v11 / v5 @kind float;
+  #L1a344a.  v10.`com.google.android.material.internal.CollapsingTextHelper.scale` @type ^`float` := v5;
+  #L1a344e.  v5:= v10.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextSize` @type ^`float`;
+  #L1a3452.  v6:= v10.`com.google.android.material.internal.CollapsingTextHelper.expandedTextSize` @type ^`float`;
+  #L1a3456.  v5:= v5 / v6 @kind float;
+  #L1a3458.  v6:= v1 * v5 @kind float;
+  #L1a345c.  v7:= fcmpl(v6, v0);
+  #L1a3460.  if v7 <= 0 then goto L1a3474;
+  #L1a3464.  v7:= v0 / v5 @kind float;
+  #L1a3468.  call temp:= `min`(v7, v1) @signature `Ljava/lang/Math;.min:(FF)F` @kind static;
+  #L1a346e.  v7:= temp;
+  #L1a3470.  v5:= v7;
+  #L1a3472.  goto L1a3478;
+  #L1a3474.  v7:= v1;
+  #L1a3476.  v5:= v7;
+  #L1a3478.  v6:= 0I;
+  #L1a347a.  v6:= fcmpl(v5, v6);
+  #L1a347e.  v7:= 1I;
+  #L1a3480.  v8:= 0I;
+  #L1a3482.  if v6 <= 0 then goto L1a34b0;
+  #L1a3486.  v6:= v10.`com.google.android.material.internal.CollapsingTextHelper.currentTextSize` @type ^`float`;
+  #L1a348a.  v6:= fcmpl(v6, v3);
+  #L1a348e.  if v6 != 0 then goto L1a34a4;
+  #L1a3492.  v6:= v10.`com.google.android.material.internal.CollapsingTextHelper.boundsChanged` @type ^`boolean` @kind boolean;
+  #L1a3496.  if v6 != 0 then goto L1a34a4;
+  #L1a349a.  if v2 == 0 then goto L1a34a0;
+  #L1a349e.  goto L1a34a4;
+  #L1a34a0.  v6:= v8;
+  #L1a34a2.  goto L1a34a6;
+  #L1a34a4.  v6:= v7;
+  #L1a34a6.  v2:= v6;
+  #L1a34a8.  v10.`com.google.android.material.internal.CollapsingTextHelper.currentTextSize` @type ^`float` := v3;
+  #L1a34ac.  v10.`com.google.android.material.internal.CollapsingTextHelper.boundsChanged` @type ^`boolean` := v8 @kind boolean;
+  #L1a34b0.  v6:= v10.`com.google.android.material.internal.CollapsingTextHelper.textToDraw` @type ^`java.lang.CharSequence` @kind object;
+  #L1a34b4.  if v6 == 0 then goto L1a34bc;
+  #L1a34b8.  if v2 == 0 then goto L1a3526;
+  #L1a34bc.  v6:= v10.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a34c0.  v9:= v10.`com.google.android.material.internal.CollapsingTextHelper.currentTextSize` @type ^`float`;
+  #L1a34c4.  call `setTextSize`(v6, v9) @signature `Landroid/text/TextPaint;.setTextSize:(F)V` @kind virtual;
+  #L1a34ca.  v6:= v10.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a34ce.  v9:= v10.`com.google.android.material.internal.CollapsingTextHelper.currentTypeface` @type ^`android.graphics.Typeface` @kind object;
+  #L1a34d2.  call temp:= `setTypeface`(v6, v9) @signature `Landroid/text/TextPaint;.setTypeface:(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;` @kind virtual;
+  #L1a34d8.  v6:= v10.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a34dc.  v9:= v10.`com.google.android.material.internal.CollapsingTextHelper.scale` @type ^`float`;
+  #L1a34e0.  v4:= fcmpl(v9, v4);
+  #L1a34e4.  if v4 == 0 then goto L1a34ea;
+  #L1a34e8.  goto L1a34ec;
+  #L1a34ea.  v7:= v8;
+  #L1a34ec.  call `setLinearText`(v6, v7) @signature `Landroid/text/TextPaint;.setLinearText:(Z)V` @kind virtual;
+  #L1a34f2.  v4:= v10.`com.google.android.material.internal.CollapsingTextHelper.text` @type ^`java.lang.CharSequence` @kind object;
+  #L1a34f6.  v6:= v10.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a34fa.  v7:= `@@android.text.TextUtils$TruncateAt.END` @type ^`android.text.TextUtils$TruncateAt` @kind object;
+  #L1a34fe.  call temp:= `ellipsize`(v4, v6, v5, v7) @signature `Landroid/text/TextUtils;.ellipsize:(Ljava/lang/CharSequence;Landroid/text/TextPaint;FLandroid/text/TextUtils$TruncateAt;)Ljava/lang/CharSequence;` @kind static;
+  #L1a3504.  v4:= temp @kind object;
+  #L1a3506.  v6:= v10.`com.google.android.material.internal.CollapsingTextHelper.textToDraw` @type ^`java.lang.CharSequence` @kind object;
+  #L1a350a.  call temp:= `equals`(v4, v6) @signature `Landroid/text/TextUtils;.equals:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z` @kind static;
+  #L1a3510.  v6:= temp;
+  #L1a3512.  if v6 != 0 then goto L1a3526;
+  #L1a3516.  v10.`com.google.android.material.internal.CollapsingTextHelper.textToDraw` @type ^`java.lang.CharSequence` := v4 @kind object;
+  #L1a351a.  call temp:= `calculateIsRtl`(v10, v4) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.calculateIsRtl:(Ljava/lang/CharSequence;)Z` @kind direct;
+  #L1a3520.  v6:= temp;
+  #L1a3522.  v10.`com.google.android.material.internal.CollapsingTextHelper.isRtl` @type ^`boolean` := v6 @kind boolean;
+  #L1a3526.  return @kind void;
+}
+procedure `void` `clearTexture`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.clearTexture:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1a3538.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedTitleTexture` @type ^`android.graphics.Bitmap` @kind object;
+  #L1a353c.  if v0 == 0 then goto L1a354c;
+  #L1a3540.  call `recycle`(v0) @signature `Landroid/graphics/Bitmap;.recycle:()V` @kind virtual;
+  #L1a3546.  v0:= 0I;
+  #L1a3548.  v1.`com.google.android.material.internal.CollapsingTextHelper.expandedTitleTexture` @type ^`android.graphics.Bitmap` := v0 @kind object;
+  #L1a354c.  return @kind void;
+}
+procedure `void` `ensureExpandedTexture`(`com.google.android.material.internal.CollapsingTextHelper` v10 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.ensureExpandedTexture:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+
+  #L1a3648.  v0:= v10.`com.google.android.material.internal.CollapsingTextHelper.expandedTitleTexture` @type ^`android.graphics.Bitmap` @kind object;
+  #L1a364c.  if v0 != 0 then goto L1a373e;
+  #L1a3650.  v0:= v10.`com.google.android.material.internal.CollapsingTextHelper.expandedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a3654.  call temp:= `isEmpty`(v0) @signature `Landroid/graphics/Rect;.isEmpty:()Z` @kind virtual;
+  #L1a365a.  v0:= temp;
+  #L1a365c.  if v0 != 0 then goto L1a373e;
+  #L1a3660.  v0:= v10.`com.google.android.material.internal.CollapsingTextHelper.textToDraw` @type ^`java.lang.CharSequence` @kind object;
+  #L1a3664.  call temp:= `isEmpty`(v0) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L1a366a.  v0:= temp;
+  #L1a366c.  if v0 == 0 then goto L1a3672;
+  #L1a3670.  goto L1a373e;
+  #L1a3672.  v0:= 0I;
+  #L1a3674.  call `calculateOffsets`(v10, v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.calculateOffsets:(F)V` @kind direct;
+  #L1a367a.  v0:= v10.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a367e.  call temp:= `ascent`(v0) @signature `Landroid/text/TextPaint;.ascent:()F` @kind virtual;
+  #L1a3684.  v0:= temp;
+  #L1a3686.  v10.`com.google.android.material.internal.CollapsingTextHelper.textureAscent` @type ^`float` := v0;
+  #L1a368a.  v0:= v10.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a368e.  call temp:= `descent`(v0) @signature `Landroid/text/TextPaint;.descent:()F` @kind virtual;
+  #L1a3694.  v0:= temp;
+  #L1a3696.  v10.`com.google.android.material.internal.CollapsingTextHelper.textureDescent` @type ^`float` := v0;
+  #L1a369a.  v0:= v10.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a369e.  v1:= v10.`com.google.android.material.internal.CollapsingTextHelper.textToDraw` @type ^`java.lang.CharSequence` @kind object;
+  #L1a36a2.  v2:= 0I;
+  #L1a36a4.  call temp:= `length`(v1) @signature `Ljava/lang/CharSequence;.length:()I` @kind interface;
+  #L1a36aa.  v3:= temp;
+  #L1a36ac.  call temp:= `measureText`(v0, v1, v2, v3) @signature `Landroid/text/TextPaint;.measureText:(Ljava/lang/CharSequence;II)F` @kind virtual;
+  #L1a36b2.  v0:= temp;
+  #L1a36b4.  call temp:= `round`(v0) @signature `Ljava/lang/Math;.round:(F)I` @kind static;
+  #L1a36ba.  v0:= temp;
+  #L1a36bc.  v1:= v10.`com.google.android.material.internal.CollapsingTextHelper.textureDescent` @type ^`float`;
+  #L1a36c0.  v2:= v10.`com.google.android.material.internal.CollapsingTextHelper.textureAscent` @type ^`float`;
+  #L1a36c4.  v1:= v1 - v2 @kind float;
+  #L1a36c6.  call temp:= `round`(v1) @signature `Ljava/lang/Math;.round:(F)I` @kind static;
+  #L1a36cc.  v1:= temp;
+  #L1a36ce.  if v0 <= 0 then goto L1a373c;
+  #L1a36d2.  if v1 > 0 then goto L1a36d8;
+  #L1a36d6.  goto L1a373c;
+  #L1a36d8.  v2:= `@@android.graphics.Bitmap$Config.ARGB_8888` @type ^`android.graphics.Bitmap$Config` @kind object;
+  #L1a36dc.  call temp:= `createBitmap`(v0, v1, v2) @signature `Landroid/graphics/Bitmap;.createBitmap:(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;` @kind static;
+  #L1a36e2.  v2:= temp @kind object;
+  #L1a36e4.  v10.`com.google.android.material.internal.CollapsingTextHelper.expandedTitleTexture` @type ^`android.graphics.Bitmap` := v2 @kind object;
+  #L1a36e8.  v3:= new `android.graphics.Canvas`;
+  #L1a36ec.  v2:= v10.`com.google.android.material.internal.CollapsingTextHelper.expandedTitleTexture` @type ^`android.graphics.Bitmap` @kind object;
+  #L1a36f0.  call `<init>`(v3, v2) @signature `Landroid/graphics/Canvas;.<init>:(Landroid/graphics/Bitmap;)V` @kind direct;
+  #L1a36f6.  v4:= v10.`com.google.android.material.internal.CollapsingTextHelper.textToDraw` @type ^`java.lang.CharSequence` @kind object;
+  #L1a36fa.  v5:= 0I;
+  #L1a36fc.  call temp:= `length`(v4) @signature `Ljava/lang/CharSequence;.length:()I` @kind interface;
+  #L1a3702.  v6:= temp;
+  #L1a3704.  v7:= 0I;
+  #L1a3706.  v2:= (`float`) v1 @kind i2f;
+  #L1a3708.  v8:= v10.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a370c.  call temp:= `descent`(v8) @signature `Landroid/text/TextPaint;.descent:()F` @kind virtual;
+  #L1a3712.  v8:= temp;
+  #L1a3714.  v8:= v2 - v8 @kind float;
+  #L1a3718.  v9:= v10.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a371c.  call `drawText`(v3, v4, v5, v6, v7, v8, v9) @signature `Landroid/graphics/Canvas;.drawText:(Ljava/lang/CharSequence;IIFFLandroid/graphics/Paint;)V` @kind virtual;
+  #L1a3722.  v2:= v10.`com.google.android.material.internal.CollapsingTextHelper.texturePaint` @type ^`android.graphics.Paint` @kind object;
+  #L1a3726.  if v2 != 0 then goto L1a373a;
+  #L1a372a.  v2:= new `android.graphics.Paint`;
+  #L1a372e.  v4:= 3I;
+  #L1a3730.  call `<init>`(v2, v4) @signature `Landroid/graphics/Paint;.<init>:(I)V` @kind direct;
+  #L1a3736.  v10.`com.google.android.material.internal.CollapsingTextHelper.texturePaint` @type ^`android.graphics.Paint` := v2 @kind object;
+  #L1a373a.  return @kind void;
+  #L1a373c.  return @kind void;
+  #L1a373e.  return @kind void;
+}
+procedure `int` `getCurrentColor`(`com.google.android.material.internal.CollapsingTextHelper` v2 @kind this, `android.content.res.ColorStateList` v3 @kind object @name `colorStateList`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCurrentColor:(Landroid/content/res/ColorStateList;)I` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1a2f10.  v0:= 0I;
+  #L1a2f12.  if v3 != 0 then goto L1a2f18;
+  #L1a2f16.  return v0;
+  #L1a2f18.  v1:= v2.`com.google.android.material.internal.CollapsingTextHelper.state` @type ^`int`[] @kind object;
+  #L1a2f1c.  if v1 == 0 then goto L1a2f2a;
+  #L1a2f20.  call temp:= `getColorForState`(v3, v1, v0) @signature `Landroid/content/res/ColorStateList;.getColorForState:([II)I` @kind virtual;
+  #L1a2f26.  v0:= temp;
+  #L1a2f28.  return v0;
+  #L1a2f2a.  call temp:= `getDefaultColor`(v3) @signature `Landroid/content/res/ColorStateList;.getDefaultColor:()I` @kind virtual;
+  #L1a2f30.  v0:= temp;
+  #L1a2f32.  return v0;
+}
+procedure `int` `getCurrentExpandedTextColor`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCurrentExpandedTextColor:()I` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1a2f44.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedTextColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a2f48.  call temp:= `getCurrentColor`(v1, v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCurrentColor:(Landroid/content/res/ColorStateList;)I` @kind direct;
+  #L1a2f4e.  v0:= temp;
+  #L1a2f50.  return v0;
+}
+procedure `void` `getTextPaintCollapsed`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this, `android.text.TextPaint` v2 @kind object @name `textPaint`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getTextPaintCollapsed:(Landroid/text/TextPaint;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1a37dc.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextSize` @type ^`float`;
+  #L1a37e0.  call `setTextSize`(v2, v0) @signature `Landroid/text/TextPaint;.setTextSize:(F)V` @kind virtual;
+  #L1a37e6.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedTypeface` @type ^`android.graphics.Typeface` @kind object;
+  #L1a37ea.  call temp:= `setTypeface`(v2, v0) @signature `Landroid/text/TextPaint;.setTypeface:(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;` @kind virtual;
+  #L1a37f0.  return @kind void;
+}
+procedure `void` `getTextPaintExpanded`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this, `android.text.TextPaint` v2 @kind object @name `textPaint`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getTextPaintExpanded:(Landroid/text/TextPaint;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1a3804.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedTextSize` @type ^`float`;
+  #L1a3808.  call `setTextSize`(v2, v0) @signature `Landroid/text/TextPaint;.setTextSize:(F)V` @kind virtual;
+  #L1a380e.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedTypeface` @type ^`android.graphics.Typeface` @kind object;
+  #L1a3812.  call temp:= `setTypeface`(v2, v0) @signature `Landroid/text/TextPaint;.setTypeface:(Landroid/graphics/Typeface;)Landroid/graphics/Typeface;` @kind virtual;
+  #L1a3818.  return @kind void;
+}
+procedure `void` `interpolateBounds`(`com.google.android.material.internal.CollapsingTextHelper` v4 @kind this, `float` v5 @name `fraction`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.interpolateBounds:(F)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1a382c.  v0:= v4.`com.google.android.material.internal.CollapsingTextHelper.currentBounds` @type ^`android.graphics.RectF` @kind object;
+  #L1a3830.  v1:= v4.`com.google.android.material.internal.CollapsingTextHelper.expandedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a3834.  v1:= v1.`android.graphics.Rect.left` @type ^`int`;
+  #L1a3838.  v1:= (`float`) v1 @kind i2f;
+  #L1a383a.  v2:= v4.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a383e.  v2:= v2.`android.graphics.Rect.left` @type ^`int`;
+  #L1a3842.  v2:= (`float`) v2 @kind i2f;
+  #L1a3844.  v3:= v4.`com.google.android.material.internal.CollapsingTextHelper.positionInterpolator` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L1a3848.  call temp:= `lerp`(v1, v2, v5, v3) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.lerp:(FFFLandroid/animation/TimeInterpolator;)F` @kind static;
+  #L1a384e.  v1:= temp;
+  #L1a3850.  v0.`android.graphics.RectF.left` @type ^`float` := v1;
+  #L1a3854.  v0:= v4.`com.google.android.material.internal.CollapsingTextHelper.currentBounds` @type ^`android.graphics.RectF` @kind object;
+  #L1a3858.  v1:= v4.`com.google.android.material.internal.CollapsingTextHelper.expandedDrawY` @type ^`float`;
+  #L1a385c.  v2:= v4.`com.google.android.material.internal.CollapsingTextHelper.collapsedDrawY` @type ^`float`;
+  #L1a3860.  v3:= v4.`com.google.android.material.internal.CollapsingTextHelper.positionInterpolator` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L1a3864.  call temp:= `lerp`(v1, v2, v5, v3) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.lerp:(FFFLandroid/animation/TimeInterpolator;)F` @kind static;
+  #L1a386a.  v1:= temp;
+  #L1a386c.  v0.`android.graphics.RectF.top` @type ^`float` := v1;
+  #L1a3870.  v0:= v4.`com.google.android.material.internal.CollapsingTextHelper.currentBounds` @type ^`android.graphics.RectF` @kind object;
+  #L1a3874.  v1:= v4.`com.google.android.material.internal.CollapsingTextHelper.expandedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a3878.  v1:= v1.`android.graphics.Rect.right` @type ^`int`;
+  #L1a387c.  v1:= (`float`) v1 @kind i2f;
+  #L1a387e.  v2:= v4.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a3882.  v2:= v2.`android.graphics.Rect.right` @type ^`int`;
+  #L1a3886.  v2:= (`float`) v2 @kind i2f;
+  #L1a3888.  v3:= v4.`com.google.android.material.internal.CollapsingTextHelper.positionInterpolator` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L1a388c.  call temp:= `lerp`(v1, v2, v5, v3) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.lerp:(FFFLandroid/animation/TimeInterpolator;)F` @kind static;
+  #L1a3892.  v1:= temp;
+  #L1a3894.  v0.`android.graphics.RectF.right` @type ^`float` := v1;
+  #L1a3898.  v0:= v4.`com.google.android.material.internal.CollapsingTextHelper.currentBounds` @type ^`android.graphics.RectF` @kind object;
+  #L1a389c.  v1:= v4.`com.google.android.material.internal.CollapsingTextHelper.expandedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a38a0.  v1:= v1.`android.graphics.Rect.bottom` @type ^`int`;
+  #L1a38a4.  v1:= (`float`) v1 @kind i2f;
+  #L1a38a6.  v2:= v4.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a38aa.  v2:= v2.`android.graphics.Rect.bottom` @type ^`int`;
+  #L1a38ae.  v2:= (`float`) v2 @kind i2f;
+  #L1a38b0.  v3:= v4.`com.google.android.material.internal.CollapsingTextHelper.positionInterpolator` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L1a38b4.  call temp:= `lerp`(v1, v2, v5, v3) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.lerp:(FFFLandroid/animation/TimeInterpolator;)F` @kind static;
+  #L1a38ba.  v1:= temp;
+  #L1a38bc.  v0.`android.graphics.RectF.bottom` @type ^`float` := v1;
+  #L1a38c0.  return @kind void;
+}
+procedure `boolean` `isClose`(`float` v2 @name `value`, `float` v3 @name `targetValue`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.isClose:(FF)Z` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a2bf8.  v0:= v2 - v3 @kind float;
+  #L1a2bfc.  call temp:= `abs`(v0) @signature `Ljava/lang/Math;.abs:(F)F` @kind static;
+  #L1a2c02.  v0:= temp;
+  #L1a2c04.  v1:= 981668463I;
+  #L1a2c0a.  v0:= fcmpg(v0, v1);
+  #L1a2c0e.  if v0 >= 0 then goto L1a2c16;
+  #L1a2c12.  v0:= 1I;
+  #L1a2c14.  goto L1a2c18;
+  #L1a2c16.  v0:= 0I;
+  #L1a2c18.  return v0;
+}
+procedure `float` `lerp`(`float` v1 @name `startValue`, `float` v2 @name `endValue`, `float` v3 @name `fraction`, `android.animation.TimeInterpolator` v4 @kind object @name `interpolator`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.lerp:(FFFLandroid/animation/TimeInterpolator;)F` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+
+  #L1a2e20.  if v4 == 0 then goto L1a2e2c;
+  #L1a2e24.  call temp:= `getInterpolation`(v4, v3) @signature `Landroid/animation/TimeInterpolator;.getInterpolation:(F)F` @kind interface;
+  #L1a2e2a.  v3:= temp;
+  #L1a2e2c.  call temp:= `lerp`(v1, v2, v3) @signature `Lcom/google/android/material/animation/AnimationUtils;.lerp:(FFF)F` @kind static;
+  #L1a2e32.  v0:= temp;
+  #L1a2e34.  return v0;
+}
+procedure `boolean` `rectEquals`(`android.graphics.Rect` v1 @kind object @name `r`, `int` v2 @name `left`, `int` v3 @name `top`, `int` v4 @name `right`, `int` v5 @name `bottom`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.rectEquals:(Landroid/graphics/Rect;IIII)Z` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+
+  #L1a2c6c.  v0:= v1.`android.graphics.Rect.left` @type ^`int`;
+  #L1a2c70.  if v0 != v2 then goto L1a2c90;
+  #L1a2c74.  v0:= v1.`android.graphics.Rect.top` @type ^`int`;
+  #L1a2c78.  if v0 != v3 then goto L1a2c90;
+  #L1a2c7c.  v0:= v1.`android.graphics.Rect.right` @type ^`int`;
+  #L1a2c80.  if v0 != v4 then goto L1a2c90;
+  #L1a2c84.  v0:= v1.`android.graphics.Rect.bottom` @type ^`int`;
+  #L1a2c88.  if v0 != v5 then goto L1a2c90;
+  #L1a2c8c.  v0:= 1I;
+  #L1a2c8e.  goto L1a2c92;
+  #L1a2c90.  v0:= 0I;
+  #L1a2c92.  return v0;
+}
+procedure `boolean` `setCollapsedTypefaceInternal`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this, `android.graphics.Typeface` v2 @kind object @name `typeface`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedTypefaceInternal:(Landroid/graphics/Typeface;)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1a2ca4.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedFontCallback` @type ^`com.google.android.material.resources.CancelableFontCallback` @kind object;
+  #L1a2ca8.  if v0 == 0 then goto L1a2cb2;
+  #L1a2cac.  call `cancel`(v0) @signature `Lcom/google/android/material/resources/CancelableFontCallback;.cancel:()V` @kind virtual;
+  #L1a2cb2.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedTypeface` @type ^`android.graphics.Typeface` @kind object;
+  #L1a2cb6.  if v0 == v2 then goto L1a2cc2;
+  #L1a2cba.  v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedTypeface` @type ^`android.graphics.Typeface` := v2 @kind object;
+  #L1a2cbe.  v0:= 1I;
+  #L1a2cc0.  return v0;
+  #L1a2cc2.  v0:= 0I;
+  #L1a2cc4.  return v0;
+}
+procedure `boolean` `setExpandedTypefaceInternal`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this, `android.graphics.Typeface` v2 @kind object @name `typeface`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedTypefaceInternal:(Landroid/graphics/Typeface;)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1a2cd8.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedFontCallback` @type ^`com.google.android.material.resources.CancelableFontCallback` @kind object;
+  #L1a2cdc.  if v0 == 0 then goto L1a2ce6;
+  #L1a2ce0.  call `cancel`(v0) @signature `Lcom/google/android/material/resources/CancelableFontCallback;.cancel:()V` @kind virtual;
+  #L1a2ce6.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedTypeface` @type ^`android.graphics.Typeface` @kind object;
+  #L1a2cea.  if v0 == v2 then goto L1a2cf6;
+  #L1a2cee.  v1.`com.google.android.material.internal.CollapsingTextHelper.expandedTypeface` @type ^`android.graphics.Typeface` := v2 @kind object;
+  #L1a2cf2.  v0:= 1I;
+  #L1a2cf4.  return v0;
+  #L1a2cf6.  v0:= 0I;
+  #L1a2cf8.  return v0;
+}
+procedure `void` `setInterpolatedTextSize`(`com.google.android.material.internal.CollapsingTextHelper` v2 @kind this, `float` v3 @name `textSize`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setInterpolatedTextSize:(F)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1a3d10.  call `calculateUsingTextSize`(v2, v3) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.calculateUsingTextSize:(F)V` @kind direct;
+  #L1a3d16.  v0:= `@@com.google.android.material.internal.CollapsingTextHelper.USE_SCALING_TEXTURE` @type ^`boolean` @kind boolean;
+  #L1a3d1a.  if v0 == 0 then goto L1a3d32;
+  #L1a3d1e.  v0:= v2.`com.google.android.material.internal.CollapsingTextHelper.scale` @type ^`float`;
+  #L1a3d22.  v1:= 1.0F;
+  #L1a3d26.  v0:= fcmpl(v0, v1);
+  #L1a3d2a.  if v0 == 0 then goto L1a3d32;
+  #L1a3d2e.  v0:= 1I;
+  #L1a3d30.  goto L1a3d34;
+  #L1a3d32.  v0:= 0I;
+  #L1a3d34.  v2.`com.google.android.material.internal.CollapsingTextHelper.useTexture` @type ^`boolean` := v0 @kind boolean;
+  #L1a3d38.  if v0 == 0 then goto L1a3d42;
+  #L1a3d3c.  call `ensureExpandedTexture`(v2) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.ensureExpandedTexture:()V` @kind direct;
+  #L1a3d42.  v0:= v2.`com.google.android.material.internal.CollapsingTextHelper.view` @type ^`android.view.View` @kind object;
+  #L1a3d46.  call `postInvalidateOnAnimation`(v0) @signature `Landroidx/core/view/ViewCompat;.postInvalidateOnAnimation:(Landroid/view/View;)V` @kind static;
+  #L1a3d4c.  return @kind void;
+}
+procedure `float` `calculateCollapsedTextWidth`(`com.google.android.material.internal.CollapsingTextHelper` v4 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.calculateCollapsedTextWidth:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1a2d3c.  v0:= v4.`com.google.android.material.internal.CollapsingTextHelper.text` @type ^`java.lang.CharSequence` @kind object;
+  #L1a2d40.  if v0 != 0 then goto L1a2d48;
+  #L1a2d44.  v0:= 0I;
+  #L1a2d46.  return v0;
+  #L1a2d48.  v0:= v4.`com.google.android.material.internal.CollapsingTextHelper.tmpPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a2d4c.  call `getTextPaintCollapsed`(v4, v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getTextPaintCollapsed:(Landroid/text/TextPaint;)V` @kind direct;
+  #L1a2d52.  v0:= v4.`com.google.android.material.internal.CollapsingTextHelper.tmpPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a2d56.  v1:= v4.`com.google.android.material.internal.CollapsingTextHelper.text` @type ^`java.lang.CharSequence` @kind object;
+  #L1a2d5a.  v2:= 0I;
+  #L1a2d5c.  call temp:= `length`(v1) @signature `Ljava/lang/CharSequence;.length:()I` @kind interface;
+  #L1a2d62.  v3:= temp;
+  #L1a2d64.  call temp:= `measureText`(v0, v1, v2, v3) @signature `Landroid/text/TextPaint;.measureText:(Ljava/lang/CharSequence;II)F` @kind virtual;
+  #L1a2d6a.  v0:= temp;
+  #L1a2d6c.  return v0;
+}
+procedure `void` `draw`(`com.google.android.material.internal.CollapsingTextHelper` v13 @kind this, `android.graphics.Canvas` v14 @kind object @name `canvas`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.draw:(Landroid/graphics/Canvas;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+    v12;
+
+  #L1a3560.  call temp:= `save`(v14) @signature `Landroid/graphics/Canvas;.save:()I` @kind virtual;
+  #L1a3566.  v0:= temp;
+  #L1a3568.  v1:= v13.`com.google.android.material.internal.CollapsingTextHelper.textToDraw` @type ^`java.lang.CharSequence` @kind object;
+  #L1a356c.  if v1 == 0 then goto L1a362e;
+  #L1a3570.  v1:= v13.`com.google.android.material.internal.CollapsingTextHelper.drawTitle` @type ^`boolean` @kind boolean;
+  #L1a3574.  if v1 == 0 then goto L1a362e;
+  #L1a3578.  v1:= v13.`com.google.android.material.internal.CollapsingTextHelper.currentDrawX` @type ^`float`;
+  #L1a357c.  v2:= v13.`com.google.android.material.internal.CollapsingTextHelper.currentDrawY` @type ^`float`;
+  #L1a3580.  v3:= v13.`com.google.android.material.internal.CollapsingTextHelper.useTexture` @type ^`boolean` @kind boolean;
+  #L1a3584.  if v3 == 0 then goto L1a3594;
+  #L1a3588.  v3:= v13.`com.google.android.material.internal.CollapsingTextHelper.expandedTitleTexture` @type ^`android.graphics.Bitmap` @kind object;
+  #L1a358c.  if v3 == 0 then goto L1a3594;
+  #L1a3590.  v3:= 1I;
+  #L1a3592.  goto L1a3596;
+  #L1a3594.  v3:= 0I;
+  #L1a3596.  v9:= v3;
+  #L1a3598.  if v9 == 0 then goto L1a35b2;
+  #L1a359c.  v3:= v13.`com.google.android.material.internal.CollapsingTextHelper.textureAscent` @type ^`float`;
+  #L1a35a0.  v4:= v13.`com.google.android.material.internal.CollapsingTextHelper.scale` @type ^`float`;
+  #L1a35a4.  v3:= v3 * v4 @kind float;
+  #L1a35a6.  v5:= v13.`com.google.android.material.internal.CollapsingTextHelper.textureDescent` @type ^`float`;
+  #L1a35aa.  v5:= v5 * v4 @kind float;
+  #L1a35ac.  v10:= v3;
+  #L1a35ae.  v11:= v5;
+  #L1a35b0.  goto L1a35da;
+  #L1a35b2.  v3:= v13.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a35b6.  call temp:= `ascent`(v3) @signature `Landroid/text/TextPaint;.ascent:()F` @kind virtual;
+  #L1a35bc.  v3:= temp;
+  #L1a35be.  v4:= v13.`com.google.android.material.internal.CollapsingTextHelper.scale` @type ^`float`;
+  #L1a35c2.  v3:= v3 * v4 @kind float;
+  #L1a35c4.  v4:= v13.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a35c8.  call temp:= `descent`(v4) @signature `Landroid/text/TextPaint;.descent:()F` @kind virtual;
+  #L1a35ce.  v4:= temp;
+  #L1a35d0.  v5:= v13.`com.google.android.material.internal.CollapsingTextHelper.scale` @type ^`float`;
+  #L1a35d4.  v5:= v5 * v4 @kind float;
+  #L1a35d6.  v10:= v3;
+  #L1a35d8.  v11:= v5;
+  #L1a35da.  if v9 == 0 then goto L1a35e4;
+  #L1a35de.  v2:= v2 + v10 @kind float;
+  #L1a35e0.  v12:= v2;
+  #L1a35e2.  goto L1a35e6;
+  #L1a35e4.  v12:= v2;
+  #L1a35e6.  v2:= v13.`com.google.android.material.internal.CollapsingTextHelper.scale` @type ^`float`;
+  #L1a35ea.  v3:= 1.0F;
+  #L1a35ee.  v3:= fcmpl(v2, v3);
+  #L1a35f2.  if v3 == 0 then goto L1a35fc;
+  #L1a35f6.  call `scale`(v14, v2, v2, v1, v12) @signature `Landroid/graphics/Canvas;.scale:(FFFF)V` @kind virtual;
+  #L1a35fc.  if v9 == 0 then goto L1a3610;
+  #L1a3600.  v2:= v13.`com.google.android.material.internal.CollapsingTextHelper.expandedTitleTexture` @type ^`android.graphics.Bitmap` @kind object;
+  #L1a3604.  v3:= v13.`com.google.android.material.internal.CollapsingTextHelper.texturePaint` @type ^`android.graphics.Paint` @kind object;
+  #L1a3608.  call `drawBitmap`(v14, v2, v1, v12, v3) @signature `Landroid/graphics/Canvas;.drawBitmap:(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V` @kind virtual;
+  #L1a360e.  goto L1a362e;
+  #L1a3610.  v3:= v13.`com.google.android.material.internal.CollapsingTextHelper.textToDraw` @type ^`java.lang.CharSequence` @kind object;
+  #L1a3614.  v4:= 0I;
+  #L1a3616.  call temp:= `length`(v3) @signature `Ljava/lang/CharSequence;.length:()I` @kind interface;
+  #L1a361c.  v5:= temp;
+  #L1a361e.  v8:= v13.`com.google.android.material.internal.CollapsingTextHelper.textPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a3622.  v2:= v14 @kind object;
+  #L1a3624.  v6:= v1;
+  #L1a3626.  v7:= v12;
+  #L1a3628.  call `drawText`(v2, v3, v4, v5, v6, v7, v8) @signature `Landroid/graphics/Canvas;.drawText:(Ljava/lang/CharSequence;IIFFLandroid/graphics/Paint;)V` @kind virtual;
+  #L1a362e.  call `restoreToCount`(v14, v0) @signature `Landroid/graphics/Canvas;.restoreToCount:(I)V` @kind virtual;
+  #L1a3634.  return @kind void;
+}
+procedure `void` `getCollapsedTextActualBounds`(`com.google.android.material.internal.CollapsingTextHelper` v3 @kind this, `android.graphics.RectF` v4 @kind object @name `bounds`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCollapsedTextActualBounds:(Landroid/graphics/RectF;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a3750.  v0:= v3.`com.google.android.material.internal.CollapsingTextHelper.text` @type ^`java.lang.CharSequence` @kind object;
+  #L1a3754.  call temp:= `calculateIsRtl`(v3, v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.calculateIsRtl:(Ljava/lang/CharSequence;)Z` @kind direct;
+  #L1a375a.  v0:= temp;
+  #L1a375c.  v1:= v3.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a3760.  if v0 != 0 then goto L1a376c;
+  #L1a3764.  v1:= v1.`android.graphics.Rect.left` @type ^`int`;
+  #L1a3768.  v1:= (`float`) v1 @kind i2f;
+  #L1a376a.  goto L1a377c;
+  #L1a376c.  v1:= v1.`android.graphics.Rect.right` @type ^`int`;
+  #L1a3770.  v1:= (`float`) v1 @kind i2f;
+  #L1a3772.  call temp:= `calculateCollapsedTextWidth`(v3) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.calculateCollapsedTextWidth:()F` @kind virtual;
+  #L1a3778.  v2:= temp;
+  #L1a377a.  v1:= v1 - v2 @kind float;
+  #L1a377c.  v4.`android.graphics.RectF.left` @type ^`float` := v1;
+  #L1a3780.  v1:= v3.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a3784.  v1:= v1.`android.graphics.Rect.top` @type ^`int`;
+  #L1a3788.  v1:= (`float`) v1 @kind i2f;
+  #L1a378a.  v4.`android.graphics.RectF.top` @type ^`float` := v1;
+  #L1a378e.  if v0 != 0 then goto L1a37a2;
+  #L1a3792.  v1:= v4.`android.graphics.RectF.left` @type ^`float`;
+  #L1a3796.  call temp:= `calculateCollapsedTextWidth`(v3) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.calculateCollapsedTextWidth:()F` @kind virtual;
+  #L1a379c.  v2:= temp;
+  #L1a379e.  v1:= v1 + v2 @kind float;
+  #L1a37a0.  goto L1a37ac;
+  #L1a37a2.  v1:= v3.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a37a6.  v1:= v1.`android.graphics.Rect.right` @type ^`int`;
+  #L1a37aa.  v1:= (`float`) v1 @kind i2f;
+  #L1a37ac.  v4.`android.graphics.RectF.right` @type ^`float` := v1;
+  #L1a37b0.  v1:= v3.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a37b4.  v1:= v1.`android.graphics.Rect.top` @type ^`int`;
+  #L1a37b8.  v1:= (`float`) v1 @kind i2f;
+  #L1a37ba.  call temp:= `getCollapsedTextHeight`(v3) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCollapsedTextHeight:()F` @kind virtual;
+  #L1a37c0.  v2:= temp;
+  #L1a37c2.  v1:= v1 + v2 @kind float;
+  #L1a37c4.  v4.`android.graphics.RectF.bottom` @type ^`float` := v1;
+  #L1a37c8.  return @kind void;
+}
+procedure `android.content.res.ColorStateList` `getCollapsedTextColor`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCollapsedTextColor:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a2b3c.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a2b40.  return v0 @kind object;
+}
+procedure `int` `getCollapsedTextGravity`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCollapsedTextGravity:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a2ed8.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextGravity` @type ^`int`;
+  #L1a2edc.  return v0;
+}
+procedure `float` `getCollapsedTextHeight`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCollapsedTextHeight:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a2d80.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.tmpPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a2d84.  call `getTextPaintCollapsed`(v1, v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getTextPaintCollapsed:(Landroid/text/TextPaint;)V` @kind direct;
+  #L1a2d8a.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.tmpPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a2d8e.  call temp:= `ascent`(v0) @signature `Landroid/text/TextPaint;.ascent:()F` @kind virtual;
+  #L1a2d94.  v0:= temp;
+  #L1a2d96.  v0:= -v0 @kind float;
+  #L1a2d98.  return v0;
+}
+procedure `float` `getCollapsedTextSize`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCollapsedTextSize:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a2dac.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextSize` @type ^`float`;
+  #L1a2db0.  return v0;
+}
+procedure `android.graphics.Typeface` `getCollapsedTypeface`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCollapsedTypeface:()Landroid/graphics/Typeface;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a2b6c.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedTypeface` @type ^`android.graphics.Typeface` @kind object;
+  #L1a2b70.  if v0 == 0 then goto L1a2b76;
+  #L1a2b74.  goto L1a2b7a;
+  #L1a2b76.  v0:= `@@android.graphics.Typeface.DEFAULT` @type ^`android.graphics.Typeface` @kind object;
+  #L1a2b7a.  return v0 @kind object;
+}
+procedure `int` `getCurrentCollapsedTextColor`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCurrentCollapsedTextColor:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a2ef0.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a2ef4.  call temp:= `getCurrentColor`(v1, v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getCurrentColor:(Landroid/content/res/ColorStateList;)I` @kind direct;
+  #L1a2efa.  v0:= temp;
+  #L1a2efc.  return v0;
+}
+procedure `android.content.res.ColorStateList` `getExpandedTextColor`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getExpandedTextColor:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a2b54.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedTextColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a2b58.  return v0 @kind object;
+}
+procedure `int` `getExpandedTextGravity`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getExpandedTextGravity:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a2f64.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedTextGravity` @type ^`int`;
+  #L1a2f68.  return v0;
+}
+procedure `float` `getExpandedTextHeight`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getExpandedTextHeight:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a2dc4.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.tmpPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a2dc8.  call `getTextPaintExpanded`(v1, v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getTextPaintExpanded:(Landroid/text/TextPaint;)V` @kind direct;
+  #L1a2dce.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.tmpPaint` @type ^`android.text.TextPaint` @kind object;
+  #L1a2dd2.  call temp:= `ascent`(v0) @signature `Landroid/text/TextPaint;.ascent:()F` @kind virtual;
+  #L1a2dd8.  v0:= temp;
+  #L1a2dda.  v0:= -v0 @kind float;
+  #L1a2ddc.  return v0;
+}
+procedure `float` `getExpandedTextSize`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getExpandedTextSize:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a2df0.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedTextSize` @type ^`float`;
+  #L1a2df4.  return v0;
+}
+procedure `android.graphics.Typeface` `getExpandedTypeface`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getExpandedTypeface:()Landroid/graphics/Typeface;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a2b8c.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedTypeface` @type ^`android.graphics.Typeface` @kind object;
+  #L1a2b90.  if v0 == 0 then goto L1a2b96;
+  #L1a2b94.  goto L1a2b9a;
+  #L1a2b96.  v0:= `@@android.graphics.Typeface.DEFAULT` @type ^`android.graphics.Typeface` @kind object;
+  #L1a2b9a.  return v0 @kind object;
+}
+procedure `float` `getExpansionFraction`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getExpansionFraction:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a2e08.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedFraction` @type ^`float`;
+  #L1a2e0c.  return v0;
+}
+procedure `java.lang.CharSequence` `getText`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.getText:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a2f7c.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.text` @type ^`java.lang.CharSequence` @kind object;
+  #L1a2f80.  return v0 @kind object;
+}
+procedure `boolean` `isStateful`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.isStateful:()Z` @AccessFlag PUBLIC_FINAL {
+    temp;
+    v0;
+
+  #L1a2c2c.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a2c30.  if v0 == 0 then goto L1a2c40;
+  #L1a2c34.  call temp:= `isStateful`(v0) @signature `Landroid/content/res/ColorStateList;.isStateful:()Z` @kind virtual;
+  #L1a2c3a.  v0:= temp;
+  #L1a2c3c.  if v0 != 0 then goto L1a2c54;
+  #L1a2c40.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedTextColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a2c44.  if v0 == 0 then goto L1a2c58;
+  #L1a2c48.  call temp:= `isStateful`(v0) @signature `Landroid/content/res/ColorStateList;.isStateful:()Z` @kind virtual;
+  #L1a2c4e.  v0:= temp;
+  #L1a2c50.  if v0 == 0 then goto L1a2c58;
+  #L1a2c54.  v0:= 1I;
+  #L1a2c56.  goto L1a2c5a;
+  #L1a2c58.  v0:= 0I;
+  #L1a2c5a.  return v0;
+}
+procedure `void` `onBoundsChanged`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.onBoundsChanged:()V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1a38d4.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a38d8.  call temp:= `width`(v0) @signature `Landroid/graphics/Rect;.width:()I` @kind virtual;
+  #L1a38de.  v0:= temp;
+  #L1a38e0.  if v0 <= 0 then goto L1a3918;
+  #L1a38e4.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a38e8.  call temp:= `height`(v0) @signature `Landroid/graphics/Rect;.height:()I` @kind virtual;
+  #L1a38ee.  v0:= temp;
+  #L1a38f0.  if v0 <= 0 then goto L1a3918;
+  #L1a38f4.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a38f8.  call temp:= `width`(v0) @signature `Landroid/graphics/Rect;.width:()I` @kind virtual;
+  #L1a38fe.  v0:= temp;
+  #L1a3900.  if v0 <= 0 then goto L1a3918;
+  #L1a3904.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a3908.  call temp:= `height`(v0) @signature `Landroid/graphics/Rect;.height:()I` @kind virtual;
+  #L1a390e.  v0:= temp;
+  #L1a3910.  if v0 <= 0 then goto L1a3918;
+  #L1a3914.  v0:= 1I;
+  #L1a3916.  goto L1a391a;
+  #L1a3918.  v0:= 0I;
+  #L1a391a.  v1.`com.google.android.material.internal.CollapsingTextHelper.drawTitle` @type ^`boolean` := v0 @kind boolean;
+  #L1a391e.  return @kind void;
+}
+procedure `void` `recalculate`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.recalculate:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a3930.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.view` @type ^`android.view.View` @kind object;
+  #L1a3934.  call temp:= `getHeight`(v0) @signature `Landroid/view/View;.getHeight:()I` @kind virtual;
+  #L1a393a.  v0:= temp;
+  #L1a393c.  if v0 <= 0 then goto L1a395c;
+  #L1a3940.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.view` @type ^`android.view.View` @kind object;
+  #L1a3944.  call temp:= `getWidth`(v0) @signature `Landroid/view/View;.getWidth:()I` @kind virtual;
+  #L1a394a.  v0:= temp;
+  #L1a394c.  if v0 <= 0 then goto L1a395c;
+  #L1a3950.  call `calculateBaseOffsets`(v1) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.calculateBaseOffsets:()V` @kind direct;
+  #L1a3956.  call `calculateCurrentOffsets`(v1) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.calculateCurrentOffsets:()V` @kind direct;
+  #L1a395c.  return @kind void;
+}
+procedure `void` `setCollapsedBounds`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this, `int` v2 @name `left`, `int` v3 @name `top`, `int` v4 @name `right`, `int` v5 @name `bottom`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedBounds:(IIII)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a3998.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a399c.  call temp:= `rectEquals`(v0, v2, v3, v4, v5) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.rectEquals:(Landroid/graphics/Rect;IIII)Z` @kind static;
+  #L1a39a2.  v0:= temp;
+  #L1a39a4.  if v0 != 0 then goto L1a39be;
+  #L1a39a8.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a39ac.  call `set`(v0, v2, v3, v4, v5) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L1a39b2.  v0:= 1I;
+  #L1a39b4.  v1.`com.google.android.material.internal.CollapsingTextHelper.boundsChanged` @type ^`boolean` := v0 @kind boolean;
+  #L1a39b8.  call `onBoundsChanged`(v1) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.onBoundsChanged:()V` @kind virtual;
+  #L1a39be.  return @kind void;
+}
+procedure `void` `setCollapsedBounds`(`com.google.android.material.internal.CollapsingTextHelper` v4 @kind this, `android.graphics.Rect` v5 @kind object @name `bounds`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedBounds:(Landroid/graphics/Rect;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1a3970.  v0:= v5.`android.graphics.Rect.left` @type ^`int`;
+  #L1a3974.  v1:= v5.`android.graphics.Rect.top` @type ^`int`;
+  #L1a3978.  v2:= v5.`android.graphics.Rect.right` @type ^`int`;
+  #L1a397c.  v3:= v5.`android.graphics.Rect.bottom` @type ^`int`;
+  #L1a3980.  call `setCollapsedBounds`(v4, v0, v1, v2, v3) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedBounds:(IIII)V` @kind virtual;
+  #L1a3986.  return @kind void;
+}
+procedure `void` `setCollapsedTextAppearance`(`com.google.android.material.internal.CollapsingTextHelper` v4 @kind this, `int` v5 @name `resId`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedTextAppearance:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1a39d0.  v0:= new `com.google.android.material.resources.TextAppearance`;
+  #L1a39d4.  v1:= v4.`com.google.android.material.internal.CollapsingTextHelper.view` @type ^`android.view.View` @kind object;
+  #L1a39d8.  call temp:= `getContext`(v1) @signature `Landroid/view/View;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1a39de.  v1:= temp @kind object;
+  #L1a39e0.  call `<init>`(v0, v1, v5) @signature `Lcom/google/android/material/resources/TextAppearance;.<init>:(Landroid/content/Context;I)V` @kind direct;
+  #L1a39e6.  v1:= v0.`com.google.android.material.resources.TextAppearance.textColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a39ea.  if v1 == 0 then goto L1a39f6;
+  #L1a39ee.  v1:= v0.`com.google.android.material.resources.TextAppearance.textColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a39f2.  v4.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextColor` @type ^`android.content.res.ColorStateList` := v1 @kind object;
+  #L1a39f6.  v1:= v0.`com.google.android.material.resources.TextAppearance.textSize` @type ^`float`;
+  #L1a39fa.  v2:= 0I;
+  #L1a39fc.  v1:= fcmpl(v1, v2);
+  #L1a3a00.  if v1 == 0 then goto L1a3a0c;
+  #L1a3a04.  v1:= v0.`com.google.android.material.resources.TextAppearance.textSize` @type ^`float`;
+  #L1a3a08.  v4.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextSize` @type ^`float` := v1;
+  #L1a3a0c.  v1:= v0.`com.google.android.material.resources.TextAppearance.shadowColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a3a10.  if v1 == 0 then goto L1a3a1c;
+  #L1a3a14.  v1:= v0.`com.google.android.material.resources.TextAppearance.shadowColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a3a18.  v4.`com.google.android.material.internal.CollapsingTextHelper.collapsedShadowColor` @type ^`android.content.res.ColorStateList` := v1 @kind object;
+  #L1a3a1c.  v1:= v0.`com.google.android.material.resources.TextAppearance.shadowDx` @type ^`float`;
+  #L1a3a20.  v4.`com.google.android.material.internal.CollapsingTextHelper.collapsedShadowDx` @type ^`float` := v1;
+  #L1a3a24.  v1:= v0.`com.google.android.material.resources.TextAppearance.shadowDy` @type ^`float`;
+  #L1a3a28.  v4.`com.google.android.material.internal.CollapsingTextHelper.collapsedShadowDy` @type ^`float` := v1;
+  #L1a3a2c.  v1:= v0.`com.google.android.material.resources.TextAppearance.shadowRadius` @type ^`float`;
+  #L1a3a30.  v4.`com.google.android.material.internal.CollapsingTextHelper.collapsedShadowRadius` @type ^`float` := v1;
+  #L1a3a34.  v1:= v4.`com.google.android.material.internal.CollapsingTextHelper.collapsedFontCallback` @type ^`com.google.android.material.resources.CancelableFontCallback` @kind object;
+  #L1a3a38.  if v1 == 0 then goto L1a3a42;
+  #L1a3a3c.  call `cancel`(v1) @signature `Lcom/google/android/material/resources/CancelableFontCallback;.cancel:()V` @kind virtual;
+  #L1a3a42.  v1:= new `com.google.android.material.resources.CancelableFontCallback`;
+  #L1a3a46.  v2:= new `com.google.android.material.internal.CollapsingTextHelper$1`;
+  #L1a3a4a.  call `<init>`(v2, v4) @signature `Lcom/google/android/material/internal/CollapsingTextHelper$1;.<init>:(Lcom/google/android/material/internal/CollapsingTextHelper;)V` @kind direct;
+  #L1a3a50.  call temp:= `getFallbackFont`(v0) @signature `Lcom/google/android/material/resources/TextAppearance;.getFallbackFont:()Landroid/graphics/Typeface;` @kind virtual;
+  #L1a3a56.  v3:= temp @kind object;
+  #L1a3a58.  call `<init>`(v1, v2, v3) @signature `Lcom/google/android/material/resources/CancelableFontCallback;.<init>:(Lcom/google/android/material/resources/CancelableFontCallback$ApplyFont;Landroid/graphics/Typeface;)V` @kind direct;
+  #L1a3a5e.  v4.`com.google.android.material.internal.CollapsingTextHelper.collapsedFontCallback` @type ^`com.google.android.material.resources.CancelableFontCallback` := v1 @kind object;
+  #L1a3a62.  v1:= v4.`com.google.android.material.internal.CollapsingTextHelper.view` @type ^`android.view.View` @kind object;
+  #L1a3a66.  call temp:= `getContext`(v1) @signature `Landroid/view/View;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1a3a6c.  v1:= temp @kind object;
+  #L1a3a6e.  v2:= v4.`com.google.android.material.internal.CollapsingTextHelper.collapsedFontCallback` @type ^`com.google.android.material.resources.CancelableFontCallback` @kind object;
+  #L1a3a72.  call `getFontAsync`(v0, v1, v2) @signature `Lcom/google/android/material/resources/TextAppearance;.getFontAsync:(Landroid/content/Context;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V` @kind virtual;
+  #L1a3a78.  call `recalculate`(v4) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.recalculate:()V` @kind virtual;
+  #L1a3a7e.  return @kind void;
+}
+procedure `void` `setCollapsedTextColor`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `textColor`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedTextColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a3a90.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a3a94.  if v0 == v2 then goto L1a3aa2;
+  #L1a3a98.  v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextColor` @type ^`android.content.res.ColorStateList` := v2 @kind object;
+  #L1a3a9c.  call `recalculate`(v1) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.recalculate:()V` @kind virtual;
+  #L1a3aa2.  return @kind void;
+}
+procedure `void` `setCollapsedTextGravity`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this, `int` v2 @name `gravity`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedTextGravity:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a3ab4.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextGravity` @type ^`int`;
+  #L1a3ab8.  if v0 == v2 then goto L1a3ac6;
+  #L1a3abc.  v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextGravity` @type ^`int` := v2;
+  #L1a3ac0.  call `recalculate`(v1) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.recalculate:()V` @kind virtual;
+  #L1a3ac6.  return @kind void;
+}
+procedure `void` `setCollapsedTextSize`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this, `float` v2 @name `textSize`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedTextSize:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a3ad8.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextSize` @type ^`float`;
+  #L1a3adc.  v0:= fcmpl(v0, v2);
+  #L1a3ae0.  if v0 == 0 then goto L1a3aee;
+  #L1a3ae4.  v1.`com.google.android.material.internal.CollapsingTextHelper.collapsedTextSize` @type ^`float` := v2;
+  #L1a3ae8.  call `recalculate`(v1) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.recalculate:()V` @kind virtual;
+  #L1a3aee.  return @kind void;
+}
+procedure `void` `setCollapsedTypeface`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this, `android.graphics.Typeface` v2 @kind object @name `typeface`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedTypeface:(Landroid/graphics/Typeface;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a3b00.  call temp:= `setCollapsedTypefaceInternal`(v1, v2) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedTypefaceInternal:(Landroid/graphics/Typeface;)Z` @kind direct;
+  #L1a3b06.  v0:= temp;
+  #L1a3b08.  if v0 == 0 then goto L1a3b12;
+  #L1a3b0c.  call `recalculate`(v1) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.recalculate:()V` @kind virtual;
+  #L1a3b12.  return @kind void;
+}
+procedure `void` `setExpandedBounds`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this, `int` v2 @name `left`, `int` v3 @name `top`, `int` v4 @name `right`, `int` v5 @name `bottom`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedBounds:(IIII)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a3b4c.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a3b50.  call temp:= `rectEquals`(v0, v2, v3, v4, v5) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.rectEquals:(Landroid/graphics/Rect;IIII)Z` @kind static;
+  #L1a3b56.  v0:= temp;
+  #L1a3b58.  if v0 != 0 then goto L1a3b72;
+  #L1a3b5c.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedBounds` @type ^`android.graphics.Rect` @kind object;
+  #L1a3b60.  call `set`(v0, v2, v3, v4, v5) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L1a3b66.  v0:= 1I;
+  #L1a3b68.  v1.`com.google.android.material.internal.CollapsingTextHelper.boundsChanged` @type ^`boolean` := v0 @kind boolean;
+  #L1a3b6c.  call `onBoundsChanged`(v1) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.onBoundsChanged:()V` @kind virtual;
+  #L1a3b72.  return @kind void;
+}
+procedure `void` `setExpandedBounds`(`com.google.android.material.internal.CollapsingTextHelper` v4 @kind this, `android.graphics.Rect` v5 @kind object @name `bounds`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedBounds:(Landroid/graphics/Rect;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1a3b24.  v0:= v5.`android.graphics.Rect.left` @type ^`int`;
+  #L1a3b28.  v1:= v5.`android.graphics.Rect.top` @type ^`int`;
+  #L1a3b2c.  v2:= v5.`android.graphics.Rect.right` @type ^`int`;
+  #L1a3b30.  v3:= v5.`android.graphics.Rect.bottom` @type ^`int`;
+  #L1a3b34.  call `setExpandedBounds`(v4, v0, v1, v2, v3) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedBounds:(IIII)V` @kind virtual;
+  #L1a3b3a.  return @kind void;
+}
+procedure `void` `setExpandedTextAppearance`(`com.google.android.material.internal.CollapsingTextHelper` v4 @kind this, `int` v5 @name `resId`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedTextAppearance:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1a3b84.  v0:= new `com.google.android.material.resources.TextAppearance`;
+  #L1a3b88.  v1:= v4.`com.google.android.material.internal.CollapsingTextHelper.view` @type ^`android.view.View` @kind object;
+  #L1a3b8c.  call temp:= `getContext`(v1) @signature `Landroid/view/View;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1a3b92.  v1:= temp @kind object;
+  #L1a3b94.  call `<init>`(v0, v1, v5) @signature `Lcom/google/android/material/resources/TextAppearance;.<init>:(Landroid/content/Context;I)V` @kind direct;
+  #L1a3b9a.  v1:= v0.`com.google.android.material.resources.TextAppearance.textColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a3b9e.  if v1 == 0 then goto L1a3baa;
+  #L1a3ba2.  v1:= v0.`com.google.android.material.resources.TextAppearance.textColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a3ba6.  v4.`com.google.android.material.internal.CollapsingTextHelper.expandedTextColor` @type ^`android.content.res.ColorStateList` := v1 @kind object;
+  #L1a3baa.  v1:= v0.`com.google.android.material.resources.TextAppearance.textSize` @type ^`float`;
+  #L1a3bae.  v2:= 0I;
+  #L1a3bb0.  v1:= fcmpl(v1, v2);
+  #L1a3bb4.  if v1 == 0 then goto L1a3bc0;
+  #L1a3bb8.  v1:= v0.`com.google.android.material.resources.TextAppearance.textSize` @type ^`float`;
+  #L1a3bbc.  v4.`com.google.android.material.internal.CollapsingTextHelper.expandedTextSize` @type ^`float` := v1;
+  #L1a3bc0.  v1:= v0.`com.google.android.material.resources.TextAppearance.shadowColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a3bc4.  if v1 == 0 then goto L1a3bd0;
+  #L1a3bc8.  v1:= v0.`com.google.android.material.resources.TextAppearance.shadowColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a3bcc.  v4.`com.google.android.material.internal.CollapsingTextHelper.expandedShadowColor` @type ^`android.content.res.ColorStateList` := v1 @kind object;
+  #L1a3bd0.  v1:= v0.`com.google.android.material.resources.TextAppearance.shadowDx` @type ^`float`;
+  #L1a3bd4.  v4.`com.google.android.material.internal.CollapsingTextHelper.expandedShadowDx` @type ^`float` := v1;
+  #L1a3bd8.  v1:= v0.`com.google.android.material.resources.TextAppearance.shadowDy` @type ^`float`;
+  #L1a3bdc.  v4.`com.google.android.material.internal.CollapsingTextHelper.expandedShadowDy` @type ^`float` := v1;
+  #L1a3be0.  v1:= v0.`com.google.android.material.resources.TextAppearance.shadowRadius` @type ^`float`;
+  #L1a3be4.  v4.`com.google.android.material.internal.CollapsingTextHelper.expandedShadowRadius` @type ^`float` := v1;
+  #L1a3be8.  v1:= v4.`com.google.android.material.internal.CollapsingTextHelper.expandedFontCallback` @type ^`com.google.android.material.resources.CancelableFontCallback` @kind object;
+  #L1a3bec.  if v1 == 0 then goto L1a3bf6;
+  #L1a3bf0.  call `cancel`(v1) @signature `Lcom/google/android/material/resources/CancelableFontCallback;.cancel:()V` @kind virtual;
+  #L1a3bf6.  v1:= new `com.google.android.material.resources.CancelableFontCallback`;
+  #L1a3bfa.  v2:= new `com.google.android.material.internal.CollapsingTextHelper$2`;
+  #L1a3bfe.  call `<init>`(v2, v4) @signature `Lcom/google/android/material/internal/CollapsingTextHelper$2;.<init>:(Lcom/google/android/material/internal/CollapsingTextHelper;)V` @kind direct;
+  #L1a3c04.  call temp:= `getFallbackFont`(v0) @signature `Lcom/google/android/material/resources/TextAppearance;.getFallbackFont:()Landroid/graphics/Typeface;` @kind virtual;
+  #L1a3c0a.  v3:= temp @kind object;
+  #L1a3c0c.  call `<init>`(v1, v2, v3) @signature `Lcom/google/android/material/resources/CancelableFontCallback;.<init>:(Lcom/google/android/material/resources/CancelableFontCallback$ApplyFont;Landroid/graphics/Typeface;)V` @kind direct;
+  #L1a3c12.  v4.`com.google.android.material.internal.CollapsingTextHelper.expandedFontCallback` @type ^`com.google.android.material.resources.CancelableFontCallback` := v1 @kind object;
+  #L1a3c16.  v1:= v4.`com.google.android.material.internal.CollapsingTextHelper.view` @type ^`android.view.View` @kind object;
+  #L1a3c1a.  call temp:= `getContext`(v1) @signature `Landroid/view/View;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1a3c20.  v1:= temp @kind object;
+  #L1a3c22.  v2:= v4.`com.google.android.material.internal.CollapsingTextHelper.expandedFontCallback` @type ^`com.google.android.material.resources.CancelableFontCallback` @kind object;
+  #L1a3c26.  call `getFontAsync`(v0, v1, v2) @signature `Lcom/google/android/material/resources/TextAppearance;.getFontAsync:(Landroid/content/Context;Lcom/google/android/material/resources/TextAppearanceFontCallback;)V` @kind virtual;
+  #L1a3c2c.  call `recalculate`(v4) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.recalculate:()V` @kind virtual;
+  #L1a3c32.  return @kind void;
+}
+procedure `void` `setExpandedTextColor`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `textColor`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedTextColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a3c44.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedTextColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1a3c48.  if v0 == v2 then goto L1a3c56;
+  #L1a3c4c.  v1.`com.google.android.material.internal.CollapsingTextHelper.expandedTextColor` @type ^`android.content.res.ColorStateList` := v2 @kind object;
+  #L1a3c50.  call `recalculate`(v1) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.recalculate:()V` @kind virtual;
+  #L1a3c56.  return @kind void;
+}
+procedure `void` `setExpandedTextGravity`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this, `int` v2 @name `gravity`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedTextGravity:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a3c68.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedTextGravity` @type ^`int`;
+  #L1a3c6c.  if v0 == v2 then goto L1a3c7a;
+  #L1a3c70.  v1.`com.google.android.material.internal.CollapsingTextHelper.expandedTextGravity` @type ^`int` := v2;
+  #L1a3c74.  call `recalculate`(v1) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.recalculate:()V` @kind virtual;
+  #L1a3c7a.  return @kind void;
+}
+procedure `void` `setExpandedTextSize`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this, `float` v2 @name `textSize`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedTextSize:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a3c8c.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.expandedTextSize` @type ^`float`;
+  #L1a3c90.  v0:= fcmpl(v0, v2);
+  #L1a3c94.  if v0 == 0 then goto L1a3ca2;
+  #L1a3c98.  v1.`com.google.android.material.internal.CollapsingTextHelper.expandedTextSize` @type ^`float` := v2;
+  #L1a3c9c.  call `recalculate`(v1) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.recalculate:()V` @kind virtual;
+  #L1a3ca2.  return @kind void;
+}
+procedure `void` `setExpandedTypeface`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this, `android.graphics.Typeface` v2 @kind object @name `typeface`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedTypeface:(Landroid/graphics/Typeface;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a3cb4.  call temp:= `setExpandedTypefaceInternal`(v1, v2) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedTypefaceInternal:(Landroid/graphics/Typeface;)Z` @kind direct;
+  #L1a3cba.  v0:= temp;
+  #L1a3cbc.  if v0 == 0 then goto L1a3cc6;
+  #L1a3cc0.  call `recalculate`(v1) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.recalculate:()V` @kind virtual;
+  #L1a3cc6.  return @kind void;
+}
+procedure `void` `setExpansionFraction`(`com.google.android.material.internal.CollapsingTextHelper` v2 @kind this, `float` v3 @name `fraction`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpansionFraction:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a3cd8.  v0:= 0I;
+  #L1a3cda.  v1:= 1.0F;
+  #L1a3cde.  call temp:= `clamp`(v3, v0, v1) @signature `Landroidx/core/math/MathUtils;.clamp:(FFF)F` @kind static;
+  #L1a3ce4.  v3:= temp;
+  #L1a3ce6.  v0:= v2.`com.google.android.material.internal.CollapsingTextHelper.expandedFraction` @type ^`float`;
+  #L1a3cea.  v0:= fcmpl(v3, v0);
+  #L1a3cee.  if v0 == 0 then goto L1a3cfc;
+  #L1a3cf2.  v2.`com.google.android.material.internal.CollapsingTextHelper.expandedFraction` @type ^`float` := v3;
+  #L1a3cf6.  call `calculateCurrentOffsets`(v2) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.calculateCurrentOffsets:()V` @kind direct;
+  #L1a3cfc.  return @kind void;
+}
+procedure `void` `setPositionInterpolator`(`com.google.android.material.internal.CollapsingTextHelper` v0 @kind this, `android.animation.TimeInterpolator` v1 @kind object @name `interpolator`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setPositionInterpolator:(Landroid/animation/TimeInterpolator;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1a3d60.  v0.`com.google.android.material.internal.CollapsingTextHelper.positionInterpolator` @type ^`android.animation.TimeInterpolator` := v1 @kind object;
+  #L1a3d64.  call `recalculate`(v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.recalculate:()V` @kind virtual;
+  #L1a3d6a.  return @kind void;
+}
+procedure `boolean` `setState`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this, `int`[] v2 @kind object @name `state`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setState:([I)Z` @AccessFlag PUBLIC_FINAL {
+    temp;
+    v0;
+
+  #L1a2d0c.  v1.`com.google.android.material.internal.CollapsingTextHelper.state` @type ^`int`[] := v2 @kind object;
+  #L1a2d10.  call temp:= `isStateful`(v1) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.isStateful:()Z` @kind virtual;
+  #L1a2d16.  v0:= temp;
+  #L1a2d18.  if v0 == 0 then goto L1a2d26;
+  #L1a2d1c.  call `recalculate`(v1) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.recalculate:()V` @kind virtual;
+  #L1a2d22.  v0:= 1I;
+  #L1a2d24.  return v0;
+  #L1a2d26.  v0:= 0I;
+  #L1a2d28.  return v0;
+}
+procedure `void` `setText`(`com.google.android.material.internal.CollapsingTextHelper` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `text`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setText:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a3d7c.  if v2 == 0 then goto L1a3d90;
+  #L1a3d80.  v0:= v1.`com.google.android.material.internal.CollapsingTextHelper.text` @type ^`java.lang.CharSequence` @kind object;
+  #L1a3d84.  call temp:= `equals`(v0, v2) @signature `Landroid/text/TextUtils;.equals:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z` @kind static;
+  #L1a3d8a.  v0:= temp;
+  #L1a3d8c.  if v0 != 0 then goto L1a3da6;
+  #L1a3d90.  v1.`com.google.android.material.internal.CollapsingTextHelper.text` @type ^`java.lang.CharSequence` := v2 @kind object;
+  #L1a3d94.  v0:= 0I;
+  #L1a3d96.  v1.`com.google.android.material.internal.CollapsingTextHelper.textToDraw` @type ^`java.lang.CharSequence` := v0 @kind object;
+  #L1a3d9a.  call `clearTexture`(v1) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.clearTexture:()V` @kind direct;
+  #L1a3da0.  call `recalculate`(v1) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.recalculate:()V` @kind virtual;
+  #L1a3da6.  return @kind void;
+}
+procedure `void` `setTextSizeInterpolator`(`com.google.android.material.internal.CollapsingTextHelper` v0 @kind this, `android.animation.TimeInterpolator` v1 @kind object @name `interpolator`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setTextSizeInterpolator:(Landroid/animation/TimeInterpolator;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1a3db8.  v0.`com.google.android.material.internal.CollapsingTextHelper.textSizeInterpolator` @type ^`android.animation.TimeInterpolator` := v1 @kind object;
+  #L1a3dbc.  call `recalculate`(v0) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.recalculate:()V` @kind virtual;
+  #L1a3dc2.  return @kind void;
+}
+procedure `void` `setTypefaces`(`com.google.android.material.internal.CollapsingTextHelper` v2 @kind this, `android.graphics.Typeface` v3 @kind object @name `typeface`) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setTypefaces:(Landroid/graphics/Typeface;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a3dd4.  call temp:= `setCollapsedTypefaceInternal`(v2, v3) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setCollapsedTypefaceInternal:(Landroid/graphics/Typeface;)Z` @kind direct;
+  #L1a3dda.  v0:= temp;
+  #L1a3ddc.  call temp:= `setExpandedTypefaceInternal`(v2, v3) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpandedTypefaceInternal:(Landroid/graphics/Typeface;)Z` @kind direct;
+  #L1a3de2.  v1:= temp;
+  #L1a3de4.  if v0 != 0 then goto L1a3dec;
+  #L1a3de8.  if v1 == 0 then goto L1a3df2;
+  #L1a3dec.  call `recalculate`(v2) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.recalculate:()V` @kind virtual;
+  #L1a3df2.  return @kind void;
+}

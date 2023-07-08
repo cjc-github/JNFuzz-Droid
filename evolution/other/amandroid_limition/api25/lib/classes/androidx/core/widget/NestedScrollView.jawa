@@ -1,0 +1,458 @@
+record `androidx.core.widget.NestedScrollView` @kind class @AccessFlag PUBLIC extends `android.widget.FrameLayout` @kind class, `androidx.core.view.NestedScrollingParent3` @kind interface, `androidx.core.view.NestedScrollingChild3` @kind interface, `androidx.core.view.ScrollingView` @kind interface {
+  `int` `androidx.core.widget.NestedScrollView.mActivePointerId` @AccessFlag PRIVATE;
+  `androidx.core.view.NestedScrollingChildHelper` `androidx.core.widget.NestedScrollView.mChildHelper` @AccessFlag PRIVATE_FINAL;
+  `android.view.View` `androidx.core.widget.NestedScrollView.mChildToScrollTo` @AccessFlag PRIVATE;
+  `android.widget.EdgeEffect` `androidx.core.widget.NestedScrollView.mEdgeGlowBottom` @AccessFlag PRIVATE;
+  `android.widget.EdgeEffect` `androidx.core.widget.NestedScrollView.mEdgeGlowTop` @AccessFlag PRIVATE;
+  `boolean` `androidx.core.widget.NestedScrollView.mFillViewport` @AccessFlag PRIVATE;
+  `boolean` `androidx.core.widget.NestedScrollView.mIsBeingDragged` @AccessFlag PRIVATE;
+  `boolean` `androidx.core.widget.NestedScrollView.mIsLaidOut` @AccessFlag PRIVATE;
+  `boolean` `androidx.core.widget.NestedScrollView.mIsLayoutDirty` @AccessFlag PRIVATE;
+  `int` `androidx.core.widget.NestedScrollView.mLastMotionY` @AccessFlag PRIVATE;
+  `long` `androidx.core.widget.NestedScrollView.mLastScroll` @AccessFlag PRIVATE;
+  `int` `androidx.core.widget.NestedScrollView.mLastScrollerY` @AccessFlag PRIVATE;
+  `int` `androidx.core.widget.NestedScrollView.mMaximumVelocity` @AccessFlag PRIVATE;
+  `int` `androidx.core.widget.NestedScrollView.mMinimumVelocity` @AccessFlag PRIVATE;
+  `int` `androidx.core.widget.NestedScrollView.mNestedYOffset` @AccessFlag PRIVATE;
+  `androidx.core.widget.NestedScrollView$OnScrollChangeListener` `androidx.core.widget.NestedScrollView.mOnScrollChangeListener` @AccessFlag PRIVATE;
+  `androidx.core.view.NestedScrollingParentHelper` `androidx.core.widget.NestedScrollView.mParentHelper` @AccessFlag PRIVATE_FINAL;
+  `androidx.core.widget.NestedScrollView$SavedState` `androidx.core.widget.NestedScrollView.mSavedState` @AccessFlag PRIVATE;
+  `int`[] `androidx.core.widget.NestedScrollView.mScrollConsumed` @AccessFlag PRIVATE_FINAL;
+  `int`[] `androidx.core.widget.NestedScrollView.mScrollOffset` @AccessFlag PRIVATE_FINAL;
+  `android.widget.OverScroller` `androidx.core.widget.NestedScrollView.mScroller` @AccessFlag PRIVATE;
+  `boolean` `androidx.core.widget.NestedScrollView.mSmoothScrollingEnabled` @AccessFlag PRIVATE;
+  `android.graphics.Rect` `androidx.core.widget.NestedScrollView.mTempRect` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.core.widget.NestedScrollView.mTouchSlop` @AccessFlag PRIVATE;
+  `android.view.VelocityTracker` `androidx.core.widget.NestedScrollView.mVelocityTracker` @AccessFlag PRIVATE;
+  `float` `androidx.core.widget.NestedScrollView.mVerticalScrollFactor` @AccessFlag PRIVATE;
+}
+global `androidx.core.widget.NestedScrollView$AccessibilityDelegate` `@@androidx.core.widget.NestedScrollView.ACCESSIBILITY_DELEGATE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.widget.NestedScrollView.ANIMATED_SCROLL_GAP` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.core.widget.NestedScrollView.INVALID_POINTER` @AccessFlag PRIVATE_STATIC_FINAL;
+global `float` `@@androidx.core.widget.NestedScrollView.MAX_SCROLL_FACTOR` @AccessFlag STATIC_FINAL;
+global `int`[] `@@androidx.core.widget.NestedScrollView.SCROLLVIEW_STYLEABLE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.widget.NestedScrollView.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/core/widget/NestedScrollView;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.core.widget.NestedScrollView` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Landroidx/core/widget/NestedScrollView;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.core.widget.NestedScrollView` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Landroidx/core/widget/NestedScrollView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.core.widget.NestedScrollView` v4 @kind this, `android.content.Context` v5 @kind object @name `context`, `android.util.AttributeSet` v6 @kind object @name `attrs`, `int` v7 @name `defStyleAttr`) @signature `Landroidx/core/widget/NestedScrollView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `abortAnimatedScroll`(`androidx.core.widget.NestedScrollView` v1 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.abortAnimatedScroll:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `canScroll`(`androidx.core.widget.NestedScrollView` v6 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.canScroll:()Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `clamp`(`int` v1 @name `n`, `int` v2 @name `my`, `int` v3 @name `child`) @signature `Landroidx/core/widget/NestedScrollView;.clamp:(III)I` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `doScrollY`(`androidx.core.widget.NestedScrollView` v2 @kind this, `int` v3 @name `delta`) @signature `Landroidx/core/widget/NestedScrollView;.doScrollY:(I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `endDrag`(`androidx.core.widget.NestedScrollView` v1 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.endDrag:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `ensureGlows`(`androidx.core.widget.NestedScrollView` v2 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.ensureGlows:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.view.View` `findFocusableViewInBounds`(`androidx.core.widget.NestedScrollView` v12 @kind this, `boolean` v13 @name `topFocus`, `int` v14 @name `top`, `int` v15 @name `bottom`) @signature `Landroidx/core/widget/NestedScrollView;.findFocusableViewInBounds:(ZII)Landroid/view/View;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `float` `getVerticalScrollFactorCompat`(`androidx.core.widget.NestedScrollView` v5 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.getVerticalScrollFactorCompat:()F` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `inChild`(`androidx.core.widget.NestedScrollView` v4 @kind this, `int` v5 @name `x`, `int` v6 @name `y`) @signature `Landroidx/core/widget/NestedScrollView;.inChild:(II)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `initOrResetVelocityTracker`(`androidx.core.widget.NestedScrollView` v1 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.initOrResetVelocityTracker:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `initScrollView`(`androidx.core.widget.NestedScrollView` v2 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.initScrollView:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `initVelocityTrackerIfNotExists`(`androidx.core.widget.NestedScrollView` v1 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.initVelocityTrackerIfNotExists:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `isOffScreen`(`androidx.core.widget.NestedScrollView` v2 @kind this, `android.view.View` v3 @kind object @name `descendant`) @signature `Landroidx/core/widget/NestedScrollView;.isOffScreen:(Landroid/view/View;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `isViewDescendantOf`(`android.view.View` v3 @kind object @name `child`, `android.view.View` v4 @kind object @name `parent`) @signature `Landroidx/core/widget/NestedScrollView;.isViewDescendantOf:(Landroid/view/View;Landroid/view/View;)Z` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `boolean` `isWithinDeltaOfScreen`(`androidx.core.widget.NestedScrollView` v2 @kind this, `android.view.View` v3 @kind object @name `descendant`, `int` v4 @name `delta`, `int` v5 @name `height`) @signature `Landroidx/core/widget/NestedScrollView;.isWithinDeltaOfScreen:(Landroid/view/View;II)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `onNestedScrollInternal`(`androidx.core.widget.NestedScrollView` v11 @kind this, `int` v12 @name `dyUnconsumed`, `int` v13 @name `type`, `int`[] v14 @kind object @name `consumed`) @signature `Landroidx/core/widget/NestedScrollView;.onNestedScrollInternal:(II[I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `onSecondaryPointerUp`(`androidx.core.widget.NestedScrollView` v4 @kind this, `android.view.MotionEvent` v5 @kind object @name `ev`) @signature `Landroidx/core/widget/NestedScrollView;.onSecondaryPointerUp:(Landroid/view/MotionEvent;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `recycleVelocityTracker`(`androidx.core.widget.NestedScrollView` v1 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.recycleVelocityTracker:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `runAnimatedScroll`(`androidx.core.widget.NestedScrollView` v2 @kind this, `boolean` v3 @name `participateInNestedScrolling`) @signature `Landroidx/core/widget/NestedScrollView;.runAnimatedScroll:(Z)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `scrollAndFocus`(`androidx.core.widget.NestedScrollView` v7 @kind this, `int` v8 @name `direction`, `int` v9 @name `top`, `int` v10 @name `bottom`) @signature `Landroidx/core/widget/NestedScrollView;.scrollAndFocus:(III)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `scrollToChild`(`androidx.core.widget.NestedScrollView` v2 @kind this, `android.view.View` v3 @kind object @name `child`) @signature `Landroidx/core/widget/NestedScrollView;.scrollToChild:(Landroid/view/View;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `scrollToChildRect`(`androidx.core.widget.NestedScrollView` v3 @kind this, `android.graphics.Rect` v4 @kind object @name `rect`, `boolean` v5 @name `immediate`) @signature `Landroidx/core/widget/NestedScrollView;.scrollToChildRect:(Landroid/graphics/Rect;Z)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `addView`(`androidx.core.widget.NestedScrollView` v2 @kind this, `android.view.View` v3 @kind object @name `child`) @signature `Landroidx/core/widget/NestedScrollView;.addView:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addView`(`androidx.core.widget.NestedScrollView` v2 @kind this, `android.view.View` v3 @kind object @name `child`, `int` v4 @name `index`) @signature `Landroidx/core/widget/NestedScrollView;.addView:(Landroid/view/View;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addView`(`androidx.core.widget.NestedScrollView` v2 @kind this, `android.view.View` v3 @kind object @name `child`, `int` v4 @name `index`, `android.view.ViewGroup$LayoutParams` v5 @kind object @name `params`) @signature `Landroidx/core/widget/NestedScrollView;.addView:(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addView`(`androidx.core.widget.NestedScrollView` v2 @kind this, `android.view.View` v3 @kind object @name `child`, `android.view.ViewGroup$LayoutParams` v4 @kind object @name `params`) @signature `Landroidx/core/widget/NestedScrollView;.addView:(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `arrowScroll`(`androidx.core.widget.NestedScrollView` v11 @kind this, `int` v12 @name `direction`) @signature `Landroidx/core/widget/NestedScrollView;.arrowScroll:(I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `computeHorizontalScrollExtent`(`androidx.core.widget.NestedScrollView` v1 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.computeHorizontalScrollExtent:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `computeHorizontalScrollOffset`(`androidx.core.widget.NestedScrollView` v1 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.computeHorizontalScrollOffset:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `computeHorizontalScrollRange`(`androidx.core.widget.NestedScrollView` v1 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.computeHorizontalScrollRange:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `computeScroll`(`androidx.core.widget.NestedScrollView` v17 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.computeScroll:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `computeScrollDeltaToGetChildRectOnScreen`(`androidx.core.widget.NestedScrollView` v10 @kind this, `android.graphics.Rect` v11 @kind object @name `rect`) @signature `Landroidx/core/widget/NestedScrollView;.computeScrollDeltaToGetChildRectOnScreen:(Landroid/graphics/Rect;)I` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `int` `computeVerticalScrollExtent`(`androidx.core.widget.NestedScrollView` v1 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.computeVerticalScrollExtent:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `computeVerticalScrollOffset`(`androidx.core.widget.NestedScrollView` v2 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.computeVerticalScrollOffset:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `computeVerticalScrollRange`(`androidx.core.widget.NestedScrollView` v8 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.computeVerticalScrollRange:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `dispatchKeyEvent`(`androidx.core.widget.NestedScrollView` v1 @kind this, `android.view.KeyEvent` v2 @kind object @name `event`) @signature `Landroidx/core/widget/NestedScrollView;.dispatchKeyEvent:(Landroid/view/KeyEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `dispatchNestedFling`(`androidx.core.widget.NestedScrollView` v1 @kind this, `float` v2 @name `velocityX`, `float` v3 @name `velocityY`, `boolean` v4 @name `consumed`) @signature `Landroidx/core/widget/NestedScrollView;.dispatchNestedFling:(FFZ)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `dispatchNestedPreFling`(`androidx.core.widget.NestedScrollView` v1 @kind this, `float` v2 @name `velocityX`, `float` v3 @name `velocityY`) @signature `Landroidx/core/widget/NestedScrollView;.dispatchNestedPreFling:(FF)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `dispatchNestedPreScroll`(`androidx.core.widget.NestedScrollView` v6 @kind this, `int` v7 @name `dx`, `int` v8 @name `dy`, `int`[] v9 @kind object @name `consumed`, `int`[] v10 @kind object @name `offsetInWindow`) @signature `Landroidx/core/widget/NestedScrollView;.dispatchNestedPreScroll:(II[I[I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `dispatchNestedPreScroll`(`androidx.core.widget.NestedScrollView` v6 @kind this, `int` v7 @name `dx`, `int` v8 @name `dy`, `int`[] v9 @kind object @name `consumed`, `int`[] v10 @kind object @name `offsetInWindow`, `int` v11 @name `type`) @signature `Landroidx/core/widget/NestedScrollView;.dispatchNestedPreScroll:(II[I[II)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `dispatchNestedScroll`(`androidx.core.widget.NestedScrollView` v8 @kind this, `int` v9 @name `dxConsumed`, `int` v10 @name `dyConsumed`, `int` v11 @name `dxUnconsumed`, `int` v12 @name `dyUnconsumed`, `int`[] v13 @kind object @name `offsetInWindow`, `int` v14 @name `type`, `int`[] v15 @kind object @name `consumed`) @signature `Landroidx/core/widget/NestedScrollView;.dispatchNestedScroll:(IIII[II[I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `dispatchNestedScroll`(`androidx.core.widget.NestedScrollView` v6 @kind this, `int` v7 @name `dxConsumed`, `int` v8 @name `dyConsumed`, `int` v9 @name `dxUnconsumed`, `int` v10 @name `dyUnconsumed`, `int`[] v11 @kind object @name `offsetInWindow`) @signature `Landroidx/core/widget/NestedScrollView;.dispatchNestedScroll:(IIII[I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `dispatchNestedScroll`(`androidx.core.widget.NestedScrollView` v7 @kind this, `int` v8 @name `dxConsumed`, `int` v9 @name `dyConsumed`, `int` v10 @name `dxUnconsumed`, `int` v11 @name `dyUnconsumed`, `int`[] v12 @kind object @name `offsetInWindow`, `int` v13 @name `type`) @signature `Landroidx/core/widget/NestedScrollView;.dispatchNestedScroll:(IIII[II)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `draw`(`androidx.core.widget.NestedScrollView` v9 @kind this, `android.graphics.Canvas` v10 @kind object @name `canvas`) @signature `Landroidx/core/widget/NestedScrollView;.draw:(Landroid/graphics/Canvas;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `executeKeyEvent`(`androidx.core.widget.NestedScrollView` v5 @kind this, `android.view.KeyEvent` v6 @kind object @name `event`) @signature `Landroidx/core/widget/NestedScrollView;.executeKeyEvent:(Landroid/view/KeyEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `fling`(`androidx.core.widget.NestedScrollView` v12 @kind this, `int` v13 @name `velocityY`) @signature `Landroidx/core/widget/NestedScrollView;.fling:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `fullScroll`(`androidx.core.widget.NestedScrollView` v8 @kind this, `int` v9 @name `direction`) @signature `Landroidx/core/widget/NestedScrollView;.fullScroll:(I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `float` `getBottomFadingEdgeStrength`(`androidx.core.widget.NestedScrollView` v7 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.getBottomFadingEdgeStrength:()F` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `int` `getMaxScrollAmount`(`androidx.core.widget.NestedScrollView` v2 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.getMaxScrollAmount:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getNestedScrollAxes`(`androidx.core.widget.NestedScrollView` v1 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.getNestedScrollAxes:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getScrollRange`(`androidx.core.widget.NestedScrollView` v7 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.getScrollRange:()I` @AccessFlag  {
+
+  # return;
+}
+procedure `float` `getTopFadingEdgeStrength`(`androidx.core.widget.NestedScrollView` v4 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.getTopFadingEdgeStrength:()F` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `boolean` `hasNestedScrollingParent`(`androidx.core.widget.NestedScrollView` v1 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.hasNestedScrollingParent:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `hasNestedScrollingParent`(`androidx.core.widget.NestedScrollView` v1 @kind this, `int` v2 @name `type`) @signature `Landroidx/core/widget/NestedScrollView;.hasNestedScrollingParent:(I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isFillViewport`(`androidx.core.widget.NestedScrollView` v1 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.isFillViewport:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isNestedScrollingEnabled`(`androidx.core.widget.NestedScrollView` v1 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.isNestedScrollingEnabled:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isSmoothScrollingEnabled`(`androidx.core.widget.NestedScrollView` v1 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.isSmoothScrollingEnabled:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `measureChild`(`androidx.core.widget.NestedScrollView` v3 @kind this, `android.view.View` v4 @kind object @name `child`, `int` v5 @name `parentWidthMeasureSpec`, `int` v6 @name `parentHeightMeasureSpec`) @signature `Landroidx/core/widget/NestedScrollView;.measureChild:(Landroid/view/View;II)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `measureChildWithMargins`(`androidx.core.widget.NestedScrollView` v4 @kind this, `android.view.View` v5 @kind object @name `child`, `int` v6 @name `parentWidthMeasureSpec`, `int` v7 @name `widthUsed`, `int` v8 @name `parentHeightMeasureSpec`, `int` v9 @name `heightUsed`) @signature `Landroidx/core/widget/NestedScrollView;.measureChildWithMargins:(Landroid/view/View;IIII)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onAttachedToWindow`(`androidx.core.widget.NestedScrollView` v1 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.onAttachedToWindow:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onGenericMotionEvent`(`androidx.core.widget.NestedScrollView` v6 @kind this, `android.view.MotionEvent` v7 @kind object @name `event`) @signature `Landroidx/core/widget/NestedScrollView;.onGenericMotionEvent:(Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onInterceptTouchEvent`(`androidx.core.widget.NestedScrollView` v17 @kind this, `android.view.MotionEvent` v18 @kind object @name `ev`) @signature `Landroidx/core/widget/NestedScrollView;.onInterceptTouchEvent:(Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onLayout`(`androidx.core.widget.NestedScrollView` v5 @kind this, `boolean` v6 @name `changed`, `int` v7 @name `l`, `int` v8 @name `t`, `int` v9 @name `r`, `int` v10 @name `b`) @signature `Landroidx/core/widget/NestedScrollView;.onLayout:(ZIIII)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onMeasure`(`androidx.core.widget.NestedScrollView` v7 @kind this, `int` v8 @name `widthMeasureSpec`, `int` v9 @name `heightMeasureSpec`) @signature `Landroidx/core/widget/NestedScrollView;.onMeasure:(II)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `boolean` `onNestedFling`(`androidx.core.widget.NestedScrollView` v2 @kind this, `android.view.View` v3 @kind object @name `target`, `float` v4 @name `velocityX`, `float` v5 @name `velocityY`, `boolean` v6 @name `consumed`) @signature `Landroidx/core/widget/NestedScrollView;.onNestedFling:(Landroid/view/View;FFZ)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onNestedPreFling`(`androidx.core.widget.NestedScrollView` v1 @kind this, `android.view.View` v2 @kind object @name `target`, `float` v3 @name `velocityX`, `float` v4 @name `velocityY`) @signature `Landroidx/core/widget/NestedScrollView;.onNestedPreFling:(Landroid/view/View;FF)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onNestedPreScroll`(`androidx.core.widget.NestedScrollView` v6 @kind this, `android.view.View` v7 @kind object @name `target`, `int` v8 @name `dx`, `int` v9 @name `dy`, `int`[] v10 @kind object @name `consumed`) @signature `Landroidx/core/widget/NestedScrollView;.onNestedPreScroll:(Landroid/view/View;II[I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onNestedPreScroll`(`androidx.core.widget.NestedScrollView` v6 @kind this, `android.view.View` v7 @kind object @name `target`, `int` v8 @name `dx`, `int` v9 @name `dy`, `int`[] v10 @kind object @name `consumed`, `int` v11 @name `type`) @signature `Landroidx/core/widget/NestedScrollView;.onNestedPreScroll:(Landroid/view/View;II[II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onNestedScroll`(`androidx.core.widget.NestedScrollView` v2 @kind this, `android.view.View` v3 @kind object @name `target`, `int` v4 @name `dxConsumed`, `int` v5 @name `dyConsumed`, `int` v6 @name `dxUnconsumed`, `int` v7 @name `dyUnconsumed`) @signature `Landroidx/core/widget/NestedScrollView;.onNestedScroll:(Landroid/view/View;IIII)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onNestedScroll`(`androidx.core.widget.NestedScrollView` v1 @kind this, `android.view.View` v2 @kind object @name `target`, `int` v3 @name `dxConsumed`, `int` v4 @name `dyConsumed`, `int` v5 @name `dxUnconsumed`, `int` v6 @name `dyUnconsumed`, `int` v7 @name `type`) @signature `Landroidx/core/widget/NestedScrollView;.onNestedScroll:(Landroid/view/View;IIIII)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onNestedScroll`(`androidx.core.widget.NestedScrollView` v0 @kind this, `android.view.View` v1 @kind object @name `target`, `int` v2 @name `dxConsumed`, `int` v3 @name `dyConsumed`, `int` v4 @name `dxUnconsumed`, `int` v5 @name `dyUnconsumed`, `int` v6 @name `type`, `int`[] v7 @kind object @name `consumed`) @signature `Landroidx/core/widget/NestedScrollView;.onNestedScroll:(Landroid/view/View;IIIII[I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onNestedScrollAccepted`(`androidx.core.widget.NestedScrollView` v1 @kind this, `android.view.View` v2 @kind object @name `child`, `android.view.View` v3 @kind object @name `target`, `int` v4 @name `nestedScrollAxes`) @signature `Landroidx/core/widget/NestedScrollView;.onNestedScrollAccepted:(Landroid/view/View;Landroid/view/View;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onNestedScrollAccepted`(`androidx.core.widget.NestedScrollView` v1 @kind this, `android.view.View` v2 @kind object @name `child`, `android.view.View` v3 @kind object @name `target`, `int` v4 @name `axes`, `int` v5 @name `type`) @signature `Landroidx/core/widget/NestedScrollView;.onNestedScrollAccepted:(Landroid/view/View;Landroid/view/View;II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onOverScrolled`(`androidx.core.widget.NestedScrollView` v0 @kind this, `int` v1 @name `scrollX`, `int` v2 @name `scrollY`, `boolean` v3 @name `clampedX`, `boolean` v4 @name `clampedY`) @signature `Landroidx/core/widget/NestedScrollView;.onOverScrolled:(IIZZ)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `boolean` `onRequestFocusInDescendants`(`androidx.core.widget.NestedScrollView` v3 @kind this, `int` v4 @name `direction`, `android.graphics.Rect` v5 @kind object @name `previouslyFocusedRect`) @signature `Landroidx/core/widget/NestedScrollView;.onRequestFocusInDescendants:(ILandroid/graphics/Rect;)Z` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onRestoreInstanceState`(`androidx.core.widget.NestedScrollView` v2 @kind this, `android.os.Parcelable` v3 @kind object @name `state`) @signature `Landroidx/core/widget/NestedScrollView;.onRestoreInstanceState:(Landroid/os/Parcelable;)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `android.os.Parcelable` `onSaveInstanceState`(`androidx.core.widget.NestedScrollView` v3 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.onSaveInstanceState:()Landroid/os/Parcelable;` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onScrollChanged`(`androidx.core.widget.NestedScrollView` v6 @kind this, `int` v7 @name `l`, `int` v8 @name `t`, `int` v9 @name `oldl`, `int` v10 @name `oldt`) @signature `Landroidx/core/widget/NestedScrollView;.onScrollChanged:(IIII)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onSizeChanged`(`androidx.core.widget.NestedScrollView` v2 @kind this, `int` v3 @name `w`, `int` v4 @name `h`, `int` v5 @name `oldw`, `int` v6 @name `oldh`) @signature `Landroidx/core/widget/NestedScrollView;.onSizeChanged:(IIII)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `boolean` `onStartNestedScroll`(`androidx.core.widget.NestedScrollView` v1 @kind this, `android.view.View` v2 @kind object @name `child`, `android.view.View` v3 @kind object @name `target`, `int` v4 @name `nestedScrollAxes`) @signature `Landroidx/core/widget/NestedScrollView;.onStartNestedScroll:(Landroid/view/View;Landroid/view/View;I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onStartNestedScroll`(`androidx.core.widget.NestedScrollView` v1 @kind this, `android.view.View` v2 @kind object @name `child`, `android.view.View` v3 @kind object @name `target`, `int` v4 @name `axes`, `int` v5 @name `type`) @signature `Landroidx/core/widget/NestedScrollView;.onStartNestedScroll:(Landroid/view/View;Landroid/view/View;II)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onStopNestedScroll`(`androidx.core.widget.NestedScrollView` v1 @kind this, `android.view.View` v2 @kind object @name `target`) @signature `Landroidx/core/widget/NestedScrollView;.onStopNestedScroll:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onStopNestedScroll`(`androidx.core.widget.NestedScrollView` v1 @kind this, `android.view.View` v2 @kind object @name `target`, `int` v3 @name `type`) @signature `Landroidx/core/widget/NestedScrollView;.onStopNestedScroll:(Landroid/view/View;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onTouchEvent`(`androidx.core.widget.NestedScrollView` v25 @kind this, `android.view.MotionEvent` v26 @kind object @name `ev`) @signature `Landroidx/core/widget/NestedScrollView;.onTouchEvent:(Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `overScrollByCompat`(`androidx.core.widget.NestedScrollView` v26 @kind this, `int` v27 @name `deltaX`, `int` v28 @name `deltaY`, `int` v29 @name `scrollX`, `int` v30 @name `scrollY`, `int` v31 @name `scrollRangeX`, `int` v32 @name `scrollRangeY`, `int` v33 @name `maxOverScrollX`, `int` v34 @name `maxOverScrollY`, `boolean` v35 @name `isTouchEvent`) @signature `Landroidx/core/widget/NestedScrollView;.overScrollByCompat:(IIIIIIIIZ)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `pageScroll`(`androidx.core.widget.NestedScrollView` v8 @kind this, `int` v9 @name `direction`) @signature `Landroidx/core/widget/NestedScrollView;.pageScroll:(I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `requestChildFocus`(`androidx.core.widget.NestedScrollView` v1 @kind this, `android.view.View` v2 @kind object @name `child`, `android.view.View` v3 @kind object @name `focused`) @signature `Landroidx/core/widget/NestedScrollView;.requestChildFocus:(Landroid/view/View;Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `requestChildRectangleOnScreen`(`androidx.core.widget.NestedScrollView` v3 @kind this, `android.view.View` v4 @kind object @name `child`, `android.graphics.Rect` v5 @kind object @name `rectangle`, `boolean` v6 @name `immediate`) @signature `Landroidx/core/widget/NestedScrollView;.requestChildRectangleOnScreen:(Landroid/view/View;Landroid/graphics/Rect;Z)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `requestDisallowInterceptTouchEvent`(`androidx.core.widget.NestedScrollView` v0 @kind this, `boolean` v1 @name `disallowIntercept`) @signature `Landroidx/core/widget/NestedScrollView;.requestDisallowInterceptTouchEvent:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `requestLayout`(`androidx.core.widget.NestedScrollView` v1 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.requestLayout:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `scrollTo`(`androidx.core.widget.NestedScrollView` v7 @kind this, `int` v8 @name `x`, `int` v9 @name `y`) @signature `Landroidx/core/widget/NestedScrollView;.scrollTo:(II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setFillViewport`(`androidx.core.widget.NestedScrollView` v1 @kind this, `boolean` v2 @name `fillViewport`) @signature `Landroidx/core/widget/NestedScrollView;.setFillViewport:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setNestedScrollingEnabled`(`androidx.core.widget.NestedScrollView` v1 @kind this, `boolean` v2 @name `enabled`) @signature `Landroidx/core/widget/NestedScrollView;.setNestedScrollingEnabled:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOnScrollChangeListener`(`androidx.core.widget.NestedScrollView` v0 @kind this, `androidx.core.widget.NestedScrollView$OnScrollChangeListener` v1 @kind object @name `l`) @signature `Landroidx/core/widget/NestedScrollView;.setOnScrollChangeListener:(Landroidx/core/widget/NestedScrollView$OnScrollChangeListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSmoothScrollingEnabled`(`androidx.core.widget.NestedScrollView` v0 @kind this, `boolean` v1 @name `smoothScrollingEnabled`) @signature `Landroidx/core/widget/NestedScrollView;.setSmoothScrollingEnabled:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `shouldDelayChildPressedState`(`androidx.core.widget.NestedScrollView` v1 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.shouldDelayChildPressedState:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `smoothScrollBy`(`androidx.core.widget.NestedScrollView` v11 @kind this, `int` v12 @name `dx`, `int` v13 @name `dy`) @signature `Landroidx/core/widget/NestedScrollView;.smoothScrollBy:(II)V` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `void` `smoothScrollTo`(`androidx.core.widget.NestedScrollView` v2 @kind this, `int` v3 @name `x`, `int` v4 @name `y`) @signature `Landroidx/core/widget/NestedScrollView;.smoothScrollTo:(II)V` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `boolean` `startNestedScroll`(`androidx.core.widget.NestedScrollView` v1 @kind this, `int` v2 @name `axes`) @signature `Landroidx/core/widget/NestedScrollView;.startNestedScroll:(I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `startNestedScroll`(`androidx.core.widget.NestedScrollView` v1 @kind this, `int` v2 @name `axes`, `int` v3 @name `type`) @signature `Landroidx/core/widget/NestedScrollView;.startNestedScroll:(II)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `stopNestedScroll`(`androidx.core.widget.NestedScrollView` v1 @kind this) @signature `Landroidx/core/widget/NestedScrollView;.stopNestedScroll:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `stopNestedScroll`(`androidx.core.widget.NestedScrollView` v1 @kind this, `int` v2 @name `type`) @signature `Landroidx/core/widget/NestedScrollView;.stopNestedScroll:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}

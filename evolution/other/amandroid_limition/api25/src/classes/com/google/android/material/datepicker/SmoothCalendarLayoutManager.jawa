@@ -1,0 +1,22 @@
+record `com.google.android.material.datepicker.SmoothCalendarLayoutManager` @kind class @AccessFlag  extends `androidx.recyclerview.widget.LinearLayoutManager` @kind class {
+}
+global `float` `@@com.google.android.material.datepicker.SmoothCalendarLayoutManager.MILLISECONDS_PER_INCH` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.datepicker.SmoothCalendarLayoutManager` v0 @kind this, `android.content.Context` v1 @kind object @name `context`, `int` v2 @name `orientation`, `boolean` v3 @name `reverseLayout`) @signature `Lcom/google/android/material/datepicker/SmoothCalendarLayoutManager;.<init>:(Landroid/content/Context;IZ)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L19b704.  call `<init>`(v0, v1, v2, v3) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.<init>:(Landroid/content/Context;IZ)V` @kind direct;
+  #L19b70a.  return @kind void;
+}
+procedure `void` `smoothScrollToPosition`(`com.google.android.material.datepicker.SmoothCalendarLayoutManager` v2 @kind this, `androidx.recyclerview.widget.RecyclerView` v3 @kind object @name `recyclerView`, `androidx.recyclerview.widget.RecyclerView$State` v4 @kind object @name `state`, `int` v5 @name `position`) @signature `Lcom/google/android/material/datepicker/SmoothCalendarLayoutManager;.smoothScrollToPosition:(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19b71c.  v0:= new `com.google.android.material.datepicker.SmoothCalendarLayoutManager$1`;
+  #L19b720.  call temp:= `getContext`(v3) @signature `Landroidx/recyclerview/widget/RecyclerView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L19b726.  v1:= temp @kind object;
+  #L19b728.  call `<init>`(v0, v2, v1) @signature `Lcom/google/android/material/datepicker/SmoothCalendarLayoutManager$1;.<init>:(Lcom/google/android/material/datepicker/SmoothCalendarLayoutManager;Landroid/content/Context;)V` @kind direct;
+  #L19b72e.  call `setTargetPosition`(v0, v5) @signature `Landroidx/recyclerview/widget/LinearSmoothScroller;.setTargetPosition:(I)V` @kind virtual;
+  #L19b734.  call `startSmoothScroll`(v2, v0) @signature `Lcom/google/android/material/datepicker/SmoothCalendarLayoutManager;.startSmoothScroll:(Landroidx/recyclerview/widget/RecyclerView$SmoothScroller;)V` @kind virtual;
+  #L19b73a.  return @kind void;
+}

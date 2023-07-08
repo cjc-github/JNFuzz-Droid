@@ -1,0 +1,99 @@
+record `com.google.android.material.datepicker.MaterialTextInputPicker` @kind class @AccessFlag PUBLIC_FINAL extends `com.google.android.material.datepicker.PickerFragment` @kind class {
+  `com.google.android.material.datepicker.CalendarConstraints` `com.google.android.material.datepicker.MaterialTextInputPicker.calendarConstraints` @AccessFlag PRIVATE;
+  `com.google.android.material.datepicker.DateSelector` `com.google.android.material.datepicker.MaterialTextInputPicker.dateSelector` @AccessFlag PRIVATE;
+}
+global `java.lang.String` `@@com.google.android.material.datepicker.MaterialTextInputPicker.CALENDAR_CONSTRAINTS_KEY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@com.google.android.material.datepicker.MaterialTextInputPicker.DATE_SELECTOR_KEY` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.datepicker.MaterialTextInputPicker` v0 @kind this) @signature `Lcom/google/android/material/datepicker/MaterialTextInputPicker;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L199cd8.  call `<init>`(v0) @signature `Lcom/google/android/material/datepicker/PickerFragment;.<init>:()V` @kind direct;
+  #L199cde.  return @kind void;
+}
+procedure `com.google.android.material.datepicker.MaterialTextInputPicker` `newInstance`(`com.google.android.material.datepicker.DateSelector` v3 @kind object, `com.google.android.material.datepicker.CalendarConstraints` v4 @kind object @name `calendarConstraints`) @signature `Lcom/google/android/material/datepicker/MaterialTextInputPicker;.newInstance:(Lcom/google/android/material/datepicker/DateSelector;Lcom/google/android/material/datepicker/CalendarConstraints;)Lcom/google/android/material/datepicker/MaterialTextInputPicker;` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L199c98.  v0:= new `com.google.android.material.datepicker.MaterialTextInputPicker`;
+  #L199c9c.  call `<init>`(v0) @signature `Lcom/google/android/material/datepicker/MaterialTextInputPicker;.<init>:()V` @kind direct;
+  #L199ca2.  v1:= new `android.os.Bundle`;
+  #L199ca6.  call `<init>`(v1) @signature `Landroid/os/Bundle;.<init>:()V` @kind direct;
+  #L199cac.  v2:= "DATE_SELECTOR_KEY" @kind object;
+  #L199cb0.  call `putParcelable`(v1, v2, v3) @signature `Landroid/os/Bundle;.putParcelable:(Ljava/lang/String;Landroid/os/Parcelable;)V` @kind virtual;
+  #L199cb6.  v2:= "CALENDAR_CONSTRAINTS_KEY" @kind object;
+  #L199cba.  call `putParcelable`(v1, v2, v4) @signature `Landroid/os/Bundle;.putParcelable:(Ljava/lang/String;Landroid/os/Parcelable;)V` @kind virtual;
+  #L199cc0.  call `setArguments`(v0, v1) @signature `Lcom/google/android/material/datepicker/MaterialTextInputPicker;.setArguments:(Landroid/os/Bundle;)V` @kind virtual;
+  #L199cc6.  return v0 @kind object;
+}
+procedure `com.google.android.material.datepicker.DateSelector` `getDateSelector`(`com.google.android.material.datepicker.MaterialTextInputPicker` v2 @kind this) @signature `Lcom/google/android/material/datepicker/MaterialTextInputPicker;.getDateSelector:()Lcom/google/android/material/datepicker/DateSelector;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L199c6c.  v0:= v2.`com.google.android.material.datepicker.MaterialTextInputPicker.dateSelector` @type ^`com.google.android.material.datepicker.DateSelector` @kind object;
+  #L199c70.  if v0 == 0 then goto L199c76;
+  #L199c74.  return v0 @kind object;
+  #L199c76.  v0:= new `java.lang.IllegalStateException`;
+  #L199c7a.  v1:= "dateSelector should not be null. Use MaterialTextInputPicker#newInstance() to create this fragment with a DateSelector, and call this method after the fragment has been created." @kind object;
+  #L199c7e.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalStateException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L199c84.  throw v0;
+}
+procedure `void` `onCreate`(`com.google.android.material.datepicker.MaterialTextInputPicker` v2 @kind this, `android.os.Bundle` v3 @kind object @name `bundle`) @signature `Lcom/google/android/material/datepicker/MaterialTextInputPicker;.onCreate:(Landroid/os/Bundle;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L199cf0.  call `onCreate`(v2, v3) @signature `Lcom/google/android/material/datepicker/PickerFragment;.onCreate:(Landroid/os/Bundle;)V` @kind super;
+  #L199cf6.  if v3 != 0 then goto L199d04;
+  #L199cfa.  call temp:= `getArguments`(v2) @signature `Lcom/google/android/material/datepicker/MaterialTextInputPicker;.getArguments:()Landroid/os/Bundle;` @kind virtual;
+  #L199d00.  v0:= temp @kind object;
+  #L199d02.  goto L199d06;
+  #L199d04.  v0:= v3 @kind object;
+  #L199d06.  v1:= "DATE_SELECTOR_KEY" @kind object;
+  #L199d0a.  call temp:= `getParcelable`(v0, v1) @signature `Landroid/os/Bundle;.getParcelable:(Ljava/lang/String;)Landroid/os/Parcelable;` @kind virtual;
+  #L199d10.  v1:= temp @kind object;
+  #L199d12.  v1:= (`com.google.android.material.datepicker.DateSelector`) v1 @kind object;
+  #L199d16.  v2.`com.google.android.material.datepicker.MaterialTextInputPicker.dateSelector` @type ^`com.google.android.material.datepicker.DateSelector` := v1 @kind object;
+  #L199d1a.  v1:= "CALENDAR_CONSTRAINTS_KEY" @kind object;
+  #L199d1e.  call temp:= `getParcelable`(v0, v1) @signature `Landroid/os/Bundle;.getParcelable:(Ljava/lang/String;)Landroid/os/Parcelable;` @kind virtual;
+  #L199d24.  v1:= temp @kind object;
+  #L199d26.  v1:= (`com.google.android.material.datepicker.CalendarConstraints`) v1 @kind object;
+  #L199d2a.  v2.`com.google.android.material.datepicker.MaterialTextInputPicker.calendarConstraints` @type ^`com.google.android.material.datepicker.CalendarConstraints` := v1 @kind object;
+  #L199d2e.  return @kind void;
+}
+procedure `android.view.View` `onCreateView`(`com.google.android.material.datepicker.MaterialTextInputPicker` v6 @kind this, `android.view.LayoutInflater` v7 @kind object @name `layoutInflater`, `android.view.ViewGroup` v8 @kind object @name `viewGroup`, `android.os.Bundle` v9 @kind object @name `bundle`) @signature `Lcom/google/android/material/datepicker/MaterialTextInputPicker;.onCreateView:(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L199c38.  v0:= v6.`com.google.android.material.datepicker.MaterialTextInputPicker.dateSelector` @type ^`com.google.android.material.datepicker.DateSelector` @kind object;
+  #L199c3c.  v4:= v6.`com.google.android.material.datepicker.MaterialTextInputPicker.calendarConstraints` @type ^`com.google.android.material.datepicker.CalendarConstraints` @kind object;
+  #L199c40.  v5:= new `com.google.android.material.datepicker.MaterialTextInputPicker$1`;
+  #L199c44.  call `<init>`(v5, v6) @signature `Lcom/google/android/material/datepicker/MaterialTextInputPicker$1;.<init>:(Lcom/google/android/material/datepicker/MaterialTextInputPicker;)V` @kind direct;
+  #L199c4a.  v1:= v7 @kind object;
+  #L199c4c.  v2:= v8 @kind object;
+  #L199c4e.  v3:= v9 @kind object;
+  #L199c50.  call temp:= `onCreateTextInputView`(v0, v1, v2, v3, v4, v5) @signature `Lcom/google/android/material/datepicker/DateSelector;.onCreateTextInputView:(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;Lcom/google/android/material/datepicker/CalendarConstraints;Lcom/google/android/material/datepicker/OnSelectionChangedListener;)Landroid/view/View;` @kind interface;
+  #L199c56.  v0:= temp @kind object;
+  #L199c58.  return v0 @kind object;
+}
+procedure `void` `onSaveInstanceState`(`com.google.android.material.datepicker.MaterialTextInputPicker` v2 @kind this, `android.os.Bundle` v3 @kind object @name `bundle`) @signature `Lcom/google/android/material/datepicker/MaterialTextInputPicker;.onSaveInstanceState:(Landroid/os/Bundle;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L199d40.  call `onSaveInstanceState`(v2, v3) @signature `Lcom/google/android/material/datepicker/PickerFragment;.onSaveInstanceState:(Landroid/os/Bundle;)V` @kind super;
+  #L199d46.  v0:= v2.`com.google.android.material.datepicker.MaterialTextInputPicker.dateSelector` @type ^`com.google.android.material.datepicker.DateSelector` @kind object;
+  #L199d4a.  v1:= "DATE_SELECTOR_KEY" @kind object;
+  #L199d4e.  call `putParcelable`(v3, v1, v0) @signature `Landroid/os/Bundle;.putParcelable:(Ljava/lang/String;Landroid/os/Parcelable;)V` @kind virtual;
+  #L199d54.  v0:= v2.`com.google.android.material.datepicker.MaterialTextInputPicker.calendarConstraints` @type ^`com.google.android.material.datepicker.CalendarConstraints` @kind object;
+  #L199d58.  v1:= "CALENDAR_CONSTRAINTS_KEY" @kind object;
+  #L199d5c.  call `putParcelable`(v3, v1, v0) @signature `Landroid/os/Bundle;.putParcelable:(Ljava/lang/String;Landroid/os/Parcelable;)V` @kind virtual;
+  #L199d62.  return @kind void;
+}

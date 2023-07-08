@@ -1,0 +1,28 @@
+record `com.google.android.material.bottomappbar.BottomAppBar$8` @kind class @AccessFlag  extends `android.animation.AnimatorListenerAdapter` @kind class {
+  `com.google.android.material.bottomappbar.BottomAppBar` `com.google.android.material.bottomappbar.BottomAppBar$8.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomappbar.BottomAppBar$8` v0 @kind this, `com.google.android.material.bottomappbar.BottomAppBar` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$8;.<init>:(Lcom/google/android/material/bottomappbar/BottomAppBar;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L184778.  v0.`com.google.android.material.bottomappbar.BottomAppBar$8.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar` := v1 @kind object;
+  #L18477c.  call `<init>`(v0) @signature `Landroid/animation/AnimatorListenerAdapter;.<init>:()V` @kind direct;
+  #L184782.  return @kind void;
+}
+procedure `void` `onAnimationStart`(`com.google.android.material.bottomappbar.BottomAppBar$8` v2 @kind this, `android.animation.Animator` v3 @kind object @name `animation`) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar$8;.onAnimationStart:(Landroid/animation/Animator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L184794.  v0:= v2.`com.google.android.material.bottomappbar.BottomAppBar$8.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar` @kind object;
+  #L184798.  v0:= v0.`com.google.android.material.bottomappbar.BottomAppBar.fabAnimationListener` @type ^`android.animation.AnimatorListenerAdapter` @kind object;
+  #L18479c.  call `onAnimationStart`(v0, v3) @signature `Landroid/animation/AnimatorListenerAdapter;.onAnimationStart:(Landroid/animation/Animator;)V` @kind virtual;
+  #L1847a2.  v0:= v2.`com.google.android.material.bottomappbar.BottomAppBar$8.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar` @kind object;
+  #L1847a6.  call temp:= `access$1100`(v0) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$1100:(Lcom/google/android/material/bottomappbar/BottomAppBar;)Lcom/google/android/material/floatingactionbutton/FloatingActionButton;` @kind static;
+  #L1847ac.  v0:= temp @kind object;
+  #L1847ae.  if v0 == 0 then goto L1847c4;
+  #L1847b2.  v1:= v2.`com.google.android.material.bottomappbar.BottomAppBar$8.this$0` @type ^`com.google.android.material.bottomappbar.BottomAppBar` @kind object;
+  #L1847b6.  call temp:= `access$1200`(v1) @signature `Lcom/google/android/material/bottomappbar/BottomAppBar;.access$1200:(Lcom/google/android/material/bottomappbar/BottomAppBar;)F` @kind static;
+  #L1847bc.  v1:= temp;
+  #L1847be.  call `setTranslationX`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.setTranslationX:(F)V` @kind virtual;
+  #L1847c4.  return @kind void;
+}

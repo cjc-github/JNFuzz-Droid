@@ -1,0 +1,438 @@
+record `androidx.appcompat.app.AppCompatDelegateImpl` @kind class @AccessFlag  extends `androidx.appcompat.app.AppCompatDelegate` @kind class, `androidx.appcompat.view.menu.MenuBuilder$Callback` @kind interface, `android.view.LayoutInflater$Factory2` @kind interface {
+  `androidx.appcompat.app.ActionBar` `androidx.appcompat.app.AppCompatDelegateImpl.mActionBar` @AccessFlag ;
+  `androidx.appcompat.app.AppCompatDelegateImpl$ActionMenuPresenterCallback` `androidx.appcompat.app.AppCompatDelegateImpl.mActionMenuPresenterCallback` @AccessFlag PRIVATE;
+  `androidx.appcompat.view.ActionMode` `androidx.appcompat.app.AppCompatDelegateImpl.mActionMode` @AccessFlag ;
+  `android.widget.PopupWindow` `androidx.appcompat.app.AppCompatDelegateImpl.mActionModePopup` @AccessFlag ;
+  `androidx.appcompat.widget.ActionBarContextView` `androidx.appcompat.app.AppCompatDelegateImpl.mActionModeView` @AccessFlag ;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mActivityHandlesUiMode` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mActivityHandlesUiModeChecked` @AccessFlag PRIVATE;
+  `androidx.appcompat.app.AppCompatCallback` `androidx.appcompat.app.AppCompatDelegateImpl.mAppCompatCallback` @AccessFlag FINAL;
+  `androidx.appcompat.app.AppCompatViewInflater` `androidx.appcompat.app.AppCompatDelegateImpl.mAppCompatViewInflater` @AccessFlag PRIVATE;
+  `androidx.appcompat.app.AppCompatDelegateImpl$AppCompatWindowCallback` `androidx.appcompat.app.AppCompatDelegateImpl.mAppCompatWindowCallback` @AccessFlag PRIVATE;
+  `androidx.appcompat.app.AppCompatDelegateImpl$AutoNightModeManager` `androidx.appcompat.app.AppCompatDelegateImpl.mAutoBatteryNightModeManager` @AccessFlag PRIVATE;
+  `androidx.appcompat.app.AppCompatDelegateImpl$AutoNightModeManager` `androidx.appcompat.app.AppCompatDelegateImpl.mAutoTimeNightModeManager` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mBaseContextAttached` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mClosingActionMenu` @AccessFlag PRIVATE;
+  `android.content.Context` `androidx.appcompat.app.AppCompatDelegateImpl.mContext` @AccessFlag FINAL;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mCreated` @AccessFlag PRIVATE;
+  `androidx.appcompat.widget.DecorContentParent` `androidx.appcompat.app.AppCompatDelegateImpl.mDecorContentParent` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mEnableDefaultActionBarUp` @AccessFlag PRIVATE;
+  `androidx.core.view.ViewPropertyAnimatorCompat` `androidx.appcompat.app.AppCompatDelegateImpl.mFadeAnim` @AccessFlag ;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mFeatureIndeterminateProgress` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mFeatureProgress` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mHandleNativeActionModes` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mHasActionBar` @AccessFlag ;
+  `java.lang.Object` `androidx.appcompat.app.AppCompatDelegateImpl.mHost` @AccessFlag FINAL;
+  `int` `androidx.appcompat.app.AppCompatDelegateImpl.mInvalidatePanelMenuFeatures` @AccessFlag ;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mInvalidatePanelMenuPosted` @AccessFlag ;
+  `java.lang.Runnable` `androidx.appcompat.app.AppCompatDelegateImpl.mInvalidatePanelMenuRunnable` @AccessFlag PRIVATE_FINAL;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mIsDestroyed` @AccessFlag ;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mIsFloating` @AccessFlag ;
+  `int` `androidx.appcompat.app.AppCompatDelegateImpl.mLocalNightMode` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mLongPressBackDown` @AccessFlag PRIVATE;
+  `android.view.MenuInflater` `androidx.appcompat.app.AppCompatDelegateImpl.mMenuInflater` @AccessFlag ;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mOverlayActionBar` @AccessFlag ;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mOverlayActionMode` @AccessFlag ;
+  `androidx.appcompat.app.AppCompatDelegateImpl$PanelMenuPresenterCallback` `androidx.appcompat.app.AppCompatDelegateImpl.mPanelMenuPresenterCallback` @AccessFlag PRIVATE;
+  `androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState`[] `androidx.appcompat.app.AppCompatDelegateImpl.mPanels` @AccessFlag PRIVATE;
+  `androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState` `androidx.appcompat.app.AppCompatDelegateImpl.mPreparedPanel` @AccessFlag PRIVATE;
+  `java.lang.Runnable` `androidx.appcompat.app.AppCompatDelegateImpl.mShowActionModePopup` @AccessFlag ;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mStarted` @AccessFlag PRIVATE;
+  `android.view.View` `androidx.appcompat.app.AppCompatDelegateImpl.mStatusGuard` @AccessFlag PRIVATE;
+  `android.view.ViewGroup` `androidx.appcompat.app.AppCompatDelegateImpl.mSubDecor` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mSubDecorInstalled` @AccessFlag PRIVATE;
+  `android.graphics.Rect` `androidx.appcompat.app.AppCompatDelegateImpl.mTempRect1` @AccessFlag PRIVATE;
+  `android.graphics.Rect` `androidx.appcompat.app.AppCompatDelegateImpl.mTempRect2` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.app.AppCompatDelegateImpl.mThemeResId` @AccessFlag PRIVATE;
+  `java.lang.CharSequence` `androidx.appcompat.app.AppCompatDelegateImpl.mTitle` @AccessFlag PRIVATE;
+  `android.widget.TextView` `androidx.appcompat.app.AppCompatDelegateImpl.mTitleView` @AccessFlag PRIVATE;
+  `android.view.Window` `androidx.appcompat.app.AppCompatDelegateImpl.mWindow` @AccessFlag ;
+  `boolean` `androidx.appcompat.app.AppCompatDelegateImpl.mWindowNoTitle` @AccessFlag ;
+}
+global `boolean` `@@androidx.appcompat.app.AppCompatDelegateImpl.DEBUG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.appcompat.app.AppCompatDelegateImpl.EXCEPTION_HANDLER_MESSAGE_SUFFIX` @AccessFlag STATIC_FINAL;
+global `boolean` `@@androidx.appcompat.app.AppCompatDelegateImpl.IS_PRE_LOLLIPOP` @AccessFlag PRIVATE_STATIC_FINAL;
+global `boolean` `@@androidx.appcompat.app.AppCompatDelegateImpl.sAlwaysOverrideConfiguration` @AccessFlag PRIVATE_STATIC_FINAL;
+global `boolean` `@@androidx.appcompat.app.AppCompatDelegateImpl.sInstalledExceptionHandler` @AccessFlag PRIVATE_STATIC;
+global `java.util.Map` `@@androidx.appcompat.app.AppCompatDelegateImpl.sLocalNightModes` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int`[] `@@androidx.appcompat.app.AppCompatDelegateImpl.sWindowBackgroundStyleable` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this, `android.app.Activity` v2 @kind object @name `activity`, `androidx.appcompat.app.AppCompatCallback` v3 @kind object @name `callback`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.<init>:(Landroid/app/Activity;Landroidx/appcompat/app/AppCompatCallback;)V` @AccessFlag CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this, `android.app.Dialog` v3 @kind object @name `dialog`, `androidx.appcompat.app.AppCompatCallback` v4 @kind object @name `callback`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.<init>:(Landroid/app/Dialog;Landroidx/appcompat/app/AppCompatCallback;)V` @AccessFlag CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.app.Activity` v3 @kind object @name `activity`, `androidx.appcompat.app.AppCompatCallback` v4 @kind object @name `callback`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.<init>:(Landroid/content/Context;Landroid/app/Activity;Landroidx/appcompat/app/AppCompatCallback;)V` @AccessFlag CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.app.AppCompatDelegateImpl` v0 @kind this, `android.content.Context` v1 @kind object @name `context`, `android.view.Window` v2 @kind object @name `window`, `androidx.appcompat.app.AppCompatCallback` v3 @kind object @name `callback`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.<init>:(Landroid/content/Context;Landroid/view/Window;Landroidx/appcompat/app/AppCompatCallback;)V` @AccessFlag CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.app.AppCompatDelegateImpl` v3 @kind this, `android.content.Context` v4 @kind object @name `context`, `android.view.Window` v5 @kind object @name `window`, `androidx.appcompat.app.AppCompatCallback` v6 @kind object @name `callback`, `java.lang.Object` v7 @kind object @name `host`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.<init>:(Landroid/content/Context;Landroid/view/Window;Landroidx/appcompat/app/AppCompatCallback;Ljava/lang/Object;)V` @AccessFlag PRIVATE_CONSTRUCTOR {
+
+  # return;
+}
+procedure `boolean` `applyDayNight`(`androidx.appcompat.app.AppCompatDelegateImpl` v4 @kind this, `boolean` v5 @name `allowRecreation`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.applyDayNight:(Z)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `applyFixedSizeWindow`(`androidx.appcompat.app.AppCompatDelegateImpl` v6 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.applyFixedSizeWindow:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `attachToWindow`(`androidx.appcompat.app.AppCompatDelegateImpl` v4 @kind this, `android.view.Window` v5 @kind object @name `window`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.attachToWindow:(Landroid/view/Window;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `calculateNightMode`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.calculateNightMode:()I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `cleanupAutoManagers`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.cleanupAutoManagers:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.view.ViewGroup` `createSubDecor`(`androidx.appcompat.app.AppCompatDelegateImpl` v10 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.createSubDecor:()Landroid/view/ViewGroup;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `ensureSubDecor`(`androidx.appcompat.app.AppCompatDelegateImpl` v3 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.ensureSubDecor:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `ensureWindow`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.ensureWindow:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.appcompat.app.AppCompatDelegateImpl$AutoNightModeManager` `getAutoBatteryNightModeManager`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.getAutoBatteryNightModeManager:()Landroidx/appcompat/app/AppCompatDelegateImpl$AutoNightModeManager;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `initWindowDecorActionBar`(`androidx.appcompat.app.AppCompatDelegateImpl` v3 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.initWindowDecorActionBar:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `initializePanelContent`(`androidx.appcompat.app.AppCompatDelegateImpl` v4 @kind this, `androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState` v5 @kind object @name `st`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.initializePanelContent:(Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `initializePanelDecor`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this, `androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState` v3 @kind object @name `st`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.initializePanelDecor:(Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `initializePanelMenu`(`androidx.appcompat.app.AppCompatDelegateImpl` v7 @kind this, `androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState` v8 @kind object @name `st`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.initializePanelMenu:(Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `invalidatePanelMenu`(`androidx.appcompat.app.AppCompatDelegateImpl` v3 @kind this, `int` v4 @name `featureId`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.invalidatePanelMenu:(I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `isActivityManifestHandlingUiMode`(`androidx.appcompat.app.AppCompatDelegateImpl` v6 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.isActivityManifestHandlingUiMode:()Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `onKeyDownPanel`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this, `int` v3 @name `featureId`, `android.view.KeyEvent` v4 @kind object @name `event`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onKeyDownPanel:(ILandroid/view/KeyEvent;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `onKeyUpPanel`(`androidx.appcompat.app.AppCompatDelegateImpl` v5 @kind this, `int` v6 @name `featureId`, `android.view.KeyEvent` v7 @kind object @name `event`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onKeyUpPanel:(ILandroid/view/KeyEvent;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `openPanel`(`androidx.appcompat.app.AppCompatDelegateImpl` v19 @kind this, `androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState` v20 @kind object @name `st`, `android.view.KeyEvent` v21 @kind object @name `event`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.openPanel:(Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState;Landroid/view/KeyEvent;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `performPanelShortcut`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this, `androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState` v3 @kind object @name `st`, `int` v4 @name `keyCode`, `android.view.KeyEvent` v5 @kind object @name `event`, `int` v6 @name `flags`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.performPanelShortcut:(Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState;ILandroid/view/KeyEvent;I)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `preparePanel`(`androidx.appcompat.app.AppCompatDelegateImpl` v8 @kind this, `androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState` v9 @kind object @name `st`, `android.view.KeyEvent` v10 @kind object @name `event`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.preparePanel:(Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState;Landroid/view/KeyEvent;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `reopenMenu`(`androidx.appcompat.app.AppCompatDelegateImpl` v6 @kind this, `androidx.appcompat.view.menu.MenuBuilder` v7 @kind object @name `menu`, `boolean` v8 @name `toggleMenuMode`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.reopenMenu:(Landroidx/appcompat/view/menu/MenuBuilder;Z)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `sanitizeWindowFeatureId`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this, `int` v3 @name `featureId`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.sanitizeWindowFeatureId:(I)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `shouldInheritContext`(`androidx.appcompat.app.AppCompatDelegateImpl` v3 @kind this, `android.view.ViewParent` v4 @kind object @name `parent`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.shouldInheritContext:(Landroid/view/ViewParent;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `throwFeatureRequestIfSubDecorInstalled`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.throwFeatureRequestIfSubDecorInstalled:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.appcompat.app.AppCompatActivity` `tryUnwrapContext`(`androidx.appcompat.app.AppCompatDelegateImpl` v3 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.tryUnwrapContext:()Landroidx/appcompat/app/AppCompatActivity;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `updateForNightMode`(`androidx.appcompat.app.AppCompatDelegateImpl` v9 @kind this, `int` v10 @name `mode`, `boolean` v11 @name `allowRecreation`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.updateForNightMode:(IZ)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateResourcesConfigurationForNightMode`(`androidx.appcompat.app.AppCompatDelegateImpl` v6 @kind this, `int` v7 @name `uiModeNightModeValue`, `boolean` v8 @name `callOnConfigChange`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.updateResourcesConfigurationForNightMode:(IZ)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `addContentView`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this, `android.view.View` v3 @kind object @name `v`, `android.view.ViewGroup$LayoutParams` v4 @kind object @name `lp`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.addContentView:(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `applyDayNight`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.applyDayNight:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `attachBaseContext`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.attachBaseContext:(Landroid/content/Context;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `callOnPanelClosed`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this, `int` v3 @name `featureId`, `androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState` v4 @kind object @name `panel`, `android.view.Menu` v5 @kind object @name `menu`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.callOnPanelClosed:(ILandroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState;Landroid/view/Menu;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `checkCloseActionMenu`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this, `androidx.appcompat.view.menu.MenuBuilder` v3 @kind object @name `menu`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.checkCloseActionMenu:(Landroidx/appcompat/view/menu/MenuBuilder;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `closePanel`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this, `int` v3 @name `featureId`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.closePanel:(I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `closePanel`(`androidx.appcompat.app.AppCompatDelegateImpl` v3 @kind this, `androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState` v4 @kind object @name `st`, `boolean` v5 @name `doCallback`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.closePanel:(Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState;Z)V` @AccessFlag  {
+
+  # return;
+}
+procedure `android.view.View` `createView`(`androidx.appcompat.app.AppCompatDelegateImpl` v11 @kind this, `android.view.View` v12 @kind object @name `parent`, `java.lang.String` v13 @kind object @name `name`, `android.content.Context` v14 @kind object @name `context`, `android.util.AttributeSet` v15 @kind object @name `attrs`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.createView:(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `dismissPopups`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.dismissPopups:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `dispatchKeyEvent`(`androidx.appcompat.app.AppCompatDelegateImpl` v4 @kind this, `android.view.KeyEvent` v5 @kind object @name `event`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.dispatchKeyEvent:(Landroid/view/KeyEvent;)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `doInvalidatePanelMenu`(`androidx.appcompat.app.AppCompatDelegateImpl` v4 @kind this, `int` v5 @name `featureId`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.doInvalidatePanelMenu:(I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `endOnGoingFadeAnimation`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.endOnGoingFadeAnimation:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState` `findMenuPanel`(`androidx.appcompat.app.AppCompatDelegateImpl` v5 @kind this, `android.view.Menu` v6 @kind object @name `menu`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.findMenuPanel:(Landroid/view/Menu;)Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState;` @AccessFlag  {
+
+  # return;
+}
+procedure `android.view.View` `findViewById`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this, `int` v2 @name `id`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.findViewById:(I)Landroid/view/View;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.content.Context` `getActionBarThemedContext`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.getActionBarThemedContext:()Landroid/content/Context;` @AccessFlag FINAL {
+
+  # return;
+}
+procedure `androidx.appcompat.app.AppCompatDelegateImpl$AutoNightModeManager` `getAutoTimeNightModeManager`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.getAutoTimeNightModeManager:()Landroidx/appcompat/app/AppCompatDelegateImpl$AutoNightModeManager;` @AccessFlag FINAL {
+
+  # return;
+}
+procedure `androidx.appcompat.app.ActionBarDrawerToggle$Delegate` `getDrawerToggleDelegate`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.getDrawerToggleDelegate:()Landroidx/appcompat/app/ActionBarDrawerToggle$Delegate;` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `int` `getLocalNightMode`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.getLocalNightMode:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuInflater` `getMenuInflater`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.getMenuInflater:()Landroid/view/MenuInflater;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.appcompat.app.AppCompatDelegateImpl$PanelFeatureState` `getPanelState`(`androidx.appcompat.app.AppCompatDelegateImpl` v4 @kind this, `int` v5 @name `featureId`, `boolean` v6 @name `required`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.getPanelState:(IZ)Landroidx/appcompat/app/AppCompatDelegateImpl$PanelFeatureState;` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `android.view.ViewGroup` `getSubDecor`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.getSubDecor:()Landroid/view/ViewGroup;` @AccessFlag  {
+
+  # return;
+}
+procedure `androidx.appcompat.app.ActionBar` `getSupportActionBar`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.getSupportActionBar:()Landroidx/appcompat/app/ActionBar;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getTitle`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.getTitle:()Ljava/lang/CharSequence;` @AccessFlag FINAL {
+
+  # return;
+}
+procedure `android.view.Window$Callback` `getWindowCallback`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.getWindowCallback:()Landroid/view/Window$Callback;` @AccessFlag FINAL {
+
+  # return;
+}
+procedure `boolean` `hasWindowFeature`(`androidx.appcompat.app.AppCompatDelegateImpl` v4 @kind this, `int` v5 @name `featureId`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.hasWindowFeature:(I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `installViewFactory`(`androidx.appcompat.app.AppCompatDelegateImpl` v3 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.installViewFactory:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `invalidateOptionsMenu`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.invalidateOptionsMenu:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isHandleNativeActionModesEnabled`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.isHandleNativeActionModesEnabled:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `mapNightMode`(`androidx.appcompat.app.AppCompatDelegateImpl` v3 @kind this, `int` v4 @name `mode`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.mapNightMode:(I)I` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `onBackPressed`(`androidx.appcompat.app.AppCompatDelegateImpl` v3 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onBackPressed:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onConfigurationChanged`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this, `android.content.res.Configuration` v3 @kind object @name `newConfig`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onConfigurationChanged:(Landroid/content/res/Configuration;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onCreate`(`androidx.appcompat.app.AppCompatDelegateImpl` v3 @kind this, `android.os.Bundle` v4 @kind object @name `savedInstanceState`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onCreate:(Landroid/os/Bundle;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View` `onCreateView`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this, `android.view.View` v2 @kind object @name `parent`, `java.lang.String` v3 @kind object @name `name`, `android.content.Context` v4 @kind object @name `context`, `android.util.AttributeSet` v5 @kind object @name `attrs`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onCreateView:(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `android.view.View` `onCreateView`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this, `java.lang.String` v2 @kind object @name `name`, `android.content.Context` v3 @kind object @name `context`, `android.util.AttributeSet` v4 @kind object @name `attrs`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onCreateView:(Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onDestroy`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onDestroy:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onKeyDown`(`androidx.appcompat.app.AppCompatDelegateImpl` v3 @kind this, `int` v4 @name `keyCode`, `android.view.KeyEvent` v5 @kind object @name `event`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onKeyDown:(ILandroid/view/KeyEvent;)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `onKeyShortcut`(`androidx.appcompat.app.AppCompatDelegateImpl` v5 @kind this, `int` v6 @name `keyCode`, `android.view.KeyEvent` v7 @kind object @name `ev`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onKeyShortcut:(ILandroid/view/KeyEvent;)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `onKeyUp`(`androidx.appcompat.app.AppCompatDelegateImpl` v5 @kind this, `int` v6 @name `keyCode`, `android.view.KeyEvent` v7 @kind object @name `event`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onKeyUp:(ILandroid/view/KeyEvent;)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `onMenuItemSelected`(`androidx.appcompat.app.AppCompatDelegateImpl` v3 @kind this, `androidx.appcompat.view.menu.MenuBuilder` v4 @kind object @name `menu`, `android.view.MenuItem` v5 @kind object @name `item`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onMenuItemSelected:(Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onMenuModeChange`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this, `androidx.appcompat.view.menu.MenuBuilder` v2 @kind object @name `menu`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onMenuModeChange:(Landroidx/appcompat/view/menu/MenuBuilder;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onMenuOpened`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this, `int` v3 @name `featureId`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onMenuOpened:(I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onPanelClosed`(`androidx.appcompat.app.AppCompatDelegateImpl` v3 @kind this, `int` v4 @name `featureId`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onPanelClosed:(I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onPostCreate`(`androidx.appcompat.app.AppCompatDelegateImpl` v0 @kind this, `android.os.Bundle` v1 @kind object @name `savedInstanceState`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onPostCreate:(Landroid/os/Bundle;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onPostResume`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onPostResume:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onSaveInstanceState`(`androidx.appcompat.app.AppCompatDelegateImpl` v3 @kind this, `android.os.Bundle` v4 @kind object @name `outState`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onSaveInstanceState:(Landroid/os/Bundle;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onStart`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onStart:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onStop`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onStop:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onSubDecorInstalled`(`androidx.appcompat.app.AppCompatDelegateImpl` v0 @kind this, `android.view.ViewGroup` v1 @kind object @name `subDecor`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.onSubDecorInstalled:(Landroid/view/ViewGroup;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `androidx.appcompat.app.ActionBar` `peekSupportActionBar`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.peekSupportActionBar:()Landroidx/appcompat/app/ActionBar;` @AccessFlag FINAL {
+
+  # return;
+}
+procedure `boolean` `requestWindowFeature`(`androidx.appcompat.app.AppCompatDelegateImpl` v4 @kind this, `int` v5 @name `featureId`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.requestWindowFeature:(I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setContentView`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this, `int` v3 @name `resId`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.setContentView:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setContentView`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this, `android.view.View` v3 @kind object @name `v`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.setContentView:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setContentView`(`androidx.appcompat.app.AppCompatDelegateImpl` v2 @kind this, `android.view.View` v3 @kind object @name `v`, `android.view.ViewGroup$LayoutParams` v4 @kind object @name `lp`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.setContentView:(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHandleNativeActionModesEnabled`(`androidx.appcompat.app.AppCompatDelegateImpl` v0 @kind this, `boolean` v1 @name `enabled`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.setHandleNativeActionModesEnabled:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setLocalNightMode`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this, `int` v2 @name `mode`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.setLocalNightMode:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSupportActionBar`(`androidx.appcompat.app.AppCompatDelegateImpl` v4 @kind this, `androidx.appcompat.widget.Toolbar` v5 @kind object @name `toolbar`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.setSupportActionBar:(Landroidx/appcompat/widget/Toolbar;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTheme`(`androidx.appcompat.app.AppCompatDelegateImpl` v0 @kind this, `int` v1 @name `themeResId`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.setTheme:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTitle`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `title`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.setTitle:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC_FINAL {
+
+  # return;
+}
+procedure `boolean` `shouldAnimateActionModeView`(`androidx.appcompat.app.AppCompatDelegateImpl` v1 @kind this) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.shouldAnimateActionModeView:()Z` @AccessFlag FINAL {
+
+  # return;
+}
+procedure `androidx.appcompat.view.ActionMode` `startSupportActionMode`(`androidx.appcompat.app.AppCompatDelegateImpl` v4 @kind this, `androidx.appcompat.view.ActionMode$Callback` v5 @kind object @name `callback`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.startSupportActionMode:(Landroidx/appcompat/view/ActionMode$Callback;)Landroidx/appcompat/view/ActionMode;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.appcompat.view.ActionMode` `startSupportActionModeFromWindow`(`androidx.appcompat.app.AppCompatDelegateImpl` v10 @kind this, `androidx.appcompat.view.ActionMode$Callback` v11 @kind object @name `callback`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.startSupportActionModeFromWindow:(Landroidx/appcompat/view/ActionMode$Callback;)Landroidx/appcompat/view/ActionMode;` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `updateStatusGuard`(`androidx.appcompat.app.AppCompatDelegateImpl` v11 @kind this, `int` v12 @name `insetTop`) @signature `Landroidx/appcompat/app/AppCompatDelegateImpl;.updateStatusGuard:(I)I` @AccessFlag  {
+
+  # return;
+}

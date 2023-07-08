@@ -1,0 +1,322 @@
+record `com.google.android.material.animation.MotionTiming` @kind class @AccessFlag PUBLIC {
+  `long` `com.google.android.material.animation.MotionTiming.delay` @AccessFlag PRIVATE;
+  `long` `com.google.android.material.animation.MotionTiming.duration` @AccessFlag PRIVATE;
+  `android.animation.TimeInterpolator` `com.google.android.material.animation.MotionTiming.interpolator` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.animation.MotionTiming.repeatCount` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.animation.MotionTiming.repeatMode` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.animation.MotionTiming` v2 @kind this, `long` v3 @name `delay`, `long` v5 @name `duration`) @signature `Lcom/google/android/material/animation/MotionTiming;.<init>:(JJ)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L17d824.  call `<init>`(v2) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L17d82a.  v0:= 0L;
+  #L17d82e.  v2.`com.google.android.material.animation.MotionTiming.delay` @type ^`long` := v0 @kind wide;
+  #L17d832.  v0:= 300L;
+  #L17d836.  v2.`com.google.android.material.animation.MotionTiming.duration` @type ^`long` := v0 @kind wide;
+  #L17d83a.  v0:= 0I;
+  #L17d83c.  v2.`com.google.android.material.animation.MotionTiming.interpolator` @type ^`android.animation.TimeInterpolator` := v0 @kind object;
+  #L17d840.  v0:= 0I;
+  #L17d842.  v2.`com.google.android.material.animation.MotionTiming.repeatCount` @type ^`int` := v0;
+  #L17d846.  v0:= 1I;
+  #L17d848.  v2.`com.google.android.material.animation.MotionTiming.repeatMode` @type ^`int` := v0;
+  #L17d84c.  v2.`com.google.android.material.animation.MotionTiming.delay` @type ^`long` := v3 @kind wide;
+  #L17d850.  v2.`com.google.android.material.animation.MotionTiming.duration` @type ^`long` := v5 @kind wide;
+  #L17d854.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.animation.MotionTiming` v2 @kind this, `long` v3 @name `delay`, `long` v5 @name `duration`, `android.animation.TimeInterpolator` v7 @kind object @name `interpolator`) @signature `Lcom/google/android/material/animation/MotionTiming;.<init>:(JJLandroid/animation/TimeInterpolator;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L17d868.  call `<init>`(v2) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L17d86e.  v0:= 0L;
+  #L17d872.  v2.`com.google.android.material.animation.MotionTiming.delay` @type ^`long` := v0 @kind wide;
+  #L17d876.  v0:= 300L;
+  #L17d87a.  v2.`com.google.android.material.animation.MotionTiming.duration` @type ^`long` := v0 @kind wide;
+  #L17d87e.  v0:= 0I;
+  #L17d880.  v2.`com.google.android.material.animation.MotionTiming.interpolator` @type ^`android.animation.TimeInterpolator` := v0 @kind object;
+  #L17d884.  v0:= 0I;
+  #L17d886.  v2.`com.google.android.material.animation.MotionTiming.repeatCount` @type ^`int` := v0;
+  #L17d88a.  v0:= 1I;
+  #L17d88c.  v2.`com.google.android.material.animation.MotionTiming.repeatMode` @type ^`int` := v0;
+  #L17d890.  v2.`com.google.android.material.animation.MotionTiming.delay` @type ^`long` := v3 @kind wide;
+  #L17d894.  v2.`com.google.android.material.animation.MotionTiming.duration` @type ^`long` := v5 @kind wide;
+  #L17d898.  v2.`com.google.android.material.animation.MotionTiming.interpolator` @type ^`android.animation.TimeInterpolator` := v7 @kind object;
+  #L17d89c.  return @kind void;
+}
+procedure `com.google.android.material.animation.MotionTiming` `createFromAnimator`(`android.animation.ValueAnimator` v7 @kind object @name `animator`) @signature `Lcom/google/android/material/animation/MotionTiming;.createFromAnimator:(Landroid/animation/ValueAnimator;)Lcom/google/android/material/animation/MotionTiming;` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L17d600.  v6:= new `com.google.android.material.animation.MotionTiming`;
+  #L17d604.  call temp:= `getStartDelay`(v7) @signature `Landroid/animation/ValueAnimator;.getStartDelay:()J` @kind virtual;
+  #L17d60a.  v1:= temp @kind wide;
+  #L17d60c.  call temp:= `getDuration`(v7) @signature `Landroid/animation/ValueAnimator;.getDuration:()J` @kind virtual;
+  #L17d612.  v3:= temp @kind wide;
+  #L17d614.  call temp:= `getInterpolatorCompat`(v7) @signature `Lcom/google/android/material/animation/MotionTiming;.getInterpolatorCompat:(Landroid/animation/ValueAnimator;)Landroid/animation/TimeInterpolator;` @kind static;
+  #L17d61a.  v5:= temp @kind object;
+  #L17d61c.  v0:= v6 @kind object;
+  #L17d61e.  call `<init>`(v0, v1, v3, v5) @signature `Lcom/google/android/material/animation/MotionTiming;.<init>:(JJLandroid/animation/TimeInterpolator;)V` @kind direct;
+  #L17d624.  call temp:= `getRepeatCount`(v7) @signature `Landroid/animation/ValueAnimator;.getRepeatCount:()I` @kind virtual;
+  #L17d62a.  v1:= temp;
+  #L17d62c.  v0.`com.google.android.material.animation.MotionTiming.repeatCount` @type ^`int` := v1;
+  #L17d630.  call temp:= `getRepeatMode`(v7) @signature `Landroid/animation/ValueAnimator;.getRepeatMode:()I` @kind virtual;
+  #L17d636.  v1:= temp;
+  #L17d638.  v0.`com.google.android.material.animation.MotionTiming.repeatMode` @type ^`int` := v1;
+  #L17d63c.  return v0 @kind object;
+}
+procedure `android.animation.TimeInterpolator` `getInterpolatorCompat`(`android.animation.ValueAnimator` v2 @kind object @name `animator`) @signature `Lcom/google/android/material/animation/MotionTiming;.getInterpolatorCompat:(Landroid/animation/ValueAnimator;)Landroid/animation/TimeInterpolator;` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L17d500.  call temp:= `getInterpolator`(v2) @signature `Landroid/animation/ValueAnimator;.getInterpolator:()Landroid/animation/TimeInterpolator;` @kind virtual;
+  #L17d506.  v0:= temp @kind object;
+  #L17d508.  v1:= instanceof @variable v0 @type ^`android.view.animation.AccelerateDecelerateInterpolator` @kind boolean;
+  #L17d50c.  if v1 != 0 then goto L17d534;
+  #L17d510.  if v0 != 0 then goto L17d516;
+  #L17d514.  goto L17d534;
+  #L17d516.  v1:= instanceof @variable v0 @type ^`android.view.animation.AccelerateInterpolator` @kind boolean;
+  #L17d51a.  if v1 == 0 then goto L17d524;
+  #L17d51e.  v1:= `@@com.google.android.material.animation.AnimationUtils.FAST_OUT_LINEAR_IN_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L17d522.  return v1 @kind object;
+  #L17d524.  v1:= instanceof @variable v0 @type ^`android.view.animation.DecelerateInterpolator` @kind boolean;
+  #L17d528.  if v1 == 0 then goto L17d532;
+  #L17d52c.  v1:= `@@com.google.android.material.animation.AnimationUtils.LINEAR_OUT_SLOW_IN_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L17d530.  return v1 @kind object;
+  #L17d532.  return v0 @kind object;
+  #L17d534.  v1:= `@@com.google.android.material.animation.AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L17d538.  return v1 @kind object;
+}
+procedure `void` `apply`(`com.google.android.material.animation.MotionTiming` v2 @kind this, `android.animation.Animator` v3 @kind object @name `animator`) @signature `Lcom/google/android/material/animation/MotionTiming;.apply:(Landroid/animation/Animator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L17d8b0.  call temp:= `getDelay`(v2) @signature `Lcom/google/android/material/animation/MotionTiming;.getDelay:()J` @kind virtual;
+  #L17d8b6.  v0:= temp @kind wide;
+  #L17d8b8.  call `setStartDelay`(v3, v0) @signature `Landroid/animation/Animator;.setStartDelay:(J)V` @kind virtual;
+  #L17d8be.  call temp:= `getDuration`(v2) @signature `Lcom/google/android/material/animation/MotionTiming;.getDuration:()J` @kind virtual;
+  #L17d8c4.  v0:= temp @kind wide;
+  #L17d8c6.  call temp:= `setDuration`(v3, v0) @signature `Landroid/animation/Animator;.setDuration:(J)Landroid/animation/Animator;` @kind virtual;
+  #L17d8cc.  call temp:= `getInterpolator`(v2) @signature `Lcom/google/android/material/animation/MotionTiming;.getInterpolator:()Landroid/animation/TimeInterpolator;` @kind virtual;
+  #L17d8d2.  v0:= temp @kind object;
+  #L17d8d4.  call `setInterpolator`(v3, v0) @signature `Landroid/animation/Animator;.setInterpolator:(Landroid/animation/TimeInterpolator;)V` @kind virtual;
+  #L17d8da.  v0:= instanceof @variable v3 @type ^`android.animation.ValueAnimator` @kind boolean;
+  #L17d8de.  if v0 == 0 then goto L17d90a;
+  #L17d8e2.  v0:= v3 @kind object;
+  #L17d8e4.  v0:= (`android.animation.ValueAnimator`) v0 @kind object;
+  #L17d8e8.  call temp:= `getRepeatCount`(v2) @signature `Lcom/google/android/material/animation/MotionTiming;.getRepeatCount:()I` @kind virtual;
+  #L17d8ee.  v1:= temp;
+  #L17d8f0.  call `setRepeatCount`(v0, v1) @signature `Landroid/animation/ValueAnimator;.setRepeatCount:(I)V` @kind virtual;
+  #L17d8f6.  v0:= v3 @kind object;
+  #L17d8f8.  v0:= (`android.animation.ValueAnimator`) v0 @kind object;
+  #L17d8fc.  call temp:= `getRepeatMode`(v2) @signature `Lcom/google/android/material/animation/MotionTiming;.getRepeatMode:()I` @kind virtual;
+  #L17d902.  v1:= temp;
+  #L17d904.  call `setRepeatMode`(v0, v1) @signature `Landroid/animation/ValueAnimator;.setRepeatMode:(I)V` @kind virtual;
+  #L17d90a.  return @kind void;
+}
+procedure `boolean` `equals`(`com.google.android.material.animation.MotionTiming` v6 @kind this, `java.lang.Object` v7 @kind object @name `o`) @signature `Lcom/google/android/material/animation/MotionTiming;.equals:(Ljava/lang/Object;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L17d54c.  if v6 != v7 then goto L17d554;
+  #L17d550.  v0:= 1I;
+  #L17d552.  return v0;
+  #L17d554.  v0:= instanceof @variable v7 @type ^`com.google.android.material.animation.MotionTiming` @kind boolean;
+  #L17d558.  v1:= 0I;
+  #L17d55a.  if v0 != 0 then goto L17d560;
+  #L17d55e.  return v1;
+  #L17d560.  v0:= v7 @kind object;
+  #L17d562.  v0:= (`com.google.android.material.animation.MotionTiming`) v0 @kind object;
+  #L17d566.  call temp:= `getDelay`(v6) @signature `Lcom/google/android/material/animation/MotionTiming;.getDelay:()J` @kind virtual;
+  #L17d56c.  v2:= temp @kind wide;
+  #L17d56e.  call temp:= `getDelay`(v0) @signature `Lcom/google/android/material/animation/MotionTiming;.getDelay:()J` @kind virtual;
+  #L17d574.  v4:= temp @kind wide;
+  #L17d576.  v2:= lcmp(v2, v4);
+  #L17d57a.  if v2 == 0 then goto L17d580;
+  #L17d57e.  return v1;
+  #L17d580.  call temp:= `getDuration`(v6) @signature `Lcom/google/android/material/animation/MotionTiming;.getDuration:()J` @kind virtual;
+  #L17d586.  v2:= temp @kind wide;
+  #L17d588.  call temp:= `getDuration`(v0) @signature `Lcom/google/android/material/animation/MotionTiming;.getDuration:()J` @kind virtual;
+  #L17d58e.  v4:= temp @kind wide;
+  #L17d590.  v2:= lcmp(v2, v4);
+  #L17d594.  if v2 == 0 then goto L17d59a;
+  #L17d598.  return v1;
+  #L17d59a.  call temp:= `getRepeatCount`(v6) @signature `Lcom/google/android/material/animation/MotionTiming;.getRepeatCount:()I` @kind virtual;
+  #L17d5a0.  v2:= temp;
+  #L17d5a2.  call temp:= `getRepeatCount`(v0) @signature `Lcom/google/android/material/animation/MotionTiming;.getRepeatCount:()I` @kind virtual;
+  #L17d5a8.  v3:= temp;
+  #L17d5aa.  if v2 == v3 then goto L17d5b0;
+  #L17d5ae.  return v1;
+  #L17d5b0.  call temp:= `getRepeatMode`(v6) @signature `Lcom/google/android/material/animation/MotionTiming;.getRepeatMode:()I` @kind virtual;
+  #L17d5b6.  v2:= temp;
+  #L17d5b8.  call temp:= `getRepeatMode`(v0) @signature `Lcom/google/android/material/animation/MotionTiming;.getRepeatMode:()I` @kind virtual;
+  #L17d5be.  v3:= temp;
+  #L17d5c0.  if v2 == v3 then goto L17d5c6;
+  #L17d5c4.  return v1;
+  #L17d5c6.  call temp:= `getInterpolator`(v6) @signature `Lcom/google/android/material/animation/MotionTiming;.getInterpolator:()Landroid/animation/TimeInterpolator;` @kind virtual;
+  #L17d5cc.  v1:= temp @kind object;
+  #L17d5ce.  call temp:= `getClass`(v1) @signature `Ljava/lang/Object;.getClass:()Ljava/lang/Class;` @kind virtual;
+  #L17d5d4.  v1:= temp @kind object;
+  #L17d5d6.  call temp:= `getInterpolator`(v0) @signature `Lcom/google/android/material/animation/MotionTiming;.getInterpolator:()Landroid/animation/TimeInterpolator;` @kind virtual;
+  #L17d5dc.  v2:= temp @kind object;
+  #L17d5de.  call temp:= `getClass`(v2) @signature `Ljava/lang/Object;.getClass:()Ljava/lang/Class;` @kind virtual;
+  #L17d5e4.  v2:= temp @kind object;
+  #L17d5e6.  call temp:= `equals`(v1, v2) @signature `Ljava/lang/Object;.equals:(Ljava/lang/Object;)Z` @kind virtual;
+  #L17d5ec.  v1:= temp;
+  #L17d5ee.  return v1;
+}
+procedure `long` `getDelay`(`com.google.android.material.animation.MotionTiming` v2 @kind this) @signature `Lcom/google/android/material/animation/MotionTiming;.getDelay:()J` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L17d7f4.  v0:= v2.`com.google.android.material.animation.MotionTiming.delay` @type ^`long` @kind wide;
+  #L17d7f8.  return v0 @kind wide;
+}
+procedure `long` `getDuration`(`com.google.android.material.animation.MotionTiming` v2 @kind this) @signature `Lcom/google/android/material/animation/MotionTiming;.getDuration:()J` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L17d80c.  v0:= v2.`com.google.android.material.animation.MotionTiming.duration` @type ^`long` @kind wide;
+  #L17d810.  return v0 @kind wide;
+}
+procedure `android.animation.TimeInterpolator` `getInterpolator`(`com.google.android.material.animation.MotionTiming` v1 @kind this) @signature `Lcom/google/android/material/animation/MotionTiming;.getInterpolator:()Landroid/animation/TimeInterpolator;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L17d4e0.  v0:= v1.`com.google.android.material.animation.MotionTiming.interpolator` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L17d4e4.  if v0 == 0 then goto L17d4ea;
+  #L17d4e8.  goto L17d4ee;
+  #L17d4ea.  v0:= `@@com.google.android.material.animation.AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L17d4ee.  return v0 @kind object;
+}
+procedure `int` `getRepeatCount`(`com.google.android.material.animation.MotionTiming` v1 @kind this) @signature `Lcom/google/android/material/animation/MotionTiming;.getRepeatCount:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L17d650.  v0:= v1.`com.google.android.material.animation.MotionTiming.repeatCount` @type ^`int`;
+  #L17d654.  return v0;
+}
+procedure `int` `getRepeatMode`(`com.google.android.material.animation.MotionTiming` v1 @kind this) @signature `Lcom/google/android/material/animation/MotionTiming;.getRepeatMode:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L17d668.  v0:= v1.`com.google.android.material.animation.MotionTiming.repeatMode` @type ^`int`;
+  #L17d66c.  return v0;
+}
+procedure `int` `hashCode`(`com.google.android.material.animation.MotionTiming` v7 @kind this) @signature `Lcom/google/android/material/animation/MotionTiming;.hashCode:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L17d680.  call temp:= `getDelay`(v7) @signature `Lcom/google/android/material/animation/MotionTiming;.getDelay:()J` @kind virtual;
+  #L17d686.  v0:= temp @kind wide;
+  #L17d688.  call temp:= `getDelay`(v7) @signature `Lcom/google/android/material/animation/MotionTiming;.getDelay:()J` @kind virtual;
+  #L17d68e.  v2:= temp @kind wide;
+  #L17d690.  v4:= 32I;
+  #L17d694.  v2:= v2 ^>> v4 @kind long;
+  #L17d696.  v0:= v0 ^~ v2 @kind long;
+  #L17d698.  v0:= (`int`) v0 @kind l2i;
+  #L17d69a.  v1:= v0 * 31;
+  #L17d69e.  call temp:= `getDuration`(v7) @signature `Lcom/google/android/material/animation/MotionTiming;.getDuration:()J` @kind virtual;
+  #L17d6a4.  v2:= temp @kind wide;
+  #L17d6a6.  call temp:= `getDuration`(v7) @signature `Lcom/google/android/material/animation/MotionTiming;.getDuration:()J` @kind virtual;
+  #L17d6ac.  v5:= temp @kind wide;
+  #L17d6ae.  v4:= v5 ^>> v4 @kind long;
+  #L17d6b2.  v2:= v2 ^~ v4 @kind long;
+  #L17d6b4.  v2:= (`int`) v2 @kind l2i;
+  #L17d6b6.  v1:= v1 + v2 @kind int;
+  #L17d6b8.  v0:= v1 * 31;
+  #L17d6bc.  call temp:= `getInterpolator`(v7) @signature `Lcom/google/android/material/animation/MotionTiming;.getInterpolator:()Landroid/animation/TimeInterpolator;` @kind virtual;
+  #L17d6c2.  v2:= temp @kind object;
+  #L17d6c4.  call temp:= `getClass`(v2) @signature `Ljava/lang/Object;.getClass:()Ljava/lang/Class;` @kind virtual;
+  #L17d6ca.  v2:= temp @kind object;
+  #L17d6cc.  call temp:= `hashCode`(v2) @signature `Ljava/lang/Object;.hashCode:()I` @kind virtual;
+  #L17d6d2.  v2:= temp;
+  #L17d6d4.  v0:= v0 + v2 @kind int;
+  #L17d6d6.  v1:= v0 * 31;
+  #L17d6da.  call temp:= `getRepeatCount`(v7) @signature `Lcom/google/android/material/animation/MotionTiming;.getRepeatCount:()I` @kind virtual;
+  #L17d6e0.  v2:= temp;
+  #L17d6e2.  v1:= v1 + v2 @kind int;
+  #L17d6e4.  v0:= v1 * 31;
+  #L17d6e8.  call temp:= `getRepeatMode`(v7) @signature `Lcom/google/android/material/animation/MotionTiming;.getRepeatMode:()I` @kind virtual;
+  #L17d6ee.  v2:= temp;
+  #L17d6f0.  v0:= v0 + v2 @kind int;
+  #L17d6f2.  return v0;
+}
+procedure `java.lang.String` `toString`(`com.google.android.material.animation.MotionTiming` v3 @kind this) @signature `Lcom/google/android/material/animation/MotionTiming;.toString:()Ljava/lang/String;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L17d704.  v0:= new `java.lang.StringBuilder`;
+  #L17d708.  call `<init>`(v0) @signature `Ljava/lang/StringBuilder;.<init>:()V` @kind direct;
+  #L17d70e.  v1:= 10I;
+  #L17d712.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(C)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d718.  call temp:= `getClass`(v3) @signature `Ljava/lang/Object;.getClass:()Ljava/lang/Class;` @kind virtual;
+  #L17d71e.  v1:= temp @kind object;
+  #L17d720.  call temp:= `getName`(v1) @signature `Ljava/lang/Class;.getName:()Ljava/lang/String;` @kind virtual;
+  #L17d726.  v1:= temp @kind object;
+  #L17d728.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d72e.  v1:= 123I;
+  #L17d732.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(C)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d738.  call temp:= `identityHashCode`(v3) @signature `Ljava/lang/System;.identityHashCode:(Ljava/lang/Object;)I` @kind static;
+  #L17d73e.  v1:= temp;
+  #L17d740.  call temp:= `toHexString`(v1) @signature `Ljava/lang/Integer;.toHexString:(I)Ljava/lang/String;` @kind static;
+  #L17d746.  v1:= temp @kind object;
+  #L17d748.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d74e.  v1:= " delay: " @kind object;
+  #L17d752.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d758.  call temp:= `getDelay`(v3) @signature `Lcom/google/android/material/animation/MotionTiming;.getDelay:()J` @kind virtual;
+  #L17d75e.  v1:= temp @kind wide;
+  #L17d760.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(J)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d766.  v1:= " duration: " @kind object;
+  #L17d76a.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d770.  call temp:= `getDuration`(v3) @signature `Lcom/google/android/material/animation/MotionTiming;.getDuration:()J` @kind virtual;
+  #L17d776.  v1:= temp @kind wide;
+  #L17d778.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(J)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d77e.  v1:= " interpolator: " @kind object;
+  #L17d782.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d788.  call temp:= `getInterpolator`(v3) @signature `Lcom/google/android/material/animation/MotionTiming;.getInterpolator:()Landroid/animation/TimeInterpolator;` @kind virtual;
+  #L17d78e.  v1:= temp @kind object;
+  #L17d790.  call temp:= `getClass`(v1) @signature `Ljava/lang/Object;.getClass:()Ljava/lang/Class;` @kind virtual;
+  #L17d796.  v1:= temp @kind object;
+  #L17d798.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d79e.  v1:= " repeatCount: " @kind object;
+  #L17d7a2.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d7a8.  call temp:= `getRepeatCount`(v3) @signature `Lcom/google/android/material/animation/MotionTiming;.getRepeatCount:()I` @kind virtual;
+  #L17d7ae.  v1:= temp;
+  #L17d7b0.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(I)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d7b6.  v1:= " repeatMode: " @kind object;
+  #L17d7ba.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d7c0.  call temp:= `getRepeatMode`(v3) @signature `Lcom/google/android/material/animation/MotionTiming;.getRepeatMode:()I` @kind virtual;
+  #L17d7c6.  v1:= temp;
+  #L17d7c8.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(I)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d7ce.  v1:= "}\n" @kind object;
+  #L17d7d2.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d7d8.  call temp:= `toString`(v0) @signature `Ljava/lang/StringBuilder;.toString:()Ljava/lang/String;` @kind virtual;
+  #L17d7de.  v1:= temp @kind object;
+  #L17d7e0.  return v1 @kind object;
+}

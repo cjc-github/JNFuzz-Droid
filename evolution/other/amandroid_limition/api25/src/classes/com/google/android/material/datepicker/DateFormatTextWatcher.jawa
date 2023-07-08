@@ -1,0 +1,161 @@
+record `com.google.android.material.datepicker.DateFormatTextWatcher` @kind class @AccessFlag ABSTRACT extends `android.text.TextWatcher` @kind interface {
+  `com.google.android.material.datepicker.CalendarConstraints` `com.google.android.material.datepicker.DateFormatTextWatcher.constraints` @AccessFlag PRIVATE_FINAL;
+  `java.text.DateFormat` `com.google.android.material.datepicker.DateFormatTextWatcher.dateFormat` @AccessFlag PRIVATE_FINAL;
+  `java.lang.String` `com.google.android.material.datepicker.DateFormatTextWatcher.formatHint` @AccessFlag PRIVATE_FINAL;
+  `java.lang.String` `com.google.android.material.datepicker.DateFormatTextWatcher.outOfRange` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.textfield.TextInputLayout` `com.google.android.material.datepicker.DateFormatTextWatcher.textInputLayout` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.DateFormatTextWatcher` v2 @kind this, `java.lang.String` v3 @kind object @name `formatHint`, `java.text.DateFormat` v4 @kind object @name `dateFormat`, `com.google.android.material.textfield.TextInputLayout` v5 @kind object @name `textInputLayout`, `com.google.android.material.datepicker.CalendarConstraints` v6 @kind object @name `constraints`) @signature `Lcom/google/android/material/datepicker/DateFormatTextWatcher;.<init>:(Ljava/lang/String;Ljava/text/DateFormat;Lcom/google/android/material/textfield/TextInputLayout;Lcom/google/android/material/datepicker/CalendarConstraints;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L196b40.  call `<init>`(v2) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L196b46.  v2.`com.google.android.material.datepicker.DateFormatTextWatcher.formatHint` @type ^`java.lang.String` := v3 @kind object;
+  #L196b4a.  v2.`com.google.android.material.datepicker.DateFormatTextWatcher.dateFormat` @type ^`java.text.DateFormat` := v4 @kind object;
+  #L196b4e.  v2.`com.google.android.material.datepicker.DateFormatTextWatcher.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` := v5 @kind object;
+  #L196b52.  v2.`com.google.android.material.datepicker.DateFormatTextWatcher.constraints` @type ^`com.google.android.material.datepicker.CalendarConstraints` := v6 @kind object;
+  #L196b56.  call temp:= `getContext`(v5) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L196b5c.  v0:= temp @kind object;
+  #L196b5e.  v1:= `@@com.google.android.material.R$string.mtrl_picker_out_of_range` @type ^`int`;
+  #L196b62.  call temp:= `getString`(v0, v1) @signature `Landroid/content/Context;.getString:(I)Ljava/lang/String;` @kind virtual;
+  #L196b68.  v0:= temp @kind object;
+  #L196b6a.  v2.`com.google.android.material.datepicker.DateFormatTextWatcher.outOfRange` @type ^`java.lang.String` := v0 @kind object;
+  #L196b6e.  return @kind void;
+}
+procedure `void` `afterTextChanged`(`com.google.android.material.datepicker.DateFormatTextWatcher` v0 @kind this, `android.text.Editable` v1 @kind object @name `s`) @signature `Lcom/google/android/material/datepicker/DateFormatTextWatcher;.afterTextChanged:(Landroid/text/Editable;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L196b80.  return @kind void;
+}
+procedure `void` `beforeTextChanged`(`com.google.android.material.datepicker.DateFormatTextWatcher` v0 @kind this, `java.lang.CharSequence` v1 @kind object @name `s`, `int` v2 @name `start`, `int` v3 @name `count`, `int` v4 @name `after`) @signature `Lcom/google/android/material/datepicker/DateFormatTextWatcher;.beforeTextChanged:(Ljava/lang/CharSequence;III)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L196b94.  return @kind void;
+}
+procedure `void` `onInvalidDate`(`com.google.android.material.datepicker.DateFormatTextWatcher` v0 @kind this) @signature `Lcom/google/android/material/datepicker/DateFormatTextWatcher;.onInvalidDate:()V` @AccessFlag  {
+    temp;
+
+  #L196ba8.  return @kind void;
+}
+procedure `void` `onTextChanged`(`com.google.android.material.datepicker.DateFormatTextWatcher` v10 @kind this, `java.lang.CharSequence` v11 @kind object @name `s`, `int` v12 @name `start`, `int` v13 @name `before`, `int` v14 @name `count`) @signature `Lcom/google/android/material/datepicker/DateFormatTextWatcher;.onTextChanged:(Ljava/lang/CharSequence;III)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+
+  #L196bbc.  call temp:= `isEmpty`(v11) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L196bc2.  v0:= temp;
+  #L196bc4.  v1:= 0I;
+  #L196bc6.  if v0 == 0 then goto L196bdc;
+  #L196bca.  v0:= v10.`com.google.android.material.datepicker.DateFormatTextWatcher.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L196bce.  call `setError`(v0, v1) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setError:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L196bd4.  call `onValidDate`(v10, v1) @signature `Lcom/google/android/material/datepicker/DateFormatTextWatcher;.onValidDate:(Ljava/lang/Long;)V` @kind virtual;
+  #L196bda.  return @kind void;
+  #L196bdc.  v0:= 0I;
+  #L196bde.  v2:= 1I;
+  #L196be0.  v3:= v10.`com.google.android.material.datepicker.DateFormatTextWatcher.dateFormat` @type ^`java.text.DateFormat` @kind object;
+  #L196be4.  call temp:= `toString`(v11) @signature `Ljava/lang/CharSequence;.toString:()Ljava/lang/String;` @kind interface;
+  #L196bea.  v4:= temp @kind object;
+  #L196bec.  call temp:= `parse`(v3, v4) @signature `Ljava/text/DateFormat;.parse:(Ljava/lang/String;)Ljava/util/Date;` @kind virtual;
+  #L196bf2.  v3:= temp @kind object;
+  #L196bf4.  v4:= v10.`com.google.android.material.datepicker.DateFormatTextWatcher.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L196bf8.  call `setError`(v4, v1) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setError:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L196bfe.  call temp:= `getTime`(v3) @signature `Ljava/util/Date;.getTime:()J` @kind virtual;
+  #L196c04.  v4:= temp @kind wide;
+  #L196c06.  v1:= v10.`com.google.android.material.datepicker.DateFormatTextWatcher.constraints` @type ^`com.google.android.material.datepicker.CalendarConstraints` @kind object;
+  #L196c0a.  call temp:= `getDateValidator`(v1) @signature `Lcom/google/android/material/datepicker/CalendarConstraints;.getDateValidator:()Lcom/google/android/material/datepicker/CalendarConstraints$DateValidator;` @kind virtual;
+  #L196c10.  v1:= temp @kind object;
+  #L196c12.  call temp:= `isValid`(v1, v4) @signature `Lcom/google/android/material/datepicker/CalendarConstraints$DateValidator;.isValid:(J)Z` @kind interface;
+  #L196c18.  v1:= temp;
+  #L196c1a.  if v1 == 0 then goto L196c46;
+  #L196c1e.  v1:= v10.`com.google.android.material.datepicker.DateFormatTextWatcher.constraints` @type ^`com.google.android.material.datepicker.CalendarConstraints` @kind object;
+  #L196c22.  call temp:= `isWithinBounds`(v1, v4) @signature `Lcom/google/android/material/datepicker/CalendarConstraints;.isWithinBounds:(J)Z` @kind virtual;
+  #L196c28.  v1:= temp;
+  #L196c2a.  if v1 == 0 then goto L196c46;
+  #L196c2e.  call temp:= `getTime`(v3) @signature `Ljava/util/Date;.getTime:()J` @kind virtual;
+  #L196c34.  v6:= temp @kind wide;
+  #L196c36.  call temp:= `valueOf`(v6) @signature `Ljava/lang/Long;.valueOf:(J)Ljava/lang/Long;` @kind static;
+  #L196c3c.  v1:= temp @kind object;
+  #L196c3e.  call `onValidDate`(v10, v1) @signature `Lcom/google/android/material/datepicker/DateFormatTextWatcher;.onValidDate:(Ljava/lang/Long;)V` @kind virtual;
+  #L196c44.  goto L196c72;
+  #L196c46.  v1:= v10.`com.google.android.material.datepicker.DateFormatTextWatcher.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L196c4a.  v6:= v10.`com.google.android.material.datepicker.DateFormatTextWatcher.outOfRange` @type ^`java.lang.String` @kind object;
+  #L196c4e.  v7:= new `java.lang.Object`[v2];
+  #L196c52.  call temp:= `getDateString`(v4) @signature `Lcom/google/android/material/datepicker/DateStrings;.getDateString:(J)Ljava/lang/String;` @kind static;
+  #L196c58.  v8:= temp @kind object;
+  #L196c5a.  v7[v0]:= v8 @kind object;
+  #L196c5e.  call temp:= `format`(v6, v7) @signature `Ljava/lang/String;.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;` @kind static;
+  #L196c64.  v6:= temp @kind object;
+  #L196c66.  call `setError`(v1, v6) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setError:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L196c6c.  call `onInvalidDate`(v10) @signature `Lcom/google/android/material/datepicker/DateFormatTextWatcher;.onInvalidDate:()V` @kind virtual;
+  #L196c72.  goto L196d56;
+  #L196c74.  v1:= Exception @type ^`java.text.ParseException` @kind object;
+  #L196c76.  v3:= v10.`com.google.android.material.datepicker.DateFormatTextWatcher.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L196c7a.  call temp:= `getContext`(v3) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L196c80.  v3:= temp @kind object;
+  #L196c82.  v4:= `@@com.google.android.material.R$string.mtrl_picker_invalid_format` @type ^`int`;
+  #L196c86.  call temp:= `getString`(v3, v4) @signature `Landroid/content/Context;.getString:(I)Ljava/lang/String;` @kind virtual;
+  #L196c8c.  v3:= temp @kind object;
+  #L196c8e.  v4:= v10.`com.google.android.material.datepicker.DateFormatTextWatcher.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L196c92.  call temp:= `getContext`(v4) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L196c98.  v4:= temp @kind object;
+  #L196c9a.  v5:= `@@com.google.android.material.R$string.mtrl_picker_invalid_format_use` @type ^`int`;
+  #L196c9e.  call temp:= `getString`(v4, v5) @signature `Landroid/content/Context;.getString:(I)Ljava/lang/String;` @kind virtual;
+  #L196ca4.  v4:= temp @kind object;
+  #L196ca6.  v5:= new `java.lang.Object`[v2];
+  #L196caa.  v6:= v10.`com.google.android.material.datepicker.DateFormatTextWatcher.formatHint` @type ^`java.lang.String` @kind object;
+  #L196cae.  v5[v0]:= v6 @kind object;
+  #L196cb2.  call temp:= `format`(v4, v5) @signature `Ljava/lang/String;.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;` @kind static;
+  #L196cb8.  v4:= temp @kind object;
+  #L196cba.  v5:= v10.`com.google.android.material.datepicker.DateFormatTextWatcher.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L196cbe.  call temp:= `getContext`(v5) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L196cc4.  v5:= temp @kind object;
+  #L196cc6.  v6:= `@@com.google.android.material.R$string.mtrl_picker_invalid_format_example` @type ^`int`;
+  #L196cca.  call temp:= `getString`(v5, v6) @signature `Landroid/content/Context;.getString:(I)Ljava/lang/String;` @kind virtual;
+  #L196cd0.  v5:= temp @kind object;
+  #L196cd2.  v2:= new `java.lang.Object`[v2];
+  #L196cd6.  v6:= v10.`com.google.android.material.datepicker.DateFormatTextWatcher.dateFormat` @type ^`java.text.DateFormat` @kind object;
+  #L196cda.  v7:= new `java.util.Date`;
+  #L196cde.  call temp:= `getTodayCalendar`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getTodayCalendar:()Ljava/util/Calendar;` @kind static;
+  #L196ce4.  v8:= temp @kind object;
+  #L196ce6.  call temp:= `getTimeInMillis`(v8) @signature `Ljava/util/Calendar;.getTimeInMillis:()J` @kind virtual;
+  #L196cec.  v8:= temp @kind wide;
+  #L196cee.  call `<init>`(v7, v8) @signature `Ljava/util/Date;.<init>:(J)V` @kind direct;
+  #L196cf4.  call temp:= `format`(v6, v7) @signature `Ljava/text/DateFormat;.format:(Ljava/util/Date;)Ljava/lang/String;` @kind virtual;
+  #L196cfa.  v6:= temp @kind object;
+  #L196cfc.  v2[v0]:= v6 @kind object;
+  #L196d00.  call temp:= `format`(v5, v2) @signature `Ljava/lang/String;.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;` @kind static;
+  #L196d06.  v0:= temp @kind object;
+  #L196d08.  v2:= v10.`com.google.android.material.datepicker.DateFormatTextWatcher.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L196d0c.  v5:= new `java.lang.StringBuilder`;
+  #L196d10.  call `<init>`(v5) @signature `Ljava/lang/StringBuilder;.<init>:()V` @kind direct;
+  #L196d16.  call temp:= `append`(v5, v3) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L196d1c.  v5:= temp @kind object;
+  #L196d1e.  v6:= "\n" @kind object;
+  #L196d22.  call temp:= `append`(v5, v6) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L196d28.  v5:= temp @kind object;
+  #L196d2a.  call temp:= `append`(v5, v4) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L196d30.  v5:= temp @kind object;
+  #L196d32.  call temp:= `append`(v5, v6) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L196d38.  v5:= temp @kind object;
+  #L196d3a.  call temp:= `append`(v5, v0) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L196d40.  v5:= temp @kind object;
+  #L196d42.  call temp:= `toString`(v5) @signature `Ljava/lang/StringBuilder;.toString:()Ljava/lang/String;` @kind virtual;
+  #L196d48.  v5:= temp @kind object;
+  #L196d4a.  call `setError`(v2, v5) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setError:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L196d50.  call `onInvalidDate`(v10) @signature `Lcom/google/android/material/datepicker/DateFormatTextWatcher;.onInvalidDate:()V` @kind virtual;
+  #L196d56.  return @kind void;
+  catch `java.text.ParseException` @[L196be0..L196c72] goto L196c74;
+}
+procedure `void` `onValidDate`(`java.lang.Long` v0 @kind object) @signature `Lcom/google/android/material/datepicker/DateFormatTextWatcher;.onValidDate:(Ljava/lang/Long;)V` @AccessFlag ABSTRACT {
+
+  # return;
+}

@@ -1,0 +1,312 @@
+record `androidx.appcompat.widget.ListPopupWindow` @kind class @AccessFlag PUBLIC extends `androidx.appcompat.view.menu.ShowableListMenu` @kind interface {
+  `android.widget.ListAdapter` `androidx.appcompat.widget.ListPopupWindow.mAdapter` @AccessFlag PRIVATE;
+  `android.content.Context` `androidx.appcompat.widget.ListPopupWindow.mContext` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.ListPopupWindow.mDropDownAlwaysVisible` @AccessFlag PRIVATE;
+  `android.view.View` `androidx.appcompat.widget.ListPopupWindow.mDropDownAnchorView` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.ListPopupWindow.mDropDownGravity` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.ListPopupWindow.mDropDownHeight` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.ListPopupWindow.mDropDownHorizontalOffset` @AccessFlag PRIVATE;
+  `androidx.appcompat.widget.DropDownListView` `androidx.appcompat.widget.ListPopupWindow.mDropDownList` @AccessFlag ;
+  `android.graphics.drawable.Drawable` `androidx.appcompat.widget.ListPopupWindow.mDropDownListHighlight` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.ListPopupWindow.mDropDownVerticalOffset` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.ListPopupWindow.mDropDownVerticalOffsetSet` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.ListPopupWindow.mDropDownWidth` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.ListPopupWindow.mDropDownWindowLayoutType` @AccessFlag PRIVATE;
+  `android.graphics.Rect` `androidx.appcompat.widget.ListPopupWindow.mEpicenterBounds` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.ListPopupWindow.mForceIgnoreOutsideTouch` @AccessFlag PRIVATE;
+  `android.os.Handler` `androidx.appcompat.widget.ListPopupWindow.mHandler` @AccessFlag FINAL;
+  `androidx.appcompat.widget.ListPopupWindow$ListSelectorHider` `androidx.appcompat.widget.ListPopupWindow.mHideSelector` @AccessFlag PRIVATE_FINAL;
+  `boolean` `androidx.appcompat.widget.ListPopupWindow.mIsAnimatedFromAnchor` @AccessFlag PRIVATE;
+  `android.widget.AdapterView$OnItemClickListener` `androidx.appcompat.widget.ListPopupWindow.mItemClickListener` @AccessFlag PRIVATE;
+  `android.widget.AdapterView$OnItemSelectedListener` `androidx.appcompat.widget.ListPopupWindow.mItemSelectedListener` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.widget.ListPopupWindow.mListItemExpandMaximum` @AccessFlag ;
+  `boolean` `androidx.appcompat.widget.ListPopupWindow.mModal` @AccessFlag PRIVATE;
+  `android.database.DataSetObserver` `androidx.appcompat.widget.ListPopupWindow.mObserver` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.ListPopupWindow.mOverlapAnchor` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.widget.ListPopupWindow.mOverlapAnchorSet` @AccessFlag PRIVATE;
+  `android.widget.PopupWindow` `androidx.appcompat.widget.ListPopupWindow.mPopup` @AccessFlag ;
+  `int` `androidx.appcompat.widget.ListPopupWindow.mPromptPosition` @AccessFlag PRIVATE;
+  `android.view.View` `androidx.appcompat.widget.ListPopupWindow.mPromptView` @AccessFlag PRIVATE;
+  `androidx.appcompat.widget.ListPopupWindow$ResizePopupRunnable` `androidx.appcompat.widget.ListPopupWindow.mResizePopupRunnable` @AccessFlag FINAL;
+  `androidx.appcompat.widget.ListPopupWindow$PopupScrollListener` `androidx.appcompat.widget.ListPopupWindow.mScrollListener` @AccessFlag PRIVATE_FINAL;
+  `java.lang.Runnable` `androidx.appcompat.widget.ListPopupWindow.mShowDropDownRunnable` @AccessFlag PRIVATE;
+  `android.graphics.Rect` `androidx.appcompat.widget.ListPopupWindow.mTempRect` @AccessFlag PRIVATE_FINAL;
+  `androidx.appcompat.widget.ListPopupWindow$PopupTouchInterceptor` `androidx.appcompat.widget.ListPopupWindow.mTouchInterceptor` @AccessFlag PRIVATE_FINAL;
+}
+global `boolean` `@@androidx.appcompat.widget.ListPopupWindow.DEBUG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.ListPopupWindow.EXPAND_LIST_TIMEOUT` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.ListPopupWindow.INPUT_METHOD_FROM_FOCUSABLE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.ListPopupWindow.INPUT_METHOD_NEEDED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.ListPopupWindow.INPUT_METHOD_NOT_NEEDED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.ListPopupWindow.MATCH_PARENT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.ListPopupWindow.POSITION_PROMPT_ABOVE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.ListPopupWindow.POSITION_PROMPT_BELOW` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.appcompat.widget.ListPopupWindow.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.widget.ListPopupWindow.WRAP_CONTENT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.reflect.Method` `@@androidx.appcompat.widget.ListPopupWindow.sGetMaxAvailableHeightMethod` @AccessFlag PRIVATE_STATIC;
+global `java.lang.reflect.Method` `@@androidx.appcompat.widget.ListPopupWindow.sSetClipToWindowEnabledMethod` @AccessFlag PRIVATE_STATIC;
+global `java.lang.reflect.Method` `@@androidx.appcompat.widget.ListPopupWindow.sSetEpicenterBoundsMethod` @AccessFlag PRIVATE_STATIC;
+procedure `void` `<clinit>`() @signature `Landroidx/appcompat/widget/ListPopupWindow;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.widget.ListPopupWindow` v2 @kind this, `android.content.Context` v3 @kind object @name `context`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`, `int` v4 @name `defStyleAttr`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.widget.ListPopupWindow` v4 @kind this, `android.content.Context` v5 @kind object @name `context`, `android.util.AttributeSet` v6 @kind object @name `attrs`, `int` v7 @name `defStyleAttr`, `int` v8 @name `defStyleRes`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;II)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `int` `buildDropDown`(`androidx.appcompat.widget.ListPopupWindow` v15 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.buildDropDown:()I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `getMaxAvailableHeight`(`androidx.appcompat.widget.ListPopupWindow` v5 @kind this, `android.view.View` v6 @kind object @name `anchor`, `int` v7 @name `yOffset`, `boolean` v8 @name `ignoreBottomDecorations`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.getMaxAvailableHeight:(Landroid/view/View;IZ)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `isConfirmKey`(`int` v1 @name `keyCode`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.isConfirmKey:(I)Z` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `removePromptView`(`androidx.appcompat.widget.ListPopupWindow` v3 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.removePromptView:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `setPopupClipToScreenEnabled`(`androidx.appcompat.widget.ListPopupWindow` v5 @kind this, `boolean` v6 @name `clip`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setPopupClipToScreenEnabled:(Z)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `clearListSelection`(`androidx.appcompat.widget.ListPopupWindow` v2 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.clearListSelection:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View$OnTouchListener` `createDragToOpenListener`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this, `android.view.View` v2 @kind object @name `src`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.createDragToOpenListener:(Landroid/view/View;)Landroid/view/View$OnTouchListener;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.appcompat.widget.DropDownListView` `createDropDownListView`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `boolean` v3 @name `hijackFocus`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.createDropDownListView:(Landroid/content/Context;Z)Landroidx/appcompat/widget/DropDownListView;` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `dismiss`(`androidx.appcompat.widget.ListPopupWindow` v2 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.dismiss:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View` `getAnchorView`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.getAnchorView:()Landroid/view/View;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getAnimationStyle`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.getAnimationStyle:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `getBackground`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.getBackground:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.graphics.Rect` `getEpicenterBounds`(`androidx.appcompat.widget.ListPopupWindow` v2 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.getEpicenterBounds:()Landroid/graphics/Rect;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getHeight`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.getHeight:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getHorizontalOffset`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.getHorizontalOffset:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getInputMethodMode`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.getInputMethodMode:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.widget.ListView` `getListView`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.getListView:()Landroid/widget/ListView;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getPromptPosition`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.getPromptPosition:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.Object` `getSelectedItem`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.getSelectedItem:()Ljava/lang/Object;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `long` `getSelectedItemId`(`androidx.appcompat.widget.ListPopupWindow` v2 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.getSelectedItemId:()J` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getSelectedItemPosition`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.getSelectedItemPosition:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View` `getSelectedView`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.getSelectedView:()Landroid/view/View;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getSoftInputMode`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.getSoftInputMode:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getVerticalOffset`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.getVerticalOffset:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getWidth`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.getWidth:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isDropDownAlwaysVisible`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.isDropDownAlwaysVisible:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isInputMethodNotNeeded`(`androidx.appcompat.widget.ListPopupWindow` v2 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.isInputMethodNotNeeded:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isModal`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.isModal:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isShowing`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.isShowing:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onKeyDown`(`androidx.appcompat.widget.ListPopupWindow` v12 @kind this, `int` v13 @name `keyCode`, `android.view.KeyEvent` v14 @kind object @name `event`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.onKeyDown:(ILandroid/view/KeyEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onKeyPreIme`(`androidx.appcompat.widget.ListPopupWindow` v4 @kind this, `int` v5 @name `keyCode`, `android.view.KeyEvent` v6 @kind object @name `event`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.onKeyPreIme:(ILandroid/view/KeyEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onKeyUp`(`androidx.appcompat.widget.ListPopupWindow` v2 @kind this, `int` v3 @name `keyCode`, `android.view.KeyEvent` v4 @kind object @name `event`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.onKeyUp:(ILandroid/view/KeyEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `performItemClick`(`androidx.appcompat.widget.ListPopupWindow` v9 @kind this, `int` v10 @name `position`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.performItemClick:(I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `postShow`(`androidx.appcompat.widget.ListPopupWindow` v2 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.postShow:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setAdapter`(`androidx.appcompat.widget.ListPopupWindow` v2 @kind this, `android.widget.ListAdapter` v3 @kind object @name `adapter`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setAdapter:(Landroid/widget/ListAdapter;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setAnchorView`(`androidx.appcompat.widget.ListPopupWindow` v0 @kind this, `android.view.View` v1 @kind object @name `anchor`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setAnchorView:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setAnimationStyle`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this, `int` v2 @name `animationStyle`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setAnimationStyle:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setBackgroundDrawable`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `d`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setBackgroundDrawable:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setContentWidth`(`androidx.appcompat.widget.ListPopupWindow` v3 @kind this, `int` v4 @name `width`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setContentWidth:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDropDownAlwaysVisible`(`androidx.appcompat.widget.ListPopupWindow` v0 @kind this, `boolean` v1 @name `dropDownAlwaysVisible`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setDropDownAlwaysVisible:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDropDownGravity`(`androidx.appcompat.widget.ListPopupWindow` v0 @kind this, `int` v1 @name `gravity`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setDropDownGravity:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setEpicenterBounds`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this, `android.graphics.Rect` v2 @kind object @name `bounds`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setEpicenterBounds:(Landroid/graphics/Rect;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setForceIgnoreOutsideTouch`(`androidx.appcompat.widget.ListPopupWindow` v0 @kind this, `boolean` v1 @name `forceIgnoreOutsideTouch`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setForceIgnoreOutsideTouch:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHeight`(`androidx.appcompat.widget.ListPopupWindow` v2 @kind this, `int` v3 @name `height`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setHeight:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHorizontalOffset`(`androidx.appcompat.widget.ListPopupWindow` v0 @kind this, `int` v1 @name `offset`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setHorizontalOffset:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setInputMethodMode`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this, `int` v2 @name `mode`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setInputMethodMode:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setListItemExpandMax`(`androidx.appcompat.widget.ListPopupWindow` v0 @kind this, `int` v1 @name `max`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setListItemExpandMax:(I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `setListSelector`(`androidx.appcompat.widget.ListPopupWindow` v0 @kind this, `android.graphics.drawable.Drawable` v1 @kind object @name `selector`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setListSelector:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setModal`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this, `boolean` v2 @name `modal`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setModal:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOnDismissListener`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this, `android.widget.PopupWindow$OnDismissListener` v2 @kind object @name `listener`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setOnDismissListener:(Landroid/widget/PopupWindow$OnDismissListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOnItemClickListener`(`androidx.appcompat.widget.ListPopupWindow` v0 @kind this, `android.widget.AdapterView$OnItemClickListener` v1 @kind object @name `clickListener`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setOnItemClickListener:(Landroid/widget/AdapterView$OnItemClickListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOnItemSelectedListener`(`androidx.appcompat.widget.ListPopupWindow` v0 @kind this, `android.widget.AdapterView$OnItemSelectedListener` v1 @kind object @name `selectedListener`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setOnItemSelectedListener:(Landroid/widget/AdapterView$OnItemSelectedListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOverlapAnchor`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this, `boolean` v2 @name `overlapAnchor`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setOverlapAnchor:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setPromptPosition`(`androidx.appcompat.widget.ListPopupWindow` v0 @kind this, `int` v1 @name `position`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setPromptPosition:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setPromptView`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this, `android.view.View` v2 @kind object @name `prompt`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setPromptView:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSelection`(`androidx.appcompat.widget.ListPopupWindow` v2 @kind this, `int` v3 @name `position`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setSelection:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSoftInputMode`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this, `int` v2 @name `mode`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setSoftInputMode:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setVerticalOffset`(`androidx.appcompat.widget.ListPopupWindow` v1 @kind this, `int` v2 @name `offset`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setVerticalOffset:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setWidth`(`androidx.appcompat.widget.ListPopupWindow` v0 @kind this, `int` v1 @name `width`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setWidth:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setWindowLayoutType`(`androidx.appcompat.widget.ListPopupWindow` v0 @kind this, `int` v1 @name `layoutType`) @signature `Landroidx/appcompat/widget/ListPopupWindow;.setWindowLayoutType:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `show`(`androidx.appcompat.widget.ListPopupWindow` v14 @kind this) @signature `Landroidx/appcompat/widget/ListPopupWindow;.show:()V` @AccessFlag PUBLIC {
+
+  # return;
+}

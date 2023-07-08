@@ -1,0 +1,37 @@
+record `com.google.android.material.shape.TriangleEdgeTreatment` @kind class @AccessFlag PUBLIC extends `com.google.android.material.shape.EdgeTreatment` @kind class {
+  `boolean` `com.google.android.material.shape.TriangleEdgeTreatment.inside` @AccessFlag PRIVATE_FINAL;
+  `float` `com.google.android.material.shape.TriangleEdgeTreatment.size` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.TriangleEdgeTreatment` v0 @kind this, `float` v1 @name `size`, `boolean` v2 @name `inside`) @signature `Lcom/google/android/material/shape/TriangleEdgeTreatment;.<init>:(FZ)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1aeef8.  call `<init>`(v0) @signature `Lcom/google/android/material/shape/EdgeTreatment;.<init>:()V` @kind direct;
+  #L1aeefe.  v0.`com.google.android.material.shape.TriangleEdgeTreatment.size` @type ^`float` := v1;
+  #L1aef02.  v0.`com.google.android.material.shape.TriangleEdgeTreatment.inside` @type ^`boolean` := v2 @kind boolean;
+  #L1aef06.  return @kind void;
+}
+procedure `void` `getEdgePath`(`com.google.android.material.shape.TriangleEdgeTreatment` v2 @kind this, `float` v3 @name `length`, `float` v4 @name `center`, `float` v5 @name `interpolation`, `com.google.android.material.shape.ShapePath` v6 @kind object @name `shapePath`) @signature `Lcom/google/android/material/shape/TriangleEdgeTreatment;.getEdgePath:(FFFLcom/google/android/material/shape/ShapePath;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1aef18.  v0:= v2.`com.google.android.material.shape.TriangleEdgeTreatment.size` @type ^`float`;
+  #L1aef1c.  v0:= v0 * v5 @kind float;
+  #L1aef1e.  v0:= v4 - v0 @kind float;
+  #L1aef22.  v1:= 0I;
+  #L1aef24.  call `lineTo`(v6, v0, v1) @signature `Lcom/google/android/material/shape/ShapePath;.lineTo:(FF)V` @kind virtual;
+  #L1aef2a.  v0:= v2.`com.google.android.material.shape.TriangleEdgeTreatment.inside` @type ^`boolean` @kind boolean;
+  #L1aef2e.  if v0 == 0 then goto L1aef38;
+  #L1aef32.  v0:= v2.`com.google.android.material.shape.TriangleEdgeTreatment.size` @type ^`float`;
+  #L1aef36.  goto L1aef3e;
+  #L1aef38.  v0:= v2.`com.google.android.material.shape.TriangleEdgeTreatment.size` @type ^`float`;
+  #L1aef3c.  v0:= -v0 @kind float;
+  #L1aef3e.  v0:= v0 * v5 @kind float;
+  #L1aef40.  call `lineTo`(v6, v4, v0) @signature `Lcom/google/android/material/shape/ShapePath;.lineTo:(FF)V` @kind virtual;
+  #L1aef46.  v0:= v2.`com.google.android.material.shape.TriangleEdgeTreatment.size` @type ^`float`;
+  #L1aef4a.  v0:= v0 * v5 @kind float;
+  #L1aef4c.  v0:= v0 + v4 @kind float;
+  #L1aef4e.  call `lineTo`(v6, v0, v1) @signature `Lcom/google/android/material/shape/ShapePath;.lineTo:(FF)V` @kind virtual;
+  #L1aef54.  call `lineTo`(v6, v3, v1) @signature `Lcom/google/android/material/shape/ShapePath;.lineTo:(FF)V` @kind virtual;
+  #L1aef5a.  return @kind void;
+}

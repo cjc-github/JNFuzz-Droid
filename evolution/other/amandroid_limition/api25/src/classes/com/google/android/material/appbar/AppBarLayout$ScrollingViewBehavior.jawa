@@ -1,0 +1,303 @@
+record `com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` @kind class @AccessFlag PUBLIC extends `com.google.android.material.appbar.HeaderScrollingViewBehavior` @kind class {
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v0 @kind this) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L17f038.  call `<init>`(v0) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.<init>:()V` @kind direct;
+  #L17f03e.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v3 @kind this, `android.content.Context` v4 @kind object @name `context`, `android.util.AttributeSet` v5 @kind object @name `attrs`) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L17f050.  call `<init>`(v3, v4, v5) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L17f056.  v0:= `@@com.google.android.material.R$styleable.ScrollingViewBehavior_Layout` @type ^`int`[] @kind object;
+  #L17f05a.  call temp:= `obtainStyledAttributes`(v4, v5, v0) @signature `Landroid/content/Context;.obtainStyledAttributes:(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;` @kind virtual;
+  #L17f060.  v0:= temp @kind object;
+  #L17f062.  v1:= `@@com.google.android.material.R$styleable.ScrollingViewBehavior_Layout_behavior_overlapTop` @type ^`int`;
+  #L17f066.  v2:= 0I;
+  #L17f068.  call temp:= `getDimensionPixelSize`(v0, v1, v2) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L17f06e.  v1:= temp;
+  #L17f070.  call `setOverlayTop`(v3, v1) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.setOverlayTop:(I)V` @kind virtual;
+  #L17f076.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L17f07c.  return @kind void;
+}
+procedure `int` `getAppBarLayoutOffset`(`com.google.android.material.appbar.AppBarLayout` v2 @kind object @name `abl`) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.getAppBarLayoutOffset:(Lcom/google/android/material/appbar/AppBarLayout;)I` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L17ef88.  
+  #L17ef8a.  call temp:= `getLayoutParams`(v2) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L17ef90.  v0:= temp @kind object;
+  #L17ef92.  v0:= (`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams`) v0 @kind object;
+  #L17ef96.  call temp:= `getBehavior`(v0) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;.getBehavior:()Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;` @kind virtual;
+  #L17ef9c.  v0:= temp @kind object;
+  #L17ef9e.  v1:= instanceof @variable v0 @type ^`com.google.android.material.appbar.AppBarLayout$BaseBehavior` @kind boolean;
+  #L17efa2.  if v1 == 0 then goto L17efb6;
+  #L17efa6.  v1:= v0 @kind object;
+  #L17efa8.  v1:= (`com.google.android.material.appbar.AppBarLayout$BaseBehavior`) v1 @kind object;
+  #L17efac.  call temp:= `getTopBottomOffsetForScrollingSibling`(v1) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.getTopBottomOffsetForScrollingSibling:()I` @kind virtual;
+  #L17efb2.  v1:= temp;
+  #L17efb4.  return v1;
+  #L17efb6.  v1:= 0I;
+  #L17efb8.  return v1;
+}
+procedure `void` `offsetChildAsNeeded`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v4 @kind this, `android.view.View` v5 @kind object @name `child`, `android.view.View` v6 @kind object @name `dependency`) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.offsetChildAsNeeded:(Landroid/view/View;Landroid/view/View;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L17f090.  
+  #L17f092.  call temp:= `getLayoutParams`(v6) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L17f098.  v0:= temp @kind object;
+  #L17f09a.  v0:= (`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams`) v0 @kind object;
+  #L17f09e.  call temp:= `getBehavior`(v0) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;.getBehavior:()Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;` @kind virtual;
+  #L17f0a4.  v0:= temp @kind object;
+  #L17f0a6.  v1:= instanceof @variable v0 @type ^`com.google.android.material.appbar.AppBarLayout$BaseBehavior` @kind boolean;
+  #L17f0aa.  if v1 == 0 then goto L17f0ec;
+  #L17f0ae.  v1:= v0 @kind object;
+  #L17f0b0.  v1:= (`com.google.android.material.appbar.AppBarLayout$BaseBehavior`) v1 @kind object;
+  #L17f0b4.  
+  #L17f0b6.  call temp:= `getBottom`(v6) @signature `Landroid/view/View;.getBottom:()I` @kind virtual;
+  #L17f0bc.  v2:= temp;
+  #L17f0be.  call temp:= `getTop`(v5) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L17f0c4.  v3:= temp;
+  #L17f0c6.  v2:= v2 - v3 @kind int;
+  #L17f0c8.  call temp:= `access$000`(v1) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.access$000:(Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;)I` @kind static;
+  #L17f0ce.  v3:= temp;
+  #L17f0d0.  v2:= v2 + v3 @kind int;
+  #L17f0d2.  call temp:= `getVerticalLayoutGap`(v4) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.getVerticalLayoutGap:()I` @kind virtual;
+  #L17f0d8.  v3:= temp;
+  #L17f0da.  v2:= v2 + v3 @kind int;
+  #L17f0dc.  call temp:= `getOverlapPixelsForOffset`(v4, v6) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.getOverlapPixelsForOffset:(Landroid/view/View;)I` @kind virtual;
+  #L17f0e2.  v3:= temp;
+  #L17f0e4.  v2:= v2 - v3 @kind int;
+  #L17f0e6.  call `offsetTopAndBottom`(v5, v2) @signature `Landroidx/core/view/ViewCompat;.offsetTopAndBottom:(Landroid/view/View;I)V` @kind static;
+  #L17f0ec.  return @kind void;
+}
+procedure `void` `updateLiftedStateIfNeeded`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v2 @kind this, `android.view.View` v3 @kind object @name `child`, `android.view.View` v4 @kind object @name `dependency`) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.updateLiftedStateIfNeeded:(Landroid/view/View;Landroid/view/View;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L17f130.  v0:= instanceof @variable v4 @type ^`com.google.android.material.appbar.AppBarLayout` @kind boolean;
+  #L17f134.  if v0 == 0 then goto L17f158;
+  #L17f138.  v0:= v4 @kind object;
+  #L17f13a.  v0:= (`com.google.android.material.appbar.AppBarLayout`) v0 @kind object;
+  #L17f13e.  call temp:= `isLiftOnScroll`(v0) @signature `Lcom/google/android/material/appbar/AppBarLayout;.isLiftOnScroll:()Z` @kind virtual;
+  #L17f144.  v1:= temp;
+  #L17f146.  if v1 == 0 then goto L17f158;
+  #L17f14a.  call temp:= `shouldLift`(v0, v3) @signature `Lcom/google/android/material/appbar/AppBarLayout;.shouldLift:(Landroid/view/View;)Z` @kind virtual;
+  #L17f150.  v1:= temp;
+  #L17f152.  call temp:= `setLiftedState`(v0, v1) @signature `Lcom/google/android/material/appbar/AppBarLayout;.setLiftedState:(Z)Z` @kind virtual;
+  #L17f158.  return @kind void;
+}
+procedure `android.view.View` `findFirstDependency`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v0 @kind this, `java.util.List` v1 @kind object) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.findFirstDependency:(Ljava/util/List;)Landroid/view/View;` @AccessFlag SYNTHETIC {
+    temp;
+
+  #L17ed74.  call temp:= `findFirstDependency`(v0, v1) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.findFirstDependency:(Ljava/util/List;)Lcom/google/android/material/appbar/AppBarLayout;` @kind virtual;
+  #L17ed7a.  v1:= temp @kind object;
+  #L17ed7c.  return v1 @kind object;
+}
+procedure `com.google.android.material.appbar.AppBarLayout` `findFirstDependency`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v4 @kind this, `java.util.List` v5 @kind object) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.findFirstDependency:(Ljava/util/List;)Lcom/google/android/material/appbar/AppBarLayout;` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L17eee4.  v0:= 0I;
+  #L17eee6.  call temp:= `size`(v5) @signature `Ljava/util/List;.size:()I` @kind interface;
+  #L17eeec.  v1:= temp;
+  #L17eeee.  if v0 >= v1 then goto L17ef14;
+  #L17eef2.  call temp:= `get`(v5, v0) @signature `Ljava/util/List;.get:(I)Ljava/lang/Object;` @kind interface;
+  #L17eef8.  v2:= temp @kind object;
+  #L17eefa.  v2:= (`android.view.View`) v2 @kind object;
+  #L17eefe.  v3:= instanceof @variable v2 @type ^`com.google.android.material.appbar.AppBarLayout` @kind boolean;
+  #L17ef02.  if v3 == 0 then goto L17ef0e;
+  #L17ef06.  v3:= v2 @kind object;
+  #L17ef08.  v3:= (`com.google.android.material.appbar.AppBarLayout`) v3 @kind object;
+  #L17ef0c.  return v3 @kind object;
+  #L17ef0e.  v0:= v0 + 1;
+  #L17ef12.  goto L17eeee;
+  #L17ef14.  v0:= 0I;
+  #L17ef16.  return v0 @kind object;
+}
+procedure `int` `getLeftAndRightOffset`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v1 @kind this) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.getLeftAndRightOffset:()I` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L17efcc.  call temp:= `getLeftAndRightOffset`(v1) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.getLeftAndRightOffset:()I` @kind super;
+  #L17efd2.  v0:= temp;
+  #L17efd4.  return v0;
+}
+procedure `float` `getOverlapRatioForOffset`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v8 @kind this, `android.view.View` v9 @kind object @name `header`) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.getOverlapRatioForOffset:(Landroid/view/View;)F` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L17ef28.  v0:= instanceof @variable v9 @type ^`com.google.android.material.appbar.AppBarLayout` @kind boolean;
+  #L17ef2c.  v1:= 0I;
+  #L17ef2e.  if v0 == 0 then goto L17ef74;
+  #L17ef32.  v0:= v9 @kind object;
+  #L17ef34.  v0:= (`com.google.android.material.appbar.AppBarLayout`) v0 @kind object;
+  #L17ef38.  call temp:= `getTotalScrollRange`(v0) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getTotalScrollRange:()I` @kind virtual;
+  #L17ef3e.  v2:= temp;
+  #L17ef40.  call temp:= `getDownNestedPreScrollRange`(v0) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getDownNestedPreScrollRange:()I` @kind virtual;
+  #L17ef46.  v3:= temp;
+  #L17ef48.  call temp:= `getAppBarLayoutOffset`(v0) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.getAppBarLayoutOffset:(Lcom/google/android/material/appbar/AppBarLayout;)I` @kind static;
+  #L17ef4e.  v4:= temp;
+  #L17ef50.  if v3 == 0 then goto L17ef5e;
+  #L17ef54.  v5:= v2 + v4 @kind int;
+  #L17ef58.  if v5 > v3 then goto L17ef5e;
+  #L17ef5c.  return v1;
+  #L17ef5e.  v5:= v2 - v3 @kind int;
+  #L17ef62.  if v5 == 0 then goto L17ef74;
+  #L17ef66.  v1:= 1.0F;
+  #L17ef6a.  v6:= (`float`) v4 @kind i2f;
+  #L17ef6c.  v7:= (`float`) v5 @kind i2f;
+  #L17ef6e.  v6:= v6 / v7 @kind float;
+  #L17ef70.  v6:= v6 + v1 @kind float;
+  #L17ef72.  return v6;
+  #L17ef74.  return v1;
+}
+procedure `int` `getScrollRange`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v1 @kind this, `android.view.View` v2 @kind object @name `v`) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.getScrollRange:(Landroid/view/View;)I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L17efe8.  v0:= instanceof @variable v2 @type ^`com.google.android.material.appbar.AppBarLayout` @kind boolean;
+  #L17efec.  if v0 == 0 then goto L17f000;
+  #L17eff0.  v0:= v2 @kind object;
+  #L17eff2.  v0:= (`com.google.android.material.appbar.AppBarLayout`) v0 @kind object;
+  #L17eff6.  call temp:= `getTotalScrollRange`(v0) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getTotalScrollRange:()I` @kind virtual;
+  #L17effc.  v0:= temp;
+  #L17effe.  return v0;
+  #L17f000.  call temp:= `getScrollRange`(v1, v2) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.getScrollRange:(Landroid/view/View;)I` @kind super;
+  #L17f006.  v0:= temp;
+  #L17f008.  return v0;
+}
+procedure `int` `getTopAndBottomOffset`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v1 @kind this) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.getTopAndBottomOffset:()I` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L17f01c.  call temp:= `getTopAndBottomOffset`(v1) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.getTopAndBottomOffset:()I` @kind super;
+  #L17f022.  v0:= temp;
+  #L17f024.  return v0;
+}
+procedure `boolean` `isHorizontalOffsetEnabled`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v1 @kind this) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.isHorizontalOffsetEnabled:()Z` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L17ed90.  call temp:= `isHorizontalOffsetEnabled`(v1) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.isHorizontalOffsetEnabled:()Z` @kind super;
+  #L17ed96.  v0:= temp;
+  #L17ed98.  return v0;
+}
+procedure `boolean` `isVerticalOffsetEnabled`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v1 @kind this) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.isVerticalOffsetEnabled:()Z` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L17edac.  call temp:= `isVerticalOffsetEnabled`(v1) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.isVerticalOffsetEnabled:()Z` @kind super;
+  #L17edb2.  v0:= temp;
+  #L17edb4.  return v0;
+}
+procedure `boolean` `layoutDependsOn`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v1 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind object @name `parent`, `android.view.View` v3 @kind object @name `child`, `android.view.View` v4 @kind object @name `dependency`) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.layoutDependsOn:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L17edc8.  v0:= instanceof @variable v4 @type ^`com.google.android.material.appbar.AppBarLayout` @kind boolean;
+  #L17edcc.  return v0;
+}
+procedure `boolean` `onDependentViewChanged`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v1 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind object @name `parent`, `android.view.View` v3 @kind object @name `child`, `android.view.View` v4 @kind object @name `dependency`) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.onDependentViewChanged:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L17ede0.  call `offsetChildAsNeeded`(v1, v3, v4) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.offsetChildAsNeeded:(Landroid/view/View;Landroid/view/View;)V` @kind direct;
+  #L17ede6.  call `updateLiftedStateIfNeeded`(v1, v3, v4) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.updateLiftedStateIfNeeded:(Landroid/view/View;Landroid/view/View;)V` @kind direct;
+  #L17edec.  v0:= 0I;
+  #L17edee.  return v0;
+}
+procedure `boolean` `onLayoutChild`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v0 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind object, `android.view.View` v2 @kind object, `int` v3 ) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.onLayoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)Z` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L17ee00.  call temp:= `onLayoutChild`(v0, v1, v2, v3) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.onLayoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)Z` @kind super;
+  #L17ee06.  v1:= temp;
+  #L17ee08.  return v1;
+}
+procedure `boolean` `onMeasureChild`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v0 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind object, `android.view.View` v2 @kind object, `int` v3 , `int` v4 , `int` v5 , `int` v6 ) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.onMeasureChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;IIII)Z` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L17ee1c.  call temp:= `onMeasureChild`(v0, v1, v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.onMeasureChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;IIII)Z` @kind super;
+  #L17ee22.  v1:= temp;
+  #L17ee24.  return v1;
+}
+procedure `boolean` `onRequestChildRectangleOnScreen`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v5 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v6 @kind object @name `parent`, `android.view.View` v7 @kind object @name `child`, `android.graphics.Rect` v8 @kind object @name `rectangle`, `boolean` v9 @name `immediate`) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.onRequestChildRectangleOnScreen:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/graphics/Rect;Z)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L17ee38.  call temp:= `getDependencies`(v6, v7) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getDependencies:(Landroid/view/View;)Ljava/util/List;` @kind virtual;
+  #L17ee3e.  v0:= temp @kind object;
+  #L17ee40.  call temp:= `findFirstDependency`(v5, v0) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.findFirstDependency:(Ljava/util/List;)Lcom/google/android/material/appbar/AppBarLayout;` @kind virtual;
+  #L17ee46.  v0:= temp @kind object;
+  #L17ee48.  v1:= 0I;
+  #L17ee4a.  if v0 == 0 then goto L17ee98;
+  #L17ee4e.  call temp:= `getLeft`(v7) @signature `Landroid/view/View;.getLeft:()I` @kind virtual;
+  #L17ee54.  v2:= temp;
+  #L17ee56.  call temp:= `getTop`(v7) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L17ee5c.  v3:= temp;
+  #L17ee5e.  call `offset`(v8, v2, v3) @signature `Landroid/graphics/Rect;.offset:(II)V` @kind virtual;
+  #L17ee64.  v2:= v5.`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior.tempRect1` @type ^`android.graphics.Rect` @kind object;
+  #L17ee68.  call temp:= `getWidth`(v6) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getWidth:()I` @kind virtual;
+  #L17ee6e.  v3:= temp;
+  #L17ee70.  call temp:= `getHeight`(v6) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getHeight:()I` @kind virtual;
+  #L17ee76.  v4:= temp;
+  #L17ee78.  call `set`(v2, v1, v1, v3, v4) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L17ee7e.  call temp:= `contains`(v2, v8) @signature `Landroid/graphics/Rect;.contains:(Landroid/graphics/Rect;)Z` @kind virtual;
+  #L17ee84.  v3:= temp;
+  #L17ee86.  if v3 != 0 then goto L17ee98;
+  #L17ee8a.  v3:= v9 ^~ 1;
+  #L17ee8e.  call `setExpanded`(v0, v1, v3) @signature `Lcom/google/android/material/appbar/AppBarLayout;.setExpanded:(ZZ)V` @kind virtual;
+  #L17ee94.  v1:= 1I;
+  #L17ee96.  return v1;
+  #L17ee98.  return v1;
+}
+procedure `void` `setHorizontalOffsetEnabled`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v0 @kind this, `boolean` v1 ) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.setHorizontalOffsetEnabled:(Z)V` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L17f100.  call `setHorizontalOffsetEnabled`(v0, v1) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.setHorizontalOffsetEnabled:(Z)V` @kind super;
+  #L17f106.  return @kind void;
+}
+procedure `boolean` `setLeftAndRightOffset`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v0 @kind this, `int` v1 ) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.setLeftAndRightOffset:(I)Z` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L17eeac.  call temp:= `setLeftAndRightOffset`(v0, v1) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.setLeftAndRightOffset:(I)Z` @kind super;
+  #L17eeb2.  v1:= temp;
+  #L17eeb4.  return v1;
+}
+procedure `boolean` `setTopAndBottomOffset`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v0 @kind this, `int` v1 ) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.setTopAndBottomOffset:(I)Z` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L17eec8.  call temp:= `setTopAndBottomOffset`(v0, v1) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.setTopAndBottomOffset:(I)Z` @kind super;
+  #L17eece.  v1:= temp;
+  #L17eed0.  return v1;
+}
+procedure `void` `setVerticalOffsetEnabled`(`com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior` v0 @kind this, `boolean` v1 ) @signature `Lcom/google/android/material/appbar/AppBarLayout$ScrollingViewBehavior;.setVerticalOffsetEnabled:(Z)V` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L17f118.  call `setVerticalOffsetEnabled`(v0, v1) @signature `Lcom/google/android/material/appbar/HeaderScrollingViewBehavior;.setVerticalOffsetEnabled:(Z)V` @kind super;
+  #L17f11e.  return @kind void;
+}

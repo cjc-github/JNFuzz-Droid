@@ -1,0 +1,24 @@
+record `com.google.android.material.snackbar.Snackbar$1` @kind class @AccessFlag  extends `android.view.View$OnClickListener` @kind interface {
+  `com.google.android.material.snackbar.Snackbar` `com.google.android.material.snackbar.Snackbar$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `android.view.View$OnClickListener` `com.google.android.material.snackbar.Snackbar$1.val$listener` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.snackbar.Snackbar$1` v0 @kind this, `com.google.android.material.snackbar.Snackbar` v1 @kind object @name `this$0`, `android.view.View$OnClickListener` v2 @kind object) @signature `Lcom/google/android/material/snackbar/Snackbar$1;.<init>:(Lcom/google/android/material/snackbar/Snackbar;Landroid/view/View$OnClickListener;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b09e4.  v0.`com.google.android.material.snackbar.Snackbar$1.this$0` @type ^`com.google.android.material.snackbar.Snackbar` := v1 @kind object;
+  #L1b09e8.  v0.`com.google.android.material.snackbar.Snackbar$1.val$listener` @type ^`android.view.View$OnClickListener` := v2 @kind object;
+  #L1b09ec.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b09f2.  return @kind void;
+}
+procedure `void` `onClick`(`com.google.android.material.snackbar.Snackbar$1` v2 @kind this, `android.view.View` v3 @kind object @name `view`) @signature `Lcom/google/android/material/snackbar/Snackbar$1;.onClick:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b0a04.  v0:= v2.`com.google.android.material.snackbar.Snackbar$1.val$listener` @type ^`android.view.View$OnClickListener` @kind object;
+  #L1b0a08.  call `onClick`(v0, v3) @signature `Landroid/view/View$OnClickListener;.onClick:(Landroid/view/View;)V` @kind interface;
+  #L1b0a0e.  v0:= v2.`com.google.android.material.snackbar.Snackbar$1.this$0` @type ^`com.google.android.material.snackbar.Snackbar` @kind object;
+  #L1b0a12.  v1:= 1I;
+  #L1b0a14.  call `dispatchDismiss`(v0, v1) @signature `Lcom/google/android/material/snackbar/Snackbar;.dispatchDismiss:(I)V` @kind virtual;
+  #L1b0a1a.  return @kind void;
+}

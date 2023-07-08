@@ -1,0 +1,100 @@
+record `com.google.android.material.color.MaterialColors` @kind class @AccessFlag PUBLIC {
+}
+global `float` `@@com.google.android.material.color.MaterialColors.ALPHA_DISABLED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `float` `@@com.google.android.material.color.MaterialColors.ALPHA_DISABLED_LOW` @AccessFlag PUBLIC_STATIC_FINAL;
+global `float` `@@com.google.android.material.color.MaterialColors.ALPHA_FULL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `float` `@@com.google.android.material.color.MaterialColors.ALPHA_LOW` @AccessFlag PUBLIC_STATIC_FINAL;
+global `float` `@@com.google.android.material.color.MaterialColors.ALPHA_MEDIUM` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.color.MaterialColors` v0 @kind this) @signature `Lcom/google/android/material/color/MaterialColors;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L19617c.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L196182.  return @kind void;
+}
+procedure `int` `getColor`(`android.content.Context` v2 @kind object @name `context`, `int` v3 @name `colorAttributeResId`, `int` v4 @name `defaultValue`) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/content/Context;II)I` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L19605c.  call temp:= `resolve`(v2, v3) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolve:(Landroid/content/Context;I)Landroid/util/TypedValue;` @kind static;
+  #L196062.  v0:= temp @kind object;
+  #L196064.  if v0 == 0 then goto L19606e;
+  #L196068.  v1:= v0.`android.util.TypedValue.data` @type ^`int`;
+  #L19606c.  return v1;
+  #L19606e.  return v4;
+}
+procedure `int` `getColor`(`android.content.Context` v1 @kind object @name `context`, `int` v2 @name `colorAttributeResId`, `java.lang.String` v3 @kind object @name `errorMessageComponent`) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/content/Context;ILjava/lang/String;)I` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L196080.  call temp:= `resolveOrThrow`(v1, v2, v3) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolveOrThrow:(Landroid/content/Context;ILjava/lang/String;)I` @kind static;
+  #L196086.  v0:= temp;
+  #L196088.  return v0;
+}
+procedure `int` `getColor`(`android.view.View` v1 @kind object @name `view`, `int` v2 @name `colorAttributeResId`) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/view/View;I)I` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L19609c.  call temp:= `resolveOrThrow`(v1, v2) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolveOrThrow:(Landroid/view/View;I)I` @kind static;
+  #L1960a2.  v0:= temp;
+  #L1960a4.  return v0;
+}
+procedure `int` `getColor`(`android.view.View` v1 @kind object @name `view`, `int` v2 @name `colorAttributeResId`, `int` v3 @name `defaultValue`) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/view/View;II)I` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L1960b8.  call temp:= `getContext`(v1) @signature `Landroid/view/View;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1960be.  v0:= temp @kind object;
+  #L1960c0.  call temp:= `getColor`(v0, v2, v3) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/content/Context;II)I` @kind static;
+  #L1960c6.  v0:= temp;
+  #L1960c8.  return v0;
+}
+procedure `int` `layer`(`int` v1 @name `backgroundColor`, `int` v2 @name `overlayColor`) @signature `Lcom/google/android/material/color/MaterialColors;.layer:(II)I` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L196128.  call temp:= `compositeColors`(v2, v1) @signature `Landroidx/core/graphics/ColorUtils;.compositeColors:(II)I` @kind static;
+  #L19612e.  v0:= temp;
+  #L196130.  return v0;
+}
+procedure `int` `layer`(`int` v3 @name `backgroundColor`, `int` v4 @name `overlayColor`, `float` v5 @name `overlayAlpha`) @signature `Lcom/google/android/material/color/MaterialColors;.layer:(IIF)I` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L196144.  call temp:= `alpha`(v4) @signature `Landroid/graphics/Color;.alpha:(I)I` @kind static;
+  #L19614a.  v0:= temp;
+  #L19614c.  v0:= (`float`) v0 @kind i2f;
+  #L19614e.  v0:= v0 * v5 @kind float;
+  #L196150.  call temp:= `round`(v0) @signature `Ljava/lang/Math;.round:(F)I` @kind static;
+  #L196156.  v0:= temp;
+  #L196158.  call temp:= `setAlphaComponent`(v4, v0) @signature `Landroidx/core/graphics/ColorUtils;.setAlphaComponent:(II)I` @kind static;
+  #L19615e.  v1:= temp;
+  #L196160.  call temp:= `layer`(v3, v1) @signature `Lcom/google/android/material/color/MaterialColors;.layer:(II)I` @kind static;
+  #L196166.  v2:= temp;
+  #L196168.  return v2;
+}
+procedure `int` `layer`(`android.view.View` v1 @kind object @name `view`, `int` v2 @name `backgroundColorAttributeResId`, `int` v3 @name `overlayColorAttributeResId`) @signature `Lcom/google/android/material/color/MaterialColors;.layer:(Landroid/view/View;II)I` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L1960dc.  v0:= 1.0F;
+  #L1960e0.  call temp:= `layer`(v1, v2, v3, v0) @signature `Lcom/google/android/material/color/MaterialColors;.layer:(Landroid/view/View;IIF)I` @kind static;
+  #L1960e6.  v0:= temp;
+  #L1960e8.  return v0;
+}
+procedure `int` `layer`(`android.view.View` v3 @kind object @name `view`, `int` v4 @name `backgroundColorAttributeResId`, `int` v5 @name `overlayColorAttributeResId`, `float` v6 @name `overlayAlpha`) @signature `Lcom/google/android/material/color/MaterialColors;.layer:(Landroid/view/View;IIF)I` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1960fc.  call temp:= `getColor`(v3, v4) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/view/View;I)I` @kind static;
+  #L196102.  v0:= temp;
+  #L196104.  call temp:= `getColor`(v3, v5) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/view/View;I)I` @kind static;
+  #L19610a.  v1:= temp;
+  #L19610c.  call temp:= `layer`(v0, v1, v6) @signature `Lcom/google/android/material/color/MaterialColors;.layer:(IIF)I` @kind static;
+  #L196112.  v2:= temp;
+  #L196114.  return v2;
+}

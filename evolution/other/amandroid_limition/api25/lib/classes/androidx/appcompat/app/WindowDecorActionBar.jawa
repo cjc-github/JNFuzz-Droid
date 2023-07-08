@@ -1,0 +1,433 @@
+record `androidx.appcompat.app.WindowDecorActionBar` @kind class @AccessFlag PUBLIC extends `androidx.appcompat.app.ActionBar` @kind class, `androidx.appcompat.widget.ActionBarOverlayLayout$ActionBarVisibilityCallback` @kind interface {
+  `androidx.appcompat.app.WindowDecorActionBar$ActionModeImpl` `androidx.appcompat.app.WindowDecorActionBar.mActionMode` @AccessFlag ;
+  `android.app.Activity` `androidx.appcompat.app.WindowDecorActionBar.mActivity` @AccessFlag PRIVATE;
+  `androidx.appcompat.widget.ActionBarContainer` `androidx.appcompat.app.WindowDecorActionBar.mContainerView` @AccessFlag ;
+  `boolean` `androidx.appcompat.app.WindowDecorActionBar.mContentAnimations` @AccessFlag ;
+  `android.view.View` `androidx.appcompat.app.WindowDecorActionBar.mContentView` @AccessFlag ;
+  `android.content.Context` `androidx.appcompat.app.WindowDecorActionBar.mContext` @AccessFlag ;
+  `androidx.appcompat.widget.ActionBarContextView` `androidx.appcompat.app.WindowDecorActionBar.mContextView` @AccessFlag ;
+  `int` `androidx.appcompat.app.WindowDecorActionBar.mCurWindowVisibility` @AccessFlag PRIVATE;
+  `androidx.appcompat.view.ViewPropertyAnimatorCompatSet` `androidx.appcompat.app.WindowDecorActionBar.mCurrentShowAnim` @AccessFlag ;
+  `androidx.appcompat.widget.DecorToolbar` `androidx.appcompat.app.WindowDecorActionBar.mDecorToolbar` @AccessFlag ;
+  `androidx.appcompat.view.ActionMode` `androidx.appcompat.app.WindowDecorActionBar.mDeferredDestroyActionMode` @AccessFlag ;
+  `androidx.appcompat.view.ActionMode$Callback` `androidx.appcompat.app.WindowDecorActionBar.mDeferredModeDestroyCallback` @AccessFlag ;
+  `android.app.Dialog` `androidx.appcompat.app.WindowDecorActionBar.mDialog` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.app.WindowDecorActionBar.mDisplayHomeAsUpSet` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.app.WindowDecorActionBar.mHasEmbeddedTabs` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.app.WindowDecorActionBar.mHiddenByApp` @AccessFlag ;
+  `boolean` `androidx.appcompat.app.WindowDecorActionBar.mHiddenBySystem` @AccessFlag ;
+  `androidx.core.view.ViewPropertyAnimatorListener` `androidx.appcompat.app.WindowDecorActionBar.mHideListener` @AccessFlag FINAL;
+  `boolean` `androidx.appcompat.app.WindowDecorActionBar.mHideOnContentScroll` @AccessFlag ;
+  `boolean` `androidx.appcompat.app.WindowDecorActionBar.mLastMenuVisibility` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.appcompat.app.WindowDecorActionBar.mMenuVisibilityListeners` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.app.WindowDecorActionBar.mNowShowing` @AccessFlag PRIVATE;
+  `androidx.appcompat.widget.ActionBarOverlayLayout` `androidx.appcompat.app.WindowDecorActionBar.mOverlayLayout` @AccessFlag ;
+  `int` `androidx.appcompat.app.WindowDecorActionBar.mSavedTabPosition` @AccessFlag PRIVATE;
+  `androidx.appcompat.app.WindowDecorActionBar$TabImpl` `androidx.appcompat.app.WindowDecorActionBar.mSelectedTab` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.app.WindowDecorActionBar.mShowHideAnimationEnabled` @AccessFlag PRIVATE;
+  `androidx.core.view.ViewPropertyAnimatorListener` `androidx.appcompat.app.WindowDecorActionBar.mShowListener` @AccessFlag FINAL;
+  `boolean` `androidx.appcompat.app.WindowDecorActionBar.mShowingForMode` @AccessFlag PRIVATE;
+  `androidx.appcompat.widget.ScrollingTabContainerView` `androidx.appcompat.app.WindowDecorActionBar.mTabScrollView` @AccessFlag ;
+  `java.util.ArrayList` `androidx.appcompat.app.WindowDecorActionBar.mTabs` @AccessFlag PRIVATE;
+  `android.content.Context` `androidx.appcompat.app.WindowDecorActionBar.mThemedContext` @AccessFlag PRIVATE;
+  `androidx.core.view.ViewPropertyAnimatorUpdateListener` `androidx.appcompat.app.WindowDecorActionBar.mUpdateListener` @AccessFlag FINAL;
+}
+global `boolean` `@@androidx.appcompat.app.WindowDecorActionBar.$assertionsDisabled` @AccessFlag STATIC_FINAL_SYNTHETIC;
+global `long` `@@androidx.appcompat.app.WindowDecorActionBar.FADE_IN_DURATION_MS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `long` `@@androidx.appcompat.app.WindowDecorActionBar.FADE_OUT_DURATION_MS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.app.WindowDecorActionBar.INVALID_POSITION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.appcompat.app.WindowDecorActionBar.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `android.view.animation.Interpolator` `@@androidx.appcompat.app.WindowDecorActionBar.sHideInterpolator` @AccessFlag PRIVATE_STATIC_FINAL;
+global `android.view.animation.Interpolator` `@@androidx.appcompat.app.WindowDecorActionBar.sShowInterpolator` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/appcompat/app/WindowDecorActionBar;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.app.WindowDecorActionBar` v3 @kind this, `android.app.Activity` v4 @kind object @name `activity`, `boolean` v5 @name `overlayMode`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.<init>:(Landroid/app/Activity;Z)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `android.app.Dialog` v2 @kind object @name `dialog`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.<init>:(Landroid/app/Dialog;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `android.view.View` v2 @kind object @name `layout`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.<init>:(Landroid/view/View;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `boolean` `checkShowingFlags`(`boolean` v1 @name `hiddenByApp`, `boolean` v2 @name `hiddenBySystem`, `boolean` v3 @name `showingForMode`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.checkShowingFlags:(ZZZ)Z` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `void` `cleanupTabs`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.cleanupTabs:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `configureTab`(`androidx.appcompat.app.WindowDecorActionBar` v5 @kind this, `androidx.appcompat.app.ActionBar$Tab` v6 @kind object @name `tab`, `int` v7 @name `position`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.configureTab:(Landroidx/appcompat/app/ActionBar$Tab;I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `ensureTabsExist`(`androidx.appcompat.app.WindowDecorActionBar` v4 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.ensureTabsExist:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.appcompat.widget.DecorToolbar` `getDecorToolbar`(`androidx.appcompat.app.WindowDecorActionBar` v3 @kind this, `android.view.View` v4 @kind object @name `view`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.getDecorToolbar:(Landroid/view/View;)Landroidx/appcompat/widget/DecorToolbar;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `hideForActionMode`(`androidx.appcompat.app.WindowDecorActionBar` v2 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.hideForActionMode:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `init`(`androidx.appcompat.app.WindowDecorActionBar` v9 @kind this, `android.view.View` v10 @kind object @name `decor`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.init:(Landroid/view/View;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `setHasEmbeddedTabs`(`androidx.appcompat.app.WindowDecorActionBar` v5 @kind this, `boolean` v6 @name `hasEmbeddedTabs`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setHasEmbeddedTabs:(Z)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `shouldAnimateContextView`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.shouldAnimateContextView:()Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `showForActionMode`(`androidx.appcompat.app.WindowDecorActionBar` v2 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.showForActionMode:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateVisibility`(`androidx.appcompat.app.WindowDecorActionBar` v3 @kind this, `boolean` v4 @name `fromSystem`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.updateVisibility:(Z)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `addOnMenuVisibilityListener`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `androidx.appcompat.app.ActionBar$OnMenuVisibilityListener` v2 @kind object @name `listener`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.addOnMenuVisibilityListener:(Landroidx/appcompat/app/ActionBar$OnMenuVisibilityListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addTab`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `androidx.appcompat.app.ActionBar$Tab` v2 @kind object @name `tab`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.addTab:(Landroidx/appcompat/app/ActionBar$Tab;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addTab`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `androidx.appcompat.app.ActionBar$Tab` v2 @kind object @name `tab`, `int` v3 @name `position`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.addTab:(Landroidx/appcompat/app/ActionBar$Tab;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addTab`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `androidx.appcompat.app.ActionBar$Tab` v2 @kind object @name `tab`, `int` v3 @name `position`, `boolean` v4 @name `setSelected`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.addTab:(Landroidx/appcompat/app/ActionBar$Tab;IZ)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addTab`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `androidx.appcompat.app.ActionBar$Tab` v2 @kind object @name `tab`, `boolean` v3 @name `setSelected`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.addTab:(Landroidx/appcompat/app/ActionBar$Tab;Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `animateToMode`(`androidx.appcompat.app.WindowDecorActionBar` v8 @kind this, `boolean` v9 @name `toActionMode`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.animateToMode:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `collapseActionView`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.collapseActionView:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `completeDeferredDestroyActionMode`(`androidx.appcompat.app.WindowDecorActionBar` v2 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.completeDeferredDestroyActionMode:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `dispatchMenuVisibilityChanged`(`androidx.appcompat.app.WindowDecorActionBar` v3 @kind this, `boolean` v4 @name `isVisible`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.dispatchMenuVisibilityChanged:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `doHide`(`androidx.appcompat.app.WindowDecorActionBar` v5 @kind this, `boolean` v6 @name `fromSystem`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.doHide:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `doShow`(`androidx.appcompat.app.WindowDecorActionBar` v6 @kind this, `boolean` v7 @name `fromSystem`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.doShow:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `enableContentAnimations`(`androidx.appcompat.app.WindowDecorActionBar` v0 @kind this, `boolean` v1 @name `enabled`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.enableContentAnimations:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View` `getCustomView`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.getCustomView:()Landroid/view/View;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getDisplayOptions`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.getDisplayOptions:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `float` `getElevation`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.getElevation:()F` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getHeight`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.getHeight:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getHideOffset`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.getHideOffset:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getNavigationItemCount`(`androidx.appcompat.app.WindowDecorActionBar` v2 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.getNavigationItemCount:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getNavigationMode`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.getNavigationMode:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getSelectedNavigationIndex`(`androidx.appcompat.app.WindowDecorActionBar` v3 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.getSelectedNavigationIndex:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.appcompat.app.ActionBar$Tab` `getSelectedTab`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.getSelectedTab:()Landroidx/appcompat/app/ActionBar$Tab;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getSubtitle`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.getSubtitle:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.appcompat.app.ActionBar$Tab` `getTabAt`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `int` v2 @name `index`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.getTabAt:(I)Landroidx/appcompat/app/ActionBar$Tab;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getTabCount`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.getTabCount:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.content.Context` `getThemedContext`(`androidx.appcompat.app.WindowDecorActionBar` v5 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.getThemedContext:()Landroid/content/Context;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getTitle`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.getTitle:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `hasIcon`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.hasIcon:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `hasLogo`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.hasLogo:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `hide`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.hide:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `hideForSystem`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.hideForSystem:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isHideOnContentScrollEnabled`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.isHideOnContentScrollEnabled:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isShowing`(`androidx.appcompat.app.WindowDecorActionBar` v2 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.isShowing:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isTitleTruncated`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.isTitleTruncated:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.appcompat.app.ActionBar$Tab` `newTab`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.newTab:()Landroidx/appcompat/app/ActionBar$Tab;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onConfigurationChanged`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `android.content.res.Configuration` v2 @kind object @name `newConfig`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.onConfigurationChanged:(Landroid/content/res/Configuration;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onContentScrollStarted`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.onContentScrollStarted:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onContentScrollStopped`(`androidx.appcompat.app.WindowDecorActionBar` v0 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.onContentScrollStopped:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onKeyShortcut`(`androidx.appcompat.app.WindowDecorActionBar` v5 @kind this, `int` v6 @name `keyCode`, `android.view.KeyEvent` v7 @kind object @name `event`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.onKeyShortcut:(ILandroid/view/KeyEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onWindowVisibilityChanged`(`androidx.appcompat.app.WindowDecorActionBar` v0 @kind this, `int` v1 @name `visibility`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.onWindowVisibilityChanged:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `removeAllTabs`(`androidx.appcompat.app.WindowDecorActionBar` v0 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.removeAllTabs:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `removeOnMenuVisibilityListener`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `androidx.appcompat.app.ActionBar$OnMenuVisibilityListener` v2 @kind object @name `listener`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.removeOnMenuVisibilityListener:(Landroidx/appcompat/app/ActionBar$OnMenuVisibilityListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `removeTab`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `androidx.appcompat.app.ActionBar$Tab` v2 @kind object @name `tab`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.removeTab:(Landroidx/appcompat/app/ActionBar$Tab;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `removeTabAt`(`androidx.appcompat.app.WindowDecorActionBar` v6 @kind this, `int` v7 @name `position`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.removeTabAt:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `requestFocus`(`androidx.appcompat.app.WindowDecorActionBar` v2 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.requestFocus:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `selectTab`(`androidx.appcompat.app.WindowDecorActionBar` v3 @kind this, `androidx.appcompat.app.ActionBar$Tab` v4 @kind object @name `tab`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.selectTab:(Landroidx/appcompat/app/ActionBar$Tab;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setBackgroundDrawable`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `d`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setBackgroundDrawable:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setCustomView`(`androidx.appcompat.app.WindowDecorActionBar` v3 @kind this, `int` v4 @name `resId`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setCustomView:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setCustomView`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `android.view.View` v2 @kind object @name `view`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setCustomView:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setCustomView`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `android.view.View` v2 @kind object @name `view`, `androidx.appcompat.app.ActionBar$LayoutParams` v3 @kind object @name `layoutParams`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setCustomView:(Landroid/view/View;Landroidx/appcompat/app/ActionBar$LayoutParams;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDefaultDisplayHomeAsUpEnabled`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `boolean` v2 @name `enable`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setDefaultDisplayHomeAsUpEnabled:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDisplayHomeAsUpEnabled`(`androidx.appcompat.app.WindowDecorActionBar` v2 @kind this, `boolean` v3 @name `showHomeAsUp`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setDisplayHomeAsUpEnabled:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDisplayOptions`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `int` v2 @name `options`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setDisplayOptions:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDisplayOptions`(`androidx.appcompat.app.WindowDecorActionBar` v4 @kind this, `int` v5 @name `options`, `int` v6 @name `mask`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setDisplayOptions:(II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDisplayShowCustomEnabled`(`androidx.appcompat.app.WindowDecorActionBar` v2 @kind this, `boolean` v3 @name `showCustom`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setDisplayShowCustomEnabled:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDisplayShowHomeEnabled`(`androidx.appcompat.app.WindowDecorActionBar` v2 @kind this, `boolean` v3 @name `showHome`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setDisplayShowHomeEnabled:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDisplayShowTitleEnabled`(`androidx.appcompat.app.WindowDecorActionBar` v2 @kind this, `boolean` v3 @name `showTitle`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setDisplayShowTitleEnabled:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDisplayUseLogoEnabled`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `boolean` v2 @name `useLogo`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setDisplayUseLogoEnabled:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setElevation`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `float` v2 @name `elevation`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setElevation:(F)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHideOffset`(`androidx.appcompat.app.WindowDecorActionBar` v2 @kind this, `int` v3 @name `offset`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setHideOffset:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHideOnContentScrollEnabled`(`androidx.appcompat.app.WindowDecorActionBar` v2 @kind this, `boolean` v3 @name `hideOnContentScroll`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setHideOnContentScrollEnabled:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHomeActionContentDescription`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setHomeActionContentDescription:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHomeActionContentDescription`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `description`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setHomeActionContentDescription:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHomeAsUpIndicator`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setHomeAsUpIndicator:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHomeAsUpIndicator`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `indicator`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setHomeAsUpIndicator:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHomeButtonEnabled`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `boolean` v2 @name `enable`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setHomeButtonEnabled:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setIcon`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setIcon:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setIcon`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `icon`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setIcon:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setListNavigationCallbacks`(`androidx.appcompat.app.WindowDecorActionBar` v2 @kind this, `android.widget.SpinnerAdapter` v3 @kind object @name `adapter`, `androidx.appcompat.app.ActionBar$OnNavigationListener` v4 @kind object @name `callback`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setListNavigationCallbacks:(Landroid/widget/SpinnerAdapter;Landroidx/appcompat/app/ActionBar$OnNavigationListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setLogo`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setLogo:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setLogo`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `logo`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setLogo:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setNavigationMode`(`androidx.appcompat.app.WindowDecorActionBar` v6 @kind this, `int` v7 @name `mode`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setNavigationMode:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSelectedNavigationItem`(`androidx.appcompat.app.WindowDecorActionBar` v2 @kind this, `int` v3 @name `position`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setSelectedNavigationItem:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setShowHideAnimationEnabled`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `boolean` v2 @name `enabled`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setShowHideAnimationEnabled:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSplitBackgroundDrawable`(`androidx.appcompat.app.WindowDecorActionBar` v0 @kind this, `android.graphics.drawable.Drawable` v1 @kind object @name `d`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setSplitBackgroundDrawable:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setStackedBackgroundDrawable`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `d`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setStackedBackgroundDrawable:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSubtitle`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setSubtitle:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSubtitle`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `subtitle`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setSubtitle:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTitle`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `int` v2 @name `resId`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setTitle:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTitle`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `title`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setTitle:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setWindowTitle`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `title`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.setWindowTitle:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `show`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.show:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `showForSystem`(`androidx.appcompat.app.WindowDecorActionBar` v1 @kind this) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.showForSystem:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.appcompat.view.ActionMode` `startActionMode`(`androidx.appcompat.app.WindowDecorActionBar` v3 @kind this, `androidx.appcompat.view.ActionMode$Callback` v4 @kind object @name `callback`) @signature `Landroidx/appcompat/app/WindowDecorActionBar;.startActionMode:(Landroidx/appcompat/view/ActionMode$Callback;)Landroidx/appcompat/view/ActionMode;` @AccessFlag PUBLIC {
+
+  # return;
+}

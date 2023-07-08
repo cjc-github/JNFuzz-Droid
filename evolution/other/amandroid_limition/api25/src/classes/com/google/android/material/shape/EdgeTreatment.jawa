@@ -1,0 +1,25 @@
+record `com.google.android.material.shape.EdgeTreatment` @kind class @AccessFlag PUBLIC {
+}
+procedure `void` `<init>`(`com.google.android.material.shape.EdgeTreatment` v0 @kind this) @signature `Lcom/google/android/material/shape/EdgeTreatment;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1aabe0.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1aabe6.  return @kind void;
+}
+procedure `void` `getEdgePath`(`com.google.android.material.shape.EdgeTreatment` v1 @kind this, `float` v2 @name `length`, `float` v3 @name `center`, `float` v4 @name `interpolation`, `com.google.android.material.shape.ShapePath` v5 @kind object @name `shapePath`) @signature `Lcom/google/android/material/shape/EdgeTreatment;.getEdgePath:(FFFLcom/google/android/material/shape/ShapePath;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1aac18.  v0:= 0I;
+  #L1aac1a.  call `lineTo`(v5, v2, v0) @signature `Lcom/google/android/material/shape/ShapePath;.lineTo:(FF)V` @kind virtual;
+  #L1aac20.  return @kind void;
+}
+procedure `void` `getEdgePath`(`com.google.android.material.shape.EdgeTreatment` v1 @kind this, `float` v2 @name `length`, `float` v3 @name `interpolation`, `com.google.android.material.shape.ShapePath` v4 @kind object @name `shapePath`) @signature `Lcom/google/android/material/shape/EdgeTreatment;.getEdgePath:(FFLcom/google/android/material/shape/ShapePath;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1aabf8.  v0:= 2.0F;
+  #L1aabfc.  v0:= v2 / v0 @kind float;
+  #L1aac00.  call `getEdgePath`(v1, v2, v0, v3, v4) @signature `Lcom/google/android/material/shape/EdgeTreatment;.getEdgePath:(FFFLcom/google/android/material/shape/ShapePath;)V` @kind virtual;
+  #L1aac06.  return @kind void;
+}

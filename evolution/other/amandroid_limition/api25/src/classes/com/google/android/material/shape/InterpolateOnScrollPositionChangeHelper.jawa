@@ -1,0 +1,148 @@
+record `com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper` @kind class @AccessFlag PUBLIC {
+  `int`[] `com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.containerLocation` @AccessFlag PRIVATE_FINAL;
+  `android.widget.ScrollView` `com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.containingScrollView` @AccessFlag PRIVATE;
+  `com.google.android.material.shape.MaterialShapeDrawable` `com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.materialShapeDrawable` @AccessFlag PRIVATE;
+  `android.view.ViewTreeObserver$OnScrollChangedListener` `com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.scrollChangedListener` @AccessFlag PRIVATE_FINAL;
+  `int`[] `com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.scrollLocation` @AccessFlag PRIVATE_FINAL;
+  `android.view.View` `com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.shapedView` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper` v2 @kind this, `android.view.View` v3 @kind object @name `shapedView`, `com.google.android.material.shape.MaterialShapeDrawable` v4 @kind object @name `materialShapeDrawable`, `android.widget.ScrollView` v5 @kind object @name `containingScrollView`) @signature `Lcom/google/android/material/shape/InterpolateOnScrollPositionChangeHelper;.<init>:(Landroid/view/View;Lcom/google/android/material/shape/MaterialShapeDrawable;Landroid/widget/ScrollView;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L1aac6c.  call `<init>`(v2) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1aac72.  v0:= 2I;
+  #L1aac74.  v1:= new `int`[v0];
+  #L1aac78.  v2.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.scrollLocation` @type ^`int`[] := v1 @kind object;
+  #L1aac7c.  v0:= new `int`[v0];
+  #L1aac80.  v2.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.containerLocation` @type ^`int`[] := v0 @kind object;
+  #L1aac84.  v0:= new `com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper$1`;
+  #L1aac88.  call `<init>`(v0, v2) @signature `Lcom/google/android/material/shape/InterpolateOnScrollPositionChangeHelper$1;.<init>:(Lcom/google/android/material/shape/InterpolateOnScrollPositionChangeHelper;)V` @kind direct;
+  #L1aac8e.  v2.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.scrollChangedListener` @type ^`android.view.ViewTreeObserver$OnScrollChangedListener` := v0 @kind object;
+  #L1aac92.  v2.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.shapedView` @type ^`android.view.View` := v3 @kind object;
+  #L1aac96.  v2.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` := v4 @kind object;
+  #L1aac9a.  v2.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.containingScrollView` @type ^`android.widget.ScrollView` := v5 @kind object;
+  #L1aac9e.  return @kind void;
+}
+procedure `void` `setContainingScrollView`(`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper` v0 @kind this, `android.widget.ScrollView` v1 @kind object @name `containingScrollView`) @signature `Lcom/google/android/material/shape/InterpolateOnScrollPositionChangeHelper;.setContainingScrollView:(Landroid/widget/ScrollView;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1aacb0.  v0.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.containingScrollView` @type ^`android.widget.ScrollView` := v1 @kind object;
+  #L1aacb4.  return @kind void;
+}
+procedure `void` `setMaterialShapeDrawable`(`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper` v0 @kind this, `com.google.android.material.shape.MaterialShapeDrawable` v1 @kind object @name `materialShapeDrawable`) @signature `Lcom/google/android/material/shape/InterpolateOnScrollPositionChangeHelper;.setMaterialShapeDrawable:(Lcom/google/android/material/shape/MaterialShapeDrawable;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1aacc8.  v0.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` := v1 @kind object;
+  #L1aaccc.  return @kind void;
+}
+procedure `void` `startListeningForScrollChanges`(`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper` v1 @kind this, `android.view.ViewTreeObserver` v2 @kind object @name `viewTreeObserver`) @signature `Lcom/google/android/material/shape/InterpolateOnScrollPositionChangeHelper;.startListeningForScrollChanges:(Landroid/view/ViewTreeObserver;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1aace0.  v0:= v1.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.scrollChangedListener` @type ^`android.view.ViewTreeObserver$OnScrollChangedListener` @kind object;
+  #L1aace4.  call `addOnScrollChangedListener`(v2, v0) @signature `Landroid/view/ViewTreeObserver;.addOnScrollChangedListener:(Landroid/view/ViewTreeObserver$OnScrollChangedListener;)V` @kind virtual;
+  #L1aacea.  return @kind void;
+}
+procedure `void` `stopListeningForScrollChanges`(`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper` v1 @kind this, `android.view.ViewTreeObserver` v2 @kind object @name `viewTreeObserver`) @signature `Lcom/google/android/material/shape/InterpolateOnScrollPositionChangeHelper;.stopListeningForScrollChanges:(Landroid/view/ViewTreeObserver;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1aacfc.  v0:= v1.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.scrollChangedListener` @type ^`android.view.ViewTreeObserver$OnScrollChangedListener` @kind object;
+  #L1aad00.  call `removeOnScrollChangedListener`(v2, v0) @signature `Landroid/view/ViewTreeObserver;.removeOnScrollChangedListener:(Landroid/view/ViewTreeObserver$OnScrollChangedListener;)V` @kind virtual;
+  #L1aad06.  return @kind void;
+}
+procedure `void` `updateInterpolationForScreenPosition`(`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper` v9 @kind this) @signature `Lcom/google/android/material/shape/InterpolateOnScrollPositionChangeHelper;.updateInterpolationForScreenPosition:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L1aad18.  v0:= v9.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.containingScrollView` @type ^`android.widget.ScrollView` @kind object;
+  #L1aad1c.  if v0 != 0 then goto L1aad22;
+  #L1aad20.  return @kind void;
+  #L1aad22.  call temp:= `getChildCount`(v0) @signature `Landroid/widget/ScrollView;.getChildCount:()I` @kind virtual;
+  #L1aad28.  v0:= temp;
+  #L1aad2a.  if v0 == 0 then goto L1aae32;
+  #L1aad2e.  v0:= v9.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.containingScrollView` @type ^`android.widget.ScrollView` @kind object;
+  #L1aad32.  v1:= v9.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.scrollLocation` @type ^`int`[] @kind object;
+  #L1aad36.  call `getLocationInWindow`(v0, v1) @signature `Landroid/widget/ScrollView;.getLocationInWindow:([I)V` @kind virtual;
+  #L1aad3c.  v0:= v9.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.containingScrollView` @type ^`android.widget.ScrollView` @kind object;
+  #L1aad40.  v1:= 0I;
+  #L1aad42.  call temp:= `getChildAt`(v0, v1) @signature `Landroid/widget/ScrollView;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1aad48.  v0:= temp @kind object;
+  #L1aad4a.  v1:= v9.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.containerLocation` @type ^`int`[] @kind object;
+  #L1aad4e.  call `getLocationInWindow`(v0, v1) @signature `Landroid/view/View;.getLocationInWindow:([I)V` @kind virtual;
+  #L1aad54.  v0:= v9.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.shapedView` @type ^`android.view.View` @kind object;
+  #L1aad58.  call temp:= `getTop`(v0) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L1aad5e.  v0:= temp;
+  #L1aad60.  v1:= v9.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.scrollLocation` @type ^`int`[] @kind object;
+  #L1aad64.  v2:= 1I;
+  #L1aad66.  v1:= v1[v2];
+  #L1aad6a.  v0:= v0 - v1 @kind int;
+  #L1aad6c.  v1:= v9.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.containerLocation` @type ^`int`[] @kind object;
+  #L1aad70.  v1:= v1[v2];
+  #L1aad74.  v0:= v0 + v1 @kind int;
+  #L1aad76.  v1:= v9.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.shapedView` @type ^`android.view.View` @kind object;
+  #L1aad7a.  call temp:= `getHeight`(v1) @signature `Landroid/view/View;.getHeight:()I` @kind virtual;
+  #L1aad80.  v1:= temp;
+  #L1aad82.  v2:= v9.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.containingScrollView` @type ^`android.widget.ScrollView` @kind object;
+  #L1aad86.  call temp:= `getHeight`(v2) @signature `Landroid/widget/ScrollView;.getHeight:()I` @kind virtual;
+  #L1aad8c.  v2:= temp;
+  #L1aad8e.  v3:= 0I;
+  #L1aad90.  v4:= 1.0F;
+  #L1aad94.  if v0 >= 0 then goto L1aadc6;
+  #L1aad98.  v5:= v9.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L1aad9c.  v6:= (`float`) v0 @kind i2f;
+  #L1aad9e.  v7:= (`float`) v1 @kind i2f;
+  #L1aada0.  v6:= v6 / v7 @kind float;
+  #L1aada2.  v6:= v6 + v4 @kind float;
+  #L1aada4.  call temp:= `min`(v4, v6) @signature `Ljava/lang/Math;.min:(FF)F` @kind static;
+  #L1aadaa.  v4:= temp;
+  #L1aadac.  call temp:= `max`(v3, v4) @signature `Ljava/lang/Math;.max:(FF)F` @kind static;
+  #L1aadb2.  v3:= temp;
+  #L1aadb4.  call `setInterpolation`(v5, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setInterpolation:(F)V` @kind virtual;
+  #L1aadba.  v3:= v9.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.shapedView` @type ^`android.view.View` @kind object;
+  #L1aadbe.  call `invalidate`(v3) @signature `Landroid/view/View;.invalidate:()V` @kind virtual;
+  #L1aadc4.  goto L1aae30;
+  #L1aadc6.  v5:= v0 + v1 @kind int;
+  #L1aadca.  if v5 <= v2 then goto L1aae04;
+  #L1aadce.  v5:= v0 + v1 @kind int;
+  #L1aadd2.  v5:= v5 - v2 @kind int;
+  #L1aadd4.  v6:= v9.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L1aadd8.  v7:= (`float`) v5 @kind i2f;
+  #L1aadda.  v8:= (`float`) v1 @kind i2f;
+  #L1aaddc.  v7:= v7 / v8 @kind float;
+  #L1aadde.  v7:= v4 - v7 @kind float;
+  #L1aade2.  call temp:= `min`(v4, v7) @signature `Ljava/lang/Math;.min:(FF)F` @kind static;
+  #L1aade8.  v4:= temp;
+  #L1aadea.  call temp:= `max`(v3, v4) @signature `Ljava/lang/Math;.max:(FF)F` @kind static;
+  #L1aadf0.  v3:= temp;
+  #L1aadf2.  call `setInterpolation`(v6, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setInterpolation:(F)V` @kind virtual;
+  #L1aadf8.  v3:= v9.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.shapedView` @type ^`android.view.View` @kind object;
+  #L1aadfc.  call `invalidate`(v3) @signature `Landroid/view/View;.invalidate:()V` @kind virtual;
+  #L1aae02.  goto L1aae2e;
+  #L1aae04.  v3:= v9.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L1aae08.  call temp:= `getInterpolation`(v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getInterpolation:()F` @kind virtual;
+  #L1aae0e.  v3:= temp;
+  #L1aae10.  v3:= fcmpl(v3, v4);
+  #L1aae14.  if v3 == 0 then goto L1aae2e;
+  #L1aae18.  v3:= v9.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.materialShapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L1aae1c.  call `setInterpolation`(v3, v4) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setInterpolation:(F)V` @kind virtual;
+  #L1aae22.  v3:= v9.`com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.shapedView` @type ^`android.view.View` @kind object;
+  #L1aae26.  call `invalidate`(v3) @signature `Landroid/view/View;.invalidate:()V` @kind virtual;
+  #L1aae2c.  goto L1aae30;
+  #L1aae2e.  
+  #L1aae30.  return @kind void;
+  #L1aae32.  v0:= new `java.lang.IllegalStateException`;
+  #L1aae36.  v1:= "Scroll bar must contain a child to calculate interpolation." @kind object;
+  #L1aae3a.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalStateException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1aae40.  throw v0;
+}

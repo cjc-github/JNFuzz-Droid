@@ -1,0 +1,20 @@
+record `com.google.android.material.transformation.FabTransformationBehavior$2` @kind class @AccessFlag  extends `android.animation.ValueAnimator$AnimatorUpdateListener` @kind interface {
+  `com.google.android.material.transformation.FabTransformationBehavior` `com.google.android.material.transformation.FabTransformationBehavior$2.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `android.view.View` `com.google.android.material.transformation.FabTransformationBehavior$2.val$child` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.transformation.FabTransformationBehavior$2` v0 @kind this, `com.google.android.material.transformation.FabTransformationBehavior` v1 @kind object @name `this$0`, `android.view.View` v2 @kind object) @signature `Lcom/google/android/material/transformation/FabTransformationBehavior$2;.<init>:(Lcom/google/android/material/transformation/FabTransformationBehavior;Landroid/view/View;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1bc7ec.  v0.`com.google.android.material.transformation.FabTransformationBehavior$2.this$0` @type ^`com.google.android.material.transformation.FabTransformationBehavior` := v1 @kind object;
+  #L1bc7f0.  v0.`com.google.android.material.transformation.FabTransformationBehavior$2.val$child` @type ^`android.view.View` := v2 @kind object;
+  #L1bc7f4.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1bc7fa.  return @kind void;
+}
+procedure `void` `onAnimationUpdate`(`com.google.android.material.transformation.FabTransformationBehavior$2` v1 @kind this, `android.animation.ValueAnimator` v2 @kind object @name `animation`) @signature `Lcom/google/android/material/transformation/FabTransformationBehavior$2;.onAnimationUpdate:(Landroid/animation/ValueAnimator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1bc80c.  v0:= v1.`com.google.android.material.transformation.FabTransformationBehavior$2.val$child` @type ^`android.view.View` @kind object;
+  #L1bc810.  call `invalidate`(v0) @signature `Landroid/view/View;.invalidate:()V` @kind virtual;
+  #L1bc816.  return @kind void;
+}

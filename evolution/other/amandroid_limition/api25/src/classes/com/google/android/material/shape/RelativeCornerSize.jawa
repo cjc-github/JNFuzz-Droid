@@ -1,0 +1,70 @@
+record `com.google.android.material.shape.RelativeCornerSize` @kind class @AccessFlag PUBLIC_FINAL extends `com.google.android.material.shape.CornerSize` @kind interface {
+  `float` `com.google.android.material.shape.RelativeCornerSize.percent` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.RelativeCornerSize` v0 @kind this, `float` v1 @name `percent`) @signature `Lcom/google/android/material/shape/RelativeCornerSize;.<init>:(F)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1acb28.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1acb2e.  v0.`com.google.android.material.shape.RelativeCornerSize.percent` @type ^`float` := v1;
+  #L1acb32.  return @kind void;
+}
+procedure `boolean` `equals`(`com.google.android.material.shape.RelativeCornerSize` v5 @kind this, `java.lang.Object` v6 @kind object @name `o`) @signature `Lcom/google/android/material/shape/RelativeCornerSize;.equals:(Ljava/lang/Object;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1aca7c.  v0:= 1I;
+  #L1aca7e.  if v5 != v6 then goto L1aca84;
+  #L1aca82.  return v0;
+  #L1aca84.  v1:= instanceof @variable v6 @type ^`com.google.android.material.shape.RelativeCornerSize` @kind boolean;
+  #L1aca88.  v2:= 0I;
+  #L1aca8a.  if v1 != 0 then goto L1aca90;
+  #L1aca8e.  return v2;
+  #L1aca90.  v1:= v6 @kind object;
+  #L1aca92.  v1:= (`com.google.android.material.shape.RelativeCornerSize`) v1 @kind object;
+  #L1aca96.  v3:= v5.`com.google.android.material.shape.RelativeCornerSize.percent` @type ^`float`;
+  #L1aca9a.  v4:= v1.`com.google.android.material.shape.RelativeCornerSize.percent` @type ^`float`;
+  #L1aca9e.  v3:= fcmpl(v3, v4);
+  #L1acaa2.  if v3 != 0 then goto L1acaa8;
+  #L1acaa6.  goto L1acaaa;
+  #L1acaa8.  v0:= v2;
+  #L1acaaa.  return v0;
+}
+procedure `float` `getCornerSize`(`com.google.android.material.shape.RelativeCornerSize` v2 @kind this, `android.graphics.RectF` v3 @kind object @name `bounds`) @signature `Lcom/google/android/material/shape/RelativeCornerSize;.getCornerSize:(Landroid/graphics/RectF;)F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1acabc.  v0:= v2.`com.google.android.material.shape.RelativeCornerSize.percent` @type ^`float`;
+  #L1acac0.  call temp:= `height`(v3) @signature `Landroid/graphics/RectF;.height:()F` @kind virtual;
+  #L1acac6.  v1:= temp;
+  #L1acac8.  v0:= v0 * v1 @kind float;
+  #L1acaca.  return v0;
+}
+procedure `float` `getRelativePercent`(`com.google.android.material.shape.RelativeCornerSize` v1 @kind this) @signature `Lcom/google/android/material/shape/RelativeCornerSize;.getRelativePercent:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1acadc.  v0:= v1.`com.google.android.material.shape.RelativeCornerSize.percent` @type ^`float`;
+  #L1acae0.  return v0;
+}
+procedure `int` `hashCode`(`com.google.android.material.shape.RelativeCornerSize` v3 @kind this) @signature `Lcom/google/android/material/shape/RelativeCornerSize;.hashCode:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1acaf4.  v0:= 1I;
+  #L1acaf6.  v0:= new `java.lang.Object`[v0];
+  #L1acafa.  v1:= v3.`com.google.android.material.shape.RelativeCornerSize.percent` @type ^`float`;
+  #L1acafe.  call temp:= `valueOf`(v1) @signature `Ljava/lang/Float;.valueOf:(F)Ljava/lang/Float;` @kind static;
+  #L1acb04.  v1:= temp @kind object;
+  #L1acb06.  v2:= 0I;
+  #L1acb08.  v0[v2]:= v1 @kind object;
+  #L1acb0c.  call temp:= `hashCode`(v0) @signature `Ljava/util/Arrays;.hashCode:([Ljava/lang/Object;)I` @kind static;
+  #L1acb12.  v1:= temp;
+  #L1acb14.  return v1;
+}

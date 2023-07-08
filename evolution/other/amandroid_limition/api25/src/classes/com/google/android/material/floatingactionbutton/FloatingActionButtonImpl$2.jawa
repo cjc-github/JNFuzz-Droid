@@ -1,0 +1,48 @@
+record `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$2` @kind class @AccessFlag  extends `android.animation.AnimatorListenerAdapter` @kind class {
+  `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$2.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `boolean` `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$2.val$fromUser` @AccessFlag FINAL_SYNTHETIC;
+  `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$InternalVisibilityChangedListener` `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$2.val$listener` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$2` v0 @kind this, `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` v1 @kind object @name `this$0`, `boolean` v2 , `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$InternalVisibilityChangedListener` v3 @kind object) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$2;.<init>:(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;ZLcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$InternalVisibilityChangedListener;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L19f8cc.  v0.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$2.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` := v1 @kind object;
+  #L19f8d0.  v0.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$2.val$fromUser` @type ^`boolean` := v2 @kind boolean;
+  #L19f8d4.  v0.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$2.val$listener` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$InternalVisibilityChangedListener` := v3 @kind object;
+  #L19f8d8.  call `<init>`(v0) @signature `Landroid/animation/AnimatorListenerAdapter;.<init>:()V` @kind direct;
+  #L19f8de.  return @kind void;
+}
+procedure `void` `onAnimationEnd`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$2` v2 @kind this, `android.animation.Animator` v3 @kind object @name `animation`) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$2;.onAnimationEnd:(Landroid/animation/Animator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19f8f0.  v0:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$2.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` @kind object;
+  #L19f8f4.  v1:= 0I;
+  #L19f8f6.  call temp:= `access$002`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;.access$002:(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;I)I` @kind static;
+  #L19f8fc.  v0:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$2.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` @kind object;
+  #L19f900.  v1:= 0I;
+  #L19f902.  call temp:= `access$102`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;.access$102:(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;Landroid/animation/Animator;)Landroid/animation/Animator;` @kind static;
+  #L19f908.  v0:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$2.val$listener` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$InternalVisibilityChangedListener` @kind object;
+  #L19f90c.  if v0 == 0 then goto L19f916;
+  #L19f910.  call `onShown`(v0) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$InternalVisibilityChangedListener;.onShown:()V` @kind interface;
+  #L19f916.  return @kind void;
+}
+procedure `void` `onAnimationStart`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$2` v3 @kind this, `android.animation.Animator` v4 @kind object @name `animation`) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$2;.onAnimationStart:(Landroid/animation/Animator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L19f928.  v0:= v3.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$2.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` @kind object;
+  #L19f92c.  v0:= v0.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19f930.  v1:= v3.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$2.val$fromUser` @type ^`boolean` @kind boolean;
+  #L19f934.  v2:= 0I;
+  #L19f936.  call `internalSetVisibility`(v0, v2, v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.internalSetVisibility:(IZ)V` @kind virtual;
+  #L19f93c.  v0:= v3.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$2.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` @kind object;
+  #L19f940.  v1:= 2I;
+  #L19f942.  call temp:= `access$002`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;.access$002:(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;I)I` @kind static;
+  #L19f948.  v0:= v3.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$2.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` @kind object;
+  #L19f94c.  call temp:= `access$102`(v0, v4) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;.access$102:(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;Landroid/animation/Animator;)Landroid/animation/Animator;` @kind static;
+  #L19f952.  return @kind void;
+}

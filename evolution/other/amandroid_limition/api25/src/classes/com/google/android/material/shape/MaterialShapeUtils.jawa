@@ -1,0 +1,81 @@
+record `com.google.android.material.shape.MaterialShapeUtils` @kind class @AccessFlag PUBLIC {
+}
+procedure `void` `<init>`(`com.google.android.material.shape.MaterialShapeUtils` v0 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.<init>:()V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+
+  #L1ac9d8.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1ac9de.  return @kind void;
+}
+procedure `com.google.android.material.shape.CornerTreatment` `createCornerTreatment`(`int` v1 @name `cornerFamily`) @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.createCornerTreatment:(I)Lcom/google/android/material/shape/CornerTreatment;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L1ac964.  if v1 == 0 then goto L1ac984;
+  #L1ac968.  v0:= 1I;
+  #L1ac96a.  if v1 == v0 then goto L1ac978;
+  #L1ac96e.  call temp:= `createDefaultCornerTreatment`() @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.createDefaultCornerTreatment:()Lcom/google/android/material/shape/CornerTreatment;` @kind static;
+  #L1ac974.  v0:= temp @kind object;
+  #L1ac976.  return v0 @kind object;
+  #L1ac978.  v0:= new `com.google.android.material.shape.CutCornerTreatment`;
+  #L1ac97c.  call `<init>`(v0) @signature `Lcom/google/android/material/shape/CutCornerTreatment;.<init>:()V` @kind direct;
+  #L1ac982.  return v0 @kind object;
+  #L1ac984.  v0:= new `com.google.android.material.shape.RoundedCornerTreatment`;
+  #L1ac988.  call `<init>`(v0) @signature `Lcom/google/android/material/shape/RoundedCornerTreatment;.<init>:()V` @kind direct;
+  #L1ac98e.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.CornerTreatment` `createDefaultCornerTreatment`() @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.createDefaultCornerTreatment:()Lcom/google/android/material/shape/CornerTreatment;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L1ac9a0.  v0:= new `com.google.android.material.shape.RoundedCornerTreatment`;
+  #L1ac9a4.  call `<init>`(v0) @signature `Lcom/google/android/material/shape/RoundedCornerTreatment;.<init>:()V` @kind direct;
+  #L1ac9aa.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.EdgeTreatment` `createDefaultEdgeTreatment`() @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.createDefaultEdgeTreatment:()Lcom/google/android/material/shape/EdgeTreatment;` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L1ac9bc.  v0:= new `com.google.android.material.shape.EdgeTreatment`;
+  #L1ac9c0.  call `<init>`(v0) @signature `Lcom/google/android/material/shape/EdgeTreatment;.<init>:()V` @kind direct;
+  #L1ac9c6.  return v0 @kind object;
+}
+procedure `void` `setElevation`(`android.view.View` v2 @kind object @name `view`, `float` v3 @name `elevation`) @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.setElevation:(Landroid/view/View;F)V` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1ac9f0.  call temp:= `getBackground`(v2) @signature `Landroid/view/View;.getBackground:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1ac9f6.  v0:= temp @kind object;
+  #L1ac9f8.  v1:= instanceof @variable v0 @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind boolean;
+  #L1ac9fc.  if v1 == 0 then goto L1aca0c;
+  #L1aca00.  v1:= v0 @kind object;
+  #L1aca02.  v1:= (`com.google.android.material.shape.MaterialShapeDrawable`) v1 @kind object;
+  #L1aca06.  call `setElevation`(v1, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setElevation:(F)V` @kind virtual;
+  #L1aca0c.  return @kind void;
+}
+procedure `void` `setParentAbsoluteElevation`(`android.view.View` v2 @kind object @name `view`) @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.setParentAbsoluteElevation:(Landroid/view/View;)V` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1aca20.  call temp:= `getBackground`(v2) @signature `Landroid/view/View;.getBackground:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1aca26.  v0:= temp @kind object;
+  #L1aca28.  v1:= instanceof @variable v0 @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind boolean;
+  #L1aca2c.  if v1 == 0 then goto L1aca3c;
+  #L1aca30.  v1:= v0 @kind object;
+  #L1aca32.  v1:= (`com.google.android.material.shape.MaterialShapeDrawable`) v1 @kind object;
+  #L1aca36.  call `setParentAbsoluteElevation`(v2, v1) @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.setParentAbsoluteElevation:(Landroid/view/View;Lcom/google/android/material/shape/MaterialShapeDrawable;)V` @kind static;
+  #L1aca3c.  return @kind void;
+}
+procedure `void` `setParentAbsoluteElevation`(`android.view.View` v1 @kind object @name `view`, `com.google.android.material.shape.MaterialShapeDrawable` v2 @kind object @name `materialShapeDrawable`) @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.setParentAbsoluteElevation:(Landroid/view/View;Lcom/google/android/material/shape/MaterialShapeDrawable;)V` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L1aca50.  call temp:= `isElevationOverlayEnabled`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.isElevationOverlayEnabled:()Z` @kind virtual;
+  #L1aca56.  v0:= temp;
+  #L1aca58.  if v0 == 0 then goto L1aca6a;
+  #L1aca5c.  call temp:= `getParentAbsoluteElevation`(v1) @signature `Lcom/google/android/material/internal/ViewUtils;.getParentAbsoluteElevation:(Landroid/view/View;)F` @kind static;
+  #L1aca62.  v0:= temp;
+  #L1aca64.  call `setParentAbsoluteElevation`(v2, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setParentAbsoluteElevation:(F)V` @kind virtual;
+  #L1aca6a.  return @kind void;
+}

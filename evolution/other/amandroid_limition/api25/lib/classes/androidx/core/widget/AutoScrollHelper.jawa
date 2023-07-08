@@ -1,0 +1,148 @@
+record `androidx.core.widget.AutoScrollHelper` @kind class @AccessFlag PUBLIC_ABSTRACT extends `android.view.View$OnTouchListener` @kind interface {
+  `int` `androidx.core.widget.AutoScrollHelper.mActivationDelay` @AccessFlag PRIVATE;
+  `boolean` `androidx.core.widget.AutoScrollHelper.mAlreadyDelayed` @AccessFlag PRIVATE;
+  `boolean` `androidx.core.widget.AutoScrollHelper.mAnimating` @AccessFlag ;
+  `android.view.animation.Interpolator` `androidx.core.widget.AutoScrollHelper.mEdgeInterpolator` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.core.widget.AutoScrollHelper.mEdgeType` @AccessFlag PRIVATE;
+  `boolean` `androidx.core.widget.AutoScrollHelper.mEnabled` @AccessFlag PRIVATE;
+  `boolean` `androidx.core.widget.AutoScrollHelper.mExclusive` @AccessFlag PRIVATE;
+  `float`[] `androidx.core.widget.AutoScrollHelper.mMaximumEdges` @AccessFlag PRIVATE;
+  `float`[] `androidx.core.widget.AutoScrollHelper.mMaximumVelocity` @AccessFlag PRIVATE;
+  `float`[] `androidx.core.widget.AutoScrollHelper.mMinimumVelocity` @AccessFlag PRIVATE;
+  `boolean` `androidx.core.widget.AutoScrollHelper.mNeedsCancel` @AccessFlag ;
+  `boolean` `androidx.core.widget.AutoScrollHelper.mNeedsReset` @AccessFlag ;
+  `float`[] `androidx.core.widget.AutoScrollHelper.mRelativeEdges` @AccessFlag PRIVATE;
+  `float`[] `androidx.core.widget.AutoScrollHelper.mRelativeVelocity` @AccessFlag PRIVATE;
+  `java.lang.Runnable` `androidx.core.widget.AutoScrollHelper.mRunnable` @AccessFlag PRIVATE;
+  `androidx.core.widget.AutoScrollHelper$ClampedScroller` `androidx.core.widget.AutoScrollHelper.mScroller` @AccessFlag FINAL;
+  `android.view.View` `androidx.core.widget.AutoScrollHelper.mTarget` @AccessFlag FINAL;
+}
+global `int` `@@androidx.core.widget.AutoScrollHelper.DEFAULT_ACTIVATION_DELAY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.widget.AutoScrollHelper.DEFAULT_EDGE_TYPE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `float` `@@androidx.core.widget.AutoScrollHelper.DEFAULT_MAXIMUM_EDGE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.widget.AutoScrollHelper.DEFAULT_MAXIMUM_VELOCITY_DIPS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.widget.AutoScrollHelper.DEFAULT_MINIMUM_VELOCITY_DIPS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.widget.AutoScrollHelper.DEFAULT_RAMP_DOWN_DURATION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.widget.AutoScrollHelper.DEFAULT_RAMP_UP_DURATION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `float` `@@androidx.core.widget.AutoScrollHelper.DEFAULT_RELATIVE_EDGE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `float` `@@androidx.core.widget.AutoScrollHelper.DEFAULT_RELATIVE_VELOCITY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.widget.AutoScrollHelper.EDGE_TYPE_INSIDE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.widget.AutoScrollHelper.EDGE_TYPE_INSIDE_EXTEND` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.widget.AutoScrollHelper.EDGE_TYPE_OUTSIDE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.widget.AutoScrollHelper.HORIZONTAL` @AccessFlag PRIVATE_STATIC_FINAL;
+global `float` `@@androidx.core.widget.AutoScrollHelper.NO_MAX` @AccessFlag PUBLIC_STATIC_FINAL;
+global `float` `@@androidx.core.widget.AutoScrollHelper.NO_MIN` @AccessFlag PUBLIC_STATIC_FINAL;
+global `float` `@@androidx.core.widget.AutoScrollHelper.RELATIVE_UNSPECIFIED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.widget.AutoScrollHelper.VERTICAL` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/core/widget/AutoScrollHelper;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.core.widget.AutoScrollHelper` v5 @kind this, `android.view.View` v6 @kind object @name `target`) @signature `Landroidx/core/widget/AutoScrollHelper;.<init>:(Landroid/view/View;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `float` `computeTargetVelocity`(`androidx.core.widget.AutoScrollHelper` v8 @kind this, `int` v9 @name `direction`, `float` v10 @name `coordinate`, `float` v11 @name `srcSize`, `float` v12 @name `dstSize`) @signature `Landroidx/core/widget/AutoScrollHelper;.computeTargetVelocity:(IFFF)F` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `float` `constrain`(`float` v1 @name `value`, `float` v2 @name `min`, `float` v3 @name `max`) @signature `Landroidx/core/widget/AutoScrollHelper;.constrain:(FFF)F` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `int` `constrain`(`int` v0 @name `value`, `int` v1 @name `min`, `int` v2 @name `max`) @signature `Landroidx/core/widget/AutoScrollHelper;.constrain:(III)I` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `float` `constrainEdgeValue`(`androidx.core.widget.AutoScrollHelper` v5 @kind this, `float` v6 @name `current`, `float` v7 @name `leading`) @signature `Landroidx/core/widget/AutoScrollHelper;.constrainEdgeValue:(FF)F` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `float` `getEdgeValue`(`androidx.core.widget.AutoScrollHelper` v7 @kind this, `float` v8 @name `relativeValue`, `float` v9 @name `size`, `float` v10 @name `maxValue`, `float` v11 @name `current`) @signature `Landroidx/core/widget/AutoScrollHelper;.getEdgeValue:(FFFF)F` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `requestStop`(`androidx.core.widget.AutoScrollHelper` v1 @kind this) @signature `Landroidx/core/widget/AutoScrollHelper;.requestStop:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `startAnimating`(`androidx.core.widget.AutoScrollHelper` v6 @kind this) @signature `Landroidx/core/widget/AutoScrollHelper;.startAnimating:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `canTargetScrollHorizontally`(`int` v0 ) @signature `Landroidx/core/widget/AutoScrollHelper;.canTargetScrollHorizontally:(I)Z` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `boolean` `canTargetScrollVertically`(`int` v0 ) @signature `Landroidx/core/widget/AutoScrollHelper;.canTargetScrollVertically:(I)Z` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `void` `cancelTargetTouch`(`androidx.core.widget.AutoScrollHelper` v10 @kind this) @signature `Landroidx/core/widget/AutoScrollHelper;.cancelTargetTouch:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isEnabled`(`androidx.core.widget.AutoScrollHelper` v1 @kind this) @signature `Landroidx/core/widget/AutoScrollHelper;.isEnabled:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isExclusive`(`androidx.core.widget.AutoScrollHelper` v1 @kind this) @signature `Landroidx/core/widget/AutoScrollHelper;.isExclusive:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onTouch`(`androidx.core.widget.AutoScrollHelper` v7 @kind this, `android.view.View` v8 @kind object @name `v`, `android.view.MotionEvent` v9 @kind object @name `event`) @signature `Landroidx/core/widget/AutoScrollHelper;.onTouch:(Landroid/view/View;Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `scrollTargetBy`(`int` v0 , `int` v1 ) @signature `Landroidx/core/widget/AutoScrollHelper;.scrollTargetBy:(II)V` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `androidx.core.widget.AutoScrollHelper` `setActivationDelay`(`androidx.core.widget.AutoScrollHelper` v0 @kind this, `int` v1 @name `delayMillis`) @signature `Landroidx/core/widget/AutoScrollHelper;.setActivationDelay:(I)Landroidx/core/widget/AutoScrollHelper;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.widget.AutoScrollHelper` `setEdgeType`(`androidx.core.widget.AutoScrollHelper` v0 @kind this, `int` v1 @name `type`) @signature `Landroidx/core/widget/AutoScrollHelper;.setEdgeType:(I)Landroidx/core/widget/AutoScrollHelper;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.widget.AutoScrollHelper` `setEnabled`(`androidx.core.widget.AutoScrollHelper` v1 @kind this, `boolean` v2 @name `enabled`) @signature `Landroidx/core/widget/AutoScrollHelper;.setEnabled:(Z)Landroidx/core/widget/AutoScrollHelper;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.widget.AutoScrollHelper` `setExclusive`(`androidx.core.widget.AutoScrollHelper` v0 @kind this, `boolean` v1 @name `exclusive`) @signature `Landroidx/core/widget/AutoScrollHelper;.setExclusive:(Z)Landroidx/core/widget/AutoScrollHelper;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.widget.AutoScrollHelper` `setMaximumEdges`(`androidx.core.widget.AutoScrollHelper` v2 @kind this, `float` v3 @name `horizontalMax`, `float` v4 @name `verticalMax`) @signature `Landroidx/core/widget/AutoScrollHelper;.setMaximumEdges:(FF)Landroidx/core/widget/AutoScrollHelper;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.widget.AutoScrollHelper` `setMaximumVelocity`(`androidx.core.widget.AutoScrollHelper` v4 @kind this, `float` v5 @name `horizontalMax`, `float` v6 @name `verticalMax`) @signature `Landroidx/core/widget/AutoScrollHelper;.setMaximumVelocity:(FF)Landroidx/core/widget/AutoScrollHelper;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.widget.AutoScrollHelper` `setMinimumVelocity`(`androidx.core.widget.AutoScrollHelper` v4 @kind this, `float` v5 @name `horizontalMin`, `float` v6 @name `verticalMin`) @signature `Landroidx/core/widget/AutoScrollHelper;.setMinimumVelocity:(FF)Landroidx/core/widget/AutoScrollHelper;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.widget.AutoScrollHelper` `setRampDownDuration`(`androidx.core.widget.AutoScrollHelper` v1 @kind this, `int` v2 @name `durationMillis`) @signature `Landroidx/core/widget/AutoScrollHelper;.setRampDownDuration:(I)Landroidx/core/widget/AutoScrollHelper;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.widget.AutoScrollHelper` `setRampUpDuration`(`androidx.core.widget.AutoScrollHelper` v1 @kind this, `int` v2 @name `durationMillis`) @signature `Landroidx/core/widget/AutoScrollHelper;.setRampUpDuration:(I)Landroidx/core/widget/AutoScrollHelper;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.widget.AutoScrollHelper` `setRelativeEdges`(`androidx.core.widget.AutoScrollHelper` v2 @kind this, `float` v3 @name `horizontal`, `float` v4 @name `vertical`) @signature `Landroidx/core/widget/AutoScrollHelper;.setRelativeEdges:(FF)Landroidx/core/widget/AutoScrollHelper;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.widget.AutoScrollHelper` `setRelativeVelocity`(`androidx.core.widget.AutoScrollHelper` v4 @kind this, `float` v5 @name `horizontal`, `float` v6 @name `vertical`) @signature `Landroidx/core/widget/AutoScrollHelper;.setRelativeVelocity:(FF)Landroidx/core/widget/AutoScrollHelper;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `shouldAnimate`(`androidx.core.widget.AutoScrollHelper` v4 @kind this) @signature `Landroidx/core/widget/AutoScrollHelper;.shouldAnimate:()Z` @AccessFlag  {
+
+  # return;
+}

@@ -1,0 +1,658 @@
+record `com.google.android.material.button.MaterialButtonHelper` @kind class @AccessFlag  {
+  `boolean` `com.google.android.material.button.MaterialButtonHelper.backgroundOverwritten` @AccessFlag PRIVATE;
+  `android.content.res.ColorStateList` `com.google.android.material.button.MaterialButtonHelper.backgroundTint` @AccessFlag PRIVATE;
+  `android.graphics.PorterDuff$Mode` `com.google.android.material.button.MaterialButtonHelper.backgroundTintMode` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.button.MaterialButtonHelper.checkable` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.button.MaterialButtonHelper.cornerRadius` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.button.MaterialButtonHelper.cornerRadiusSet` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.button.MaterialButtonHelper.insetBottom` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.button.MaterialButtonHelper.insetLeft` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.button.MaterialButtonHelper.insetRight` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.button.MaterialButtonHelper.insetTop` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `com.google.android.material.button.MaterialButtonHelper.maskDrawable` @AccessFlag PRIVATE;
+  `com.google.android.material.button.MaterialButton` `com.google.android.material.button.MaterialButtonHelper.materialButton` @AccessFlag PRIVATE_FINAL;
+  `android.content.res.ColorStateList` `com.google.android.material.button.MaterialButtonHelper.rippleColor` @AccessFlag PRIVATE;
+  `android.graphics.drawable.LayerDrawable` `com.google.android.material.button.MaterialButtonHelper.rippleDrawable` @AccessFlag PRIVATE;
+  `com.google.android.material.shape.ShapeAppearanceModel` `com.google.android.material.button.MaterialButtonHelper.shapeAppearanceModel` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.button.MaterialButtonHelper.shouldDrawSurfaceColorStroke` @AccessFlag PRIVATE;
+  `android.content.res.ColorStateList` `com.google.android.material.button.MaterialButtonHelper.strokeColor` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.button.MaterialButtonHelper.strokeWidth` @AccessFlag PRIVATE;
+}
+global `boolean` `@@com.google.android.material.button.MaterialButtonHelper.IS_LOLLIPOP` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/button/MaterialButtonHelper;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L18b29c.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L18b2a0.  v1:= 21I;
+  #L18b2a4.  if v0 < v1 then goto L18b2ac;
+  #L18b2a8.  v0:= 1I;
+  #L18b2aa.  goto L18b2ae;
+  #L18b2ac.  v0:= 0I;
+  #L18b2ae.  `@@com.google.android.material.button.MaterialButtonHelper.IS_LOLLIPOP` @type ^`boolean` := v0 @kind boolean;
+  #L18b2b2.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.button.MaterialButtonHelper` v1 @kind this, `com.google.android.material.button.MaterialButton` v2 @kind object @name `button`, `com.google.android.material.shape.ShapeAppearanceModel` v3 @kind object @name `shapeAppearanceModel`) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.<init>:(Lcom/google/android/material/button/MaterialButton;Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L18b2c4.  call `<init>`(v1) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L18b2ca.  v0:= 0I;
+  #L18b2cc.  v1.`com.google.android.material.button.MaterialButtonHelper.shouldDrawSurfaceColorStroke` @type ^`boolean` := v0 @kind boolean;
+  #L18b2d0.  v1.`com.google.android.material.button.MaterialButtonHelper.backgroundOverwritten` @type ^`boolean` := v0 @kind boolean;
+  #L18b2d4.  v1.`com.google.android.material.button.MaterialButtonHelper.cornerRadiusSet` @type ^`boolean` := v0 @kind boolean;
+  #L18b2d8.  v1.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` := v2 @kind object;
+  #L18b2dc.  v1.`com.google.android.material.button.MaterialButtonHelper.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` := v3 @kind object;
+  #L18b2e0.  return @kind void;
+}
+procedure `android.graphics.drawable.Drawable` `createBackground`(`com.google.android.material.button.MaterialButtonHelper` v9 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.createBackground:()Landroid/graphics/drawable/Drawable;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L18af98.  v0:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L18af9c.  v1:= v9.`com.google.android.material.button.MaterialButtonHelper.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L18afa0.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L18afa6.  v1:= v9.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` @kind object;
+  #L18afaa.  call temp:= `getContext`(v1) @signature `Lcom/google/android/material/button/MaterialButton;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L18afb0.  v1:= temp @kind object;
+  #L18afb2.  call `initializeElevationOverlay`(v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.initializeElevationOverlay:(Landroid/content/Context;)V` @kind virtual;
+  #L18afb8.  v2:= v9.`com.google.android.material.button.MaterialButtonHelper.backgroundTint` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18afbc.  call `setTintList`(v0, v2) @signature `Landroidx/core/graphics/drawable/DrawableCompat;.setTintList:(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V` @kind static;
+  #L18afc2.  v2:= v9.`com.google.android.material.button.MaterialButtonHelper.backgroundTintMode` @type ^`android.graphics.PorterDuff$Mode` @kind object;
+  #L18afc6.  if v2 == 0 then goto L18afd0;
+  #L18afca.  call `setTintMode`(v0, v2) @signature `Landroidx/core/graphics/drawable/DrawableCompat;.setTintMode:(Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;)V` @kind static;
+  #L18afd0.  v2:= v9.`com.google.android.material.button.MaterialButtonHelper.strokeWidth` @type ^`int`;
+  #L18afd4.  v2:= (`float`) v2 @kind i2f;
+  #L18afd6.  v3:= v9.`com.google.android.material.button.MaterialButtonHelper.strokeColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18afda.  call `setStroke`(v0, v2, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setStroke:(FLandroid/content/res/ColorStateList;)V` @kind virtual;
+  #L18afe0.  v2:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L18afe4.  v3:= v9.`com.google.android.material.button.MaterialButtonHelper.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L18afe8.  call `<init>`(v2, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L18afee.  v3:= 0I;
+  #L18aff0.  call `setTint`(v2, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setTint:(I)V` @kind virtual;
+  #L18aff6.  v4:= v9.`com.google.android.material.button.MaterialButtonHelper.strokeWidth` @type ^`int`;
+  #L18affa.  v4:= (`float`) v4 @kind i2f;
+  #L18affc.  v5:= v9.`com.google.android.material.button.MaterialButtonHelper.shouldDrawSurfaceColorStroke` @type ^`boolean` @kind boolean;
+  #L18b000.  if v5 == 0 then goto L18b016;
+  #L18b004.  v5:= v9.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` @kind object;
+  #L18b008.  v6:= `@@com.google.android.material.R$attr.colorSurface` @type ^`int`;
+  #L18b00c.  call temp:= `getColor`(v5, v6) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/view/View;I)I` @kind static;
+  #L18b012.  v5:= temp;
+  #L18b014.  goto L18b018;
+  #L18b016.  v5:= v3;
+  #L18b018.  call `setStroke`(v2, v4, v5) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setStroke:(FI)V` @kind virtual;
+  #L18b01e.  v4:= `@@com.google.android.material.button.MaterialButtonHelper.IS_LOLLIPOP` @type ^`boolean` @kind boolean;
+  #L18b022.  v5:= 2I;
+  #L18b024.  v6:= 1I;
+  #L18b026.  if v4 == 0 then goto L18b082;
+  #L18b02a.  v4:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L18b02e.  v7:= v9.`com.google.android.material.button.MaterialButtonHelper.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L18b032.  call `<init>`(v4, v7) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L18b038.  v9.`com.google.android.material.button.MaterialButtonHelper.maskDrawable` @type ^`android.graphics.drawable.Drawable` := v4 @kind object;
+  #L18b03c.  v7:= -1I;
+  #L18b03e.  call `setTint`(v4, v7) @signature `Landroidx/core/graphics/drawable/DrawableCompat;.setTint:(Landroid/graphics/drawable/Drawable;I)V` @kind static;
+  #L18b044.  v4:= new `android.graphics.drawable.RippleDrawable`;
+  #L18b048.  v7:= v9.`com.google.android.material.button.MaterialButtonHelper.rippleColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18b04c.  call temp:= `sanitizeRippleDrawableColor`(v7) @signature `Lcom/google/android/material/ripple/RippleUtils;.sanitizeRippleDrawableColor:(Landroid/content/res/ColorStateList;)Landroid/content/res/ColorStateList;` @kind static;
+  #L18b052.  v7:= temp @kind object;
+  #L18b054.  v8:= new `android.graphics.drawable.LayerDrawable`;
+  #L18b058.  v5:= new `android.graphics.drawable.Drawable`[v5];
+  #L18b05c.  v5[v3]:= v2 @kind object;
+  #L18b060.  v5[v6]:= v0 @kind object;
+  #L18b064.  call `<init>`(v8, v5) @signature `Landroid/graphics/drawable/LayerDrawable;.<init>:([Landroid/graphics/drawable/Drawable;)V` @kind direct;
+  #L18b06a.  call temp:= `wrapDrawableWithInset`(v9, v8) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.wrapDrawableWithInset:(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/InsetDrawable;` @kind direct;
+  #L18b070.  v3:= temp @kind object;
+  #L18b072.  v5:= v9.`com.google.android.material.button.MaterialButtonHelper.maskDrawable` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18b076.  call `<init>`(v4, v7, v3, v5) @signature `Landroid/graphics/drawable/RippleDrawable;.<init>:(Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V` @kind direct;
+  #L18b07c.  v9.`com.google.android.material.button.MaterialButtonHelper.rippleDrawable` @type ^`android.graphics.drawable.LayerDrawable` := v4 @kind object;
+  #L18b080.  return v4 @kind object;
+  #L18b082.  v4:= new `com.google.android.material.ripple.RippleDrawableCompat`;
+  #L18b086.  v7:= v9.`com.google.android.material.button.MaterialButtonHelper.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L18b08a.  call `<init>`(v4, v7) @signature `Lcom/google/android/material/ripple/RippleDrawableCompat;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L18b090.  v9.`com.google.android.material.button.MaterialButtonHelper.maskDrawable` @type ^`android.graphics.drawable.Drawable` := v4 @kind object;
+  #L18b094.  v7:= v9.`com.google.android.material.button.MaterialButtonHelper.rippleColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18b098.  call temp:= `sanitizeRippleDrawableColor`(v7) @signature `Lcom/google/android/material/ripple/RippleUtils;.sanitizeRippleDrawableColor:(Landroid/content/res/ColorStateList;)Landroid/content/res/ColorStateList;` @kind static;
+  #L18b09e.  v7:= temp @kind object;
+  #L18b0a0.  call `setTintList`(v4, v7) @signature `Landroidx/core/graphics/drawable/DrawableCompat;.setTintList:(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V` @kind static;
+  #L18b0a6.  v4:= new `android.graphics.drawable.LayerDrawable`;
+  #L18b0aa.  v7:= 3I;
+  #L18b0ac.  v7:= new `android.graphics.drawable.Drawable`[v7];
+  #L18b0b0.  v7[v3]:= v2 @kind object;
+  #L18b0b4.  v7[v6]:= v0 @kind object;
+  #L18b0b8.  v3:= v9.`com.google.android.material.button.MaterialButtonHelper.maskDrawable` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18b0bc.  v7[v5]:= v3 @kind object;
+  #L18b0c0.  call `<init>`(v4, v7) @signature `Landroid/graphics/drawable/LayerDrawable;.<init>:([Landroid/graphics/drawable/Drawable;)V` @kind direct;
+  #L18b0c6.  v9.`com.google.android.material.button.MaterialButtonHelper.rippleDrawable` @type ^`android.graphics.drawable.LayerDrawable` := v4 @kind object;
+  #L18b0ca.  call temp:= `wrapDrawableWithInset`(v9, v4) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.wrapDrawableWithInset:(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/InsetDrawable;` @kind direct;
+  #L18b0d0.  v3:= temp @kind object;
+  #L18b0d2.  return v3 @kind object;
+}
+procedure `com.google.android.material.shape.MaterialShapeDrawable` `getMaterialShapeDrawable`(`com.google.android.material.button.MaterialButtonHelper` v3 @kind this, `boolean` v4 @name `getSurfaceColorStrokeDrawable`) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getMaterialShapeDrawable:(Z)Lcom/google/android/material/shape/MaterialShapeDrawable;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18b160.  v0:= v3.`com.google.android.material.button.MaterialButtonHelper.rippleDrawable` @type ^`android.graphics.drawable.LayerDrawable` @kind object;
+  #L18b164.  if v0 == 0 then goto L18b1c4;
+  #L18b168.  call temp:= `getNumberOfLayers`(v0) @signature `Landroid/graphics/drawable/LayerDrawable;.getNumberOfLayers:()I` @kind virtual;
+  #L18b16e.  v0:= temp;
+  #L18b170.  if v0 <= 0 then goto L18b1c4;
+  #L18b174.  v0:= `@@com.google.android.material.button.MaterialButtonHelper.IS_LOLLIPOP` @type ^`boolean` @kind boolean;
+  #L18b178.  if v0 == 0 then goto L18b1ae;
+  #L18b17c.  v0:= v3.`com.google.android.material.button.MaterialButtonHelper.rippleDrawable` @type ^`android.graphics.drawable.LayerDrawable` @kind object;
+  #L18b180.  v1:= 0I;
+  #L18b182.  call temp:= `getDrawable`(v0, v1) @signature `Landroid/graphics/drawable/LayerDrawable;.getDrawable:(I)Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L18b188.  v0:= temp @kind object;
+  #L18b18a.  v0:= (`android.graphics.drawable.InsetDrawable`) v0 @kind object;
+  #L18b18e.  call temp:= `getDrawable`(v0) @signature `Landroid/graphics/drawable/InsetDrawable;.getDrawable:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L18b194.  v1:= temp @kind object;
+  #L18b196.  v1:= (`android.graphics.drawable.LayerDrawable`) v1 @kind object;
+  #L18b19a.  
+  #L18b19c.  v2:= v4 ^~ 1;
+  #L18b1a0.  call temp:= `getDrawable`(v1, v2) @signature `Landroid/graphics/drawable/LayerDrawable;.getDrawable:(I)Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L18b1a6.  v2:= temp @kind object;
+  #L18b1a8.  v2:= (`com.google.android.material.shape.MaterialShapeDrawable`) v2 @kind object;
+  #L18b1ac.  return v2 @kind object;
+  #L18b1ae.  v0:= v3.`com.google.android.material.button.MaterialButtonHelper.rippleDrawable` @type ^`android.graphics.drawable.LayerDrawable` @kind object;
+  #L18b1b2.  v1:= v4 ^~ 1;
+  #L18b1b6.  call temp:= `getDrawable`(v0, v1) @signature `Landroid/graphics/drawable/LayerDrawable;.getDrawable:(I)Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L18b1bc.  v0:= temp @kind object;
+  #L18b1be.  v0:= (`com.google.android.material.shape.MaterialShapeDrawable`) v0 @kind object;
+  #L18b1c2.  return v0 @kind object;
+  #L18b1c4.  v0:= 0I;
+  #L18b1c6.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.MaterialShapeDrawable` `getSurfaceColorStrokeDrawable`(`com.google.android.material.button.MaterialButtonHelper` v1 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getSurfaceColorStrokeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L18b1d8.  v0:= 1I;
+  #L18b1da.  call temp:= `getMaterialShapeDrawable`(v1, v0) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getMaterialShapeDrawable:(Z)Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind direct;
+  #L18b1e0.  v0:= temp @kind object;
+  #L18b1e2.  return v0 @kind object;
+}
+procedure `void` `updateButtonShape`(`com.google.android.material.button.MaterialButtonHelper` v1 @kind this, `com.google.android.material.shape.ShapeAppearanceModel` v2 @kind object @name `shapeAppearanceModel`) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.updateButtonShape:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L18b6e0.  call temp:= `getMaterialShapeDrawable`(v1) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getMaterialShapeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind virtual;
+  #L18b6e6.  v0:= temp @kind object;
+  #L18b6e8.  if v0 == 0 then goto L18b6fa;
+  #L18b6ec.  call temp:= `getMaterialShapeDrawable`(v1) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getMaterialShapeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind virtual;
+  #L18b6f2.  v0:= temp @kind object;
+  #L18b6f4.  call `setShapeAppearanceModel`(v0, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L18b6fa.  call temp:= `getSurfaceColorStrokeDrawable`(v1) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getSurfaceColorStrokeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind direct;
+  #L18b700.  v0:= temp @kind object;
+  #L18b702.  if v0 == 0 then goto L18b714;
+  #L18b706.  call temp:= `getSurfaceColorStrokeDrawable`(v1) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getSurfaceColorStrokeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind direct;
+  #L18b70c.  v0:= temp @kind object;
+  #L18b70e.  call `setShapeAppearanceModel`(v0, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L18b714.  call temp:= `getMaskDrawable`(v1) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getMaskDrawable:()Lcom/google/android/material/shape/Shapeable;` @kind virtual;
+  #L18b71a.  v0:= temp @kind object;
+  #L18b71c.  if v0 == 0 then goto L18b72e;
+  #L18b720.  call temp:= `getMaskDrawable`(v1) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getMaskDrawable:()Lcom/google/android/material/shape/Shapeable;` @kind virtual;
+  #L18b726.  v0:= temp @kind object;
+  #L18b728.  call `setShapeAppearanceModel`(v0, v2) @signature `Lcom/google/android/material/shape/Shapeable;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind interface;
+  #L18b72e.  return @kind void;
+}
+procedure `void` `updateStroke`(`com.google.android.material.button.MaterialButtonHelper` v5 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.updateStroke:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L18b778.  call temp:= `getMaterialShapeDrawable`(v5) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getMaterialShapeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind virtual;
+  #L18b77e.  v0:= temp @kind object;
+  #L18b780.  call temp:= `getSurfaceColorStrokeDrawable`(v5) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getSurfaceColorStrokeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind direct;
+  #L18b786.  v1:= temp @kind object;
+  #L18b788.  if v0 == 0 then goto L18b7c8;
+  #L18b78c.  v2:= v5.`com.google.android.material.button.MaterialButtonHelper.strokeWidth` @type ^`int`;
+  #L18b790.  v2:= (`float`) v2 @kind i2f;
+  #L18b792.  v3:= v5.`com.google.android.material.button.MaterialButtonHelper.strokeColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18b796.  call `setStroke`(v0, v2, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setStroke:(FLandroid/content/res/ColorStateList;)V` @kind virtual;
+  #L18b79c.  if v1 == 0 then goto L18b7c8;
+  #L18b7a0.  v2:= v5.`com.google.android.material.button.MaterialButtonHelper.strokeWidth` @type ^`int`;
+  #L18b7a4.  v2:= (`float`) v2 @kind i2f;
+  #L18b7a6.  v3:= v5.`com.google.android.material.button.MaterialButtonHelper.shouldDrawSurfaceColorStroke` @type ^`boolean` @kind boolean;
+  #L18b7aa.  if v3 == 0 then goto L18b7c0;
+  #L18b7ae.  v3:= v5.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` @kind object;
+  #L18b7b2.  v4:= `@@com.google.android.material.R$attr.colorSurface` @type ^`int`;
+  #L18b7b6.  call temp:= `getColor`(v3, v4) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/view/View;I)I` @kind static;
+  #L18b7bc.  v3:= temp;
+  #L18b7be.  goto L18b7c2;
+  #L18b7c0.  v3:= 0I;
+  #L18b7c2.  call `setStroke`(v1, v2, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setStroke:(FI)V` @kind virtual;
+  #L18b7c8.  return @kind void;
+}
+procedure `android.graphics.drawable.InsetDrawable` `wrapDrawableWithInset`(`com.google.android.material.button.MaterialButtonHelper` v7 @kind this, `android.graphics.drawable.Drawable` v8 @kind object @name `drawable`) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.wrapDrawableWithInset:(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/InsetDrawable;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L18b0e4.  v6:= new `android.graphics.drawable.InsetDrawable`;
+  #L18b0e8.  v2:= v7.`com.google.android.material.button.MaterialButtonHelper.insetLeft` @type ^`int`;
+  #L18b0ec.  v3:= v7.`com.google.android.material.button.MaterialButtonHelper.insetTop` @type ^`int`;
+  #L18b0f0.  v4:= v7.`com.google.android.material.button.MaterialButtonHelper.insetRight` @type ^`int`;
+  #L18b0f4.  v5:= v7.`com.google.android.material.button.MaterialButtonHelper.insetBottom` @type ^`int`;
+  #L18b0f8.  v0:= v6 @kind object;
+  #L18b0fa.  v1:= v8 @kind object;
+  #L18b0fc.  call `<init>`(v0, v1, v2, v3, v4, v5) @signature `Landroid/graphics/drawable/InsetDrawable;.<init>:(Landroid/graphics/drawable/Drawable;IIII)V` @kind direct;
+  #L18b102.  return v6 @kind object;
+}
+procedure `int` `getCornerRadius`(`com.google.android.material.button.MaterialButtonHelper` v1 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getCornerRadius:()I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18b26c.  v0:= v1.`com.google.android.material.button.MaterialButtonHelper.cornerRadius` @type ^`int`;
+  #L18b270.  return v0;
+}
+procedure `com.google.android.material.shape.Shapeable` `getMaskDrawable`(`com.google.android.material.button.MaterialButtonHelper` v3 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getMaskDrawable:()Lcom/google/android/material/shape/Shapeable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18b20c.  v0:= v3.`com.google.android.material.button.MaterialButtonHelper.rippleDrawable` @type ^`android.graphics.drawable.LayerDrawable` @kind object;
+  #L18b210.  if v0 == 0 then goto L18b258;
+  #L18b214.  call temp:= `getNumberOfLayers`(v0) @signature `Landroid/graphics/drawable/LayerDrawable;.getNumberOfLayers:()I` @kind virtual;
+  #L18b21a.  v0:= temp;
+  #L18b21c.  v1:= 1I;
+  #L18b21e.  if v0 <= v1 then goto L18b258;
+  #L18b222.  v0:= v3.`com.google.android.material.button.MaterialButtonHelper.rippleDrawable` @type ^`android.graphics.drawable.LayerDrawable` @kind object;
+  #L18b226.  call temp:= `getNumberOfLayers`(v0) @signature `Landroid/graphics/drawable/LayerDrawable;.getNumberOfLayers:()I` @kind virtual;
+  #L18b22c.  v0:= temp;
+  #L18b22e.  v2:= 2I;
+  #L18b230.  if v0 <= v2 then goto L18b246;
+  #L18b234.  v0:= v3.`com.google.android.material.button.MaterialButtonHelper.rippleDrawable` @type ^`android.graphics.drawable.LayerDrawable` @kind object;
+  #L18b238.  call temp:= `getDrawable`(v0, v2) @signature `Landroid/graphics/drawable/LayerDrawable;.getDrawable:(I)Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L18b23e.  v0:= temp @kind object;
+  #L18b240.  v0:= (`com.google.android.material.shape.Shapeable`) v0 @kind object;
+  #L18b244.  return v0 @kind object;
+  #L18b246.  v0:= v3.`com.google.android.material.button.MaterialButtonHelper.rippleDrawable` @type ^`android.graphics.drawable.LayerDrawable` @kind object;
+  #L18b24a.  call temp:= `getDrawable`(v0, v1) @signature `Landroid/graphics/drawable/LayerDrawable;.getDrawable:(I)Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L18b250.  v0:= temp @kind object;
+  #L18b252.  v0:= (`com.google.android.material.shape.Shapeable`) v0 @kind object;
+  #L18b256.  return v0 @kind object;
+  #L18b258.  v0:= 0I;
+  #L18b25a.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.MaterialShapeDrawable` `getMaterialShapeDrawable`(`com.google.android.material.button.MaterialButtonHelper` v1 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getMaterialShapeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18b144.  v0:= 0I;
+  #L18b146.  call temp:= `getMaterialShapeDrawable`(v1, v0) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getMaterialShapeDrawable:(Z)Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind direct;
+  #L18b14c.  v0:= temp @kind object;
+  #L18b14e.  return v0 @kind object;
+}
+procedure `android.content.res.ColorStateList` `getRippleColor`(`com.google.android.material.button.MaterialButtonHelper` v1 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getRippleColor:()Landroid/content/res/ColorStateList;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18af38.  v0:= v1.`com.google.android.material.button.MaterialButtonHelper.rippleColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18af3c.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.ShapeAppearanceModel` `getShapeAppearanceModel`(`com.google.android.material.button.MaterialButtonHelper` v1 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getShapeAppearanceModel:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18b1f4.  v0:= v1.`com.google.android.material.button.MaterialButtonHelper.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L18b1f8.  return v0 @kind object;
+}
+procedure `android.content.res.ColorStateList` `getStrokeColor`(`com.google.android.material.button.MaterialButtonHelper` v1 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getStrokeColor:()Landroid/content/res/ColorStateList;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18af50.  v0:= v1.`com.google.android.material.button.MaterialButtonHelper.strokeColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18af54.  return v0 @kind object;
+}
+procedure `int` `getStrokeWidth`(`com.google.android.material.button.MaterialButtonHelper` v1 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getStrokeWidth:()I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18b284.  v0:= v1.`com.google.android.material.button.MaterialButtonHelper.strokeWidth` @type ^`int`;
+  #L18b288.  return v0;
+}
+procedure `android.content.res.ColorStateList` `getSupportBackgroundTintList`(`com.google.android.material.button.MaterialButtonHelper` v1 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getSupportBackgroundTintList:()Landroid/content/res/ColorStateList;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18af68.  v0:= v1.`com.google.android.material.button.MaterialButtonHelper.backgroundTint` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18af6c.  return v0 @kind object;
+}
+procedure `android.graphics.PorterDuff$Mode` `getSupportBackgroundTintMode`(`com.google.android.material.button.MaterialButtonHelper` v1 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getSupportBackgroundTintMode:()Landroid/graphics/PorterDuff$Mode;` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18af80.  v0:= v1.`com.google.android.material.button.MaterialButtonHelper.backgroundTintMode` @type ^`android.graphics.PorterDuff$Mode` @kind object;
+  #L18af84.  return v0 @kind object;
+}
+procedure `boolean` `isBackgroundOverwritten`(`com.google.android.material.button.MaterialButtonHelper` v1 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.isBackgroundOverwritten:()Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18b114.  v0:= v1.`com.google.android.material.button.MaterialButtonHelper.backgroundOverwritten` @type ^`boolean` @kind boolean;
+  #L18b118.  return v0;
+}
+procedure `boolean` `isCheckable`(`com.google.android.material.button.MaterialButtonHelper` v1 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.isCheckable:()Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18b12c.  v0:= v1.`com.google.android.material.button.MaterialButtonHelper.checkable` @type ^`boolean` @kind boolean;
+  #L18b130.  return v0;
+}
+procedure `void` `loadFromAttributes`(`com.google.android.material.button.MaterialButtonHelper` v11 @kind this, `android.content.res.TypedArray` v12 @kind object @name `attributes`) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.loadFromAttributes:(Landroid/content/res/TypedArray;)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+
+  #L18b2f4.  v0:= `@@com.google.android.material.R$styleable.MaterialButton_android_insetLeft` @type ^`int`;
+  #L18b2f8.  v1:= 0I;
+  #L18b2fa.  call temp:= `getDimensionPixelOffset`(v12, v0, v1) @signature `Landroid/content/res/TypedArray;.getDimensionPixelOffset:(II)I` @kind virtual;
+  #L18b300.  v0:= temp;
+  #L18b302.  v11.`com.google.android.material.button.MaterialButtonHelper.insetLeft` @type ^`int` := v0;
+  #L18b306.  v0:= `@@com.google.android.material.R$styleable.MaterialButton_android_insetRight` @type ^`int`;
+  #L18b30a.  call temp:= `getDimensionPixelOffset`(v12, v0, v1) @signature `Landroid/content/res/TypedArray;.getDimensionPixelOffset:(II)I` @kind virtual;
+  #L18b310.  v0:= temp;
+  #L18b312.  v11.`com.google.android.material.button.MaterialButtonHelper.insetRight` @type ^`int` := v0;
+  #L18b316.  v0:= `@@com.google.android.material.R$styleable.MaterialButton_android_insetTop` @type ^`int`;
+  #L18b31a.  call temp:= `getDimensionPixelOffset`(v12, v0, v1) @signature `Landroid/content/res/TypedArray;.getDimensionPixelOffset:(II)I` @kind virtual;
+  #L18b320.  v0:= temp;
+  #L18b322.  v11.`com.google.android.material.button.MaterialButtonHelper.insetTop` @type ^`int` := v0;
+  #L18b326.  v0:= `@@com.google.android.material.R$styleable.MaterialButton_android_insetBottom` @type ^`int`;
+  #L18b32a.  call temp:= `getDimensionPixelOffset`(v12, v0, v1) @signature `Landroid/content/res/TypedArray;.getDimensionPixelOffset:(II)I` @kind virtual;
+  #L18b330.  v0:= temp;
+  #L18b332.  v11.`com.google.android.material.button.MaterialButtonHelper.insetBottom` @type ^`int` := v0;
+  #L18b336.  v0:= `@@com.google.android.material.R$styleable.MaterialButton_cornerRadius` @type ^`int`;
+  #L18b33a.  call temp:= `hasValue`(v12, v0) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L18b340.  v0:= temp;
+  #L18b342.  v2:= -1I;
+  #L18b344.  if v0 == 0 then goto L18b372;
+  #L18b348.  v0:= `@@com.google.android.material.R$styleable.MaterialButton_cornerRadius` @type ^`int`;
+  #L18b34c.  call temp:= `getDimensionPixelSize`(v12, v0, v2) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L18b352.  v0:= temp;
+  #L18b354.  v11.`com.google.android.material.button.MaterialButtonHelper.cornerRadius` @type ^`int` := v0;
+  #L18b358.  v3:= v11.`com.google.android.material.button.MaterialButtonHelper.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L18b35c.  v0:= (`float`) v0 @kind i2f;
+  #L18b35e.  call temp:= `withCornerSize`(v3, v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.withCornerSize:(F)Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L18b364.  v0:= temp @kind object;
+  #L18b366.  call `setShapeAppearanceModel`(v11, v0) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L18b36c.  v0:= 1I;
+  #L18b36e.  v11.`com.google.android.material.button.MaterialButtonHelper.cornerRadiusSet` @type ^`boolean` := v0 @kind boolean;
+  #L18b372.  v0:= `@@com.google.android.material.R$styleable.MaterialButton_strokeWidth` @type ^`int`;
+  #L18b376.  call temp:= `getDimensionPixelSize`(v12, v0, v1) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L18b37c.  v0:= temp;
+  #L18b37e.  v11.`com.google.android.material.button.MaterialButtonHelper.strokeWidth` @type ^`int` := v0;
+  #L18b382.  v0:= `@@com.google.android.material.R$styleable.MaterialButton_backgroundTintMode` @type ^`int`;
+  #L18b386.  call temp:= `getInt`(v12, v0, v2) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L18b38c.  v0:= temp;
+  #L18b38e.  v2:= `@@android.graphics.PorterDuff$Mode.SRC_IN` @type ^`android.graphics.PorterDuff$Mode` @kind object;
+  #L18b392.  call temp:= `parseTintMode`(v0, v2) @signature `Lcom/google/android/material/internal/ViewUtils;.parseTintMode:(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuff$Mode;` @kind static;
+  #L18b398.  v0:= temp @kind object;
+  #L18b39a.  v11.`com.google.android.material.button.MaterialButtonHelper.backgroundTintMode` @type ^`android.graphics.PorterDuff$Mode` := v0 @kind object;
+  #L18b39e.  v0:= v11.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` @kind object;
+  #L18b3a2.  call temp:= `getContext`(v0) @signature `Lcom/google/android/material/button/MaterialButton;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L18b3a8.  v0:= temp @kind object;
+  #L18b3aa.  v2:= `@@com.google.android.material.R$styleable.MaterialButton_backgroundTint` @type ^`int`;
+  #L18b3ae.  call temp:= `getColorStateList`(v0, v12, v2) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L18b3b4.  v0:= temp @kind object;
+  #L18b3b6.  v11.`com.google.android.material.button.MaterialButtonHelper.backgroundTint` @type ^`android.content.res.ColorStateList` := v0 @kind object;
+  #L18b3ba.  v0:= v11.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` @kind object;
+  #L18b3be.  call temp:= `getContext`(v0) @signature `Lcom/google/android/material/button/MaterialButton;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L18b3c4.  v0:= temp @kind object;
+  #L18b3c6.  v2:= `@@com.google.android.material.R$styleable.MaterialButton_strokeColor` @type ^`int`;
+  #L18b3ca.  call temp:= `getColorStateList`(v0, v12, v2) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L18b3d0.  v0:= temp @kind object;
+  #L18b3d2.  v11.`com.google.android.material.button.MaterialButtonHelper.strokeColor` @type ^`android.content.res.ColorStateList` := v0 @kind object;
+  #L18b3d6.  v0:= v11.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` @kind object;
+  #L18b3da.  call temp:= `getContext`(v0) @signature `Lcom/google/android/material/button/MaterialButton;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L18b3e0.  v0:= temp @kind object;
+  #L18b3e2.  v2:= `@@com.google.android.material.R$styleable.MaterialButton_rippleColor` @type ^`int`;
+  #L18b3e6.  call temp:= `getColorStateList`(v0, v12, v2) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L18b3ec.  v0:= temp @kind object;
+  #L18b3ee.  v11.`com.google.android.material.button.MaterialButtonHelper.rippleColor` @type ^`android.content.res.ColorStateList` := v0 @kind object;
+  #L18b3f2.  v0:= `@@com.google.android.material.R$styleable.MaterialButton_android_checkable` @type ^`int`;
+  #L18b3f6.  call temp:= `getBoolean`(v12, v0, v1) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L18b3fc.  v0:= temp;
+  #L18b3fe.  v11.`com.google.android.material.button.MaterialButtonHelper.checkable` @type ^`boolean` := v0 @kind boolean;
+  #L18b402.  v0:= `@@com.google.android.material.R$styleable.MaterialButton_elevation` @type ^`int`;
+  #L18b406.  call temp:= `getDimensionPixelSize`(v12, v0, v1) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L18b40c.  v0:= temp;
+  #L18b40e.  v1:= v11.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` @kind object;
+  #L18b412.  call temp:= `getPaddingStart`(v1) @signature `Landroidx/core/view/ViewCompat;.getPaddingStart:(Landroid/view/View;)I` @kind static;
+  #L18b418.  v1:= temp;
+  #L18b41a.  v2:= v11.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` @kind object;
+  #L18b41e.  call temp:= `getPaddingTop`(v2) @signature `Lcom/google/android/material/button/MaterialButton;.getPaddingTop:()I` @kind virtual;
+  #L18b424.  v2:= temp;
+  #L18b426.  v3:= v11.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` @kind object;
+  #L18b42a.  call temp:= `getPaddingEnd`(v3) @signature `Landroidx/core/view/ViewCompat;.getPaddingEnd:(Landroid/view/View;)I` @kind static;
+  #L18b430.  v3:= temp;
+  #L18b432.  v4:= v11.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` @kind object;
+  #L18b436.  call temp:= `getPaddingBottom`(v4) @signature `Lcom/google/android/material/button/MaterialButton;.getPaddingBottom:()I` @kind virtual;
+  #L18b43c.  v4:= temp;
+  #L18b43e.  v5:= v11.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` @kind object;
+  #L18b442.  call temp:= `createBackground`(v11) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.createBackground:()Landroid/graphics/drawable/Drawable;` @kind direct;
+  #L18b448.  v6:= temp @kind object;
+  #L18b44a.  call `setInternalBackground`(v5, v6) @signature `Lcom/google/android/material/button/MaterialButton;.setInternalBackground:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L18b450.  call temp:= `getMaterialShapeDrawable`(v11) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getMaterialShapeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind virtual;
+  #L18b456.  v5:= temp @kind object;
+  #L18b458.  if v5 == 0 then goto L18b464;
+  #L18b45c.  v6:= (`float`) v0 @kind i2f;
+  #L18b45e.  call `setElevation`(v5, v6) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setElevation:(F)V` @kind virtual;
+  #L18b464.  v6:= v11.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` @kind object;
+  #L18b468.  v7:= v11.`com.google.android.material.button.MaterialButtonHelper.insetLeft` @type ^`int`;
+  #L18b46c.  v7:= v7 + v1 @kind int;
+  #L18b46e.  v8:= v11.`com.google.android.material.button.MaterialButtonHelper.insetTop` @type ^`int`;
+  #L18b472.  v8:= v8 + v2 @kind int;
+  #L18b474.  v9:= v11.`com.google.android.material.button.MaterialButtonHelper.insetRight` @type ^`int`;
+  #L18b478.  v9:= v9 + v3 @kind int;
+  #L18b47a.  v10:= v11.`com.google.android.material.button.MaterialButtonHelper.insetBottom` @type ^`int`;
+  #L18b47e.  v10:= v10 + v4 @kind int;
+  #L18b480.  call `setPaddingRelative`(v6, v7, v8, v9, v10) @signature `Landroidx/core/view/ViewCompat;.setPaddingRelative:(Landroid/view/View;IIII)V` @kind static;
+  #L18b486.  return @kind void;
+}
+procedure `void` `setBackgroundColor`(`com.google.android.material.button.MaterialButtonHelper` v1 @kind this, `int` v2 @name `color`) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.setBackgroundColor:(I)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18b498.  call temp:= `getMaterialShapeDrawable`(v1) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getMaterialShapeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind virtual;
+  #L18b49e.  v0:= temp @kind object;
+  #L18b4a0.  if v0 == 0 then goto L18b4b2;
+  #L18b4a4.  call temp:= `getMaterialShapeDrawable`(v1) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getMaterialShapeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind virtual;
+  #L18b4aa.  v0:= temp @kind object;
+  #L18b4ac.  call `setTint`(v0, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setTint:(I)V` @kind virtual;
+  #L18b4b2.  return @kind void;
+}
+procedure `void` `setBackgroundOverwritten`(`com.google.android.material.button.MaterialButtonHelper` v2 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.setBackgroundOverwritten:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L18b4c4.  v0:= 1I;
+  #L18b4c6.  v2.`com.google.android.material.button.MaterialButtonHelper.backgroundOverwritten` @type ^`boolean` := v0 @kind boolean;
+  #L18b4ca.  v0:= v2.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` @kind object;
+  #L18b4ce.  v1:= v2.`com.google.android.material.button.MaterialButtonHelper.backgroundTint` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18b4d2.  call `setSupportBackgroundTintList`(v0, v1) @signature `Lcom/google/android/material/button/MaterialButton;.setSupportBackgroundTintList:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L18b4d8.  v0:= v2.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` @kind object;
+  #L18b4dc.  v1:= v2.`com.google.android.material.button.MaterialButtonHelper.backgroundTintMode` @type ^`android.graphics.PorterDuff$Mode` @kind object;
+  #L18b4e0.  call `setSupportBackgroundTintMode`(v0, v1) @signature `Lcom/google/android/material/button/MaterialButton;.setSupportBackgroundTintMode:(Landroid/graphics/PorterDuff$Mode;)V` @kind virtual;
+  #L18b4e6.  return @kind void;
+}
+procedure `void` `setCheckable`(`com.google.android.material.button.MaterialButtonHelper` v0 @kind this, `boolean` v1 @name `checkable`) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.setCheckable:(Z)V` @AccessFlag  {
+    temp;
+
+  #L18b4f8.  v0.`com.google.android.material.button.MaterialButtonHelper.checkable` @type ^`boolean` := v1 @kind boolean;
+  #L18b4fc.  return @kind void;
+}
+procedure `void` `setCornerRadius`(`com.google.android.material.button.MaterialButtonHelper` v2 @kind this, `int` v3 @name `cornerRadius`) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.setCornerRadius:(I)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L18b510.  v0:= v2.`com.google.android.material.button.MaterialButtonHelper.cornerRadiusSet` @type ^`boolean` @kind boolean;
+  #L18b514.  if v0 == 0 then goto L18b520;
+  #L18b518.  v0:= v2.`com.google.android.material.button.MaterialButtonHelper.cornerRadius` @type ^`int`;
+  #L18b51c.  if v0 == v3 then goto L18b53e;
+  #L18b520.  v2.`com.google.android.material.button.MaterialButtonHelper.cornerRadius` @type ^`int` := v3;
+  #L18b524.  v0:= 1I;
+  #L18b526.  v2.`com.google.android.material.button.MaterialButtonHelper.cornerRadiusSet` @type ^`boolean` := v0 @kind boolean;
+  #L18b52a.  v0:= v2.`com.google.android.material.button.MaterialButtonHelper.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L18b52e.  v1:= (`float`) v3 @kind i2f;
+  #L18b530.  call temp:= `withCornerSize`(v0, v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.withCornerSize:(F)Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L18b536.  v0:= temp @kind object;
+  #L18b538.  call `setShapeAppearanceModel`(v2, v0) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L18b53e.  return @kind void;
+}
+procedure `void` `setRippleColor`(`com.google.android.material.button.MaterialButtonHelper` v2 @kind this, `android.content.res.ColorStateList` v3 @kind object @name `rippleColor`) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.setRippleColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L18b550.  v0:= v2.`com.google.android.material.button.MaterialButtonHelper.rippleColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18b554.  if v0 == v3 then goto L18b5ce;
+  #L18b558.  v2.`com.google.android.material.button.MaterialButtonHelper.rippleColor` @type ^`android.content.res.ColorStateList` := v3 @kind object;
+  #L18b55c.  v0:= `@@com.google.android.material.button.MaterialButtonHelper.IS_LOLLIPOP` @type ^`boolean` @kind boolean;
+  #L18b560.  if v0 == 0 then goto L18b598;
+  #L18b564.  v1:= v2.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` @kind object;
+  #L18b568.  call temp:= `getBackground`(v1) @signature `Lcom/google/android/material/button/MaterialButton;.getBackground:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L18b56e.  v1:= temp @kind object;
+  #L18b570.  v1:= instanceof @variable v1 @type ^`android.graphics.drawable.RippleDrawable` @kind boolean;
+  #L18b574.  if v1 == 0 then goto L18b598;
+  #L18b578.  v0:= v2.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` @kind object;
+  #L18b57c.  call temp:= `getBackground`(v0) @signature `Lcom/google/android/material/button/MaterialButton;.getBackground:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L18b582.  v0:= temp @kind object;
+  #L18b584.  v0:= (`android.graphics.drawable.RippleDrawable`) v0 @kind object;
+  #L18b588.  call temp:= `sanitizeRippleDrawableColor`(v3) @signature `Lcom/google/android/material/ripple/RippleUtils;.sanitizeRippleDrawableColor:(Landroid/content/res/ColorStateList;)Landroid/content/res/ColorStateList;` @kind static;
+  #L18b58e.  v1:= temp @kind object;
+  #L18b590.  call `setColor`(v0, v1) @signature `Landroid/graphics/drawable/RippleDrawable;.setColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L18b596.  goto L18b5ce;
+  #L18b598.  if v0 != 0 then goto L18b5ce;
+  #L18b59c.  v0:= v2.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` @kind object;
+  #L18b5a0.  call temp:= `getBackground`(v0) @signature `Lcom/google/android/material/button/MaterialButton;.getBackground:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L18b5a6.  v0:= temp @kind object;
+  #L18b5a8.  v0:= instanceof @variable v0 @type ^`com.google.android.material.ripple.RippleDrawableCompat` @kind boolean;
+  #L18b5ac.  if v0 == 0 then goto L18b5ce;
+  #L18b5b0.  v0:= v2.`com.google.android.material.button.MaterialButtonHelper.materialButton` @type ^`com.google.android.material.button.MaterialButton` @kind object;
+  #L18b5b4.  call temp:= `getBackground`(v0) @signature `Lcom/google/android/material/button/MaterialButton;.getBackground:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L18b5ba.  v0:= temp @kind object;
+  #L18b5bc.  v0:= (`com.google.android.material.ripple.RippleDrawableCompat`) v0 @kind object;
+  #L18b5c0.  call temp:= `sanitizeRippleDrawableColor`(v3) @signature `Lcom/google/android/material/ripple/RippleUtils;.sanitizeRippleDrawableColor:(Landroid/content/res/ColorStateList;)Landroid/content/res/ColorStateList;` @kind static;
+  #L18b5c6.  v1:= temp @kind object;
+  #L18b5c8.  call `setTintList`(v0, v1) @signature `Lcom/google/android/material/ripple/RippleDrawableCompat;.setTintList:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L18b5ce.  return @kind void;
+}
+procedure `void` `setShapeAppearanceModel`(`com.google.android.material.button.MaterialButtonHelper` v0 @kind this, `com.google.android.material.shape.ShapeAppearanceModel` v1 @kind object @name `shapeAppearanceModel`) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @AccessFlag  {
+    temp;
+
+  #L18b5e0.  v0.`com.google.android.material.button.MaterialButtonHelper.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` := v1 @kind object;
+  #L18b5e4.  call `updateButtonShape`(v0, v1) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.updateButtonShape:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L18b5ea.  return @kind void;
+}
+procedure `void` `setShouldDrawSurfaceColorStroke`(`com.google.android.material.button.MaterialButtonHelper` v0 @kind this, `boolean` v1 @name `shouldDrawSurfaceColorStroke`) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.setShouldDrawSurfaceColorStroke:(Z)V` @AccessFlag  {
+    temp;
+
+  #L18b5fc.  v0.`com.google.android.material.button.MaterialButtonHelper.shouldDrawSurfaceColorStroke` @type ^`boolean` := v1 @kind boolean;
+  #L18b600.  call `updateStroke`(v0) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.updateStroke:()V` @kind direct;
+  #L18b606.  return @kind void;
+}
+procedure `void` `setStrokeColor`(`com.google.android.material.button.MaterialButtonHelper` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `strokeColor`) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.setStrokeColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18b618.  v0:= v1.`com.google.android.material.button.MaterialButtonHelper.strokeColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18b61c.  if v0 == v2 then goto L18b62a;
+  #L18b620.  v1.`com.google.android.material.button.MaterialButtonHelper.strokeColor` @type ^`android.content.res.ColorStateList` := v2 @kind object;
+  #L18b624.  call `updateStroke`(v1) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.updateStroke:()V` @kind direct;
+  #L18b62a.  return @kind void;
+}
+procedure `void` `setStrokeWidth`(`com.google.android.material.button.MaterialButtonHelper` v1 @kind this, `int` v2 @name `strokeWidth`) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.setStrokeWidth:(I)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L18b63c.  v0:= v1.`com.google.android.material.button.MaterialButtonHelper.strokeWidth` @type ^`int`;
+  #L18b640.  if v0 == v2 then goto L18b64e;
+  #L18b644.  v1.`com.google.android.material.button.MaterialButtonHelper.strokeWidth` @type ^`int` := v2;
+  #L18b648.  call `updateStroke`(v1) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.updateStroke:()V` @kind direct;
+  #L18b64e.  return @kind void;
+}
+procedure `void` `setSupportBackgroundTintList`(`com.google.android.material.button.MaterialButtonHelper` v2 @kind this, `android.content.res.ColorStateList` v3 @kind object @name `tintList`) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.setSupportBackgroundTintList:(Landroid/content/res/ColorStateList;)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L18b660.  v0:= v2.`com.google.android.material.button.MaterialButtonHelper.backgroundTint` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18b664.  if v0 == v3 then goto L18b68a;
+  #L18b668.  v2.`com.google.android.material.button.MaterialButtonHelper.backgroundTint` @type ^`android.content.res.ColorStateList` := v3 @kind object;
+  #L18b66c.  call temp:= `getMaterialShapeDrawable`(v2) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getMaterialShapeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind virtual;
+  #L18b672.  v0:= temp @kind object;
+  #L18b674.  if v0 == 0 then goto L18b68a;
+  #L18b678.  call temp:= `getMaterialShapeDrawable`(v2) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getMaterialShapeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind virtual;
+  #L18b67e.  v0:= temp @kind object;
+  #L18b680.  v1:= v2.`com.google.android.material.button.MaterialButtonHelper.backgroundTint` @type ^`android.content.res.ColorStateList` @kind object;
+  #L18b684.  call `setTintList`(v0, v1) @signature `Landroidx/core/graphics/drawable/DrawableCompat;.setTintList:(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V` @kind static;
+  #L18b68a.  return @kind void;
+}
+procedure `void` `setSupportBackgroundTintMode`(`com.google.android.material.button.MaterialButtonHelper` v2 @kind this, `android.graphics.PorterDuff$Mode` v3 @kind object @name `mode`) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.setSupportBackgroundTintMode:(Landroid/graphics/PorterDuff$Mode;)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L18b69c.  v0:= v2.`com.google.android.material.button.MaterialButtonHelper.backgroundTintMode` @type ^`android.graphics.PorterDuff$Mode` @kind object;
+  #L18b6a0.  if v0 == v3 then goto L18b6ce;
+  #L18b6a4.  v2.`com.google.android.material.button.MaterialButtonHelper.backgroundTintMode` @type ^`android.graphics.PorterDuff$Mode` := v3 @kind object;
+  #L18b6a8.  call temp:= `getMaterialShapeDrawable`(v2) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getMaterialShapeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind virtual;
+  #L18b6ae.  v0:= temp @kind object;
+  #L18b6b0.  if v0 == 0 then goto L18b6ce;
+  #L18b6b4.  v0:= v2.`com.google.android.material.button.MaterialButtonHelper.backgroundTintMode` @type ^`android.graphics.PorterDuff$Mode` @kind object;
+  #L18b6b8.  if v0 == 0 then goto L18b6ce;
+  #L18b6bc.  call temp:= `getMaterialShapeDrawable`(v2) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.getMaterialShapeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind virtual;
+  #L18b6c2.  v0:= temp @kind object;
+  #L18b6c4.  v1:= v2.`com.google.android.material.button.MaterialButtonHelper.backgroundTintMode` @type ^`android.graphics.PorterDuff$Mode` @kind object;
+  #L18b6c8.  call `setTintMode`(v0, v1) @signature `Landroidx/core/graphics/drawable/DrawableCompat;.setTintMode:(Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;)V` @kind static;
+  #L18b6ce.  return @kind void;
+}
+procedure `void` `updateMaskBounds`(`com.google.android.material.button.MaterialButtonHelper` v5 @kind this, `int` v6 @name `height`, `int` v7 @name `width`) @signature `Lcom/google/android/material/button/MaterialButtonHelper;.updateMaskBounds:(II)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L18b740.  v0:= v5.`com.google.android.material.button.MaterialButtonHelper.maskDrawable` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L18b744.  if v0 == 0 then goto L18b766;
+  #L18b748.  v1:= v5.`com.google.android.material.button.MaterialButtonHelper.insetLeft` @type ^`int`;
+  #L18b74c.  v2:= v5.`com.google.android.material.button.MaterialButtonHelper.insetTop` @type ^`int`;
+  #L18b750.  v3:= v5.`com.google.android.material.button.MaterialButtonHelper.insetRight` @type ^`int`;
+  #L18b754.  v3:= v7 - v3 @kind int;
+  #L18b758.  v4:= v5.`com.google.android.material.button.MaterialButtonHelper.insetBottom` @type ^`int`;
+  #L18b75c.  v4:= v6 - v4 @kind int;
+  #L18b760.  call `setBounds`(v0, v1, v2, v3, v4) @signature `Landroid/graphics/drawable/Drawable;.setBounds:(IIII)V` @kind virtual;
+  #L18b766.  return @kind void;
+}

@@ -1,0 +1,1844 @@
+record `com.google.android.material.shape.MaterialShapeDrawable` @kind class @AccessFlag PUBLIC extends `android.graphics.drawable.Drawable` @kind class, `androidx.core.graphics.drawable.TintAwareDrawable` @kind interface, `com.google.android.material.shape.Shapeable` @kind interface {
+  `com.google.android.material.shape.ShapePath$ShadowCompatOperation`[] `com.google.android.material.shape.MaterialShapeDrawable.cornerShadowOperation` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` `com.google.android.material.shape.MaterialShapeDrawable.drawableState` @AccessFlag PRIVATE;
+  `com.google.android.material.shape.ShapePath$ShadowCompatOperation`[] `com.google.android.material.shape.MaterialShapeDrawable.edgeShadowOperation` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.Paint` `com.google.android.material.shape.MaterialShapeDrawable.fillPaint` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.RectF` `com.google.android.material.shape.MaterialShapeDrawable.insetRectF` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.Matrix` `com.google.android.material.shape.MaterialShapeDrawable.matrix` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.Rect` `com.google.android.material.shape.MaterialShapeDrawable.padding` @AccessFlag PRIVATE;
+  `android.graphics.Path` `com.google.android.material.shape.MaterialShapeDrawable.path` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.RectF` `com.google.android.material.shape.MaterialShapeDrawable.pathBounds` @AccessFlag PRIVATE_FINAL;
+  `boolean` `com.google.android.material.shape.MaterialShapeDrawable.pathDirty` @AccessFlag PRIVATE;
+  `android.graphics.Path` `com.google.android.material.shape.MaterialShapeDrawable.pathInsetByStroke` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.shape.ShapeAppearancePathProvider` `com.google.android.material.shape.MaterialShapeDrawable.pathProvider` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.shape.ShapeAppearancePathProvider$PathListener` `com.google.android.material.shape.MaterialShapeDrawable.pathShadowListener` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.RectF` `com.google.android.material.shape.MaterialShapeDrawable.rectF` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.Region` `com.google.android.material.shape.MaterialShapeDrawable.scratchRegion` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.shadow.ShadowRenderer` `com.google.android.material.shape.MaterialShapeDrawable.shadowRenderer` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.Paint` `com.google.android.material.shape.MaterialShapeDrawable.strokePaint` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.shape.ShapeAppearanceModel` `com.google.android.material.shape.MaterialShapeDrawable.strokeShapeAppearance` @AccessFlag PRIVATE;
+  `android.graphics.PorterDuffColorFilter` `com.google.android.material.shape.MaterialShapeDrawable.strokeTintFilter` @AccessFlag PRIVATE;
+  `android.graphics.PorterDuffColorFilter` `com.google.android.material.shape.MaterialShapeDrawable.tintFilter` @AccessFlag PRIVATE;
+  `android.graphics.Region` `com.google.android.material.shape.MaterialShapeDrawable.transparentRegion` @AccessFlag PRIVATE_FINAL;
+}
+global `int` `@@com.google.android.material.shape.MaterialShapeDrawable.SHADOW_COMPAT_MODE_ALWAYS` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.shape.MaterialShapeDrawable.SHADOW_COMPAT_MODE_DEFAULT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.shape.MaterialShapeDrawable.SHADOW_COMPAT_MODE_NEVER` @AccessFlag PUBLIC_STATIC_FINAL;
+global `float` `@@com.google.android.material.shape.MaterialShapeDrawable.SHADOW_OFFSET_MULTIPLIER` @AccessFlag PRIVATE_STATIC_FINAL;
+global `float` `@@com.google.android.material.shape.MaterialShapeDrawable.SHADOW_RADIUS_MULTIPLIER` @AccessFlag PRIVATE_STATIC_FINAL;
+global `android.graphics.Paint` `@@com.google.android.material.shape.MaterialShapeDrawable.clearPaint` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L1abbec.  v0:= new `android.graphics.Paint`;
+  #L1abbf0.  v1:= 1I;
+  #L1abbf2.  call `<init>`(v0, v1) @signature `Landroid/graphics/Paint;.<init>:(I)V` @kind direct;
+  #L1abbf8.  `@@com.google.android.material.shape.MaterialShapeDrawable.clearPaint` @type ^`android.graphics.Paint` := v0 @kind object;
+  #L1abbfc.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1abc10.  v0:= new `com.google.android.material.shape.ShapeAppearanceModel`;
+  #L1abc14.  call `<init>`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.<init>:()V` @kind direct;
+  #L1abc1a.  call `<init>`(v1, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L1abc20.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`, `int` v4 @name `defStyleAttr`, `int` v5 @name `defStyleRes`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;II)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1abc34.  call temp:= `builder`(v2, v3, v4, v5) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.builder:(Landroid/content/Context;Landroid/util/AttributeSet;II)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind static;
+  #L1abc3a.  v0:= temp @kind object;
+  #L1abc3c.  call temp:= `build`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.build:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L1abc42.  v0:= temp @kind object;
+  #L1abc44.  call `<init>`(v1, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L1abc4a.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.MaterialShapeDrawable` v3 @kind this, `com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` v4 @kind object @name `drawableState`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/MaterialShapeDrawable$MaterialShapeDrawableState;)V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1abc5c.  call `<init>`(v3) @signature `Landroid/graphics/drawable/Drawable;.<init>:()V` @kind direct;
+  #L1abc62.  v0:= 4I;
+  #L1abc64.  v1:= new `com.google.android.material.shape.ShapePath$ShadowCompatOperation`[v0];
+  #L1abc68.  v3.`com.google.android.material.shape.MaterialShapeDrawable.cornerShadowOperation` @type ^`com.google.android.material.shape.ShapePath$ShadowCompatOperation`[] := v1 @kind object;
+  #L1abc6c.  v0:= new `com.google.android.material.shape.ShapePath$ShadowCompatOperation`[v0];
+  #L1abc70.  v3.`com.google.android.material.shape.MaterialShapeDrawable.edgeShadowOperation` @type ^`com.google.android.material.shape.ShapePath$ShadowCompatOperation`[] := v0 @kind object;
+  #L1abc74.  v0:= new `android.graphics.Matrix`;
+  #L1abc78.  call `<init>`(v0) @signature `Landroid/graphics/Matrix;.<init>:()V` @kind direct;
+  #L1abc7e.  v3.`com.google.android.material.shape.MaterialShapeDrawable.matrix` @type ^`android.graphics.Matrix` := v0 @kind object;
+  #L1abc82.  v0:= new `android.graphics.Path`;
+  #L1abc86.  call `<init>`(v0) @signature `Landroid/graphics/Path;.<init>:()V` @kind direct;
+  #L1abc8c.  v3.`com.google.android.material.shape.MaterialShapeDrawable.path` @type ^`android.graphics.Path` := v0 @kind object;
+  #L1abc90.  v0:= new `android.graphics.Path`;
+  #L1abc94.  call `<init>`(v0) @signature `Landroid/graphics/Path;.<init>:()V` @kind direct;
+  #L1abc9a.  v3.`com.google.android.material.shape.MaterialShapeDrawable.pathInsetByStroke` @type ^`android.graphics.Path` := v0 @kind object;
+  #L1abc9e.  v0:= new `android.graphics.RectF`;
+  #L1abca2.  call `<init>`(v0) @signature `Landroid/graphics/RectF;.<init>:()V` @kind direct;
+  #L1abca8.  v3.`com.google.android.material.shape.MaterialShapeDrawable.rectF` @type ^`android.graphics.RectF` := v0 @kind object;
+  #L1abcac.  v0:= new `android.graphics.RectF`;
+  #L1abcb0.  call `<init>`(v0) @signature `Landroid/graphics/RectF;.<init>:()V` @kind direct;
+  #L1abcb6.  v3.`com.google.android.material.shape.MaterialShapeDrawable.insetRectF` @type ^`android.graphics.RectF` := v0 @kind object;
+  #L1abcba.  v0:= new `android.graphics.Region`;
+  #L1abcbe.  call `<init>`(v0) @signature `Landroid/graphics/Region;.<init>:()V` @kind direct;
+  #L1abcc4.  v3.`com.google.android.material.shape.MaterialShapeDrawable.transparentRegion` @type ^`android.graphics.Region` := v0 @kind object;
+  #L1abcc8.  v0:= new `android.graphics.Region`;
+  #L1abccc.  call `<init>`(v0) @signature `Landroid/graphics/Region;.<init>:()V` @kind direct;
+  #L1abcd2.  v3.`com.google.android.material.shape.MaterialShapeDrawable.scratchRegion` @type ^`android.graphics.Region` := v0 @kind object;
+  #L1abcd6.  v0:= new `android.graphics.Paint`;
+  #L1abcda.  v1:= 1I;
+  #L1abcdc.  call `<init>`(v0, v1) @signature `Landroid/graphics/Paint;.<init>:(I)V` @kind direct;
+  #L1abce2.  v3.`com.google.android.material.shape.MaterialShapeDrawable.fillPaint` @type ^`android.graphics.Paint` := v0 @kind object;
+  #L1abce6.  v2:= new `android.graphics.Paint`;
+  #L1abcea.  call `<init>`(v2, v1) @signature `Landroid/graphics/Paint;.<init>:(I)V` @kind direct;
+  #L1abcf0.  v3.`com.google.android.material.shape.MaterialShapeDrawable.strokePaint` @type ^`android.graphics.Paint` := v2 @kind object;
+  #L1abcf4.  v1:= new `com.google.android.material.shadow.ShadowRenderer`;
+  #L1abcf8.  call `<init>`(v1) @signature `Lcom/google/android/material/shadow/ShadowRenderer;.<init>:()V` @kind direct;
+  #L1abcfe.  v3.`com.google.android.material.shape.MaterialShapeDrawable.shadowRenderer` @type ^`com.google.android.material.shadow.ShadowRenderer` := v1 @kind object;
+  #L1abd02.  v1:= new `com.google.android.material.shape.ShapeAppearancePathProvider`;
+  #L1abd06.  call `<init>`(v1) @signature `Lcom/google/android/material/shape/ShapeAppearancePathProvider;.<init>:()V` @kind direct;
+  #L1abd0c.  v3.`com.google.android.material.shape.MaterialShapeDrawable.pathProvider` @type ^`com.google.android.material.shape.ShapeAppearancePathProvider` := v1 @kind object;
+  #L1abd10.  v1:= new `android.graphics.RectF`;
+  #L1abd14.  call `<init>`(v1) @signature `Landroid/graphics/RectF;.<init>:()V` @kind direct;
+  #L1abd1a.  v3.`com.google.android.material.shape.MaterialShapeDrawable.pathBounds` @type ^`android.graphics.RectF` := v1 @kind object;
+  #L1abd1e.  v3.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` := v4 @kind object;
+  #L1abd22.  v1:= `@@android.graphics.Paint$Style.STROKE` @type ^`android.graphics.Paint$Style` @kind object;
+  #L1abd26.  call `setStyle`(v2, v1) @signature `Landroid/graphics/Paint;.setStyle:(Landroid/graphics/Paint$Style;)V` @kind virtual;
+  #L1abd2c.  v1:= `@@android.graphics.Paint$Style.FILL` @type ^`android.graphics.Paint$Style` @kind object;
+  #L1abd30.  call `setStyle`(v0, v1) @signature `Landroid/graphics/Paint;.setStyle:(Landroid/graphics/Paint$Style;)V` @kind virtual;
+  #L1abd36.  v0:= `@@com.google.android.material.shape.MaterialShapeDrawable.clearPaint` @type ^`android.graphics.Paint` @kind object;
+  #L1abd3a.  v1:= -1I;
+  #L1abd3c.  call `setColor`(v0, v1) @signature `Landroid/graphics/Paint;.setColor:(I)V` @kind virtual;
+  #L1abd42.  v1:= new `android.graphics.PorterDuffXfermode`;
+  #L1abd46.  v2:= `@@android.graphics.PorterDuff$Mode.DST_OUT` @type ^`android.graphics.PorterDuff$Mode` @kind object;
+  #L1abd4a.  call `<init>`(v1, v2) @signature `Landroid/graphics/PorterDuffXfermode;.<init>:(Landroid/graphics/PorterDuff$Mode;)V` @kind direct;
+  #L1abd50.  call temp:= `setXfermode`(v0, v1) @signature `Landroid/graphics/Paint;.setXfermode:(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;` @kind virtual;
+  #L1abd56.  call temp:= `updateTintFilter`(v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.updateTintFilter:()Z` @kind direct;
+  #L1abd5c.  call temp:= `getState`(v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getState:()[I` @kind virtual;
+  #L1abd62.  v0:= temp @kind object;
+  #L1abd64.  call temp:= `updateColorsForState`(v3, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.updateColorsForState:([I)Z` @kind direct;
+  #L1abd6a.  v0:= new `com.google.android.material.shape.MaterialShapeDrawable$1`;
+  #L1abd6e.  call `<init>`(v0, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable$1;.<init>:(Lcom/google/android/material/shape/MaterialShapeDrawable;)V` @kind direct;
+  #L1abd74.  v3.`com.google.android.material.shape.MaterialShapeDrawable.pathShadowListener` @type ^`com.google.android.material.shape.ShapeAppearancePathProvider$PathListener` := v0 @kind object;
+  #L1abd78.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.MaterialShapeDrawable` v0 @kind this, `com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` v1 @kind object @name `x0`, `com.google.android.material.shape.MaterialShapeDrawable$1` v2 @kind object @name `x1`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/MaterialShapeDrawable$MaterialShapeDrawableState;Lcom/google/android/material/shape/MaterialShapeDrawable$1;)V` @AccessFlag SYNTHETIC_CONSTRUCTOR {
+    temp;
+
+  #L1abd8c.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/MaterialShapeDrawable$MaterialShapeDrawableState;)V` @kind direct;
+  #L1abd92.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this, `com.google.android.material.shape.ShapeAppearanceModel` v3 @kind object @name `shapeAppearanceModel`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L1abda4.  v0:= new `com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState`;
+  #L1abda8.  v1:= 0I;
+  #L1abdaa.  call `<init>`(v0, v3, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable$MaterialShapeDrawableState;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;Lcom/google/android/material/elevation/ElevationOverlayProvider;)V` @kind direct;
+  #L1abdb0.  call `<init>`(v2, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/MaterialShapeDrawable$MaterialShapeDrawableState;)V` @kind direct;
+  #L1abdb6.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.MaterialShapeDrawable` v0 @kind this, `com.google.android.material.shape.ShapePathModel` v1 @kind object @name `shapePathModel`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/ShapePathModel;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1abdc8.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L1abdce.  return @kind void;
+}
+procedure `com.google.android.material.shape.ShapePath$ShadowCompatOperation`[] `access$000`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.access$000:(Lcom/google/android/material/shape/MaterialShapeDrawable;)[Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1ab844.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.cornerShadowOperation` @type ^`com.google.android.material.shape.ShapePath$ShadowCompatOperation`[] @kind object;
+  #L1ab848.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.ShapePath$ShadowCompatOperation`[] `access$100`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.access$100:(Lcom/google/android/material/shape/MaterialShapeDrawable;)[Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1ab85c.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.edgeShadowOperation` @type ^`com.google.android.material.shape.ShapePath$ShadowCompatOperation`[] @kind object;
+  #L1ab860.  return v0 @kind object;
+}
+procedure `boolean` `access$302`(`com.google.android.material.shape.MaterialShapeDrawable` v0 @kind object @name `x0`, `boolean` v1 @name `x1`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.access$302:(Lcom/google/android/material/shape/MaterialShapeDrawable;Z)Z` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1ab360.  v0.`com.google.android.material.shape.MaterialShapeDrawable.pathDirty` @type ^`boolean` := v1 @kind boolean;
+  #L1ab364.  return v1;
+}
+procedure `android.graphics.PorterDuffColorFilter` `calculatePaintColorTintFilter`(`com.google.android.material.shape.MaterialShapeDrawable` v4 @kind this, `android.graphics.Paint` v5 @kind object @name `paint`, `boolean` v6 @name `requiresElevationOverlay`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.calculatePaintColorTintFilter:(Landroid/graphics/Paint;Z)Landroid/graphics/PorterDuffColorFilter;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1ab194.  if v6 == 0 then goto L1ab1bc;
+  #L1ab198.  call temp:= `getColor`(v5) @signature `Landroid/graphics/Paint;.getColor:()I` @kind virtual;
+  #L1ab19e.  v0:= temp;
+  #L1ab1a0.  call temp:= `compositeElevationOverlayIfNeeded`(v4, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.compositeElevationOverlayIfNeeded:(I)I` @kind direct;
+  #L1ab1a6.  v1:= temp;
+  #L1ab1a8.  if v1 == v0 then goto L1ab1bc;
+  #L1ab1ac.  v2:= new `android.graphics.PorterDuffColorFilter`;
+  #L1ab1b0.  v3:= `@@android.graphics.PorterDuff$Mode.SRC_IN` @type ^`android.graphics.PorterDuff$Mode` @kind object;
+  #L1ab1b4.  call `<init>`(v2, v1, v3) @signature `Landroid/graphics/PorterDuffColorFilter;.<init>:(ILandroid/graphics/PorterDuff$Mode;)V` @kind direct;
+  #L1ab1ba.  return v2 @kind object;
+  #L1ab1bc.  v0:= 0I;
+  #L1ab1be.  return v0 @kind object;
+}
+procedure `void` `calculatePath`(`com.google.android.material.shape.MaterialShapeDrawable` v6 @kind this, `android.graphics.RectF` v7 @kind object @name `bounds`, `android.graphics.Path` v8 @kind object @name `path`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.calculatePath:(Landroid/graphics/RectF;Landroid/graphics/Path;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1abde0.  call `calculatePathForSize`(v6, v7, v8) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.calculatePathForSize:(Landroid/graphics/RectF;Landroid/graphics/Path;)V` @kind virtual;
+  #L1abde6.  v0:= v6.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1abdea.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.scale` @type ^`float`;
+  #L1abdee.  v1:= 1.0F;
+  #L1abdf2.  v0:= fcmpl(v0, v1);
+  #L1abdf6.  if v0 == 0 then goto L1abe40;
+  #L1abdfa.  v0:= v6.`com.google.android.material.shape.MaterialShapeDrawable.matrix` @type ^`android.graphics.Matrix` @kind object;
+  #L1abdfe.  call `reset`(v0) @signature `Landroid/graphics/Matrix;.reset:()V` @kind virtual;
+  #L1abe04.  v0:= v6.`com.google.android.material.shape.MaterialShapeDrawable.matrix` @type ^`android.graphics.Matrix` @kind object;
+  #L1abe08.  v1:= v6.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1abe0c.  v1:= v1.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.scale` @type ^`float`;
+  #L1abe10.  v2:= v6.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1abe14.  v2:= v2.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.scale` @type ^`float`;
+  #L1abe18.  call temp:= `width`(v7) @signature `Landroid/graphics/RectF;.width:()F` @kind virtual;
+  #L1abe1e.  v3:= temp;
+  #L1abe20.  v4:= 2.0F;
+  #L1abe24.  v3:= v3 / v4 @kind float;
+  #L1abe26.  call temp:= `height`(v7) @signature `Landroid/graphics/RectF;.height:()F` @kind virtual;
+  #L1abe2c.  v5:= temp;
+  #L1abe2e.  v5:= v5 / v4 @kind float;
+  #L1abe30.  call `setScale`(v0, v1, v2, v3, v5) @signature `Landroid/graphics/Matrix;.setScale:(FFFF)V` @kind virtual;
+  #L1abe36.  v0:= v6.`com.google.android.material.shape.MaterialShapeDrawable.matrix` @type ^`android.graphics.Matrix` @kind object;
+  #L1abe3a.  call `transform`(v8, v0) @signature `Landroid/graphics/Path;.transform:(Landroid/graphics/Matrix;)V` @kind virtual;
+  #L1abe40.  v0:= v6.`com.google.android.material.shape.MaterialShapeDrawable.pathBounds` @type ^`android.graphics.RectF` @kind object;
+  #L1abe44.  v1:= 1I;
+  #L1abe46.  call `computeBounds`(v8, v0, v1) @signature `Landroid/graphics/Path;.computeBounds:(Landroid/graphics/RectF;Z)V` @kind virtual;
+  #L1abe4c.  return @kind void;
+}
+procedure `void` `calculateStrokePath`(`com.google.android.material.shape.MaterialShapeDrawable` v6 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.calculateStrokePath:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1abe94.  call temp:= `getStrokeInsetLength`(v6) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getStrokeInsetLength:()F` @kind direct;
+  #L1abe9a.  v0:= temp;
+  #L1abe9c.  v0:= -v0 @kind float;
+  #L1abe9e.  
+  #L1abea0.  call temp:= `getShapeAppearanceModel`(v6) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShapeAppearanceModel:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L1abea6.  v1:= temp @kind object;
+  #L1abea8.  v2:= new `com.google.android.material.shape.MaterialShapeDrawable$2`;
+  #L1abeac.  call `<init>`(v2, v6, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable$2;.<init>:(Lcom/google/android/material/shape/MaterialShapeDrawable;F)V` @kind direct;
+  #L1abeb2.  call temp:= `withTransformedCornerSizes`(v1, v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.withTransformedCornerSizes:(Lcom/google/android/material/shape/ShapeAppearanceModel$CornerSizeUnaryOperator;)Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L1abeb8.  v1:= temp @kind object;
+  #L1abeba.  v6.`com.google.android.material.shape.MaterialShapeDrawable.strokeShapeAppearance` @type ^`com.google.android.material.shape.ShapeAppearanceModel` := v1 @kind object;
+  #L1abebe.  v2:= v6.`com.google.android.material.shape.MaterialShapeDrawable.pathProvider` @type ^`com.google.android.material.shape.ShapeAppearancePathProvider` @kind object;
+  #L1abec2.  v3:= v6.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1abec6.  v3:= v3.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.interpolation` @type ^`float`;
+  #L1abeca.  call temp:= `getBoundsInsetByStroke`(v6) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBoundsInsetByStroke:()Landroid/graphics/RectF;` @kind direct;
+  #L1abed0.  v4:= temp @kind object;
+  #L1abed2.  v5:= v6.`com.google.android.material.shape.MaterialShapeDrawable.pathInsetByStroke` @type ^`android.graphics.Path` @kind object;
+  #L1abed6.  call `calculatePath`(v2, v1, v3, v4, v5) @signature `Lcom/google/android/material/shape/ShapeAppearancePathProvider;.calculatePath:(Lcom/google/android/material/shape/ShapeAppearanceModel;FLandroid/graphics/RectF;Landroid/graphics/Path;)V` @kind virtual;
+  #L1abedc.  return @kind void;
+}
+procedure `android.graphics.PorterDuffColorFilter` `calculateTintColorTintFilter`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this, `android.content.res.ColorStateList` v3 @kind object @name `tintList`, `android.graphics.PorterDuff$Mode` v4 @kind object @name `tintMode`, `boolean` v5 @name `requiresElevationOverlay`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.calculateTintColorTintFilter:(Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;Z)Landroid/graphics/PorterDuffColorFilter;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1ab1d0.  call temp:= `getState`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getState:()[I` @kind virtual;
+  #L1ab1d6.  v0:= temp @kind object;
+  #L1ab1d8.  v1:= 0I;
+  #L1ab1da.  call temp:= `getColorForState`(v3, v0, v1) @signature `Landroid/content/res/ColorStateList;.getColorForState:([II)I` @kind virtual;
+  #L1ab1e0.  v0:= temp;
+  #L1ab1e2.  if v5 == 0 then goto L1ab1ee;
+  #L1ab1e6.  call temp:= `compositeElevationOverlayIfNeeded`(v2, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.compositeElevationOverlayIfNeeded:(I)I` @kind direct;
+  #L1ab1ec.  v0:= temp;
+  #L1ab1ee.  v1:= new `android.graphics.PorterDuffColorFilter`;
+  #L1ab1f2.  call `<init>`(v1, v0, v4) @signature `Landroid/graphics/PorterDuffColorFilter;.<init>:(ILandroid/graphics/PorterDuff$Mode;)V` @kind direct;
+  #L1ab1f8.  return v1 @kind object;
+}
+procedure `android.graphics.PorterDuffColorFilter` `calculateTintFilter`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `tintList`, `android.graphics.PorterDuff$Mode` v3 @kind object @name `tintMode`, `android.graphics.Paint` v4 @kind object @name `paint`, `boolean` v5 @name `requiresElevationOverlay`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.calculateTintFilter:(Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;Landroid/graphics/Paint;Z)Landroid/graphics/PorterDuffColorFilter;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1ab20c.  if v2 == 0 then goto L1ab220;
+  #L1ab210.  if v3 != 0 then goto L1ab216;
+  #L1ab214.  goto L1ab220;
+  #L1ab216.  call temp:= `calculateTintColorTintFilter`(v1, v2, v3, v5) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.calculateTintColorTintFilter:(Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;Z)Landroid/graphics/PorterDuffColorFilter;` @kind direct;
+  #L1ab21c.  v0:= temp @kind object;
+  #L1ab21e.  goto L1ab228;
+  #L1ab220.  call temp:= `calculatePaintColorTintFilter`(v1, v4, v5) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.calculatePaintColorTintFilter:(Landroid/graphics/Paint;Z)Landroid/graphics/PorterDuffColorFilter;` @kind direct;
+  #L1ab226.  v0:= temp @kind object;
+  #L1ab228.  return v0 @kind object;
+}
+procedure `int` `compositeElevationOverlayIfNeeded`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this, `int` v3 @name `backgroundColor`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.compositeElevationOverlayIfNeeded:(I)I` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1aba70.  call temp:= `getZ`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getZ:()F` @kind virtual;
+  #L1aba76.  v0:= temp;
+  #L1aba78.  call temp:= `getParentAbsoluteElevation`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getParentAbsoluteElevation:()F` @kind virtual;
+  #L1aba7e.  v1:= temp;
+  #L1aba80.  v0:= v0 + v1 @kind float;
+  #L1aba82.  v1:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1aba86.  v1:= v1.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.elevationOverlayProvider` @type ^`com.google.android.material.elevation.ElevationOverlayProvider` @kind object;
+  #L1aba8a.  if v1 == 0 then goto L1abaa0;
+  #L1aba8e.  v1:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1aba92.  v1:= v1.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.elevationOverlayProvider` @type ^`com.google.android.material.elevation.ElevationOverlayProvider` @kind object;
+  #L1aba96.  call temp:= `compositeOverlayIfNeeded`(v1, v3, v0) @signature `Lcom/google/android/material/elevation/ElevationOverlayProvider;.compositeOverlayIfNeeded:(IF)I` @kind virtual;
+  #L1aba9c.  v1:= temp;
+  #L1aba9e.  goto L1abaa2;
+  #L1abaa0.  v1:= v3;
+  #L1abaa2.  return v1;
+}
+procedure `com.google.android.material.shape.MaterialShapeDrawable` `createWithElevationOverlay`(`android.content.Context` v1 @kind object @name `context`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.createWithElevationOverlay:(Landroid/content/Context;)Lcom/google/android/material/shape/MaterialShapeDrawable;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L1ab7bc.  v0:= 0I;
+  #L1ab7be.  call temp:= `createWithElevationOverlay`(v1, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.createWithElevationOverlay:(Landroid/content/Context;F)Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind static;
+  #L1ab7c4.  v0:= temp @kind object;
+  #L1ab7c6.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.MaterialShapeDrawable` `createWithElevationOverlay`(`android.content.Context` v3 @kind object @name `context`, `float` v4 @name `elevation`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.createWithElevationOverlay:(Landroid/content/Context;F)Lcom/google/android/material/shape/MaterialShapeDrawable;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1ab7d8.  v0:= `@@com.google.android.material.R$attr.colorSurface` @type ^`int`;
+  #L1ab7dc.  v1:= constclass @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L1ab7e0.  call temp:= `getSimpleName`(v1) @signature `Ljava/lang/Class;.getSimpleName:()Ljava/lang/String;` @kind virtual;
+  #L1ab7e6.  v1:= temp @kind object;
+  #L1ab7e8.  call temp:= `getColor`(v3, v0, v1) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/content/Context;ILjava/lang/String;)I` @kind static;
+  #L1ab7ee.  v0:= temp;
+  #L1ab7f0.  v1:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L1ab7f4.  call `<init>`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:()V` @kind direct;
+  #L1ab7fa.  call `initializeElevationOverlay`(v1, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.initializeElevationOverlay:(Landroid/content/Context;)V` @kind virtual;
+  #L1ab800.  call temp:= `valueOf`(v0) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1ab806.  v2:= temp @kind object;
+  #L1ab808.  call `setFillColor`(v1, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1ab80e.  call `setElevation`(v1, v4) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setElevation:(F)V` @kind virtual;
+  #L1ab814.  return v1 @kind object;
+}
+procedure `void` `drawCompatShadow`(`com.google.android.material.shape.MaterialShapeDrawable` v4 @kind this, `android.graphics.Canvas` v5 @kind object @name `canvas`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.drawCompatShadow:(Landroid/graphics/Canvas;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1ac0e0.  v0:= v4.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac0e4.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatOffset` @type ^`int`;
+  #L1ac0e8.  if v0 == 0 then goto L1ac102;
+  #L1ac0ec.  v0:= v4.`com.google.android.material.shape.MaterialShapeDrawable.path` @type ^`android.graphics.Path` @kind object;
+  #L1ac0f0.  v1:= v4.`com.google.android.material.shape.MaterialShapeDrawable.shadowRenderer` @type ^`com.google.android.material.shadow.ShadowRenderer` @kind object;
+  #L1ac0f4.  call temp:= `getShadowPaint`(v1) @signature `Lcom/google/android/material/shadow/ShadowRenderer;.getShadowPaint:()Landroid/graphics/Paint;` @kind virtual;
+  #L1ac0fa.  v1:= temp @kind object;
+  #L1ac0fc.  call `drawPath`(v5, v0, v1) @signature `Landroid/graphics/Canvas;.drawPath:(Landroid/graphics/Path;Landroid/graphics/Paint;)V` @kind virtual;
+  #L1ac102.  v0:= 0I;
+  #L1ac104.  v1:= 4I;
+  #L1ac106.  if v0 >= v1 then goto L1ac144;
+  #L1ac10a.  v1:= v4.`com.google.android.material.shape.MaterialShapeDrawable.cornerShadowOperation` @type ^`com.google.android.material.shape.ShapePath$ShadowCompatOperation`[] @kind object;
+  #L1ac10e.  v1:= v1[v0] @kind object;
+  #L1ac112.  v2:= v4.`com.google.android.material.shape.MaterialShapeDrawable.shadowRenderer` @type ^`com.google.android.material.shadow.ShadowRenderer` @kind object;
+  #L1ac116.  v3:= v4.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac11a.  v3:= v3.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatRadius` @type ^`int`;
+  #L1ac11e.  call `draw`(v1, v2, v3, v5) @signature `Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;.draw:(Lcom/google/android/material/shadow/ShadowRenderer;ILandroid/graphics/Canvas;)V` @kind virtual;
+  #L1ac124.  v1:= v4.`com.google.android.material.shape.MaterialShapeDrawable.edgeShadowOperation` @type ^`com.google.android.material.shape.ShapePath$ShadowCompatOperation`[] @kind object;
+  #L1ac128.  v1:= v1[v0] @kind object;
+  #L1ac12c.  v2:= v4.`com.google.android.material.shape.MaterialShapeDrawable.shadowRenderer` @type ^`com.google.android.material.shadow.ShadowRenderer` @kind object;
+  #L1ac130.  v3:= v4.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac134.  v3:= v3.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatRadius` @type ^`int`;
+  #L1ac138.  call `draw`(v1, v2, v3, v5) @signature `Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;.draw:(Lcom/google/android/material/shadow/ShadowRenderer;ILandroid/graphics/Canvas;)V` @kind virtual;
+  #L1ac13e.  v0:= v0 + 1;
+  #L1ac142.  goto L1ac104;
+  #L1ac144.  call temp:= `getShadowOffsetX`(v4) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShadowOffsetX:()I` @kind virtual;
+  #L1ac14a.  v0:= temp;
+  #L1ac14c.  call temp:= `getShadowOffsetY`(v4) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShadowOffsetY:()I` @kind virtual;
+  #L1ac152.  v1:= temp;
+  #L1ac154.  v2:= -v0 @kind int;
+  #L1ac156.  v2:= (`float`) v2 @kind i2f;
+  #L1ac158.  v3:= -v1 @kind int;
+  #L1ac15a.  v3:= (`float`) v3 @kind i2f;
+  #L1ac15c.  call `translate`(v5, v2, v3) @signature `Landroid/graphics/Canvas;.translate:(FF)V` @kind virtual;
+  #L1ac162.  v2:= v4.`com.google.android.material.shape.MaterialShapeDrawable.path` @type ^`android.graphics.Path` @kind object;
+  #L1ac166.  v3:= `@@com.google.android.material.shape.MaterialShapeDrawable.clearPaint` @type ^`android.graphics.Paint` @kind object;
+  #L1ac16a.  call `drawPath`(v5, v2, v3) @signature `Landroid/graphics/Canvas;.drawPath:(Landroid/graphics/Path;Landroid/graphics/Paint;)V` @kind virtual;
+  #L1ac170.  v2:= (`float`) v0 @kind i2f;
+  #L1ac172.  v3:= (`float`) v1 @kind i2f;
+  #L1ac174.  call `translate`(v5, v2, v3) @signature `Landroid/graphics/Canvas;.translate:(FF)V` @kind virtual;
+  #L1ac17a.  return @kind void;
+}
+procedure `void` `drawFillShape`(`com.google.android.material.shape.MaterialShapeDrawable` v6 @kind this, `android.graphics.Canvas` v7 @kind object @name `canvas`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.drawFillShape:(Landroid/graphics/Canvas;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1ac18c.  v2:= v6.`com.google.android.material.shape.MaterialShapeDrawable.fillPaint` @type ^`android.graphics.Paint` @kind object;
+  #L1ac190.  v3:= v6.`com.google.android.material.shape.MaterialShapeDrawable.path` @type ^`android.graphics.Path` @kind object;
+  #L1ac194.  v0:= v6.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac198.  v4:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L1ac19c.  call temp:= `getBoundsAsRectF`(v6) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBoundsAsRectF:()Landroid/graphics/RectF;` @kind virtual;
+  #L1ac1a2.  v5:= temp @kind object;
+  #L1ac1a4.  v0:= v6 @kind object;
+  #L1ac1a6.  v1:= v7 @kind object;
+  #L1ac1a8.  call `drawShape`(v0, v1, v2, v3, v4, v5) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.drawShape:(Landroid/graphics/Canvas;Landroid/graphics/Paint;Landroid/graphics/Path;Lcom/google/android/material/shape/ShapeAppearanceModel;Landroid/graphics/RectF;)V` @kind direct;
+  #L1ac1ae.  return @kind void;
+}
+procedure `void` `drawShape`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `android.graphics.Canvas` v2 @kind object @name `canvas`, `android.graphics.Paint` v3 @kind object @name `paint`, `android.graphics.Path` v4 @kind object @name `path`, `com.google.android.material.shape.ShapeAppearanceModel` v5 @kind object @name `shapeAppearanceModel`, `android.graphics.RectF` v6 @kind object @name `bounds`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.drawShape:(Landroid/graphics/Canvas;Landroid/graphics/Paint;Landroid/graphics/Path;Lcom/google/android/material/shape/ShapeAppearanceModel;Landroid/graphics/RectF;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1ac1ec.  call temp:= `isRoundRect`(v5, v6) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.isRoundRect:(Landroid/graphics/RectF;)Z` @kind virtual;
+  #L1ac1f2.  v0:= temp;
+  #L1ac1f4.  if v0 == 0 then goto L1ac210;
+  #L1ac1f8.  call temp:= `getTopRightCornerSize`(v5) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getTopRightCornerSize:()Lcom/google/android/material/shape/CornerSize;` @kind virtual;
+  #L1ac1fe.  v0:= temp @kind object;
+  #L1ac200.  call temp:= `getCornerSize`(v0, v6) @signature `Lcom/google/android/material/shape/CornerSize;.getCornerSize:(Landroid/graphics/RectF;)F` @kind interface;
+  #L1ac206.  v0:= temp;
+  #L1ac208.  call `drawRoundRect`(v2, v6, v0, v0, v3) @signature `Landroid/graphics/Canvas;.drawRoundRect:(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V` @kind virtual;
+  #L1ac20e.  goto L1ac216;
+  #L1ac210.  call `drawPath`(v2, v4, v3) @signature `Landroid/graphics/Canvas;.drawPath:(Landroid/graphics/Path;Landroid/graphics/Paint;)V` @kind virtual;
+  #L1ac216.  return @kind void;
+}
+procedure `void` `drawStrokeShape`(`com.google.android.material.shape.MaterialShapeDrawable` v6 @kind this, `android.graphics.Canvas` v7 @kind object @name `canvas`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.drawStrokeShape:(Landroid/graphics/Canvas;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1ac228.  v2:= v6.`com.google.android.material.shape.MaterialShapeDrawable.strokePaint` @type ^`android.graphics.Paint` @kind object;
+  #L1ac22c.  v3:= v6.`com.google.android.material.shape.MaterialShapeDrawable.pathInsetByStroke` @type ^`android.graphics.Path` @kind object;
+  #L1ac230.  v4:= v6.`com.google.android.material.shape.MaterialShapeDrawable.strokeShapeAppearance` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L1ac234.  call temp:= `getBoundsInsetByStroke`(v6) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBoundsInsetByStroke:()Landroid/graphics/RectF;` @kind direct;
+  #L1ac23a.  v5:= temp @kind object;
+  #L1ac23c.  v0:= v6 @kind object;
+  #L1ac23e.  v1:= v7 @kind object;
+  #L1ac240.  call `drawShape`(v0, v1, v2, v3, v4, v5) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.drawShape:(Landroid/graphics/Canvas;Landroid/graphics/Paint;Landroid/graphics/Path;Lcom/google/android/material/shape/ShapeAppearanceModel;Landroid/graphics/RectF;)V` @kind direct;
+  #L1ac246.  return @kind void;
+}
+procedure `android.graphics.RectF` `getBoundsInsetByStroke`(`com.google.android.material.shape.MaterialShapeDrawable` v7 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBoundsInsetByStroke:()Landroid/graphics/RectF;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L1ab27c.  call temp:= `getBoundsAsRectF`(v7) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBoundsAsRectF:()Landroid/graphics/RectF;` @kind virtual;
+  #L1ab282.  v0:= temp @kind object;
+  #L1ab284.  call temp:= `getStrokeInsetLength`(v7) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getStrokeInsetLength:()F` @kind direct;
+  #L1ab28a.  v1:= temp;
+  #L1ab28c.  v2:= v7.`com.google.android.material.shape.MaterialShapeDrawable.insetRectF` @type ^`android.graphics.RectF` @kind object;
+  #L1ab290.  v3:= v0.`android.graphics.RectF.left` @type ^`float`;
+  #L1ab294.  v3:= v3 + v1 @kind float;
+  #L1ab296.  v4:= v0.`android.graphics.RectF.top` @type ^`float`;
+  #L1ab29a.  v4:= v4 + v1 @kind float;
+  #L1ab29c.  v5:= v0.`android.graphics.RectF.right` @type ^`float`;
+  #L1ab2a0.  v5:= v5 - v1 @kind float;
+  #L1ab2a2.  v6:= v0.`android.graphics.RectF.bottom` @type ^`float`;
+  #L1ab2a6.  v6:= v6 - v1 @kind float;
+  #L1ab2a8.  call `set`(v2, v3, v4, v5, v6) @signature `Landroid/graphics/RectF;.set:(FFFF)V` @kind virtual;
+  #L1ab2ae.  v2:= v7.`com.google.android.material.shape.MaterialShapeDrawable.insetRectF` @type ^`android.graphics.RectF` @kind object;
+  #L1ab2b2.  return v2 @kind object;
+}
+procedure `float` `getStrokeInsetLength`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getStrokeInsetLength:()F` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1ab978.  call temp:= `hasStroke`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.hasStroke:()Z` @kind direct;
+  #L1ab97e.  v0:= temp;
+  #L1ab980.  if v0 == 0 then goto L1ab998;
+  #L1ab984.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.strokePaint` @type ^`android.graphics.Paint` @kind object;
+  #L1ab988.  call temp:= `getStrokeWidth`(v0) @signature `Landroid/graphics/Paint;.getStrokeWidth:()F` @kind virtual;
+  #L1ab98e.  v0:= temp;
+  #L1ab990.  v1:= 2.0F;
+  #L1ab994.  v0:= v0 / v1 @kind float;
+  #L1ab996.  return v0;
+  #L1ab998.  v0:= 0I;
+  #L1ab99a.  return v0;
+}
+procedure `boolean` `hasCompatShadow`(`com.google.android.material.shape.MaterialShapeDrawable` v3 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.hasCompatShadow:()Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1ab3a4.  v0:= v3.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab3a8.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatMode` @type ^`int`;
+  #L1ab3ac.  v1:= 1I;
+  #L1ab3ae.  if v0 == v1 then goto L1ab3da;
+  #L1ab3b2.  v0:= v3.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab3b6.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatRadius` @type ^`int`;
+  #L1ab3ba.  if v0 <= 0 then goto L1ab3da;
+  #L1ab3be.  v0:= v3.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab3c2.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatMode` @type ^`int`;
+  #L1ab3c6.  v2:= 2I;
+  #L1ab3c8.  if v0 == v2 then goto L1ab3d8;
+  #L1ab3cc.  call temp:= `requiresCompatShadow`(v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.requiresCompatShadow:()Z` @kind direct;
+  #L1ab3d2.  v0:= temp;
+  #L1ab3d4.  if v0 == 0 then goto L1ab3da;
+  #L1ab3d8.  goto L1ab3dc;
+  #L1ab3da.  v1:= 0I;
+  #L1ab3dc.  return v1;
+}
+procedure `boolean` `hasFill`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.hasFill:()Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1ab3f0.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab3f4.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.paintStyle` @type ^`android.graphics.Paint$Style` @kind object;
+  #L1ab3f8.  v1:= `@@android.graphics.Paint$Style.FILL_AND_STROKE` @type ^`android.graphics.Paint$Style` @kind object;
+  #L1ab3fc.  if v0 == v1 then goto L1ab416;
+  #L1ab400.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab404.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.paintStyle` @type ^`android.graphics.Paint$Style` @kind object;
+  #L1ab408.  v1:= `@@android.graphics.Paint$Style.FILL` @type ^`android.graphics.Paint$Style` @kind object;
+  #L1ab40c.  if v0 != v1 then goto L1ab412;
+  #L1ab410.  goto L1ab416;
+  #L1ab412.  v0:= 0I;
+  #L1ab414.  goto L1ab418;
+  #L1ab416.  v0:= 1I;
+  #L1ab418.  return v0;
+}
+procedure `boolean` `hasStroke`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.hasStroke:()Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1ab42c.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab430.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.paintStyle` @type ^`android.graphics.Paint$Style` @kind object;
+  #L1ab434.  v1:= `@@android.graphics.Paint$Style.FILL_AND_STROKE` @type ^`android.graphics.Paint$Style` @kind object;
+  #L1ab438.  if v0 == v1 then goto L1ab44c;
+  #L1ab43c.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab440.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.paintStyle` @type ^`android.graphics.Paint$Style` @kind object;
+  #L1ab444.  v1:= `@@android.graphics.Paint$Style.STROKE` @type ^`android.graphics.Paint$Style` @kind object;
+  #L1ab448.  if v0 != v1 then goto L1ab466;
+  #L1ab44c.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.strokePaint` @type ^`android.graphics.Paint` @kind object;
+  #L1ab450.  call temp:= `getStrokeWidth`(v0) @signature `Landroid/graphics/Paint;.getStrokeWidth:()F` @kind virtual;
+  #L1ab456.  v0:= temp;
+  #L1ab458.  v1:= 0I;
+  #L1ab45a.  v0:= fcmpl(v0, v1);
+  #L1ab45e.  if v0 <= 0 then goto L1ab466;
+  #L1ab462.  v0:= 1I;
+  #L1ab464.  goto L1ab468;
+  #L1ab466.  v0:= 0I;
+  #L1ab468.  return v0;
+}
+procedure `void` `invalidateSelfIgnoreShape`(`com.google.android.material.shape.MaterialShapeDrawable` v0 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelfIgnoreShape:()V` @AccessFlag PRIVATE {
+    temp;
+
+  #L1ac340.  call `invalidateSelf`(v0) @signature `Landroid/graphics/drawable/Drawable;.invalidateSelf:()V` @kind super;
+  #L1ac346.  return @kind void;
+}
+procedure `int` `modulateAlpha`(`int` v2 @name `paintAlpha`, `int` v3 @name `alpha`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.modulateAlpha:(II)I` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1abbcc.  v0:= v3 ^>> 7;
+  #L1abbd0.  v0:= v0 + v3 @kind int;
+  #L1abbd2.  v1:= v2 * v0 @kind int;
+  #L1abbd6.  v1:= v1 ^>> 8;
+  #L1abbda.  return v1;
+}
+procedure `void` `prepareCanvasForShadow`(`com.google.android.material.shape.MaterialShapeDrawable` v5 @kind this, `android.graphics.Canvas` v6 @kind object @name `canvas`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.prepareCanvasForShadow:(Landroid/graphics/Canvas;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1ac378.  call temp:= `getShadowOffsetX`(v5) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShadowOffsetX:()I` @kind virtual;
+  #L1ac37e.  v0:= temp;
+  #L1ac380.  call temp:= `getShadowOffsetY`(v5) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShadowOffsetY:()I` @kind virtual;
+  #L1ac386.  v1:= temp;
+  #L1ac388.  v2:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1ac38c.  v3:= 21I;
+  #L1ac390.  if v2 >= v3 then goto L1ac3c6;
+  #L1ac394.  call temp:= `getClipBounds`(v6) @signature `Landroid/graphics/Canvas;.getClipBounds:()Landroid/graphics/Rect;` @kind virtual;
+  #L1ac39a.  v2:= temp @kind object;
+  #L1ac39c.  v3:= v5.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac3a0.  v3:= v3.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatRadius` @type ^`int`;
+  #L1ac3a4.  v3:= -v3 @kind int;
+  #L1ac3a6.  v4:= v5.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac3aa.  v4:= v4.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatRadius` @type ^`int`;
+  #L1ac3ae.  v4:= -v4 @kind int;
+  #L1ac3b0.  call `inset`(v2, v3, v4) @signature `Landroid/graphics/Rect;.inset:(II)V` @kind virtual;
+  #L1ac3b6.  call `offset`(v2, v0, v1) @signature `Landroid/graphics/Rect;.offset:(II)V` @kind virtual;
+  #L1ac3bc.  v3:= `@@android.graphics.Region$Op.REPLACE` @type ^`android.graphics.Region$Op` @kind object;
+  #L1ac3c0.  call temp:= `clipRect`(v6, v2, v3) @signature `Landroid/graphics/Canvas;.clipRect:(Landroid/graphics/Rect;Landroid/graphics/Region$Op;)Z` @kind virtual;
+  #L1ac3c6.  v2:= (`float`) v0 @kind i2f;
+  #L1ac3c8.  v3:= (`float`) v1 @kind i2f;
+  #L1ac3ca.  call `translate`(v6, v2, v3) @signature `Landroid/graphics/Canvas;.translate:(FF)V` @kind virtual;
+  #L1ac3d0.  return @kind void;
+}
+procedure `boolean` `requiresCompatShadow`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.requiresCompatShadow:()Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1ab640.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1ab644.  v1:= 21I;
+  #L1ab648.  if v0 < v1 then goto L1ab66e;
+  #L1ab64c.  call temp:= `isRoundRect`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.isRoundRect:()Z` @kind virtual;
+  #L1ab652.  v0:= temp;
+  #L1ab654.  if v0 != 0 then goto L1ab66a;
+  #L1ab658.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.path` @type ^`android.graphics.Path` @kind object;
+  #L1ab65c.  call temp:= `isConvex`(v0) @signature `Landroid/graphics/Path;.isConvex:()Z` @kind virtual;
+  #L1ab662.  v0:= temp;
+  #L1ab664.  if v0 != 0 then goto L1ab66a;
+  #L1ab668.  goto L1ab66e;
+  #L1ab66a.  v0:= 0I;
+  #L1ab66c.  goto L1ab670;
+  #L1ab66e.  v0:= 1I;
+  #L1ab670.  return v0;
+}
+procedure `boolean` `updateColorsForState`(`com.google.android.material.shape.MaterialShapeDrawable` v4 @kind this, `int`[] v5 @kind object @name `state`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.updateColorsForState:([I)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1ab684.  v0:= 0I;
+  #L1ab686.  v1:= v4.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab68a.  v1:= v1.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.fillColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab68e.  if v1 == 0 then goto L1ab6be;
+  #L1ab692.  v1:= v4.`com.google.android.material.shape.MaterialShapeDrawable.fillPaint` @type ^`android.graphics.Paint` @kind object;
+  #L1ab696.  call temp:= `getColor`(v1) @signature `Landroid/graphics/Paint;.getColor:()I` @kind virtual;
+  #L1ab69c.  v1:= temp;
+  #L1ab69e.  v2:= v4.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab6a2.  v2:= v2.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.fillColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab6a6.  call temp:= `getColorForState`(v2, v5, v1) @signature `Landroid/content/res/ColorStateList;.getColorForState:([II)I` @kind virtual;
+  #L1ab6ac.  v2:= temp;
+  #L1ab6ae.  if v1 == v2 then goto L1ab6be;
+  #L1ab6b2.  v3:= v4.`com.google.android.material.shape.MaterialShapeDrawable.fillPaint` @type ^`android.graphics.Paint` @kind object;
+  #L1ab6b6.  call `setColor`(v3, v2) @signature `Landroid/graphics/Paint;.setColor:(I)V` @kind virtual;
+  #L1ab6bc.  v0:= 1I;
+  #L1ab6be.  v1:= v4.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab6c2.  v1:= v1.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.strokeColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab6c6.  if v1 == 0 then goto L1ab6f6;
+  #L1ab6ca.  v1:= v4.`com.google.android.material.shape.MaterialShapeDrawable.strokePaint` @type ^`android.graphics.Paint` @kind object;
+  #L1ab6ce.  call temp:= `getColor`(v1) @signature `Landroid/graphics/Paint;.getColor:()I` @kind virtual;
+  #L1ab6d4.  v1:= temp;
+  #L1ab6d6.  v2:= v4.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab6da.  v2:= v2.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.strokeColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab6de.  call temp:= `getColorForState`(v2, v5, v1) @signature `Landroid/content/res/ColorStateList;.getColorForState:([II)I` @kind virtual;
+  #L1ab6e4.  v2:= temp;
+  #L1ab6e6.  if v1 == v2 then goto L1ab6f6;
+  #L1ab6ea.  v3:= v4.`com.google.android.material.shape.MaterialShapeDrawable.strokePaint` @type ^`android.graphics.Paint` @kind object;
+  #L1ab6ee.  call `setColor`(v3, v2) @signature `Landroid/graphics/Paint;.setColor:(I)V` @kind virtual;
+  #L1ab6f4.  v0:= 1I;
+  #L1ab6f6.  return v0;
+}
+procedure `boolean` `updateTintFilter`(`com.google.android.material.shape.MaterialShapeDrawable` v7 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.updateTintFilter:()Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L1ab708.  v0:= v7.`com.google.android.material.shape.MaterialShapeDrawable.tintFilter` @type ^`android.graphics.PorterDuffColorFilter` @kind object;
+  #L1ab70c.  v1:= v7.`com.google.android.material.shape.MaterialShapeDrawable.strokeTintFilter` @type ^`android.graphics.PorterDuffColorFilter` @kind object;
+  #L1ab710.  v2:= v7.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab714.  v2:= v2.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.tintList` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab718.  v3:= v7.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab71c.  v3:= v3.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.tintMode` @type ^`android.graphics.PorterDuff$Mode` @kind object;
+  #L1ab720.  v4:= v7.`com.google.android.material.shape.MaterialShapeDrawable.fillPaint` @type ^`android.graphics.Paint` @kind object;
+  #L1ab724.  v5:= 1I;
+  #L1ab726.  call temp:= `calculateTintFilter`(v7, v2, v3, v4, v5) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.calculateTintFilter:(Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;Landroid/graphics/Paint;Z)Landroid/graphics/PorterDuffColorFilter;` @kind direct;
+  #L1ab72c.  v2:= temp @kind object;
+  #L1ab72e.  v7.`com.google.android.material.shape.MaterialShapeDrawable.tintFilter` @type ^`android.graphics.PorterDuffColorFilter` := v2 @kind object;
+  #L1ab732.  v2:= v7.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab736.  v2:= v2.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.strokeTintList` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab73a.  v3:= v7.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab73e.  v3:= v3.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.tintMode` @type ^`android.graphics.PorterDuff$Mode` @kind object;
+  #L1ab742.  v4:= v7.`com.google.android.material.shape.MaterialShapeDrawable.strokePaint` @type ^`android.graphics.Paint` @kind object;
+  #L1ab746.  v6:= 0I;
+  #L1ab748.  call temp:= `calculateTintFilter`(v7, v2, v3, v4, v6) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.calculateTintFilter:(Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;Landroid/graphics/Paint;Z)Landroid/graphics/PorterDuffColorFilter;` @kind direct;
+  #L1ab74e.  v2:= temp @kind object;
+  #L1ab750.  v7.`com.google.android.material.shape.MaterialShapeDrawable.strokeTintFilter` @type ^`android.graphics.PorterDuffColorFilter` := v2 @kind object;
+  #L1ab754.  v2:= v7.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab758.  v2:= v2.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.useTintColorForShadow` @type ^`boolean` @kind boolean;
+  #L1ab75c.  if v2 == 0 then goto L1ab782;
+  #L1ab760.  v2:= v7.`com.google.android.material.shape.MaterialShapeDrawable.shadowRenderer` @type ^`com.google.android.material.shadow.ShadowRenderer` @kind object;
+  #L1ab764.  v3:= v7.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab768.  v3:= v3.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.tintList` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab76c.  call temp:= `getState`(v7) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getState:()[I` @kind virtual;
+  #L1ab772.  v4:= temp @kind object;
+  #L1ab774.  call temp:= `getColorForState`(v3, v4, v6) @signature `Landroid/content/res/ColorStateList;.getColorForState:([II)I` @kind virtual;
+  #L1ab77a.  v3:= temp;
+  #L1ab77c.  call `setShadowColor`(v2, v3) @signature `Lcom/google/android/material/shadow/ShadowRenderer;.setShadowColor:(I)V` @kind virtual;
+  #L1ab782.  v2:= v7.`com.google.android.material.shape.MaterialShapeDrawable.tintFilter` @type ^`android.graphics.PorterDuffColorFilter` @kind object;
+  #L1ab786.  call temp:= `equals`(v0, v2) @signature `Landroidx/core/util/ObjectsCompat;.equals:(Ljava/lang/Object;Ljava/lang/Object;)Z` @kind static;
+  #L1ab78c.  v2:= temp;
+  #L1ab78e.  if v2 == 0 then goto L1ab7a8;
+  #L1ab792.  v2:= v7.`com.google.android.material.shape.MaterialShapeDrawable.strokeTintFilter` @type ^`android.graphics.PorterDuffColorFilter` @kind object;
+  #L1ab796.  call temp:= `equals`(v1, v2) @signature `Landroidx/core/util/ObjectsCompat;.equals:(Ljava/lang/Object;Ljava/lang/Object;)Z` @kind static;
+  #L1ab79c.  v2:= temp;
+  #L1ab79e.  if v2 != 0 then goto L1ab7a4;
+  #L1ab7a2.  goto L1ab7a8;
+  #L1ab7a4.  v5:= v6;
+  #L1ab7a6.  goto L1ab7aa;
+  #L1ab7a8.  
+  #L1ab7aa.  return v5;
+}
+procedure `void` `updateZ`(`com.google.android.material.shape.MaterialShapeDrawable` v4 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.updateZ:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1ac908.  call temp:= `getZ`(v4) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getZ:()F` @kind virtual;
+  #L1ac90e.  v0:= temp;
+  #L1ac910.  v1:= v4.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac914.  v2:= 0.75F;
+  #L1ac918.  v2:= v2 * v0 @kind float;
+  #L1ac91a.  v2:= (`double`) v2 @kind f2d;
+  #L1ac91c.  call temp:= `ceil`(v2) @signature `Ljava/lang/Math;.ceil:(D)D` @kind static;
+  #L1ac922.  v2:= temp @kind wide;
+  #L1ac924.  v2:= (`int`) v2 @kind d2i;
+  #L1ac926.  v1.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatRadius` @type ^`int` := v2;
+  #L1ac92a.  v1:= v4.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac92e.  v2:= 0.25F;
+  #L1ac932.  v2:= v2 * v0 @kind float;
+  #L1ac934.  v2:= (`double`) v2 @kind f2d;
+  #L1ac936.  call temp:= `ceil`(v2) @signature `Ljava/lang/Math;.ceil:(D)D` @kind static;
+  #L1ac93c.  v2:= temp @kind wide;
+  #L1ac93e.  v2:= (`int`) v2 @kind d2i;
+  #L1ac940.  v1.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatOffset` @type ^`int` := v2;
+  #L1ac944.  call temp:= `updateTintFilter`(v4) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.updateTintFilter:()Z` @kind direct;
+  #L1ac94a.  call `invalidateSelfIgnoreShape`(v4) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelfIgnoreShape:()V` @kind direct;
+  #L1ac950.  return @kind void;
+}
+procedure `void` `calculatePathForSize`(`com.google.android.material.shape.MaterialShapeDrawable` v6 @kind this, `android.graphics.RectF` v7 @kind object @name `bounds`, `android.graphics.Path` v8 @kind object @name `path`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.calculatePathForSize:(Landroid/graphics/RectF;Landroid/graphics/Path;)V` @AccessFlag PROTECTED_FINAL {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1abe60.  v0:= v6.`com.google.android.material.shape.MaterialShapeDrawable.pathProvider` @type ^`com.google.android.material.shape.ShapeAppearancePathProvider` @kind object;
+  #L1abe64.  v1:= v6.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1abe68.  v1:= v1.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L1abe6c.  v2:= v6.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1abe70.  v2:= v2.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.interpolation` @type ^`float`;
+  #L1abe74.  v4:= v6.`com.google.android.material.shape.MaterialShapeDrawable.pathShadowListener` @type ^`com.google.android.material.shape.ShapeAppearancePathProvider$PathListener` @kind object;
+  #L1abe78.  v3:= v7 @kind object;
+  #L1abe7a.  v5:= v8 @kind object;
+  #L1abe7c.  call `calculatePath`(v0, v1, v2, v3, v4, v5) @signature `Lcom/google/android/material/shape/ShapeAppearancePathProvider;.calculatePath:(Lcom/google/android/material/shape/ShapeAppearanceModel;FLandroid/graphics/RectF;Lcom/google/android/material/shape/ShapeAppearancePathProvider$PathListener;Landroid/graphics/Path;)V` @kind virtual;
+  #L1abe82.  return @kind void;
+}
+procedure `void` `draw`(`com.google.android.material.shape.MaterialShapeDrawable` v10 @kind this, `android.graphics.Canvas` v11 @kind object @name `canvas`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.draw:(Landroid/graphics/Canvas;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+
+  #L1abef0.  v0:= v10.`com.google.android.material.shape.MaterialShapeDrawable.fillPaint` @type ^`android.graphics.Paint` @kind object;
+  #L1abef4.  v1:= v10.`com.google.android.material.shape.MaterialShapeDrawable.tintFilter` @type ^`android.graphics.PorterDuffColorFilter` @kind object;
+  #L1abef8.  call temp:= `setColorFilter`(v0, v1) @signature `Landroid/graphics/Paint;.setColorFilter:(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;` @kind virtual;
+  #L1abefe.  v0:= v10.`com.google.android.material.shape.MaterialShapeDrawable.fillPaint` @type ^`android.graphics.Paint` @kind object;
+  #L1abf02.  call temp:= `getAlpha`(v0) @signature `Landroid/graphics/Paint;.getAlpha:()I` @kind virtual;
+  #L1abf08.  v0:= temp;
+  #L1abf0a.  v1:= v10.`com.google.android.material.shape.MaterialShapeDrawable.fillPaint` @type ^`android.graphics.Paint` @kind object;
+  #L1abf0e.  v2:= v10.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1abf12.  v2:= v2.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.alpha` @type ^`int`;
+  #L1abf16.  call temp:= `modulateAlpha`(v0, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.modulateAlpha:(II)I` @kind static;
+  #L1abf1c.  v2:= temp;
+  #L1abf1e.  call `setAlpha`(v1, v2) @signature `Landroid/graphics/Paint;.setAlpha:(I)V` @kind virtual;
+  #L1abf24.  v1:= v10.`com.google.android.material.shape.MaterialShapeDrawable.strokePaint` @type ^`android.graphics.Paint` @kind object;
+  #L1abf28.  v2:= v10.`com.google.android.material.shape.MaterialShapeDrawable.strokeTintFilter` @type ^`android.graphics.PorterDuffColorFilter` @kind object;
+  #L1abf2c.  call temp:= `setColorFilter`(v1, v2) @signature `Landroid/graphics/Paint;.setColorFilter:(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;` @kind virtual;
+  #L1abf32.  v1:= v10.`com.google.android.material.shape.MaterialShapeDrawable.strokePaint` @type ^`android.graphics.Paint` @kind object;
+  #L1abf36.  v2:= v10.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1abf3a.  v2:= v2.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.strokeWidth` @type ^`float`;
+  #L1abf3e.  call `setStrokeWidth`(v1, v2) @signature `Landroid/graphics/Paint;.setStrokeWidth:(F)V` @kind virtual;
+  #L1abf44.  v1:= v10.`com.google.android.material.shape.MaterialShapeDrawable.strokePaint` @type ^`android.graphics.Paint` @kind object;
+  #L1abf48.  call temp:= `getAlpha`(v1) @signature `Landroid/graphics/Paint;.getAlpha:()I` @kind virtual;
+  #L1abf4e.  v1:= temp;
+  #L1abf50.  v2:= v10.`com.google.android.material.shape.MaterialShapeDrawable.strokePaint` @type ^`android.graphics.Paint` @kind object;
+  #L1abf54.  v3:= v10.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1abf58.  v3:= v3.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.alpha` @type ^`int`;
+  #L1abf5c.  call temp:= `modulateAlpha`(v1, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.modulateAlpha:(II)I` @kind static;
+  #L1abf62.  v3:= temp;
+  #L1abf64.  call `setAlpha`(v2, v3) @signature `Landroid/graphics/Paint;.setAlpha:(I)V` @kind virtual;
+  #L1abf6a.  v2:= v10.`com.google.android.material.shape.MaterialShapeDrawable.pathDirty` @type ^`boolean` @kind boolean;
+  #L1abf6e.  if v2 == 0 then goto L1abf90;
+  #L1abf72.  call `calculateStrokePath`(v10) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.calculateStrokePath:()V` @kind direct;
+  #L1abf78.  call temp:= `getBoundsAsRectF`(v10) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBoundsAsRectF:()Landroid/graphics/RectF;` @kind virtual;
+  #L1abf7e.  v2:= temp @kind object;
+  #L1abf80.  v3:= v10.`com.google.android.material.shape.MaterialShapeDrawable.path` @type ^`android.graphics.Path` @kind object;
+  #L1abf84.  call `calculatePath`(v10, v2, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.calculatePath:(Landroid/graphics/RectF;Landroid/graphics/Path;)V` @kind direct;
+  #L1abf8a.  v2:= 0I;
+  #L1abf8c.  v10.`com.google.android.material.shape.MaterialShapeDrawable.pathDirty` @type ^`boolean` := v2 @kind boolean;
+  #L1abf90.  call temp:= `hasCompatShadow`(v10) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.hasCompatShadow:()Z` @kind direct;
+  #L1abf96.  v2:= temp;
+  #L1abf98.  if v2 == 0 then goto L1ac096;
+  #L1abf9c.  call temp:= `save`(v11) @signature `Landroid/graphics/Canvas;.save:()I` @kind virtual;
+  #L1abfa2.  call `prepareCanvasForShadow`(v10, v11) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.prepareCanvasForShadow:(Landroid/graphics/Canvas;)V` @kind direct;
+  #L1abfa8.  v2:= v10.`com.google.android.material.shape.MaterialShapeDrawable.pathBounds` @type ^`android.graphics.RectF` @kind object;
+  #L1abfac.  call temp:= `width`(v2) @signature `Landroid/graphics/RectF;.width:()F` @kind virtual;
+  #L1abfb2.  v2:= temp;
+  #L1abfb4.  call temp:= `getBounds`(v10) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBounds:()Landroid/graphics/Rect;` @kind virtual;
+  #L1abfba.  v3:= temp @kind object;
+  #L1abfbc.  call temp:= `width`(v3) @signature `Landroid/graphics/Rect;.width:()I` @kind virtual;
+  #L1abfc2.  v3:= temp;
+  #L1abfc4.  v3:= (`float`) v3 @kind i2f;
+  #L1abfc6.  v2:= v2 - v3 @kind float;
+  #L1abfc8.  v2:= (`int`) v2 @kind f2i;
+  #L1abfca.  v3:= v10.`com.google.android.material.shape.MaterialShapeDrawable.pathBounds` @type ^`android.graphics.RectF` @kind object;
+  #L1abfce.  call temp:= `height`(v3) @signature `Landroid/graphics/RectF;.height:()F` @kind virtual;
+  #L1abfd4.  v3:= temp;
+  #L1abfd6.  call temp:= `getBounds`(v10) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBounds:()Landroid/graphics/Rect;` @kind virtual;
+  #L1abfdc.  v4:= temp @kind object;
+  #L1abfde.  call temp:= `height`(v4) @signature `Landroid/graphics/Rect;.height:()I` @kind virtual;
+  #L1abfe4.  v4:= temp;
+  #L1abfe6.  v4:= (`float`) v4 @kind i2f;
+  #L1abfe8.  v3:= v3 - v4 @kind float;
+  #L1abfea.  v3:= (`int`) v3 @kind f2i;
+  #L1abfec.  v4:= v10.`com.google.android.material.shape.MaterialShapeDrawable.pathBounds` @type ^`android.graphics.RectF` @kind object;
+  #L1abff0.  call temp:= `width`(v4) @signature `Landroid/graphics/RectF;.width:()F` @kind virtual;
+  #L1abff6.  v4:= temp;
+  #L1abff8.  v4:= (`int`) v4 @kind f2i;
+  #L1abffa.  v5:= v10.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1abffe.  v5:= v5.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatRadius` @type ^`int`;
+  #L1ac002.  v5:= v5 * 2;
+  #L1ac006.  v4:= v4 + v5 @kind int;
+  #L1ac008.  v4:= v4 + v2 @kind int;
+  #L1ac00a.  v5:= v10.`com.google.android.material.shape.MaterialShapeDrawable.pathBounds` @type ^`android.graphics.RectF` @kind object;
+  #L1ac00e.  call temp:= `height`(v5) @signature `Landroid/graphics/RectF;.height:()F` @kind virtual;
+  #L1ac014.  v5:= temp;
+  #L1ac016.  v5:= (`int`) v5 @kind f2i;
+  #L1ac018.  v6:= v10.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac01c.  v6:= v6.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatRadius` @type ^`int`;
+  #L1ac020.  v6:= v6 * 2;
+  #L1ac024.  v5:= v5 + v6 @kind int;
+  #L1ac026.  v5:= v5 + v3 @kind int;
+  #L1ac028.  v6:= `@@android.graphics.Bitmap$Config.ARGB_8888` @type ^`android.graphics.Bitmap$Config` @kind object;
+  #L1ac02c.  call temp:= `createBitmap`(v4, v5, v6) @signature `Landroid/graphics/Bitmap;.createBitmap:(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;` @kind static;
+  #L1ac032.  v4:= temp @kind object;
+  #L1ac034.  v5:= new `android.graphics.Canvas`;
+  #L1ac038.  call `<init>`(v5, v4) @signature `Landroid/graphics/Canvas;.<init>:(Landroid/graphics/Bitmap;)V` @kind direct;
+  #L1ac03e.  call temp:= `getBounds`(v10) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBounds:()Landroid/graphics/Rect;` @kind virtual;
+  #L1ac044.  v6:= temp @kind object;
+  #L1ac046.  v6:= v6.`android.graphics.Rect.left` @type ^`int`;
+  #L1ac04a.  v7:= v10.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac04e.  v7:= v7.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatRadius` @type ^`int`;
+  #L1ac052.  v6:= v6 - v7 @kind int;
+  #L1ac054.  v6:= v6 - v2 @kind int;
+  #L1ac056.  v6:= (`float`) v6 @kind i2f;
+  #L1ac058.  call temp:= `getBounds`(v10) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBounds:()Landroid/graphics/Rect;` @kind virtual;
+  #L1ac05e.  v7:= temp @kind object;
+  #L1ac060.  v7:= v7.`android.graphics.Rect.top` @type ^`int`;
+  #L1ac064.  v8:= v10.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac068.  v8:= v8.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatRadius` @type ^`int`;
+  #L1ac06c.  v7:= v7 - v8 @kind int;
+  #L1ac06e.  v7:= v7 - v3 @kind int;
+  #L1ac070.  v7:= (`float`) v7 @kind i2f;
+  #L1ac072.  v8:= -v6 @kind float;
+  #L1ac074.  v9:= -v7 @kind float;
+  #L1ac076.  call `translate`(v5, v8, v9) @signature `Landroid/graphics/Canvas;.translate:(FF)V` @kind virtual;
+  #L1ac07c.  call `drawCompatShadow`(v10, v5) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.drawCompatShadow:(Landroid/graphics/Canvas;)V` @kind direct;
+  #L1ac082.  v8:= 0I;
+  #L1ac084.  call `drawBitmap`(v11, v4, v6, v7, v8) @signature `Landroid/graphics/Canvas;.drawBitmap:(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V` @kind virtual;
+  #L1ac08a.  call `recycle`(v4) @signature `Landroid/graphics/Bitmap;.recycle:()V` @kind virtual;
+  #L1ac090.  call `restore`(v11) @signature `Landroid/graphics/Canvas;.restore:()V` @kind virtual;
+  #L1ac096.  call temp:= `hasFill`(v10) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.hasFill:()Z` @kind direct;
+  #L1ac09c.  v2:= temp;
+  #L1ac09e.  if v2 == 0 then goto L1ac0a8;
+  #L1ac0a2.  call `drawFillShape`(v10, v11) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.drawFillShape:(Landroid/graphics/Canvas;)V` @kind direct;
+  #L1ac0a8.  call temp:= `hasStroke`(v10) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.hasStroke:()Z` @kind direct;
+  #L1ac0ae.  v2:= temp;
+  #L1ac0b0.  if v2 == 0 then goto L1ac0ba;
+  #L1ac0b4.  call `drawStrokeShape`(v10, v11) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.drawStrokeShape:(Landroid/graphics/Canvas;)V` @kind direct;
+  #L1ac0ba.  v2:= v10.`com.google.android.material.shape.MaterialShapeDrawable.fillPaint` @type ^`android.graphics.Paint` @kind object;
+  #L1ac0be.  call `setAlpha`(v2, v0) @signature `Landroid/graphics/Paint;.setAlpha:(I)V` @kind virtual;
+  #L1ac0c4.  v2:= v10.`com.google.android.material.shape.MaterialShapeDrawable.strokePaint` @type ^`android.graphics.Paint` @kind object;
+  #L1ac0c8.  call `setAlpha`(v2, v1) @signature `Landroid/graphics/Paint;.setAlpha:(I)V` @kind virtual;
+  #L1ac0ce.  return @kind void;
+}
+procedure `void` `drawShape`(`com.google.android.material.shape.MaterialShapeDrawable` v7 @kind this, `android.graphics.Canvas` v8 @kind object @name `canvas`, `android.graphics.Paint` v9 @kind object @name `paint`, `android.graphics.Path` v10 @kind object @name `path`, `android.graphics.RectF` v11 @kind object @name `bounds`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.drawShape:(Landroid/graphics/Canvas;Landroid/graphics/Paint;Landroid/graphics/Path;Landroid/graphics/RectF;)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L1ac1c0.  v0:= v7.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac1c4.  v5:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L1ac1c8.  v1:= v7 @kind object;
+  #L1ac1ca.  v2:= v8 @kind object;
+  #L1ac1cc.  v3:= v9 @kind object;
+  #L1ac1ce.  v4:= v10 @kind object;
+  #L1ac1d0.  v6:= v11 @kind object;
+  #L1ac1d2.  call `drawShape`(v1, v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.drawShape:(Landroid/graphics/Canvas;Landroid/graphics/Paint;Landroid/graphics/Path;Lcom/google/android/material/shape/ShapeAppearanceModel;Landroid/graphics/RectF;)V` @kind direct;
+  #L1ac1d8.  return @kind void;
+}
+procedure `float` `getBottomLeftCornerResolvedSize`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBottomLeftCornerResolvedSize:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1ab8a0.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab8a4.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L1ab8a8.  call temp:= `getBottomLeftCornerSize`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getBottomLeftCornerSize:()Lcom/google/android/material/shape/CornerSize;` @kind virtual;
+  #L1ab8ae.  v0:= temp @kind object;
+  #L1ab8b0.  call temp:= `getBoundsAsRectF`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBoundsAsRectF:()Landroid/graphics/RectF;` @kind virtual;
+  #L1ab8b6.  v1:= temp @kind object;
+  #L1ab8b8.  call temp:= `getCornerSize`(v0, v1) @signature `Lcom/google/android/material/shape/CornerSize;.getCornerSize:(Landroid/graphics/RectF;)F` @kind interface;
+  #L1ab8be.  v0:= temp;
+  #L1ab8c0.  return v0;
+}
+procedure `float` `getBottomRightCornerResolvedSize`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBottomRightCornerResolvedSize:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1ab8d4.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab8d8.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L1ab8dc.  call temp:= `getBottomRightCornerSize`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getBottomRightCornerSize:()Lcom/google/android/material/shape/CornerSize;` @kind virtual;
+  #L1ab8e2.  v0:= temp @kind object;
+  #L1ab8e4.  call temp:= `getBoundsAsRectF`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBoundsAsRectF:()Landroid/graphics/RectF;` @kind virtual;
+  #L1ab8ea.  v1:= temp @kind object;
+  #L1ab8ec.  call temp:= `getCornerSize`(v0, v1) @signature `Lcom/google/android/material/shape/CornerSize;.getCornerSize:(Landroid/graphics/RectF;)F` @kind interface;
+  #L1ab8f2.  v0:= temp;
+  #L1ab8f4.  return v0;
+}
+procedure `android.graphics.RectF` `getBoundsAsRectF`(`com.google.android.material.shape.MaterialShapeDrawable` v6 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBoundsAsRectF:()Landroid/graphics/RectF;` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1ab23c.  call temp:= `getBounds`(v6) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBounds:()Landroid/graphics/Rect;` @kind virtual;
+  #L1ab242.  v0:= temp @kind object;
+  #L1ab244.  v1:= v6.`com.google.android.material.shape.MaterialShapeDrawable.rectF` @type ^`android.graphics.RectF` @kind object;
+  #L1ab248.  v2:= v0.`android.graphics.Rect.left` @type ^`int`;
+  #L1ab24c.  v2:= (`float`) v2 @kind i2f;
+  #L1ab24e.  v3:= v0.`android.graphics.Rect.top` @type ^`int`;
+  #L1ab252.  v3:= (`float`) v3 @kind i2f;
+  #L1ab254.  v4:= v0.`android.graphics.Rect.right` @type ^`int`;
+  #L1ab258.  v4:= (`float`) v4 @kind i2f;
+  #L1ab25a.  v5:= v0.`android.graphics.Rect.bottom` @type ^`int`;
+  #L1ab25e.  v5:= (`float`) v5 @kind i2f;
+  #L1ab260.  call `set`(v1, v2, v3, v4, v5) @signature `Landroid/graphics/RectF;.set:(FFFF)V` @kind virtual;
+  #L1ab266.  v1:= v6.`com.google.android.material.shape.MaterialShapeDrawable.rectF` @type ^`android.graphics.RectF` @kind object;
+  #L1ab26a.  return v1 @kind object;
+}
+procedure `android.graphics.drawable.Drawable$ConstantState` `getConstantState`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getConstantState:()Landroid/graphics/drawable/Drawable$ConstantState;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ab348.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab34c.  return v0 @kind object;
+}
+procedure `float` `getElevation`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getElevation:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ab908.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab90c.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.elevation` @type ^`float`;
+  #L1ab910.  return v0;
+}
+procedure `android.content.res.ColorStateList` `getFillColor`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getFillColor:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ab108.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab10c.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.fillColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab110.  return v0 @kind object;
+}
+procedure `float` `getInterpolation`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getInterpolation:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ab924.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab928.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.interpolation` @type ^`float`;
+  #L1ab92c.  return v0;
+}
+procedure `int` `getOpacity`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getOpacity:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1abab4.  v0:= -3I;
+  #L1abab6.  return v0;
+}
+procedure `void` `getOutline`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this, `android.graphics.Outline` v3 @kind object @name `outline`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getOutline:(Landroid/graphics/Outline;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1ac258.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac25c.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatMode` @type ^`int`;
+  #L1ac260.  v1:= 2I;
+  #L1ac262.  if v0 != v1 then goto L1ac268;
+  #L1ac266.  return @kind void;
+  #L1ac268.  call temp:= `isRoundRect`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.isRoundRect:()Z` @kind virtual;
+  #L1ac26e.  v0:= temp;
+  #L1ac270.  if v0 == 0 then goto L1ac28c;
+  #L1ac274.  call temp:= `getTopLeftCornerResolvedSize`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getTopLeftCornerResolvedSize:()F` @kind virtual;
+  #L1ac27a.  v0:= temp;
+  #L1ac27c.  call temp:= `getBounds`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBounds:()Landroid/graphics/Rect;` @kind virtual;
+  #L1ac282.  v1:= temp @kind object;
+  #L1ac284.  call `setRoundRect`(v3, v1, v0) @signature `Landroid/graphics/Outline;.setRoundRect:(Landroid/graphics/Rect;F)V` @kind virtual;
+  #L1ac28a.  return @kind void;
+  #L1ac28c.  call temp:= `getBoundsAsRectF`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBoundsAsRectF:()Landroid/graphics/RectF;` @kind virtual;
+  #L1ac292.  v0:= temp @kind object;
+  #L1ac294.  v1:= v2.`com.google.android.material.shape.MaterialShapeDrawable.path` @type ^`android.graphics.Path` @kind object;
+  #L1ac298.  call `calculatePath`(v2, v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.calculatePath:(Landroid/graphics/RectF;Landroid/graphics/Path;)V` @kind direct;
+  #L1ac29e.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.path` @type ^`android.graphics.Path` @kind object;
+  #L1ac2a2.  call temp:= `isConvex`(v0) @signature `Landroid/graphics/Path;.isConvex:()Z` @kind virtual;
+  #L1ac2a8.  v0:= temp;
+  #L1ac2aa.  if v0 == 0 then goto L1ac2b8;
+  #L1ac2ae.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.path` @type ^`android.graphics.Path` @kind object;
+  #L1ac2b2.  call `setConvexPath`(v3, v0) @signature `Landroid/graphics/Outline;.setConvexPath:(Landroid/graphics/Path;)V` @kind virtual;
+  #L1ac2b8.  return @kind void;
+}
+procedure `boolean` `getPadding`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `android.graphics.Rect` v2 @kind object @name `padding`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getPadding:(Landroid/graphics/Rect;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ab378.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.padding` @type ^`android.graphics.Rect` @kind object;
+  #L1ab37c.  if v0 == 0 then goto L1ab38a;
+  #L1ab380.  call `set`(v2, v0) @signature `Landroid/graphics/Rect;.set:(Landroid/graphics/Rect;)V` @kind virtual;
+  #L1ab386.  v0:= 1I;
+  #L1ab388.  return v0;
+  #L1ab38a.  call temp:= `getPadding`(v1, v2) @signature `Landroid/graphics/drawable/Drawable;.getPadding:(Landroid/graphics/Rect;)Z` @kind super;
+  #L1ab390.  v0:= temp;
+  #L1ab392.  return v0;
+}
+procedure `android.graphics.Paint$Style` `getPaintStyle`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getPaintStyle:()Landroid/graphics/Paint$Style;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ab178.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab17c.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.paintStyle` @type ^`android.graphics.Paint$Style` @kind object;
+  #L1ab180.  return v0 @kind object;
+}
+procedure `float` `getParentAbsoluteElevation`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getParentAbsoluteElevation:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ab940.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab944.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.parentAbsoluteElevation` @type ^`float`;
+  #L1ab948.  return v0;
+}
+procedure `void` `getPathForSize`(`com.google.android.material.shape.MaterialShapeDrawable` v4 @kind this, `int` v5 @name `width`, `int` v6 @name `height`, `android.graphics.Path` v7 @kind object @name `path`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getPathForSize:(IILandroid/graphics/Path;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1ac2cc.  v0:= new `android.graphics.RectF`;
+  #L1ac2d0.  v1:= (`float`) v5 @kind i2f;
+  #L1ac2d2.  v2:= (`float`) v6 @kind i2f;
+  #L1ac2d4.  v3:= 0I;
+  #L1ac2d6.  call `<init>`(v0, v3, v3, v1, v2) @signature `Landroid/graphics/RectF;.<init>:(FFFF)V` @kind direct;
+  #L1ac2dc.  call `calculatePathForSize`(v4, v0, v7) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.calculatePathForSize:(Landroid/graphics/RectF;Landroid/graphics/Path;)V` @kind virtual;
+  #L1ac2e2.  return @kind void;
+}
+procedure `float` `getScale`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getScale:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ab95c.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab960.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.scale` @type ^`float`;
+  #L1ab964.  return v0;
+}
+procedure `int` `getShadowCompatRotation`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShadowCompatRotation:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1abac8.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1abacc.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatRotation` @type ^`int`;
+  #L1abad0.  return v0;
+}
+procedure `int` `getShadowCompatibilityMode`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShadowCompatibilityMode:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1abae4.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1abae8.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatMode` @type ^`int`;
+  #L1abaec.  return v0;
+}
+procedure `int` `getShadowElevation`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShadowElevation:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1abb00.  call temp:= `getElevation`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getElevation:()F` @kind virtual;
+  #L1abb06.  v0:= temp;
+  #L1abb08.  v0:= (`int`) v0 @kind f2i;
+  #L1abb0a.  return v0;
+}
+procedure `int` `getShadowOffsetX`(`com.google.android.material.shape.MaterialShapeDrawable` v4 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShadowOffsetX:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1abb1c.  v0:= v4.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1abb20.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatOffset` @type ^`int`;
+  #L1abb24.  v0:= (`double`) v0 @kind i2d;
+  #L1abb26.  v2:= v4.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1abb2a.  v2:= v2.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatRotation` @type ^`int`;
+  #L1abb2e.  v2:= (`double`) v2 @kind i2d;
+  #L1abb30.  call temp:= `toRadians`(v2) @signature `Ljava/lang/Math;.toRadians:(D)D` @kind static;
+  #L1abb36.  v2:= temp @kind wide;
+  #L1abb38.  call temp:= `sin`(v2) @signature `Ljava/lang/Math;.sin:(D)D` @kind static;
+  #L1abb3e.  v2:= temp @kind wide;
+  #L1abb40.  v0:= v0 * v2 @kind double;
+  #L1abb42.  v0:= (`int`) v0 @kind d2i;
+  #L1abb44.  return v0;
+}
+procedure `int` `getShadowOffsetY`(`com.google.android.material.shape.MaterialShapeDrawable` v4 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShadowOffsetY:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1abb58.  v0:= v4.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1abb5c.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatOffset` @type ^`int`;
+  #L1abb60.  v0:= (`double`) v0 @kind i2d;
+  #L1abb62.  v2:= v4.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1abb66.  v2:= v2.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatRotation` @type ^`int`;
+  #L1abb6a.  v2:= (`double`) v2 @kind i2d;
+  #L1abb6c.  call temp:= `toRadians`(v2) @signature `Ljava/lang/Math;.toRadians:(D)D` @kind static;
+  #L1abb72.  v2:= temp @kind wide;
+  #L1abb74.  call temp:= `cos`(v2) @signature `Ljava/lang/Math;.cos:(D)D` @kind static;
+  #L1abb7a.  v2:= temp @kind wide;
+  #L1abb7c.  v0:= v0 * v2 @kind double;
+  #L1abb7e.  v0:= (`int`) v0 @kind d2i;
+  #L1abb80.  return v0;
+}
+procedure `int` `getShadowRadius`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShadowRadius:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1abb94.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1abb98.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatRadius` @type ^`int`;
+  #L1abb9c.  return v0;
+}
+procedure `int` `getShadowVerticalOffset`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShadowVerticalOffset:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1abbb0.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1abbb4.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatOffset` @type ^`int`;
+  #L1abbb8.  return v0;
+}
+procedure `com.google.android.material.shape.ShapeAppearanceModel` `getShapeAppearanceModel`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShapeAppearanceModel:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ab828.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab82c.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L1ab830.  return v0 @kind object;
+}
+procedure `com.google.android.material.shape.ShapePathModel` `getShapedViewModel`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShapedViewModel:()Lcom/google/android/material/shape/ShapePathModel;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1ab874.  call temp:= `getShapeAppearanceModel`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getShapeAppearanceModel:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L1ab87a.  v0:= temp @kind object;
+  #L1ab87c.  v1:= instanceof @variable v0 @type ^`com.google.android.material.shape.ShapePathModel` @kind boolean;
+  #L1ab880.  if v1 == 0 then goto L1ab88c;
+  #L1ab884.  v1:= v0 @kind object;
+  #L1ab886.  v1:= (`com.google.android.material.shape.ShapePathModel`) v1 @kind object;
+  #L1ab88a.  goto L1ab88e;
+  #L1ab88c.  v1:= 0I;
+  #L1ab88e.  return v1 @kind object;
+}
+procedure `android.content.res.ColorStateList` `getStrokeColor`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getStrokeColor:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ab124.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab128.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.strokeColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab12c.  return v0 @kind object;
+}
+procedure `android.content.res.ColorStateList` `getStrokeTintList`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getStrokeTintList:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ab140.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab144.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.strokeTintList` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab148.  return v0 @kind object;
+}
+procedure `float` `getStrokeWidth`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getStrokeWidth:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ab9ac.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab9b0.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.strokeWidth` @type ^`float`;
+  #L1ab9b4.  return v0;
+}
+procedure `android.content.res.ColorStateList` `getTintList`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getTintList:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ab15c.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab160.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.tintList` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab164.  return v0 @kind object;
+}
+procedure `float` `getTopLeftCornerResolvedSize`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getTopLeftCornerResolvedSize:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1ab9c8.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab9cc.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L1ab9d0.  call temp:= `getTopLeftCornerSize`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getTopLeftCornerSize:()Lcom/google/android/material/shape/CornerSize;` @kind virtual;
+  #L1ab9d6.  v0:= temp @kind object;
+  #L1ab9d8.  call temp:= `getBoundsAsRectF`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBoundsAsRectF:()Landroid/graphics/RectF;` @kind virtual;
+  #L1ab9de.  v1:= temp @kind object;
+  #L1ab9e0.  call temp:= `getCornerSize`(v0, v1) @signature `Lcom/google/android/material/shape/CornerSize;.getCornerSize:(Landroid/graphics/RectF;)F` @kind interface;
+  #L1ab9e6.  v0:= temp;
+  #L1ab9e8.  return v0;
+}
+procedure `float` `getTopRightCornerResolvedSize`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getTopRightCornerResolvedSize:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1ab9fc.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1aba00.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L1aba04.  call temp:= `getTopRightCornerSize`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getTopRightCornerSize:()Lcom/google/android/material/shape/CornerSize;` @kind virtual;
+  #L1aba0a.  v0:= temp @kind object;
+  #L1aba0c.  call temp:= `getBoundsAsRectF`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBoundsAsRectF:()Landroid/graphics/RectF;` @kind virtual;
+  #L1aba12.  v1:= temp @kind object;
+  #L1aba14.  call temp:= `getCornerSize`(v0, v1) @signature `Lcom/google/android/material/shape/CornerSize;.getCornerSize:(Landroid/graphics/RectF;)F` @kind interface;
+  #L1aba1a.  v0:= temp;
+  #L1aba1c.  return v0;
+}
+procedure `float` `getTranslationZ`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getTranslationZ:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1aba30.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1aba34.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.translationZ` @type ^`float`;
+  #L1aba38.  return v0;
+}
+procedure `android.graphics.Region` `getTransparentRegion`(`com.google.android.material.shape.MaterialShapeDrawable` v4 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getTransparentRegion:()Landroid/graphics/Region;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1ab2c4.  call temp:= `getBounds`(v4) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBounds:()Landroid/graphics/Rect;` @kind virtual;
+  #L1ab2ca.  v0:= temp @kind object;
+  #L1ab2cc.  v1:= v4.`com.google.android.material.shape.MaterialShapeDrawable.transparentRegion` @type ^`android.graphics.Region` @kind object;
+  #L1ab2d0.  call temp:= `set`(v1, v0) @signature `Landroid/graphics/Region;.set:(Landroid/graphics/Rect;)Z` @kind virtual;
+  #L1ab2d6.  call temp:= `getBoundsAsRectF`(v4) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBoundsAsRectF:()Landroid/graphics/RectF;` @kind virtual;
+  #L1ab2dc.  v1:= temp @kind object;
+  #L1ab2de.  v2:= v4.`com.google.android.material.shape.MaterialShapeDrawable.path` @type ^`android.graphics.Path` @kind object;
+  #L1ab2e2.  call `calculatePath`(v4, v1, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.calculatePath:(Landroid/graphics/RectF;Landroid/graphics/Path;)V` @kind direct;
+  #L1ab2e8.  v1:= v4.`com.google.android.material.shape.MaterialShapeDrawable.scratchRegion` @type ^`android.graphics.Region` @kind object;
+  #L1ab2ec.  v2:= v4.`com.google.android.material.shape.MaterialShapeDrawable.path` @type ^`android.graphics.Path` @kind object;
+  #L1ab2f0.  v3:= v4.`com.google.android.material.shape.MaterialShapeDrawable.transparentRegion` @type ^`android.graphics.Region` @kind object;
+  #L1ab2f4.  call temp:= `setPath`(v1, v2, v3) @signature `Landroid/graphics/Region;.setPath:(Landroid/graphics/Path;Landroid/graphics/Region;)Z` @kind virtual;
+  #L1ab2fa.  v1:= v4.`com.google.android.material.shape.MaterialShapeDrawable.transparentRegion` @type ^`android.graphics.Region` @kind object;
+  #L1ab2fe.  v2:= v4.`com.google.android.material.shape.MaterialShapeDrawable.scratchRegion` @type ^`android.graphics.Region` @kind object;
+  #L1ab302.  v3:= `@@android.graphics.Region$Op.DIFFERENCE` @type ^`android.graphics.Region$Op` @kind object;
+  #L1ab306.  call temp:= `op`(v1, v2, v3) @signature `Landroid/graphics/Region;.op:(Landroid/graphics/Region;Landroid/graphics/Region$Op;)Z` @kind virtual;
+  #L1ab30c.  v1:= v4.`com.google.android.material.shape.MaterialShapeDrawable.transparentRegion` @type ^`android.graphics.Region` @kind object;
+  #L1ab310.  return v1 @kind object;
+}
+procedure `float` `getZ`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getZ:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1aba4c.  call temp:= `getElevation`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getElevation:()F` @kind virtual;
+  #L1aba52.  v0:= temp;
+  #L1aba54.  call temp:= `getTranslationZ`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getTranslationZ:()F` @kind virtual;
+  #L1aba5a.  v1:= temp;
+  #L1aba5c.  v0:= v0 + v1 @kind float;
+  #L1aba5e.  return v0;
+}
+procedure `void` `initializeElevationOverlay`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this, `android.content.Context` v3 @kind object @name `context`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.initializeElevationOverlay:(Landroid/content/Context;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1ac2f4.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac2f8.  v1:= new `com.google.android.material.elevation.ElevationOverlayProvider`;
+  #L1ac2fc.  call `<init>`(v1, v3) @signature `Lcom/google/android/material/elevation/ElevationOverlayProvider;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L1ac302.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.elevationOverlayProvider` @type ^`com.google.android.material.elevation.ElevationOverlayProvider` := v1 @kind object;
+  #L1ac306.  call `updateZ`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.updateZ:()V` @kind direct;
+  #L1ac30c.  return @kind void;
+}
+procedure `void` `invalidateSelf`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelf:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac320.  v0:= 1I;
+  #L1ac322.  v1.`com.google.android.material.shape.MaterialShapeDrawable.pathDirty` @type ^`boolean` := v0 @kind boolean;
+  #L1ac326.  call `invalidateSelf`(v1) @signature `Landroid/graphics/drawable/Drawable;.invalidateSelf:()V` @kind super;
+  #L1ac32c.  return @kind void;
+}
+procedure `boolean` `isElevationOverlayEnabled`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.isElevationOverlayEnabled:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ab47c.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab480.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.elevationOverlayProvider` @type ^`com.google.android.material.elevation.ElevationOverlayProvider` @kind object;
+  #L1ab484.  if v0 == 0 then goto L1ab4a0;
+  #L1ab488.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab48c.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.elevationOverlayProvider` @type ^`com.google.android.material.elevation.ElevationOverlayProvider` @kind object;
+  #L1ab490.  call temp:= `isThemeElevationOverlayEnabled`(v0) @signature `Lcom/google/android/material/elevation/ElevationOverlayProvider;.isThemeElevationOverlayEnabled:()Z` @kind virtual;
+  #L1ab496.  v0:= temp;
+  #L1ab498.  if v0 == 0 then goto L1ab4a0;
+  #L1ab49c.  v0:= 1I;
+  #L1ab49e.  goto L1ab4a2;
+  #L1ab4a0.  v0:= 0I;
+  #L1ab4a2.  return v0;
+}
+procedure `boolean` `isElevationOverlayInitialized`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.isElevationOverlayInitialized:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ab4b4.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab4b8.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.elevationOverlayProvider` @type ^`com.google.android.material.elevation.ElevationOverlayProvider` @kind object;
+  #L1ab4bc.  if v0 == 0 then goto L1ab4c4;
+  #L1ab4c0.  v0:= 1I;
+  #L1ab4c2.  goto L1ab4c6;
+  #L1ab4c4.  v0:= 0I;
+  #L1ab4c6.  return v0;
+}
+procedure `boolean` `isPointInTransparentRegion`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `int` v2 @name `x`, `int` v3 @name `y`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.isPointInTransparentRegion:(II)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ab4d8.  call temp:= `getTransparentRegion`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getTransparentRegion:()Landroid/graphics/Region;` @kind virtual;
+  #L1ab4de.  v0:= temp @kind object;
+  #L1ab4e0.  call temp:= `contains`(v0, v2, v3) @signature `Landroid/graphics/Region;.contains:(II)Z` @kind virtual;
+  #L1ab4e6.  v0:= temp;
+  #L1ab4e8.  return v0;
+}
+procedure `boolean` `isRoundRect`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.isRoundRect:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1ab4fc.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab500.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L1ab504.  call temp:= `getBoundsAsRectF`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getBoundsAsRectF:()Landroid/graphics/RectF;` @kind virtual;
+  #L1ab50a.  v1:= temp @kind object;
+  #L1ab50c.  call temp:= `isRoundRect`(v0, v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.isRoundRect:(Landroid/graphics/RectF;)Z` @kind virtual;
+  #L1ab512.  v0:= temp;
+  #L1ab514.  return v0;
+}
+procedure `boolean` `isShadowEnabled`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.isShadowEnabled:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1ab528.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab52c.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatMode` @type ^`int`;
+  #L1ab530.  if v0 == 0 then goto L1ab548;
+  #L1ab534.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab538.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatMode` @type ^`int`;
+  #L1ab53c.  v1:= 2I;
+  #L1ab53e.  if v0 != v1 then goto L1ab544;
+  #L1ab542.  goto L1ab548;
+  #L1ab544.  v0:= 0I;
+  #L1ab546.  goto L1ab54a;
+  #L1ab548.  v0:= 1I;
+  #L1ab54a.  return v0;
+}
+procedure `boolean` `isStateful`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.isStateful:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ab55c.  call temp:= `isStateful`(v1) @signature `Landroid/graphics/drawable/Drawable;.isStateful:()Z` @kind super;
+  #L1ab562.  v0:= temp;
+  #L1ab564.  if v0 != 0 then goto L1ab5ee;
+  #L1ab568.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab56c.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.tintList` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab570.  if v0 == 0 then goto L1ab588;
+  #L1ab574.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab578.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.tintList` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab57c.  call temp:= `isStateful`(v0) @signature `Landroid/content/res/ColorStateList;.isStateful:()Z` @kind virtual;
+  #L1ab582.  v0:= temp;
+  #L1ab584.  if v0 != 0 then goto L1ab5ee;
+  #L1ab588.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab58c.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.strokeTintList` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab590.  if v0 == 0 then goto L1ab5a8;
+  #L1ab594.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab598.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.strokeTintList` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab59c.  call temp:= `isStateful`(v0) @signature `Landroid/content/res/ColorStateList;.isStateful:()Z` @kind virtual;
+  #L1ab5a2.  v0:= temp;
+  #L1ab5a4.  if v0 != 0 then goto L1ab5ee;
+  #L1ab5a8.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab5ac.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.strokeColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab5b0.  if v0 == 0 then goto L1ab5c8;
+  #L1ab5b4.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab5b8.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.strokeColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab5bc.  call temp:= `isStateful`(v0) @signature `Landroid/content/res/ColorStateList;.isStateful:()Z` @kind virtual;
+  #L1ab5c2.  v0:= temp;
+  #L1ab5c4.  if v0 != 0 then goto L1ab5ee;
+  #L1ab5c8.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab5cc.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.fillColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab5d0.  if v0 == 0 then goto L1ab5ea;
+  #L1ab5d4.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab5d8.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.fillColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ab5dc.  call temp:= `isStateful`(v0) @signature `Landroid/content/res/ColorStateList;.isStateful:()Z` @kind virtual;
+  #L1ab5e2.  v0:= temp;
+  #L1ab5e4.  if v0 == 0 then goto L1ab5ea;
+  #L1ab5e8.  goto L1ab5ee;
+  #L1ab5ea.  v0:= 0I;
+  #L1ab5ec.  goto L1ab5f0;
+  #L1ab5ee.  v0:= 1I;
+  #L1ab5f0.  return v0;
+}
+procedure `android.graphics.drawable.Drawable` `mutate`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.mutate:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1ab324.  v0:= new `com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState`;
+  #L1ab328.  v1:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ab32c.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable$MaterialShapeDrawableState;.<init>:(Lcom/google/android/material/shape/MaterialShapeDrawable$MaterialShapeDrawableState;)V` @kind direct;
+  #L1ab332.  v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` := v0 @kind object;
+  #L1ab336.  return v2 @kind object;
+}
+procedure `void` `onBoundsChange`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `android.graphics.Rect` v2 @kind object @name `bounds`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.onBoundsChange:(Landroid/graphics/Rect;)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L1ac358.  v0:= 1I;
+  #L1ac35a.  v1.`com.google.android.material.shape.MaterialShapeDrawable.pathDirty` @type ^`boolean` := v0 @kind boolean;
+  #L1ac35e.  call `onBoundsChange`(v1, v2) @signature `Landroid/graphics/drawable/Drawable;.onBoundsChange:(Landroid/graphics/Rect;)V` @kind super;
+  #L1ac364.  return @kind void;
+}
+procedure `boolean` `onStateChange`(`com.google.android.material.shape.MaterialShapeDrawable` v3 @kind this, `int`[] v4 @kind object @name `state`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.onStateChange:([I)Z` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1ab604.  call temp:= `updateColorsForState`(v3, v4) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.updateColorsForState:([I)Z` @kind direct;
+  #L1ab60a.  v0:= temp;
+  #L1ab60c.  call temp:= `updateTintFilter`(v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.updateTintFilter:()Z` @kind direct;
+  #L1ab612.  v1:= temp;
+  #L1ab614.  if v0 != 0 then goto L1ab622;
+  #L1ab618.  if v1 == 0 then goto L1ab61e;
+  #L1ab61c.  goto L1ab622;
+  #L1ab61e.  v2:= 0I;
+  #L1ab620.  goto L1ab624;
+  #L1ab622.  v2:= 1I;
+  #L1ab624.  if v2 == 0 then goto L1ab62e;
+  #L1ab628.  call `invalidateSelf`(v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L1ab62e.  return v2;
+}
+procedure `void` `setAlpha`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `int` v2 @name `alpha`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setAlpha:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac3e4.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac3e8.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.alpha` @type ^`int`;
+  #L1ac3ec.  if v0 == v2 then goto L1ac3fe;
+  #L1ac3f0.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac3f4.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.alpha` @type ^`int` := v2;
+  #L1ac3f8.  call `invalidateSelfIgnoreShape`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelfIgnoreShape:()V` @kind direct;
+  #L1ac3fe.  return @kind void;
+}
+procedure `void` `setColorFilter`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `android.graphics.ColorFilter` v2 @kind object @name `colorFilter`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setColorFilter:(Landroid/graphics/ColorFilter;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac410.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac414.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.colorFilter` @type ^`android.graphics.ColorFilter` := v2 @kind object;
+  #L1ac418.  call `invalidateSelfIgnoreShape`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelfIgnoreShape:()V` @kind direct;
+  #L1ac41e.  return @kind void;
+}
+procedure `void` `setCornerSize`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `float` v2 @name `cornerSize`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setCornerSize:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac458.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac45c.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L1ac460.  call temp:= `withCornerSize`(v0, v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.withCornerSize:(F)Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L1ac466.  v0:= temp @kind object;
+  #L1ac468.  call `setShapeAppearanceModel`(v1, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L1ac46e.  return @kind void;
+}
+procedure `void` `setCornerSize`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `com.google.android.material.shape.CornerSize` v2 @kind object @name `cornerSize`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setCornerSize:(Lcom/google/android/material/shape/CornerSize;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac430.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac434.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L1ac438.  call temp:= `withCornerSize`(v0, v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.withCornerSize:(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L1ac43e.  v0:= temp @kind object;
+  #L1ac440.  call `setShapeAppearanceModel`(v1, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L1ac446.  return @kind void;
+}
+procedure `void` `setElevation`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `float` v2 @name `elevation`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setElevation:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac480.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac484.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.elevation` @type ^`float`;
+  #L1ac488.  v0:= fcmpl(v0, v2);
+  #L1ac48c.  if v0 == 0 then goto L1ac49e;
+  #L1ac490.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac494.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.elevation` @type ^`float` := v2;
+  #L1ac498.  call `updateZ`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.updateZ:()V` @kind direct;
+  #L1ac49e.  return @kind void;
+}
+procedure `void` `setFillColor`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `fillColor`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac4b0.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac4b4.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.fillColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ac4b8.  if v0 == v2 then goto L1ac4d2;
+  #L1ac4bc.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac4c0.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.fillColor` @type ^`android.content.res.ColorStateList` := v2 @kind object;
+  #L1ac4c4.  call temp:= `getState`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getState:()[I` @kind virtual;
+  #L1ac4ca.  v0:= temp @kind object;
+  #L1ac4cc.  call temp:= `onStateChange`(v1, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.onStateChange:([I)Z` @kind virtual;
+  #L1ac4d2.  return @kind void;
+}
+procedure `void` `setInterpolation`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `float` v2 @name `interpolation`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setInterpolation:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac4e4.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac4e8.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.interpolation` @type ^`float`;
+  #L1ac4ec.  v0:= fcmpl(v0, v2);
+  #L1ac4f0.  if v0 == 0 then goto L1ac508;
+  #L1ac4f4.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac4f8.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.interpolation` @type ^`float` := v2;
+  #L1ac4fc.  v0:= 1I;
+  #L1ac4fe.  v1.`com.google.android.material.shape.MaterialShapeDrawable.pathDirty` @type ^`boolean` := v0 @kind boolean;
+  #L1ac502.  call `invalidateSelf`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L1ac508.  return @kind void;
+}
+procedure `void` `setPadding`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this, `int` v3 @name `left`, `int` v4 @name `top`, `int` v5 @name `right`, `int` v6 @name `bottom`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setPadding:(IIII)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1ac51c.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac520.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.padding` @type ^`android.graphics.Rect` @kind object;
+  #L1ac524.  if v0 != 0 then goto L1ac53a;
+  #L1ac528.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac52c.  v1:= new `android.graphics.Rect`;
+  #L1ac530.  call `<init>`(v1) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L1ac536.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.padding` @type ^`android.graphics.Rect` := v1 @kind object;
+  #L1ac53a.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac53e.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.padding` @type ^`android.graphics.Rect` @kind object;
+  #L1ac542.  call `set`(v0, v3, v4, v5, v6) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L1ac548.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac54c.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.padding` @type ^`android.graphics.Rect` @kind object;
+  #L1ac550.  v2.`com.google.android.material.shape.MaterialShapeDrawable.padding` @type ^`android.graphics.Rect` := v0 @kind object;
+  #L1ac554.  call `invalidateSelf`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L1ac55a.  return @kind void;
+}
+procedure `void` `setPaintStyle`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `android.graphics.Paint$Style` v2 @kind object @name `paintStyle`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setPaintStyle:(Landroid/graphics/Paint$Style;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac56c.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac570.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.paintStyle` @type ^`android.graphics.Paint$Style` := v2 @kind object;
+  #L1ac574.  call `invalidateSelfIgnoreShape`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelfIgnoreShape:()V` @kind direct;
+  #L1ac57a.  return @kind void;
+}
+procedure `void` `setParentAbsoluteElevation`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `float` v2 @name `parentAbsoluteElevation`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setParentAbsoluteElevation:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac58c.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac590.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.parentAbsoluteElevation` @type ^`float`;
+  #L1ac594.  v0:= fcmpl(v0, v2);
+  #L1ac598.  if v0 == 0 then goto L1ac5aa;
+  #L1ac59c.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac5a0.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.parentAbsoluteElevation` @type ^`float` := v2;
+  #L1ac5a4.  call `updateZ`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.updateZ:()V` @kind direct;
+  #L1ac5aa.  return @kind void;
+}
+procedure `void` `setScale`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `float` v2 @name `scale`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setScale:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac5bc.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac5c0.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.scale` @type ^`float`;
+  #L1ac5c4.  v0:= fcmpl(v0, v2);
+  #L1ac5c8.  if v0 == 0 then goto L1ac5da;
+  #L1ac5cc.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac5d0.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.scale` @type ^`float` := v2;
+  #L1ac5d4.  call `invalidateSelf`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L1ac5da.  return @kind void;
+}
+procedure `void` `setShadowColor`(`com.google.android.material.shape.MaterialShapeDrawable` v2 @kind this, `int` v3 @name `shadowColor`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShadowColor:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1ac5ec.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.shadowRenderer` @type ^`com.google.android.material.shadow.ShadowRenderer` @kind object;
+  #L1ac5f0.  call `setShadowColor`(v0, v3) @signature `Lcom/google/android/material/shadow/ShadowRenderer;.setShadowColor:(I)V` @kind virtual;
+  #L1ac5f6.  v0:= v2.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac5fa.  v1:= 0I;
+  #L1ac5fc.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.useTintColorForShadow` @type ^`boolean` := v1 @kind boolean;
+  #L1ac600.  call `invalidateSelfIgnoreShape`(v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelfIgnoreShape:()V` @kind direct;
+  #L1ac606.  return @kind void;
+}
+procedure `void` `setShadowCompatRotation`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `int` v2 @name `shadowRotation`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShadowCompatRotation:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac618.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac61c.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatRotation` @type ^`int`;
+  #L1ac620.  if v0 == v2 then goto L1ac632;
+  #L1ac624.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac628.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatRotation` @type ^`int` := v2;
+  #L1ac62c.  call `invalidateSelfIgnoreShape`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelfIgnoreShape:()V` @kind direct;
+  #L1ac632.  return @kind void;
+}
+procedure `void` `setShadowCompatibilityMode`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `int` v2 @name `mode`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShadowCompatibilityMode:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac644.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac648.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatMode` @type ^`int`;
+  #L1ac64c.  if v0 == v2 then goto L1ac65e;
+  #L1ac650.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac654.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatMode` @type ^`int` := v2;
+  #L1ac658.  call `invalidateSelfIgnoreShape`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelfIgnoreShape:()V` @kind direct;
+  #L1ac65e.  return @kind void;
+}
+procedure `void` `setShadowElevation`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `int` v2 @name `shadowElevation`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShadowElevation:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac670.  v0:= (`float`) v2 @kind i2f;
+  #L1ac672.  call `setElevation`(v1, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setElevation:(F)V` @kind virtual;
+  #L1ac678.  return @kind void;
+}
+procedure `void` `setShadowEnabled`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `boolean` v2 @name `shadowEnabled`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShadowEnabled:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac68c.  v0:= v2 ^~ 1;
+  #L1ac690.  call `setShadowCompatibilityMode`(v1, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShadowCompatibilityMode:(I)V` @kind virtual;
+  #L1ac696.  return @kind void;
+}
+procedure `void` `setShadowRadius`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `int` v2 @name `shadowRadius`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShadowRadius:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac6a8.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac6ac.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatRadius` @type ^`int` := v2;
+  #L1ac6b0.  return @kind void;
+}
+procedure `void` `setShadowVerticalOffset`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `int` v2 @name `shadowOffset`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShadowVerticalOffset:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac6c4.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac6c8.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatOffset` @type ^`int`;
+  #L1ac6cc.  if v0 == v2 then goto L1ac6de;
+  #L1ac6d0.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac6d4.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shadowCompatOffset` @type ^`int` := v2;
+  #L1ac6d8.  call `invalidateSelfIgnoreShape`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelfIgnoreShape:()V` @kind direct;
+  #L1ac6de.  return @kind void;
+}
+procedure `void` `setShapeAppearanceModel`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `com.google.android.material.shape.ShapeAppearanceModel` v2 @kind object @name `shapeAppearanceModel`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac6f0.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac6f4.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.shapeAppearanceModel` @type ^`com.google.android.material.shape.ShapeAppearanceModel` := v2 @kind object;
+  #L1ac6f8.  call `invalidateSelf`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L1ac6fe.  return @kind void;
+}
+procedure `void` `setShapedViewModel`(`com.google.android.material.shape.MaterialShapeDrawable` v0 @kind this, `com.google.android.material.shape.ShapePathModel` v1 @kind object @name `shapedViewModel`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShapedViewModel:(Lcom/google/android/material/shape/ShapePathModel;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1ac710.  call `setShapeAppearanceModel`(v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L1ac716.  return @kind void;
+}
+procedure `void` `setStroke`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `float` v2 @name `strokeWidth`, `int` v3 @name `strokeColor`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setStroke:(FI)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac748.  call `setStrokeWidth`(v1, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setStrokeWidth:(F)V` @kind virtual;
+  #L1ac74e.  call temp:= `valueOf`(v3) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1ac754.  v0:= temp @kind object;
+  #L1ac756.  call `setStrokeColor`(v1, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setStrokeColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1ac75c.  return @kind void;
+}
+procedure `void` `setStroke`(`com.google.android.material.shape.MaterialShapeDrawable` v0 @kind this, `float` v1 @name `strokeWidth`, `android.content.res.ColorStateList` v2 @kind object @name `strokeColor`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setStroke:(FLandroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1ac728.  call `setStrokeWidth`(v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setStrokeWidth:(F)V` @kind virtual;
+  #L1ac72e.  call `setStrokeColor`(v0, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setStrokeColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1ac734.  return @kind void;
+}
+procedure `void` `setStrokeColor`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `strokeColor`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setStrokeColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac770.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac774.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.strokeColor` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1ac778.  if v0 == v2 then goto L1ac792;
+  #L1ac77c.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac780.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.strokeColor` @type ^`android.content.res.ColorStateList` := v2 @kind object;
+  #L1ac784.  call temp:= `getState`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getState:()[I` @kind virtual;
+  #L1ac78a.  v0:= temp @kind object;
+  #L1ac78c.  call temp:= `onStateChange`(v1, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.onStateChange:([I)Z` @kind virtual;
+  #L1ac792.  return @kind void;
+}
+procedure `void` `setStrokeTint`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `int` v2 @name `tintColor`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setStrokeTint:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac7cc.  call temp:= `valueOf`(v2) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1ac7d2.  v0:= temp @kind object;
+  #L1ac7d4.  call `setStrokeTint`(v1, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setStrokeTint:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1ac7da.  return @kind void;
+}
+procedure `void` `setStrokeTint`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `tintList`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setStrokeTint:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac7a4.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac7a8.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.strokeTintList` @type ^`android.content.res.ColorStateList` := v2 @kind object;
+  #L1ac7ac.  call temp:= `updateTintFilter`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.updateTintFilter:()Z` @kind direct;
+  #L1ac7b2.  call `invalidateSelfIgnoreShape`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelfIgnoreShape:()V` @kind direct;
+  #L1ac7b8.  return @kind void;
+}
+procedure `void` `setStrokeWidth`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `float` v2 @name `strokeWidth`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setStrokeWidth:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac7ec.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac7f0.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.strokeWidth` @type ^`float` := v2;
+  #L1ac7f4.  call `invalidateSelf`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L1ac7fa.  return @kind void;
+}
+procedure `void` `setTint`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `int` v2 @name `tintColor`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setTint:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac80c.  call temp:= `valueOf`(v2) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1ac812.  v0:= temp @kind object;
+  #L1ac814.  call `setTintList`(v1, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setTintList:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1ac81a.  return @kind void;
+}
+procedure `void` `setTintList`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `tintList`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setTintList:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac82c.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac830.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.tintList` @type ^`android.content.res.ColorStateList` := v2 @kind object;
+  #L1ac834.  call temp:= `updateTintFilter`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.updateTintFilter:()Z` @kind direct;
+  #L1ac83a.  call `invalidateSelfIgnoreShape`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelfIgnoreShape:()V` @kind direct;
+  #L1ac840.  return @kind void;
+}
+procedure `void` `setTintMode`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `android.graphics.PorterDuff$Mode` v2 @kind object @name `tintMode`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setTintMode:(Landroid/graphics/PorterDuff$Mode;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac854.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac858.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.tintMode` @type ^`android.graphics.PorterDuff$Mode` @kind object;
+  #L1ac85c.  if v0 == v2 then goto L1ac874;
+  #L1ac860.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac864.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.tintMode` @type ^`android.graphics.PorterDuff$Mode` := v2 @kind object;
+  #L1ac868.  call temp:= `updateTintFilter`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.updateTintFilter:()Z` @kind direct;
+  #L1ac86e.  call `invalidateSelfIgnoreShape`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelfIgnoreShape:()V` @kind direct;
+  #L1ac874.  return @kind void;
+}
+procedure `void` `setTranslationZ`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `float` v2 @name `translationZ`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setTranslationZ:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac888.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac88c.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.translationZ` @type ^`float`;
+  #L1ac890.  v0:= fcmpl(v0, v2);
+  #L1ac894.  if v0 == 0 then goto L1ac8a6;
+  #L1ac898.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac89c.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.translationZ` @type ^`float` := v2;
+  #L1ac8a0.  call `updateZ`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.updateZ:()V` @kind direct;
+  #L1ac8a6.  return @kind void;
+}
+procedure `void` `setUseTintColorForShadow`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `boolean` v2 @name `useTintColorForShadow`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setUseTintColorForShadow:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac8b8.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac8bc.  v0:= v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.useTintColorForShadow` @type ^`boolean` @kind boolean;
+  #L1ac8c0.  if v0 == v2 then goto L1ac8d2;
+  #L1ac8c4.  v0:= v1.`com.google.android.material.shape.MaterialShapeDrawable.drawableState` @type ^`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState` @kind object;
+  #L1ac8c8.  v0.`com.google.android.material.shape.MaterialShapeDrawable$MaterialShapeDrawableState.useTintColorForShadow` @type ^`boolean` := v2 @kind boolean;
+  #L1ac8cc.  call `invalidateSelf`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.invalidateSelf:()V` @kind virtual;
+  #L1ac8d2.  return @kind void;
+}
+procedure `void` `setZ`(`com.google.android.material.shape.MaterialShapeDrawable` v1 @kind this, `float` v2 @name `z`) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setZ:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1ac8e4.  call temp:= `getElevation`(v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getElevation:()F` @kind virtual;
+  #L1ac8ea.  v0:= temp;
+  #L1ac8ec.  v0:= v2 - v0 @kind float;
+  #L1ac8f0.  call `setTranslationZ`(v1, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setTranslationZ:(F)V` @kind virtual;
+  #L1ac8f6.  return @kind void;
+}

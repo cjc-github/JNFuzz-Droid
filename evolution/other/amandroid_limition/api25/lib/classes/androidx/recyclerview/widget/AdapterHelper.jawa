@@ -1,0 +1,130 @@
+record `androidx.recyclerview.widget.AdapterHelper` @kind class @AccessFlag  extends `androidx.recyclerview.widget.OpReorderer$Callback` @kind interface {
+  `androidx.recyclerview.widget.AdapterHelper$Callback` `androidx.recyclerview.widget.AdapterHelper.mCallback` @AccessFlag FINAL;
+  `boolean` `androidx.recyclerview.widget.AdapterHelper.mDisableRecycler` @AccessFlag FINAL;
+  `int` `androidx.recyclerview.widget.AdapterHelper.mExistingUpdateTypes` @AccessFlag PRIVATE;
+  `java.lang.Runnable` `androidx.recyclerview.widget.AdapterHelper.mOnItemProcessedCallback` @AccessFlag ;
+  `androidx.recyclerview.widget.OpReorderer` `androidx.recyclerview.widget.AdapterHelper.mOpReorderer` @AccessFlag FINAL;
+  `java.util.ArrayList` `androidx.recyclerview.widget.AdapterHelper.mPendingUpdates` @AccessFlag FINAL;
+  `java.util.ArrayList` `androidx.recyclerview.widget.AdapterHelper.mPostponedList` @AccessFlag FINAL;
+  `androidx.core.util.Pools$Pool` `androidx.recyclerview.widget.AdapterHelper.mUpdateOpPool` @AccessFlag PRIVATE;
+}
+global `boolean` `@@androidx.recyclerview.widget.AdapterHelper.DEBUG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.AdapterHelper.POSITION_TYPE_INVISIBLE` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.AdapterHelper.POSITION_TYPE_NEW_OR_LAID_OUT` @AccessFlag STATIC_FINAL;
+global `java.lang.String` `@@androidx.recyclerview.widget.AdapterHelper.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`androidx.recyclerview.widget.AdapterHelper` v1 @kind this, `androidx.recyclerview.widget.AdapterHelper$Callback` v2 @kind object @name `callback`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.<init>:(Landroidx/recyclerview/widget/AdapterHelper$Callback;)V` @AccessFlag CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.recyclerview.widget.AdapterHelper` v2 @kind this, `androidx.recyclerview.widget.AdapterHelper$Callback` v3 @kind object @name `callback`, `boolean` v4 @name `disableRecycler`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.<init>:(Landroidx/recyclerview/widget/AdapterHelper$Callback;Z)V` @AccessFlag CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `applyAdd`(`androidx.recyclerview.widget.AdapterHelper` v0 @kind this, `androidx.recyclerview.widget.AdapterHelper$UpdateOp` v1 @kind object @name `op`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.applyAdd:(Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `applyMove`(`androidx.recyclerview.widget.AdapterHelper` v0 @kind this, `androidx.recyclerview.widget.AdapterHelper$UpdateOp` v1 @kind object @name `op`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.applyMove:(Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `applyRemove`(`androidx.recyclerview.widget.AdapterHelper` v11 @kind this, `androidx.recyclerview.widget.AdapterHelper$UpdateOp` v12 @kind object @name `op`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.applyRemove:(Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `applyUpdate`(`androidx.recyclerview.widget.AdapterHelper` v9 @kind this, `androidx.recyclerview.widget.AdapterHelper$UpdateOp` v10 @kind object @name `op`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.applyUpdate:(Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `canFindInPreLayout`(`androidx.recyclerview.widget.AdapterHelper` v7 @kind this, `int` v8 @name `position`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.canFindInPreLayout:(I)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `dispatchAndUpdateViewHolders`(`androidx.recyclerview.widget.AdapterHelper` v13 @kind this, `androidx.recyclerview.widget.AdapterHelper$UpdateOp` v14 @kind object @name `op`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.dispatchAndUpdateViewHolders:(Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `postponeAndUpdateViewHolders`(`androidx.recyclerview.widget.AdapterHelper` v4 @kind this, `androidx.recyclerview.widget.AdapterHelper$UpdateOp` v5 @kind object @name `op`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.postponeAndUpdateViewHolders:(Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `updatePositionWithPostponed`(`androidx.recyclerview.widget.AdapterHelper` v8 @kind this, `int` v9 @name `pos`, `int` v10 @name `cmd`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.updatePositionWithPostponed:(II)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.AdapterHelper` `addUpdateOp`(`androidx.recyclerview.widget.AdapterHelper` v1 @kind this, `androidx.recyclerview.widget.AdapterHelper$UpdateOp`[] v2 @kind object @name `ops`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.addUpdateOp:([Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;)Landroidx/recyclerview/widget/AdapterHelper;` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `applyPendingUpdatesToPosition`(`androidx.recyclerview.widget.AdapterHelper` v5 @kind this, `int` v6 @name `position`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.applyPendingUpdatesToPosition:(I)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `consumePostponedUpdates`(`androidx.recyclerview.widget.AdapterHelper` v4 @kind this) @signature `Landroidx/recyclerview/widget/AdapterHelper;.consumePostponedUpdates:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `consumeUpdatesInOnePass`(`androidx.recyclerview.widget.AdapterHelper` v7 @kind this) @signature `Landroidx/recyclerview/widget/AdapterHelper;.consumeUpdatesInOnePass:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `dispatchFirstPassAndUpdateViewHolders`(`androidx.recyclerview.widget.AdapterHelper` v3 @kind this, `androidx.recyclerview.widget.AdapterHelper$UpdateOp` v4 @kind object @name `op`, `int` v5 @name `offsetStart`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.dispatchFirstPassAndUpdateViewHolders:(Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `findPositionOffset`(`androidx.recyclerview.widget.AdapterHelper` v1 @kind this, `int` v2 @name `position`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.findPositionOffset:(I)I` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `findPositionOffset`(`androidx.recyclerview.widget.AdapterHelper` v5 @kind this, `int` v6 @name `position`, `int` v7 @name `firstPostponedItem`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.findPositionOffset:(II)I` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `hasAnyUpdateTypes`(`androidx.recyclerview.widget.AdapterHelper` v1 @kind this, `int` v2 @name `updateTypes`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.hasAnyUpdateTypes:(I)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `hasPendingUpdates`(`androidx.recyclerview.widget.AdapterHelper` v1 @kind this) @signature `Landroidx/recyclerview/widget/AdapterHelper;.hasPendingUpdates:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `hasUpdates`(`androidx.recyclerview.widget.AdapterHelper` v1 @kind this) @signature `Landroidx/recyclerview/widget/AdapterHelper;.hasUpdates:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.AdapterHelper$UpdateOp` `obtainUpdateOp`(`androidx.recyclerview.widget.AdapterHelper` v2 @kind this, `int` v3 @name `cmd`, `int` v4 @name `positionStart`, `int` v5 @name `itemCount`, `java.lang.Object` v6 @kind object @name `payload`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.obtainUpdateOp:(IIILjava/lang/Object;)Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onItemRangeChanged`(`androidx.recyclerview.widget.AdapterHelper` v5 @kind this, `int` v6 @name `positionStart`, `int` v7 @name `itemCount`, `java.lang.Object` v8 @kind object @name `payload`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.onItemRangeChanged:(IILjava/lang/Object;)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `onItemRangeInserted`(`androidx.recyclerview.widget.AdapterHelper` v4 @kind this, `int` v5 @name `positionStart`, `int` v6 @name `itemCount`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.onItemRangeInserted:(II)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `onItemRangeMoved`(`androidx.recyclerview.widget.AdapterHelper` v5 @kind this, `int` v6 @name `from`, `int` v7 @name `to`, `int` v8 @name `itemCount`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.onItemRangeMoved:(III)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `onItemRangeRemoved`(`androidx.recyclerview.widget.AdapterHelper` v5 @kind this, `int` v6 @name `positionStart`, `int` v7 @name `itemCount`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.onItemRangeRemoved:(II)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `preProcess`(`androidx.recyclerview.widget.AdapterHelper` v5 @kind this) @signature `Landroidx/recyclerview/widget/AdapterHelper;.preProcess:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `recycleUpdateOp`(`androidx.recyclerview.widget.AdapterHelper` v1 @kind this, `androidx.recyclerview.widget.AdapterHelper$UpdateOp` v2 @kind object @name `op`) @signature `Landroidx/recyclerview/widget/AdapterHelper;.recycleUpdateOp:(Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `recycleUpdateOpsAndClearList`(`androidx.recyclerview.widget.AdapterHelper` v3 @kind this, `java.util.List` v4 @kind object) @signature `Landroidx/recyclerview/widget/AdapterHelper;.recycleUpdateOpsAndClearList:(Ljava/util/List;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `reset`(`androidx.recyclerview.widget.AdapterHelper` v1 @kind this) @signature `Landroidx/recyclerview/widget/AdapterHelper;.reset:()V` @AccessFlag  {
+
+  # return;
+}

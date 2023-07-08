@@ -1,0 +1,71 @@
+record `androidx.core.provider.FontsContractCompat` @kind class @AccessFlag PUBLIC {
+}
+global `int` `@@androidx.core.provider.FontsContractCompat.BACKGROUND_THREAD_KEEP_ALIVE_DURATION_MS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.provider.FontsContractCompat.PARCEL_FONT_RESULTS` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.provider.FontsContractCompat.RESULT_CODE_PROVIDER_NOT_FOUND` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.core.provider.FontsContractCompat.RESULT_CODE_WRONG_CERTIFICATES` @AccessFlag STATIC_FINAL;
+global `androidx.core.provider.SelfDestructiveThread` `@@androidx.core.provider.FontsContractCompat.sBackgroundThread` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.util.Comparator` `@@androidx.core.provider.FontsContractCompat.sByteArrayComparator` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.Object` `@@androidx.core.provider.FontsContractCompat.sLock` @AccessFlag STATIC_FINAL;
+global `androidx.collection.SimpleArrayMap` `@@androidx.core.provider.FontsContractCompat.sPendingReplies` @AccessFlag STATIC_FINAL;
+global `androidx.collection.LruCache` `@@androidx.core.provider.FontsContractCompat.sTypefaceCache` @AccessFlag STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/core/provider/FontsContractCompat;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.core.provider.FontsContractCompat` v0 @kind this) @signature `Landroidx/core/provider/FontsContractCompat;.<init>:()V` @AccessFlag PRIVATE_CONSTRUCTOR {
+
+  # return;
+}
+procedure `android.graphics.Typeface` `buildTypeface`(`android.content.Context` v1 @kind object @name `context`, `android.os.CancellationSignal` v2 @kind object @name `cancellationSignal`, `androidx.core.provider.FontsContractCompat$FontInfo`[] v3 @kind object @name `fonts`) @signature `Landroidx/core/provider/FontsContractCompat;.buildTypeface:(Landroid/content/Context;Landroid/os/CancellationSignal;[Landroidx/core/provider/FontsContractCompat$FontInfo;)Landroid/graphics/Typeface;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `java.util.List` `convertToByteArrayList`(`android.content.pm.Signature`[] v3 @kind object @name `signatures`) @signature `Landroidx/core/provider/FontsContractCompat;.convertToByteArrayList:([Landroid/content/pm/Signature;)Ljava/util/List;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `boolean` `equalsByteArrayList`(`java.util.List` v4 @kind object, `java.util.List` v5 @kind object) @signature `Landroidx/core/provider/FontsContractCompat;.equalsByteArrayList:(Ljava/util/List;Ljava/util/List;)Z` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `androidx.core.provider.FontsContractCompat$FontFamilyResult` `fetchFonts`(`android.content.Context` v4 @kind object @name `context`, `android.os.CancellationSignal` v5 @kind object @name `cancellationSignal`, `androidx.core.provider.FontRequest` v6 @kind object @name `request`) @signature `Landroidx/core/provider/FontsContractCompat;.fetchFonts:(Landroid/content/Context;Landroid/os/CancellationSignal;Landroidx/core/provider/FontRequest;)Landroidx/core/provider/FontsContractCompat$FontFamilyResult;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `java.util.List` `getCertificates`(`androidx.core.provider.FontRequest` v2 @kind object @name `request`, `android.content.res.Resources` v3 @kind object @name `resources`) @signature `Landroidx/core/provider/FontsContractCompat;.getCertificates:(Landroidx/core/provider/FontRequest;Landroid/content/res/Resources;)Ljava/util/List;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `androidx.core.provider.FontsContractCompat$FontInfo`[] `getFontFromProvider`(`android.content.Context` v22 @kind object @name `context`, `androidx.core.provider.FontRequest` v23 @kind object @name `request`, `java.lang.String` v24 @kind object @name `authority`, `android.os.CancellationSignal` v25 @kind object @name `cancellationSignal`) @signature `Landroidx/core/provider/FontsContractCompat;.getFontFromProvider:(Landroid/content/Context;Landroidx/core/provider/FontRequest;Ljava/lang/String;Landroid/os/CancellationSignal;)[Landroidx/core/provider/FontsContractCompat$FontInfo;` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `androidx.core.provider.FontsContractCompat$TypefaceResult` `getFontInternal`(`android.content.Context` v5 @kind object @name `context`, `androidx.core.provider.FontRequest` v6 @kind object @name `request`, `int` v7 @name `style`) @signature `Landroidx/core/provider/FontsContractCompat;.getFontInternal:(Landroid/content/Context;Landroidx/core/provider/FontRequest;I)Landroidx/core/provider/FontsContractCompat$TypefaceResult;` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `android.graphics.Typeface` `getFontSync`(`android.content.Context` v9 @kind object @name `context`, `androidx.core.provider.FontRequest` v10 @kind object @name `request`, `androidx.core.content.res.ResourcesCompat$FontCallback` v11 @kind object @name `fontCallback`, `android.os.Handler` v12 @kind object @name `handler`, `boolean` v13 @name `isBlockingFetch`, `int` v14 @name `timeout`, `int` v15 @name `style`) @signature `Landroidx/core/provider/FontsContractCompat;.getFontSync:(Landroid/content/Context;Landroidx/core/provider/FontRequest;Landroidx/core/content/res/ResourcesCompat$FontCallback;Landroid/os/Handler;ZII)Landroid/graphics/Typeface;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `android.content.pm.ProviderInfo` `getProvider`(`android.content.pm.PackageManager` v8 @kind object @name `packageManager`, `androidx.core.provider.FontRequest` v9 @kind object @name `request`, `android.content.res.Resources` v10 @kind object @name `resources`) @signature `Landroidx/core/provider/FontsContractCompat;.getProvider:(Landroid/content/pm/PackageManager;Landroidx/core/provider/FontRequest;Landroid/content/res/Resources;)Landroid/content/pm/ProviderInfo;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `java.util.Map` `prepareFontData`(`android.content.Context` v6 @kind object @name `context`, `androidx.core.provider.FontsContractCompat$FontInfo`[] v7 @kind object @name `fonts`, `android.os.CancellationSignal` v8 @kind object @name `cancellationSignal`) @signature `Landroidx/core/provider/FontsContractCompat;.prepareFontData:(Landroid/content/Context;[Landroidx/core/provider/FontsContractCompat$FontInfo;Landroid/os/CancellationSignal;)Ljava/util/Map;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `requestFont`(`android.content.Context` v1 @kind object @name `context`, `androidx.core.provider.FontRequest` v2 @kind object @name `request`, `androidx.core.provider.FontsContractCompat$FontRequestCallback` v3 @kind object @name `callback`, `android.os.Handler` v4 @kind object @name `handler`) @signature `Landroidx/core/provider/FontsContractCompat;.requestFont:(Landroid/content/Context;Landroidx/core/provider/FontRequest;Landroidx/core/provider/FontsContractCompat$FontRequestCallback;Landroid/os/Handler;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `requestFontInternal`(`android.content.Context` v2 @kind object @name `appContext`, `androidx.core.provider.FontRequest` v3 @kind object @name `request`, `androidx.core.provider.FontsContractCompat$FontRequestCallback` v4 @kind object @name `callback`, `android.os.Handler` v5 @kind object @name `handler`) @signature `Landroidx/core/provider/FontsContractCompat;.requestFontInternal:(Landroid/content/Context;Landroidx/core/provider/FontRequest;Landroidx/core/provider/FontsContractCompat$FontRequestCallback;Landroid/os/Handler;)V` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `resetCache`() @signature `Landroidx/core/provider/FontsContractCompat;.resetCache:()V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}

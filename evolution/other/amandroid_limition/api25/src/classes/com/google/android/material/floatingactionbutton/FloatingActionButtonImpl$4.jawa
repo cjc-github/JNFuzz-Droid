@@ -1,0 +1,44 @@
+record `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$4` @kind class @AccessFlag  extends `android.animation.TypeEvaluator` @kind interface {
+  `android.animation.FloatEvaluator` `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$4.floatEvaluator` @AccessFlag ;
+  `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$4.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$4` v1 @kind this, `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` v2 @kind object @name `this$0`) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$4;.<init>:(Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L19fa30.  v1.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$4.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` := v2 @kind object;
+  #L19fa34.  call `<init>`(v1) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L19fa3a.  v0:= new `android.animation.FloatEvaluator`;
+  #L19fa3e.  call `<init>`(v0) @signature `Landroid/animation/FloatEvaluator;.<init>:()V` @kind direct;
+  #L19fa44.  v1.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$4.floatEvaluator` @type ^`android.animation.FloatEvaluator` := v0 @kind object;
+  #L19fa48.  return @kind void;
+}
+procedure `java.lang.Float` `evaluate`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$4` v2 @kind this, `float` v3 @name `fraction`, `java.lang.Float` v4 @kind object @name `startValue`, `java.lang.Float` v5 @kind object @name `endValue`) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$4;.evaluate:(FLjava/lang/Float;Ljava/lang/Float;)Ljava/lang/Float;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19f9c8.  v0:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$4.floatEvaluator` @type ^`android.animation.FloatEvaluator` @kind object;
+  #L19f9cc.  call temp:= `evaluate`(v0, v3, v4, v5) @signature `Landroid/animation/FloatEvaluator;.evaluate:(FLjava/lang/Number;Ljava/lang/Number;)Ljava/lang/Float;` @kind virtual;
+  #L19f9d2.  v0:= temp @kind object;
+  #L19f9d4.  call temp:= `floatValue`(v0) @signature `Ljava/lang/Float;.floatValue:()F` @kind virtual;
+  #L19f9da.  v0:= temp;
+  #L19f9dc.  v1:= 1036831949I;
+  #L19f9e2.  v1:= fcmpg(v0, v1);
+  #L19f9e6.  if v1 >= 0 then goto L19f9ee;
+  #L19f9ea.  v1:= 0I;
+  #L19f9ec.  goto L19f9f0;
+  #L19f9ee.  v1:= v0;
+  #L19f9f0.  call temp:= `valueOf`(v1) @signature `Ljava/lang/Float;.valueOf:(F)Ljava/lang/Float;` @kind static;
+  #L19f9f6.  v1:= temp @kind object;
+  #L19f9f8.  return v1 @kind object;
+}
+procedure `java.lang.Object` `evaluate`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$4` v0 @kind this, `float` v1 , `java.lang.Object` v2 @kind object, `java.lang.Object` v3 @kind object) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$4;.evaluate:(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19fa0c.  v2:= (`java.lang.Float`) v2 @kind object;
+  #L19fa10.  v3:= (`java.lang.Float`) v3 @kind object;
+  #L19fa14.  call temp:= `evaluate`(v0, v1, v2, v3) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl$4;.evaluate:(FLjava/lang/Float;Ljava/lang/Float;)Ljava/lang/Float;` @kind virtual;
+  #L19fa1a.  v1:= temp @kind object;
+  #L19fa1c.  return v1 @kind object;
+}

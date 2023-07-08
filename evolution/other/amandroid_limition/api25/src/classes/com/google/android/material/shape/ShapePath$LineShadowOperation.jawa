@@ -1,0 +1,78 @@
+record `com.google.android.material.shape.ShapePath$LineShadowOperation` @kind class @AccessFlag  extends `com.google.android.material.shape.ShapePath$ShadowCompatOperation` @kind class {
+  `com.google.android.material.shape.ShapePath$PathLineOperation` `com.google.android.material.shape.ShapePath$LineShadowOperation.operation` @AccessFlag PRIVATE_FINAL;
+  `float` `com.google.android.material.shape.ShapePath$LineShadowOperation.startX` @AccessFlag PRIVATE_FINAL;
+  `float` `com.google.android.material.shape.ShapePath$LineShadowOperation.startY` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.shape.ShapePath$LineShadowOperation` v0 @kind this, `com.google.android.material.shape.ShapePath$PathLineOperation` v1 @kind object @name `operation`, `float` v2 @name `startX`, `float` v3 @name `startY`) @signature `Lcom/google/android/material/shape/ShapePath$LineShadowOperation;.<init>:(Lcom/google/android/material/shape/ShapePath$PathLineOperation;FF)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1ae27c.  call `<init>`(v0) @signature `Lcom/google/android/material/shape/ShapePath$ShadowCompatOperation;.<init>:()V` @kind direct;
+  #L1ae282.  v0.`com.google.android.material.shape.ShapePath$LineShadowOperation.operation` @type ^`com.google.android.material.shape.ShapePath$PathLineOperation` := v1 @kind object;
+  #L1ae286.  v0.`com.google.android.material.shape.ShapePath$LineShadowOperation.startX` @type ^`float` := v2;
+  #L1ae28a.  v0.`com.google.android.material.shape.ShapePath$LineShadowOperation.startY` @type ^`float` := v3;
+  #L1ae28e.  return @kind void;
+}
+procedure `void` `draw`(`com.google.android.material.shape.ShapePath$LineShadowOperation` v7 @kind this, `android.graphics.Matrix` v8 @kind object @name `transform`, `com.google.android.material.shadow.ShadowRenderer` v9 @kind object @name `shadowRenderer`, `int` v10 @name `shadowElevation`, `android.graphics.Canvas` v11 @kind object @name `canvas`) @signature `Lcom/google/android/material/shape/ShapePath$LineShadowOperation;.draw:(Landroid/graphics/Matrix;Lcom/google/android/material/shadow/ShadowRenderer;ILandroid/graphics/Canvas;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L1ae2a0.  v0:= v7.`com.google.android.material.shape.ShapePath$LineShadowOperation.operation` @type ^`com.google.android.material.shape.ShapePath$PathLineOperation` @kind object;
+  #L1ae2a4.  call temp:= `access$100`(v0) @signature `Lcom/google/android/material/shape/ShapePath$PathLineOperation;.access$100:(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F` @kind static;
+  #L1ae2aa.  v0:= temp;
+  #L1ae2ac.  v1:= v7.`com.google.android.material.shape.ShapePath$LineShadowOperation.startY` @type ^`float`;
+  #L1ae2b0.  v0:= v0 - v1 @kind float;
+  #L1ae2b2.  v1:= v7.`com.google.android.material.shape.ShapePath$LineShadowOperation.operation` @type ^`com.google.android.material.shape.ShapePath$PathLineOperation` @kind object;
+  #L1ae2b6.  call temp:= `access$000`(v1) @signature `Lcom/google/android/material/shape/ShapePath$PathLineOperation;.access$000:(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F` @kind static;
+  #L1ae2bc.  v1:= temp;
+  #L1ae2be.  v2:= v7.`com.google.android.material.shape.ShapePath$LineShadowOperation.startX` @type ^`float`;
+  #L1ae2c2.  v1:= v1 - v2 @kind float;
+  #L1ae2c4.  v2:= new `android.graphics.RectF`;
+  #L1ae2c8.  v3:= (`double`) v0 @kind f2d;
+  #L1ae2ca.  v5:= (`double`) v1 @kind f2d;
+  #L1ae2cc.  call temp:= `hypot`(v3, v5) @signature `Ljava/lang/Math;.hypot:(DD)D` @kind static;
+  #L1ae2d2.  v3:= temp @kind wide;
+  #L1ae2d4.  v3:= (`float`) v3 @kind d2f;
+  #L1ae2d6.  v4:= 0I;
+  #L1ae2d8.  call `<init>`(v2, v4, v4, v3, v4) @signature `Landroid/graphics/RectF;.<init>:(FFFF)V` @kind direct;
+  #L1ae2de.  v3:= new `android.graphics.Matrix`;
+  #L1ae2e2.  call `<init>`(v3, v8) @signature `Landroid/graphics/Matrix;.<init>:(Landroid/graphics/Matrix;)V` @kind direct;
+  #L1ae2e8.  v4:= v7.`com.google.android.material.shape.ShapePath$LineShadowOperation.startX` @type ^`float`;
+  #L1ae2ec.  v5:= v7.`com.google.android.material.shape.ShapePath$LineShadowOperation.startY` @type ^`float`;
+  #L1ae2f0.  call temp:= `preTranslate`(v3, v4, v5) @signature `Landroid/graphics/Matrix;.preTranslate:(FF)Z` @kind virtual;
+  #L1ae2f6.  call temp:= `getAngle`(v7) @signature `Lcom/google/android/material/shape/ShapePath$LineShadowOperation;.getAngle:()F` @kind virtual;
+  #L1ae2fc.  v4:= temp;
+  #L1ae2fe.  call temp:= `preRotate`(v3, v4) @signature `Landroid/graphics/Matrix;.preRotate:(F)Z` @kind virtual;
+  #L1ae304.  call `drawEdgeShadow`(v9, v11, v3, v2, v10) @signature `Lcom/google/android/material/shadow/ShadowRenderer;.drawEdgeShadow:(Landroid/graphics/Canvas;Landroid/graphics/Matrix;Landroid/graphics/RectF;I)V` @kind virtual;
+  #L1ae30a.  return @kind void;
+}
+procedure `float` `getAngle`(`com.google.android.material.shape.ShapePath$LineShadowOperation` v3 @kind this) @signature `Lcom/google/android/material/shape/ShapePath$LineShadowOperation;.getAngle:()F` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1ae230.  v0:= v3.`com.google.android.material.shape.ShapePath$LineShadowOperation.operation` @type ^`com.google.android.material.shape.ShapePath$PathLineOperation` @kind object;
+  #L1ae234.  call temp:= `access$100`(v0) @signature `Lcom/google/android/material/shape/ShapePath$PathLineOperation;.access$100:(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F` @kind static;
+  #L1ae23a.  v0:= temp;
+  #L1ae23c.  v1:= v3.`com.google.android.material.shape.ShapePath$LineShadowOperation.startY` @type ^`float`;
+  #L1ae240.  v0:= v0 - v1 @kind float;
+  #L1ae242.  v1:= v3.`com.google.android.material.shape.ShapePath$LineShadowOperation.operation` @type ^`com.google.android.material.shape.ShapePath$PathLineOperation` @kind object;
+  #L1ae246.  call temp:= `access$000`(v1) @signature `Lcom/google/android/material/shape/ShapePath$PathLineOperation;.access$000:(Lcom/google/android/material/shape/ShapePath$PathLineOperation;)F` @kind static;
+  #L1ae24c.  v1:= temp;
+  #L1ae24e.  v2:= v3.`com.google.android.material.shape.ShapePath$LineShadowOperation.startX` @type ^`float`;
+  #L1ae252.  v1:= v1 - v2 @kind float;
+  #L1ae254.  v0:= v0 / v1 @kind float;
+  #L1ae256.  v0:= (`double`) v0 @kind f2d;
+  #L1ae258.  call temp:= `atan`(v0) @signature `Ljava/lang/Math;.atan:(D)D` @kind static;
+  #L1ae25e.  v0:= temp @kind wide;
+  #L1ae260.  call temp:= `toDegrees`(v0) @signature `Ljava/lang/Math;.toDegrees:(D)D` @kind static;
+  #L1ae266.  v0:= temp @kind wide;
+  #L1ae268.  v0:= (`float`) v0 @kind d2f;
+  #L1ae26a.  return v0;
+}

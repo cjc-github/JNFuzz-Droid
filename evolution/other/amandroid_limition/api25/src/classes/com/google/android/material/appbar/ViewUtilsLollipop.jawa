@@ -1,0 +1,135 @@
+record `com.google.android.material.appbar.ViewUtilsLollipop` @kind class @AccessFlag  {
+}
+global `int`[] `@@com.google.android.material.appbar.ViewUtilsLollipop.STATE_LIST_ANIM_ATTRS` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/appbar/ViewUtilsLollipop;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L182778.  v0:= 1I;
+  #L18277a.  v0:= new `int`[v0];
+  #L18277e.  v1:= 0I;
+  #L182780.  v2:= 16843848I;
+  #L182786.  v0[v1]:= v2;
+  #L18278a.  `@@com.google.android.material.appbar.ViewUtilsLollipop.STATE_LIST_ANIM_ATTRS` @type ^`int`[] := v0 @kind object;
+  #L18278e.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.ViewUtilsLollipop` v0 @kind this) @signature `Lcom/google/android/material/appbar/ViewUtilsLollipop;.<init>:()V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1827a0.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1827a6.  return @kind void;
+}
+procedure `void` `setBoundsViewOutlineProvider`(`android.view.View` v1 @kind object @name `view`) @signature `Lcom/google/android/material/appbar/ViewUtilsLollipop;.setBoundsViewOutlineProvider:(Landroid/view/View;)V` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L1827b8.  v0:= `@@android.view.ViewOutlineProvider.BOUNDS` @type ^`android.view.ViewOutlineProvider` @kind object;
+  #L1827bc.  call `setOutlineProvider`(v1, v0) @signature `Landroid/view/View;.setOutlineProvider:(Landroid/view/ViewOutlineProvider;)V` @kind virtual;
+  #L1827c2.  return @kind void;
+}
+procedure `void` `setDefaultAppBarLayoutStateListAnimator`(`android.view.View` v11 @kind object @name `view`, `float` v12 @name `elevation`) @signature `Lcom/google/android/material/appbar/ViewUtilsLollipop;.setDefaultAppBarLayoutStateListAnimator:(Landroid/view/View;F)V` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+
+  #L1827d4.  call temp:= `getResources`(v11) @signature `Landroid/view/View;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1827da.  v0:= temp @kind object;
+  #L1827dc.  v1:= `@@com.google.android.material.R$integer.app_bar_elevation_anim_duration` @type ^`int`;
+  #L1827e0.  call temp:= `getInteger`(v0, v1) @signature `Landroid/content/res/Resources;.getInteger:(I)I` @kind virtual;
+  #L1827e6.  v0:= temp;
+  #L1827e8.  v1:= new `android.animation.StateListAnimator`;
+  #L1827ec.  call `<init>`(v1) @signature `Landroid/animation/StateListAnimator;.<init>:()V` @kind direct;
+  #L1827f2.  v2:= 3I;
+  #L1827f4.  v2:= new `int`[v2];
+  #L1827f8.  v3:= 0I;
+  #L1827fa.  v4:= 16842766I;
+  #L182800.  v2[v3]:= v4;
+  #L182804.  v5:= `@@com.google.android.material.R$attr.state_liftable` @type ^`int`;
+  #L182808.  v6:= 1I;
+  #L18280a.  v2[v6]:= v5;
+  #L18280e.  v5:= `@@com.google.android.material.R$attr.state_lifted` @type ^`int`;
+  #L182812.  v5:= -v5 @kind int;
+  #L182814.  v7:= 2I;
+  #L182816.  v2[v7]:= v5;
+  #L18281a.  v5:= new `float`[v6];
+  #L18281e.  v7:= 0I;
+  #L182820.  v5[v3]:= v7;
+  #L182824.  v8:= "elevation" @kind object;
+  #L182828.  call temp:= `ofFloat`(v11, v8, v5) @signature `Landroid/animation/ObjectAnimator;.ofFloat:(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;` @kind static;
+  #L18282e.  v5:= temp @kind object;
+  #L182830.  v9:= (`long`) v0 @kind i2l;
+  #L182832.  call temp:= `setDuration`(v5, v9) @signature `Landroid/animation/ObjectAnimator;.setDuration:(J)Landroid/animation/ObjectAnimator;` @kind virtual;
+  #L182838.  v5:= temp @kind object;
+  #L18283a.  call `addState`(v1, v2, v5) @signature `Landroid/animation/StateListAnimator;.addState:([ILandroid/animation/Animator;)V` @kind virtual;
+  #L182840.  v2:= new `int`[v6];
+  #L182844.  v2[v3]:= v4;
+  #L182848.  v4:= new `float`[v6];
+  #L18284c.  v4[v3]:= v12;
+  #L182850.  call temp:= `ofFloat`(v11, v8, v4) @signature `Landroid/animation/ObjectAnimator;.ofFloat:(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;` @kind static;
+  #L182856.  v4:= temp @kind object;
+  #L182858.  v9:= (`long`) v0 @kind i2l;
+  #L18285a.  call temp:= `setDuration`(v4, v9) @signature `Landroid/animation/ObjectAnimator;.setDuration:(J)Landroid/animation/ObjectAnimator;` @kind virtual;
+  #L182860.  v4:= temp @kind object;
+  #L182862.  call `addState`(v1, v2, v4) @signature `Landroid/animation/StateListAnimator;.addState:([ILandroid/animation/Animator;)V` @kind virtual;
+  #L182868.  v2:= new `int`[v3];
+  #L18286c.  v4:= new `float`[v6];
+  #L182870.  v4[v3]:= v7;
+  #L182874.  call temp:= `ofFloat`(v11, v8, v4) @signature `Landroid/animation/ObjectAnimator;.ofFloat:(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;` @kind static;
+  #L18287a.  v3:= temp @kind object;
+  #L18287c.  v4:= 0L;
+  #L182880.  call temp:= `setDuration`(v3, v4) @signature `Landroid/animation/ObjectAnimator;.setDuration:(J)Landroid/animation/ObjectAnimator;` @kind virtual;
+  #L182886.  v3:= temp @kind object;
+  #L182888.  call `addState`(v1, v2, v3) @signature `Landroid/animation/StateListAnimator;.addState:([ILandroid/animation/Animator;)V` @kind virtual;
+  #L18288e.  call `setStateListAnimator`(v11, v1) @signature `Landroid/view/View;.setStateListAnimator:(Landroid/animation/StateListAnimator;)V` @kind virtual;
+  #L182894.  return @kind void;
+}
+procedure `void` `setStateListAnimatorFromAttrs`(`android.view.View` v8 @kind object @name `view`, `android.util.AttributeSet` v9 @kind object @name `attrs`, `int` v10 @name `defStyleAttr`, `int` v11 @name `defStyleRes`) @signature `Lcom/google/android/material/appbar/ViewUtilsLollipop;.setStateListAnimatorFromAttrs:(Landroid/view/View;Landroid/util/AttributeSet;II)V` @AccessFlag STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L1828a8.  call temp:= `getContext`(v8) @signature `Landroid/view/View;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1828ae.  v6:= temp @kind object;
+  #L1828b0.  v2:= `@@com.google.android.material.appbar.ViewUtilsLollipop.STATE_LIST_ANIM_ATTRS` @type ^`int`[] @kind object;
+  #L1828b4.  v7:= 0I;
+  #L1828b6.  v5:= new `int`[v7];
+  #L1828ba.  v0:= v6 @kind object;
+  #L1828bc.  v1:= v9 @kind object;
+  #L1828be.  v3:= v10;
+  #L1828c0.  v4:= v11;
+  #L1828c2.  call temp:= `obtainStyledAttributes`(v0, v1, v2, v3, v4, v5) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainStyledAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;` @kind static;
+  #L1828c8.  v0:= temp @kind object;
+  #L1828ca.  call temp:= `hasValue`(v0, v7) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1828d0.  v1:= temp;
+  #L1828d2.  if v1 == 0 then goto L1828ee;
+  #L1828d6.  
+  #L1828d8.  call temp:= `getResourceId`(v0, v7, v7) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1828de.  v1:= temp;
+  #L1828e0.  call temp:= `loadStateListAnimator`(v6, v1) @signature `Landroid/animation/AnimatorInflater;.loadStateListAnimator:(Landroid/content/Context;I)Landroid/animation/StateListAnimator;` @kind static;
+  #L1828e6.  v1:= temp @kind object;
+  #L1828e8.  call `setStateListAnimator`(v8, v1) @signature `Landroid/view/View;.setStateListAnimator:(Landroid/animation/StateListAnimator;)V` @kind virtual;
+  #L1828ee.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1828f4.  
+  #L1828f6.  return @kind void;
+  #L1828f8.  v1:= Exception @type ^`java.lang.Throwable` @kind object;
+  #L1828fa.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L182900.  throw v1;
+  catch `java.lang.Throwable` @[L1828ca..L1828ee] goto L1828f8;
+}

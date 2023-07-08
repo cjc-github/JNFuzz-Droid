@@ -1,0 +1,211 @@
+record `com.google.android.material.textfield.CutoutDrawable` @kind class @AccessFlag  extends `com.google.android.material.shape.MaterialShapeDrawable` @kind class {
+  `android.graphics.RectF` `com.google.android.material.textfield.CutoutDrawable.cutoutBounds` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.Paint` `com.google.android.material.textfield.CutoutDrawable.cutoutPaint` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.textfield.CutoutDrawable.savedLayer` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.CutoutDrawable` v1 @kind this) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.<init>:()V` @AccessFlag CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1b6338.  v0:= 0I;
+  #L1b633a.  call `<init>`(v1, v0) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L1b6340.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.CutoutDrawable` v2 @kind this, `com.google.android.material.shape.ShapeAppearanceModel` v3 @kind object @name `shapeAppearanceModel`) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L1b6354.  if v3 == 0 then goto L1b635c;
+  #L1b6358.  v0:= v3 @kind object;
+  #L1b635a.  goto L1b6366;
+  #L1b635c.  v0:= new `com.google.android.material.shape.ShapeAppearanceModel`;
+  #L1b6360.  call `<init>`(v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.<init>:()V` @kind direct;
+  #L1b6366.  call `<init>`(v2, v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L1b636c.  v0:= new `android.graphics.Paint`;
+  #L1b6370.  v1:= 1I;
+  #L1b6372.  call `<init>`(v0, v1) @signature `Landroid/graphics/Paint;.<init>:(I)V` @kind direct;
+  #L1b6378.  v2.`com.google.android.material.textfield.CutoutDrawable.cutoutPaint` @type ^`android.graphics.Paint` := v0 @kind object;
+  #L1b637c.  call `setPaintStyles`(v2) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.setPaintStyles:()V` @kind direct;
+  #L1b6382.  v0:= new `android.graphics.RectF`;
+  #L1b6386.  call `<init>`(v0) @signature `Landroid/graphics/RectF;.<init>:()V` @kind direct;
+  #L1b638c.  v2.`com.google.android.material.textfield.CutoutDrawable.cutoutBounds` @type ^`android.graphics.RectF` := v0 @kind object;
+  #L1b6390.  return @kind void;
+}
+procedure `void` `postDraw`(`com.google.android.material.textfield.CutoutDrawable` v1 @kind this, `android.graphics.Canvas` v2 @kind object @name `canvas`) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.postDraw:(Landroid/graphics/Canvas;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1b63d8.  call temp:= `getCallback`(v1) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.getCallback:()Landroid/graphics/drawable/Drawable$Callback;` @kind virtual;
+  #L1b63de.  v0:= temp @kind object;
+  #L1b63e0.  call temp:= `useHardwareLayer`(v1, v0) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.useHardwareLayer:(Landroid/graphics/drawable/Drawable$Callback;)Z` @kind direct;
+  #L1b63e6.  v0:= temp;
+  #L1b63e8.  if v0 != 0 then goto L1b63f6;
+  #L1b63ec.  v0:= v1.`com.google.android.material.textfield.CutoutDrawable.savedLayer` @type ^`int`;
+  #L1b63f0.  call `restoreToCount`(v2, v0) @signature `Landroid/graphics/Canvas;.restoreToCount:(I)V` @kind virtual;
+  #L1b63f6.  return @kind void;
+}
+procedure `void` `preDraw`(`com.google.android.material.textfield.CutoutDrawable` v4 @kind this, `android.graphics.Canvas` v5 @kind object @name `canvas`) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.preDraw:(Landroid/graphics/Canvas;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b6408.  call temp:= `getCallback`(v4) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.getCallback:()Landroid/graphics/drawable/Drawable$Callback;` @kind virtual;
+  #L1b640e.  v0:= temp @kind object;
+  #L1b6410.  call temp:= `useHardwareLayer`(v4, v0) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.useHardwareLayer:(Landroid/graphics/drawable/Drawable$Callback;)Z` @kind direct;
+  #L1b6416.  v1:= temp;
+  #L1b6418.  if v1 == 0 then goto L1b643a;
+  #L1b641c.  v1:= v0 @kind object;
+  #L1b641e.  v1:= (`android.view.View`) v1 @kind object;
+  #L1b6422.  call temp:= `getLayerType`(v1) @signature `Landroid/view/View;.getLayerType:()I` @kind virtual;
+  #L1b6428.  v2:= temp;
+  #L1b642a.  v3:= 2I;
+  #L1b642c.  if v2 == v3 then goto L1b6438;
+  #L1b6430.  v2:= 0I;
+  #L1b6432.  call `setLayerType`(v1, v3, v2) @signature `Landroid/view/View;.setLayerType:(ILandroid/graphics/Paint;)V` @kind virtual;
+  #L1b6438.  goto L1b6440;
+  #L1b643a.  call `saveCanvasLayer`(v4, v5) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.saveCanvasLayer:(Landroid/graphics/Canvas;)V` @kind direct;
+  #L1b6440.  return @kind void;
+}
+procedure `void` `saveCanvasLayer`(`com.google.android.material.textfield.CutoutDrawable` v8 @kind this, `android.graphics.Canvas` v9 @kind object @name `canvas`) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.saveCanvasLayer:(Landroid/graphics/Canvas;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L1b6470.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1b6474.  v1:= 21I;
+  #L1b6478.  if v0 < v1 then goto L1b64a6;
+  #L1b647c.  v3:= 0I;
+  #L1b647e.  v4:= 0I;
+  #L1b6480.  call temp:= `getWidth`(v9) @signature `Landroid/graphics/Canvas;.getWidth:()I` @kind virtual;
+  #L1b6486.  v0:= temp;
+  #L1b6488.  v5:= (`float`) v0 @kind i2f;
+  #L1b648a.  call temp:= `getHeight`(v9) @signature `Landroid/graphics/Canvas;.getHeight:()I` @kind virtual;
+  #L1b6490.  v0:= temp;
+  #L1b6492.  v6:= (`float`) v0 @kind i2f;
+  #L1b6494.  v7:= 0I;
+  #L1b6496.  v2:= v9 @kind object;
+  #L1b6498.  call temp:= `saveLayer`(v2, v3, v4, v5, v6, v7) @signature `Landroid/graphics/Canvas;.saveLayer:(FFFFLandroid/graphics/Paint;)I` @kind virtual;
+  #L1b649e.  v0:= temp;
+  #L1b64a0.  v8.`com.google.android.material.textfield.CutoutDrawable.savedLayer` @type ^`int` := v0;
+  #L1b64a4.  goto L1b64d2;
+  #L1b64a6.  v2:= 0I;
+  #L1b64a8.  v3:= 0I;
+  #L1b64aa.  call temp:= `getWidth`(v9) @signature `Landroid/graphics/Canvas;.getWidth:()I` @kind virtual;
+  #L1b64b0.  v0:= temp;
+  #L1b64b2.  v4:= (`float`) v0 @kind i2f;
+  #L1b64b4.  call temp:= `getHeight`(v9) @signature `Landroid/graphics/Canvas;.getHeight:()I` @kind virtual;
+  #L1b64ba.  v0:= temp;
+  #L1b64bc.  v5:= (`float`) v0 @kind i2f;
+  #L1b64be.  v6:= 0I;
+  #L1b64c0.  v7:= 31I;
+  #L1b64c4.  v1:= v9 @kind object;
+  #L1b64c6.  call temp:= `saveLayer`(v1, v2, v3, v4, v5, v6, v7) @signature `Landroid/graphics/Canvas;.saveLayer:(FFFFLandroid/graphics/Paint;I)I` @kind virtual;
+  #L1b64cc.  v0:= temp;
+  #L1b64ce.  v8.`com.google.android.material.textfield.CutoutDrawable.savedLayer` @type ^`int` := v0;
+  #L1b64d2.  return @kind void;
+}
+procedure `void` `setPaintStyles`(`com.google.android.material.textfield.CutoutDrawable` v3 @kind this) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.setPaintStyles:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b6570.  v0:= v3.`com.google.android.material.textfield.CutoutDrawable.cutoutPaint` @type ^`android.graphics.Paint` @kind object;
+  #L1b6574.  v1:= `@@android.graphics.Paint$Style.FILL_AND_STROKE` @type ^`android.graphics.Paint$Style` @kind object;
+  #L1b6578.  call `setStyle`(v0, v1) @signature `Landroid/graphics/Paint;.setStyle:(Landroid/graphics/Paint$Style;)V` @kind virtual;
+  #L1b657e.  v0:= v3.`com.google.android.material.textfield.CutoutDrawable.cutoutPaint` @type ^`android.graphics.Paint` @kind object;
+  #L1b6582.  v1:= -1I;
+  #L1b6584.  call `setColor`(v0, v1) @signature `Landroid/graphics/Paint;.setColor:(I)V` @kind virtual;
+  #L1b658a.  v0:= v3.`com.google.android.material.textfield.CutoutDrawable.cutoutPaint` @type ^`android.graphics.Paint` @kind object;
+  #L1b658e.  v1:= new `android.graphics.PorterDuffXfermode`;
+  #L1b6592.  v2:= `@@android.graphics.PorterDuff$Mode.DST_OUT` @type ^`android.graphics.PorterDuff$Mode` @kind object;
+  #L1b6596.  call `<init>`(v1, v2) @signature `Landroid/graphics/PorterDuffXfermode;.<init>:(Landroid/graphics/PorterDuff$Mode;)V` @kind direct;
+  #L1b659c.  call temp:= `setXfermode`(v0, v1) @signature `Landroid/graphics/Paint;.setXfermode:(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;` @kind virtual;
+  #L1b65a2.  return @kind void;
+}
+procedure `boolean` `useHardwareLayer`(`com.google.android.material.textfield.CutoutDrawable` v1 @kind this, `android.graphics.drawable.Drawable$Callback` v2 @kind object @name `callback`) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.useHardwareLayer:(Landroid/graphics/drawable/Drawable$Callback;)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1b6320.  v0:= instanceof @variable v2 @type ^`android.view.View` @kind boolean;
+  #L1b6324.  return v0;
+}
+procedure `void` `draw`(`com.google.android.material.textfield.CutoutDrawable` v2 @kind this, `android.graphics.Canvas` v3 @kind object @name `canvas`) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.draw:(Landroid/graphics/Canvas;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b63a4.  call `preDraw`(v2, v3) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.preDraw:(Landroid/graphics/Canvas;)V` @kind direct;
+  #L1b63aa.  call `draw`(v2, v3) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.draw:(Landroid/graphics/Canvas;)V` @kind super;
+  #L1b63b0.  v0:= v2.`com.google.android.material.textfield.CutoutDrawable.cutoutBounds` @type ^`android.graphics.RectF` @kind object;
+  #L1b63b4.  v1:= v2.`com.google.android.material.textfield.CutoutDrawable.cutoutPaint` @type ^`android.graphics.Paint` @kind object;
+  #L1b63b8.  call `drawRect`(v3, v0, v1) @signature `Landroid/graphics/Canvas;.drawRect:(Landroid/graphics/RectF;Landroid/graphics/Paint;)V` @kind virtual;
+  #L1b63be.  call `postDraw`(v2, v3) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.postDraw:(Landroid/graphics/Canvas;)V` @kind direct;
+  #L1b63c4.  return @kind void;
+}
+procedure `boolean` `hasCutout`(`com.google.android.material.textfield.CutoutDrawable` v1 @kind this) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.hasCutout:()Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b62fc.  v0:= v1.`com.google.android.material.textfield.CutoutDrawable.cutoutBounds` @type ^`android.graphics.RectF` @kind object;
+  #L1b6300.  call temp:= `isEmpty`(v0) @signature `Landroid/graphics/RectF;.isEmpty:()Z` @kind virtual;
+  #L1b6306.  v0:= temp;
+  #L1b6308.  v0:= v0 ^~ 1;
+  #L1b630c.  return v0;
+}
+procedure `void` `removeCutout`(`com.google.android.material.textfield.CutoutDrawable` v1 @kind this) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.removeCutout:()V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b6454.  v0:= 0I;
+  #L1b6456.  call `setCutout`(v1, v0, v0, v0, v0) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.setCutout:(FFFF)V` @kind virtual;
+  #L1b645c.  return @kind void;
+}
+procedure `void` `setCutout`(`com.google.android.material.textfield.CutoutDrawable` v1 @kind this, `float` v2 @name `left`, `float` v3 @name `top`, `float` v4 @name `right`, `float` v5 @name `bottom`) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.setCutout:(FFFF)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b650c.  v0:= v1.`com.google.android.material.textfield.CutoutDrawable.cutoutBounds` @type ^`android.graphics.RectF` @kind object;
+  #L1b6510.  v0:= v0.`android.graphics.RectF.left` @type ^`float`;
+  #L1b6514.  v0:= fcmpl(v2, v0);
+  #L1b6518.  if v0 != 0 then goto L1b654c;
+  #L1b651c.  v0:= v1.`com.google.android.material.textfield.CutoutDrawable.cutoutBounds` @type ^`android.graphics.RectF` @kind object;
+  #L1b6520.  v0:= v0.`android.graphics.RectF.top` @type ^`float`;
+  #L1b6524.  v0:= fcmpl(v3, v0);
+  #L1b6528.  if v0 != 0 then goto L1b654c;
+  #L1b652c.  v0:= v1.`com.google.android.material.textfield.CutoutDrawable.cutoutBounds` @type ^`android.graphics.RectF` @kind object;
+  #L1b6530.  v0:= v0.`android.graphics.RectF.right` @type ^`float`;
+  #L1b6534.  v0:= fcmpl(v4, v0);
+  #L1b6538.  if v0 != 0 then goto L1b654c;
+  #L1b653c.  v0:= v1.`com.google.android.material.textfield.CutoutDrawable.cutoutBounds` @type ^`android.graphics.RectF` @kind object;
+  #L1b6540.  v0:= v0.`android.graphics.RectF.bottom` @type ^`float`;
+  #L1b6544.  v0:= fcmpl(v5, v0);
+  #L1b6548.  if v0 == 0 then goto L1b655c;
+  #L1b654c.  v0:= v1.`com.google.android.material.textfield.CutoutDrawable.cutoutBounds` @type ^`android.graphics.RectF` @kind object;
+  #L1b6550.  call `set`(v0, v2, v3, v4, v5) @signature `Landroid/graphics/RectF;.set:(FFFF)V` @kind virtual;
+  #L1b6556.  call `invalidateSelf`(v1) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.invalidateSelf:()V` @kind virtual;
+  #L1b655c.  return @kind void;
+}
+procedure `void` `setCutout`(`com.google.android.material.textfield.CutoutDrawable` v4 @kind this, `android.graphics.RectF` v5 @kind object @name `bounds`) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.setCutout:(Landroid/graphics/RectF;)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b64e4.  v0:= v5.`android.graphics.RectF.left` @type ^`float`;
+  #L1b64e8.  v1:= v5.`android.graphics.RectF.top` @type ^`float`;
+  #L1b64ec.  v2:= v5.`android.graphics.RectF.right` @type ^`float`;
+  #L1b64f0.  v3:= v5.`android.graphics.RectF.bottom` @type ^`float`;
+  #L1b64f4.  call `setCutout`(v4, v0, v1, v2, v3) @signature `Lcom/google/android/material/textfield/CutoutDrawable;.setCutout:(FFFF)V` @kind virtual;
+  #L1b64fa.  return @kind void;
+}

@@ -1,0 +1,37 @@
+record `com.google.android.material.datepicker.MonthsPagerAdapter$1` @kind class @AccessFlag  extends `android.widget.AdapterView$OnItemClickListener` @kind interface {
+  `com.google.android.material.datepicker.MonthsPagerAdapter` `com.google.android.material.datepicker.MonthsPagerAdapter$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `com.google.android.material.datepicker.MaterialCalendarGridView` `com.google.android.material.datepicker.MonthsPagerAdapter$1.val$monthGrid` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.MonthsPagerAdapter$1` v0 @kind this, `com.google.android.material.datepicker.MonthsPagerAdapter` v1 @kind object @name `this$0`, `com.google.android.material.datepicker.MaterialCalendarGridView` v2 @kind object) @signature `Lcom/google/android/material/datepicker/MonthsPagerAdapter$1;.<init>:(Lcom/google/android/material/datepicker/MonthsPagerAdapter;Lcom/google/android/material/datepicker/MaterialCalendarGridView;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L19a4cc.  v0.`com.google.android.material.datepicker.MonthsPagerAdapter$1.this$0` @type ^`com.google.android.material.datepicker.MonthsPagerAdapter` := v1 @kind object;
+  #L19a4d0.  v0.`com.google.android.material.datepicker.MonthsPagerAdapter$1.val$monthGrid` @type ^`com.google.android.material.datepicker.MaterialCalendarGridView` := v2 @kind object;
+  #L19a4d4.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L19a4da.  return @kind void;
+}
+procedure `void` `onItemClick`(`com.google.android.material.datepicker.MonthsPagerAdapter$1` v3 @kind this, `android.widget.AdapterView` v4 @kind object, `android.view.View` v5 @kind object @name `view`, `int` v6 @name `position`, `long` v7 @name `id`) @signature `Lcom/google/android/material/datepicker/MonthsPagerAdapter$1;.onItemClick:(Landroid/widget/AdapterView;Landroid/view/View;IJ)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L19a4ec.  v0:= v3.`com.google.android.material.datepicker.MonthsPagerAdapter$1.val$monthGrid` @type ^`com.google.android.material.datepicker.MaterialCalendarGridView` @kind object;
+  #L19a4f0.  call temp:= `getAdapter`(v0) @signature `Lcom/google/android/material/datepicker/MaterialCalendarGridView;.getAdapter:()Lcom/google/android/material/datepicker/MonthAdapter;` @kind virtual;
+  #L19a4f6.  v0:= temp @kind object;
+  #L19a4f8.  call temp:= `withinMonth`(v0, v6) @signature `Lcom/google/android/material/datepicker/MonthAdapter;.withinMonth:(I)Z` @kind virtual;
+  #L19a4fe.  v0:= temp;
+  #L19a500.  if v0 == 0 then goto L19a532;
+  #L19a504.  v0:= v3.`com.google.android.material.datepicker.MonthsPagerAdapter$1.this$0` @type ^`com.google.android.material.datepicker.MonthsPagerAdapter` @kind object;
+  #L19a508.  call temp:= `access$000`(v0) @signature `Lcom/google/android/material/datepicker/MonthsPagerAdapter;.access$000:(Lcom/google/android/material/datepicker/MonthsPagerAdapter;)Lcom/google/android/material/datepicker/MaterialCalendar$OnDayClickListener;` @kind static;
+  #L19a50e.  v0:= temp @kind object;
+  #L19a510.  v1:= v3.`com.google.android.material.datepicker.MonthsPagerAdapter$1.val$monthGrid` @type ^`com.google.android.material.datepicker.MaterialCalendarGridView` @kind object;
+  #L19a514.  call temp:= `getAdapter`(v1) @signature `Lcom/google/android/material/datepicker/MaterialCalendarGridView;.getAdapter:()Lcom/google/android/material/datepicker/MonthAdapter;` @kind virtual;
+  #L19a51a.  v1:= temp @kind object;
+  #L19a51c.  call temp:= `getItem`(v1, v6) @signature `Lcom/google/android/material/datepicker/MonthAdapter;.getItem:(I)Ljava/lang/Long;` @kind virtual;
+  #L19a522.  v1:= temp @kind object;
+  #L19a524.  call temp:= `longValue`(v1) @signature `Ljava/lang/Long;.longValue:()J` @kind virtual;
+  #L19a52a.  v1:= temp @kind wide;
+  #L19a52c.  call `onDayClick`(v0, v1) @signature `Lcom/google/android/material/datepicker/MaterialCalendar$OnDayClickListener;.onDayClick:(J)V` @kind interface;
+  #L19a532.  return @kind void;
+}

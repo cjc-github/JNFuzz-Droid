@@ -1,0 +1,398 @@
+record `androidx.appcompat.view.menu.MenuItemImpl` @kind class @AccessFlag PUBLIC_FINAL extends `androidx.core.internal.view.SupportMenuItem` @kind interface {
+  `androidx.core.view.ActionProvider` `androidx.appcompat.view.menu.MenuItemImpl.mActionProvider` @AccessFlag PRIVATE;
+  `android.view.View` `androidx.appcompat.view.menu.MenuItemImpl.mActionView` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.view.menu.MenuItemImpl.mCategoryOrder` @AccessFlag PRIVATE_FINAL;
+  `android.view.MenuItem$OnMenuItemClickListener` `androidx.appcompat.view.menu.MenuItemImpl.mClickListener` @AccessFlag PRIVATE;
+  `java.lang.CharSequence` `androidx.appcompat.view.menu.MenuItemImpl.mContentDescription` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.view.menu.MenuItemImpl.mFlags` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.view.menu.MenuItemImpl.mGroup` @AccessFlag PRIVATE_FINAL;
+  `boolean` `androidx.appcompat.view.menu.MenuItemImpl.mHasIconTint` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.view.menu.MenuItemImpl.mHasIconTintMode` @AccessFlag PRIVATE;
+  `android.graphics.drawable.Drawable` `androidx.appcompat.view.menu.MenuItemImpl.mIconDrawable` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.view.menu.MenuItemImpl.mIconResId` @AccessFlag PRIVATE;
+  `android.content.res.ColorStateList` `androidx.appcompat.view.menu.MenuItemImpl.mIconTintList` @AccessFlag PRIVATE;
+  `android.graphics.PorterDuff$Mode` `androidx.appcompat.view.menu.MenuItemImpl.mIconTintMode` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.view.menu.MenuItemImpl.mId` @AccessFlag PRIVATE_FINAL;
+  `android.content.Intent` `androidx.appcompat.view.menu.MenuItemImpl.mIntent` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.view.menu.MenuItemImpl.mIsActionViewExpanded` @AccessFlag PRIVATE;
+  `java.lang.Runnable` `androidx.appcompat.view.menu.MenuItemImpl.mItemCallback` @AccessFlag PRIVATE;
+  `androidx.appcompat.view.menu.MenuBuilder` `androidx.appcompat.view.menu.MenuItemImpl.mMenu` @AccessFlag ;
+  `android.view.ContextMenu$ContextMenuInfo` `androidx.appcompat.view.menu.MenuItemImpl.mMenuInfo` @AccessFlag PRIVATE;
+  `boolean` `androidx.appcompat.view.menu.MenuItemImpl.mNeedToApplyIconTint` @AccessFlag PRIVATE;
+  `android.view.MenuItem$OnActionExpandListener` `androidx.appcompat.view.menu.MenuItemImpl.mOnActionExpandListener` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.view.menu.MenuItemImpl.mOrdering` @AccessFlag PRIVATE_FINAL;
+  `char` `androidx.appcompat.view.menu.MenuItemImpl.mShortcutAlphabeticChar` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.view.menu.MenuItemImpl.mShortcutAlphabeticModifiers` @AccessFlag PRIVATE;
+  `char` `androidx.appcompat.view.menu.MenuItemImpl.mShortcutNumericChar` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.view.menu.MenuItemImpl.mShortcutNumericModifiers` @AccessFlag PRIVATE;
+  `int` `androidx.appcompat.view.menu.MenuItemImpl.mShowAsAction` @AccessFlag PRIVATE;
+  `androidx.appcompat.view.menu.SubMenuBuilder` `androidx.appcompat.view.menu.MenuItemImpl.mSubMenu` @AccessFlag PRIVATE;
+  `java.lang.CharSequence` `androidx.appcompat.view.menu.MenuItemImpl.mTitle` @AccessFlag PRIVATE;
+  `java.lang.CharSequence` `androidx.appcompat.view.menu.MenuItemImpl.mTitleCondensed` @AccessFlag PRIVATE;
+  `java.lang.CharSequence` `androidx.appcompat.view.menu.MenuItemImpl.mTooltipText` @AccessFlag PRIVATE;
+}
+global `int` `@@androidx.appcompat.view.menu.MenuItemImpl.CHECKABLE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.view.menu.MenuItemImpl.CHECKED` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.view.menu.MenuItemImpl.ENABLED` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.view.menu.MenuItemImpl.EXCLUSIVE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.view.menu.MenuItemImpl.HIDDEN` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.view.menu.MenuItemImpl.IS_ACTION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.appcompat.view.menu.MenuItemImpl.NO_ICON` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.appcompat.view.menu.MenuItemImpl.SHOW_AS_ACTION_MASK` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.appcompat.view.menu.MenuItemImpl.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `androidx.appcompat.view.menu.MenuBuilder` v3 @kind object @name `menu`, `int` v4 @name `group`, `int` v5 @name `id`, `int` v6 @name `categoryOrder`, `int` v7 @name `ordering`, `java.lang.CharSequence` v8 @kind object @name `title`, `int` v9 @name `showAsAction`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.<init>:(Landroidx/appcompat/view/menu/MenuBuilder;IIIILjava/lang/CharSequence;I)V` @AccessFlag CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `appendModifier`(`java.lang.StringBuilder` v1 @kind object @name `sb`, `int` v2 @name `modifiers`, `int` v3 @name `flag`, `java.lang.String` v4 @kind object @name `label`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.appendModifier:(Ljava/lang/StringBuilder;IILjava/lang/String;)V` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `applyIconTintIfNecessary`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `icon`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.applyIconTintIfNecessary:(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `actionFormatChanged`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.actionFormatChanged:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `collapseActionView`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.collapseActionView:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `expandActionView`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.expandActionView:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.ActionProvider` `getActionProvider`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getActionProvider:()Landroid/view/ActionProvider;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View` `getActionView`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getActionView:()Landroid/view/View;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getAlphabeticModifiers`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getAlphabeticModifiers:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `char` `getAlphabeticShortcut`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getAlphabeticShortcut:()C` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.Runnable` `getCallback`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getCallback:()Ljava/lang/Runnable;` @AccessFlag  {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getContentDescription`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getContentDescription:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getGroupId`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getGroupId:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.graphics.drawable.Drawable` `getIcon`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getIcon:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.content.res.ColorStateList` `getIconTintList`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getIconTintList:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.graphics.PorterDuff$Mode` `getIconTintMode`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getIconTintMode:()Landroid/graphics/PorterDuff$Mode;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.content.Intent` `getIntent`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getIntent:()Landroid/content/Intent;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getItemId`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getItemId:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.ContextMenu$ContextMenuInfo` `getMenuInfo`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getMenuInfo:()Landroid/view/ContextMenu$ContextMenuInfo;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getNumericModifiers`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getNumericModifiers:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `char` `getNumericShortcut`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getNumericShortcut:()C` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getOrder`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getOrder:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getOrdering`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getOrdering:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `char` `getShortcut`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getShortcut:()C` @AccessFlag  {
+
+  # return;
+}
+procedure `java.lang.String` `getShortcutLabel`(`androidx.appcompat.view.menu.MenuItemImpl` v6 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getShortcutLabel:()Ljava/lang/String;` @AccessFlag  {
+
+  # return;
+}
+procedure `android.view.SubMenu` `getSubMenu`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getSubMenu:()Landroid/view/SubMenu;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.view.ActionProvider` `getSupportActionProvider`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getSupportActionProvider:()Landroidx/core/view/ActionProvider;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getTitle`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getTitle:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getTitleCondensed`(`androidx.appcompat.view.menu.MenuItemImpl` v3 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getTitleCondensed:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getTitleForItemView`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this, `androidx.appcompat.view.menu.MenuView$ItemView` v2 @kind object @name `itemView`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getTitleForItemView:(Landroidx/appcompat/view/menu/MenuView$ItemView;)Ljava/lang/CharSequence;` @AccessFlag  {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getTooltipText`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.getTooltipText:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `hasCollapsibleActionView`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.hasCollapsibleActionView:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `hasSubMenu`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.hasSubMenu:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `invoke`(`androidx.appcompat.view.menu.MenuItemImpl` v4 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.invoke:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isActionButton`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.isActionButton:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isActionViewExpanded`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.isActionViewExpanded:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isCheckable`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.isCheckable:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isChecked`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.isChecked:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isEnabled`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.isEnabled:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isExclusiveCheckable`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.isExclusiveCheckable:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isVisible`(`androidx.appcompat.view.menu.MenuItemImpl` v3 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.isVisible:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `requestsActionButton`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.requestsActionButton:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `requiresActionButton`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.requiresActionButton:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `requiresOverflow`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.requiresOverflow:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setActionProvider`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `android.view.ActionProvider` v3 @kind object @name `actionProvider`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setActionProvider:(Landroid/view/ActionProvider;)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setActionView`(`androidx.appcompat.view.menu.MenuItemImpl` v0 @kind this, `int` v1 ) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setActionView:(I)Landroid/view/MenuItem;` @AccessFlag PUBLIC_SYNTHETIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setActionView`(`androidx.appcompat.view.menu.MenuItemImpl` v0 @kind this, `android.view.View` v1 @kind object) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setActionView:(Landroid/view/View;)Landroid/view/MenuItem;` @AccessFlag PUBLIC_SYNTHETIC {
+
+  # return;
+}
+procedure `androidx.core.internal.view.SupportMenuItem` `setActionView`(`androidx.appcompat.view.menu.MenuItemImpl` v4 @kind this, `int` v5 @name `resId`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setActionView:(I)Landroidx/core/internal/view/SupportMenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.internal.view.SupportMenuItem` `setActionView`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `android.view.View` v3 @kind object @name `view`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setActionView:(Landroid/view/View;)Landroidx/core/internal/view/SupportMenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setActionViewExpanded`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `boolean` v3 @name `isExpanded`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setActionViewExpanded:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setAlphabeticShortcut`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `char` v3 @name `alphaChar`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setAlphabeticShortcut:(C)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setAlphabeticShortcut`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `char` v3 @name `alphaChar`, `int` v4 @name `alphaModifiers`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setAlphabeticShortcut:(CI)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setCallback`(`androidx.appcompat.view.menu.MenuItemImpl` v0 @kind this, `java.lang.Runnable` v1 @kind object @name `callback`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setCallback:(Ljava/lang/Runnable;)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setCheckable`(`androidx.appcompat.view.menu.MenuItemImpl` v3 @kind this, `boolean` v4 @name `checkable`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setCheckable:(Z)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setChecked`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this, `boolean` v2 @name `checked`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setChecked:(Z)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setCheckedInt`(`androidx.appcompat.view.menu.MenuItemImpl` v4 @kind this, `boolean` v5 @name `checked`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setCheckedInt:(Z)V` @AccessFlag  {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setContentDescription`(`androidx.appcompat.view.menu.MenuItemImpl` v0 @kind this, `java.lang.CharSequence` v1 @kind object) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setContentDescription:(Ljava/lang/CharSequence;)Landroid/view/MenuItem;` @AccessFlag PUBLIC_SYNTHETIC {
+
+  # return;
+}
+procedure `androidx.core.internal.view.SupportMenuItem` `setContentDescription`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `java.lang.CharSequence` v3 @kind object @name `contentDescription`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setContentDescription:(Ljava/lang/CharSequence;)Landroidx/core/internal/view/SupportMenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setEnabled`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `boolean` v3 @name `enabled`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setEnabled:(Z)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setExclusiveCheckable`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `boolean` v3 @name `exclusive`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setExclusiveCheckable:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setIcon`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `int` v3 @name `iconResId`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setIcon:(I)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setIcon`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `icon`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setIcon:(Landroid/graphics/drawable/Drawable;)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setIconTintList`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `android.content.res.ColorStateList` v3 @kind object @name `iconTintList`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setIconTintList:(Landroid/content/res/ColorStateList;)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setIconTintMode`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `android.graphics.PorterDuff$Mode` v3 @kind object @name `iconTintMode`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setIconTintMode:(Landroid/graphics/PorterDuff$Mode;)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setIntent`(`androidx.appcompat.view.menu.MenuItemImpl` v0 @kind this, `android.content.Intent` v1 @kind object @name `intent`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setIntent:(Landroid/content/Intent;)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setIsActionButton`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this, `boolean` v2 @name `isActionButton`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setIsActionButton:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setMenuInfo`(`androidx.appcompat.view.menu.MenuItemImpl` v0 @kind this, `android.view.ContextMenu$ContextMenuInfo` v1 @kind object @name `menuInfo`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setMenuInfo:(Landroid/view/ContextMenu$ContextMenuInfo;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setNumericShortcut`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `char` v3 @name `numericChar`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setNumericShortcut:(C)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setNumericShortcut`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `char` v3 @name `numericChar`, `int` v4 @name `numericModifiers`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setNumericShortcut:(CI)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setOnActionExpandListener`(`androidx.appcompat.view.menu.MenuItemImpl` v0 @kind this, `android.view.MenuItem$OnActionExpandListener` v1 @kind object @name `listener`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setOnActionExpandListener:(Landroid/view/MenuItem$OnActionExpandListener;)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setOnMenuItemClickListener`(`androidx.appcompat.view.menu.MenuItemImpl` v0 @kind this, `android.view.MenuItem$OnMenuItemClickListener` v1 @kind object @name `clickListener`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setOnMenuItemClickListener:(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setShortcut`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `char` v3 @name `numericChar`, `char` v4 @name `alphaChar`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setShortcut:(CC)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setShortcut`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `char` v3 @name `numericChar`, `char` v4 @name `alphaChar`, `int` v5 @name `numericModifiers`, `int` v6 @name `alphaModifiers`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setShortcut:(CCII)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setShowAsAction`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `int` v3 @name `actionEnum`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setShowAsAction:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setShowAsActionFlags`(`androidx.appcompat.view.menu.MenuItemImpl` v0 @kind this, `int` v1 ) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setShowAsActionFlags:(I)Landroid/view/MenuItem;` @AccessFlag PUBLIC_SYNTHETIC {
+
+  # return;
+}
+procedure `androidx.core.internal.view.SupportMenuItem` `setShowAsActionFlags`(`androidx.appcompat.view.menu.MenuItemImpl` v0 @kind this, `int` v1 @name `actionEnum`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setShowAsActionFlags:(I)Landroidx/core/internal/view/SupportMenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSubMenu`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this, `androidx.appcompat.view.menu.SubMenuBuilder` v2 @kind object @name `subMenu`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setSubMenu:(Landroidx/appcompat/view/menu/SubMenuBuilder;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.internal.view.SupportMenuItem` `setSupportActionProvider`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `androidx.core.view.ActionProvider` v3 @kind object @name `actionProvider`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setSupportActionProvider:(Landroidx/core/view/ActionProvider;)Landroidx/core/internal/view/SupportMenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setTitle`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this, `int` v2 @name `title`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setTitle:(I)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setTitle`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `java.lang.CharSequence` v3 @kind object @name `title`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setTitle:(Ljava/lang/CharSequence;)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setTitleCondensed`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `java.lang.CharSequence` v3 @kind object @name `title`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setTitleCondensed:(Ljava/lang/CharSequence;)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setTooltipText`(`androidx.appcompat.view.menu.MenuItemImpl` v0 @kind this, `java.lang.CharSequence` v1 @kind object) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setTooltipText:(Ljava/lang/CharSequence;)Landroid/view/MenuItem;` @AccessFlag PUBLIC_SYNTHETIC {
+
+  # return;
+}
+procedure `androidx.core.internal.view.SupportMenuItem` `setTooltipText`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this, `java.lang.CharSequence` v3 @kind object @name `tooltipText`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setTooltipText:(Ljava/lang/CharSequence;)Landroidx/core/internal/view/SupportMenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.MenuItem` `setVisible`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this, `boolean` v2 @name `shown`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setVisible:(Z)Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `setVisibleInt`(`androidx.appcompat.view.menu.MenuItemImpl` v4 @kind this, `boolean` v5 @name `shown`) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.setVisibleInt:(Z)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `shouldShowIcon`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.shouldShowIcon:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `shouldShowShortcut`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.shouldShowShortcut:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `showsTextAsAction`(`androidx.appcompat.view.menu.MenuItemImpl` v2 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.showsTextAsAction:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.String` `toString`(`androidx.appcompat.view.menu.MenuItemImpl` v1 @kind this) @signature `Landroidx/appcompat/view/menu/MenuItemImpl;.toString:()Ljava/lang/String;` @AccessFlag PUBLIC {
+
+  # return;
+}

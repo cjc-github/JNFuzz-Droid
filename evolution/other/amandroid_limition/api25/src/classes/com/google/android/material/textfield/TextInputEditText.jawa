@@ -1,0 +1,116 @@
+record `com.google.android.material.textfield.TextInputEditText` @kind class @AccessFlag PUBLIC extends `androidx.appcompat.widget.AppCompatEditText` @kind class {
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.TextInputEditText` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/textfield/TextInputEditText;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1b82bc.  v0:= 0I;
+  #L1b82be.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/textfield/TextInputEditText;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1b82c4.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.TextInputEditText` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/textfield/TextInputEditText;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1b82d8.  v0:= `@@com.google.android.material.R$attr.editTextStyle` @type ^`int`;
+  #L1b82dc.  call `<init>`(v1, v2, v3, v0) @signature `Lcom/google/android/material/textfield/TextInputEditText;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1b82e2.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.TextInputEditText` v0 @kind this, `android.content.Context` v1 @kind object @name `context`, `android.util.AttributeSet` v2 @kind object @name `attrs`, `int` v3 @name `defStyleAttr`) @signature `Lcom/google/android/material/textfield/TextInputEditText;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1b82f4.  call `<init>`(v0, v1, v2, v3) @signature `Landroidx/appcompat/widget/AppCompatEditText;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1b82fa.  return @kind void;
+}
+procedure `java.lang.CharSequence` `getHintFromLayout`(`com.google.android.material.textfield.TextInputEditText` v2 @kind this) @signature `Lcom/google/android/material/textfield/TextInputEditText;.getHintFromLayout:()Ljava/lang/CharSequence;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b8290.  call temp:= `getTextInputLayout`(v2) @signature `Lcom/google/android/material/textfield/TextInputEditText;.getTextInputLayout:()Lcom/google/android/material/textfield/TextInputLayout;` @kind direct;
+  #L1b8296.  v0:= temp @kind object;
+  #L1b8298.  if v0 == 0 then goto L1b82a6;
+  #L1b829c.  call temp:= `getHint`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getHint:()Ljava/lang/CharSequence;` @kind virtual;
+  #L1b82a2.  v1:= temp @kind object;
+  #L1b82a4.  goto L1b82a8;
+  #L1b82a6.  v1:= 0I;
+  #L1b82a8.  return v1 @kind object;
+}
+procedure `com.google.android.material.textfield.TextInputLayout` `getTextInputLayout`(`com.google.android.material.textfield.TextInputEditText` v2 @kind this) @signature `Lcom/google/android/material/textfield/TextInputEditText;.getTextInputLayout:()Lcom/google/android/material/textfield/TextInputLayout;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b8214.  call temp:= `getParent`(v2) @signature `Lcom/google/android/material/textfield/TextInputEditText;.getParent:()Landroid/view/ViewParent;` @kind virtual;
+  #L1b821a.  v0:= temp @kind object;
+  #L1b821c.  v1:= instanceof @variable v0 @type ^`android.view.View` @kind boolean;
+  #L1b8220.  if v1 == 0 then goto L1b823e;
+  #L1b8224.  v1:= instanceof @variable v0 @type ^`com.google.android.material.textfield.TextInputLayout` @kind boolean;
+  #L1b8228.  if v1 == 0 then goto L1b8234;
+  #L1b822c.  v1:= v0 @kind object;
+  #L1b822e.  v1:= (`com.google.android.material.textfield.TextInputLayout`) v1 @kind object;
+  #L1b8232.  return v1 @kind object;
+  #L1b8234.  call temp:= `getParent`(v0) @signature `Landroid/view/ViewParent;.getParent:()Landroid/view/ViewParent;` @kind interface;
+  #L1b823a.  v0:= temp @kind object;
+  #L1b823c.  goto L1b821c;
+  #L1b823e.  v1:= 0I;
+  #L1b8240.  return v1 @kind object;
+}
+procedure `java.lang.CharSequence` `getHint`(`com.google.android.material.textfield.TextInputEditText` v2 @kind this) @signature `Lcom/google/android/material/textfield/TextInputEditText;.getHint:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b8254.  call temp:= `getTextInputLayout`(v2) @signature `Lcom/google/android/material/textfield/TextInputEditText;.getTextInputLayout:()Lcom/google/android/material/textfield/TextInputLayout;` @kind direct;
+  #L1b825a.  v0:= temp @kind object;
+  #L1b825c.  if v0 == 0 then goto L1b8276;
+  #L1b8260.  call temp:= `isProvidingHint`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.isProvidingHint:()Z` @kind virtual;
+  #L1b8266.  v1:= temp;
+  #L1b8268.  if v1 == 0 then goto L1b8276;
+  #L1b826c.  call temp:= `getHint`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getHint:()Ljava/lang/CharSequence;` @kind virtual;
+  #L1b8272.  v1:= temp @kind object;
+  #L1b8274.  return v1 @kind object;
+  #L1b8276.  call temp:= `getHint`(v2) @signature `Landroidx/appcompat/widget/AppCompatEditText;.getHint:()Ljava/lang/CharSequence;` @kind super;
+  #L1b827c.  v1:= temp @kind object;
+  #L1b827e.  return v1 @kind object;
+}
+procedure `void` `onAttachedToWindow`(`com.google.android.material.textfield.TextInputEditText` v3 @kind this) @signature `Lcom/google/android/material/textfield/TextInputEditText;.onAttachedToWindow:()V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b830c.  call `onAttachedToWindow`(v3) @signature `Landroidx/appcompat/widget/AppCompatEditText;.onAttachedToWindow:()V` @kind super;
+  #L1b8312.  call temp:= `getTextInputLayout`(v3) @signature `Lcom/google/android/material/textfield/TextInputEditText;.getTextInputLayout:()Lcom/google/android/material/textfield/TextInputLayout;` @kind direct;
+  #L1b8318.  v0:= temp @kind object;
+  #L1b831a.  if v0 == 0 then goto L1b8354;
+  #L1b831e.  call temp:= `isProvidingHint`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout;.isProvidingHint:()Z` @kind virtual;
+  #L1b8324.  v1:= temp;
+  #L1b8326.  if v1 == 0 then goto L1b8354;
+  #L1b832a.  call temp:= `getHint`(v3) @signature `Landroidx/appcompat/widget/AppCompatEditText;.getHint:()Ljava/lang/CharSequence;` @kind super;
+  #L1b8330.  v1:= temp @kind object;
+  #L1b8332.  if v1 != 0 then goto L1b8354;
+  #L1b8336.  v1:= `@@android.os.Build.MANUFACTURER` @type ^`java.lang.String` @kind object;
+  #L1b833a.  v2:= "Meizu" @kind object;
+  #L1b833e.  call temp:= `equalsIgnoreCase`(v1, v2) @signature `Ljava/lang/String;.equalsIgnoreCase:(Ljava/lang/String;)Z` @kind virtual;
+  #L1b8344.  v1:= temp;
+  #L1b8346.  if v1 == 0 then goto L1b8354;
+  #L1b834a.  v1:= "" @kind object;
+  #L1b834e.  call `setHint`(v3, v1) @signature `Lcom/google/android/material/textfield/TextInputEditText;.setHint:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1b8354.  return @kind void;
+}
+procedure `android.view.inputmethod.InputConnection` `onCreateInputConnection`(`com.google.android.material.textfield.TextInputEditText` v2 @kind this, `android.view.inputmethod.EditorInfo` v3 @kind object @name `outAttrs`) @signature `Lcom/google/android/material/textfield/TextInputEditText;.onCreateInputConnection:(Landroid/view/inputmethod/EditorInfo;)Landroid/view/inputmethod/InputConnection;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b81e0.  call temp:= `onCreateInputConnection`(v2, v3) @signature `Landroidx/appcompat/widget/AppCompatEditText;.onCreateInputConnection:(Landroid/view/inputmethod/EditorInfo;)Landroid/view/inputmethod/InputConnection;` @kind super;
+  #L1b81e6.  v0:= temp @kind object;
+  #L1b81e8.  if v0 == 0 then goto L1b8200;
+  #L1b81ec.  v1:= v3.`android.view.inputmethod.EditorInfo.hintText` @type ^`java.lang.CharSequence` @kind object;
+  #L1b81f0.  if v1 != 0 then goto L1b8200;
+  #L1b81f4.  call temp:= `getHintFromLayout`(v2) @signature `Lcom/google/android/material/textfield/TextInputEditText;.getHintFromLayout:()Ljava/lang/CharSequence;` @kind direct;
+  #L1b81fa.  v1:= temp @kind object;
+  #L1b81fc.  v3.`android.view.inputmethod.EditorInfo.hintText` @type ^`java.lang.CharSequence` := v1 @kind object;
+  #L1b8200.  return v0 @kind object;
+}

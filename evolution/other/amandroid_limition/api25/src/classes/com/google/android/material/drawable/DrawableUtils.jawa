@@ -1,0 +1,94 @@
+record `com.google.android.material.drawable.DrawableUtils` @kind class @AccessFlag PUBLIC_FINAL {
+}
+procedure `void` `<init>`(`com.google.android.material.drawable.DrawableUtils` v0 @kind this) @signature `Lcom/google/android/material/drawable/DrawableUtils;.<init>:()V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+
+  #L19cec4.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L19ceca.  return @kind void;
+}
+procedure `android.util.AttributeSet` `parseDrawableXml`(`android.content.Context` v5 @kind object @name `context`, `int` v6 @name `id`, `java.lang.CharSequence` v7 @kind object @name `startTag`) @signature `Lcom/google/android/material/drawable/DrawableUtils;.parseDrawableXml:(Landroid/content/Context;ILjava/lang/CharSequence;)Landroid/util/AttributeSet;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L19cdc8.  call temp:= `getResources`(v5) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L19cdce.  v0:= temp @kind object;
+  #L19cdd0.  call temp:= `getXml`(v0, v6) @signature `Landroid/content/res/Resources;.getXml:(I)Landroid/content/res/XmlResourceParser;` @kind virtual;
+  #L19cdd6.  v0:= temp @kind object;
+  #L19cdd8.  call temp:= `next`(v0) @signature `Lorg/xmlpull/v1/XmlPullParser;.next:()I` @kind interface;
+  #L19cdde.  v1:= temp;
+  #L19cde0.  v2:= 2I;
+  #L19cde2.  if v1 == v2 then goto L19cdec;
+  #L19cde6.  v3:= 1I;
+  #L19cde8.  if v1 != v3 then goto L19cdd8;
+  #L19cdec.  if v1 != v2 then goto L19ce4c;
+  #L19cdf0.  call temp:= `getName`(v0) @signature `Lorg/xmlpull/v1/XmlPullParser;.getName:()Ljava/lang/String;` @kind interface;
+  #L19cdf6.  v2:= temp @kind object;
+  #L19cdf8.  call temp:= `equals`(v2, v7) @signature `Landroid/text/TextUtils;.equals:(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z` @kind static;
+  #L19cdfe.  v2:= temp;
+  #L19ce00.  if v2 == 0 then goto L19ce0e;
+  #L19ce04.  call temp:= `asAttributeSet`(v0) @signature `Landroid/util/Xml;.asAttributeSet:(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;` @kind static;
+  #L19ce0a.  v2:= temp @kind object;
+  #L19ce0c.  return v2 @kind object;
+  #L19ce0e.  v2:= new `org.xmlpull.v1.XmlPullParserException`;
+  #L19ce12.  v3:= new `java.lang.StringBuilder`;
+  #L19ce16.  call `<init>`(v3) @signature `Ljava/lang/StringBuilder;.<init>:()V` @kind direct;
+  #L19ce1c.  v4:= "Must have a <" @kind object;
+  #L19ce20.  call temp:= `append`(v3, v4) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L19ce26.  v3:= temp @kind object;
+  #L19ce28.  call temp:= `append`(v3, v7) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L19ce2e.  v3:= temp @kind object;
+  #L19ce30.  v4:= "> start tag" @kind object;
+  #L19ce34.  call temp:= `append`(v3, v4) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L19ce3a.  v3:= temp @kind object;
+  #L19ce3c.  call temp:= `toString`(v3) @signature `Ljava/lang/StringBuilder;.toString:()Ljava/lang/String;` @kind virtual;
+  #L19ce42.  v3:= temp @kind object;
+  #L19ce44.  call `<init>`(v2, v3) @signature `Lorg/xmlpull/v1/XmlPullParserException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L19ce4a.  throw v2;
+  #L19ce4c.  v2:= new `org.xmlpull.v1.XmlPullParserException`;
+  #L19ce50.  v3:= "No start tag found" @kind object;
+  #L19ce54.  call `<init>`(v2, v3) @signature `Lorg/xmlpull/v1/XmlPullParserException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L19ce5a.  throw v2;
+  #L19ce5c.  v0:= Exception @type ^`java.io.IOException` @kind object;
+  #L19ce5e.  goto L19ce62;
+  #L19ce60.  v0:= Exception @type ^`org.xmlpull.v1.XmlPullParserException` @kind object;
+  #L19ce62.  v1:= new `android.content.res.Resources$NotFoundException`;
+  #L19ce66.  v2:= new `java.lang.StringBuilder`;
+  #L19ce6a.  call `<init>`(v2) @signature `Ljava/lang/StringBuilder;.<init>:()V` @kind direct;
+  #L19ce70.  v3:= "Can't load badge resource ID #0x" @kind object;
+  #L19ce74.  call temp:= `append`(v2, v3) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L19ce7a.  v2:= temp @kind object;
+  #L19ce7c.  call temp:= `toHexString`(v6) @signature `Ljava/lang/Integer;.toHexString:(I)Ljava/lang/String;` @kind static;
+  #L19ce82.  v3:= temp @kind object;
+  #L19ce84.  call temp:= `append`(v2, v3) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L19ce8a.  v2:= temp @kind object;
+  #L19ce8c.  call temp:= `toString`(v2) @signature `Ljava/lang/StringBuilder;.toString:()Ljava/lang/String;` @kind virtual;
+  #L19ce92.  v2:= temp @kind object;
+  #L19ce94.  call `<init>`(v1, v2) @signature `Landroid/content/res/Resources$NotFoundException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L19ce9a.  call temp:= `initCause`(v1, v0) @signature `Landroid/content/res/Resources$NotFoundException;.initCause:(Ljava/lang/Throwable;)Ljava/lang/Throwable;` @kind virtual;
+  #L19cea0.  throw v1;
+  catch `org.xmlpull.v1.XmlPullParserException` @[L19cdc8..L19ce5c] goto L19ce60;
+  catch `java.io.IOException` @[L19cdc8..L19ce5c] goto L19ce5c;
+}
+procedure `android.graphics.PorterDuffColorFilter` `updateTintFilter`(`android.graphics.drawable.Drawable` v2 @kind object @name `drawable`, `android.content.res.ColorStateList` v3 @kind object @name `tint`, `android.graphics.PorterDuff$Mode` v4 @kind object @name `tintMode`) @signature `Lcom/google/android/material/drawable/DrawableUtils;.updateTintFilter:(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L19cd8c.  if v3 == 0 then goto L19cdb4;
+  #L19cd90.  if v4 != 0 then goto L19cd96;
+  #L19cd94.  goto L19cdb4;
+  #L19cd96.  call temp:= `getState`(v2) @signature `Landroid/graphics/drawable/Drawable;.getState:()[I` @kind virtual;
+  #L19cd9c.  v0:= temp @kind object;
+  #L19cd9e.  v1:= 0I;
+  #L19cda0.  call temp:= `getColorForState`(v3, v0, v1) @signature `Landroid/content/res/ColorStateList;.getColorForState:([II)I` @kind virtual;
+  #L19cda6.  v0:= temp;
+  #L19cda8.  v1:= new `android.graphics.PorterDuffColorFilter`;
+  #L19cdac.  call `<init>`(v1, v0, v4) @signature `Landroid/graphics/PorterDuffColorFilter;.<init>:(ILandroid/graphics/PorterDuff$Mode;)V` @kind direct;
+  #L19cdb2.  return v1 @kind object;
+  #L19cdb4.  v0:= 0I;
+  #L19cdb6.  return v0 @kind object;
+}

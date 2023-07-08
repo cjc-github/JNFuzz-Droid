@@ -1,0 +1,25 @@
+record `com.google.android.material.textfield.TextInputLayout$4` @kind class @AccessFlag  extends `android.animation.ValueAnimator$AnimatorUpdateListener` @kind interface {
+  `com.google.android.material.textfield.TextInputLayout` `com.google.android.material.textfield.TextInputLayout$4.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.TextInputLayout$4` v0 @kind this, `com.google.android.material.textfield.TextInputLayout` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/textfield/TextInputLayout$4;.<init>:(Lcom/google/android/material/textfield/TextInputLayout;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b8484.  v0.`com.google.android.material.textfield.TextInputLayout$4.this$0` @type ^`com.google.android.material.textfield.TextInputLayout` := v1 @kind object;
+  #L1b8488.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b848e.  return @kind void;
+}
+procedure `void` `onAnimationUpdate`(`com.google.android.material.textfield.TextInputLayout$4` v2 @kind this, `android.animation.ValueAnimator` v3 @kind object @name `animator`) @signature `Lcom/google/android/material/textfield/TextInputLayout$4;.onAnimationUpdate:(Landroid/animation/ValueAnimator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b84a0.  v0:= v2.`com.google.android.material.textfield.TextInputLayout$4.this$0` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b84a4.  v0:= v0.`com.google.android.material.textfield.TextInputLayout.collapsingTextHelper` @type ^`com.google.android.material.internal.CollapsingTextHelper` @kind object;
+  #L1b84a8.  call temp:= `getAnimatedValue`(v3) @signature `Landroid/animation/ValueAnimator;.getAnimatedValue:()Ljava/lang/Object;` @kind virtual;
+  #L1b84ae.  v1:= temp @kind object;
+  #L1b84b0.  v1:= (`java.lang.Float`) v1 @kind object;
+  #L1b84b4.  call temp:= `floatValue`(v1) @signature `Ljava/lang/Float;.floatValue:()F` @kind virtual;
+  #L1b84ba.  v1:= temp;
+  #L1b84bc.  call `setExpansionFraction`(v0, v1) @signature `Lcom/google/android/material/internal/CollapsingTextHelper;.setExpansionFraction:(F)V` @kind virtual;
+  #L1b84c2.  return @kind void;
+}

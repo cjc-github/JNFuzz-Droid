@@ -1,0 +1,80 @@
+record `com.google.android.material.textfield.TextInputLayout$SavedState` @kind class @AccessFlag  extends `androidx.customview.view.AbsSavedState` @kind class {
+  `java.lang.CharSequence` `com.google.android.material.textfield.TextInputLayout$SavedState.error` @AccessFlag ;
+  `boolean` `com.google.android.material.textfield.TextInputLayout$SavedState.isEndIconChecked` @AccessFlag ;
+}
+global `android.os.Parcelable$Creator` `@@com.google.android.material.textfield.TextInputLayout$SavedState.CREATOR` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/textfield/TextInputLayout$SavedState;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1b86f8.  v0:= new `com.google.android.material.textfield.TextInputLayout$SavedState$1`;
+  #L1b86fc.  call `<init>`(v0) @signature `Lcom/google/android/material/textfield/TextInputLayout$SavedState$1;.<init>:()V` @kind direct;
+  #L1b8702.  `@@com.google.android.material.textfield.TextInputLayout$SavedState.CREATOR` @type ^`android.os.Parcelable$Creator` := v0 @kind object;
+  #L1b8706.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.TextInputLayout$SavedState` v2 @kind this, `android.os.Parcel` v3 @kind object @name `source`, `java.lang.ClassLoader` v4 @kind object @name `loader`) @signature `Lcom/google/android/material/textfield/TextInputLayout$SavedState;.<init>:(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L1b8718.  call `<init>`(v2, v3, v4) @signature `Landroidx/customview/view/AbsSavedState;.<init>:(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V` @kind direct;
+  #L1b871e.  v0:= `@@android.text.TextUtils.CHAR_SEQUENCE_CREATOR` @type ^`android.os.Parcelable$Creator` @kind object;
+  #L1b8722.  call temp:= `createFromParcel`(v0, v3) @signature `Landroid/os/Parcelable$Creator;.createFromParcel:(Landroid/os/Parcel;)Ljava/lang/Object;` @kind interface;
+  #L1b8728.  v0:= temp @kind object;
+  #L1b872a.  v0:= (`java.lang.CharSequence`) v0 @kind object;
+  #L1b872e.  v2.`com.google.android.material.textfield.TextInputLayout$SavedState.error` @type ^`java.lang.CharSequence` := v0 @kind object;
+  #L1b8732.  call temp:= `readInt`(v3) @signature `Landroid/os/Parcel;.readInt:()I` @kind virtual;
+  #L1b8738.  v0:= temp;
+  #L1b873a.  v1:= 1I;
+  #L1b873c.  if v0 != v1 then goto L1b8742;
+  #L1b8740.  goto L1b8744;
+  #L1b8742.  v1:= 0I;
+  #L1b8744.  v2.`com.google.android.material.textfield.TextInputLayout$SavedState.isEndIconChecked` @type ^`boolean` := v1 @kind boolean;
+  #L1b8748.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.TextInputLayout$SavedState` v0 @kind this, `android.os.Parcelable` v1 @kind object @name `superState`) @signature `Lcom/google/android/material/textfield/TextInputLayout$SavedState;.<init>:(Landroid/os/Parcelable;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b875c.  call `<init>`(v0, v1) @signature `Landroidx/customview/view/AbsSavedState;.<init>:(Landroid/os/Parcelable;)V` @kind direct;
+  #L1b8762.  return @kind void;
+}
+procedure `java.lang.String` `toString`(`com.google.android.material.textfield.TextInputLayout$SavedState` v2 @kind this) @signature `Lcom/google/android/material/textfield/TextInputLayout$SavedState;.toString:()Ljava/lang/String;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b868c.  v0:= new `java.lang.StringBuilder`;
+  #L1b8690.  call `<init>`(v0) @signature `Ljava/lang/StringBuilder;.<init>:()V` @kind direct;
+  #L1b8696.  v1:= "TextInputLayout.SavedState{" @kind object;
+  #L1b869a.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L1b86a0.  v0:= temp @kind object;
+  #L1b86a2.  call temp:= `identityHashCode`(v2) @signature `Ljava/lang/System;.identityHashCode:(Ljava/lang/Object;)I` @kind static;
+  #L1b86a8.  v1:= temp;
+  #L1b86aa.  call temp:= `toHexString`(v1) @signature `Ljava/lang/Integer;.toHexString:(I)Ljava/lang/String;` @kind static;
+  #L1b86b0.  v1:= temp @kind object;
+  #L1b86b2.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L1b86b8.  v0:= temp @kind object;
+  #L1b86ba.  v1:= " error=" @kind object;
+  #L1b86be.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L1b86c4.  v0:= temp @kind object;
+  #L1b86c6.  v1:= v2.`com.google.android.material.textfield.TextInputLayout$SavedState.error` @type ^`java.lang.CharSequence` @kind object;
+  #L1b86ca.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L1b86d0.  v0:= temp @kind object;
+  #L1b86d2.  v1:= "}" @kind object;
+  #L1b86d6.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L1b86dc.  v0:= temp @kind object;
+  #L1b86de.  call temp:= `toString`(v0) @signature `Ljava/lang/StringBuilder;.toString:()Ljava/lang/String;` @kind virtual;
+  #L1b86e4.  v0:= temp @kind object;
+  #L1b86e6.  return v0 @kind object;
+}
+procedure `void` `writeToParcel`(`com.google.android.material.textfield.TextInputLayout$SavedState` v1 @kind this, `android.os.Parcel` v2 @kind object @name `dest`, `int` v3 @name `flags`) @signature `Lcom/google/android/material/textfield/TextInputLayout$SavedState;.writeToParcel:(Landroid/os/Parcel;I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b8774.  call `writeToParcel`(v1, v2, v3) @signature `Landroidx/customview/view/AbsSavedState;.writeToParcel:(Landroid/os/Parcel;I)V` @kind super;
+  #L1b877a.  v0:= v1.`com.google.android.material.textfield.TextInputLayout$SavedState.error` @type ^`java.lang.CharSequence` @kind object;
+  #L1b877e.  call `writeToParcel`(v0, v2, v3) @signature `Landroid/text/TextUtils;.writeToParcel:(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V` @kind static;
+  #L1b8784.  v0:= v1.`com.google.android.material.textfield.TextInputLayout$SavedState.isEndIconChecked` @type ^`boolean` @kind boolean;
+  #L1b8788.  call `writeInt`(v2, v0) @signature `Landroid/os/Parcel;.writeInt:(I)V` @kind virtual;
+  #L1b878e.  return @kind void;
+}

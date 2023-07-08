@@ -1,0 +1,102 @@
+record `com.google.android.material.internal.StateListAnimator` @kind class @AccessFlag PUBLIC_FINAL {
+  `android.animation.Animator$AnimatorListener` `com.google.android.material.internal.StateListAnimator.animationListener` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.internal.StateListAnimator$Tuple` `com.google.android.material.internal.StateListAnimator.lastMatch` @AccessFlag PRIVATE;
+  `android.animation.ValueAnimator` `com.google.android.material.internal.StateListAnimator.runningAnimator` @AccessFlag ;
+  `java.util.ArrayList` `com.google.android.material.internal.StateListAnimator.tuples` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.StateListAnimator` v1 @kind this) @signature `Lcom/google/android/material/internal/StateListAnimator;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a6aec.  call `<init>`(v1) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1a6af2.  v0:= new `java.util.ArrayList`;
+  #L1a6af6.  call `<init>`(v0) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L1a6afc.  v1.`com.google.android.material.internal.StateListAnimator.tuples` @type ^`java.util.ArrayList` := v0 @kind object;
+  #L1a6b00.  v0:= 0I;
+  #L1a6b02.  v1.`com.google.android.material.internal.StateListAnimator.lastMatch` @type ^`com.google.android.material.internal.StateListAnimator$Tuple` := v0 @kind object;
+  #L1a6b06.  v1.`com.google.android.material.internal.StateListAnimator.runningAnimator` @type ^`android.animation.ValueAnimator` := v0 @kind object;
+  #L1a6b0a.  v0:= new `com.google.android.material.internal.StateListAnimator$1`;
+  #L1a6b0e.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/internal/StateListAnimator$1;.<init>:(Lcom/google/android/material/internal/StateListAnimator;)V` @kind direct;
+  #L1a6b14.  v1.`com.google.android.material.internal.StateListAnimator.animationListener` @type ^`android.animation.Animator$AnimatorListener` := v0 @kind object;
+  #L1a6b18.  return @kind void;
+}
+procedure `void` `cancel`(`com.google.android.material.internal.StateListAnimator` v1 @kind this) @signature `Lcom/google/android/material/internal/StateListAnimator;.cancel:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1a6b5c.  v0:= v1.`com.google.android.material.internal.StateListAnimator.runningAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L1a6b60.  if v0 == 0 then goto L1a6b70;
+  #L1a6b64.  call `cancel`(v0) @signature `Landroid/animation/ValueAnimator;.cancel:()V` @kind virtual;
+  #L1a6b6a.  v0:= 0I;
+  #L1a6b6c.  v1.`com.google.android.material.internal.StateListAnimator.runningAnimator` @type ^`android.animation.ValueAnimator` := v0 @kind object;
+  #L1a6b70.  return @kind void;
+}
+procedure `void` `start`(`com.google.android.material.internal.StateListAnimator` v1 @kind this, `com.google.android.material.internal.StateListAnimator$Tuple` v2 @kind object @name `match`) @signature `Lcom/google/android/material/internal/StateListAnimator;.start:(Lcom/google/android/material/internal/StateListAnimator$Tuple;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1a6c20.  v0:= v2.`com.google.android.material.internal.StateListAnimator$Tuple.animator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L1a6c24.  v1.`com.google.android.material.internal.StateListAnimator.runningAnimator` @type ^`android.animation.ValueAnimator` := v0 @kind object;
+  #L1a6c28.  call `start`(v0) @signature `Landroid/animation/ValueAnimator;.start:()V` @kind virtual;
+  #L1a6c2e.  return @kind void;
+}
+procedure `void` `addState`(`com.google.android.material.internal.StateListAnimator` v2 @kind this, `int`[] v3 @kind object @name `specs`, `android.animation.ValueAnimator` v4 @kind object @name `animator`) @signature `Lcom/google/android/material/internal/StateListAnimator;.addState:([ILandroid/animation/ValueAnimator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a6b2c.  v0:= new `com.google.android.material.internal.StateListAnimator$Tuple`;
+  #L1a6b30.  call `<init>`(v0, v3, v4) @signature `Lcom/google/android/material/internal/StateListAnimator$Tuple;.<init>:([ILandroid/animation/ValueAnimator;)V` @kind direct;
+  #L1a6b36.  v1:= v2.`com.google.android.material.internal.StateListAnimator.animationListener` @type ^`android.animation.Animator$AnimatorListener` @kind object;
+  #L1a6b3a.  call `addListener`(v4, v1) @signature `Landroid/animation/ValueAnimator;.addListener:(Landroid/animation/Animator$AnimatorListener;)V` @kind virtual;
+  #L1a6b40.  v1:= v2.`com.google.android.material.internal.StateListAnimator.tuples` @type ^`java.util.ArrayList` @kind object;
+  #L1a6b44.  call temp:= `add`(v1, v0) @signature `Ljava/util/ArrayList;.add:(Ljava/lang/Object;)Z` @kind virtual;
+  #L1a6b4a.  return @kind void;
+}
+procedure `void` `jumpToCurrentState`(`com.google.android.material.internal.StateListAnimator` v1 @kind this) @signature `Lcom/google/android/material/internal/StateListAnimator;.jumpToCurrentState:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a6b84.  v0:= v1.`com.google.android.material.internal.StateListAnimator.runningAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L1a6b88.  if v0 == 0 then goto L1a6b98;
+  #L1a6b8c.  call `end`(v0) @signature `Landroid/animation/ValueAnimator;.end:()V` @kind virtual;
+  #L1a6b92.  v0:= 0I;
+  #L1a6b94.  v1.`com.google.android.material.internal.StateListAnimator.runningAnimator` @type ^`android.animation.ValueAnimator` := v0 @kind object;
+  #L1a6b98.  return @kind void;
+}
+procedure `void` `setState`(`com.google.android.material.internal.StateListAnimator` v5 @kind this, `int`[] v6 @kind object @name `state`) @signature `Lcom/google/android/material/internal/StateListAnimator;.setState:([I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1a6bac.  v0:= 0I;
+  #L1a6bae.  v1:= v5.`com.google.android.material.internal.StateListAnimator.tuples` @type ^`java.util.ArrayList` @kind object;
+  #L1a6bb2.  call temp:= `size`(v1) @signature `Ljava/util/ArrayList;.size:()I` @kind virtual;
+  #L1a6bb8.  v1:= temp;
+  #L1a6bba.  v2:= 0I;
+  #L1a6bbc.  if v2 >= v1 then goto L1a6bea;
+  #L1a6bc0.  v3:= v5.`com.google.android.material.internal.StateListAnimator.tuples` @type ^`java.util.ArrayList` @kind object;
+  #L1a6bc4.  call temp:= `get`(v3, v2) @signature `Ljava/util/ArrayList;.get:(I)Ljava/lang/Object;` @kind virtual;
+  #L1a6bca.  v3:= temp @kind object;
+  #L1a6bcc.  v3:= (`com.google.android.material.internal.StateListAnimator$Tuple`) v3 @kind object;
+  #L1a6bd0.  v4:= v3.`com.google.android.material.internal.StateListAnimator$Tuple.specs` @type ^`int`[] @kind object;
+  #L1a6bd4.  call temp:= `stateSetMatches`(v4, v6) @signature `Landroid/util/StateSet;.stateSetMatches:([I[I)Z` @kind static;
+  #L1a6bda.  v4:= temp;
+  #L1a6bdc.  if v4 == 0 then goto L1a6be4;
+  #L1a6be0.  v0:= v3 @kind object;
+  #L1a6be2.  goto L1a6bea;
+  #L1a6be4.  v2:= v2 + 1;
+  #L1a6be8.  goto L1a6bbc;
+  #L1a6bea.  v2:= v5.`com.google.android.material.internal.StateListAnimator.lastMatch` @type ^`com.google.android.material.internal.StateListAnimator$Tuple` @kind object;
+  #L1a6bee.  if v0 != v2 then goto L1a6bf4;
+  #L1a6bf2.  return @kind void;
+  #L1a6bf4.  if v2 == 0 then goto L1a6bfe;
+  #L1a6bf8.  call `cancel`(v5) @signature `Lcom/google/android/material/internal/StateListAnimator;.cancel:()V` @kind direct;
+  #L1a6bfe.  v5.`com.google.android.material.internal.StateListAnimator.lastMatch` @type ^`com.google.android.material.internal.StateListAnimator$Tuple` := v0 @kind object;
+  #L1a6c02.  if v0 == 0 then goto L1a6c0c;
+  #L1a6c06.  call `start`(v5, v0) @signature `Lcom/google/android/material/internal/StateListAnimator;.start:(Lcom/google/android/material/internal/StateListAnimator$Tuple;)V` @kind direct;
+  #L1a6c0c.  return @kind void;
+}

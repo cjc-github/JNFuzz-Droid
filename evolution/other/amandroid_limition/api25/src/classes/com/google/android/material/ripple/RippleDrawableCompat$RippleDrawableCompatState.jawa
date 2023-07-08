@@ -1,0 +1,58 @@
+record `com.google.android.material.ripple.RippleDrawableCompat$RippleDrawableCompatState` @kind class @AccessFlag FINAL extends `android.graphics.drawable.Drawable$ConstantState` @kind class {
+  `com.google.android.material.shape.MaterialShapeDrawable` `com.google.android.material.ripple.RippleDrawableCompat$RippleDrawableCompatState.delegate` @AccessFlag ;
+  `boolean` `com.google.android.material.ripple.RippleDrawableCompat$RippleDrawableCompatState.shouldDrawDelegate` @AccessFlag ;
+}
+procedure `void` `<init>`(`com.google.android.material.ripple.RippleDrawableCompat$RippleDrawableCompatState` v1 @kind this, `com.google.android.material.ripple.RippleDrawableCompat$RippleDrawableCompatState` v2 @kind object @name `orig`) @signature `Lcom/google/android/material/ripple/RippleDrawableCompat$RippleDrawableCompatState;.<init>:(Lcom/google/android/material/ripple/RippleDrawableCompat$RippleDrawableCompatState;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a949c.  call `<init>`(v1) @signature `Landroid/graphics/drawable/Drawable$ConstantState;.<init>:()V` @kind direct;
+  #L1a94a2.  v0:= v2.`com.google.android.material.ripple.RippleDrawableCompat$RippleDrawableCompatState.delegate` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L1a94a6.  call temp:= `getConstantState`(v0) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.getConstantState:()Landroid/graphics/drawable/Drawable$ConstantState;` @kind virtual;
+  #L1a94ac.  v0:= temp @kind object;
+  #L1a94ae.  call temp:= `newDrawable`(v0) @signature `Landroid/graphics/drawable/Drawable$ConstantState;.newDrawable:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1a94b4.  v0:= temp @kind object;
+  #L1a94b6.  v0:= (`com.google.android.material.shape.MaterialShapeDrawable`) v0 @kind object;
+  #L1a94ba.  v1.`com.google.android.material.ripple.RippleDrawableCompat$RippleDrawableCompatState.delegate` @type ^`com.google.android.material.shape.MaterialShapeDrawable` := v0 @kind object;
+  #L1a94be.  v0:= v2.`com.google.android.material.ripple.RippleDrawableCompat$RippleDrawableCompatState.shouldDrawDelegate` @type ^`boolean` @kind boolean;
+  #L1a94c2.  v1.`com.google.android.material.ripple.RippleDrawableCompat$RippleDrawableCompatState.shouldDrawDelegate` @type ^`boolean` := v0 @kind boolean;
+  #L1a94c6.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.ripple.RippleDrawableCompat$RippleDrawableCompatState` v1 @kind this, `com.google.android.material.shape.MaterialShapeDrawable` v2 @kind object @name `delegate`) @signature `Lcom/google/android/material/ripple/RippleDrawableCompat$RippleDrawableCompatState;.<init>:(Lcom/google/android/material/shape/MaterialShapeDrawable;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a94d8.  call `<init>`(v1) @signature `Landroid/graphics/drawable/Drawable$ConstantState;.<init>:()V` @kind direct;
+  #L1a94de.  v1.`com.google.android.material.ripple.RippleDrawableCompat$RippleDrawableCompatState.delegate` @type ^`com.google.android.material.shape.MaterialShapeDrawable` := v2 @kind object;
+  #L1a94e2.  v0:= 0I;
+  #L1a94e4.  v1.`com.google.android.material.ripple.RippleDrawableCompat$RippleDrawableCompatState.shouldDrawDelegate` @type ^`boolean` := v0 @kind boolean;
+  #L1a94e8.  return @kind void;
+}
+procedure `int` `getChangingConfigurations`(`com.google.android.material.ripple.RippleDrawableCompat$RippleDrawableCompatState` v1 @kind this) @signature `Lcom/google/android/material/ripple/RippleDrawableCompat$RippleDrawableCompatState;.getChangingConfigurations:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a9488.  v0:= 0I;
+  #L1a948a.  return v0;
+}
+procedure `android.graphics.drawable.Drawable` `newDrawable`(`com.google.android.material.ripple.RippleDrawableCompat$RippleDrawableCompatState` v1 @kind this) @signature `Lcom/google/android/material/ripple/RippleDrawableCompat$RippleDrawableCompatState;.newDrawable:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1a9444.  call temp:= `newDrawable`(v1) @signature `Lcom/google/android/material/ripple/RippleDrawableCompat$RippleDrawableCompatState;.newDrawable:()Lcom/google/android/material/ripple/RippleDrawableCompat;` @kind virtual;
+  #L1a944a.  v0:= temp @kind object;
+  #L1a944c.  return v0 @kind object;
+}
+procedure `com.google.android.material.ripple.RippleDrawableCompat` `newDrawable`(`com.google.android.material.ripple.RippleDrawableCompat$RippleDrawableCompatState` v3 @kind this) @signature `Lcom/google/android/material/ripple/RippleDrawableCompat$RippleDrawableCompatState;.newDrawable:()Lcom/google/android/material/ripple/RippleDrawableCompat;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a9460.  v0:= new `com.google.android.material.ripple.RippleDrawableCompat`;
+  #L1a9464.  v1:= new `com.google.android.material.ripple.RippleDrawableCompat$RippleDrawableCompatState`;
+  #L1a9468.  call `<init>`(v1, v3) @signature `Lcom/google/android/material/ripple/RippleDrawableCompat$RippleDrawableCompatState;.<init>:(Lcom/google/android/material/ripple/RippleDrawableCompat$RippleDrawableCompatState;)V` @kind direct;
+  #L1a946e.  v2:= 0I;
+  #L1a9470.  call `<init>`(v0, v1, v2) @signature `Lcom/google/android/material/ripple/RippleDrawableCompat;.<init>:(Lcom/google/android/material/ripple/RippleDrawableCompat$RippleDrawableCompatState;Lcom/google/android/material/ripple/RippleDrawableCompat$1;)V` @kind direct;
+  #L1a9476.  return v0 @kind object;
+}

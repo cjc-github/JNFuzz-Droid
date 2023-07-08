@@ -1,0 +1,23 @@
+record `com.google.android.material.internal.StateListAnimator$1` @kind class @AccessFlag  extends `android.animation.AnimatorListenerAdapter` @kind class {
+  `com.google.android.material.internal.StateListAnimator` `com.google.android.material.internal.StateListAnimator$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.StateListAnimator$1` v0 @kind this, `com.google.android.material.internal.StateListAnimator` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/internal/StateListAnimator$1;.<init>:(Lcom/google/android/material/internal/StateListAnimator;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1a6a88.  v0.`com.google.android.material.internal.StateListAnimator$1.this$0` @type ^`com.google.android.material.internal.StateListAnimator` := v1 @kind object;
+  #L1a6a8c.  call `<init>`(v0) @signature `Landroid/animation/AnimatorListenerAdapter;.<init>:()V` @kind direct;
+  #L1a6a92.  return @kind void;
+}
+procedure `void` `onAnimationEnd`(`com.google.android.material.internal.StateListAnimator$1` v2 @kind this, `android.animation.Animator` v3 @kind object @name `animator`) @signature `Lcom/google/android/material/internal/StateListAnimator$1;.onAnimationEnd:(Landroid/animation/Animator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a6aa4.  v0:= v2.`com.google.android.material.internal.StateListAnimator$1.this$0` @type ^`com.google.android.material.internal.StateListAnimator` @kind object;
+  #L1a6aa8.  v0:= v0.`com.google.android.material.internal.StateListAnimator.runningAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L1a6aac.  if v0 != v3 then goto L1a6aba;
+  #L1a6ab0.  v0:= v2.`com.google.android.material.internal.StateListAnimator$1.this$0` @type ^`com.google.android.material.internal.StateListAnimator` @kind object;
+  #L1a6ab4.  v1:= 0I;
+  #L1a6ab6.  v0.`com.google.android.material.internal.StateListAnimator.runningAnimator` @type ^`android.animation.ValueAnimator` := v1 @kind object;
+  #L1a6aba.  return @kind void;
+}

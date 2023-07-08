@@ -1,0 +1,684 @@
+record `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` @kind class @AccessFlag PUBLIC {
+  `android.view.accessibility.AccessibilityNodeInfo` `androidx.core.view.accessibility.AccessibilityNodeInfoCompat.mInfo` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.core.view.accessibility.AccessibilityNodeInfoCompat.mParentVirtualDescendantId` @AccessFlag PUBLIC;
+  `int` `androidx.core.view.accessibility.AccessibilityNodeInfoCompat.mVirtualDescendantId` @AccessFlag PRIVATE;
+}
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_ARGUMENT_COLUMN_INT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_ARGUMENT_EXTEND_SELECTION_BOOLEAN` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_ARGUMENT_HTML_ELEMENT_STRING` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_ARGUMENT_MOVEMENT_GRANULARITY_INT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_ARGUMENT_MOVE_WINDOW_X` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_ARGUMENT_MOVE_WINDOW_Y` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_ARGUMENT_PROGRESS_VALUE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_ARGUMENT_ROW_INT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_END_INT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_START_INT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_CLEAR_ACCESSIBILITY_FOCUS` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_CLEAR_FOCUS` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_CLEAR_SELECTION` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_CLICK` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_COLLAPSE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_COPY` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_CUT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_DISMISS` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_EXPAND` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_FOCUS` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_LONG_CLICK` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_NEXT_AT_MOVEMENT_GRANULARITY` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_NEXT_HTML_ELEMENT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_PASTE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_PREVIOUS_HTML_ELEMENT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_SELECT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_SET_SELECTION` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_SET_TEXT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.BOOLEAN_PROPERTY_IS_HEADING` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.BOOLEAN_PROPERTY_IS_SHOWING_HINT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.BOOLEAN_PROPERTY_IS_TEXT_ENTRY_KEY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.BOOLEAN_PROPERTY_KEY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.BOOLEAN_PROPERTY_SCREEN_READER_FOCUSABLE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.FOCUS_ACCESSIBILITY` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.FOCUS_INPUT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.HINT_TEXT_KEY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_CHARACTER` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_LINE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_PAGE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_PARAGRAPH` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_WORD` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.PANE_TITLE_KEY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ROLE_DESCRIPTION_KEY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.SPANS_ACTION_ID_KEY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.SPANS_END_KEY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.SPANS_FLAGS_KEY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.SPANS_ID_KEY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.SPANS_START_KEY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.TOOLTIP_TEXT_KEY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.view.accessibility.AccessibilityNodeInfoCompat.sClickableSpanId` @AccessFlag PRIVATE_STATIC;
+procedure `void` `<clinit>`() @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `android.view.accessibility.AccessibilityNodeInfo` v2 @kind object @name `info`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.<init>:(Landroid/view/accessibility/AccessibilityNodeInfo;)V` @AccessFlag PRIVATE_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `java.lang.Object` v2 @kind object @name `info`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.<init>:(Ljava/lang/Object;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `addSpanLocationToExtras`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `android.text.style.ClickableSpan` v3 @kind object @name `span`, `android.text.Spanned` v4 @kind object @name `spanned`, `int` v5 @name `id`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.addSpanLocationToExtras:(Landroid/text/style/ClickableSpan;Landroid/text/Spanned;I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `clearExtrasSpans`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.clearExtrasSpans:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `java.util.List` `extrasCharSequenceList`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `java.lang.String` v3 @kind object @name `key`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.extrasCharSequenceList:(Ljava/lang/String;)Ljava/util/List;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `java.util.List` `extrasIntList`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `java.lang.String` v3 @kind object @name `key`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.extrasIntList:(Ljava/lang/String;)Ljava/util/List;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `java.lang.String` `getActionSymbolicName`(`int` v1 @name `action`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getActionSymbolicName:(I)Ljava/lang/String;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `boolean` `getBooleanProperty`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v3 @kind this, `int` v4 @name `property`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getBooleanProperty:(I)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.text.style.ClickableSpan`[] `getClickableSpans`(`java.lang.CharSequence` v4 @kind object @name `text`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getClickableSpans:(Ljava/lang/CharSequence;)[Landroid/text/style/ClickableSpan;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `android.util.SparseArray` `getOrCreateSpansFromViewTags`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `android.view.View` v3 @kind object @name `host`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getOrCreateSpansFromViewTags:(Landroid/view/View;)Landroid/util/SparseArray;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `android.util.SparseArray` `getSpansFromViewTags`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `android.view.View` v2 @kind object @name `host`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getSpansFromViewTags:(Landroid/view/View;)Landroid/util/SparseArray;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `hasSpans`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.hasSpans:()Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `idForClickableSpan`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v3 @kind this, `android.text.style.ClickableSpan` v4 @kind object @name `span`, `android.util.SparseArray` v5 @kind object) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.idForClickableSpan:(Landroid/text/style/ClickableSpan;Landroid/util/SparseArray;)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` `obtain`() @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.obtain:()Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` `obtain`(`android.view.View` v1 @kind object @name `source`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.obtain:(Landroid/view/View;)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` `obtain`(`android.view.View` v2 @kind object @name `root`, `int` v3 @name `virtualDescendantId`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.obtain:(Landroid/view/View;I)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` `obtain`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind object @name `info`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.obtain:(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `removeCollectedSpans`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v4 @kind this, `android.view.View` v5 @kind object @name `view`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.removeCollectedSpans:(Landroid/view/View;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `setBooleanProperty`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v5 @kind this, `int` v6 @name `property`, `boolean` v7 @name `value`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setBooleanProperty:(IZ)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` `wrap`(`android.view.accessibility.AccessibilityNodeInfo` v1 @kind object @name `info`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.wrap:(Landroid/view/accessibility/AccessibilityNodeInfo;)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` `wrapNonNullInstance`(`java.lang.Object` v1 @kind object @name `object`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.wrapNonNullInstance:(Ljava/lang/Object;)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `void` `addAction`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `int` v2 @name `action`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.addAction:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addAction`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat` v3 @kind object @name `action`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.addAction:(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addChild`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `android.view.View` v2 @kind object @name `child`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.addChild:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addChild`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `android.view.View` v3 @kind object @name `root`, `int` v4 @name `virtualDescendantId`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.addChild:(Landroid/view/View;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `addSpansToExtras`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v6 @kind this, `java.lang.CharSequence` v7 @kind object @name `text`, `android.view.View` v8 @kind object @name `view`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.addSpansToExtras:(Ljava/lang/CharSequence;Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `canOpenPopup`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.canOpenPopup:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `equals`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v5 @kind this, `java.lang.Object` v6 @kind object @name `obj`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.equals:(Ljava/lang/Object;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.util.List` `findAccessibilityNodeInfosByText`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v6 @kind this, `java.lang.String` v7 @kind object @name `text`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.findAccessibilityNodeInfosByText:(Ljava/lang/String;)Ljava/util/List;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.util.List` `findAccessibilityNodeInfosByViewId`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v5 @kind this, `java.lang.String` v6 @kind object @name `viewId`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.findAccessibilityNodeInfosByViewId:(Ljava/lang/String;)Ljava/util/List;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` `findFocus`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `int` v3 @name `focus`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.findFocus:(I)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` `focusSearch`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `int` v3 @name `direction`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.focusSearch:(I)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.util.List` `getActionList`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v6 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getActionList:()Ljava/util/List;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getActions`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getActions:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `getBoundsInParent`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `android.graphics.Rect` v2 @kind object @name `outBounds`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getBoundsInParent:(Landroid/graphics/Rect;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `getBoundsInScreen`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `android.graphics.Rect` v2 @kind object @name `outBounds`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getBoundsInScreen:(Landroid/graphics/Rect;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` `getChild`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `int` v2 @name `index`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getChild:(I)Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getChildCount`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getChildCount:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getClassName`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getClassName:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityNodeInfoCompat$CollectionInfoCompat` `getCollectionInfo`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getCollectionInfo:()Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionInfoCompat;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityNodeInfoCompat$CollectionItemInfoCompat` `getCollectionItemInfo`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getCollectionItemInfo:()Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$CollectionItemInfoCompat;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getContentDescription`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getContentDescription:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getDrawingOrder`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getDrawingOrder:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getError`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getError:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.os.Bundle` `getExtras`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getExtras:()Landroid/os/Bundle;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getHintText`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getHintText:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.Object` `getInfo`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getInfo:()Ljava/lang/Object;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getInputType`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getInputType:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` `getLabelFor`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getLabelFor:()Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` `getLabeledBy`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getLabeledBy:()Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getLiveRegion`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getLiveRegion:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getMaxTextLength`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getMaxTextLength:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getMovementGranularities`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getMovementGranularities:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getPackageName`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getPackageName:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getPaneTitle`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getPaneTitle:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` `getParent`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getParent:()Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityNodeInfoCompat$RangeInfoCompat` `getRangeInfo`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getRangeInfo:()Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getRoleDescription`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getRoleDescription:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getText`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v10 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getText:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getTextSelectionEnd`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getTextSelectionEnd:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getTextSelectionStart`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getTextSelectionStart:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.CharSequence` `getTooltipText`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getTooltipText:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` `getTraversalAfter`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getTraversalAfter:()Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` `getTraversalBefore`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getTraversalBefore:()Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.String` `getViewIdResourceName`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getViewIdResourceName:()Ljava/lang/String;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.view.accessibility.AccessibilityWindowInfoCompat` `getWindow`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getWindow:()Landroidx/core/view/accessibility/AccessibilityWindowInfoCompat;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getWindowId`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.getWindowId:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `hashCode`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.hashCode:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isAccessibilityFocused`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isAccessibilityFocused:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isCheckable`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isCheckable:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isChecked`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isChecked:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isClickable`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isClickable:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isContentInvalid`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isContentInvalid:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isContextClickable`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isContextClickable:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isDismissable`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isDismissable:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isEditable`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isEditable:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isEnabled`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isEnabled:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isFocusable`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isFocusable:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isFocused`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isFocused:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isHeading`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v3 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isHeading:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isImportantForAccessibility`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isImportantForAccessibility:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isLongClickable`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isLongClickable:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isMultiLine`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isMultiLine:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isPassword`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isPassword:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isScreenReaderFocusable`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isScreenReaderFocusable:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isScrollable`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isScrollable:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isSelected`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isSelected:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isShowingHintText`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isShowingHintText:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isTextEntryKey`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isTextEntryKey:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isVisibleToUser`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.isVisibleToUser:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `performAction`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `int` v2 @name `action`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.performAction:(I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `performAction`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `int` v3 @name `action`, `android.os.Bundle` v4 @kind object @name `arguments`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.performAction:(ILandroid/os/Bundle;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `recycle`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.recycle:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `refresh`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.refresh:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `removeAction`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `androidx.core.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityActionCompat` v3 @kind object @name `action`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.removeAction:(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `removeChild`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `android.view.View` v3 @kind object @name `child`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.removeChild:(Landroid/view/View;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `removeChild`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `android.view.View` v3 @kind object @name `root`, `int` v4 @name `virtualDescendantId`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.removeChild:(Landroid/view/View;I)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setAccessibilityFocused`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `boolean` v3 @name `focused`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setAccessibilityFocused:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setBoundsInParent`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `android.graphics.Rect` v2 @kind object @name `bounds`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setBoundsInParent:(Landroid/graphics/Rect;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setBoundsInScreen`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `android.graphics.Rect` v2 @kind object @name `bounds`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setBoundsInScreen:(Landroid/graphics/Rect;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setCanOpenPopup`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `boolean` v3 @name `opensPopup`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setCanOpenPopup:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setCheckable`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `boolean` v2 @name `checkable`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setCheckable:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setChecked`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `boolean` v2 @name `checked`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setChecked:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setClassName`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `className`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setClassName:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setClickable`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `boolean` v2 @name `clickable`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setClickable:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setCollectionInfo`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `java.lang.Object` v3 @kind object @name `collectionInfo`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setCollectionInfo:(Ljava/lang/Object;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setCollectionItemInfo`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `java.lang.Object` v3 @kind object @name `collectionItemInfo`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setCollectionItemInfo:(Ljava/lang/Object;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setContentDescription`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `contentDescription`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setContentDescription:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setContentInvalid`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `boolean` v3 @name `contentInvalid`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setContentInvalid:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setContextClickable`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `boolean` v3 @name `contextClickable`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setContextClickable:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDismissable`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `boolean` v3 @name `dismissable`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setDismissable:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDrawingOrder`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `int` v3 @name `drawingOrderInParent`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setDrawingOrder:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setEditable`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `boolean` v3 @name `editable`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setEditable:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setEnabled`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `boolean` v2 @name `enabled`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setEnabled:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setError`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `java.lang.CharSequence` v3 @kind object @name `error`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setError:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setFocusable`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `boolean` v2 @name `focusable`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setFocusable:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setFocused`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `boolean` v2 @name `focused`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setFocused:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHeading`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `boolean` v3 @name `isHeading`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setHeading:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHintText`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `java.lang.CharSequence` v3 @kind object @name `hintText`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setHintText:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setImportantForAccessibility`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `boolean` v3 @name `important`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setImportantForAccessibility:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setInputType`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `int` v3 @name `inputType`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setInputType:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setLabelFor`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `android.view.View` v3 @kind object @name `labeled`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setLabelFor:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setLabelFor`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `android.view.View` v3 @kind object @name `root`, `int` v4 @name `virtualDescendantId`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setLabelFor:(Landroid/view/View;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setLabeledBy`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `android.view.View` v3 @kind object @name `label`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setLabeledBy:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setLabeledBy`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `android.view.View` v3 @kind object @name `root`, `int` v4 @name `virtualDescendantId`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setLabeledBy:(Landroid/view/View;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setLiveRegion`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `int` v3 @name `mode`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setLiveRegion:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setLongClickable`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `boolean` v2 @name `longClickable`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setLongClickable:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setMaxTextLength`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `int` v3 @name `max`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setMaxTextLength:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setMovementGranularities`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `int` v3 @name `granularities`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setMovementGranularities:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setMultiLine`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `boolean` v3 @name `multiLine`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setMultiLine:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setPackageName`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `packageName`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setPackageName:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setPaneTitle`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `java.lang.CharSequence` v3 @kind object @name `paneTitle`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setPaneTitle:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setParent`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `android.view.View` v2 @kind object @name `parent`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setParent:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setParent`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `android.view.View` v3 @kind object @name `root`, `int` v4 @name `virtualDescendantId`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setParent:(Landroid/view/View;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setPassword`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `boolean` v2 @name `password`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setPassword:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setRangeInfo`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `androidx.core.view.accessibility.AccessibilityNodeInfoCompat$RangeInfoCompat` v3 @kind object @name `rangeInfo`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setRangeInfo:(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$RangeInfoCompat;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setRoleDescription`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `java.lang.CharSequence` v3 @kind object @name `roleDescription`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setRoleDescription:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setScreenReaderFocusable`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `boolean` v3 @name `screenReaderFocusable`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setScreenReaderFocusable:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setScrollable`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `boolean` v2 @name `scrollable`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setScrollable:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSelected`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `boolean` v2 @name `selected`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setSelected:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setShowingHintText`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `boolean` v3 @name `showingHintText`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setShowingHintText:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSource`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `android.view.View` v2 @kind object @name `source`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setSource:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSource`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `android.view.View` v3 @kind object @name `root`, `int` v4 @name `virtualDescendantId`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setSource:(Landroid/view/View;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setText`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `text`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setText:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTextEntryKey`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this, `boolean` v2 @name `isTextEntryKey`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setTextEntryKey:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTextSelection`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `int` v3 @name `start`, `int` v4 @name `end`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setTextSelection:(II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTooltipText`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `java.lang.CharSequence` v3 @kind object @name `tooltipText`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setTooltipText:(Ljava/lang/CharSequence;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTraversalAfter`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `android.view.View` v3 @kind object @name `view`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setTraversalAfter:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTraversalAfter`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `android.view.View` v3 @kind object @name `root`, `int` v4 @name `virtualDescendantId`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setTraversalAfter:(Landroid/view/View;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTraversalBefore`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `android.view.View` v3 @kind object @name `view`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setTraversalBefore:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setTraversalBefore`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `android.view.View` v3 @kind object @name `root`, `int` v4 @name `virtualDescendantId`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setTraversalBefore:(Landroid/view/View;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setViewIdResourceName`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `java.lang.String` v3 @kind object @name `viewId`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setViewIdResourceName:(Ljava/lang/String;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setVisibleToUser`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v2 @kind this, `boolean` v3 @name `visibleToUser`) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setVisibleToUser:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.String` `toString`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v5 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.toString:()Ljava/lang/String;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.accessibility.AccessibilityNodeInfo` `unwrap`(`androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v1 @kind this) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.unwrap:()Landroid/view/accessibility/AccessibilityNodeInfo;` @AccessFlag PUBLIC {
+
+  # return;
+}

@@ -1,0 +1,494 @@
+record `com.google.android.material.chip.ChipGroup` @kind class @AccessFlag PUBLIC extends `com.google.android.material.internal.FlowLayout` @kind class {
+  `int` `com.google.android.material.chip.ChipGroup.checkedId` @AccessFlag PRIVATE;
+  `com.google.android.material.chip.ChipGroup$CheckedStateTracker` `com.google.android.material.chip.ChipGroup.checkedStateTracker` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.chip.ChipGroup.chipSpacingHorizontal` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.chip.ChipGroup.chipSpacingVertical` @AccessFlag PRIVATE;
+  `com.google.android.material.chip.ChipGroup$OnCheckedChangeListener` `com.google.android.material.chip.ChipGroup.onCheckedChangeListener` @AccessFlag PRIVATE;
+  `com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener` `com.google.android.material.chip.ChipGroup.passThroughListener` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.chip.ChipGroup.protectFromCheckedChange` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.chip.ChipGroup.singleSelection` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.chip.ChipGroup` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/chip/ChipGroup;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L192234.  v0:= 0I;
+  #L192236.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/chip/ChipGroup;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L19223c.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.chip.ChipGroup` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/chip/ChipGroup;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L192250.  v0:= `@@com.google.android.material.R$attr.chipGroupStyle` @type ^`int`;
+  #L192254.  call `<init>`(v1, v2, v3, v0) @signature `Lcom/google/android/material/chip/ChipGroup;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L19225a.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.chip.ChipGroup` v8 @kind this, `android.content.Context` v9 @kind object @name `context`, `android.util.AttributeSet` v10 @kind object @name `attrs`, `int` v11 @name `defStyleAttr`) @signature `Lcom/google/android/material/chip/ChipGroup;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L19226c.  call `<init>`(v8, v9, v10, v11) @signature `Lcom/google/android/material/internal/FlowLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L192272.  v0:= new `com.google.android.material.chip.ChipGroup$CheckedStateTracker`;
+  #L192276.  v1:= 0I;
+  #L192278.  call `<init>`(v0, v8, v1) @signature `Lcom/google/android/material/chip/ChipGroup$CheckedStateTracker;.<init>:(Lcom/google/android/material/chip/ChipGroup;Lcom/google/android/material/chip/ChipGroup$1;)V` @kind direct;
+  #L19227e.  v8.`com.google.android.material.chip.ChipGroup.checkedStateTracker` @type ^`com.google.android.material.chip.ChipGroup$CheckedStateTracker` := v0 @kind object;
+  #L192282.  v0:= new `com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener`;
+  #L192286.  call `<init>`(v0, v8, v1) @signature `Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;.<init>:(Lcom/google/android/material/chip/ChipGroup;Lcom/google/android/material/chip/ChipGroup$1;)V` @kind direct;
+  #L19228c.  v8.`com.google.android.material.chip.ChipGroup.passThroughListener` @type ^`com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener` := v0 @kind object;
+  #L192290.  v0:= -1I;
+  #L192292.  v8.`com.google.android.material.chip.ChipGroup.checkedId` @type ^`int` := v0;
+  #L192296.  v1:= 0I;
+  #L192298.  v8.`com.google.android.material.chip.ChipGroup.protectFromCheckedChange` @type ^`boolean` := v1 @kind boolean;
+  #L19229c.  v4:= `@@com.google.android.material.R$styleable.ChipGroup` @type ^`int`[] @kind object;
+  #L1922a0.  v6:= `@@com.google.android.material.R$style.Widget_MaterialComponents_ChipGroup` @type ^`int`;
+  #L1922a4.  v7:= new `int`[v1];
+  #L1922a8.  v2:= v9 @kind object;
+  #L1922aa.  v3:= v10 @kind object;
+  #L1922ac.  v5:= v11;
+  #L1922ae.  call temp:= `obtainStyledAttributes`(v2, v3, v4, v5, v6, v7) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainStyledAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;` @kind static;
+  #L1922b4.  v2:= temp @kind object;
+  #L1922b6.  v3:= `@@com.google.android.material.R$styleable.ChipGroup_chipSpacing` @type ^`int`;
+  #L1922ba.  call temp:= `getDimensionPixelOffset`(v2, v3, v1) @signature `Landroid/content/res/TypedArray;.getDimensionPixelOffset:(II)I` @kind virtual;
+  #L1922c0.  v3:= temp;
+  #L1922c2.  v4:= `@@com.google.android.material.R$styleable.ChipGroup_chipSpacingHorizontal` @type ^`int`;
+  #L1922c6.  call temp:= `getDimensionPixelOffset`(v2, v4, v3) @signature `Landroid/content/res/TypedArray;.getDimensionPixelOffset:(II)I` @kind virtual;
+  #L1922cc.  v4:= temp;
+  #L1922ce.  call `setChipSpacingHorizontal`(v8, v4) @signature `Lcom/google/android/material/chip/ChipGroup;.setChipSpacingHorizontal:(I)V` @kind virtual;
+  #L1922d4.  v4:= `@@com.google.android.material.R$styleable.ChipGroup_chipSpacingVertical` @type ^`int`;
+  #L1922d8.  call temp:= `getDimensionPixelOffset`(v2, v4, v3) @signature `Landroid/content/res/TypedArray;.getDimensionPixelOffset:(II)I` @kind virtual;
+  #L1922de.  v4:= temp;
+  #L1922e0.  call `setChipSpacingVertical`(v8, v4) @signature `Lcom/google/android/material/chip/ChipGroup;.setChipSpacingVertical:(I)V` @kind virtual;
+  #L1922e6.  v4:= `@@com.google.android.material.R$styleable.ChipGroup_singleLine` @type ^`int`;
+  #L1922ea.  call temp:= `getBoolean`(v2, v4, v1) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L1922f0.  v4:= temp;
+  #L1922f2.  call `setSingleLine`(v8, v4) @signature `Lcom/google/android/material/chip/ChipGroup;.setSingleLine:(Z)V` @kind virtual;
+  #L1922f8.  v4:= `@@com.google.android.material.R$styleable.ChipGroup_singleSelection` @type ^`int`;
+  #L1922fc.  call temp:= `getBoolean`(v2, v4, v1) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L192302.  v1:= temp;
+  #L192304.  call `setSingleSelection`(v8, v1) @signature `Lcom/google/android/material/chip/ChipGroup;.setSingleSelection:(Z)V` @kind virtual;
+  #L19230a.  v1:= `@@com.google.android.material.R$styleable.ChipGroup_checkedChip` @type ^`int`;
+  #L19230e.  call temp:= `getResourceId`(v2, v1, v0) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L192314.  v1:= temp;
+  #L192316.  if v1 == v0 then goto L19231e;
+  #L19231a.  v8.`com.google.android.material.chip.ChipGroup.checkedId` @type ^`int` := v1;
+  #L19231e.  call `recycle`(v2) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L192324.  v0:= v8.`com.google.android.material.chip.ChipGroup.passThroughListener` @type ^`com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener` @kind object;
+  #L192328.  call `setOnHierarchyChangeListener`(v8, v0) @signature `Lcom/google/android/material/internal/FlowLayout;.setOnHierarchyChangeListener:(Landroid/view/ViewGroup$OnHierarchyChangeListener;)V` @kind super;
+  #L19232e.  return @kind void;
+}
+procedure `boolean` `access$300`(`com.google.android.material.chip.ChipGroup` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/chip/ChipGroup;.access$300:(Lcom/google/android/material/chip/ChipGroup;)Z` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L192120.  v0:= v1.`com.google.android.material.chip.ChipGroup.protectFromCheckedChange` @type ^`boolean` @kind boolean;
+  #L192124.  return v0;
+}
+procedure `int` `access$400`(`com.google.android.material.chip.ChipGroup` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/chip/ChipGroup;.access$400:(Lcom/google/android/material/chip/ChipGroup;)I` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1921c8.  v0:= v1.`com.google.android.material.chip.ChipGroup.checkedId` @type ^`int`;
+  #L1921cc.  return v0;
+}
+procedure `boolean` `access$500`(`com.google.android.material.chip.ChipGroup` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/chip/ChipGroup;.access$500:(Lcom/google/android/material/chip/ChipGroup;)Z` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L192138.  v0:= v1.`com.google.android.material.chip.ChipGroup.singleSelection` @type ^`boolean` @kind boolean;
+  #L19213c.  return v0;
+}
+procedure `void` `access$600`(`com.google.android.material.chip.ChipGroup` v0 @kind object @name `x0`, `int` v1 @name `x1`, `boolean` v2 @name `x2`) @signature `Lcom/google/android/material/chip/ChipGroup;.access$600:(Lcom/google/android/material/chip/ChipGroup;IZ)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L192340.  call `setCheckedStateForView`(v0, v1, v2) @signature `Lcom/google/android/material/chip/ChipGroup;.setCheckedStateForView:(IZ)V` @kind direct;
+  #L192346.  return @kind void;
+}
+procedure `void` `access$700`(`com.google.android.material.chip.ChipGroup` v0 @kind object @name `x0`, `int` v1 @name `x1`) @signature `Lcom/google/android/material/chip/ChipGroup;.access$700:(Lcom/google/android/material/chip/ChipGroup;I)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L192358.  call `setCheckedId`(v0, v1) @signature `Lcom/google/android/material/chip/ChipGroup;.setCheckedId:(I)V` @kind direct;
+  #L19235e.  return @kind void;
+}
+procedure `com.google.android.material.chip.ChipGroup$CheckedStateTracker` `access$800`(`com.google.android.material.chip.ChipGroup` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/chip/ChipGroup;.access$800:(Lcom/google/android/material/chip/ChipGroup;)Lcom/google/android/material/chip/ChipGroup$CheckedStateTracker;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1921b0.  v0:= v1.`com.google.android.material.chip.ChipGroup.checkedStateTracker` @type ^`com.google.android.material.chip.ChipGroup$CheckedStateTracker` @kind object;
+  #L1921b4.  return v0 @kind object;
+}
+procedure `void` `setCheckedId`(`com.google.android.material.chip.ChipGroup` v2 @kind this, `int` v3 @name `checkedId`) @signature `Lcom/google/android/material/chip/ChipGroup;.setCheckedId:(I)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L19249c.  v2.`com.google.android.material.chip.ChipGroup.checkedId` @type ^`int` := v3;
+  #L1924a0.  v0:= v2.`com.google.android.material.chip.ChipGroup.onCheckedChangeListener` @type ^`com.google.android.material.chip.ChipGroup$OnCheckedChangeListener` @kind object;
+  #L1924a4.  if v0 == 0 then goto L1924b6;
+  #L1924a8.  v1:= v2.`com.google.android.material.chip.ChipGroup.singleSelection` @type ^`boolean` @kind boolean;
+  #L1924ac.  if v1 == 0 then goto L1924b6;
+  #L1924b0.  call `onCheckedChanged`(v0, v2, v3) @signature `Lcom/google/android/material/chip/ChipGroup$OnCheckedChangeListener;.onCheckedChanged:(Lcom/google/android/material/chip/ChipGroup;I)V` @kind interface;
+  #L1924b6.  return @kind void;
+}
+procedure `void` `setCheckedStateForView`(`com.google.android.material.chip.ChipGroup` v2 @kind this, `int` v3 @name `viewId`, `boolean` v4 @name `checked`) @signature `Lcom/google/android/material/chip/ChipGroup;.setCheckedStateForView:(IZ)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1924c8.  call temp:= `findViewById`(v2, v3) @signature `Lcom/google/android/material/chip/ChipGroup;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L1924ce.  v0:= temp @kind object;
+  #L1924d0.  v1:= instanceof @variable v0 @type ^`com.google.android.material.chip.Chip` @kind boolean;
+  #L1924d4.  if v1 == 0 then goto L1924f0;
+  #L1924d8.  v1:= 1I;
+  #L1924da.  v2.`com.google.android.material.chip.ChipGroup.protectFromCheckedChange` @type ^`boolean` := v1 @kind boolean;
+  #L1924de.  v1:= v0 @kind object;
+  #L1924e0.  v1:= (`com.google.android.material.chip.Chip`) v1 @kind object;
+  #L1924e4.  call `setChecked`(v1, v4) @signature `Lcom/google/android/material/chip/Chip;.setChecked:(Z)V` @kind virtual;
+  #L1924ea.  v1:= 0I;
+  #L1924ec.  v2.`com.google.android.material.chip.ChipGroup.protectFromCheckedChange` @type ^`boolean` := v1 @kind boolean;
+  #L1924f0.  return @kind void;
+}
+procedure `void` `addView`(`com.google.android.material.chip.ChipGroup` v3 @kind this, `android.view.View` v4 @kind object @name `child`, `int` v5 @name `index`, `android.view.ViewGroup$LayoutParams` v6 @kind object @name `params`) @signature `Lcom/google/android/material/chip/ChipGroup;.addView:(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L192370.  v0:= instanceof @variable v4 @type ^`com.google.android.material.chip.Chip` @kind boolean;
+  #L192374.  if v0 == 0 then goto L1923b2;
+  #L192378.  v0:= v4 @kind object;
+  #L19237a.  v0:= (`com.google.android.material.chip.Chip`) v0 @kind object;
+  #L19237e.  call temp:= `isChecked`(v0) @signature `Lcom/google/android/material/chip/Chip;.isChecked:()Z` @kind virtual;
+  #L192384.  v1:= temp;
+  #L192386.  if v1 == 0 then goto L1923b2;
+  #L19238a.  v1:= v3.`com.google.android.material.chip.ChipGroup.checkedId` @type ^`int`;
+  #L19238e.  v2:= -1I;
+  #L192390.  if v1 == v2 then goto L1923a4;
+  #L192394.  v2:= v3.`com.google.android.material.chip.ChipGroup.singleSelection` @type ^`boolean` @kind boolean;
+  #L192398.  if v2 == 0 then goto L1923a4;
+  #L19239c.  v2:= 0I;
+  #L19239e.  call `setCheckedStateForView`(v3, v1, v2) @signature `Lcom/google/android/material/chip/ChipGroup;.setCheckedStateForView:(IZ)V` @kind direct;
+  #L1923a4.  call temp:= `getId`(v0) @signature `Lcom/google/android/material/chip/Chip;.getId:()I` @kind virtual;
+  #L1923aa.  v1:= temp;
+  #L1923ac.  call `setCheckedId`(v3, v1) @signature `Lcom/google/android/material/chip/ChipGroup;.setCheckedId:(I)V` @kind direct;
+  #L1923b2.  call `addView`(v3, v4, v5, v6) @signature `Lcom/google/android/material/internal/FlowLayout;.addView:(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V` @kind super;
+  #L1923b8.  return @kind void;
+}
+procedure `void` `check`(`com.google.android.material.chip.ChipGroup` v3 @kind this, `int` v4 @name `id`) @signature `Lcom/google/android/material/chip/ChipGroup;.check:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1923cc.  v0:= v3.`com.google.android.material.chip.ChipGroup.checkedId` @type ^`int`;
+  #L1923d0.  if v4 != v0 then goto L1923d6;
+  #L1923d4.  return @kind void;
+  #L1923d6.  v1:= -1I;
+  #L1923d8.  if v0 == v1 then goto L1923ec;
+  #L1923dc.  v2:= v3.`com.google.android.material.chip.ChipGroup.singleSelection` @type ^`boolean` @kind boolean;
+  #L1923e0.  if v2 == 0 then goto L1923ec;
+  #L1923e4.  v2:= 0I;
+  #L1923e6.  call `setCheckedStateForView`(v3, v0, v2) @signature `Lcom/google/android/material/chip/ChipGroup;.setCheckedStateForView:(IZ)V` @kind direct;
+  #L1923ec.  if v4 == v1 then goto L1923f8;
+  #L1923f0.  v0:= 1I;
+  #L1923f2.  call `setCheckedStateForView`(v3, v4, v0) @signature `Lcom/google/android/material/chip/ChipGroup;.setCheckedStateForView:(IZ)V` @kind direct;
+  #L1923f8.  call `setCheckedId`(v3, v4) @signature `Lcom/google/android/material/chip/ChipGroup;.setCheckedId:(I)V` @kind direct;
+  #L1923fe.  return @kind void;
+}
+procedure `boolean` `checkLayoutParams`(`com.google.android.material.chip.ChipGroup` v1 @kind this, `android.view.ViewGroup$LayoutParams` v2 @kind object @name `p`) @signature `Lcom/google/android/material/chip/ChipGroup;.checkLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)Z` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L192150.  call temp:= `checkLayoutParams`(v1, v2) @signature `Lcom/google/android/material/internal/FlowLayout;.checkLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)Z` @kind super;
+  #L192156.  v0:= temp;
+  #L192158.  if v0 == 0 then goto L192168;
+  #L19215c.  v0:= instanceof @variable v2 @type ^`com.google.android.material.chip.ChipGroup$LayoutParams` @kind boolean;
+  #L192160.  if v0 == 0 then goto L192168;
+  #L192164.  v0:= 1I;
+  #L192166.  goto L19216a;
+  #L192168.  v0:= 0I;
+  #L19216a.  return v0;
+}
+procedure `void` `clearCheck`(`com.google.android.material.chip.ChipGroup` v4 @kind this) @signature `Lcom/google/android/material/chip/ChipGroup;.clearCheck:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L192410.  v0:= 1I;
+  #L192412.  v4.`com.google.android.material.chip.ChipGroup.protectFromCheckedChange` @type ^`boolean` := v0 @kind boolean;
+  #L192416.  v0:= 0I;
+  #L192418.  call temp:= `getChildCount`(v4) @signature `Lcom/google/android/material/chip/ChipGroup;.getChildCount:()I` @kind virtual;
+  #L19241e.  v1:= temp;
+  #L192420.  v2:= 0I;
+  #L192422.  if v0 >= v1 then goto L192448;
+  #L192426.  call temp:= `getChildAt`(v4, v0) @signature `Lcom/google/android/material/chip/ChipGroup;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L19242c.  v1:= temp @kind object;
+  #L19242e.  v3:= instanceof @variable v1 @type ^`com.google.android.material.chip.Chip` @kind boolean;
+  #L192432.  if v3 == 0 then goto L192442;
+  #L192436.  v3:= v1 @kind object;
+  #L192438.  v3:= (`com.google.android.material.chip.Chip`) v3 @kind object;
+  #L19243c.  call `setChecked`(v3, v2) @signature `Lcom/google/android/material/chip/Chip;.setChecked:(Z)V` @kind virtual;
+  #L192442.  v0:= v0 + 1;
+  #L192446.  goto L192418;
+  #L192448.  v4.`com.google.android.material.chip.ChipGroup.protectFromCheckedChange` @type ^`boolean` := v2 @kind boolean;
+  #L19244c.  v0:= -1I;
+  #L19244e.  call `setCheckedId`(v4, v0) @signature `Lcom/google/android/material/chip/ChipGroup;.setCheckedId:(I)V` @kind direct;
+  #L192454.  return @kind void;
+}
+procedure `android.view.ViewGroup$LayoutParams` `generateDefaultLayoutParams`(`com.google.android.material.chip.ChipGroup` v2 @kind this) @signature `Lcom/google/android/material/chip/ChipGroup;.generateDefaultLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L1920c0.  v0:= new `com.google.android.material.chip.ChipGroup$LayoutParams`;
+  #L1920c4.  v1:= -2I;
+  #L1920c6.  call `<init>`(v0, v1, v1) @signature `Lcom/google/android/material/chip/ChipGroup$LayoutParams;.<init>:(II)V` @kind direct;
+  #L1920cc.  return v0 @kind object;
+}
+procedure `android.view.ViewGroup$LayoutParams` `generateLayoutParams`(`com.google.android.material.chip.ChipGroup` v2 @kind this, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/chip/ChipGroup;.generateLayoutParams:(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1920e0.  v0:= new `com.google.android.material.chip.ChipGroup$LayoutParams`;
+  #L1920e4.  call temp:= `getContext`(v2) @signature `Lcom/google/android/material/chip/ChipGroup;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1920ea.  v1:= temp @kind object;
+  #L1920ec.  call `<init>`(v0, v1, v3) @signature `Lcom/google/android/material/chip/ChipGroup$LayoutParams;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1920f2.  return v0 @kind object;
+}
+procedure `android.view.ViewGroup$LayoutParams` `generateLayoutParams`(`com.google.android.material.chip.ChipGroup` v1 @kind this, `android.view.ViewGroup$LayoutParams` v2 @kind object @name `lp`) @signature `Lcom/google/android/material/chip/ChipGroup;.generateLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L192104.  v0:= new `com.google.android.material.chip.ChipGroup$LayoutParams`;
+  #L192108.  call `<init>`(v0, v2) @signature `Lcom/google/android/material/chip/ChipGroup$LayoutParams;.<init>:(Landroid/view/ViewGroup$LayoutParams;)V` @kind direct;
+  #L19210e.  return v0 @kind object;
+}
+procedure `int` `getCheckedChipId`(`com.google.android.material.chip.ChipGroup` v1 @kind this) @signature `Lcom/google/android/material/chip/ChipGroup;.getCheckedChipId:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1921e0.  v0:= v1.`com.google.android.material.chip.ChipGroup.singleSelection` @type ^`boolean` @kind boolean;
+  #L1921e4.  if v0 == 0 then goto L1921ee;
+  #L1921e8.  v0:= v1.`com.google.android.material.chip.ChipGroup.checkedId` @type ^`int`;
+  #L1921ec.  goto L1921f0;
+  #L1921ee.  v0:= -1I;
+  #L1921f0.  return v0;
+}
+procedure `int` `getChipSpacingHorizontal`(`com.google.android.material.chip.ChipGroup` v1 @kind this) @signature `Lcom/google/android/material/chip/ChipGroup;.getChipSpacingHorizontal:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192204.  v0:= v1.`com.google.android.material.chip.ChipGroup.chipSpacingHorizontal` @type ^`int`;
+  #L192208.  return v0;
+}
+procedure `int` `getChipSpacingVertical`(`com.google.android.material.chip.ChipGroup` v1 @kind this) @signature `Lcom/google/android/material/chip/ChipGroup;.getChipSpacingVertical:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19221c.  v0:= v1.`com.google.android.material.chip.ChipGroup.chipSpacingVertical` @type ^`int`;
+  #L192220.  return v0;
+}
+procedure `boolean` `isSingleLine`(`com.google.android.material.chip.ChipGroup` v1 @kind this) @signature `Lcom/google/android/material/chip/ChipGroup;.isSingleLine:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19217c.  call temp:= `isSingleLine`(v1) @signature `Lcom/google/android/material/internal/FlowLayout;.isSingleLine:()Z` @kind super;
+  #L192182.  v0:= temp;
+  #L192184.  return v0;
+}
+procedure `boolean` `isSingleSelection`(`com.google.android.material.chip.ChipGroup` v1 @kind this) @signature `Lcom/google/android/material/chip/ChipGroup;.isSingleSelection:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192198.  v0:= v1.`com.google.android.material.chip.ChipGroup.singleSelection` @type ^`boolean` @kind boolean;
+  #L19219c.  return v0;
+}
+procedure `void` `onFinishInflate`(`com.google.android.material.chip.ChipGroup` v2 @kind this) @signature `Lcom/google/android/material/chip/ChipGroup;.onFinishInflate:()V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L192468.  call `onFinishInflate`(v2) @signature `Lcom/google/android/material/internal/FlowLayout;.onFinishInflate:()V` @kind super;
+  #L19246e.  v0:= v2.`com.google.android.material.chip.ChipGroup.checkedId` @type ^`int`;
+  #L192472.  v1:= -1I;
+  #L192474.  if v0 == v1 then goto L19248a;
+  #L192478.  v1:= 1I;
+  #L19247a.  call `setCheckedStateForView`(v2, v0, v1) @signature `Lcom/google/android/material/chip/ChipGroup;.setCheckedStateForView:(IZ)V` @kind direct;
+  #L192480.  v0:= v2.`com.google.android.material.chip.ChipGroup.checkedId` @type ^`int`;
+  #L192484.  call `setCheckedId`(v2, v0) @signature `Lcom/google/android/material/chip/ChipGroup;.setCheckedId:(I)V` @kind direct;
+  #L19248a.  return @kind void;
+}
+procedure `void` `setChipSpacing`(`com.google.android.material.chip.ChipGroup` v0 @kind this, `int` v1 @name `chipSpacing`) @signature `Lcom/google/android/material/chip/ChipGroup;.setChipSpacing:(I)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L192504.  call `setChipSpacingHorizontal`(v0, v1) @signature `Lcom/google/android/material/chip/ChipGroup;.setChipSpacingHorizontal:(I)V` @kind virtual;
+  #L19250a.  call `setChipSpacingVertical`(v0, v1) @signature `Lcom/google/android/material/chip/ChipGroup;.setChipSpacingVertical:(I)V` @kind virtual;
+  #L192510.  return @kind void;
+}
+procedure `void` `setChipSpacingHorizontal`(`com.google.android.material.chip.ChipGroup` v1 @kind this, `int` v2 @name `chipSpacingHorizontal`) @signature `Lcom/google/android/material/chip/ChipGroup;.setChipSpacingHorizontal:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192524.  v0:= v1.`com.google.android.material.chip.ChipGroup.chipSpacingHorizontal` @type ^`int`;
+  #L192528.  if v0 == v2 then goto L19253c;
+  #L19252c.  v1.`com.google.android.material.chip.ChipGroup.chipSpacingHorizontal` @type ^`int` := v2;
+  #L192530.  call `setItemSpacing`(v1, v2) @signature `Lcom/google/android/material/chip/ChipGroup;.setItemSpacing:(I)V` @kind virtual;
+  #L192536.  call `requestLayout`(v1) @signature `Lcom/google/android/material/chip/ChipGroup;.requestLayout:()V` @kind virtual;
+  #L19253c.  return @kind void;
+}
+procedure `void` `setChipSpacingHorizontalResource`(`com.google.android.material.chip.ChipGroup` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/ChipGroup;.setChipSpacingHorizontalResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192550.  call temp:= `getResources`(v1) @signature `Lcom/google/android/material/chip/ChipGroup;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L192556.  v0:= temp @kind object;
+  #L192558.  call temp:= `getDimensionPixelOffset`(v0, v2) @signature `Landroid/content/res/Resources;.getDimensionPixelOffset:(I)I` @kind virtual;
+  #L19255e.  v0:= temp;
+  #L192560.  call `setChipSpacingHorizontal`(v1, v0) @signature `Lcom/google/android/material/chip/ChipGroup;.setChipSpacingHorizontal:(I)V` @kind virtual;
+  #L192566.  return @kind void;
+}
+procedure `void` `setChipSpacingResource`(`com.google.android.material.chip.ChipGroup` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/ChipGroup;.setChipSpacingResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192578.  call temp:= `getResources`(v1) @signature `Lcom/google/android/material/chip/ChipGroup;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L19257e.  v0:= temp @kind object;
+  #L192580.  call temp:= `getDimensionPixelOffset`(v0, v2) @signature `Landroid/content/res/Resources;.getDimensionPixelOffset:(I)I` @kind virtual;
+  #L192586.  v0:= temp;
+  #L192588.  call `setChipSpacing`(v1, v0) @signature `Lcom/google/android/material/chip/ChipGroup;.setChipSpacing:(I)V` @kind virtual;
+  #L19258e.  return @kind void;
+}
+procedure `void` `setChipSpacingVertical`(`com.google.android.material.chip.ChipGroup` v1 @kind this, `int` v2 @name `chipSpacingVertical`) @signature `Lcom/google/android/material/chip/ChipGroup;.setChipSpacingVertical:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1925a0.  v0:= v1.`com.google.android.material.chip.ChipGroup.chipSpacingVertical` @type ^`int`;
+  #L1925a4.  if v0 == v2 then goto L1925b8;
+  #L1925a8.  v1.`com.google.android.material.chip.ChipGroup.chipSpacingVertical` @type ^`int` := v2;
+  #L1925ac.  call `setLineSpacing`(v1, v2) @signature `Lcom/google/android/material/chip/ChipGroup;.setLineSpacing:(I)V` @kind virtual;
+  #L1925b2.  call `requestLayout`(v1) @signature `Lcom/google/android/material/chip/ChipGroup;.requestLayout:()V` @kind virtual;
+  #L1925b8.  return @kind void;
+}
+procedure `void` `setChipSpacingVerticalResource`(`com.google.android.material.chip.ChipGroup` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/ChipGroup;.setChipSpacingVerticalResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1925cc.  call temp:= `getResources`(v1) @signature `Lcom/google/android/material/chip/ChipGroup;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1925d2.  v0:= temp @kind object;
+  #L1925d4.  call temp:= `getDimensionPixelOffset`(v0, v2) @signature `Landroid/content/res/Resources;.getDimensionPixelOffset:(I)I` @kind virtual;
+  #L1925da.  v0:= temp;
+  #L1925dc.  call `setChipSpacingVertical`(v1, v0) @signature `Lcom/google/android/material/chip/ChipGroup;.setChipSpacingVertical:(I)V` @kind virtual;
+  #L1925e2.  return @kind void;
+}
+procedure `void` `setDividerDrawableHorizontal`(`com.google.android.material.chip.ChipGroup` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `divider`) @signature `Lcom/google/android/material/chip/ChipGroup;.setDividerDrawableHorizontal:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1925f4.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L1925f8.  v1:= "Changing divider drawables have no effect. ChipGroup do not use divider drawables as spacing." @kind object;
+  #L1925fc.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L192602.  throw v0;
+}
+procedure `void` `setDividerDrawableVertical`(`com.google.android.material.chip.ChipGroup` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `divider`) @signature `Lcom/google/android/material/chip/ChipGroup;.setDividerDrawableVertical:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L192614.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L192618.  v1:= "Changing divider drawables have no effect. ChipGroup do not use divider drawables as spacing." @kind object;
+  #L19261c.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L192622.  throw v0;
+}
+procedure `void` `setFlexWrap`(`com.google.android.material.chip.ChipGroup` v2 @kind this, `int` v3 @name `flexWrap`) @signature `Lcom/google/android/material/chip/ChipGroup;.setFlexWrap:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L192634.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L192638.  v1:= "Changing flex wrap not allowed. ChipGroup exposes a singleLine attribute instead." @kind object;
+  #L19263c.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L192642.  throw v0;
+}
+procedure `void` `setOnCheckedChangeListener`(`com.google.android.material.chip.ChipGroup` v0 @kind this, `com.google.android.material.chip.ChipGroup$OnCheckedChangeListener` v1 @kind object @name `listener`) @signature `Lcom/google/android/material/chip/ChipGroup;.setOnCheckedChangeListener:(Lcom/google/android/material/chip/ChipGroup$OnCheckedChangeListener;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L192654.  v0.`com.google.android.material.chip.ChipGroup.onCheckedChangeListener` @type ^`com.google.android.material.chip.ChipGroup$OnCheckedChangeListener` := v1 @kind object;
+  #L192658.  return @kind void;
+}
+procedure `void` `setOnHierarchyChangeListener`(`com.google.android.material.chip.ChipGroup` v1 @kind this, `android.view.ViewGroup$OnHierarchyChangeListener` v2 @kind object @name `listener`) @signature `Lcom/google/android/material/chip/ChipGroup;.setOnHierarchyChangeListener:(Landroid/view/ViewGroup$OnHierarchyChangeListener;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19266c.  v0:= v1.`com.google.android.material.chip.ChipGroup.passThroughListener` @type ^`com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener` @kind object;
+  #L192670.  call temp:= `access$202`(v0, v2) @signature `Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;.access$202:(Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;Landroid/view/ViewGroup$OnHierarchyChangeListener;)Landroid/view/ViewGroup$OnHierarchyChangeListener;` @kind static;
+  #L192676.  return @kind void;
+}
+procedure `void` `setShowDividerHorizontal`(`com.google.android.material.chip.ChipGroup` v2 @kind this, `int` v3 @name `dividerMode`) @signature `Lcom/google/android/material/chip/ChipGroup;.setShowDividerHorizontal:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L192688.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L19268c.  v1:= "Changing divider modes has no effect. ChipGroup do not use divider drawables as spacing." @kind object;
+  #L192690.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L192696.  throw v0;
+}
+procedure `void` `setShowDividerVertical`(`com.google.android.material.chip.ChipGroup` v2 @kind this, `int` v3 @name `dividerMode`) @signature `Lcom/google/android/material/chip/ChipGroup;.setShowDividerVertical:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1926a8.  v0:= new `java.lang.UnsupportedOperationException`;
+  #L1926ac.  v1:= "Changing divider modes has no effect. ChipGroup do not use divider drawables as spacing." @kind object;
+  #L1926b0.  call `<init>`(v0, v1) @signature `Ljava/lang/UnsupportedOperationException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1926b6.  throw v0;
+}
+procedure `void` `setSingleLine`(`com.google.android.material.chip.ChipGroup` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/ChipGroup;.setSingleLine:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1926e0.  call temp:= `getResources`(v1) @signature `Lcom/google/android/material/chip/ChipGroup;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1926e6.  v0:= temp @kind object;
+  #L1926e8.  call temp:= `getBoolean`(v0, v2) @signature `Landroid/content/res/Resources;.getBoolean:(I)Z` @kind virtual;
+  #L1926ee.  v0:= temp;
+  #L1926f0.  call `setSingleLine`(v1, v0) @signature `Lcom/google/android/material/chip/ChipGroup;.setSingleLine:(Z)V` @kind virtual;
+  #L1926f6.  return @kind void;
+}
+procedure `void` `setSingleLine`(`com.google.android.material.chip.ChipGroup` v0 @kind this, `boolean` v1 @name `singleLine`) @signature `Lcom/google/android/material/chip/ChipGroup;.setSingleLine:(Z)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1926c8.  call `setSingleLine`(v0, v1) @signature `Lcom/google/android/material/internal/FlowLayout;.setSingleLine:(Z)V` @kind super;
+  #L1926ce.  return @kind void;
+}
+procedure `void` `setSingleSelection`(`com.google.android.material.chip.ChipGroup` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/chip/ChipGroup;.setSingleSelection:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19272c.  call temp:= `getResources`(v1) @signature `Lcom/google/android/material/chip/ChipGroup;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L192732.  v0:= temp @kind object;
+  #L192734.  call temp:= `getBoolean`(v0, v2) @signature `Landroid/content/res/Resources;.getBoolean:(I)Z` @kind virtual;
+  #L19273a.  v0:= temp;
+  #L19273c.  call `setSingleSelection`(v1, v0) @signature `Lcom/google/android/material/chip/ChipGroup;.setSingleSelection:(Z)V` @kind virtual;
+  #L192742.  return @kind void;
+}
+procedure `void` `setSingleSelection`(`com.google.android.material.chip.ChipGroup` v1 @kind this, `boolean` v2 @name `singleSelection`) @signature `Lcom/google/android/material/chip/ChipGroup;.setSingleSelection:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L192708.  v0:= v1.`com.google.android.material.chip.ChipGroup.singleSelection` @type ^`boolean` @kind boolean;
+  #L19270c.  if v0 == v2 then goto L19271a;
+  #L192710.  v1.`com.google.android.material.chip.ChipGroup.singleSelection` @type ^`boolean` := v2 @kind boolean;
+  #L192714.  call `clearCheck`(v1) @signature `Lcom/google/android/material/chip/ChipGroup;.clearCheck:()V` @kind virtual;
+  #L19271a.  return @kind void;
+}

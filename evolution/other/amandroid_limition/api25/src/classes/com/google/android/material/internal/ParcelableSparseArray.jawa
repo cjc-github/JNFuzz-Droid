@@ -1,0 +1,78 @@
+record `com.google.android.material.internal.ParcelableSparseArray` @kind class @AccessFlag PUBLIC extends `android.util.SparseArray` @kind class, `android.os.Parcelable` @kind interface {
+}
+global `android.os.Parcelable$Creator` `@@com.google.android.material.internal.ParcelableSparseArray.CREATOR` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/internal/ParcelableSparseArray;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a6290.  v0:= new `com.google.android.material.internal.ParcelableSparseArray$1`;
+  #L1a6294.  call `<init>`(v0) @signature `Lcom/google/android/material/internal/ParcelableSparseArray$1;.<init>:()V` @kind direct;
+  #L1a629a.  `@@com.google.android.material.internal.ParcelableSparseArray.CREATOR` @type ^`android.os.Parcelable$Creator` := v0 @kind object;
+  #L1a629e.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.ParcelableSparseArray` v0 @kind this) @signature `Lcom/google/android/material/internal/ParcelableSparseArray;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1a62b0.  call `<init>`(v0) @signature `Landroid/util/SparseArray;.<init>:()V` @kind direct;
+  #L1a62b6.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.ParcelableSparseArray` v6 @kind this, `android.os.Parcel` v7 @kind object @name `source`, `java.lang.ClassLoader` v8 @kind object @name `loader`) @signature `Lcom/google/android/material/internal/ParcelableSparseArray;.<init>:(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1a62c8.  call `<init>`(v6) @signature `Landroid/util/SparseArray;.<init>:()V` @kind direct;
+  #L1a62ce.  call temp:= `readInt`(v7) @signature `Landroid/os/Parcel;.readInt:()I` @kind virtual;
+  #L1a62d4.  v0:= temp;
+  #L1a62d6.  v1:= new `int`[v0];
+  #L1a62da.  call `readIntArray`(v7, v1) @signature `Landroid/os/Parcel;.readIntArray:([I)V` @kind virtual;
+  #L1a62e0.  call temp:= `readParcelableArray`(v7, v8) @signature `Landroid/os/Parcel;.readParcelableArray:(Ljava/lang/ClassLoader;)[Landroid/os/Parcelable;` @kind virtual;
+  #L1a62e6.  v2:= temp @kind object;
+  #L1a62e8.  v3:= 0I;
+  #L1a62ea.  if v3 >= v0 then goto L1a6302;
+  #L1a62ee.  v4:= v1[v3];
+  #L1a62f2.  v5:= v2[v3] @kind object;
+  #L1a62f6.  call `put`(v6, v4, v5) @signature `Lcom/google/android/material/internal/ParcelableSparseArray;.put:(ILjava/lang/Object;)V` @kind virtual;
+  #L1a62fc.  v3:= v3 + 1;
+  #L1a6300.  goto L1a62ea;
+  #L1a6302.  return @kind void;
+}
+procedure `int` `describeContents`(`com.google.android.material.internal.ParcelableSparseArray` v1 @kind this) @signature `Lcom/google/android/material/internal/ParcelableSparseArray;.describeContents:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a627c.  v0:= 0I;
+  #L1a627e.  return v0;
+}
+procedure `void` `writeToParcel`(`com.google.android.material.internal.ParcelableSparseArray` v5 @kind this, `android.os.Parcel` v6 @kind object @name `parcel`, `int` v7 @name `flags`) @signature `Lcom/google/android/material/internal/ParcelableSparseArray;.writeToParcel:(Landroid/os/Parcel;I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1a6314.  call temp:= `size`(v5) @signature `Lcom/google/android/material/internal/ParcelableSparseArray;.size:()I` @kind virtual;
+  #L1a631a.  v0:= temp;
+  #L1a631c.  v1:= new `int`[v0];
+  #L1a6320.  v2:= new `android.os.Parcelable`[v0];
+  #L1a6324.  v3:= 0I;
+  #L1a6326.  if v3 >= v0 then goto L1a634c;
+  #L1a632a.  call temp:= `keyAt`(v5, v3) @signature `Lcom/google/android/material/internal/ParcelableSparseArray;.keyAt:(I)I` @kind virtual;
+  #L1a6330.  v4:= temp;
+  #L1a6332.  v1[v3]:= v4;
+  #L1a6336.  call temp:= `valueAt`(v5, v3) @signature `Lcom/google/android/material/internal/ParcelableSparseArray;.valueAt:(I)Ljava/lang/Object;` @kind virtual;
+  #L1a633c.  v4:= temp @kind object;
+  #L1a633e.  v4:= (`android.os.Parcelable`) v4 @kind object;
+  #L1a6342.  v2[v3]:= v4 @kind object;
+  #L1a6346.  v3:= v3 + 1;
+  #L1a634a.  goto L1a6326;
+  #L1a634c.  call `writeInt`(v6, v0) @signature `Landroid/os/Parcel;.writeInt:(I)V` @kind virtual;
+  #L1a6352.  call `writeIntArray`(v6, v1) @signature `Landroid/os/Parcel;.writeIntArray:([I)V` @kind virtual;
+  #L1a6358.  call `writeParcelableArray`(v6, v2, v7) @signature `Landroid/os/Parcel;.writeParcelableArray:([Landroid/os/Parcelable;I)V` @kind virtual;
+  #L1a635e.  return @kind void;
+}

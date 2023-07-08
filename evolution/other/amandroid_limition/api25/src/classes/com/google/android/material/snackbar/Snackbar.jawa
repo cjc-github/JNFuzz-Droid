@@ -1,0 +1,375 @@
+record `com.google.android.material.snackbar.Snackbar` @kind class @AccessFlag PUBLIC extends `com.google.android.material.snackbar.BaseTransientBottomBar` @kind class {
+  `android.view.accessibility.AccessibilityManager` `com.google.android.material.snackbar.Snackbar.accessibilityManager` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.snackbar.BaseTransientBottomBar$BaseCallback` `com.google.android.material.snackbar.Snackbar.callback` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.snackbar.Snackbar.hasAction` @AccessFlag PRIVATE;
+}
+global `int`[] `@@com.google.android.material.snackbar.Snackbar.SNACKBAR_BUTTON_STYLE_ATTR` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/snackbar/Snackbar;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b1914.  v0:= 1I;
+  #L1b1916.  v0:= new `int`[v0];
+  #L1b191a.  v1:= `@@com.google.android.material.R$attr.snackbarButtonStyle` @type ^`int`;
+  #L1b191e.  v2:= 0I;
+  #L1b1920.  v0[v2]:= v1;
+  #L1b1924.  `@@com.google.android.material.snackbar.Snackbar.SNACKBAR_BUTTON_STYLE_ATTR` @type ^`int`[] := v0 @kind object;
+  #L1b1928.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.snackbar.Snackbar` v2 @kind this, `android.view.ViewGroup` v3 @kind object @name `parent`, `android.view.View` v4 @kind object @name `content`, `com.google.android.material.snackbar.ContentViewCallback` v5 @kind object @name `contentViewCallback`) @signature `Lcom/google/android/material/snackbar/Snackbar;.<init>:(Landroid/view/ViewGroup;Landroid/view/View;Lcom/google/android/material/snackbar/ContentViewCallback;)V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L1b193c.  call `<init>`(v2, v3, v4, v5) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar;.<init>:(Landroid/view/ViewGroup;Landroid/view/View;Lcom/google/android/material/snackbar/ContentViewCallback;)V` @kind direct;
+  #L1b1942.  
+  #L1b1944.  call temp:= `getContext`(v3) @signature `Landroid/view/ViewGroup;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1b194a.  v0:= temp @kind object;
+  #L1b194c.  v1:= "accessibility" @kind object;
+  #L1b1950.  call temp:= `getSystemService`(v0, v1) @signature `Landroid/content/Context;.getSystemService:(Ljava/lang/String;)Ljava/lang/Object;` @kind virtual;
+  #L1b1956.  v0:= temp @kind object;
+  #L1b1958.  v0:= (`android.view.accessibility.AccessibilityManager`) v0 @kind object;
+  #L1b195c.  v2.`com.google.android.material.snackbar.Snackbar.accessibilityManager` @type ^`android.view.accessibility.AccessibilityManager` := v0 @kind object;
+  #L1b1960.  return @kind void;
+}
+procedure `android.view.ViewGroup` `findSuitableParent`(`android.view.View` v3 @kind object @name `view`) @signature `Lcom/google/android/material/snackbar/Snackbar;.findSuitableParent:(Landroid/view/View;)Landroid/view/ViewGroup;` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b14b4.  v0:= 0I;
+  #L1b14b6.  v1:= instanceof @variable v3 @type ^`androidx.coordinatorlayout.widget.CoordinatorLayout` @kind boolean;
+  #L1b14ba.  if v1 == 0 then goto L1b14c6;
+  #L1b14be.  v1:= v3 @kind object;
+  #L1b14c0.  v1:= (`android.view.ViewGroup`) v1 @kind object;
+  #L1b14c4.  return v1 @kind object;
+  #L1b14c6.  v1:= instanceof @variable v3 @type ^`android.widget.FrameLayout` @kind boolean;
+  #L1b14ca.  if v1 == 0 then goto L1b14ee;
+  #L1b14ce.  call temp:= `getId`(v3) @signature `Landroid/view/View;.getId:()I` @kind virtual;
+  #L1b14d4.  v1:= temp;
+  #L1b14d6.  v2:= 16908290I;
+  #L1b14dc.  if v1 != v2 then goto L1b14e8;
+  #L1b14e0.  v1:= v3 @kind object;
+  #L1b14e2.  v1:= (`android.view.ViewGroup`) v1 @kind object;
+  #L1b14e6.  return v1 @kind object;
+  #L1b14e8.  v0:= v3 @kind object;
+  #L1b14ea.  v0:= (`android.view.ViewGroup`) v0 @kind object;
+  #L1b14ee.  if v3 == 0 then goto L1b150e;
+  #L1b14f2.  call temp:= `getParent`(v3) @signature `Landroid/view/View;.getParent:()Landroid/view/ViewParent;` @kind virtual;
+  #L1b14f8.  v1:= temp @kind object;
+  #L1b14fa.  v2:= instanceof @variable v1 @type ^`android.view.View` @kind boolean;
+  #L1b14fe.  if v2 == 0 then goto L1b150a;
+  #L1b1502.  v2:= v1 @kind object;
+  #L1b1504.  v2:= (`android.view.View`) v2 @kind object;
+  #L1b1508.  goto L1b150c;
+  #L1b150a.  v2:= 0I;
+  #L1b150c.  v3:= v2 @kind object;
+  #L1b150e.  if v3 != 0 then goto L1b1514;
+  #L1b1512.  return v0 @kind object;
+  #L1b1514.  goto L1b14b6;
+}
+procedure `boolean` `hasSnackbarButtonStyleAttr`(`android.content.Context` v4 @kind object @name `context`) @signature `Lcom/google/android/material/snackbar/Snackbar;.hasSnackbarButtonStyleAttr:(Landroid/content/Context;)Z` @AccessFlag PROTECTED_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b1528.  v0:= `@@com.google.android.material.snackbar.Snackbar.SNACKBAR_BUTTON_STYLE_ATTR` @type ^`int`[] @kind object;
+  #L1b152c.  call temp:= `obtainStyledAttributes`(v4, v0) @signature `Landroid/content/Context;.obtainStyledAttributes:([I)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1b1532.  v0:= temp @kind object;
+  #L1b1534.  v1:= 0I;
+  #L1b1536.  v2:= -1I;
+  #L1b1538.  call temp:= `getResourceId`(v0, v1, v2) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1b153e.  v3:= temp;
+  #L1b1540.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1b1546.  if v3 == v2 then goto L1b154c;
+  #L1b154a.  v1:= 1I;
+  #L1b154c.  return v1;
+}
+procedure `com.google.android.material.snackbar.Snackbar` `make`(`android.view.View` v1 @kind object @name `view`, `int` v2 @name `resId`, `int` v3 @name `duration`) @signature `Lcom/google/android/material/snackbar/Snackbar;.make:(Landroid/view/View;II)Lcom/google/android/material/snackbar/Snackbar;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+
+  #L1b157c.  call temp:= `getResources`(v1) @signature `Landroid/view/View;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1b1582.  v0:= temp @kind object;
+  #L1b1584.  call temp:= `getText`(v0, v2) @signature `Landroid/content/res/Resources;.getText:(I)Ljava/lang/CharSequence;` @kind virtual;
+  #L1b158a.  v0:= temp @kind object;
+  #L1b158c.  call temp:= `make`(v1, v0, v3) @signature `Lcom/google/android/material/snackbar/Snackbar;.make:(Landroid/view/View;Ljava/lang/CharSequence;I)Lcom/google/android/material/snackbar/Snackbar;` @kind static;
+  #L1b1592.  v0:= temp @kind object;
+  #L1b1594.  return v0 @kind object;
+}
+procedure `com.google.android.material.snackbar.Snackbar` `make`(`android.view.View` v4 @kind object @name `view`, `java.lang.CharSequence` v5 @kind object @name `text`, `int` v6 @name `duration`) @signature `Lcom/google/android/material/snackbar/Snackbar;.make:(Landroid/view/View;Ljava/lang/CharSequence;I)Lcom/google/android/material/snackbar/Snackbar;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b15a8.  call temp:= `findSuitableParent`(v4) @signature `Lcom/google/android/material/snackbar/Snackbar;.findSuitableParent:(Landroid/view/View;)Landroid/view/ViewGroup;` @kind static;
+  #L1b15ae.  v0:= temp @kind object;
+  #L1b15b0.  if v0 == 0 then goto L1b160a;
+  #L1b15b4.  call temp:= `getContext`(v0) @signature `Landroid/view/ViewGroup;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1b15ba.  v1:= temp @kind object;
+  #L1b15bc.  call temp:= `from`(v1) @signature `Landroid/view/LayoutInflater;.from:(Landroid/content/Context;)Landroid/view/LayoutInflater;` @kind static;
+  #L1b15c2.  v1:= temp @kind object;
+  #L1b15c4.  
+  #L1b15c6.  call temp:= `getContext`(v0) @signature `Landroid/view/ViewGroup;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1b15cc.  v2:= temp @kind object;
+  #L1b15ce.  call temp:= `hasSnackbarButtonStyleAttr`(v2) @signature `Lcom/google/android/material/snackbar/Snackbar;.hasSnackbarButtonStyleAttr:(Landroid/content/Context;)Z` @kind static;
+  #L1b15d4.  v2:= temp;
+  #L1b15d6.  if v2 == 0 then goto L1b15e0;
+  #L1b15da.  v2:= `@@com.google.android.material.R$layout.mtrl_layout_snackbar_include` @type ^`int`;
+  #L1b15de.  goto L1b15e4;
+  #L1b15e0.  v2:= `@@com.google.android.material.R$layout.design_layout_snackbar_include` @type ^`int`;
+  #L1b15e4.  v3:= 0I;
+  #L1b15e6.  call temp:= `inflate`(v1, v2, v0, v3) @signature `Landroid/view/LayoutInflater;.inflate:(ILandroid/view/ViewGroup;Z)Landroid/view/View;` @kind virtual;
+  #L1b15ec.  v2:= temp @kind object;
+  #L1b15ee.  v2:= (`com.google.android.material.snackbar.SnackbarContentLayout`) v2 @kind object;
+  #L1b15f2.  v3:= new `com.google.android.material.snackbar.Snackbar`;
+  #L1b15f6.  call `<init>`(v3, v0, v2, v2) @signature `Lcom/google/android/material/snackbar/Snackbar;.<init>:(Landroid/view/ViewGroup;Landroid/view/View;Lcom/google/android/material/snackbar/ContentViewCallback;)V` @kind direct;
+  #L1b15fc.  call temp:= `setText`(v3, v5) @signature `Lcom/google/android/material/snackbar/Snackbar;.setText:(Ljava/lang/CharSequence;)Lcom/google/android/material/snackbar/Snackbar;` @kind virtual;
+  #L1b1602.  call temp:= `setDuration`(v3, v6) @signature `Lcom/google/android/material/snackbar/Snackbar;.setDuration:(I)Lcom/google/android/material/snackbar/BaseTransientBottomBar;` @kind virtual;
+  #L1b1608.  return v3 @kind object;
+  #L1b160a.  v1:= new `java.lang.IllegalArgumentException`;
+  #L1b160e.  v2:= "No suitable parent found from the given view. Please provide a valid view." @kind object;
+  #L1b1612.  call `<init>`(v1, v2) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1b1618.  throw v1;
+}
+procedure `void` `dismiss`(`com.google.android.material.snackbar.Snackbar` v0 @kind this) @signature `Lcom/google/android/material/snackbar/Snackbar;.dismiss:()V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b1974.  call `dismiss`(v0) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar;.dismiss:()V` @kind super;
+  #L1b197a.  return @kind void;
+}
+procedure `int` `getDuration`(`com.google.android.material.snackbar.Snackbar` v4 @kind this) @signature `Lcom/google/android/material/snackbar/Snackbar;.getDuration:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b18a4.  call temp:= `getDuration`(v4) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar;.getDuration:()I` @kind super;
+  #L1b18aa.  v0:= temp;
+  #L1b18ac.  v1:= -2I;
+  #L1b18ae.  if v0 != v1 then goto L1b18b4;
+  #L1b18b2.  return v1;
+  #L1b18b4.  v2:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1b18b8.  v3:= 29I;
+  #L1b18bc.  if v2 < v3 then goto L1b18e4;
+  #L1b18c0.  v1:= v4.`com.google.android.material.snackbar.Snackbar.hasAction` @type ^`boolean` @kind boolean;
+  #L1b18c4.  if v1 == 0 then goto L1b18cc;
+  #L1b18c8.  v1:= 4I;
+  #L1b18ca.  goto L1b18ce;
+  #L1b18cc.  v1:= 0I;
+  #L1b18ce.  v2:= v4.`com.google.android.material.snackbar.Snackbar.accessibilityManager` @type ^`android.view.accessibility.AccessibilityManager` @kind object;
+  #L1b18d2.  v3:= v1 ^| 1;
+  #L1b18d6.  v3:= v3 ^| 2;
+  #L1b18da.  call temp:= `getRecommendedTimeoutMillis`(v2, v0, v3) @signature `Landroid/view/accessibility/AccessibilityManager;.getRecommendedTimeoutMillis:(II)I` @kind virtual;
+  #L1b18e0.  v2:= temp;
+  #L1b18e2.  return v2;
+  #L1b18e4.  v2:= v4.`com.google.android.material.snackbar.Snackbar.hasAction` @type ^`boolean` @kind boolean;
+  #L1b18e8.  if v2 == 0 then goto L1b18fe;
+  #L1b18ec.  v2:= v4.`com.google.android.material.snackbar.Snackbar.accessibilityManager` @type ^`android.view.accessibility.AccessibilityManager` @kind object;
+  #L1b18f0.  call temp:= `isTouchExplorationEnabled`(v2) @signature `Landroid/view/accessibility/AccessibilityManager;.isTouchExplorationEnabled:()Z` @kind virtual;
+  #L1b18f6.  v2:= temp;
+  #L1b18f8.  if v2 == 0 then goto L1b18fe;
+  #L1b18fc.  goto L1b1900;
+  #L1b18fe.  v1:= v0;
+  #L1b1900.  return v1;
+}
+procedure `boolean` `isShown`(`com.google.android.material.snackbar.Snackbar` v1 @kind this) @signature `Lcom/google/android/material/snackbar/Snackbar;.isShown:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b1560.  call temp:= `isShown`(v1) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar;.isShown:()Z` @kind super;
+  #L1b1566.  v0:= temp;
+  #L1b1568.  return v0;
+}
+procedure `com.google.android.material.snackbar.Snackbar` `setAction`(`com.google.android.material.snackbar.Snackbar` v1 @kind this, `int` v2 @name `resId`, `android.view.View$OnClickListener` v3 @kind object @name `listener`) @signature `Lcom/google/android/material/snackbar/Snackbar;.setAction:(ILandroid/view/View$OnClickListener;)Lcom/google/android/material/snackbar/Snackbar;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b162c.  call temp:= `getContext`(v1) @signature `Lcom/google/android/material/snackbar/Snackbar;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1b1632.  v0:= temp @kind object;
+  #L1b1634.  call temp:= `getText`(v0, v2) @signature `Landroid/content/Context;.getText:(I)Ljava/lang/CharSequence;` @kind virtual;
+  #L1b163a.  v0:= temp @kind object;
+  #L1b163c.  call temp:= `setAction`(v1, v0, v3) @signature `Lcom/google/android/material/snackbar/Snackbar;.setAction:(Ljava/lang/CharSequence;Landroid/view/View$OnClickListener;)Lcom/google/android/material/snackbar/Snackbar;` @kind virtual;
+  #L1b1642.  v0:= temp @kind object;
+  #L1b1644.  return v0 @kind object;
+}
+procedure `com.google.android.material.snackbar.Snackbar` `setAction`(`com.google.android.material.snackbar.Snackbar` v4 @kind this, `java.lang.CharSequence` v5 @kind object @name `text`, `android.view.View$OnClickListener` v6 @kind object @name `listener`) @signature `Lcom/google/android/material/snackbar/Snackbar;.setAction:(Ljava/lang/CharSequence;Landroid/view/View$OnClickListener;)Lcom/google/android/material/snackbar/Snackbar;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b1658.  v0:= v4.`com.google.android.material.snackbar.Snackbar.view` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar$SnackbarBaseLayout` @kind object;
+  #L1b165c.  v1:= 0I;
+  #L1b165e.  call temp:= `getChildAt`(v0, v1) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1b1664.  v0:= temp @kind object;
+  #L1b1666.  v0:= (`com.google.android.material.snackbar.SnackbarContentLayout`) v0 @kind object;
+  #L1b166a.  call temp:= `getActionView`(v0) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.getActionView:()Landroid/widget/Button;` @kind virtual;
+  #L1b1670.  v2:= temp @kind object;
+  #L1b1672.  call temp:= `isEmpty`(v5) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L1b1678.  v3:= temp;
+  #L1b167a.  if v3 != 0 then goto L1b16a8;
+  #L1b167e.  if v6 != 0 then goto L1b1684;
+  #L1b1682.  goto L1b16a8;
+  #L1b1684.  v3:= 1I;
+  #L1b1686.  v4.`com.google.android.material.snackbar.Snackbar.hasAction` @type ^`boolean` := v3 @kind boolean;
+  #L1b168a.  call `setVisibility`(v2, v1) @signature `Landroid/widget/TextView;.setVisibility:(I)V` @kind virtual;
+  #L1b1690.  call `setText`(v2, v5) @signature `Landroid/widget/TextView;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1b1696.  v1:= new `com.google.android.material.snackbar.Snackbar$1`;
+  #L1b169a.  call `<init>`(v1, v4, v6) @signature `Lcom/google/android/material/snackbar/Snackbar$1;.<init>:(Lcom/google/android/material/snackbar/Snackbar;Landroid/view/View$OnClickListener;)V` @kind direct;
+  #L1b16a0.  call `setOnClickListener`(v2, v1) @signature `Landroid/widget/TextView;.setOnClickListener:(Landroid/view/View$OnClickListener;)V` @kind virtual;
+  #L1b16a6.  goto L1b16be;
+  #L1b16a8.  v3:= 8I;
+  #L1b16ac.  call `setVisibility`(v2, v3) @signature `Landroid/widget/TextView;.setVisibility:(I)V` @kind virtual;
+  #L1b16b2.  v3:= 0I;
+  #L1b16b4.  call `setOnClickListener`(v2, v3) @signature `Landroid/widget/TextView;.setOnClickListener:(Landroid/view/View$OnClickListener;)V` @kind virtual;
+  #L1b16ba.  v4.`com.google.android.material.snackbar.Snackbar.hasAction` @type ^`boolean` := v1 @kind boolean;
+  #L1b16be.  return v4 @kind object;
+}
+procedure `com.google.android.material.snackbar.Snackbar` `setActionTextColor`(`com.google.android.material.snackbar.Snackbar` v2 @kind this, `int` v3 @name `color`) @signature `Lcom/google/android/material/snackbar/Snackbar;.setActionTextColor:(I)Lcom/google/android/material/snackbar/Snackbar;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b1704.  v0:= v2.`com.google.android.material.snackbar.Snackbar.view` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar$SnackbarBaseLayout` @kind object;
+  #L1b1708.  v1:= 0I;
+  #L1b170a.  call temp:= `getChildAt`(v0, v1) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1b1710.  v0:= temp @kind object;
+  #L1b1712.  v0:= (`com.google.android.material.snackbar.SnackbarContentLayout`) v0 @kind object;
+  #L1b1716.  call temp:= `getActionView`(v0) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.getActionView:()Landroid/widget/Button;` @kind virtual;
+  #L1b171c.  v1:= temp @kind object;
+  #L1b171e.  call `setTextColor`(v1, v3) @signature `Landroid/widget/TextView;.setTextColor:(I)V` @kind virtual;
+  #L1b1724.  return v2 @kind object;
+}
+procedure `com.google.android.material.snackbar.Snackbar` `setActionTextColor`(`com.google.android.material.snackbar.Snackbar` v2 @kind this, `android.content.res.ColorStateList` v3 @kind object @name `colors`) @signature `Lcom/google/android/material/snackbar/Snackbar;.setActionTextColor:(Landroid/content/res/ColorStateList;)Lcom/google/android/material/snackbar/Snackbar;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b16d0.  v0:= v2.`com.google.android.material.snackbar.Snackbar.view` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar$SnackbarBaseLayout` @kind object;
+  #L1b16d4.  v1:= 0I;
+  #L1b16d6.  call temp:= `getChildAt`(v0, v1) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1b16dc.  v0:= temp @kind object;
+  #L1b16de.  v0:= (`com.google.android.material.snackbar.SnackbarContentLayout`) v0 @kind object;
+  #L1b16e2.  call temp:= `getActionView`(v0) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.getActionView:()Landroid/widget/Button;` @kind virtual;
+  #L1b16e8.  v1:= temp @kind object;
+  #L1b16ea.  call `setTextColor`(v1, v3) @signature `Landroid/widget/TextView;.setTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1b16f0.  return v2 @kind object;
+}
+procedure `com.google.android.material.snackbar.Snackbar` `setBackgroundTint`(`com.google.android.material.snackbar.Snackbar` v3 @kind this, `int` v4 @name `color`) @signature `Lcom/google/android/material/snackbar/Snackbar;.setBackgroundTint:(I)Lcom/google/android/material/snackbar/Snackbar;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b1738.  v0:= v3.`com.google.android.material.snackbar.Snackbar.view` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar$SnackbarBaseLayout` @kind object;
+  #L1b173c.  call temp:= `getBackground`(v0) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;.getBackground:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1b1742.  v0:= temp @kind object;
+  #L1b1744.  if v0 == 0 then goto L1b176e;
+  #L1b1748.  call temp:= `mutate`(v0) @signature `Landroid/graphics/drawable/Drawable;.mutate:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1b174e.  v0:= temp @kind object;
+  #L1b1750.  v1:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1b1754.  v2:= 22I;
+  #L1b1758.  if v1 < v2 then goto L1b1764;
+  #L1b175c.  call `setTint`(v0, v4) @signature `Landroidx/core/graphics/drawable/DrawableCompat;.setTint:(Landroid/graphics/drawable/Drawable;I)V` @kind static;
+  #L1b1762.  goto L1b176e;
+  #L1b1764.  v1:= `@@android.graphics.PorterDuff$Mode.SRC_IN` @type ^`android.graphics.PorterDuff$Mode` @kind object;
+  #L1b1768.  call `setColorFilter`(v0, v4, v1) @signature `Landroid/graphics/drawable/Drawable;.setColorFilter:(ILandroid/graphics/PorterDuff$Mode;)V` @kind virtual;
+  #L1b176e.  return v3 @kind object;
+}
+procedure `com.google.android.material.snackbar.Snackbar` `setBackgroundTintList`(`com.google.android.material.snackbar.Snackbar` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `colorStateList`) @signature `Lcom/google/android/material/snackbar/Snackbar;.setBackgroundTintList:(Landroid/content/res/ColorStateList;)Lcom/google/android/material/snackbar/Snackbar;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b1780.  v0:= v1.`com.google.android.material.snackbar.Snackbar.view` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar$SnackbarBaseLayout` @kind object;
+  #L1b1784.  call temp:= `getBackground`(v0) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;.getBackground:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1b178a.  v0:= temp @kind object;
+  #L1b178c.  call temp:= `mutate`(v0) @signature `Landroid/graphics/drawable/Drawable;.mutate:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1b1792.  v0:= temp @kind object;
+  #L1b1794.  call `setTintList`(v0, v2) @signature `Landroidx/core/graphics/drawable/DrawableCompat;.setTintList:(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V` @kind static;
+  #L1b179a.  return v1 @kind object;
+}
+procedure `com.google.android.material.snackbar.Snackbar` `setCallback`(`com.google.android.material.snackbar.Snackbar` v1 @kind this, `com.google.android.material.snackbar.Snackbar$Callback` v2 @kind object @name `callback`) @signature `Lcom/google/android/material/snackbar/Snackbar;.setCallback:(Lcom/google/android/material/snackbar/Snackbar$Callback;)Lcom/google/android/material/snackbar/Snackbar;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b17ac.  v0:= v1.`com.google.android.material.snackbar.Snackbar.callback` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar$BaseCallback` @kind object;
+  #L1b17b0.  if v0 == 0 then goto L1b17ba;
+  #L1b17b4.  call temp:= `removeCallback`(v1, v0) @signature `Lcom/google/android/material/snackbar/Snackbar;.removeCallback:(Lcom/google/android/material/snackbar/BaseTransientBottomBar$BaseCallback;)Lcom/google/android/material/snackbar/BaseTransientBottomBar;` @kind virtual;
+  #L1b17ba.  if v2 == 0 then goto L1b17c4;
+  #L1b17be.  call temp:= `addCallback`(v1, v2) @signature `Lcom/google/android/material/snackbar/Snackbar;.addCallback:(Lcom/google/android/material/snackbar/BaseTransientBottomBar$BaseCallback;)Lcom/google/android/material/snackbar/BaseTransientBottomBar;` @kind virtual;
+  #L1b17c4.  v1.`com.google.android.material.snackbar.Snackbar.callback` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar$BaseCallback` := v2 @kind object;
+  #L1b17c8.  return v1 @kind object;
+}
+procedure `com.google.android.material.snackbar.Snackbar` `setText`(`com.google.android.material.snackbar.Snackbar` v1 @kind this, `int` v2 @name `resId`) @signature `Lcom/google/android/material/snackbar/Snackbar;.setText:(I)Lcom/google/android/material/snackbar/Snackbar;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b17dc.  call temp:= `getContext`(v1) @signature `Lcom/google/android/material/snackbar/Snackbar;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1b17e2.  v0:= temp @kind object;
+  #L1b17e4.  call temp:= `getText`(v0, v2) @signature `Landroid/content/Context;.getText:(I)Ljava/lang/CharSequence;` @kind virtual;
+  #L1b17ea.  v0:= temp @kind object;
+  #L1b17ec.  call temp:= `setText`(v1, v0) @signature `Lcom/google/android/material/snackbar/Snackbar;.setText:(Ljava/lang/CharSequence;)Lcom/google/android/material/snackbar/Snackbar;` @kind virtual;
+  #L1b17f2.  v0:= temp @kind object;
+  #L1b17f4.  return v0 @kind object;
+}
+procedure `com.google.android.material.snackbar.Snackbar` `setText`(`com.google.android.material.snackbar.Snackbar` v2 @kind this, `java.lang.CharSequence` v3 @kind object @name `message`) @signature `Lcom/google/android/material/snackbar/Snackbar;.setText:(Ljava/lang/CharSequence;)Lcom/google/android/material/snackbar/Snackbar;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b1808.  v0:= v2.`com.google.android.material.snackbar.Snackbar.view` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar$SnackbarBaseLayout` @kind object;
+  #L1b180c.  v1:= 0I;
+  #L1b180e.  call temp:= `getChildAt`(v0, v1) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1b1814.  v0:= temp @kind object;
+  #L1b1816.  v0:= (`com.google.android.material.snackbar.SnackbarContentLayout`) v0 @kind object;
+  #L1b181a.  call temp:= `getMessageView`(v0) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.getMessageView:()Landroid/widget/TextView;` @kind virtual;
+  #L1b1820.  v1:= temp @kind object;
+  #L1b1822.  call `setText`(v1, v3) @signature `Landroid/widget/TextView;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1b1828.  return v2 @kind object;
+}
+procedure `com.google.android.material.snackbar.Snackbar` `setTextColor`(`com.google.android.material.snackbar.Snackbar` v2 @kind this, `int` v3 @name `color`) @signature `Lcom/google/android/material/snackbar/Snackbar;.setTextColor:(I)Lcom/google/android/material/snackbar/Snackbar;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b1870.  v0:= v2.`com.google.android.material.snackbar.Snackbar.view` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar$SnackbarBaseLayout` @kind object;
+  #L1b1874.  v1:= 0I;
+  #L1b1876.  call temp:= `getChildAt`(v0, v1) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1b187c.  v0:= temp @kind object;
+  #L1b187e.  v0:= (`com.google.android.material.snackbar.SnackbarContentLayout`) v0 @kind object;
+  #L1b1882.  call temp:= `getMessageView`(v0) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.getMessageView:()Landroid/widget/TextView;` @kind virtual;
+  #L1b1888.  v1:= temp @kind object;
+  #L1b188a.  call `setTextColor`(v1, v3) @signature `Landroid/widget/TextView;.setTextColor:(I)V` @kind virtual;
+  #L1b1890.  return v2 @kind object;
+}
+procedure `com.google.android.material.snackbar.Snackbar` `setTextColor`(`com.google.android.material.snackbar.Snackbar` v2 @kind this, `android.content.res.ColorStateList` v3 @kind object @name `colors`) @signature `Lcom/google/android/material/snackbar/Snackbar;.setTextColor:(Landroid/content/res/ColorStateList;)Lcom/google/android/material/snackbar/Snackbar;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b183c.  v0:= v2.`com.google.android.material.snackbar.Snackbar.view` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar$SnackbarBaseLayout` @kind object;
+  #L1b1840.  v1:= 0I;
+  #L1b1842.  call temp:= `getChildAt`(v0, v1) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$SnackbarBaseLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1b1848.  v0:= temp @kind object;
+  #L1b184a.  v0:= (`com.google.android.material.snackbar.SnackbarContentLayout`) v0 @kind object;
+  #L1b184e.  call temp:= `getMessageView`(v0) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.getMessageView:()Landroid/widget/TextView;` @kind virtual;
+  #L1b1854.  v1:= temp @kind object;
+  #L1b1856.  call `setTextColor`(v1, v3) @signature `Landroid/widget/TextView;.setTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1b185c.  return v2 @kind object;
+}
+procedure `void` `show`(`com.google.android.material.snackbar.Snackbar` v0 @kind this) @signature `Lcom/google/android/material/snackbar/Snackbar;.show:()V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b198c.  call `show`(v0) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar;.show:()V` @kind super;
+  #L1b1992.  return @kind void;
+}

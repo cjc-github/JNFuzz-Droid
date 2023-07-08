@@ -1,0 +1,30 @@
+record `com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` @kind class @AccessFlag  {
+  `java.lang.ref.WeakReference` `com.google.android.material.snackbar.SnackbarManager$SnackbarRecord.callback` @AccessFlag FINAL;
+  `int` `com.google.android.material.snackbar.SnackbarManager$SnackbarRecord.duration` @AccessFlag ;
+  `boolean` `com.google.android.material.snackbar.SnackbarManager$SnackbarRecord.paused` @AccessFlag ;
+}
+procedure `void` `<init>`(`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` v1 @kind this, `int` v2 @name `duration`, `com.google.android.material.snackbar.SnackbarManager$Callback` v3 @kind object @name `callback`) @signature `Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;.<init>:(ILcom/google/android/material/snackbar/SnackbarManager$Callback;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1b0fd0.  call `<init>`(v1) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b0fd6.  v0:= new `java.lang.ref.WeakReference`;
+  #L1b0fda.  call `<init>`(v0, v3) @signature `Ljava/lang/ref/WeakReference;.<init>:(Ljava/lang/Object;)V` @kind direct;
+  #L1b0fe0.  v1.`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord.callback` @type ^`java.lang.ref.WeakReference` := v0 @kind object;
+  #L1b0fe4.  v1.`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord.duration` @type ^`int` := v2;
+  #L1b0fe8.  return @kind void;
+}
+procedure `boolean` `isSnackbar`(`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord` v1 @kind this, `com.google.android.material.snackbar.SnackbarManager$Callback` v2 @kind object @name `callback`) @signature `Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;.isSnackbar:(Lcom/google/android/material/snackbar/SnackbarManager$Callback;)Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b0fa4.  if v2 == 0 then goto L1b0fbc;
+  #L1b0fa8.  v0:= v1.`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord.callback` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L1b0fac.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L1b0fb2.  v0:= temp @kind object;
+  #L1b0fb4.  if v0 != v2 then goto L1b0fbc;
+  #L1b0fb8.  v0:= 1I;
+  #L1b0fba.  goto L1b0fbe;
+  #L1b0fbc.  v0:= 0I;
+  #L1b0fbe.  return v0;
+}

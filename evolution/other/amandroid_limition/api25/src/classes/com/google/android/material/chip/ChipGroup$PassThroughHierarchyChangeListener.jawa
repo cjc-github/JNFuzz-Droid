@@ -1,0 +1,75 @@
+record `com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener` @kind class @AccessFlag  extends `android.view.ViewGroup$OnHierarchyChangeListener` @kind interface {
+  `android.view.ViewGroup$OnHierarchyChangeListener` `com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener.onHierarchyChangeListener` @AccessFlag PRIVATE;
+  `com.google.android.material.chip.ChipGroup` `com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener` v0 @kind this, `com.google.android.material.chip.ChipGroup` v1 @kind object) @signature `Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;.<init>:(Lcom/google/android/material/chip/ChipGroup;)V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+
+  #L191fd0.  v0.`com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener.this$0` @type ^`com.google.android.material.chip.ChipGroup` := v1 @kind object;
+  #L191fd4.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L191fda.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener` v0 @kind this, `com.google.android.material.chip.ChipGroup` v1 @kind object @name `x0`, `com.google.android.material.chip.ChipGroup$1` v2 @kind object @name `x1`) @signature `Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;.<init>:(Lcom/google/android/material/chip/ChipGroup;Lcom/google/android/material/chip/ChipGroup$1;)V` @AccessFlag SYNTHETIC_CONSTRUCTOR {
+    temp;
+
+  #L191fec.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;.<init>:(Lcom/google/android/material/chip/ChipGroup;)V` @kind direct;
+  #L191ff2.  return @kind void;
+}
+procedure `android.view.ViewGroup$OnHierarchyChangeListener` `access$202`(`com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener` v0 @kind object @name `x0`, `android.view.ViewGroup$OnHierarchyChangeListener` v1 @kind object @name `x1`) @signature `Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;.access$202:(Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;Landroid/view/ViewGroup$OnHierarchyChangeListener;)Landroid/view/ViewGroup$OnHierarchyChangeListener;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L191fb8.  v0.`com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener.onHierarchyChangeListener` @type ^`android.view.ViewGroup$OnHierarchyChangeListener` := v1 @kind object;
+  #L191fbc.  return v1 @kind object;
+}
+procedure `void` `onChildViewAdded`(`com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener` v3 @kind this, `android.view.View` v4 @kind object @name `parent`, `android.view.View` v5 @kind object @name `child`) @signature `Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;.onChildViewAdded:(Landroid/view/View;Landroid/view/View;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L192004.  v0:= v3.`com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener.this$0` @type ^`com.google.android.material.chip.ChipGroup` @kind object;
+  #L192008.  if v4 != v0 then goto L19205e;
+  #L19200c.  v0:= instanceof @variable v5 @type ^`com.google.android.material.chip.Chip` @kind boolean;
+  #L192010.  if v0 == 0 then goto L19205e;
+  #L192014.  call temp:= `getId`(v5) @signature `Landroid/view/View;.getId:()I` @kind virtual;
+  #L19201a.  v0:= temp;
+  #L19201c.  v1:= -1I;
+  #L19201e.  if v0 != v1 then goto L192046;
+  #L192022.  v1:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L192026.  v2:= 17I;
+  #L19202a.  if v1 < v2 then goto L192038;
+  #L19202e.  call temp:= `generateViewId`() @signature `Landroid/view/View;.generateViewId:()I` @kind static;
+  #L192034.  v0:= temp;
+  #L192036.  goto L192040;
+  #L192038.  call temp:= `hashCode`(v5) @signature `Ljava/lang/Object;.hashCode:()I` @kind virtual;
+  #L19203e.  v0:= temp;
+  #L192040.  call `setId`(v5, v0) @signature `Landroid/view/View;.setId:(I)V` @kind virtual;
+  #L192046.  v1:= v5 @kind object;
+  #L192048.  v1:= (`com.google.android.material.chip.Chip`) v1 @kind object;
+  #L19204c.  v2:= v3.`com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener.this$0` @type ^`com.google.android.material.chip.ChipGroup` @kind object;
+  #L192050.  call temp:= `access$800`(v2) @signature `Lcom/google/android/material/chip/ChipGroup;.access$800:(Lcom/google/android/material/chip/ChipGroup;)Lcom/google/android/material/chip/ChipGroup$CheckedStateTracker;` @kind static;
+  #L192056.  v2:= temp @kind object;
+  #L192058.  call `setOnCheckedChangeListenerInternal`(v1, v2) @signature `Lcom/google/android/material/chip/Chip;.setOnCheckedChangeListenerInternal:(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V` @kind virtual;
+  #L19205e.  v0:= v3.`com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener.onHierarchyChangeListener` @type ^`android.view.ViewGroup$OnHierarchyChangeListener` @kind object;
+  #L192062.  if v0 == 0 then goto L19206c;
+  #L192066.  call `onChildViewAdded`(v0, v4, v5) @signature `Landroid/view/ViewGroup$OnHierarchyChangeListener;.onChildViewAdded:(Landroid/view/View;Landroid/view/View;)V` @kind interface;
+  #L19206c.  return @kind void;
+}
+procedure `void` `onChildViewRemoved`(`com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener` v2 @kind this, `android.view.View` v3 @kind object @name `parent`, `android.view.View` v4 @kind object @name `child`) @signature `Lcom/google/android/material/chip/ChipGroup$PassThroughHierarchyChangeListener;.onChildViewRemoved:(Landroid/view/View;Landroid/view/View;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L192080.  v0:= v2.`com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener.this$0` @type ^`com.google.android.material.chip.ChipGroup` @kind object;
+  #L192084.  if v3 != v0 then goto L19209e;
+  #L192088.  v0:= instanceof @variable v4 @type ^`com.google.android.material.chip.Chip` @kind boolean;
+  #L19208c.  if v0 == 0 then goto L19209e;
+  #L192090.  v0:= v4 @kind object;
+  #L192092.  v0:= (`com.google.android.material.chip.Chip`) v0 @kind object;
+  #L192096.  v1:= 0I;
+  #L192098.  call `setOnCheckedChangeListenerInternal`(v0, v1) @signature `Lcom/google/android/material/chip/Chip;.setOnCheckedChangeListenerInternal:(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V` @kind virtual;
+  #L19209e.  v0:= v2.`com.google.android.material.chip.ChipGroup$PassThroughHierarchyChangeListener.onHierarchyChangeListener` @type ^`android.view.ViewGroup$OnHierarchyChangeListener` @kind object;
+  #L1920a2.  if v0 == 0 then goto L1920ac;
+  #L1920a6.  call `onChildViewRemoved`(v0, v3, v4) @signature `Landroid/view/ViewGroup$OnHierarchyChangeListener;.onChildViewRemoved:(Landroid/view/View;Landroid/view/View;)V` @kind interface;
+  #L1920ac.  return @kind void;
+}

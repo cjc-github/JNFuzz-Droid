@@ -1,0 +1,89 @@
+record `androidx.lifecycle.LifecycleRegistry` @kind class @AccessFlag PUBLIC extends `androidx.lifecycle.Lifecycle` @kind class {
+  `int` `androidx.lifecycle.LifecycleRegistry.mAddingObserverCounter` @AccessFlag PRIVATE;
+  `boolean` `androidx.lifecycle.LifecycleRegistry.mHandlingEvent` @AccessFlag PRIVATE;
+  `java.lang.ref.WeakReference` `androidx.lifecycle.LifecycleRegistry.mLifecycleOwner` @AccessFlag PRIVATE_FINAL;
+  `boolean` `androidx.lifecycle.LifecycleRegistry.mNewEventOccurred` @AccessFlag PRIVATE;
+  `androidx.arch.core.internal.FastSafeIterableMap` `androidx.lifecycle.LifecycleRegistry.mObserverMap` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.lifecycle.LifecycleRegistry.mParentStates` @AccessFlag PRIVATE;
+  `androidx.lifecycle.Lifecycle$State` `androidx.lifecycle.LifecycleRegistry.mState` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`androidx.lifecycle.LifecycleRegistry` v1 @kind this, `androidx.lifecycle.LifecycleOwner` v2 @kind object @name `provider`) @signature `Landroidx/lifecycle/LifecycleRegistry;.<init>:(Landroidx/lifecycle/LifecycleOwner;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `backwardPass`(`androidx.lifecycle.LifecycleRegistry` v5 @kind this, `androidx.lifecycle.LifecycleOwner` v6 @kind object @name `lifecycleOwner`) @signature `Landroidx/lifecycle/LifecycleRegistry;.backwardPass:(Landroidx/lifecycle/LifecycleOwner;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.lifecycle.Lifecycle$State` `calculateTargetState`(`androidx.lifecycle.LifecycleRegistry` v4 @kind this, `androidx.lifecycle.LifecycleObserver` v5 @kind object @name `observer`) @signature `Landroidx/lifecycle/LifecycleRegistry;.calculateTargetState:(Landroidx/lifecycle/LifecycleObserver;)Landroidx/lifecycle/Lifecycle$State;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.lifecycle.Lifecycle$Event` `downEvent`(`androidx.lifecycle.Lifecycle$State` v3 @kind object @name `state`) @signature `Landroidx/lifecycle/LifecycleRegistry;.downEvent:(Landroidx/lifecycle/Lifecycle$State;)Landroidx/lifecycle/Lifecycle$Event;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `forwardPass`(`androidx.lifecycle.LifecycleRegistry` v5 @kind this, `androidx.lifecycle.LifecycleOwner` v6 @kind object @name `lifecycleOwner`) @signature `Landroidx/lifecycle/LifecycleRegistry;.forwardPass:(Landroidx/lifecycle/LifecycleOwner;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.lifecycle.Lifecycle$State` `getStateAfter`(`androidx.lifecycle.Lifecycle$Event` v3 @kind object @name `event`) @signature `Landroidx/lifecycle/LifecycleRegistry;.getStateAfter:(Landroidx/lifecycle/Lifecycle$Event;)Landroidx/lifecycle/Lifecycle$State;` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `boolean` `isSynced`(`androidx.lifecycle.LifecycleRegistry` v4 @kind this) @signature `Landroidx/lifecycle/LifecycleRegistry;.isSynced:()Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.lifecycle.Lifecycle$State` `min`(`androidx.lifecycle.Lifecycle$State` v1 @kind object @name `state1`, `androidx.lifecycle.Lifecycle$State` v2 @kind object @name `state2`) @signature `Landroidx/lifecycle/LifecycleRegistry;.min:(Landroidx/lifecycle/Lifecycle$State;Landroidx/lifecycle/Lifecycle$State;)Landroidx/lifecycle/Lifecycle$State;` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `void` `moveToState`(`androidx.lifecycle.LifecycleRegistry` v2 @kind this, `androidx.lifecycle.Lifecycle$State` v3 @kind object @name `next`) @signature `Landroidx/lifecycle/LifecycleRegistry;.moveToState:(Landroidx/lifecycle/Lifecycle$State;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `popParentState`(`androidx.lifecycle.LifecycleRegistry` v2 @kind this) @signature `Landroidx/lifecycle/LifecycleRegistry;.popParentState:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `pushParentState`(`androidx.lifecycle.LifecycleRegistry` v1 @kind this, `androidx.lifecycle.Lifecycle$State` v2 @kind object @name `state`) @signature `Landroidx/lifecycle/LifecycleRegistry;.pushParentState:(Landroidx/lifecycle/Lifecycle$State;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `sync`(`androidx.lifecycle.LifecycleRegistry` v4 @kind this) @signature `Landroidx/lifecycle/LifecycleRegistry;.sync:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.lifecycle.Lifecycle$Event` `upEvent`(`androidx.lifecycle.Lifecycle$State` v3 @kind object @name `state`) @signature `Landroidx/lifecycle/LifecycleRegistry;.upEvent:(Landroidx/lifecycle/Lifecycle$State;)Landroidx/lifecycle/Lifecycle$Event;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `addObserver`(`androidx.lifecycle.LifecycleRegistry` v8 @kind this, `androidx.lifecycle.LifecycleObserver` v9 @kind object @name `observer`) @signature `Landroidx/lifecycle/LifecycleRegistry;.addObserver:(Landroidx/lifecycle/LifecycleObserver;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.lifecycle.Lifecycle$State` `getCurrentState`(`androidx.lifecycle.LifecycleRegistry` v1 @kind this) @signature `Landroidx/lifecycle/LifecycleRegistry;.getCurrentState:()Landroidx/lifecycle/Lifecycle$State;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getObserverCount`(`androidx.lifecycle.LifecycleRegistry` v1 @kind this) @signature `Landroidx/lifecycle/LifecycleRegistry;.getObserverCount:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `handleLifecycleEvent`(`androidx.lifecycle.LifecycleRegistry` v1 @kind this, `androidx.lifecycle.Lifecycle$Event` v2 @kind object @name `event`) @signature `Landroidx/lifecycle/LifecycleRegistry;.handleLifecycleEvent:(Landroidx/lifecycle/Lifecycle$Event;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `markState`(`androidx.lifecycle.LifecycleRegistry` v0 @kind this, `androidx.lifecycle.Lifecycle$State` v1 @kind object @name `state`) @signature `Landroidx/lifecycle/LifecycleRegistry;.markState:(Landroidx/lifecycle/Lifecycle$State;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `removeObserver`(`androidx.lifecycle.LifecycleRegistry` v1 @kind this, `androidx.lifecycle.LifecycleObserver` v2 @kind object @name `observer`) @signature `Landroidx/lifecycle/LifecycleRegistry;.removeObserver:(Landroidx/lifecycle/LifecycleObserver;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setCurrentState`(`androidx.lifecycle.LifecycleRegistry` v0 @kind this, `androidx.lifecycle.Lifecycle$State` v1 @kind object @name `state`) @signature `Landroidx/lifecycle/LifecycleRegistry;.setCurrentState:(Landroidx/lifecycle/Lifecycle$State;)V` @AccessFlag PUBLIC {
+
+  # return;
+}

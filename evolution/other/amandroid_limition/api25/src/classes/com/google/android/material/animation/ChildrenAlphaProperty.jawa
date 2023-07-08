@@ -1,0 +1,78 @@
+record `com.google.android.material.animation.ChildrenAlphaProperty` @kind class @AccessFlag PUBLIC extends `android.util.Property` @kind class {
+}
+global `android.util.Property` `@@com.google.android.material.animation.ChildrenAlphaProperty.CHILDREN_ALPHA` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/animation/ChildrenAlphaProperty;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L17cd08.  v0:= new `com.google.android.material.animation.ChildrenAlphaProperty`;
+  #L17cd0c.  v1:= "childrenAlpha" @kind object;
+  #L17cd10.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/animation/ChildrenAlphaProperty;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L17cd16.  `@@com.google.android.material.animation.ChildrenAlphaProperty.CHILDREN_ALPHA` @type ^`android.util.Property` := v0 @kind object;
+  #L17cd1a.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.animation.ChildrenAlphaProperty` v1 @kind this, `java.lang.String` v2 @kind object @name `name`) @signature `Lcom/google/android/material/animation/ChildrenAlphaProperty;.<init>:(Ljava/lang/String;)V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L17cd2c.  v0:= constclass @type ^`java.lang.Float` @kind object;
+  #L17cd30.  call `<init>`(v1, v0, v2) @signature `Landroid/util/Property;.<init>:(Ljava/lang/Class;Ljava/lang/String;)V` @kind direct;
+  #L17cd36.  return @kind void;
+}
+procedure `java.lang.Float` `get`(`com.google.android.material.animation.ChildrenAlphaProperty` v2 @kind this, `android.view.ViewGroup` v3 @kind object @name `object`) @signature `Lcom/google/android/material/animation/ChildrenAlphaProperty;.get:(Landroid/view/ViewGroup;)Ljava/lang/Float;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L17ccb4.  v0:= `@@com.google.android.material.R$id.mtrl_internal_children_alpha_tag` @type ^`int`;
+  #L17ccb8.  call temp:= `getTag`(v3, v0) @signature `Landroid/view/ViewGroup;.getTag:(I)Ljava/lang/Object;` @kind virtual;
+  #L17ccbe.  v0:= temp @kind object;
+  #L17ccc0.  v0:= (`java.lang.Float`) v0 @kind object;
+  #L17ccc4.  if v0 == 0 then goto L17ccca;
+  #L17ccc8.  return v0 @kind object;
+  #L17ccca.  v1:= 1.0F;
+  #L17ccce.  call temp:= `valueOf`(v1) @signature `Ljava/lang/Float;.valueOf:(F)Ljava/lang/Float;` @kind static;
+  #L17ccd4.  v1:= temp @kind object;
+  #L17ccd6.  return v1 @kind object;
+}
+procedure `java.lang.Object` `get`(`com.google.android.material.animation.ChildrenAlphaProperty` v0 @kind this, `java.lang.Object` v1 @kind object) @signature `Lcom/google/android/material/animation/ChildrenAlphaProperty;.get:(Ljava/lang/Object;)Ljava/lang/Object;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L17cce8.  v1:= (`android.view.ViewGroup`) v1 @kind object;
+  #L17ccec.  call temp:= `get`(v0, v1) @signature `Lcom/google/android/material/animation/ChildrenAlphaProperty;.get:(Landroid/view/ViewGroup;)Ljava/lang/Float;` @kind virtual;
+  #L17ccf2.  v1:= temp @kind object;
+  #L17ccf4.  return v1 @kind object;
+}
+procedure `void` `set`(`com.google.android.material.animation.ChildrenAlphaProperty` v4 @kind this, `android.view.ViewGroup` v5 @kind object @name `object`, `java.lang.Float` v6 @kind object @name `value`) @signature `Lcom/google/android/material/animation/ChildrenAlphaProperty;.set:(Landroid/view/ViewGroup;Ljava/lang/Float;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L17cd48.  call temp:= `floatValue`(v6) @signature `Ljava/lang/Float;.floatValue:()F` @kind virtual;
+  #L17cd4e.  v0:= temp;
+  #L17cd50.  v1:= `@@com.google.android.material.R$id.mtrl_internal_children_alpha_tag` @type ^`int`;
+  #L17cd54.  call temp:= `valueOf`(v0) @signature `Ljava/lang/Float;.valueOf:(F)Ljava/lang/Float;` @kind static;
+  #L17cd5a.  v2:= temp @kind object;
+  #L17cd5c.  call `setTag`(v5, v1, v2) @signature `Landroid/view/ViewGroup;.setTag:(ILjava/lang/Object;)V` @kind virtual;
+  #L17cd62.  v1:= 0I;
+  #L17cd64.  call temp:= `getChildCount`(v5) @signature `Landroid/view/ViewGroup;.getChildCount:()I` @kind virtual;
+  #L17cd6a.  v2:= temp;
+  #L17cd6c.  if v1 >= v2 then goto L17cd84;
+  #L17cd70.  call temp:= `getChildAt`(v5, v1) @signature `Landroid/view/ViewGroup;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L17cd76.  v3:= temp @kind object;
+  #L17cd78.  call `setAlpha`(v3, v0) @signature `Landroid/view/View;.setAlpha:(F)V` @kind virtual;
+  #L17cd7e.  v1:= v1 + 1;
+  #L17cd82.  goto L17cd6c;
+  #L17cd84.  return @kind void;
+}
+procedure `void` `set`(`com.google.android.material.animation.ChildrenAlphaProperty` v0 @kind this, `java.lang.Object` v1 @kind object, `java.lang.Object` v2 @kind object) @signature `Lcom/google/android/material/animation/ChildrenAlphaProperty;.set:(Ljava/lang/Object;Ljava/lang/Object;)V` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L17cd98.  v1:= (`android.view.ViewGroup`) v1 @kind object;
+  #L17cd9c.  v2:= (`java.lang.Float`) v2 @kind object;
+  #L17cda0.  call `set`(v0, v1, v2) @signature `Lcom/google/android/material/animation/ChildrenAlphaProperty;.set:(Landroid/view/ViewGroup;Ljava/lang/Float;)V` @kind virtual;
+  #L17cda6.  return @kind void;
+}

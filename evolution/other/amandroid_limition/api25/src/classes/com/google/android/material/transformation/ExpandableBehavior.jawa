@@ -1,0 +1,186 @@
+record `com.google.android.material.transformation.ExpandableBehavior` @kind class @AccessFlag PUBLIC_ABSTRACT extends `androidx.coordinatorlayout.widget.CoordinatorLayout$Behavior` @kind class {
+  `int` `com.google.android.material.transformation.ExpandableBehavior.currentState` @AccessFlag PRIVATE;
+}
+global `int` `@@com.google.android.material.transformation.ExpandableBehavior.STATE_COLLAPSED` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.transformation.ExpandableBehavior.STATE_EXPANDED` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.transformation.ExpandableBehavior.STATE_UNINITIALIZED` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.transformation.ExpandableBehavior` v1 @kind this) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1bc61c.  call `<init>`(v1) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;.<init>:()V` @kind direct;
+  #L1bc622.  v0:= 0I;
+  #L1bc624.  v1.`com.google.android.material.transformation.ExpandableBehavior.currentState` @type ^`int` := v0;
+  #L1bc628.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.transformation.ExpandableBehavior` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1bc63c.  call `<init>`(v1, v2, v3) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1bc642.  v0:= 0I;
+  #L1bc644.  v1.`com.google.android.material.transformation.ExpandableBehavior.currentState` @type ^`int` := v0;
+  #L1bc648.  return @kind void;
+}
+procedure `int` `access$000`(`com.google.android.material.transformation.ExpandableBehavior` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.access$000:(Lcom/google/android/material/transformation/ExpandableBehavior;)I` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1bc604.  v0:= v1.`com.google.android.material.transformation.ExpandableBehavior.currentState` @type ^`int`;
+  #L1bc608.  return v0;
+}
+procedure `boolean` `didStateChange`(`com.google.android.material.transformation.ExpandableBehavior` v4 @kind this, `boolean` v5 @name `expanded`) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.didStateChange:(Z)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1bc444.  v0:= 0I;
+  #L1bc446.  v1:= 1I;
+  #L1bc448.  if v5 == 0 then goto L1bc45e;
+  #L1bc44c.  v2:= v4.`com.google.android.material.transformation.ExpandableBehavior.currentState` @type ^`int`;
+  #L1bc450.  if v2 == 0 then goto L1bc45a;
+  #L1bc454.  v3:= 2I;
+  #L1bc456.  if v2 != v3 then goto L1bc45c;
+  #L1bc45a.  v0:= v1;
+  #L1bc45c.  return v0;
+  #L1bc45e.  v2:= v4.`com.google.android.material.transformation.ExpandableBehavior.currentState` @type ^`int`;
+  #L1bc462.  if v2 != v1 then goto L1bc468;
+  #L1bc466.  v0:= v1;
+  #L1bc468.  return v0;
+}
+procedure `com.google.android.material.transformation.ExpandableBehavior` `from`(`android.view.View` v4 @kind object @name `view`, `java.lang.Class` v5 @kind object) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.from:(Landroid/view/View;Ljava/lang/Class;)Lcom/google/android/material/transformation/ExpandableBehavior;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1bc5a0.  call temp:= `getLayoutParams`(v4) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L1bc5a6.  v0:= temp @kind object;
+  #L1bc5a8.  v1:= instanceof @variable v0 @type ^`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams` @kind boolean;
+  #L1bc5ac.  if v1 == 0 then goto L1bc5e4;
+  #L1bc5b0.  v1:= v0 @kind object;
+  #L1bc5b2.  v1:= (`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams`) v1 @kind object;
+  #L1bc5b6.  call temp:= `getBehavior`(v1) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;.getBehavior:()Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;` @kind virtual;
+  #L1bc5bc.  v1:= temp @kind object;
+  #L1bc5be.  v2:= instanceof @variable v1 @type ^`com.google.android.material.transformation.ExpandableBehavior` @kind boolean;
+  #L1bc5c2.  if v2 == 0 then goto L1bc5d4;
+  #L1bc5c6.  call temp:= `cast`(v5, v1) @signature `Ljava/lang/Class;.cast:(Ljava/lang/Object;)Ljava/lang/Object;` @kind virtual;
+  #L1bc5cc.  v2:= temp @kind object;
+  #L1bc5ce.  v2:= (`com.google.android.material.transformation.ExpandableBehavior`) v2 @kind object;
+  #L1bc5d2.  return v2 @kind object;
+  #L1bc5d4.  v2:= new `java.lang.IllegalArgumentException`;
+  #L1bc5d8.  v3:= "The view is not associated with ExpandableBehavior" @kind object;
+  #L1bc5dc.  call `<init>`(v2, v3) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1bc5e2.  throw v2;
+  #L1bc5e4.  v1:= new `java.lang.IllegalArgumentException`;
+  #L1bc5e8.  v2:= "The view is not a child of CoordinatorLayout" @kind object;
+  #L1bc5ec.  call `<init>`(v1, v2) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1bc5f2.  throw v1;
+}
+procedure `com.google.android.material.expandable.ExpandableWidget` `findExpandableWidget`(`com.google.android.material.transformation.ExpandableBehavior` v5 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v6 @kind object @name `parent`, `android.view.View` v7 @kind object @name `child`) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.findExpandableWidget:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)Lcom/google/android/material/expandable/ExpandableWidget;` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1bc550.  call temp:= `getDependencies`(v6, v7) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getDependencies:(Landroid/view/View;)Ljava/util/List;` @kind virtual;
+  #L1bc556.  v0:= temp @kind object;
+  #L1bc558.  v1:= 0I;
+  #L1bc55a.  call temp:= `size`(v0) @signature `Ljava/util/List;.size:()I` @kind interface;
+  #L1bc560.  v2:= temp;
+  #L1bc562.  if v1 >= v2 then goto L1bc58c;
+  #L1bc566.  call temp:= `get`(v0, v1) @signature `Ljava/util/List;.get:(I)Ljava/lang/Object;` @kind interface;
+  #L1bc56c.  v3:= temp @kind object;
+  #L1bc56e.  v3:= (`android.view.View`) v3 @kind object;
+  #L1bc572.  call temp:= `layoutDependsOn`(v5, v6, v7, v3) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.layoutDependsOn:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z` @kind virtual;
+  #L1bc578.  v4:= temp;
+  #L1bc57a.  if v4 == 0 then goto L1bc586;
+  #L1bc57e.  v4:= v3 @kind object;
+  #L1bc580.  v4:= (`com.google.android.material.expandable.ExpandableWidget`) v4 @kind object;
+  #L1bc584.  return v4 @kind object;
+  #L1bc586.  v1:= v1 + 1;
+  #L1bc58a.  goto L1bc562;
+  #L1bc58c.  v1:= 0I;
+  #L1bc58e.  return v1 @kind object;
+}
+procedure `boolean` `layoutDependsOn`(`androidx.coordinatorlayout.widget.CoordinatorLayout` v0 @kind object, `android.view.View` v1 @kind object, `android.view.View` v2 @kind object) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.layoutDependsOn:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `boolean` `onDependentViewChanged`(`com.google.android.material.transformation.ExpandableBehavior` v5 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v6 @kind object @name `parent`, `android.view.View` v7 @kind object @name `child`, `android.view.View` v8 @kind object @name `dependency`) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.onDependentViewChanged:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1bc47c.  v0:= v8 @kind object;
+  #L1bc47e.  v0:= (`com.google.android.material.expandable.ExpandableWidget`) v0 @kind object;
+  #L1bc482.  call temp:= `isExpanded`(v0) @signature `Lcom/google/android/material/expandable/ExpandableWidget;.isExpanded:()Z` @kind interface;
+  #L1bc488.  v1:= temp;
+  #L1bc48a.  call temp:= `didStateChange`(v5, v1) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.didStateChange:(Z)Z` @kind direct;
+  #L1bc490.  v2:= temp;
+  #L1bc492.  if v2 == 0 then goto L1bc4c6;
+  #L1bc496.  call temp:= `isExpanded`(v0) @signature `Lcom/google/android/material/expandable/ExpandableWidget;.isExpanded:()Z` @kind interface;
+  #L1bc49c.  v2:= temp;
+  #L1bc49e.  v3:= 1I;
+  #L1bc4a0.  if v2 == 0 then goto L1bc4a8;
+  #L1bc4a4.  v2:= v3;
+  #L1bc4a6.  goto L1bc4aa;
+  #L1bc4a8.  v2:= 2I;
+  #L1bc4aa.  v5.`com.google.android.material.transformation.ExpandableBehavior.currentState` @type ^`int` := v2;
+  #L1bc4ae.  v2:= v0 @kind object;
+  #L1bc4b0.  v2:= (`android.view.View`) v2 @kind object;
+  #L1bc4b4.  call temp:= `isExpanded`(v0) @signature `Lcom/google/android/material/expandable/ExpandableWidget;.isExpanded:()Z` @kind interface;
+  #L1bc4ba.  v4:= temp;
+  #L1bc4bc.  call temp:= `onExpandedStateChange`(v5, v2, v7, v4, v3) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.onExpandedStateChange:(Landroid/view/View;Landroid/view/View;ZZ)Z` @kind virtual;
+  #L1bc4c2.  v2:= temp;
+  #L1bc4c4.  return v2;
+  #L1bc4c6.  v2:= 0I;
+  #L1bc4c8.  return v2;
+}
+procedure `boolean` `onExpandedStateChange`(`android.view.View` v0 @kind object, `android.view.View` v1 @kind object, `boolean` v2 , `boolean` v3 ) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.onExpandedStateChange:(Landroid/view/View;Landroid/view/View;ZZ)Z` @AccessFlag PROTECTED_ABSTRACT {
+
+  # return;
+}
+procedure `boolean` `onLayoutChild`(`com.google.android.material.transformation.ExpandableBehavior` v4 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v5 @kind object @name `parent`, `android.view.View` v6 @kind object @name `child`, `int` v7 @name `layoutDirection`) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.onLayoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1bc4dc.  call temp:= `isLaidOut`(v6) @signature `Landroidx/core/view/ViewCompat;.isLaidOut:(Landroid/view/View;)Z` @kind static;
+  #L1bc4e2.  v0:= temp;
+  #L1bc4e4.  if v0 != 0 then goto L1bc53c;
+  #L1bc4e8.  call temp:= `findExpandableWidget`(v4, v5, v6) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.findExpandableWidget:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)Lcom/google/android/material/expandable/ExpandableWidget;` @kind virtual;
+  #L1bc4ee.  v0:= temp @kind object;
+  #L1bc4f0.  if v0 == 0 then goto L1bc53c;
+  #L1bc4f4.  call temp:= `isExpanded`(v0) @signature `Lcom/google/android/material/expandable/ExpandableWidget;.isExpanded:()Z` @kind interface;
+  #L1bc4fa.  v1:= temp;
+  #L1bc4fc.  call temp:= `didStateChange`(v4, v1) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.didStateChange:(Z)Z` @kind direct;
+  #L1bc502.  v1:= temp;
+  #L1bc504.  if v1 == 0 then goto L1bc53c;
+  #L1bc508.  call temp:= `isExpanded`(v0) @signature `Lcom/google/android/material/expandable/ExpandableWidget;.isExpanded:()Z` @kind interface;
+  #L1bc50e.  v1:= temp;
+  #L1bc510.  if v1 == 0 then goto L1bc518;
+  #L1bc514.  v1:= 1I;
+  #L1bc516.  goto L1bc51a;
+  #L1bc518.  v1:= 2I;
+  #L1bc51a.  v4.`com.google.android.material.transformation.ExpandableBehavior.currentState` @type ^`int` := v1;
+  #L1bc51e.  v1:= v4.`com.google.android.material.transformation.ExpandableBehavior.currentState` @type ^`int`;
+  #L1bc522.  
+  #L1bc524.  call temp:= `getViewTreeObserver`(v6) @signature `Landroid/view/View;.getViewTreeObserver:()Landroid/view/ViewTreeObserver;` @kind virtual;
+  #L1bc52a.  v2:= temp @kind object;
+  #L1bc52c.  v3:= new `com.google.android.material.transformation.ExpandableBehavior$1`;
+  #L1bc530.  call `<init>`(v3, v4, v6, v1, v0) @signature `Lcom/google/android/material/transformation/ExpandableBehavior$1;.<init>:(Lcom/google/android/material/transformation/ExpandableBehavior;Landroid/view/View;ILcom/google/android/material/expandable/ExpandableWidget;)V` @kind direct;
+  #L1bc536.  call `addOnPreDrawListener`(v2, v3) @signature `Landroid/view/ViewTreeObserver;.addOnPreDrawListener:(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V` @kind virtual;
+  #L1bc53c.  v0:= 0I;
+  #L1bc53e.  return v0;
+}

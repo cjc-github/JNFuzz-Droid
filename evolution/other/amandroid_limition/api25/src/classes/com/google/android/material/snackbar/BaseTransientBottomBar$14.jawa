@@ -1,0 +1,32 @@
+record `com.google.android.material.snackbar.BaseTransientBottomBar$14` @kind class @AccessFlag  extends `android.animation.AnimatorListenerAdapter` @kind class {
+  `com.google.android.material.snackbar.BaseTransientBottomBar` `com.google.android.material.snackbar.BaseTransientBottomBar$14.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.snackbar.BaseTransientBottomBar$14` v0 @kind this, `com.google.android.material.snackbar.BaseTransientBottomBar` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$14;.<init>:(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1af094.  v0.`com.google.android.material.snackbar.BaseTransientBottomBar$14.this$0` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar` := v1 @kind object;
+  #L1af098.  call `<init>`(v0) @signature `Landroid/animation/AnimatorListenerAdapter;.<init>:()V` @kind direct;
+  #L1af09e.  return @kind void;
+}
+procedure `void` `onAnimationEnd`(`com.google.android.material.snackbar.BaseTransientBottomBar$14` v1 @kind this, `android.animation.Animator` v2 @kind object @name `animator`) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$14;.onAnimationEnd:(Landroid/animation/Animator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1af0b0.  v0:= v1.`com.google.android.material.snackbar.BaseTransientBottomBar$14.this$0` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar` @kind object;
+  #L1af0b4.  call `onViewShown`(v0) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar;.onViewShown:()V` @kind virtual;
+  #L1af0ba.  return @kind void;
+}
+procedure `void` `onAnimationStart`(`com.google.android.material.snackbar.BaseTransientBottomBar$14` v3 @kind this, `android.animation.Animator` v4 @kind object @name `animator`) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$14;.onAnimationStart:(Landroid/animation/Animator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1af0cc.  v0:= v3.`com.google.android.material.snackbar.BaseTransientBottomBar$14.this$0` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar` @kind object;
+  #L1af0d0.  call temp:= `access$1300`(v0) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar;.access$1300:(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)Lcom/google/android/material/snackbar/ContentViewCallback;` @kind static;
+  #L1af0d6.  v0:= temp @kind object;
+  #L1af0d8.  v1:= 70I;
+  #L1af0dc.  v2:= 180I;
+  #L1af0e0.  call `animateContentIn`(v0, v1, v2) @signature `Lcom/google/android/material/snackbar/ContentViewCallback;.animateContentIn:(II)V` @kind interface;
+  #L1af0e6.  return @kind void;
+}

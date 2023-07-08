@@ -1,0 +1,1985 @@
+record `com.google.android.material.tabs.TabLayout` @kind class @AccessFlag PUBLIC extends `android.widget.HorizontalScrollView` @kind class {
+  `com.google.android.material.tabs.TabLayout$AdapterChangeListener` `com.google.android.material.tabs.TabLayout.adapterChangeListener` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.tabs.TabLayout.contentInsetStart` @AccessFlag PRIVATE;
+  `com.google.android.material.tabs.TabLayout$BaseOnTabSelectedListener` `com.google.android.material.tabs.TabLayout.currentVpSelectedListener` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.tabs.TabLayout.inlineLabel` @AccessFlag ;
+  `int` `com.google.android.material.tabs.TabLayout.mode` @AccessFlag ;
+  `com.google.android.material.tabs.TabLayout$TabLayoutOnPageChangeListener` `com.google.android.material.tabs.TabLayout.pageChangeListener` @AccessFlag PRIVATE;
+  `androidx.viewpager.widget.PagerAdapter` `com.google.android.material.tabs.TabLayout.pagerAdapter` @AccessFlag PRIVATE;
+  `android.database.DataSetObserver` `com.google.android.material.tabs.TabLayout.pagerAdapterObserver` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.tabs.TabLayout.requestedTabMaxWidth` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.tabs.TabLayout.requestedTabMinWidth` @AccessFlag PRIVATE_FINAL;
+  `android.animation.ValueAnimator` `com.google.android.material.tabs.TabLayout.scrollAnimator` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.tabs.TabLayout.scrollableTabMinWidth` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.tabs.TabLayout$BaseOnTabSelectedListener` `com.google.android.material.tabs.TabLayout.selectedListener` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `com.google.android.material.tabs.TabLayout.selectedListeners` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.tabs.TabLayout$Tab` `com.google.android.material.tabs.TabLayout.selectedTab` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.tabs.TabLayout.setupViewPagerImplicitly` @AccessFlag PRIVATE;
+  `com.google.android.material.tabs.TabLayout$SlidingTabIndicator` `com.google.android.material.tabs.TabLayout.slidingTabIndicator` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.tabs.TabLayout.tabBackgroundResId` @AccessFlag FINAL;
+  `int` `com.google.android.material.tabs.TabLayout.tabGravity` @AccessFlag ;
+  `android.content.res.ColorStateList` `com.google.android.material.tabs.TabLayout.tabIconTint` @AccessFlag ;
+  `android.graphics.PorterDuff$Mode` `com.google.android.material.tabs.TabLayout.tabIconTintMode` @AccessFlag ;
+  `int` `com.google.android.material.tabs.TabLayout.tabIndicatorAnimationDuration` @AccessFlag ;
+  `boolean` `com.google.android.material.tabs.TabLayout.tabIndicatorFullWidth` @AccessFlag ;
+  `int` `com.google.android.material.tabs.TabLayout.tabIndicatorGravity` @AccessFlag ;
+  `int` `com.google.android.material.tabs.TabLayout.tabMaxWidth` @AccessFlag ;
+  `int` `com.google.android.material.tabs.TabLayout.tabPaddingBottom` @AccessFlag ;
+  `int` `com.google.android.material.tabs.TabLayout.tabPaddingEnd` @AccessFlag ;
+  `int` `com.google.android.material.tabs.TabLayout.tabPaddingStart` @AccessFlag ;
+  `int` `com.google.android.material.tabs.TabLayout.tabPaddingTop` @AccessFlag ;
+  `android.content.res.ColorStateList` `com.google.android.material.tabs.TabLayout.tabRippleColorStateList` @AccessFlag ;
+  `android.graphics.drawable.Drawable` `com.google.android.material.tabs.TabLayout.tabSelectedIndicator` @AccessFlag ;
+  `int` `com.google.android.material.tabs.TabLayout.tabTextAppearance` @AccessFlag ;
+  `android.content.res.ColorStateList` `com.google.android.material.tabs.TabLayout.tabTextColors` @AccessFlag ;
+  `float` `com.google.android.material.tabs.TabLayout.tabTextMultiLineSize` @AccessFlag ;
+  `float` `com.google.android.material.tabs.TabLayout.tabTextSize` @AccessFlag ;
+  `android.graphics.RectF` `com.google.android.material.tabs.TabLayout.tabViewContentBounds` @AccessFlag PRIVATE_FINAL;
+  `androidx.core.util.Pools$Pool` `com.google.android.material.tabs.TabLayout.tabViewPool` @AccessFlag PRIVATE_FINAL;
+  `java.util.ArrayList` `com.google.android.material.tabs.TabLayout.tabs` @AccessFlag PRIVATE_FINAL;
+  `boolean` `com.google.android.material.tabs.TabLayout.unboundedRipple` @AccessFlag ;
+  `androidx.viewpager.widget.ViewPager` `com.google.android.material.tabs.TabLayout.viewPager` @AccessFlag ;
+}
+global `int` `@@com.google.android.material.tabs.TabLayout.ANIMATION_DURATION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.tabs.TabLayout.DEFAULT_GAP_TEXT_ICON` @AccessFlag STATIC_FINAL;
+global `int` `@@com.google.android.material.tabs.TabLayout.DEFAULT_HEIGHT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.tabs.TabLayout.DEFAULT_HEIGHT_WITH_TEXT_ICON` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.tabs.TabLayout.FIXED_WRAP_GUTTER_MIN` @AccessFlag STATIC_FINAL;
+global `int` `@@com.google.android.material.tabs.TabLayout.GRAVITY_CENTER` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.tabs.TabLayout.GRAVITY_FILL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.tabs.TabLayout.INDICATOR_GRAVITY_BOTTOM` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.tabs.TabLayout.INDICATOR_GRAVITY_CENTER` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.tabs.TabLayout.INDICATOR_GRAVITY_STRETCH` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.tabs.TabLayout.INDICATOR_GRAVITY_TOP` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.tabs.TabLayout.INVALID_WIDTH` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.tabs.TabLayout.MIN_INDICATOR_WIDTH` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.tabs.TabLayout.MODE_AUTO` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.tabs.TabLayout.MODE_FIXED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.tabs.TabLayout.MODE_SCROLLABLE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.tabs.TabLayout.TAB_LABEL_VISIBILITY_LABELED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.tabs.TabLayout.TAB_LABEL_VISIBILITY_UNLABELED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@com.google.android.material.tabs.TabLayout.TAB_MIN_WIDTH_MARGIN` @AccessFlag PRIVATE_STATIC_FINAL;
+global `androidx.core.util.Pools$Pool` `@@com.google.android.material.tabs.TabLayout.tabPool` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/tabs/TabLayout;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L1b4824.  v0:= new `androidx.core.util.Pools$SynchronizedPool`;
+  #L1b4828.  v1:= 16I;
+  #L1b482c.  call `<init>`(v0, v1) @signature `Landroidx/core/util/Pools$SynchronizedPool;.<init>:(I)V` @kind direct;
+  #L1b4832.  `@@com.google.android.material.tabs.TabLayout.tabPool` @type ^`androidx.core.util.Pools$Pool` := v0 @kind object;
+  #L1b4836.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/tabs/TabLayout;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1b4848.  v0:= 0I;
+  #L1b484a.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1b4850.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/tabs/TabLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1b4864.  v0:= `@@com.google.android.material.R$attr.tabStyle` @type ^`int`;
+  #L1b4868.  call `<init>`(v1, v2, v3, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1b486e.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.tabs.TabLayout` v11 @kind this, `android.content.Context` v12 @kind object @name `context`, `android.util.AttributeSet` v13 @kind object @name `attrs`, `int` v14 @name `defStyleAttr`) @signature `Lcom/google/android/material/tabs/TabLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+
+  #L1b4880.  call `<init>`(v11, v12, v13, v14) @signature `Landroid/widget/HorizontalScrollView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1b4886.  v0:= new `java.util.ArrayList`;
+  #L1b488a.  call `<init>`(v0) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L1b4890.  v11.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` := v0 @kind object;
+  #L1b4894.  v0:= new `android.graphics.RectF`;
+  #L1b4898.  call `<init>`(v0) @signature `Landroid/graphics/RectF;.<init>:()V` @kind direct;
+  #L1b489e.  v11.`com.google.android.material.tabs.TabLayout.tabViewContentBounds` @type ^`android.graphics.RectF` := v0 @kind object;
+  #L1b48a2.  v0:= 2147483647I;
+  #L1b48a8.  v11.`com.google.android.material.tabs.TabLayout.tabMaxWidth` @type ^`int` := v0;
+  #L1b48ac.  v0:= new `java.util.ArrayList`;
+  #L1b48b0.  call `<init>`(v0) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L1b48b6.  v11.`com.google.android.material.tabs.TabLayout.selectedListeners` @type ^`java.util.ArrayList` := v0 @kind object;
+  #L1b48ba.  v0:= new `androidx.core.util.Pools$SimplePool`;
+  #L1b48be.  v1:= 12I;
+  #L1b48c2.  call `<init>`(v0, v1) @signature `Landroidx/core/util/Pools$SimplePool;.<init>:(I)V` @kind direct;
+  #L1b48c8.  v11.`com.google.android.material.tabs.TabLayout.tabViewPool` @type ^`androidx.core.util.Pools$Pool` := v0 @kind object;
+  #L1b48cc.  v0:= 0I;
+  #L1b48ce.  call `setHorizontalScrollBarEnabled`(v11, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.setHorizontalScrollBarEnabled:(Z)V` @kind virtual;
+  #L1b48d4.  v1:= new `com.google.android.material.tabs.TabLayout$SlidingTabIndicator`;
+  #L1b48d8.  call `<init>`(v1, v11, v12) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.<init>:(Lcom/google/android/material/tabs/TabLayout;Landroid/content/Context;)V` @kind direct;
+  #L1b48de.  v11.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` := v1 @kind object;
+  #L1b48e2.  v2:= new `android.widget.FrameLayout$LayoutParams`;
+  #L1b48e6.  v3:= -2I;
+  #L1b48e8.  v4:= -1I;
+  #L1b48ea.  call `<init>`(v2, v3, v4) @signature `Landroid/widget/FrameLayout$LayoutParams;.<init>:(II)V` @kind direct;
+  #L1b48f0.  call `addView`(v11, v1, v0, v2) @signature `Landroid/widget/HorizontalScrollView;.addView:(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V` @kind super;
+  #L1b48f6.  v7:= `@@com.google.android.material.R$styleable.TabLayout` @type ^`int`[] @kind object;
+  #L1b48fa.  v9:= `@@com.google.android.material.R$style.Widget_Design_TabLayout` @type ^`int`;
+  #L1b48fe.  v2:= 1I;
+  #L1b4900.  v10:= new `int`[v2];
+  #L1b4904.  v3:= `@@com.google.android.material.R$styleable.TabLayout_tabTextAppearance` @type ^`int`;
+  #L1b4908.  v10[v0]:= v3;
+  #L1b490c.  v5:= v12 @kind object;
+  #L1b490e.  v6:= v13 @kind object;
+  #L1b4910.  v8:= v14;
+  #L1b4912.  call temp:= `obtainStyledAttributes`(v5, v6, v7, v8, v9, v10) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainStyledAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;` @kind static;
+  #L1b4918.  v3:= temp @kind object;
+  #L1b491a.  call temp:= `getBackground`(v11) @signature `Lcom/google/android/material/tabs/TabLayout;.getBackground:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1b4920.  v5:= temp @kind object;
+  #L1b4922.  v5:= instanceof @variable v5 @type ^`android.graphics.drawable.ColorDrawable` @kind boolean;
+  #L1b4926.  if v5 == 0 then goto L1b4970;
+  #L1b492a.  call temp:= `getBackground`(v11) @signature `Lcom/google/android/material/tabs/TabLayout;.getBackground:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1b4930.  v5:= temp @kind object;
+  #L1b4932.  v5:= (`android.graphics.drawable.ColorDrawable`) v5 @kind object;
+  #L1b4936.  v6:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L1b493a.  call `<init>`(v6) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:()V` @kind direct;
+  #L1b4940.  call temp:= `getColor`(v5) @signature `Landroid/graphics/drawable/ColorDrawable;.getColor:()I` @kind virtual;
+  #L1b4946.  v7:= temp;
+  #L1b4948.  call temp:= `valueOf`(v7) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1b494e.  v7:= temp @kind object;
+  #L1b4950.  call `setFillColor`(v6, v7) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1b4956.  call `initializeElevationOverlay`(v6, v12) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.initializeElevationOverlay:(Landroid/content/Context;)V` @kind virtual;
+  #L1b495c.  call temp:= `getElevation`(v11) @signature `Landroidx/core/view/ViewCompat;.getElevation:(Landroid/view/View;)F` @kind static;
+  #L1b4962.  v7:= temp;
+  #L1b4964.  call `setElevation`(v6, v7) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setElevation:(F)V` @kind virtual;
+  #L1b496a.  call `setBackground`(v11, v6) @signature `Landroidx/core/view/ViewCompat;.setBackground:(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V` @kind static;
+  #L1b4970.  v5:= `@@com.google.android.material.R$styleable.TabLayout_tabIndicatorHeight` @type ^`int`;
+  #L1b4974.  call temp:= `getDimensionPixelSize`(v3, v5, v4) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1b497a.  v5:= temp;
+  #L1b497c.  call `setSelectedIndicatorHeight`(v1, v5) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.setSelectedIndicatorHeight:(I)V` @kind virtual;
+  #L1b4982.  v5:= `@@com.google.android.material.R$styleable.TabLayout_tabIndicatorColor` @type ^`int`;
+  #L1b4986.  call temp:= `getColor`(v3, v5, v0) @signature `Landroid/content/res/TypedArray;.getColor:(II)I` @kind virtual;
+  #L1b498c.  v5:= temp;
+  #L1b498e.  call `setSelectedIndicatorColor`(v1, v5) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.setSelectedIndicatorColor:(I)V` @kind virtual;
+  #L1b4994.  v1:= `@@com.google.android.material.R$styleable.TabLayout_tabIndicator` @type ^`int`;
+  #L1b4998.  call temp:= `getDrawable`(v12, v3, v1) @signature `Lcom/google/android/material/resources/MaterialResources;.getDrawable:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/graphics/drawable/Drawable;` @kind static;
+  #L1b499e.  v1:= temp @kind object;
+  #L1b49a0.  call `setSelectedTabIndicator`(v11, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.setSelectedTabIndicator:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L1b49a6.  v1:= `@@com.google.android.material.R$styleable.TabLayout_tabIndicatorGravity` @type ^`int`;
+  #L1b49aa.  call temp:= `getInt`(v3, v1, v0) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L1b49b0.  v1:= temp;
+  #L1b49b2.  call `setSelectedTabIndicatorGravity`(v11, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.setSelectedTabIndicatorGravity:(I)V` @kind virtual;
+  #L1b49b8.  v1:= `@@com.google.android.material.R$styleable.TabLayout_tabIndicatorFullWidth` @type ^`int`;
+  #L1b49bc.  call temp:= `getBoolean`(v3, v1, v2) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L1b49c2.  v1:= temp;
+  #L1b49c4.  call `setTabIndicatorFullWidth`(v11, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.setTabIndicatorFullWidth:(Z)V` @kind virtual;
+  #L1b49ca.  v1:= `@@com.google.android.material.R$styleable.TabLayout_tabPadding` @type ^`int`;
+  #L1b49ce.  call temp:= `getDimensionPixelSize`(v3, v1, v0) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1b49d4.  v1:= temp;
+  #L1b49d6.  v11.`com.google.android.material.tabs.TabLayout.tabPaddingBottom` @type ^`int` := v1;
+  #L1b49da.  v11.`com.google.android.material.tabs.TabLayout.tabPaddingEnd` @type ^`int` := v1;
+  #L1b49de.  v11.`com.google.android.material.tabs.TabLayout.tabPaddingTop` @type ^`int` := v1;
+  #L1b49e2.  v11.`com.google.android.material.tabs.TabLayout.tabPaddingStart` @type ^`int` := v1;
+  #L1b49e6.  v1:= `@@com.google.android.material.R$styleable.TabLayout_tabPaddingStart` @type ^`int`;
+  #L1b49ea.  v5:= v11.`com.google.android.material.tabs.TabLayout.tabPaddingStart` @type ^`int`;
+  #L1b49ee.  call temp:= `getDimensionPixelSize`(v3, v1, v5) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1b49f4.  v1:= temp;
+  #L1b49f6.  v11.`com.google.android.material.tabs.TabLayout.tabPaddingStart` @type ^`int` := v1;
+  #L1b49fa.  v1:= `@@com.google.android.material.R$styleable.TabLayout_tabPaddingTop` @type ^`int`;
+  #L1b49fe.  v5:= v11.`com.google.android.material.tabs.TabLayout.tabPaddingTop` @type ^`int`;
+  #L1b4a02.  call temp:= `getDimensionPixelSize`(v3, v1, v5) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1b4a08.  v1:= temp;
+  #L1b4a0a.  v11.`com.google.android.material.tabs.TabLayout.tabPaddingTop` @type ^`int` := v1;
+  #L1b4a0e.  v1:= `@@com.google.android.material.R$styleable.TabLayout_tabPaddingEnd` @type ^`int`;
+  #L1b4a12.  v5:= v11.`com.google.android.material.tabs.TabLayout.tabPaddingEnd` @type ^`int`;
+  #L1b4a16.  call temp:= `getDimensionPixelSize`(v3, v1, v5) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1b4a1c.  v1:= temp;
+  #L1b4a1e.  v11.`com.google.android.material.tabs.TabLayout.tabPaddingEnd` @type ^`int` := v1;
+  #L1b4a22.  v1:= `@@com.google.android.material.R$styleable.TabLayout_tabPaddingBottom` @type ^`int`;
+  #L1b4a26.  v5:= v11.`com.google.android.material.tabs.TabLayout.tabPaddingBottom` @type ^`int`;
+  #L1b4a2a.  call temp:= `getDimensionPixelSize`(v3, v1, v5) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1b4a30.  v1:= temp;
+  #L1b4a32.  v11.`com.google.android.material.tabs.TabLayout.tabPaddingBottom` @type ^`int` := v1;
+  #L1b4a36.  v1:= `@@com.google.android.material.R$styleable.TabLayout_tabTextAppearance` @type ^`int`;
+  #L1b4a3a.  v5:= `@@com.google.android.material.R$style.TextAppearance_Design_Tab` @type ^`int`;
+  #L1b4a3e.  call temp:= `getResourceId`(v3, v1, v5) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1b4a44.  v1:= temp;
+  #L1b4a46.  v11.`com.google.android.material.tabs.TabLayout.tabTextAppearance` @type ^`int` := v1;
+  #L1b4a4a.  v5:= `@@androidx.appcompat.R$styleable.TextAppearance` @type ^`int`[] @kind object;
+  #L1b4a4e.  call temp:= `obtainStyledAttributes`(v12, v1, v5) @signature `Landroid/content/Context;.obtainStyledAttributes:(I[I)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1b4a54.  v1:= temp @kind object;
+  #L1b4a56.  v5:= `@@androidx.appcompat.R$styleable.TextAppearance_android_textSize` @type ^`int`;
+  #L1b4a5a.  call temp:= `getDimensionPixelSize`(v1, v5, v0) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1b4a60.  v5:= temp;
+  #L1b4a62.  v5:= (`float`) v5 @kind i2f;
+  #L1b4a64.  v11.`com.google.android.material.tabs.TabLayout.tabTextSize` @type ^`float` := v5;
+  #L1b4a68.  v5:= `@@androidx.appcompat.R$styleable.TextAppearance_android_textColor` @type ^`int`;
+  #L1b4a6c.  call temp:= `getColorStateList`(v12, v1, v5) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1b4a72.  v5:= temp @kind object;
+  #L1b4a74.  v11.`com.google.android.material.tabs.TabLayout.tabTextColors` @type ^`android.content.res.ColorStateList` := v5 @kind object;
+  #L1b4a78.  call `recycle`(v1) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1b4a7e.  
+  #L1b4a80.  v5:= `@@com.google.android.material.R$styleable.TabLayout_tabTextColor` @type ^`int`;
+  #L1b4a84.  call temp:= `hasValue`(v3, v5) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1b4a8a.  v5:= temp;
+  #L1b4a8c.  if v5 == 0 then goto L1b4aa0;
+  #L1b4a90.  v5:= `@@com.google.android.material.R$styleable.TabLayout_tabTextColor` @type ^`int`;
+  #L1b4a94.  call temp:= `getColorStateList`(v12, v3, v5) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1b4a9a.  v5:= temp @kind object;
+  #L1b4a9c.  v11.`com.google.android.material.tabs.TabLayout.tabTextColors` @type ^`android.content.res.ColorStateList` := v5 @kind object;
+  #L1b4aa0.  v5:= `@@com.google.android.material.R$styleable.TabLayout_tabSelectedTextColor` @type ^`int`;
+  #L1b4aa4.  call temp:= `hasValue`(v3, v5) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1b4aaa.  v5:= temp;
+  #L1b4aac.  if v5 == 0 then goto L1b4ad4;
+  #L1b4ab0.  v5:= `@@com.google.android.material.R$styleable.TabLayout_tabSelectedTextColor` @type ^`int`;
+  #L1b4ab4.  call temp:= `getColor`(v3, v5, v0) @signature `Landroid/content/res/TypedArray;.getColor:(II)I` @kind virtual;
+  #L1b4aba.  v5:= temp;
+  #L1b4abc.  v6:= v11.`com.google.android.material.tabs.TabLayout.tabTextColors` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1b4ac0.  call temp:= `getDefaultColor`(v6) @signature `Landroid/content/res/ColorStateList;.getDefaultColor:()I` @kind virtual;
+  #L1b4ac6.  v6:= temp;
+  #L1b4ac8.  call temp:= `createColorStateList`(v6, v5) @signature `Lcom/google/android/material/tabs/TabLayout;.createColorStateList:(II)Landroid/content/res/ColorStateList;` @kind static;
+  #L1b4ace.  v6:= temp @kind object;
+  #L1b4ad0.  v11.`com.google.android.material.tabs.TabLayout.tabTextColors` @type ^`android.content.res.ColorStateList` := v6 @kind object;
+  #L1b4ad4.  v5:= `@@com.google.android.material.R$styleable.TabLayout_tabIconTint` @type ^`int`;
+  #L1b4ad8.  call temp:= `getColorStateList`(v12, v3, v5) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1b4ade.  v5:= temp @kind object;
+  #L1b4ae0.  v11.`com.google.android.material.tabs.TabLayout.tabIconTint` @type ^`android.content.res.ColorStateList` := v5 @kind object;
+  #L1b4ae4.  v5:= `@@com.google.android.material.R$styleable.TabLayout_tabIconTintMode` @type ^`int`;
+  #L1b4ae8.  call temp:= `getInt`(v3, v5, v4) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L1b4aee.  v5:= temp;
+  #L1b4af0.  v6:= 0I;
+  #L1b4af2.  call temp:= `parseTintMode`(v5, v6) @signature `Lcom/google/android/material/internal/ViewUtils;.parseTintMode:(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuff$Mode;` @kind static;
+  #L1b4af8.  v5:= temp @kind object;
+  #L1b4afa.  v11.`com.google.android.material.tabs.TabLayout.tabIconTintMode` @type ^`android.graphics.PorterDuff$Mode` := v5 @kind object;
+  #L1b4afe.  v5:= `@@com.google.android.material.R$styleable.TabLayout_tabRippleColor` @type ^`int`;
+  #L1b4b02.  call temp:= `getColorStateList`(v12, v3, v5) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1b4b08.  v5:= temp @kind object;
+  #L1b4b0a.  v11.`com.google.android.material.tabs.TabLayout.tabRippleColorStateList` @type ^`android.content.res.ColorStateList` := v5 @kind object;
+  #L1b4b0e.  v5:= `@@com.google.android.material.R$styleable.TabLayout_tabIndicatorAnimationDuration` @type ^`int`;
+  #L1b4b12.  v6:= 300I;
+  #L1b4b16.  call temp:= `getInt`(v3, v5, v6) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L1b4b1c.  v5:= temp;
+  #L1b4b1e.  v11.`com.google.android.material.tabs.TabLayout.tabIndicatorAnimationDuration` @type ^`int` := v5;
+  #L1b4b22.  v5:= `@@com.google.android.material.R$styleable.TabLayout_tabMinWidth` @type ^`int`;
+  #L1b4b26.  call temp:= `getDimensionPixelSize`(v3, v5, v4) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1b4b2c.  v5:= temp;
+  #L1b4b2e.  v11.`com.google.android.material.tabs.TabLayout.requestedTabMinWidth` @type ^`int` := v5;
+  #L1b4b32.  v5:= `@@com.google.android.material.R$styleable.TabLayout_tabMaxWidth` @type ^`int`;
+  #L1b4b36.  call temp:= `getDimensionPixelSize`(v3, v5, v4) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1b4b3c.  v4:= temp;
+  #L1b4b3e.  v11.`com.google.android.material.tabs.TabLayout.requestedTabMaxWidth` @type ^`int` := v4;
+  #L1b4b42.  v4:= `@@com.google.android.material.R$styleable.TabLayout_tabBackground` @type ^`int`;
+  #L1b4b46.  call temp:= `getResourceId`(v3, v4, v0) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1b4b4c.  v4:= temp;
+  #L1b4b4e.  v11.`com.google.android.material.tabs.TabLayout.tabBackgroundResId` @type ^`int` := v4;
+  #L1b4b52.  v4:= `@@com.google.android.material.R$styleable.TabLayout_tabContentStart` @type ^`int`;
+  #L1b4b56.  call temp:= `getDimensionPixelSize`(v3, v4, v0) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1b4b5c.  v4:= temp;
+  #L1b4b5e.  v11.`com.google.android.material.tabs.TabLayout.contentInsetStart` @type ^`int` := v4;
+  #L1b4b62.  v4:= `@@com.google.android.material.R$styleable.TabLayout_tabMode` @type ^`int`;
+  #L1b4b66.  call temp:= `getInt`(v3, v4, v2) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L1b4b6c.  v2:= temp;
+  #L1b4b6e.  v11.`com.google.android.material.tabs.TabLayout.mode` @type ^`int` := v2;
+  #L1b4b72.  v2:= `@@com.google.android.material.R$styleable.TabLayout_tabGravity` @type ^`int`;
+  #L1b4b76.  call temp:= `getInt`(v3, v2, v0) @signature `Landroid/content/res/TypedArray;.getInt:(II)I` @kind virtual;
+  #L1b4b7c.  v2:= temp;
+  #L1b4b7e.  v11.`com.google.android.material.tabs.TabLayout.tabGravity` @type ^`int` := v2;
+  #L1b4b82.  v2:= `@@com.google.android.material.R$styleable.TabLayout_tabInlineLabel` @type ^`int`;
+  #L1b4b86.  call temp:= `getBoolean`(v3, v2, v0) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L1b4b8c.  v2:= temp;
+  #L1b4b8e.  v11.`com.google.android.material.tabs.TabLayout.inlineLabel` @type ^`boolean` := v2 @kind boolean;
+  #L1b4b92.  v2:= `@@com.google.android.material.R$styleable.TabLayout_tabUnboundedRipple` @type ^`int`;
+  #L1b4b96.  call temp:= `getBoolean`(v3, v2, v0) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L1b4b9c.  v0:= temp;
+  #L1b4b9e.  v11.`com.google.android.material.tabs.TabLayout.unboundedRipple` @type ^`boolean` := v0 @kind boolean;
+  #L1b4ba2.  call `recycle`(v3) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1b4ba8.  call temp:= `getResources`(v11) @signature `Lcom/google/android/material/tabs/TabLayout;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1b4bae.  v0:= temp @kind object;
+  #L1b4bb0.  v2:= `@@com.google.android.material.R$dimen.design_tab_text_size_2line` @type ^`int`;
+  #L1b4bb4.  call temp:= `getDimensionPixelSize`(v0, v2) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L1b4bba.  v2:= temp;
+  #L1b4bbc.  v2:= (`float`) v2 @kind i2f;
+  #L1b4bbe.  v11.`com.google.android.material.tabs.TabLayout.tabTextMultiLineSize` @type ^`float` := v2;
+  #L1b4bc2.  v2:= `@@com.google.android.material.R$dimen.design_tab_scrollable_min_width` @type ^`int`;
+  #L1b4bc6.  call temp:= `getDimensionPixelSize`(v0, v2) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L1b4bcc.  v2:= temp;
+  #L1b4bce.  v11.`com.google.android.material.tabs.TabLayout.scrollableTabMinWidth` @type ^`int` := v2;
+  #L1b4bd2.  call `applyModeAndGravity`(v11) @signature `Lcom/google/android/material/tabs/TabLayout;.applyModeAndGravity:()V` @kind direct;
+  #L1b4bd8.  return @kind void;
+  #L1b4bda.  v0:= Exception @type ^`java.lang.Throwable` @kind object;
+  #L1b4bdc.  call `recycle`(v1) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1b4be2.  throw v0;
+  catch `java.lang.Throwable` @[L1b4a56..L1b4a78] goto L1b4bda;
+}
+procedure `android.graphics.RectF` `access$1100`(`com.google.android.material.tabs.TabLayout` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/tabs/TabLayout;.access$1100:(Lcom/google/android/material/tabs/TabLayout;)Landroid/graphics/RectF;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1b4384.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabViewContentBounds` @type ^`android.graphics.RectF` @kind object;
+  #L1b4388.  return v0 @kind object;
+}
+procedure `void` `addTabFromItemView`(`com.google.android.material.tabs.TabLayout` v2 @kind this, `com.google.android.material.tabs.TabItem` v3 @kind object @name `item`) @signature `Lcom/google/android/material/tabs/TabLayout;.addTabFromItemView:(Lcom/google/android/material/tabs/TabItem;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b4cf0.  call temp:= `newTab`(v2) @signature `Lcom/google/android/material/tabs/TabLayout;.newTab:()Lcom/google/android/material/tabs/TabLayout$Tab;` @kind virtual;
+  #L1b4cf6.  v0:= temp @kind object;
+  #L1b4cf8.  v1:= v3.`com.google.android.material.tabs.TabItem.text` @type ^`java.lang.CharSequence` @kind object;
+  #L1b4cfc.  if v1 == 0 then goto L1b4d0a;
+  #L1b4d00.  v1:= v3.`com.google.android.material.tabs.TabItem.text` @type ^`java.lang.CharSequence` @kind object;
+  #L1b4d04.  call temp:= `setText`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setText:(Ljava/lang/CharSequence;)Lcom/google/android/material/tabs/TabLayout$Tab;` @kind virtual;
+  #L1b4d0a.  v1:= v3.`com.google.android.material.tabs.TabItem.icon` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1b4d0e.  if v1 == 0 then goto L1b4d1c;
+  #L1b4d12.  v1:= v3.`com.google.android.material.tabs.TabItem.icon` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1b4d16.  call temp:= `setIcon`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setIcon:(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/tabs/TabLayout$Tab;` @kind virtual;
+  #L1b4d1c.  v1:= v3.`com.google.android.material.tabs.TabItem.customLayout` @type ^`int`;
+  #L1b4d20.  if v1 == 0 then goto L1b4d2e;
+  #L1b4d24.  v1:= v3.`com.google.android.material.tabs.TabItem.customLayout` @type ^`int`;
+  #L1b4d28.  call temp:= `setCustomView`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setCustomView:(I)Lcom/google/android/material/tabs/TabLayout$Tab;` @kind virtual;
+  #L1b4d2e.  call temp:= `getContentDescription`(v3) @signature `Lcom/google/android/material/tabs/TabItem;.getContentDescription:()Ljava/lang/CharSequence;` @kind virtual;
+  #L1b4d34.  v1:= temp @kind object;
+  #L1b4d36.  call temp:= `isEmpty`(v1) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L1b4d3c.  v1:= temp;
+  #L1b4d3e.  if v1 != 0 then goto L1b4d50;
+  #L1b4d42.  call temp:= `getContentDescription`(v3) @signature `Lcom/google/android/material/tabs/TabItem;.getContentDescription:()Ljava/lang/CharSequence;` @kind virtual;
+  #L1b4d48.  v1:= temp @kind object;
+  #L1b4d4a.  call temp:= `setContentDescription`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setContentDescription:(Ljava/lang/CharSequence;)Lcom/google/android/material/tabs/TabLayout$Tab;` @kind virtual;
+  #L1b4d50.  call `addTab`(v2, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.addTab:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @kind virtual;
+  #L1b4d56.  return @kind void;
+}
+procedure `void` `addTabView`(`com.google.android.material.tabs.TabLayout` v4 @kind this, `com.google.android.material.tabs.TabLayout$Tab` v5 @kind object @name `tab`) @signature `Lcom/google/android/material/tabs/TabLayout;.addTabView:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b4d68.  v0:= v5.`com.google.android.material.tabs.TabLayout$Tab.view` @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind object;
+  #L1b4d6c.  v1:= 0I;
+  #L1b4d6e.  call `setSelected`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.setSelected:(Z)V` @kind virtual;
+  #L1b4d74.  call `setActivated`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.setActivated:(Z)V` @kind virtual;
+  #L1b4d7a.  v1:= v4.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b4d7e.  call temp:= `getPosition`(v5) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getPosition:()I` @kind virtual;
+  #L1b4d84.  v2:= temp;
+  #L1b4d86.  call temp:= `createLayoutParamsForTabs`(v4) @signature `Lcom/google/android/material/tabs/TabLayout;.createLayoutParamsForTabs:()Landroid/widget/LinearLayout$LayoutParams;` @kind direct;
+  #L1b4d8c.  v3:= temp @kind object;
+  #L1b4d8e.  call `addView`(v1, v0, v2, v3) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.addView:(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V` @kind virtual;
+  #L1b4d94.  return @kind void;
+}
+procedure `void` `addViewInternal`(`com.google.android.material.tabs.TabLayout` v2 @kind this, `android.view.View` v3 @kind object @name `child`) @signature `Lcom/google/android/material/tabs/TabLayout;.addViewInternal:(Landroid/view/View;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b4e08.  v0:= instanceof @variable v3 @type ^`com.google.android.material.tabs.TabItem` @kind boolean;
+  #L1b4e0c.  if v0 == 0 then goto L1b4e1e;
+  #L1b4e10.  v0:= v3 @kind object;
+  #L1b4e12.  v0:= (`com.google.android.material.tabs.TabItem`) v0 @kind object;
+  #L1b4e16.  call `addTabFromItemView`(v2, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.addTabFromItemView:(Lcom/google/android/material/tabs/TabItem;)V` @kind direct;
+  #L1b4e1c.  return @kind void;
+  #L1b4e1e.  v0:= new `java.lang.IllegalArgumentException`;
+  #L1b4e22.  v1:= "Only TabItem instances can be added to TabLayout" @kind object;
+  #L1b4e26.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1b4e2c.  throw v0;
+}
+procedure `void` `animateToTab`(`com.google.android.material.tabs.TabLayout` v6 @kind this, `int` v7 @name `newPosition`) @signature `Lcom/google/android/material/tabs/TabLayout;.animateToTab:(I)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1b4e40.  v0:= -1I;
+  #L1b4e42.  if v7 != v0 then goto L1b4e48;
+  #L1b4e46.  return @kind void;
+  #L1b4e48.  call temp:= `getWindowToken`(v6) @signature `Lcom/google/android/material/tabs/TabLayout;.getWindowToken:()Landroid/os/IBinder;` @kind virtual;
+  #L1b4e4e.  v0:= temp @kind object;
+  #L1b4e50.  v1:= 1I;
+  #L1b4e52.  v2:= 0I;
+  #L1b4e54.  if v0 == 0 then goto L1b4ec4;
+  #L1b4e58.  call temp:= `isLaidOut`(v6) @signature `Landroidx/core/view/ViewCompat;.isLaidOut:(Landroid/view/View;)Z` @kind static;
+  #L1b4e5e.  v0:= temp;
+  #L1b4e60.  if v0 == 0 then goto L1b4ec4;
+  #L1b4e64.  v0:= v6.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b4e68.  call temp:= `childrenNeedLayout`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.childrenNeedLayout:()Z` @kind virtual;
+  #L1b4e6e.  v0:= temp;
+  #L1b4e70.  if v0 == 0 then goto L1b4e76;
+  #L1b4e74.  goto L1b4ec4;
+  #L1b4e76.  call temp:= `getScrollX`(v6) @signature `Lcom/google/android/material/tabs/TabLayout;.getScrollX:()I` @kind virtual;
+  #L1b4e7c.  v0:= temp;
+  #L1b4e7e.  call temp:= `calculateScrollXForTab`(v6, v7, v2) @signature `Lcom/google/android/material/tabs/TabLayout;.calculateScrollXForTab:(IF)I` @kind direct;
+  #L1b4e84.  v2:= temp;
+  #L1b4e86.  if v0 == v2 then goto L1b4eb4;
+  #L1b4e8a.  call `ensureScrollAnimator`(v6) @signature `Lcom/google/android/material/tabs/TabLayout;.ensureScrollAnimator:()V` @kind direct;
+  #L1b4e90.  v3:= v6.`com.google.android.material.tabs.TabLayout.scrollAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L1b4e94.  v4:= 2I;
+  #L1b4e96.  v4:= new `int`[v4];
+  #L1b4e9a.  v5:= 0I;
+  #L1b4e9c.  v4[v5]:= v0;
+  #L1b4ea0.  v4[v1]:= v2;
+  #L1b4ea4.  call `setIntValues`(v3, v4) @signature `Landroid/animation/ValueAnimator;.setIntValues:([I)V` @kind virtual;
+  #L1b4eaa.  v1:= v6.`com.google.android.material.tabs.TabLayout.scrollAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L1b4eae.  call `start`(v1) @signature `Landroid/animation/ValueAnimator;.start:()V` @kind virtual;
+  #L1b4eb4.  v1:= v6.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b4eb8.  v3:= v6.`com.google.android.material.tabs.TabLayout.tabIndicatorAnimationDuration` @type ^`int`;
+  #L1b4ebc.  call `animateIndicatorToPosition`(v1, v7, v3) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.animateIndicatorToPosition:(II)V` @kind virtual;
+  #L1b4ec2.  return @kind void;
+  #L1b4ec4.  call `setScrollPosition`(v6, v7, v2, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.setScrollPosition:(IFZ)V` @kind virtual;
+  #L1b4eca.  return @kind void;
+}
+procedure `void` `applyModeAndGravity`(`com.google.android.material.tabs.TabLayout` v5 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.applyModeAndGravity:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1b4edc.  v0:= 0I;
+  #L1b4ede.  v1:= v5.`com.google.android.material.tabs.TabLayout.mode` @type ^`int`;
+  #L1b4ee2.  v2:= 2I;
+  #L1b4ee4.  v3:= 0I;
+  #L1b4ee6.  if v1 == 0 then goto L1b4eee;
+  #L1b4eea.  if v1 != v2 then goto L1b4f00;
+  #L1b4eee.  v1:= v5.`com.google.android.material.tabs.TabLayout.contentInsetStart` @type ^`int`;
+  #L1b4ef2.  v4:= v5.`com.google.android.material.tabs.TabLayout.tabPaddingStart` @type ^`int`;
+  #L1b4ef6.  v1:= v1 - v4 @kind int;
+  #L1b4ef8.  call temp:= `max`(v3, v1) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L1b4efe.  v0:= temp;
+  #L1b4f00.  v1:= v5.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b4f04.  call `setPaddingRelative`(v1, v0, v3, v3, v3) @signature `Landroidx/core/view/ViewCompat;.setPaddingRelative:(Landroid/view/View;IIII)V` @kind static;
+  #L1b4f0a.  v1:= v5.`com.google.android.material.tabs.TabLayout.mode` @type ^`int`;
+  #L1b4f0e.  v3:= 1I;
+  #L1b4f10.  if v1 == 0 then goto L1b4f2a;
+  #L1b4f14.  if v1 == v3 then goto L1b4f1e;
+  #L1b4f18.  if v1 == v2 then goto L1b4f1e;
+  #L1b4f1c.  goto L1b4f3a;
+  #L1b4f1e.  v1:= v5.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b4f22.  call `setGravity`(v1, v3) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.setGravity:(I)V` @kind virtual;
+  #L1b4f28.  goto L1b4f3a;
+  #L1b4f2a.  v1:= v5.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b4f2e.  v2:= 8388611I;
+  #L1b4f34.  call `setGravity`(v1, v2) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.setGravity:(I)V` @kind virtual;
+  #L1b4f3a.  call `updateTabViews`(v5, v3) @signature `Lcom/google/android/material/tabs/TabLayout;.updateTabViews:(Z)V` @kind virtual;
+  #L1b4f40.  return @kind void;
+}
+procedure `int` `calculateScrollXForTab`(`com.google.android.material.tabs.TabLayout` v7 @kind this, `int` v8 @name `position`, `float` v9 @name `positionOffset`) @signature `Lcom/google/android/material/tabs/TabLayout;.calculateScrollXForTab:(IF)I` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L1b45c8.  v0:= v7.`com.google.android.material.tabs.TabLayout.mode` @type ^`int`;
+  #L1b45cc.  v1:= 0I;
+  #L1b45ce.  v2:= 2I;
+  #L1b45d0.  if v0 == 0 then goto L1b45dc;
+  #L1b45d4.  if v0 != v2 then goto L1b45da;
+  #L1b45d8.  goto L1b45dc;
+  #L1b45da.  return v1;
+  #L1b45dc.  v0:= v7.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b45e0.  call temp:= `getChildAt`(v0, v8) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1b45e6.  v0:= temp @kind object;
+  #L1b45e8.  v3:= v8 + 1;
+  #L1b45ec.  v4:= v7.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b45f0.  call temp:= `getChildCount`(v4) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getChildCount:()I` @kind virtual;
+  #L1b45f6.  v4:= temp;
+  #L1b45f8.  if v3 >= v4 then goto L1b460e;
+  #L1b45fc.  v3:= v7.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b4600.  v4:= v8 + 1;
+  #L1b4604.  call temp:= `getChildAt`(v3, v4) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1b460a.  v3:= temp @kind object;
+  #L1b460c.  goto L1b4610;
+  #L1b460e.  v3:= 0I;
+  #L1b4610.  if v0 == 0 then goto L1b461e;
+  #L1b4614.  call temp:= `getWidth`(v0) @signature `Landroid/view/View;.getWidth:()I` @kind virtual;
+  #L1b461a.  v4:= temp;
+  #L1b461c.  goto L1b4620;
+  #L1b461e.  v4:= v1;
+  #L1b4620.  if v3 == 0 then goto L1b462c;
+  #L1b4624.  call temp:= `getWidth`(v3) @signature `Landroid/view/View;.getWidth:()I` @kind virtual;
+  #L1b462a.  v1:= temp;
+  #L1b462c.  call temp:= `getLeft`(v0) @signature `Landroid/view/View;.getLeft:()I` @kind virtual;
+  #L1b4632.  v5:= temp;
+  #L1b4634.  v6:= v4 / 2;
+  #L1b4638.  v5:= v5 + v6 @kind int;
+  #L1b463a.  call temp:= `getWidth`(v7) @signature `Lcom/google/android/material/tabs/TabLayout;.getWidth:()I` @kind virtual;
+  #L1b4640.  v6:= temp;
+  #L1b4642.  v6:= v6 / v2 @kind int;
+  #L1b4644.  v5:= v5 - v6 @kind int;
+  #L1b4646.  v2:= v4 + v1 @kind int;
+  #L1b464a.  v2:= (`float`) v2 @kind i2f;
+  #L1b464c.  v6:= 0.5F;
+  #L1b4650.  v2:= v2 * v6 @kind float;
+  #L1b4652.  v2:= v2 * v9 @kind float;
+  #L1b4654.  v2:= (`int`) v2 @kind f2i;
+  #L1b4656.  call temp:= `getLayoutDirection`(v7) @signature `Landroidx/core/view/ViewCompat;.getLayoutDirection:(Landroid/view/View;)I` @kind static;
+  #L1b465c.  v6:= temp;
+  #L1b465e.  if v6 != 0 then goto L1b4668;
+  #L1b4662.  v6:= v5 + v2 @kind int;
+  #L1b4666.  goto L1b466c;
+  #L1b4668.  v6:= v5 - v2 @kind int;
+  #L1b466c.  return v6;
+}
+procedure `void` `configureTab`(`com.google.android.material.tabs.TabLayout` v3 @kind this, `com.google.android.material.tabs.TabLayout$Tab` v4 @kind object @name `tab`, `int` v5 @name `position`) @signature `Lcom/google/android/material/tabs/TabLayout;.configureTab:(Lcom/google/android/material/tabs/TabLayout$Tab;I)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b4f70.  call `setPosition`(v4, v5) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setPosition:(I)V` @kind virtual;
+  #L1b4f76.  v0:= v3.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` @kind object;
+  #L1b4f7a.  call `add`(v0, v5, v4) @signature `Ljava/util/ArrayList;.add:(ILjava/lang/Object;)V` @kind virtual;
+  #L1b4f80.  v0:= v3.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` @kind object;
+  #L1b4f84.  call temp:= `size`(v0) @signature `Ljava/util/ArrayList;.size:()I` @kind virtual;
+  #L1b4f8a.  v0:= temp;
+  #L1b4f8c.  v1:= v5 + 1;
+  #L1b4f90.  if v1 >= v0 then goto L1b4fb0;
+  #L1b4f94.  v2:= v3.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` @kind object;
+  #L1b4f98.  call temp:= `get`(v2, v1) @signature `Ljava/util/ArrayList;.get:(I)Ljava/lang/Object;` @kind virtual;
+  #L1b4f9e.  v2:= temp @kind object;
+  #L1b4fa0.  v2:= (`com.google.android.material.tabs.TabLayout$Tab`) v2 @kind object;
+  #L1b4fa4.  call `setPosition`(v2, v1) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setPosition:(I)V` @kind virtual;
+  #L1b4faa.  v1:= v1 + 1;
+  #L1b4fae.  goto L1b4f90;
+  #L1b4fb0.  return @kind void;
+}
+procedure `android.content.res.ColorStateList` `createColorStateList`(`int` v4 @name `defaultColor`, `int` v5 @name `selectedColor`) @signature `Lcom/google/android/material/tabs/TabLayout;.createColorStateList:(II)Landroid/content/res/ColorStateList;` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b42f4.  v0:= 2I;
+  #L1b42f6.  v1:= new `int`[][v0];
+  #L1b42fa.  v0:= new `int`[v0];
+  #L1b42fe.  v2:= 0I;
+  #L1b4300.  v3:= `@@com.google.android.material.tabs.TabLayout.SELECTED_STATE_SET` @type ^`int`[] @kind object;
+  #L1b4304.  v1[v2]:= v3 @kind object;
+  #L1b4308.  v0[v2]:= v5;
+  #L1b430c.  v2:= v2 + 1;
+  #L1b4310.  v3:= `@@com.google.android.material.tabs.TabLayout.EMPTY_STATE_SET` @type ^`int`[] @kind object;
+  #L1b4314.  v1[v2]:= v3 @kind object;
+  #L1b4318.  v0[v2]:= v4;
+  #L1b431c.  v2:= v2 + 1;
+  #L1b4320.  v3:= new `android.content.res.ColorStateList`;
+  #L1b4324.  call `<init>`(v3, v1, v0) @signature `Landroid/content/res/ColorStateList;.<init>:([[I[I)V` @kind direct;
+  #L1b432a.  return v3 @kind object;
+}
+procedure `android.widget.LinearLayout$LayoutParams` `createLayoutParamsForTabs`(`com.google.android.material.tabs.TabLayout` v3 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.createLayoutParamsForTabs:()Landroid/widget/LinearLayout$LayoutParams;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b43ec.  v0:= new `android.widget.LinearLayout$LayoutParams`;
+  #L1b43f0.  v1:= -2I;
+  #L1b43f2.  v2:= -1I;
+  #L1b43f4.  call `<init>`(v0, v1, v2) @signature `Landroid/widget/LinearLayout$LayoutParams;.<init>:(II)V` @kind direct;
+  #L1b43fa.  call `updateTabViewLayoutParams`(v3, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.updateTabViewLayoutParams:(Landroid/widget/LinearLayout$LayoutParams;)V` @kind direct;
+  #L1b4400.  return v0 @kind object;
+}
+procedure `com.google.android.material.tabs.TabLayout$TabView` `createTabView`(`com.google.android.material.tabs.TabLayout` v3 @kind this, `com.google.android.material.tabs.TabLayout$Tab` v4 @kind object @name `tab`) @signature `Lcom/google/android/material/tabs/TabLayout;.createTabView:(Lcom/google/android/material/tabs/TabLayout$Tab;)Lcom/google/android/material/tabs/TabLayout$TabView;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b4538.  v0:= v3.`com.google.android.material.tabs.TabLayout.tabViewPool` @type ^`androidx.core.util.Pools$Pool` @kind object;
+  #L1b453c.  if v0 == 0 then goto L1b454e;
+  #L1b4540.  call temp:= `acquire`(v0) @signature `Landroidx/core/util/Pools$Pool;.acquire:()Ljava/lang/Object;` @kind interface;
+  #L1b4546.  v0:= temp @kind object;
+  #L1b4548.  v0:= (`com.google.android.material.tabs.TabLayout$TabView`) v0 @kind object;
+  #L1b454c.  goto L1b4550;
+  #L1b454e.  v0:= 0I;
+  #L1b4550.  if v0 != 0 then goto L1b4568;
+  #L1b4554.  v1:= new `com.google.android.material.tabs.TabLayout$TabView`;
+  #L1b4558.  call temp:= `getContext`(v3) @signature `Lcom/google/android/material/tabs/TabLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1b455e.  v2:= temp @kind object;
+  #L1b4560.  call `<init>`(v1, v3, v2) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.<init>:(Lcom/google/android/material/tabs/TabLayout;Landroid/content/Context;)V` @kind direct;
+  #L1b4566.  v0:= v1 @kind object;
+  #L1b4568.  call `setTab`(v0, v4) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.setTab:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @kind virtual;
+  #L1b456e.  v1:= 1I;
+  #L1b4570.  call `setFocusable`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.setFocusable:(Z)V` @kind virtual;
+  #L1b4576.  call temp:= `getTabMinWidth`(v3) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabMinWidth:()I` @kind direct;
+  #L1b457c.  v1:= temp;
+  #L1b457e.  call `setMinimumWidth`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.setMinimumWidth:(I)V` @kind virtual;
+  #L1b4584.  call temp:= `access$100`(v4) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.access$100:(Lcom/google/android/material/tabs/TabLayout$Tab;)Ljava/lang/CharSequence;` @kind static;
+  #L1b458a.  v1:= temp @kind object;
+  #L1b458c.  call temp:= `isEmpty`(v1) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L1b4592.  v1:= temp;
+  #L1b4594.  if v1 == 0 then goto L1b45a8;
+  #L1b4598.  call temp:= `access$200`(v4) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.access$200:(Lcom/google/android/material/tabs/TabLayout$Tab;)Ljava/lang/CharSequence;` @kind static;
+  #L1b459e.  v1:= temp @kind object;
+  #L1b45a0.  call `setContentDescription`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.setContentDescription:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1b45a6.  goto L1b45b6;
+  #L1b45a8.  call temp:= `access$100`(v4) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.access$100:(Lcom/google/android/material/tabs/TabLayout$Tab;)Ljava/lang/CharSequence;` @kind static;
+  #L1b45ae.  v1:= temp @kind object;
+  #L1b45b0.  call `setContentDescription`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.setContentDescription:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L1b45b6.  return v0 @kind object;
+}
+procedure `void` `dispatchTabReselected`(`com.google.android.material.tabs.TabLayout` v2 @kind this, `com.google.android.material.tabs.TabLayout$Tab` v3 @kind object @name `tab`) @signature `Lcom/google/android/material/tabs/TabLayout;.dispatchTabReselected:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b4fc4.  v0:= v2.`com.google.android.material.tabs.TabLayout.selectedListeners` @type ^`java.util.ArrayList` @kind object;
+  #L1b4fc8.  call temp:= `size`(v0) @signature `Ljava/util/ArrayList;.size:()I` @kind virtual;
+  #L1b4fce.  v0:= temp;
+  #L1b4fd0.  v0:= v0 + -1;
+  #L1b4fd4.  if v0 < 0 then goto L1b4ff4;
+  #L1b4fd8.  v1:= v2.`com.google.android.material.tabs.TabLayout.selectedListeners` @type ^`java.util.ArrayList` @kind object;
+  #L1b4fdc.  call temp:= `get`(v1, v0) @signature `Ljava/util/ArrayList;.get:(I)Ljava/lang/Object;` @kind virtual;
+  #L1b4fe2.  v1:= temp @kind object;
+  #L1b4fe4.  v1:= (`com.google.android.material.tabs.TabLayout$BaseOnTabSelectedListener`) v1 @kind object;
+  #L1b4fe8.  call `onTabReselected`(v1, v3) @signature `Lcom/google/android/material/tabs/TabLayout$BaseOnTabSelectedListener;.onTabReselected:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @kind interface;
+  #L1b4fee.  v0:= v0 + -1;
+  #L1b4ff2.  goto L1b4fd4;
+  #L1b4ff4.  return @kind void;
+}
+procedure `void` `dispatchTabSelected`(`com.google.android.material.tabs.TabLayout` v2 @kind this, `com.google.android.material.tabs.TabLayout$Tab` v3 @kind object @name `tab`) @signature `Lcom/google/android/material/tabs/TabLayout;.dispatchTabSelected:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b5008.  v0:= v2.`com.google.android.material.tabs.TabLayout.selectedListeners` @type ^`java.util.ArrayList` @kind object;
+  #L1b500c.  call temp:= `size`(v0) @signature `Ljava/util/ArrayList;.size:()I` @kind virtual;
+  #L1b5012.  v0:= temp;
+  #L1b5014.  v0:= v0 + -1;
+  #L1b5018.  if v0 < 0 then goto L1b5038;
+  #L1b501c.  v1:= v2.`com.google.android.material.tabs.TabLayout.selectedListeners` @type ^`java.util.ArrayList` @kind object;
+  #L1b5020.  call temp:= `get`(v1, v0) @signature `Ljava/util/ArrayList;.get:(I)Ljava/lang/Object;` @kind virtual;
+  #L1b5026.  v1:= temp @kind object;
+  #L1b5028.  v1:= (`com.google.android.material.tabs.TabLayout$BaseOnTabSelectedListener`) v1 @kind object;
+  #L1b502c.  call `onTabSelected`(v1, v3) @signature `Lcom/google/android/material/tabs/TabLayout$BaseOnTabSelectedListener;.onTabSelected:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @kind interface;
+  #L1b5032.  v0:= v0 + -1;
+  #L1b5036.  goto L1b5018;
+  #L1b5038.  return @kind void;
+}
+procedure `void` `dispatchTabUnselected`(`com.google.android.material.tabs.TabLayout` v2 @kind this, `com.google.android.material.tabs.TabLayout$Tab` v3 @kind object @name `tab`) @signature `Lcom/google/android/material/tabs/TabLayout;.dispatchTabUnselected:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b504c.  v0:= v2.`com.google.android.material.tabs.TabLayout.selectedListeners` @type ^`java.util.ArrayList` @kind object;
+  #L1b5050.  call temp:= `size`(v0) @signature `Ljava/util/ArrayList;.size:()I` @kind virtual;
+  #L1b5056.  v0:= temp;
+  #L1b5058.  v0:= v0 + -1;
+  #L1b505c.  if v0 < 0 then goto L1b507c;
+  #L1b5060.  v1:= v2.`com.google.android.material.tabs.TabLayout.selectedListeners` @type ^`java.util.ArrayList` @kind object;
+  #L1b5064.  call temp:= `get`(v1, v0) @signature `Ljava/util/ArrayList;.get:(I)Ljava/lang/Object;` @kind virtual;
+  #L1b506a.  v1:= temp @kind object;
+  #L1b506c.  v1:= (`com.google.android.material.tabs.TabLayout$BaseOnTabSelectedListener`) v1 @kind object;
+  #L1b5070.  call `onTabUnselected`(v1, v3) @signature `Lcom/google/android/material/tabs/TabLayout$BaseOnTabSelectedListener;.onTabUnselected:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @kind interface;
+  #L1b5076.  v0:= v0 + -1;
+  #L1b507a.  goto L1b505c;
+  #L1b507c.  return @kind void;
+}
+procedure `void` `ensureScrollAnimator`(`com.google.android.material.tabs.TabLayout` v3 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.ensureScrollAnimator:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b5090.  v0:= v3.`com.google.android.material.tabs.TabLayout.scrollAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L1b5094.  if v0 != 0 then goto L1b50d4;
+  #L1b5098.  v0:= new `android.animation.ValueAnimator`;
+  #L1b509c.  call `<init>`(v0) @signature `Landroid/animation/ValueAnimator;.<init>:()V` @kind direct;
+  #L1b50a2.  v3.`com.google.android.material.tabs.TabLayout.scrollAnimator` @type ^`android.animation.ValueAnimator` := v0 @kind object;
+  #L1b50a6.  v1:= `@@com.google.android.material.animation.AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L1b50aa.  call `setInterpolator`(v0, v1) @signature `Landroid/animation/ValueAnimator;.setInterpolator:(Landroid/animation/TimeInterpolator;)V` @kind virtual;
+  #L1b50b0.  v0:= v3.`com.google.android.material.tabs.TabLayout.scrollAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L1b50b4.  v1:= v3.`com.google.android.material.tabs.TabLayout.tabIndicatorAnimationDuration` @type ^`int`;
+  #L1b50b8.  v1:= (`long`) v1 @kind i2l;
+  #L1b50ba.  call temp:= `setDuration`(v0, v1) @signature `Landroid/animation/ValueAnimator;.setDuration:(J)Landroid/animation/ValueAnimator;` @kind virtual;
+  #L1b50c0.  v0:= v3.`com.google.android.material.tabs.TabLayout.scrollAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L1b50c4.  v1:= new `com.google.android.material.tabs.TabLayout$1`;
+  #L1b50c8.  call `<init>`(v1, v3) @signature `Lcom/google/android/material/tabs/TabLayout$1;.<init>:(Lcom/google/android/material/tabs/TabLayout;)V` @kind direct;
+  #L1b50ce.  call `addUpdateListener`(v0, v1) @signature `Landroid/animation/ValueAnimator;.addUpdateListener:(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V` @kind virtual;
+  #L1b50d4.  return @kind void;
+}
+procedure `int` `getDefaultHeight`(`com.google.android.material.tabs.TabLayout` v5 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.getDefaultHeight:()I` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1b4680.  v0:= 0I;
+  #L1b4682.  v1:= 0I;
+  #L1b4684.  v2:= v5.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` @kind object;
+  #L1b4688.  call temp:= `size`(v2) @signature `Ljava/util/ArrayList;.size:()I` @kind virtual;
+  #L1b468e.  v2:= temp;
+  #L1b4690.  if v1 >= v2 then goto L1b46d2;
+  #L1b4694.  v3:= v5.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` @kind object;
+  #L1b4698.  call temp:= `get`(v3, v1) @signature `Ljava/util/ArrayList;.get:(I)Ljava/lang/Object;` @kind virtual;
+  #L1b469e.  v3:= temp @kind object;
+  #L1b46a0.  v3:= (`com.google.android.material.tabs.TabLayout$Tab`) v3 @kind object;
+  #L1b46a4.  if v3 == 0 then goto L1b46cc;
+  #L1b46a8.  call temp:= `getIcon`(v3) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getIcon:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1b46ae.  v4:= temp @kind object;
+  #L1b46b0.  if v4 == 0 then goto L1b46cc;
+  #L1b46b4.  call temp:= `getText`(v3) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getText:()Ljava/lang/CharSequence;` @kind virtual;
+  #L1b46ba.  v4:= temp @kind object;
+  #L1b46bc.  call temp:= `isEmpty`(v4) @signature `Landroid/text/TextUtils;.isEmpty:(Ljava/lang/CharSequence;)Z` @kind static;
+  #L1b46c2.  v4:= temp;
+  #L1b46c4.  if v4 != 0 then goto L1b46cc;
+  #L1b46c8.  v0:= 1I;
+  #L1b46ca.  goto L1b46d2;
+  #L1b46cc.  v1:= v1 + 1;
+  #L1b46d0.  goto L1b4690;
+  #L1b46d2.  if v0 == 0 then goto L1b46e4;
+  #L1b46d6.  v1:= v5.`com.google.android.material.tabs.TabLayout.inlineLabel` @type ^`boolean` @kind boolean;
+  #L1b46da.  if v1 != 0 then goto L1b46e4;
+  #L1b46de.  v1:= 72I;
+  #L1b46e2.  goto L1b46e8;
+  #L1b46e4.  v1:= 48I;
+  #L1b46e8.  return v1;
+}
+procedure `int` `getTabMinWidth`(`com.google.android.material.tabs.TabLayout` v2 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabMinWidth:()I` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b478c.  v0:= v2.`com.google.android.material.tabs.TabLayout.requestedTabMinWidth` @type ^`int`;
+  #L1b4790.  v1:= -1I;
+  #L1b4792.  if v0 == v1 then goto L1b4798;
+  #L1b4796.  return v0;
+  #L1b4798.  v0:= v2.`com.google.android.material.tabs.TabLayout.mode` @type ^`int`;
+  #L1b479c.  if v0 == 0 then goto L1b47ac;
+  #L1b47a0.  v1:= 2I;
+  #L1b47a2.  if v0 != v1 then goto L1b47a8;
+  #L1b47a6.  goto L1b47ac;
+  #L1b47a8.  v0:= 0I;
+  #L1b47aa.  goto L1b47b0;
+  #L1b47ac.  v0:= v2.`com.google.android.material.tabs.TabLayout.scrollableTabMinWidth` @type ^`int`;
+  #L1b47b0.  return v0;
+}
+procedure `int` `getTabScrollRange`(`com.google.android.material.tabs.TabLayout` v2 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabScrollRange:()I` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b47dc.  v0:= v2.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b47e0.  call temp:= `getWidth`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getWidth:()I` @kind virtual;
+  #L1b47e6.  v0:= temp;
+  #L1b47e8.  call temp:= `getWidth`(v2) @signature `Lcom/google/android/material/tabs/TabLayout;.getWidth:()I` @kind virtual;
+  #L1b47ee.  v1:= temp;
+  #L1b47f0.  v0:= v0 - v1 @kind int;
+  #L1b47f2.  call temp:= `getPaddingLeft`(v2) @signature `Lcom/google/android/material/tabs/TabLayout;.getPaddingLeft:()I` @kind virtual;
+  #L1b47f8.  v1:= temp;
+  #L1b47fa.  v0:= v0 - v1 @kind int;
+  #L1b47fc.  call temp:= `getPaddingRight`(v2) @signature `Lcom/google/android/material/tabs/TabLayout;.getPaddingRight:()I` @kind virtual;
+  #L1b4802.  v1:= temp;
+  #L1b4804.  v0:= v0 - v1 @kind int;
+  #L1b4806.  v1:= 0I;
+  #L1b4808.  call temp:= `max`(v1, v0) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L1b480e.  v0:= temp;
+  #L1b4810.  return v0;
+}
+procedure `void` `removeTabViewAt`(`com.google.android.material.tabs.TabLayout` v2 @kind this, `int` v3 @name `position`) @signature `Lcom/google/android/material/tabs/TabLayout;.removeTabViewAt:(I)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b5548.  v0:= v2.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b554c.  call temp:= `getChildAt`(v0, v3) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1b5552.  v0:= temp @kind object;
+  #L1b5554.  v0:= (`com.google.android.material.tabs.TabLayout$TabView`) v0 @kind object;
+  #L1b5558.  v1:= v2.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b555c.  call `removeViewAt`(v1, v3) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.removeViewAt:(I)V` @kind virtual;
+  #L1b5562.  if v0 == 0 then goto L1b5576;
+  #L1b5566.  call `reset`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.reset:()V` @kind virtual;
+  #L1b556c.  v1:= v2.`com.google.android.material.tabs.TabLayout.tabViewPool` @type ^`androidx.core.util.Pools$Pool` @kind object;
+  #L1b5570.  call temp:= `release`(v1, v0) @signature `Landroidx/core/util/Pools$Pool;.release:(Ljava/lang/Object;)Z` @kind interface;
+  #L1b5576.  call `requestLayout`(v2) @signature `Lcom/google/android/material/tabs/TabLayout;.requestLayout:()V` @kind virtual;
+  #L1b557c.  return @kind void;
+}
+procedure `void` `setSelectedTabView`(`com.google.android.material.tabs.TabLayout` v6 @kind this, `int` v7 @name `position`) @signature `Lcom/google/android/material/tabs/TabLayout;.setSelectedTabView:(I)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1b5904.  v0:= v6.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b5908.  call temp:= `getChildCount`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getChildCount:()I` @kind virtual;
+  #L1b590e.  v0:= temp;
+  #L1b5910.  if v7 >= v0 then goto L1b594c;
+  #L1b5914.  v1:= 0I;
+  #L1b5916.  if v1 >= v0 then goto L1b594c;
+  #L1b591a.  v2:= v6.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b591e.  call temp:= `getChildAt`(v2, v1) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1b5924.  v2:= temp @kind object;
+  #L1b5926.  v3:= 0I;
+  #L1b5928.  v4:= 1I;
+  #L1b592a.  if v1 != v7 then goto L1b5932;
+  #L1b592e.  v5:= v4;
+  #L1b5930.  goto L1b5934;
+  #L1b5932.  v5:= v3;
+  #L1b5934.  call `setSelected`(v2, v5) @signature `Landroid/view/View;.setSelected:(Z)V` @kind virtual;
+  #L1b593a.  if v1 != v7 then goto L1b5940;
+  #L1b593e.  v3:= v4;
+  #L1b5940.  call `setActivated`(v2, v3) @signature `Landroid/view/View;.setActivated:(Z)V` @kind virtual;
+  #L1b5946.  v1:= v1 + 1;
+  #L1b594a.  goto L1b5916;
+  #L1b594c.  return @kind void;
+}
+procedure `void` `setupWithViewPager`(`com.google.android.material.tabs.TabLayout` v4 @kind this, `androidx.viewpager.widget.ViewPager` v5 @kind object @name `viewPager`, `boolean` v6 @name `autoRefresh`, `boolean` v7 @name `implicitSetup`) @signature `Lcom/google/android/material/tabs/TabLayout;.setupWithViewPager:(Landroidx/viewpager/widget/ViewPager;ZZ)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b5bbc.  v0:= v4.`com.google.android.material.tabs.TabLayout.viewPager` @type ^`androidx.viewpager.widget.ViewPager` @kind object;
+  #L1b5bc0.  if v0 == 0 then goto L1b5be4;
+  #L1b5bc4.  v1:= v4.`com.google.android.material.tabs.TabLayout.pageChangeListener` @type ^`com.google.android.material.tabs.TabLayout$TabLayoutOnPageChangeListener` @kind object;
+  #L1b5bc8.  if v1 == 0 then goto L1b5bd2;
+  #L1b5bcc.  call `removeOnPageChangeListener`(v0, v1) @signature `Landroidx/viewpager/widget/ViewPager;.removeOnPageChangeListener:(Landroidx/viewpager/widget/ViewPager$OnPageChangeListener;)V` @kind virtual;
+  #L1b5bd2.  v0:= v4.`com.google.android.material.tabs.TabLayout.adapterChangeListener` @type ^`com.google.android.material.tabs.TabLayout$AdapterChangeListener` @kind object;
+  #L1b5bd6.  if v0 == 0 then goto L1b5be4;
+  #L1b5bda.  v1:= v4.`com.google.android.material.tabs.TabLayout.viewPager` @type ^`androidx.viewpager.widget.ViewPager` @kind object;
+  #L1b5bde.  call `removeOnAdapterChangeListener`(v1, v0) @signature `Landroidx/viewpager/widget/ViewPager;.removeOnAdapterChangeListener:(Landroidx/viewpager/widget/ViewPager$OnAdapterChangeListener;)V` @kind virtual;
+  #L1b5be4.  v0:= v4.`com.google.android.material.tabs.TabLayout.currentVpSelectedListener` @type ^`com.google.android.material.tabs.TabLayout$BaseOnTabSelectedListener` @kind object;
+  #L1b5be8.  v1:= 0I;
+  #L1b5bea.  if v0 == 0 then goto L1b5bf8;
+  #L1b5bee.  call `removeOnTabSelectedListener`(v4, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.removeOnTabSelectedListener:(Lcom/google/android/material/tabs/TabLayout$BaseOnTabSelectedListener;)V` @kind virtual;
+  #L1b5bf4.  v4.`com.google.android.material.tabs.TabLayout.currentVpSelectedListener` @type ^`com.google.android.material.tabs.TabLayout$BaseOnTabSelectedListener` := v1 @kind object;
+  #L1b5bf8.  if v5 == 0 then goto L1b5c8e;
+  #L1b5bfc.  v4.`com.google.android.material.tabs.TabLayout.viewPager` @type ^`androidx.viewpager.widget.ViewPager` := v5 @kind object;
+  #L1b5c00.  v0:= v4.`com.google.android.material.tabs.TabLayout.pageChangeListener` @type ^`com.google.android.material.tabs.TabLayout$TabLayoutOnPageChangeListener` @kind object;
+  #L1b5c04.  if v0 != 0 then goto L1b5c16;
+  #L1b5c08.  v0:= new `com.google.android.material.tabs.TabLayout$TabLayoutOnPageChangeListener`;
+  #L1b5c0c.  call `<init>`(v0, v4) @signature `Lcom/google/android/material/tabs/TabLayout$TabLayoutOnPageChangeListener;.<init>:(Lcom/google/android/material/tabs/TabLayout;)V` @kind direct;
+  #L1b5c12.  v4.`com.google.android.material.tabs.TabLayout.pageChangeListener` @type ^`com.google.android.material.tabs.TabLayout$TabLayoutOnPageChangeListener` := v0 @kind object;
+  #L1b5c16.  v0:= v4.`com.google.android.material.tabs.TabLayout.pageChangeListener` @type ^`com.google.android.material.tabs.TabLayout$TabLayoutOnPageChangeListener` @kind object;
+  #L1b5c1a.  call `reset`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$TabLayoutOnPageChangeListener;.reset:()V` @kind virtual;
+  #L1b5c20.  v0:= v4.`com.google.android.material.tabs.TabLayout.pageChangeListener` @type ^`com.google.android.material.tabs.TabLayout$TabLayoutOnPageChangeListener` @kind object;
+  #L1b5c24.  call `addOnPageChangeListener`(v5, v0) @signature `Landroidx/viewpager/widget/ViewPager;.addOnPageChangeListener:(Landroidx/viewpager/widget/ViewPager$OnPageChangeListener;)V` @kind virtual;
+  #L1b5c2a.  v0:= new `com.google.android.material.tabs.TabLayout$ViewPagerOnTabSelectedListener`;
+  #L1b5c2e.  call `<init>`(v0, v5) @signature `Lcom/google/android/material/tabs/TabLayout$ViewPagerOnTabSelectedListener;.<init>:(Landroidx/viewpager/widget/ViewPager;)V` @kind direct;
+  #L1b5c34.  v4.`com.google.android.material.tabs.TabLayout.currentVpSelectedListener` @type ^`com.google.android.material.tabs.TabLayout$BaseOnTabSelectedListener` := v0 @kind object;
+  #L1b5c38.  call `addOnTabSelectedListener`(v4, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.addOnTabSelectedListener:(Lcom/google/android/material/tabs/TabLayout$BaseOnTabSelectedListener;)V` @kind virtual;
+  #L1b5c3e.  call temp:= `getAdapter`(v5) @signature `Landroidx/viewpager/widget/ViewPager;.getAdapter:()Landroidx/viewpager/widget/PagerAdapter;` @kind virtual;
+  #L1b5c44.  v0:= temp @kind object;
+  #L1b5c46.  if v0 == 0 then goto L1b5c50;
+  #L1b5c4a.  call `setPagerAdapter`(v4, v0, v6) @signature `Lcom/google/android/material/tabs/TabLayout;.setPagerAdapter:(Landroidx/viewpager/widget/PagerAdapter;Z)V` @kind virtual;
+  #L1b5c50.  v1:= v4.`com.google.android.material.tabs.TabLayout.adapterChangeListener` @type ^`com.google.android.material.tabs.TabLayout$AdapterChangeListener` @kind object;
+  #L1b5c54.  if v1 != 0 then goto L1b5c66;
+  #L1b5c58.  v1:= new `com.google.android.material.tabs.TabLayout$AdapterChangeListener`;
+  #L1b5c5c.  call `<init>`(v1, v4) @signature `Lcom/google/android/material/tabs/TabLayout$AdapterChangeListener;.<init>:(Lcom/google/android/material/tabs/TabLayout;)V` @kind direct;
+  #L1b5c62.  v4.`com.google.android.material.tabs.TabLayout.adapterChangeListener` @type ^`com.google.android.material.tabs.TabLayout$AdapterChangeListener` := v1 @kind object;
+  #L1b5c66.  v1:= v4.`com.google.android.material.tabs.TabLayout.adapterChangeListener` @type ^`com.google.android.material.tabs.TabLayout$AdapterChangeListener` @kind object;
+  #L1b5c6a.  call `setAutoRefresh`(v1, v6) @signature `Lcom/google/android/material/tabs/TabLayout$AdapterChangeListener;.setAutoRefresh:(Z)V` @kind virtual;
+  #L1b5c70.  v1:= v4.`com.google.android.material.tabs.TabLayout.adapterChangeListener` @type ^`com.google.android.material.tabs.TabLayout$AdapterChangeListener` @kind object;
+  #L1b5c74.  call `addOnAdapterChangeListener`(v5, v1) @signature `Landroidx/viewpager/widget/ViewPager;.addOnAdapterChangeListener:(Landroidx/viewpager/widget/ViewPager$OnAdapterChangeListener;)V` @kind virtual;
+  #L1b5c7a.  call temp:= `getCurrentItem`(v5) @signature `Landroidx/viewpager/widget/ViewPager;.getCurrentItem:()I` @kind virtual;
+  #L1b5c80.  v1:= temp;
+  #L1b5c82.  v2:= 0I;
+  #L1b5c84.  v3:= 1I;
+  #L1b5c86.  call `setScrollPosition`(v4, v1, v2, v3) @signature `Lcom/google/android/material/tabs/TabLayout;.setScrollPosition:(IFZ)V` @kind virtual;
+  #L1b5c8c.  goto L1b5c9a;
+  #L1b5c8e.  v4.`com.google.android.material.tabs.TabLayout.viewPager` @type ^`androidx.viewpager.widget.ViewPager` := v1 @kind object;
+  #L1b5c92.  v0:= 0I;
+  #L1b5c94.  call `setPagerAdapter`(v4, v1, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.setPagerAdapter:(Landroidx/viewpager/widget/PagerAdapter;Z)V` @kind virtual;
+  #L1b5c9a.  v4.`com.google.android.material.tabs.TabLayout.setupViewPagerImplicitly` @type ^`boolean` := v7 @kind boolean;
+  #L1b5c9e.  return @kind void;
+}
+procedure `void` `updateAllTabs`(`com.google.android.material.tabs.TabLayout` v3 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.updateAllTabs:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b5cb0.  v0:= 0I;
+  #L1b5cb2.  v1:= v3.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` @kind object;
+  #L1b5cb6.  call temp:= `size`(v1) @signature `Ljava/util/ArrayList;.size:()I` @kind virtual;
+  #L1b5cbc.  v1:= temp;
+  #L1b5cbe.  if v0 >= v1 then goto L1b5cde;
+  #L1b5cc2.  v2:= v3.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` @kind object;
+  #L1b5cc6.  call temp:= `get`(v2, v0) @signature `Ljava/util/ArrayList;.get:(I)Ljava/lang/Object;` @kind virtual;
+  #L1b5ccc.  v2:= temp @kind object;
+  #L1b5cce.  v2:= (`com.google.android.material.tabs.TabLayout$Tab`) v2 @kind object;
+  #L1b5cd2.  call `updateView`(v2) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.updateView:()V` @kind virtual;
+  #L1b5cd8.  v0:= v0 + 1;
+  #L1b5cdc.  goto L1b5cbe;
+  #L1b5cde.  return @kind void;
+}
+procedure `void` `updateTabViewLayoutParams`(`com.google.android.material.tabs.TabLayout` v2 @kind this, `android.widget.LinearLayout$LayoutParams` v3 @kind object @name `lp`) @signature `Lcom/google/android/material/tabs/TabLayout;.updateTabViewLayoutParams:(Landroid/widget/LinearLayout$LayoutParams;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b5cf0.  v0:= v2.`com.google.android.material.tabs.TabLayout.mode` @type ^`int`;
+  #L1b5cf4.  v1:= 1I;
+  #L1b5cf6.  if v0 != v1 then goto L1b5d12;
+  #L1b5cfa.  v0:= v2.`com.google.android.material.tabs.TabLayout.tabGravity` @type ^`int`;
+  #L1b5cfe.  if v0 != 0 then goto L1b5d12;
+  #L1b5d02.  v0:= 0I;
+  #L1b5d04.  v3.`android.widget.LinearLayout$LayoutParams.width` @type ^`int` := v0;
+  #L1b5d08.  v0:= 1.0F;
+  #L1b5d0c.  v3.`android.widget.LinearLayout$LayoutParams.weight` @type ^`float` := v0;
+  #L1b5d10.  goto L1b5d1e;
+  #L1b5d12.  v0:= -2I;
+  #L1b5d14.  v3.`android.widget.LinearLayout$LayoutParams.width` @type ^`int` := v0;
+  #L1b5d18.  v0:= 0I;
+  #L1b5d1a.  v3.`android.widget.LinearLayout$LayoutParams.weight` @type ^`float` := v0;
+  #L1b5d1e.  return @kind void;
+}
+procedure `void` `addOnTabSelectedListener`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `com.google.android.material.tabs.TabLayout$BaseOnTabSelectedListener` v2 @kind object @name `listener`) @signature `Lcom/google/android/material/tabs/TabLayout;.addOnTabSelectedListener:(Lcom/google/android/material/tabs/TabLayout$BaseOnTabSelectedListener;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b4c00.  v0:= v1.`com.google.android.material.tabs.TabLayout.selectedListeners` @type ^`java.util.ArrayList` @kind object;
+  #L1b4c04.  call temp:= `contains`(v0, v2) @signature `Ljava/util/ArrayList;.contains:(Ljava/lang/Object;)Z` @kind virtual;
+  #L1b4c0a.  v0:= temp;
+  #L1b4c0c.  if v0 != 0 then goto L1b4c1a;
+  #L1b4c10.  v0:= v1.`com.google.android.material.tabs.TabLayout.selectedListeners` @type ^`java.util.ArrayList` @kind object;
+  #L1b4c14.  call temp:= `add`(v0, v2) @signature `Ljava/util/ArrayList;.add:(Ljava/lang/Object;)Z` @kind virtual;
+  #L1b4c1a.  return @kind void;
+}
+procedure `void` `addOnTabSelectedListener`(`com.google.android.material.tabs.TabLayout` v0 @kind this, `com.google.android.material.tabs.TabLayout$OnTabSelectedListener` v1 @kind object @name `listener`) @signature `Lcom/google/android/material/tabs/TabLayout;.addOnTabSelectedListener:(Lcom/google/android/material/tabs/TabLayout$OnTabSelectedListener;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b4c2c.  call `addOnTabSelectedListener`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.addOnTabSelectedListener:(Lcom/google/android/material/tabs/TabLayout$BaseOnTabSelectedListener;)V` @kind virtual;
+  #L1b4c32.  return @kind void;
+}
+procedure `void` `addTab`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `com.google.android.material.tabs.TabLayout$Tab` v2 @kind object @name `tab`) @signature `Lcom/google/android/material/tabs/TabLayout;.addTab:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b4c44.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` @kind object;
+  #L1b4c48.  call temp:= `isEmpty`(v0) @signature `Ljava/util/ArrayList;.isEmpty:()Z` @kind virtual;
+  #L1b4c4e.  v0:= temp;
+  #L1b4c50.  call `addTab`(v1, v2, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.addTab:(Lcom/google/android/material/tabs/TabLayout$Tab;Z)V` @kind virtual;
+  #L1b4c56.  return @kind void;
+}
+procedure `void` `addTab`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `com.google.android.material.tabs.TabLayout$Tab` v2 @kind object @name `tab`, `int` v3 @name `position`) @signature `Lcom/google/android/material/tabs/TabLayout;.addTab:(Lcom/google/android/material/tabs/TabLayout$Tab;I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b4c8c.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` @kind object;
+  #L1b4c90.  call temp:= `isEmpty`(v0) @signature `Ljava/util/ArrayList;.isEmpty:()Z` @kind virtual;
+  #L1b4c96.  v0:= temp;
+  #L1b4c98.  call `addTab`(v1, v2, v3, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.addTab:(Lcom/google/android/material/tabs/TabLayout$Tab;IZ)V` @kind virtual;
+  #L1b4c9e.  return @kind void;
+}
+procedure `void` `addTab`(`com.google.android.material.tabs.TabLayout` v2 @kind this, `com.google.android.material.tabs.TabLayout$Tab` v3 @kind object @name `tab`, `int` v4 @name `position`, `boolean` v5 @name `setSelected`) @signature `Lcom/google/android/material/tabs/TabLayout;.addTab:(Lcom/google/android/material/tabs/TabLayout$Tab;IZ)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b4cb0.  v0:= v3.`com.google.android.material.tabs.TabLayout$Tab.parent` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b4cb4.  if v0 != v2 then goto L1b4cd0;
+  #L1b4cb8.  call `configureTab`(v2, v3, v4) @signature `Lcom/google/android/material/tabs/TabLayout;.configureTab:(Lcom/google/android/material/tabs/TabLayout$Tab;I)V` @kind direct;
+  #L1b4cbe.  call `addTabView`(v2, v3) @signature `Lcom/google/android/material/tabs/TabLayout;.addTabView:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @kind direct;
+  #L1b4cc4.  if v5 == 0 then goto L1b4cce;
+  #L1b4cc8.  call `select`(v3) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.select:()V` @kind virtual;
+  #L1b4cce.  return @kind void;
+  #L1b4cd0.  v0:= new `java.lang.IllegalArgumentException`;
+  #L1b4cd4.  v1:= "Tab belongs to a different TabLayout." @kind object;
+  #L1b4cd8.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1b4cde.  throw v0;
+}
+procedure `void` `addTab`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `com.google.android.material.tabs.TabLayout$Tab` v2 @kind object @name `tab`, `boolean` v3 @name `setSelected`) @signature `Lcom/google/android/material/tabs/TabLayout;.addTab:(Lcom/google/android/material/tabs/TabLayout$Tab;Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b4c68.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` @kind object;
+  #L1b4c6c.  call temp:= `size`(v0) @signature `Ljava/util/ArrayList;.size:()I` @kind virtual;
+  #L1b4c72.  v0:= temp;
+  #L1b4c74.  call `addTab`(v1, v2, v0, v3) @signature `Lcom/google/android/material/tabs/TabLayout;.addTab:(Lcom/google/android/material/tabs/TabLayout$Tab;IZ)V` @kind virtual;
+  #L1b4c7a.  return @kind void;
+}
+procedure `void` `addView`(`com.google.android.material.tabs.TabLayout` v0 @kind this, `android.view.View` v1 @kind object @name `child`) @signature `Lcom/google/android/material/tabs/TabLayout;.addView:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b4da8.  call `addViewInternal`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.addViewInternal:(Landroid/view/View;)V` @kind direct;
+  #L1b4dae.  return @kind void;
+}
+procedure `void` `addView`(`com.google.android.material.tabs.TabLayout` v0 @kind this, `android.view.View` v1 @kind object @name `child`, `int` v2 @name `index`) @signature `Lcom/google/android/material/tabs/TabLayout;.addView:(Landroid/view/View;I)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b4dd8.  call `addViewInternal`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.addViewInternal:(Landroid/view/View;)V` @kind direct;
+  #L1b4dde.  return @kind void;
+}
+procedure `void` `addView`(`com.google.android.material.tabs.TabLayout` v0 @kind this, `android.view.View` v1 @kind object @name `child`, `int` v2 @name `index`, `android.view.ViewGroup$LayoutParams` v3 @kind object @name `params`) @signature `Lcom/google/android/material/tabs/TabLayout;.addView:(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b4df0.  call `addViewInternal`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.addViewInternal:(Landroid/view/View;)V` @kind direct;
+  #L1b4df6.  return @kind void;
+}
+procedure `void` `addView`(`com.google.android.material.tabs.TabLayout` v0 @kind this, `android.view.View` v1 @kind object @name `child`, `android.view.ViewGroup$LayoutParams` v2 @kind object @name `params`) @signature `Lcom/google/android/material/tabs/TabLayout;.addView:(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b4dc0.  call `addViewInternal`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.addViewInternal:(Landroid/view/View;)V` @kind direct;
+  #L1b4dc6.  return @kind void;
+}
+procedure `void` `clearOnTabSelectedListeners`(`com.google.android.material.tabs.TabLayout` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.clearOnTabSelectedListeners:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b4f54.  v0:= v1.`com.google.android.material.tabs.TabLayout.selectedListeners` @type ^`java.util.ArrayList` @kind object;
+  #L1b4f58.  call `clear`(v0) @signature `Ljava/util/ArrayList;.clear:()V` @kind virtual;
+  #L1b4f5e.  return @kind void;
+}
+procedure `com.google.android.material.tabs.TabLayout$Tab` `createTabFromPool`(`com.google.android.material.tabs.TabLayout` v2 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.createTabFromPool:()Lcom/google/android/material/tabs/TabLayout$Tab;` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L1b44a0.  v0:= `@@com.google.android.material.tabs.TabLayout.tabPool` @type ^`androidx.core.util.Pools$Pool` @kind object;
+  #L1b44a4.  call temp:= `acquire`(v0) @signature `Landroidx/core/util/Pools$Pool;.acquire:()Ljava/lang/Object;` @kind interface;
+  #L1b44aa.  v0:= temp @kind object;
+  #L1b44ac.  v0:= (`com.google.android.material.tabs.TabLayout$Tab`) v0 @kind object;
+  #L1b44b0.  if v0 != 0 then goto L1b44c0;
+  #L1b44b4.  v1:= new `com.google.android.material.tabs.TabLayout$Tab`;
+  #L1b44b8.  call `<init>`(v1) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.<init>:()V` @kind direct;
+  #L1b44be.  v0:= v1 @kind object;
+  #L1b44c0.  return v0 @kind object;
+}
+procedure `android.view.ViewGroup$LayoutParams` `generateLayoutParams`(`com.google.android.material.tabs.TabLayout` v0 @kind this, `android.util.AttributeSet` v1 @kind object) @signature `Lcom/google/android/material/tabs/TabLayout;.generateLayoutParams:(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L1b43b4.  call temp:= `generateLayoutParams`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.generateLayoutParams:(Landroid/util/AttributeSet;)Landroid/widget/FrameLayout$LayoutParams;` @kind virtual;
+  #L1b43ba.  v1:= temp @kind object;
+  #L1b43bc.  return v1 @kind object;
+}
+procedure `android.widget.FrameLayout$LayoutParams` `generateLayoutParams`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `android.util.AttributeSet` v2 @kind object @name `attrs`) @signature `Lcom/google/android/material/tabs/TabLayout;.generateLayoutParams:(Landroid/util/AttributeSet;)Landroid/widget/FrameLayout$LayoutParams;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b43d0.  call temp:= `generateDefaultLayoutParams`(v1) @signature `Lcom/google/android/material/tabs/TabLayout;.generateDefaultLayoutParams:()Landroid/widget/FrameLayout$LayoutParams;` @kind virtual;
+  #L1b43d6.  v0:= temp @kind object;
+  #L1b43d8.  return v0 @kind object;
+}
+procedure `int` `getSelectedTabPosition`(`com.google.android.material.tabs.TabLayout` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.getSelectedTabPosition:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b46fc.  v0:= v1.`com.google.android.material.tabs.TabLayout.selectedTab` @type ^`com.google.android.material.tabs.TabLayout$Tab` @kind object;
+  #L1b4700.  if v0 == 0 then goto L1b470e;
+  #L1b4704.  call temp:= `getPosition`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getPosition:()I` @kind virtual;
+  #L1b470a.  v0:= temp;
+  #L1b470c.  goto L1b4710;
+  #L1b470e.  v0:= -1I;
+  #L1b4710.  return v0;
+}
+procedure `com.google.android.material.tabs.TabLayout$Tab` `getTabAt`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `int` v2 @name `index`) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabAt:(I)Lcom/google/android/material/tabs/TabLayout$Tab;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b44d4.  if v2 < 0 then goto L1b44f8;
+  #L1b44d8.  call temp:= `getTabCount`(v1) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabCount:()I` @kind virtual;
+  #L1b44de.  v0:= temp;
+  #L1b44e0.  if v2 < v0 then goto L1b44e6;
+  #L1b44e4.  goto L1b44f8;
+  #L1b44e6.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` @kind object;
+  #L1b44ea.  call temp:= `get`(v0, v2) @signature `Ljava/util/ArrayList;.get:(I)Ljava/lang/Object;` @kind virtual;
+  #L1b44f0.  v0:= temp @kind object;
+  #L1b44f2.  v0:= (`com.google.android.material.tabs.TabLayout$Tab`) v0 @kind object;
+  #L1b44f6.  goto L1b44fa;
+  #L1b44f8.  v0:= 0I;
+  #L1b44fa.  return v0 @kind object;
+}
+procedure `int` `getTabCount`(`com.google.android.material.tabs.TabLayout` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabCount:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b4724.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` @kind object;
+  #L1b4728.  call temp:= `size`(v0) @signature `Ljava/util/ArrayList;.size:()I` @kind virtual;
+  #L1b472e.  v0:= temp;
+  #L1b4730.  return v0;
+}
+procedure `int` `getTabGravity`(`com.google.android.material.tabs.TabLayout` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabGravity:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b4744.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabGravity` @type ^`int`;
+  #L1b4748.  return v0;
+}
+procedure `android.content.res.ColorStateList` `getTabIconTint`(`com.google.android.material.tabs.TabLayout` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabIconTint:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b433c.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabIconTint` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1b4340.  return v0 @kind object;
+}
+procedure `int` `getTabIndicatorGravity`(`com.google.android.material.tabs.TabLayout` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabIndicatorGravity:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b475c.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabIndicatorGravity` @type ^`int`;
+  #L1b4760.  return v0;
+}
+procedure `int` `getTabMaxWidth`(`com.google.android.material.tabs.TabLayout` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabMaxWidth:()I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b4774.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabMaxWidth` @type ^`int`;
+  #L1b4778.  return v0;
+}
+procedure `int` `getTabMode`(`com.google.android.material.tabs.TabLayout` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabMode:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b47c4.  v0:= v1.`com.google.android.material.tabs.TabLayout.mode` @type ^`int`;
+  #L1b47c8.  return v0;
+}
+procedure `android.content.res.ColorStateList` `getTabRippleColor`(`com.google.android.material.tabs.TabLayout` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabRippleColor:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b4354.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabRippleColorStateList` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1b4358.  return v0 @kind object;
+}
+procedure `android.graphics.drawable.Drawable` `getTabSelectedIndicator`(`com.google.android.material.tabs.TabLayout` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabSelectedIndicator:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b439c.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabSelectedIndicator` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1b43a0.  return v0 @kind object;
+}
+procedure `android.content.res.ColorStateList` `getTabTextColors`(`com.google.android.material.tabs.TabLayout` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabTextColors:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b436c.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabTextColors` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1b4370.  return v0 @kind object;
+}
+procedure `boolean` `hasUnboundedRipple`(`com.google.android.material.tabs.TabLayout` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.hasUnboundedRipple:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b4414.  v0:= v1.`com.google.android.material.tabs.TabLayout.unboundedRipple` @type ^`boolean` @kind boolean;
+  #L1b4418.  return v0;
+}
+procedure `boolean` `isInlineLabel`(`com.google.android.material.tabs.TabLayout` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.isInlineLabel:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b442c.  v0:= v1.`com.google.android.material.tabs.TabLayout.inlineLabel` @type ^`boolean` @kind boolean;
+  #L1b4430.  return v0;
+}
+procedure `boolean` `isTabIndicatorFullWidth`(`com.google.android.material.tabs.TabLayout` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.isTabIndicatorFullWidth:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b4444.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabIndicatorFullWidth` @type ^`boolean` @kind boolean;
+  #L1b4448.  return v0;
+}
+procedure `com.google.android.material.tabs.TabLayout$Tab` `newTab`(`com.google.android.material.tabs.TabLayout` v2 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.newTab:()Lcom/google/android/material/tabs/TabLayout$Tab;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b450c.  call temp:= `createTabFromPool`(v2) @signature `Lcom/google/android/material/tabs/TabLayout;.createTabFromPool:()Lcom/google/android/material/tabs/TabLayout$Tab;` @kind virtual;
+  #L1b4512.  v0:= temp @kind object;
+  #L1b4514.  v0.`com.google.android.material.tabs.TabLayout$Tab.parent` @type ^`com.google.android.material.tabs.TabLayout` := v2 @kind object;
+  #L1b4518.  call temp:= `createTabView`(v2, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.createTabView:(Lcom/google/android/material/tabs/TabLayout$Tab;)Lcom/google/android/material/tabs/TabLayout$TabView;` @kind direct;
+  #L1b451e.  v1:= temp @kind object;
+  #L1b4520.  v0.`com.google.android.material.tabs.TabLayout$Tab.view` @type ^`com.google.android.material.tabs.TabLayout$TabView` := v1 @kind object;
+  #L1b4524.  return v0 @kind object;
+}
+procedure `void` `onAttachedToWindow`(`com.google.android.material.tabs.TabLayout` v3 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.onAttachedToWindow:()V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b50e8.  call `onAttachedToWindow`(v3) @signature `Landroid/widget/HorizontalScrollView;.onAttachedToWindow:()V` @kind super;
+  #L1b50ee.  call `setParentAbsoluteElevation`(v3) @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.setParentAbsoluteElevation:(Landroid/view/View;)V` @kind static;
+  #L1b50f4.  v0:= v3.`com.google.android.material.tabs.TabLayout.viewPager` @type ^`androidx.viewpager.widget.ViewPager` @kind object;
+  #L1b50f8.  if v0 != 0 then goto L1b511a;
+  #L1b50fc.  call temp:= `getParent`(v3) @signature `Lcom/google/android/material/tabs/TabLayout;.getParent:()Landroid/view/ViewParent;` @kind virtual;
+  #L1b5102.  v0:= temp @kind object;
+  #L1b5104.  v1:= instanceof @variable v0 @type ^`androidx.viewpager.widget.ViewPager` @kind boolean;
+  #L1b5108.  if v1 == 0 then goto L1b511a;
+  #L1b510c.  v1:= v0 @kind object;
+  #L1b510e.  v1:= (`androidx.viewpager.widget.ViewPager`) v1 @kind object;
+  #L1b5112.  v2:= 1I;
+  #L1b5114.  call `setupWithViewPager`(v3, v1, v2, v2) @signature `Lcom/google/android/material/tabs/TabLayout;.setupWithViewPager:(Landroidx/viewpager/widget/ViewPager;ZZ)V` @kind direct;
+  #L1b511a.  return @kind void;
+}
+procedure `void` `onDetachedFromWindow`(`com.google.android.material.tabs.TabLayout` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.onDetachedFromWindow:()V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L1b512c.  call `onDetachedFromWindow`(v1) @signature `Landroid/widget/HorizontalScrollView;.onDetachedFromWindow:()V` @kind super;
+  #L1b5132.  v0:= v1.`com.google.android.material.tabs.TabLayout.setupViewPagerImplicitly` @type ^`boolean` @kind boolean;
+  #L1b5136.  if v0 == 0 then goto L1b5148;
+  #L1b513a.  v0:= 0I;
+  #L1b513c.  call `setupWithViewPager`(v1, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.setupWithViewPager:(Landroidx/viewpager/widget/ViewPager;)V` @kind virtual;
+  #L1b5142.  v0:= 0I;
+  #L1b5144.  v1.`com.google.android.material.tabs.TabLayout.setupViewPagerImplicitly` @type ^`boolean` := v0 @kind boolean;
+  #L1b5148.  return @kind void;
+}
+procedure `void` `onDraw`(`com.google.android.material.tabs.TabLayout` v3 @kind this, `android.graphics.Canvas` v4 @kind object @name `canvas`) @signature `Lcom/google/android/material/tabs/TabLayout;.onDraw:(Landroid/graphics/Canvas;)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b515c.  v0:= 0I;
+  #L1b515e.  v1:= v3.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b5162.  call temp:= `getChildCount`(v1) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getChildCount:()I` @kind virtual;
+  #L1b5168.  v1:= temp;
+  #L1b516a.  if v0 >= v1 then goto L1b5194;
+  #L1b516e.  v1:= v3.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b5172.  call temp:= `getChildAt`(v1, v0) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1b5178.  v1:= temp @kind object;
+  #L1b517a.  v2:= instanceof @variable v1 @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind boolean;
+  #L1b517e.  if v2 == 0 then goto L1b518e;
+  #L1b5182.  v2:= v1 @kind object;
+  #L1b5184.  v2:= (`com.google.android.material.tabs.TabLayout$TabView`) v2 @kind object;
+  #L1b5188.  call `access$300`(v2, v4) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.access$300:(Lcom/google/android/material/tabs/TabLayout$TabView;Landroid/graphics/Canvas;)V` @kind static;
+  #L1b518e.  v0:= v0 + 1;
+  #L1b5192.  goto L1b515e;
+  #L1b5194.  call `onDraw`(v3, v4) @signature `Landroid/widget/HorizontalScrollView;.onDraw:(Landroid/graphics/Canvas;)V` @kind super;
+  #L1b519a.  return @kind void;
+}
+procedure `void` `onMeasure`(`com.google.android.material.tabs.TabLayout` v9 @kind this, `int` v10 @name `widthMeasureSpec`, `int` v11 @name `heightMeasureSpec`) @signature `Lcom/google/android/material/tabs/TabLayout;.onMeasure:(II)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L1b51ac.  call temp:= `getContext`(v9) @signature `Lcom/google/android/material/tabs/TabLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1b51b2.  v0:= temp @kind object;
+  #L1b51b4.  call temp:= `getDefaultHeight`(v9) @signature `Lcom/google/android/material/tabs/TabLayout;.getDefaultHeight:()I` @kind direct;
+  #L1b51ba.  v1:= temp;
+  #L1b51bc.  call temp:= `dpToPx`(v0, v1) @signature `Lcom/google/android/material/internal/ViewUtils;.dpToPx:(Landroid/content/Context;I)F` @kind static;
+  #L1b51c2.  v0:= temp;
+  #L1b51c4.  v0:= (`int`) v0 @kind f2i;
+  #L1b51c6.  call temp:= `getMode`(v11) @signature `Landroid/view/View$MeasureSpec;.getMode:(I)I` @kind static;
+  #L1b51cc.  v1:= temp;
+  #L1b51ce.  v2:= -2147483648I;
+  #L1b51d2.  v3:= 2.0F;
+  #L1b51d6.  v4:= 0I;
+  #L1b51d8.  v5:= 1I;
+  #L1b51da.  if v1 == v2 then goto L1b5204;
+  #L1b51de.  if v1 == 0 then goto L1b51e4;
+  #L1b51e2.  goto L1b522a;
+  #L1b51e4.  
+  #L1b51e6.  call temp:= `getPaddingTop`(v9) @signature `Lcom/google/android/material/tabs/TabLayout;.getPaddingTop:()I` @kind virtual;
+  #L1b51ec.  v1:= temp;
+  #L1b51ee.  v1:= v1 + v0 @kind int;
+  #L1b51f0.  call temp:= `getPaddingBottom`(v9) @signature `Lcom/google/android/material/tabs/TabLayout;.getPaddingBottom:()I` @kind virtual;
+  #L1b51f6.  v2:= temp;
+  #L1b51f8.  v1:= v1 + v2 @kind int;
+  #L1b51fa.  call temp:= `makeMeasureSpec`(v1, v3) @signature `Landroid/view/View$MeasureSpec;.makeMeasureSpec:(II)I` @kind static;
+  #L1b5200.  v11:= temp;
+  #L1b5202.  goto L1b522a;
+  #L1b5204.  call temp:= `getChildCount`(v9) @signature `Lcom/google/android/material/tabs/TabLayout;.getChildCount:()I` @kind virtual;
+  #L1b520a.  v1:= temp;
+  #L1b520c.  if v1 != v5 then goto L1b522a;
+  #L1b5210.  call temp:= `getSize`(v11) @signature `Landroid/view/View$MeasureSpec;.getSize:(I)I` @kind static;
+  #L1b5216.  v1:= temp;
+  #L1b5218.  if v1 < v0 then goto L1b522a;
+  #L1b521c.  call temp:= `getChildAt`(v9, v4) @signature `Lcom/google/android/material/tabs/TabLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1b5222.  v1:= temp @kind object;
+  #L1b5224.  call `setMinimumHeight`(v1, v0) @signature `Landroid/view/View;.setMinimumHeight:(I)V` @kind virtual;
+  #L1b522a.  call temp:= `getSize`(v10) @signature `Landroid/view/View$MeasureSpec;.getSize:(I)I` @kind static;
+  #L1b5230.  v1:= temp;
+  #L1b5232.  call temp:= `getMode`(v10) @signature `Landroid/view/View$MeasureSpec;.getMode:(I)I` @kind static;
+  #L1b5238.  v2:= temp;
+  #L1b523a.  if v2 == 0 then goto L1b5266;
+  #L1b523e.  v2:= v9.`com.google.android.material.tabs.TabLayout.requestedTabMaxWidth` @type ^`int`;
+  #L1b5242.  if v2 <= 0 then goto L1b5248;
+  #L1b5246.  goto L1b5262;
+  #L1b5248.  v2:= (`float`) v1 @kind i2f;
+  #L1b524a.  call temp:= `getContext`(v9) @signature `Lcom/google/android/material/tabs/TabLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1b5250.  v6:= temp @kind object;
+  #L1b5252.  v7:= 56I;
+  #L1b5256.  call temp:= `dpToPx`(v6, v7) @signature `Lcom/google/android/material/internal/ViewUtils;.dpToPx:(Landroid/content/Context;I)F` @kind static;
+  #L1b525c.  v6:= temp;
+  #L1b525e.  v2:= v2 - v6 @kind float;
+  #L1b5260.  v2:= (`int`) v2 @kind f2i;
+  #L1b5262.  v9.`com.google.android.material.tabs.TabLayout.tabMaxWidth` @type ^`int` := v2;
+  #L1b5266.  call `onMeasure`(v9, v10, v11) @signature `Landroid/widget/HorizontalScrollView;.onMeasure:(II)V` @kind super;
+  #L1b526c.  call temp:= `getChildCount`(v9) @signature `Lcom/google/android/material/tabs/TabLayout;.getChildCount:()I` @kind virtual;
+  #L1b5272.  v2:= temp;
+  #L1b5274.  if v2 != v5 then goto L1b530e;
+  #L1b5278.  call temp:= `getChildAt`(v9, v4) @signature `Lcom/google/android/material/tabs/TabLayout;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1b527e.  v2:= temp @kind object;
+  #L1b5280.  v6:= 0I;
+  #L1b5282.  v7:= v9.`com.google.android.material.tabs.TabLayout.mode` @type ^`int`;
+  #L1b5286.  if v7 == 0 then goto L1b52b0;
+  #L1b528a.  if v7 == v5 then goto L1b5296;
+  #L1b528e.  v8:= 2I;
+  #L1b5290.  if v7 == v8 then goto L1b52b0;
+  #L1b5294.  goto L1b52ca;
+  #L1b5296.  call temp:= `getMeasuredWidth`(v2) @signature `Landroid/view/View;.getMeasuredWidth:()I` @kind virtual;
+  #L1b529c.  v7:= temp;
+  #L1b529e.  call temp:= `getMeasuredWidth`(v9) @signature `Lcom/google/android/material/tabs/TabLayout;.getMeasuredWidth:()I` @kind virtual;
+  #L1b52a4.  v8:= temp;
+  #L1b52a6.  if v7 == v8 then goto L1b52ac;
+  #L1b52aa.  v4:= v5;
+  #L1b52ac.  v6:= v4;
+  #L1b52ae.  goto L1b52ca;
+  #L1b52b0.  call temp:= `getMeasuredWidth`(v2) @signature `Landroid/view/View;.getMeasuredWidth:()I` @kind virtual;
+  #L1b52b6.  v7:= temp;
+  #L1b52b8.  call temp:= `getMeasuredWidth`(v9) @signature `Lcom/google/android/material/tabs/TabLayout;.getMeasuredWidth:()I` @kind virtual;
+  #L1b52be.  v8:= temp;
+  #L1b52c0.  if v7 >= v8 then goto L1b52c6;
+  #L1b52c4.  v4:= v5;
+  #L1b52c6.  v6:= v4;
+  #L1b52c8.  
+  #L1b52ca.  if v6 == 0 then goto L1b530e;
+  #L1b52ce.  
+  #L1b52d0.  call temp:= `getPaddingTop`(v9) @signature `Lcom/google/android/material/tabs/TabLayout;.getPaddingTop:()I` @kind virtual;
+  #L1b52d6.  v4:= temp;
+  #L1b52d8.  call temp:= `getPaddingBottom`(v9) @signature `Lcom/google/android/material/tabs/TabLayout;.getPaddingBottom:()I` @kind virtual;
+  #L1b52de.  v5:= temp;
+  #L1b52e0.  v4:= v4 + v5 @kind int;
+  #L1b52e2.  call temp:= `getLayoutParams`(v2) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L1b52e8.  v5:= temp @kind object;
+  #L1b52ea.  v5:= v5.`android.view.ViewGroup$LayoutParams.height` @type ^`int`;
+  #L1b52ee.  call temp:= `getChildMeasureSpec`(v11, v4, v5) @signature `Lcom/google/android/material/tabs/TabLayout;.getChildMeasureSpec:(III)I` @kind static;
+  #L1b52f4.  v4:= temp;
+  #L1b52f6.  
+  #L1b52f8.  call temp:= `getMeasuredWidth`(v9) @signature `Lcom/google/android/material/tabs/TabLayout;.getMeasuredWidth:()I` @kind virtual;
+  #L1b52fe.  v5:= temp;
+  #L1b5300.  call temp:= `makeMeasureSpec`(v5, v3) @signature `Landroid/view/View$MeasureSpec;.makeMeasureSpec:(II)I` @kind static;
+  #L1b5306.  v3:= temp;
+  #L1b5308.  call `measure`(v2, v3, v4) @signature `Landroid/view/View;.measure:(II)V` @kind virtual;
+  #L1b530e.  return @kind void;
+}
+procedure `void` `populateFromPagerAdapter`(`com.google.android.material.tabs.TabLayout` v4 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.populateFromPagerAdapter:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b5320.  call `removeAllTabs`(v4) @signature `Lcom/google/android/material/tabs/TabLayout;.removeAllTabs:()V` @kind virtual;
+  #L1b5326.  v0:= v4.`com.google.android.material.tabs.TabLayout.pagerAdapter` @type ^`androidx.viewpager.widget.PagerAdapter` @kind object;
+  #L1b532a.  if v0 == 0 then goto L1b53a0;
+  #L1b532e.  call temp:= `getCount`(v0) @signature `Landroidx/viewpager/widget/PagerAdapter;.getCount:()I` @kind virtual;
+  #L1b5334.  v0:= temp;
+  #L1b5336.  v1:= 0I;
+  #L1b5338.  if v1 >= v0 then goto L1b5366;
+  #L1b533c.  call temp:= `newTab`(v4) @signature `Lcom/google/android/material/tabs/TabLayout;.newTab:()Lcom/google/android/material/tabs/TabLayout$Tab;` @kind virtual;
+  #L1b5342.  v2:= temp @kind object;
+  #L1b5344.  v3:= v4.`com.google.android.material.tabs.TabLayout.pagerAdapter` @type ^`androidx.viewpager.widget.PagerAdapter` @kind object;
+  #L1b5348.  call temp:= `getPageTitle`(v3, v1) @signature `Landroidx/viewpager/widget/PagerAdapter;.getPageTitle:(I)Ljava/lang/CharSequence;` @kind virtual;
+  #L1b534e.  v3:= temp @kind object;
+  #L1b5350.  call temp:= `setText`(v2, v3) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setText:(Ljava/lang/CharSequence;)Lcom/google/android/material/tabs/TabLayout$Tab;` @kind virtual;
+  #L1b5356.  v2:= temp @kind object;
+  #L1b5358.  v3:= 0I;
+  #L1b535a.  call `addTab`(v4, v2, v3) @signature `Lcom/google/android/material/tabs/TabLayout;.addTab:(Lcom/google/android/material/tabs/TabLayout$Tab;Z)V` @kind virtual;
+  #L1b5360.  v1:= v1 + 1;
+  #L1b5364.  goto L1b5338;
+  #L1b5366.  v1:= v4.`com.google.android.material.tabs.TabLayout.viewPager` @type ^`androidx.viewpager.widget.ViewPager` @kind object;
+  #L1b536a.  if v1 == 0 then goto L1b53a0;
+  #L1b536e.  if v0 <= 0 then goto L1b53a0;
+  #L1b5372.  call temp:= `getCurrentItem`(v1) @signature `Landroidx/viewpager/widget/ViewPager;.getCurrentItem:()I` @kind virtual;
+  #L1b5378.  v1:= temp;
+  #L1b537a.  call temp:= `getSelectedTabPosition`(v4) @signature `Lcom/google/android/material/tabs/TabLayout;.getSelectedTabPosition:()I` @kind virtual;
+  #L1b5380.  v2:= temp;
+  #L1b5382.  if v1 == v2 then goto L1b53a0;
+  #L1b5386.  call temp:= `getTabCount`(v4) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabCount:()I` @kind virtual;
+  #L1b538c.  v2:= temp;
+  #L1b538e.  if v1 >= v2 then goto L1b53a0;
+  #L1b5392.  call temp:= `getTabAt`(v4, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabAt:(I)Lcom/google/android/material/tabs/TabLayout$Tab;` @kind virtual;
+  #L1b5398.  v2:= temp @kind object;
+  #L1b539a.  call `selectTab`(v4, v2) @signature `Lcom/google/android/material/tabs/TabLayout;.selectTab:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @kind virtual;
+  #L1b53a0.  return @kind void;
+}
+procedure `boolean` `releaseFromTabPool`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `com.google.android.material.tabs.TabLayout$Tab` v2 @kind object @name `tab`) @signature `Lcom/google/android/material/tabs/TabLayout;.releaseFromTabPool:(Lcom/google/android/material/tabs/TabLayout$Tab;)Z` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L1b445c.  v0:= `@@com.google.android.material.tabs.TabLayout.tabPool` @type ^`androidx.core.util.Pools$Pool` @kind object;
+  #L1b4460.  call temp:= `release`(v0, v2) @signature `Landroidx/core/util/Pools$Pool;.release:(Ljava/lang/Object;)Z` @kind interface;
+  #L1b4466.  v0:= temp;
+  #L1b4468.  return v0;
+}
+procedure `void` `removeAllTabs`(`com.google.android.material.tabs.TabLayout` v2 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.removeAllTabs:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b53b4.  v0:= v2.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b53b8.  call temp:= `getChildCount`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getChildCount:()I` @kind virtual;
+  #L1b53be.  v0:= temp;
+  #L1b53c0.  v0:= v0 + -1;
+  #L1b53c4.  if v0 < 0 then goto L1b53d4;
+  #L1b53c8.  call `removeTabViewAt`(v2, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.removeTabViewAt:(I)V` @kind direct;
+  #L1b53ce.  v0:= v0 + -1;
+  #L1b53d2.  goto L1b53c4;
+  #L1b53d4.  v0:= v2.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` @kind object;
+  #L1b53d8.  call temp:= `iterator`(v0) @signature `Ljava/util/ArrayList;.iterator:()Ljava/util/Iterator;` @kind virtual;
+  #L1b53de.  v0:= temp @kind object;
+  #L1b53e0.  call temp:= `hasNext`(v0) @signature `Ljava/util/Iterator;.hasNext:()Z` @kind interface;
+  #L1b53e6.  v1:= temp;
+  #L1b53e8.  if v1 == 0 then goto L1b540c;
+  #L1b53ec.  call temp:= `next`(v0) @signature `Ljava/util/Iterator;.next:()Ljava/lang/Object;` @kind interface;
+  #L1b53f2.  v1:= temp @kind object;
+  #L1b53f4.  v1:= (`com.google.android.material.tabs.TabLayout$Tab`) v1 @kind object;
+  #L1b53f8.  call `remove`(v0) @signature `Ljava/util/Iterator;.remove:()V` @kind interface;
+  #L1b53fe.  call `reset`(v1) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.reset:()V` @kind virtual;
+  #L1b5404.  call temp:= `releaseFromTabPool`(v2, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.releaseFromTabPool:(Lcom/google/android/material/tabs/TabLayout$Tab;)Z` @kind virtual;
+  #L1b540a.  goto L1b53e0;
+  #L1b540c.  v0:= 0I;
+  #L1b540e.  v2.`com.google.android.material.tabs.TabLayout.selectedTab` @type ^`com.google.android.material.tabs.TabLayout$Tab` := v0 @kind object;
+  #L1b5412.  return @kind void;
+}
+procedure `void` `removeOnTabSelectedListener`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `com.google.android.material.tabs.TabLayout$BaseOnTabSelectedListener` v2 @kind object @name `listener`) @signature `Lcom/google/android/material/tabs/TabLayout;.removeOnTabSelectedListener:(Lcom/google/android/material/tabs/TabLayout$BaseOnTabSelectedListener;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b5424.  v0:= v1.`com.google.android.material.tabs.TabLayout.selectedListeners` @type ^`java.util.ArrayList` @kind object;
+  #L1b5428.  call temp:= `remove`(v0, v2) @signature `Ljava/util/ArrayList;.remove:(Ljava/lang/Object;)Z` @kind virtual;
+  #L1b542e.  return @kind void;
+}
+procedure `void` `removeOnTabSelectedListener`(`com.google.android.material.tabs.TabLayout` v0 @kind this, `com.google.android.material.tabs.TabLayout$OnTabSelectedListener` v1 @kind object @name `listener`) @signature `Lcom/google/android/material/tabs/TabLayout;.removeOnTabSelectedListener:(Lcom/google/android/material/tabs/TabLayout$OnTabSelectedListener;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b5440.  call `removeOnTabSelectedListener`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.removeOnTabSelectedListener:(Lcom/google/android/material/tabs/TabLayout$BaseOnTabSelectedListener;)V` @kind virtual;
+  #L1b5446.  return @kind void;
+}
+procedure `void` `removeTab`(`com.google.android.material.tabs.TabLayout` v2 @kind this, `com.google.android.material.tabs.TabLayout$Tab` v3 @kind object @name `tab`) @signature `Lcom/google/android/material/tabs/TabLayout;.removeTab:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b5458.  v0:= v3.`com.google.android.material.tabs.TabLayout$Tab.parent` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b545c.  if v0 != v2 then goto L1b5470;
+  #L1b5460.  call temp:= `getPosition`(v3) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getPosition:()I` @kind virtual;
+  #L1b5466.  v0:= temp;
+  #L1b5468.  call `removeTabAt`(v2, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.removeTabAt:(I)V` @kind virtual;
+  #L1b546e.  return @kind void;
+  #L1b5470.  v0:= new `java.lang.IllegalArgumentException`;
+  #L1b5474.  v1:= "Tab does not belong to this TabLayout." @kind object;
+  #L1b5478.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1b547e.  throw v0;
+}
+procedure `void` `removeTabAt`(`com.google.android.material.tabs.TabLayout` v6 @kind this, `int` v7 @name `position`) @signature `Lcom/google/android/material/tabs/TabLayout;.removeTabAt:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1b5490.  v0:= v6.`com.google.android.material.tabs.TabLayout.selectedTab` @type ^`com.google.android.material.tabs.TabLayout$Tab` @kind object;
+  #L1b5494.  v1:= 0I;
+  #L1b5496.  if v0 == 0 then goto L1b54a4;
+  #L1b549a.  call temp:= `getPosition`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getPosition:()I` @kind virtual;
+  #L1b54a0.  v0:= temp;
+  #L1b54a2.  goto L1b54a6;
+  #L1b54a4.  v0:= v1;
+  #L1b54a6.  call `removeTabViewAt`(v6, v7) @signature `Lcom/google/android/material/tabs/TabLayout;.removeTabViewAt:(I)V` @kind direct;
+  #L1b54ac.  v2:= v6.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` @kind object;
+  #L1b54b0.  call temp:= `remove`(v2, v7) @signature `Ljava/util/ArrayList;.remove:(I)Ljava/lang/Object;` @kind virtual;
+  #L1b54b6.  v2:= temp @kind object;
+  #L1b54b8.  v2:= (`com.google.android.material.tabs.TabLayout$Tab`) v2 @kind object;
+  #L1b54bc.  if v2 == 0 then goto L1b54cc;
+  #L1b54c0.  call `reset`(v2) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.reset:()V` @kind virtual;
+  #L1b54c6.  call temp:= `releaseFromTabPool`(v6, v2) @signature `Lcom/google/android/material/tabs/TabLayout;.releaseFromTabPool:(Lcom/google/android/material/tabs/TabLayout$Tab;)Z` @kind virtual;
+  #L1b54cc.  v3:= v6.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` @kind object;
+  #L1b54d0.  call temp:= `size`(v3) @signature `Ljava/util/ArrayList;.size:()I` @kind virtual;
+  #L1b54d6.  v3:= temp;
+  #L1b54d8.  v4:= v7;
+  #L1b54da.  if v4 >= v3 then goto L1b54fa;
+  #L1b54de.  v5:= v6.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` @kind object;
+  #L1b54e2.  call temp:= `get`(v5, v4) @signature `Ljava/util/ArrayList;.get:(I)Ljava/lang/Object;` @kind virtual;
+  #L1b54e8.  v5:= temp @kind object;
+  #L1b54ea.  v5:= (`com.google.android.material.tabs.TabLayout$Tab`) v5 @kind object;
+  #L1b54ee.  call `setPosition`(v5, v4) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.setPosition:(I)V` @kind virtual;
+  #L1b54f4.  v4:= v4 + 1;
+  #L1b54f8.  goto L1b54da;
+  #L1b54fa.  if v0 != v7 then goto L1b5534;
+  #L1b54fe.  v4:= v6.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` @kind object;
+  #L1b5502.  call temp:= `isEmpty`(v4) @signature `Ljava/util/ArrayList;.isEmpty:()Z` @kind virtual;
+  #L1b5508.  v4:= temp;
+  #L1b550a.  if v4 == 0 then goto L1b5512;
+  #L1b550e.  v1:= 0I;
+  #L1b5510.  goto L1b552e;
+  #L1b5512.  v4:= v6.`com.google.android.material.tabs.TabLayout.tabs` @type ^`java.util.ArrayList` @kind object;
+  #L1b5516.  v5:= v7 + -1;
+  #L1b551a.  call temp:= `max`(v1, v5) @signature `Ljava/lang/Math;.max:(II)I` @kind static;
+  #L1b5520.  v1:= temp;
+  #L1b5522.  call temp:= `get`(v4, v1) @signature `Ljava/util/ArrayList;.get:(I)Ljava/lang/Object;` @kind virtual;
+  #L1b5528.  v1:= temp @kind object;
+  #L1b552a.  v1:= (`com.google.android.material.tabs.TabLayout$Tab`) v1 @kind object;
+  #L1b552e.  call `selectTab`(v6, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.selectTab:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @kind virtual;
+  #L1b5534.  return @kind void;
+}
+procedure `void` `selectTab`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `com.google.android.material.tabs.TabLayout$Tab` v2 @kind object @name `tab`) @signature `Lcom/google/android/material/tabs/TabLayout;.selectTab:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b5590.  v0:= 1I;
+  #L1b5592.  call `selectTab`(v1, v2, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.selectTab:(Lcom/google/android/material/tabs/TabLayout$Tab;Z)V` @kind virtual;
+  #L1b5598.  return @kind void;
+}
+procedure `void` `selectTab`(`com.google.android.material.tabs.TabLayout` v5 @kind this, `com.google.android.material.tabs.TabLayout$Tab` v6 @kind object @name `tab`, `boolean` v7 @name `updateIndicator`) @signature `Lcom/google/android/material/tabs/TabLayout;.selectTab:(Lcom/google/android/material/tabs/TabLayout$Tab;Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1b55ac.  v0:= v5.`com.google.android.material.tabs.TabLayout.selectedTab` @type ^`com.google.android.material.tabs.TabLayout$Tab` @kind object;
+  #L1b55b0.  if v0 != v6 then goto L1b55ce;
+  #L1b55b4.  if v0 == 0 then goto L1b562c;
+  #L1b55b8.  call `dispatchTabReselected`(v5, v6) @signature `Lcom/google/android/material/tabs/TabLayout;.dispatchTabReselected:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @kind direct;
+  #L1b55be.  call temp:= `getPosition`(v6) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getPosition:()I` @kind virtual;
+  #L1b55c4.  v1:= temp;
+  #L1b55c6.  call `animateToTab`(v5, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.animateToTab:(I)V` @kind direct;
+  #L1b55cc.  goto L1b562c;
+  #L1b55ce.  v1:= -1I;
+  #L1b55d0.  if v6 == 0 then goto L1b55de;
+  #L1b55d4.  call temp:= `getPosition`(v6) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getPosition:()I` @kind virtual;
+  #L1b55da.  v2:= temp;
+  #L1b55dc.  goto L1b55e0;
+  #L1b55de.  v2:= v1;
+  #L1b55e0.  if v7 == 0 then goto L1b5614;
+  #L1b55e4.  if v0 == 0 then goto L1b55f4;
+  #L1b55e8.  call temp:= `getPosition`(v0) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getPosition:()I` @kind virtual;
+  #L1b55ee.  v3:= temp;
+  #L1b55f0.  if v3 != v1 then goto L1b5604;
+  #L1b55f4.  if v2 == v1 then goto L1b5604;
+  #L1b55f8.  v3:= 0I;
+  #L1b55fa.  v4:= 1I;
+  #L1b55fc.  call `setScrollPosition`(v5, v2, v3, v4) @signature `Lcom/google/android/material/tabs/TabLayout;.setScrollPosition:(IFZ)V` @kind virtual;
+  #L1b5602.  goto L1b560a;
+  #L1b5604.  call `animateToTab`(v5, v2) @signature `Lcom/google/android/material/tabs/TabLayout;.animateToTab:(I)V` @kind direct;
+  #L1b560a.  if v2 == v1 then goto L1b5614;
+  #L1b560e.  call `setSelectedTabView`(v5, v2) @signature `Lcom/google/android/material/tabs/TabLayout;.setSelectedTabView:(I)V` @kind direct;
+  #L1b5614.  v5.`com.google.android.material.tabs.TabLayout.selectedTab` @type ^`com.google.android.material.tabs.TabLayout$Tab` := v6 @kind object;
+  #L1b5618.  if v0 == 0 then goto L1b5622;
+  #L1b561c.  call `dispatchTabUnselected`(v5, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.dispatchTabUnselected:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @kind direct;
+  #L1b5622.  if v6 == 0 then goto L1b562c;
+  #L1b5626.  call `dispatchTabSelected`(v5, v6) @signature `Lcom/google/android/material/tabs/TabLayout;.dispatchTabSelected:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @kind direct;
+  #L1b562c.  return @kind void;
+}
+procedure `void` `setElevation`(`com.google.android.material.tabs.TabLayout` v0 @kind this, `float` v1 @name `elevation`) @signature `Lcom/google/android/material/tabs/TabLayout;.setElevation:(F)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b5640.  call `setElevation`(v0, v1) @signature `Landroid/widget/HorizontalScrollView;.setElevation:(F)V` @kind super;
+  #L1b5646.  call `setElevation`(v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.setElevation:(Landroid/view/View;F)V` @kind static;
+  #L1b564c.  return @kind void;
+}
+procedure `void` `setInlineLabel`(`com.google.android.material.tabs.TabLayout` v3 @kind this, `boolean` v4 @name `inline`) @signature `Lcom/google/android/material/tabs/TabLayout;.setInlineLabel:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b5660.  v0:= v3.`com.google.android.material.tabs.TabLayout.inlineLabel` @type ^`boolean` @kind boolean;
+  #L1b5664.  if v0 == v4 then goto L1b56aa;
+  #L1b5668.  v3.`com.google.android.material.tabs.TabLayout.inlineLabel` @type ^`boolean` := v4 @kind boolean;
+  #L1b566c.  v0:= 0I;
+  #L1b566e.  v1:= v3.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b5672.  call temp:= `getChildCount`(v1) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getChildCount:()I` @kind virtual;
+  #L1b5678.  v1:= temp;
+  #L1b567a.  if v0 >= v1 then goto L1b56a4;
+  #L1b567e.  v1:= v3.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b5682.  call temp:= `getChildAt`(v1, v0) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1b5688.  v1:= temp @kind object;
+  #L1b568a.  v2:= instanceof @variable v1 @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind boolean;
+  #L1b568e.  if v2 == 0 then goto L1b569e;
+  #L1b5692.  v2:= v1 @kind object;
+  #L1b5694.  v2:= (`com.google.android.material.tabs.TabLayout$TabView`) v2 @kind object;
+  #L1b5698.  call `updateOrientation`(v2) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.updateOrientation:()V` @kind virtual;
+  #L1b569e.  v0:= v0 + 1;
+  #L1b56a2.  goto L1b566e;
+  #L1b56a4.  call `applyModeAndGravity`(v3) @signature `Lcom/google/android/material/tabs/TabLayout;.applyModeAndGravity:()V` @kind direct;
+  #L1b56aa.  return @kind void;
+}
+procedure `void` `setInlineLabelResource`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `int` v2 @name `inlineResourceId`) @signature `Lcom/google/android/material/tabs/TabLayout;.setInlineLabelResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b56bc.  call temp:= `getResources`(v1) @signature `Lcom/google/android/material/tabs/TabLayout;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1b56c2.  v0:= temp @kind object;
+  #L1b56c4.  call temp:= `getBoolean`(v0, v2) @signature `Landroid/content/res/Resources;.getBoolean:(I)Z` @kind virtual;
+  #L1b56ca.  v0:= temp;
+  #L1b56cc.  call `setInlineLabel`(v1, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.setInlineLabel:(Z)V` @kind virtual;
+  #L1b56d2.  return @kind void;
+}
+procedure `void` `setOnTabSelectedListener`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `com.google.android.material.tabs.TabLayout$BaseOnTabSelectedListener` v2 @kind object @name `listener`) @signature `Lcom/google/android/material/tabs/TabLayout;.setOnTabSelectedListener:(Lcom/google/android/material/tabs/TabLayout$BaseOnTabSelectedListener;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b56e4.  v0:= v1.`com.google.android.material.tabs.TabLayout.selectedListener` @type ^`com.google.android.material.tabs.TabLayout$BaseOnTabSelectedListener` @kind object;
+  #L1b56e8.  if v0 == 0 then goto L1b56f2;
+  #L1b56ec.  call `removeOnTabSelectedListener`(v1, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.removeOnTabSelectedListener:(Lcom/google/android/material/tabs/TabLayout$BaseOnTabSelectedListener;)V` @kind virtual;
+  #L1b56f2.  v1.`com.google.android.material.tabs.TabLayout.selectedListener` @type ^`com.google.android.material.tabs.TabLayout$BaseOnTabSelectedListener` := v2 @kind object;
+  #L1b56f6.  if v2 == 0 then goto L1b5700;
+  #L1b56fa.  call `addOnTabSelectedListener`(v1, v2) @signature `Lcom/google/android/material/tabs/TabLayout;.addOnTabSelectedListener:(Lcom/google/android/material/tabs/TabLayout$BaseOnTabSelectedListener;)V` @kind virtual;
+  #L1b5700.  return @kind void;
+}
+procedure `void` `setOnTabSelectedListener`(`com.google.android.material.tabs.TabLayout` v0 @kind this, `com.google.android.material.tabs.TabLayout$OnTabSelectedListener` v1 @kind object @name `listener`) @signature `Lcom/google/android/material/tabs/TabLayout;.setOnTabSelectedListener:(Lcom/google/android/material/tabs/TabLayout$OnTabSelectedListener;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b5714.  call `setOnTabSelectedListener`(v0, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.setOnTabSelectedListener:(Lcom/google/android/material/tabs/TabLayout$BaseOnTabSelectedListener;)V` @kind virtual;
+  #L1b571a.  return @kind void;
+}
+procedure `void` `setPagerAdapter`(`com.google.android.material.tabs.TabLayout` v2 @kind this, `androidx.viewpager.widget.PagerAdapter` v3 @kind object @name `adapter`, `boolean` v4 @name `addObserver`) @signature `Lcom/google/android/material/tabs/TabLayout;.setPagerAdapter:(Landroidx/viewpager/widget/PagerAdapter;Z)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L1b572c.  v0:= v2.`com.google.android.material.tabs.TabLayout.pagerAdapter` @type ^`androidx.viewpager.widget.PagerAdapter` @kind object;
+  #L1b5730.  if v0 == 0 then goto L1b5742;
+  #L1b5734.  v1:= v2.`com.google.android.material.tabs.TabLayout.pagerAdapterObserver` @type ^`android.database.DataSetObserver` @kind object;
+  #L1b5738.  if v1 == 0 then goto L1b5742;
+  #L1b573c.  call `unregisterDataSetObserver`(v0, v1) @signature `Landroidx/viewpager/widget/PagerAdapter;.unregisterDataSetObserver:(Landroid/database/DataSetObserver;)V` @kind virtual;
+  #L1b5742.  v2.`com.google.android.material.tabs.TabLayout.pagerAdapter` @type ^`androidx.viewpager.widget.PagerAdapter` := v3 @kind object;
+  #L1b5746.  if v4 == 0 then goto L1b576e;
+  #L1b574a.  if v3 == 0 then goto L1b576e;
+  #L1b574e.  v0:= v2.`com.google.android.material.tabs.TabLayout.pagerAdapterObserver` @type ^`android.database.DataSetObserver` @kind object;
+  #L1b5752.  if v0 != 0 then goto L1b5764;
+  #L1b5756.  v0:= new `com.google.android.material.tabs.TabLayout$PagerAdapterObserver`;
+  #L1b575a.  call `<init>`(v0, v2) @signature `Lcom/google/android/material/tabs/TabLayout$PagerAdapterObserver;.<init>:(Lcom/google/android/material/tabs/TabLayout;)V` @kind direct;
+  #L1b5760.  v2.`com.google.android.material.tabs.TabLayout.pagerAdapterObserver` @type ^`android.database.DataSetObserver` := v0 @kind object;
+  #L1b5764.  v0:= v2.`com.google.android.material.tabs.TabLayout.pagerAdapterObserver` @type ^`android.database.DataSetObserver` @kind object;
+  #L1b5768.  call `registerDataSetObserver`(v3, v0) @signature `Landroidx/viewpager/widget/PagerAdapter;.registerDataSetObserver:(Landroid/database/DataSetObserver;)V` @kind virtual;
+  #L1b576e.  call `populateFromPagerAdapter`(v2) @signature `Lcom/google/android/material/tabs/TabLayout;.populateFromPagerAdapter:()V` @kind virtual;
+  #L1b5774.  return @kind void;
+}
+procedure `void` `setScrollAnimatorListener`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `android.animation.Animator$AnimatorListener` v2 @kind object @name `listener`) @signature `Lcom/google/android/material/tabs/TabLayout;.setScrollAnimatorListener:(Landroid/animation/Animator$AnimatorListener;)V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b5788.  call `ensureScrollAnimator`(v1) @signature `Lcom/google/android/material/tabs/TabLayout;.ensureScrollAnimator:()V` @kind direct;
+  #L1b578e.  v0:= v1.`com.google.android.material.tabs.TabLayout.scrollAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L1b5792.  call `addListener`(v0, v2) @signature `Landroid/animation/ValueAnimator;.addListener:(Landroid/animation/Animator$AnimatorListener;)V` @kind virtual;
+  #L1b5798.  return @kind void;
+}
+procedure `void` `setScrollPosition`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `int` v2 @name `position`, `float` v3 @name `positionOffset`, `boolean` v4 @name `updateSelectedText`) @signature `Lcom/google/android/material/tabs/TabLayout;.setScrollPosition:(IFZ)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b57ac.  v0:= 1I;
+  #L1b57ae.  call `setScrollPosition`(v1, v2, v3, v4, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.setScrollPosition:(IFZZ)V` @kind virtual;
+  #L1b57b4.  return @kind void;
+}
+procedure `void` `setScrollPosition`(`com.google.android.material.tabs.TabLayout` v3 @kind this, `int` v4 @name `position`, `float` v5 @name `positionOffset`, `boolean` v6 @name `updateSelectedText`, `boolean` v7 @name `updateIndicatorPosition`) @signature `Lcom/google/android/material/tabs/TabLayout;.setScrollPosition:(IFZZ)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b57c8.  v0:= (`float`) v4 @kind i2f;
+  #L1b57ca.  v0:= v0 + v5 @kind float;
+  #L1b57cc.  call temp:= `round`(v0) @signature `Ljava/lang/Math;.round:(F)I` @kind static;
+  #L1b57d2.  v0:= temp;
+  #L1b57d4.  if v0 < 0 then goto L1b5832;
+  #L1b57d8.  v1:= v3.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b57dc.  call temp:= `getChildCount`(v1) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getChildCount:()I` @kind virtual;
+  #L1b57e2.  v1:= temp;
+  #L1b57e4.  if v0 < v1 then goto L1b57ea;
+  #L1b57e8.  goto L1b5832;
+  #L1b57ea.  if v7 == 0 then goto L1b57f8;
+  #L1b57ee.  v1:= v3.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b57f2.  call `setIndicatorPositionFromTabPosition`(v1, v4, v5) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.setIndicatorPositionFromTabPosition:(IF)V` @kind virtual;
+  #L1b57f8.  v1:= v3.`com.google.android.material.tabs.TabLayout.scrollAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L1b57fc.  if v1 == 0 then goto L1b5816;
+  #L1b5800.  call temp:= `isRunning`(v1) @signature `Landroid/animation/ValueAnimator;.isRunning:()Z` @kind virtual;
+  #L1b5806.  v1:= temp;
+  #L1b5808.  if v1 == 0 then goto L1b5816;
+  #L1b580c.  v1:= v3.`com.google.android.material.tabs.TabLayout.scrollAnimator` @type ^`android.animation.ValueAnimator` @kind object;
+  #L1b5810.  call `cancel`(v1) @signature `Landroid/animation/ValueAnimator;.cancel:()V` @kind virtual;
+  #L1b5816.  call temp:= `calculateScrollXForTab`(v3, v4, v5) @signature `Lcom/google/android/material/tabs/TabLayout;.calculateScrollXForTab:(IF)I` @kind direct;
+  #L1b581c.  v1:= temp;
+  #L1b581e.  v2:= 0I;
+  #L1b5820.  call `scrollTo`(v3, v1, v2) @signature `Lcom/google/android/material/tabs/TabLayout;.scrollTo:(II)V` @kind virtual;
+  #L1b5826.  if v6 == 0 then goto L1b5830;
+  #L1b582a.  call `setSelectedTabView`(v3, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.setSelectedTabView:(I)V` @kind direct;
+  #L1b5830.  return @kind void;
+  #L1b5832.  return @kind void;
+}
+procedure `void` `setSelectedTabIndicator`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `int` v2 @name `tabSelectedIndicatorResourceId`) @signature `Lcom/google/android/material/tabs/TabLayout;.setSelectedTabIndicator:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b586c.  if v2 == 0 then goto L1b588a;
+  #L1b5870.  
+  #L1b5872.  call temp:= `getContext`(v1) @signature `Lcom/google/android/material/tabs/TabLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1b5878.  v0:= temp @kind object;
+  #L1b587a.  call temp:= `getDrawable`(v0, v2) @signature `Landroidx/appcompat/content/res/AppCompatResources;.getDrawable:(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;` @kind static;
+  #L1b5880.  v0:= temp @kind object;
+  #L1b5882.  call `setSelectedTabIndicator`(v1, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.setSelectedTabIndicator:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L1b5888.  goto L1b5892;
+  #L1b588a.  v0:= 0I;
+  #L1b588c.  call `setSelectedTabIndicator`(v1, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.setSelectedTabIndicator:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L1b5892.  return @kind void;
+}
+procedure `void` `setSelectedTabIndicator`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `tabSelectedIndicator`) @signature `Lcom/google/android/material/tabs/TabLayout;.setSelectedTabIndicator:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b5844.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabSelectedIndicator` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1b5848.  if v0 == v2 then goto L1b585a;
+  #L1b584c.  v1.`com.google.android.material.tabs.TabLayout.tabSelectedIndicator` @type ^`android.graphics.drawable.Drawable` := v2 @kind object;
+  #L1b5850.  v0:= v1.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b5854.  call `postInvalidateOnAnimation`(v0) @signature `Landroidx/core/view/ViewCompat;.postInvalidateOnAnimation:(Landroid/view/View;)V` @kind static;
+  #L1b585a.  return @kind void;
+}
+procedure `void` `setSelectedTabIndicatorColor`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `int` v2 @name `color`) @signature `Lcom/google/android/material/tabs/TabLayout;.setSelectedTabIndicatorColor:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b58a4.  v0:= v1.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b58a8.  call `setSelectedIndicatorColor`(v0, v2) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.setSelectedIndicatorColor:(I)V` @kind virtual;
+  #L1b58ae.  return @kind void;
+}
+procedure `void` `setSelectedTabIndicatorGravity`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `int` v2 @name `indicatorGravity`) @signature `Lcom/google/android/material/tabs/TabLayout;.setSelectedTabIndicatorGravity:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b58c0.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabIndicatorGravity` @type ^`int`;
+  #L1b58c4.  if v0 == v2 then goto L1b58d6;
+  #L1b58c8.  v1.`com.google.android.material.tabs.TabLayout.tabIndicatorGravity` @type ^`int` := v2;
+  #L1b58cc.  v0:= v1.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b58d0.  call `postInvalidateOnAnimation`(v0) @signature `Landroidx/core/view/ViewCompat;.postInvalidateOnAnimation:(Landroid/view/View;)V` @kind static;
+  #L1b58d6.  return @kind void;
+}
+procedure `void` `setSelectedTabIndicatorHeight`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `int` v2 @name `height`) @signature `Lcom/google/android/material/tabs/TabLayout;.setSelectedTabIndicatorHeight:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b58e8.  v0:= v1.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b58ec.  call `setSelectedIndicatorHeight`(v0, v2) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.setSelectedIndicatorHeight:(I)V` @kind virtual;
+  #L1b58f2.  return @kind void;
+}
+procedure `void` `setTabGravity`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `int` v2 @name `gravity`) @signature `Lcom/google/android/material/tabs/TabLayout;.setTabGravity:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b5960.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabGravity` @type ^`int`;
+  #L1b5964.  if v0 == v2 then goto L1b5972;
+  #L1b5968.  v1.`com.google.android.material.tabs.TabLayout.tabGravity` @type ^`int` := v2;
+  #L1b596c.  call `applyModeAndGravity`(v1) @signature `Lcom/google/android/material/tabs/TabLayout;.applyModeAndGravity:()V` @kind direct;
+  #L1b5972.  return @kind void;
+}
+procedure `void` `setTabIconTint`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `iconTint`) @signature `Lcom/google/android/material/tabs/TabLayout;.setTabIconTint:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b5984.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabIconTint` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1b5988.  if v0 == v2 then goto L1b5996;
+  #L1b598c.  v1.`com.google.android.material.tabs.TabLayout.tabIconTint` @type ^`android.content.res.ColorStateList` := v2 @kind object;
+  #L1b5990.  call `updateAllTabs`(v1) @signature `Lcom/google/android/material/tabs/TabLayout;.updateAllTabs:()V` @kind direct;
+  #L1b5996.  return @kind void;
+}
+procedure `void` `setTabIconTintResource`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `int` v2 @name `iconTintResourceId`) @signature `Lcom/google/android/material/tabs/TabLayout;.setTabIconTintResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b59a8.  call temp:= `getContext`(v1) @signature `Lcom/google/android/material/tabs/TabLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1b59ae.  v0:= temp @kind object;
+  #L1b59b0.  call temp:= `getColorStateList`(v0, v2) @signature `Landroidx/appcompat/content/res/AppCompatResources;.getColorStateList:(Landroid/content/Context;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1b59b6.  v0:= temp @kind object;
+  #L1b59b8.  call `setTabIconTint`(v1, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.setTabIconTint:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1b59be.  return @kind void;
+}
+procedure `void` `setTabIndicatorFullWidth`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `boolean` v2 @name `tabIndicatorFullWidth`) @signature `Lcom/google/android/material/tabs/TabLayout;.setTabIndicatorFullWidth:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b59d0.  v1.`com.google.android.material.tabs.TabLayout.tabIndicatorFullWidth` @type ^`boolean` := v2 @kind boolean;
+  #L1b59d4.  v0:= v1.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b59d8.  call `postInvalidateOnAnimation`(v0) @signature `Landroidx/core/view/ViewCompat;.postInvalidateOnAnimation:(Landroid/view/View;)V` @kind static;
+  #L1b59de.  return @kind void;
+}
+procedure `void` `setTabMode`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `int` v2 @name `mode`) @signature `Lcom/google/android/material/tabs/TabLayout;.setTabMode:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b59f0.  v0:= v1.`com.google.android.material.tabs.TabLayout.mode` @type ^`int`;
+  #L1b59f4.  if v2 == v0 then goto L1b5a02;
+  #L1b59f8.  v1.`com.google.android.material.tabs.TabLayout.mode` @type ^`int` := v2;
+  #L1b59fc.  call `applyModeAndGravity`(v1) @signature `Lcom/google/android/material/tabs/TabLayout;.applyModeAndGravity:()V` @kind direct;
+  #L1b5a02.  return @kind void;
+}
+procedure `void` `setTabRippleColor`(`com.google.android.material.tabs.TabLayout` v4 @kind this, `android.content.res.ColorStateList` v5 @kind object @name `color`) @signature `Lcom/google/android/material/tabs/TabLayout;.setTabRippleColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b5a14.  v0:= v4.`com.google.android.material.tabs.TabLayout.tabRippleColorStateList` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1b5a18.  if v0 == v5 then goto L1b5a60;
+  #L1b5a1c.  v4.`com.google.android.material.tabs.TabLayout.tabRippleColorStateList` @type ^`android.content.res.ColorStateList` := v5 @kind object;
+  #L1b5a20.  v0:= 0I;
+  #L1b5a22.  v1:= v4.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b5a26.  call temp:= `getChildCount`(v1) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getChildCount:()I` @kind virtual;
+  #L1b5a2c.  v1:= temp;
+  #L1b5a2e.  if v0 >= v1 then goto L1b5a60;
+  #L1b5a32.  v1:= v4.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b5a36.  call temp:= `getChildAt`(v1, v0) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1b5a3c.  v1:= temp @kind object;
+  #L1b5a3e.  v2:= instanceof @variable v1 @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind boolean;
+  #L1b5a42.  if v2 == 0 then goto L1b5a5a;
+  #L1b5a46.  v2:= v1 @kind object;
+  #L1b5a48.  v2:= (`com.google.android.material.tabs.TabLayout$TabView`) v2 @kind object;
+  #L1b5a4c.  call temp:= `getContext`(v4) @signature `Lcom/google/android/material/tabs/TabLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1b5a52.  v3:= temp @kind object;
+  #L1b5a54.  call `access$000`(v2, v3) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.access$000:(Lcom/google/android/material/tabs/TabLayout$TabView;Landroid/content/Context;)V` @kind static;
+  #L1b5a5a.  v0:= v0 + 1;
+  #L1b5a5e.  goto L1b5a22;
+  #L1b5a60.  return @kind void;
+}
+procedure `void` `setTabRippleColorResource`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `int` v2 @name `tabRippleColorResourceId`) @signature `Lcom/google/android/material/tabs/TabLayout;.setTabRippleColorResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b5a74.  call temp:= `getContext`(v1) @signature `Lcom/google/android/material/tabs/TabLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1b5a7a.  v0:= temp @kind object;
+  #L1b5a7c.  call temp:= `getColorStateList`(v0, v2) @signature `Landroidx/appcompat/content/res/AppCompatResources;.getColorStateList:(Landroid/content/Context;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1b5a82.  v0:= temp @kind object;
+  #L1b5a84.  call `setTabRippleColor`(v1, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.setTabRippleColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1b5a8a.  return @kind void;
+}
+procedure `void` `setTabTextColors`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `int` v2 @name `normalColor`, `int` v3 @name `selectedColor`) @signature `Lcom/google/android/material/tabs/TabLayout;.setTabTextColors:(II)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b5ac0.  call temp:= `createColorStateList`(v2, v3) @signature `Lcom/google/android/material/tabs/TabLayout;.createColorStateList:(II)Landroid/content/res/ColorStateList;` @kind static;
+  #L1b5ac6.  v0:= temp @kind object;
+  #L1b5ac8.  call `setTabTextColors`(v1, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.setTabTextColors:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1b5ace.  return @kind void;
+}
+procedure `void` `setTabTextColors`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `textColor`) @signature `Lcom/google/android/material/tabs/TabLayout;.setTabTextColors:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b5a9c.  v0:= v1.`com.google.android.material.tabs.TabLayout.tabTextColors` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1b5aa0.  if v0 == v2 then goto L1b5aae;
+  #L1b5aa4.  v1.`com.google.android.material.tabs.TabLayout.tabTextColors` @type ^`android.content.res.ColorStateList` := v2 @kind object;
+  #L1b5aa8.  call `updateAllTabs`(v1) @signature `Lcom/google/android/material/tabs/TabLayout;.updateAllTabs:()V` @kind direct;
+  #L1b5aae.  return @kind void;
+}
+procedure `void` `setTabsFromPagerAdapter`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `androidx.viewpager.widget.PagerAdapter` v2 @kind object @name `adapter`) @signature `Lcom/google/android/material/tabs/TabLayout;.setTabsFromPagerAdapter:(Landroidx/viewpager/widget/PagerAdapter;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b5ae0.  v0:= 0I;
+  #L1b5ae2.  call `setPagerAdapter`(v1, v2, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.setPagerAdapter:(Landroidx/viewpager/widget/PagerAdapter;Z)V` @kind virtual;
+  #L1b5ae8.  return @kind void;
+}
+procedure `void` `setUnboundedRipple`(`com.google.android.material.tabs.TabLayout` v4 @kind this, `boolean` v5 @name `unboundedRipple`) @signature `Lcom/google/android/material/tabs/TabLayout;.setUnboundedRipple:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b5afc.  v0:= v4.`com.google.android.material.tabs.TabLayout.unboundedRipple` @type ^`boolean` @kind boolean;
+  #L1b5b00.  if v0 == v5 then goto L1b5b48;
+  #L1b5b04.  v4.`com.google.android.material.tabs.TabLayout.unboundedRipple` @type ^`boolean` := v5 @kind boolean;
+  #L1b5b08.  v0:= 0I;
+  #L1b5b0a.  v1:= v4.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b5b0e.  call temp:= `getChildCount`(v1) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getChildCount:()I` @kind virtual;
+  #L1b5b14.  v1:= temp;
+  #L1b5b16.  if v0 >= v1 then goto L1b5b48;
+  #L1b5b1a.  v1:= v4.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b5b1e.  call temp:= `getChildAt`(v1, v0) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1b5b24.  v1:= temp @kind object;
+  #L1b5b26.  v2:= instanceof @variable v1 @type ^`com.google.android.material.tabs.TabLayout$TabView` @kind boolean;
+  #L1b5b2a.  if v2 == 0 then goto L1b5b42;
+  #L1b5b2e.  v2:= v1 @kind object;
+  #L1b5b30.  v2:= (`com.google.android.material.tabs.TabLayout$TabView`) v2 @kind object;
+  #L1b5b34.  call temp:= `getContext`(v4) @signature `Lcom/google/android/material/tabs/TabLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1b5b3a.  v3:= temp @kind object;
+  #L1b5b3c.  call `access$000`(v2, v3) @signature `Lcom/google/android/material/tabs/TabLayout$TabView;.access$000:(Lcom/google/android/material/tabs/TabLayout$TabView;Landroid/content/Context;)V` @kind static;
+  #L1b5b42.  v0:= v0 + 1;
+  #L1b5b46.  goto L1b5b0a;
+  #L1b5b48.  return @kind void;
+}
+procedure `void` `setUnboundedRippleResource`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `int` v2 @name `unboundedRippleResourceId`) @signature `Lcom/google/android/material/tabs/TabLayout;.setUnboundedRippleResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b5b5c.  call temp:= `getResources`(v1) @signature `Lcom/google/android/material/tabs/TabLayout;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1b5b62.  v0:= temp @kind object;
+  #L1b5b64.  call temp:= `getBoolean`(v0, v2) @signature `Landroid/content/res/Resources;.getBoolean:(I)Z` @kind virtual;
+  #L1b5b6a.  v0:= temp;
+  #L1b5b6c.  call `setUnboundedRipple`(v1, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.setUnboundedRipple:(Z)V` @kind virtual;
+  #L1b5b72.  return @kind void;
+}
+procedure `void` `setupWithViewPager`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `androidx.viewpager.widget.ViewPager` v2 @kind object @name `viewPager`) @signature `Lcom/google/android/material/tabs/TabLayout;.setupWithViewPager:(Landroidx/viewpager/widget/ViewPager;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b5b84.  v0:= 1I;
+  #L1b5b86.  call `setupWithViewPager`(v1, v2, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.setupWithViewPager:(Landroidx/viewpager/widget/ViewPager;Z)V` @kind virtual;
+  #L1b5b8c.  return @kind void;
+}
+procedure `void` `setupWithViewPager`(`com.google.android.material.tabs.TabLayout` v1 @kind this, `androidx.viewpager.widget.ViewPager` v2 @kind object @name `viewPager`, `boolean` v3 @name `autoRefresh`) @signature `Lcom/google/android/material/tabs/TabLayout;.setupWithViewPager:(Landroidx/viewpager/widget/ViewPager;Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b5ba0.  v0:= 0I;
+  #L1b5ba2.  call `setupWithViewPager`(v1, v2, v3, v0) @signature `Lcom/google/android/material/tabs/TabLayout;.setupWithViewPager:(Landroidx/viewpager/widget/ViewPager;ZZ)V` @kind direct;
+  #L1b5ba8.  return @kind void;
+}
+procedure `boolean` `shouldDelayChildPressedState`(`com.google.android.material.tabs.TabLayout` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayout;.shouldDelayChildPressedState:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b447c.  call temp:= `getTabScrollRange`(v1) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabScrollRange:()I` @kind direct;
+  #L1b4482.  v0:= temp;
+  #L1b4484.  if v0 <= 0 then goto L1b448c;
+  #L1b4488.  v0:= 1I;
+  #L1b448a.  goto L1b448e;
+  #L1b448c.  v0:= 0I;
+  #L1b448e.  return v0;
+}
+procedure `void` `updateTabViews`(`com.google.android.material.tabs.TabLayout` v3 @kind this, `boolean` v4 @name `requestLayout`) @signature `Lcom/google/android/material/tabs/TabLayout;.updateTabViews:(Z)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b5d30.  v0:= 0I;
+  #L1b5d32.  v1:= v3.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b5d36.  call temp:= `getChildCount`(v1) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getChildCount:()I` @kind virtual;
+  #L1b5d3c.  v1:= temp;
+  #L1b5d3e.  if v0 >= v1 then goto L1b5d7e;
+  #L1b5d42.  v1:= v3.`com.google.android.material.tabs.TabLayout.slidingTabIndicator` @type ^`com.google.android.material.tabs.TabLayout$SlidingTabIndicator` @kind object;
+  #L1b5d46.  call temp:= `getChildAt`(v1, v0) @signature `Lcom/google/android/material/tabs/TabLayout$SlidingTabIndicator;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L1b5d4c.  v1:= temp @kind object;
+  #L1b5d4e.  call temp:= `getTabMinWidth`(v3) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabMinWidth:()I` @kind direct;
+  #L1b5d54.  v2:= temp;
+  #L1b5d56.  call `setMinimumWidth`(v1, v2) @signature `Landroid/view/View;.setMinimumWidth:(I)V` @kind virtual;
+  #L1b5d5c.  call temp:= `getLayoutParams`(v1) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L1b5d62.  v2:= temp @kind object;
+  #L1b5d64.  v2:= (`android.widget.LinearLayout$LayoutParams`) v2 @kind object;
+  #L1b5d68.  call `updateTabViewLayoutParams`(v3, v2) @signature `Lcom/google/android/material/tabs/TabLayout;.updateTabViewLayoutParams:(Landroid/widget/LinearLayout$LayoutParams;)V` @kind direct;
+  #L1b5d6e.  if v4 == 0 then goto L1b5d78;
+  #L1b5d72.  call `requestLayout`(v1) @signature `Landroid/view/View;.requestLayout:()V` @kind virtual;
+  #L1b5d78.  v0:= v0 + 1;
+  #L1b5d7c.  goto L1b5d32;
+  #L1b5d7e.  return @kind void;
+}

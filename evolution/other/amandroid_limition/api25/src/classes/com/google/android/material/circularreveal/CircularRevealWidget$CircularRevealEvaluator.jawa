@@ -1,0 +1,59 @@
+record `com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealEvaluator` @kind class @AccessFlag PUBLIC extends `android.animation.TypeEvaluator` @kind interface {
+  `com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` `com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealEvaluator.revealInfo` @AccessFlag PRIVATE_FINAL;
+}
+global `android.animation.TypeEvaluator` `@@com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealEvaluator.CIRCULAR_REVEAL` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealEvaluator;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L195a44.  v0:= new `com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealEvaluator`;
+  #L195a48.  call `<init>`(v0) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealEvaluator;.<init>:()V` @kind direct;
+  #L195a4e.  `@@com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealEvaluator.CIRCULAR_REVEAL` @type ^`android.animation.TypeEvaluator` := v0 @kind object;
+  #L195a52.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealEvaluator` v2 @kind this) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealEvaluator;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L195a64.  call `<init>`(v2) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L195a6a.  v0:= new `com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo`;
+  #L195a6e.  v1:= 0I;
+  #L195a70.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;.<init>:(Lcom/google/android/material/circularreveal/CircularRevealWidget$1;)V` @kind direct;
+  #L195a76.  v2.`com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealEvaluator.revealInfo` @type ^`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` := v0 @kind object;
+  #L195a7a.  return @kind void;
+}
+procedure `com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` `evaluate`(`com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealEvaluator` v5 @kind this, `float` v6 @name `fraction`, `com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` v7 @kind object @name `startValue`, `com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` v8 @kind object @name `endValue`) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealEvaluator;.evaluate:(FLcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;)Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1959d0.  v0:= v5.`com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealEvaluator.revealInfo` @type ^`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` @kind object;
+  #L1959d4.  v1:= v7.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.centerX` @type ^`float`;
+  #L1959d8.  v2:= v8.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.centerX` @type ^`float`;
+  #L1959dc.  call temp:= `lerp`(v1, v2, v6) @signature `Lcom/google/android/material/math/MathUtils;.lerp:(FFF)F` @kind static;
+  #L1959e2.  v1:= temp;
+  #L1959e4.  v2:= v7.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.centerY` @type ^`float`;
+  #L1959e8.  v3:= v8.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.centerY` @type ^`float`;
+  #L1959ec.  call temp:= `lerp`(v2, v3, v6) @signature `Lcom/google/android/material/math/MathUtils;.lerp:(FFF)F` @kind static;
+  #L1959f2.  v2:= temp;
+  #L1959f4.  v3:= v7.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.radius` @type ^`float`;
+  #L1959f8.  v4:= v8.`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo.radius` @type ^`float`;
+  #L1959fc.  call temp:= `lerp`(v3, v4, v6) @signature `Lcom/google/android/material/math/MathUtils;.lerp:(FFF)F` @kind static;
+  #L195a02.  v3:= temp;
+  #L195a04.  call `set`(v0, v1, v2, v3) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;.set:(FFF)V` @kind virtual;
+  #L195a0a.  v0:= v5.`com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealEvaluator.revealInfo` @type ^`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo` @kind object;
+  #L195a0e.  return v0 @kind object;
+}
+procedure `java.lang.Object` `evaluate`(`com.google.android.material.circularreveal.CircularRevealWidget$CircularRevealEvaluator` v0 @kind this, `float` v1 , `java.lang.Object` v2 @kind object, `java.lang.Object` v3 @kind object) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealEvaluator;.evaluate:(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L195a20.  v2:= (`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo`) v2 @kind object;
+  #L195a24.  v3:= (`com.google.android.material.circularreveal.CircularRevealWidget$RevealInfo`) v3 @kind object;
+  #L195a28.  call temp:= `evaluate`(v0, v1, v2, v3) @signature `Lcom/google/android/material/circularreveal/CircularRevealWidget$CircularRevealEvaluator;.evaluate:(FLcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;)Lcom/google/android/material/circularreveal/CircularRevealWidget$RevealInfo;` @kind virtual;
+  #L195a2e.  v1:= temp @kind object;
+  #L195a30.  return v1 @kind object;
+}

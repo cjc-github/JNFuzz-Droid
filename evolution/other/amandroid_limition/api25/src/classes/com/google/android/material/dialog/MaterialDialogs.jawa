@@ -1,0 +1,101 @@
+record `com.google.android.material.dialog.MaterialDialogs` @kind class @AccessFlag PUBLIC {
+}
+procedure `void` `<init>`(`com.google.android.material.dialog.MaterialDialogs` v0 @kind this) @signature `Lcom/google/android/material/dialog/MaterialDialogs;.<init>:()V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+
+  #L19cd74.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L19cd7a.  return @kind void;
+}
+procedure `android.graphics.Rect` `getDialogBackgroundInsets`(`android.content.Context` v9 @kind object @name `context`, `int` v10 @name `defaultStyleAttribute`, `int` v11 @name `defaultStyleResource`) @signature `Lcom/google/android/material/dialog/MaterialDialogs;.getDialogBackgroundInsets:(Landroid/content/Context;II)Landroid/graphics/Rect;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L19cc54.  v2:= `@@com.google.android.material.R$styleable.MaterialAlertDialog` @type ^`int`[] @kind object;
+  #L19cc58.  v0:= 0I;
+  #L19cc5a.  v5:= new `int`[v0];
+  #L19cc5e.  v1:= 0I;
+  #L19cc60.  v0:= v9 @kind object;
+  #L19cc62.  v3:= v10;
+  #L19cc64.  v4:= v11;
+  #L19cc66.  call temp:= `obtainStyledAttributes`(v0, v1, v2, v3, v4, v5) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainStyledAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;` @kind static;
+  #L19cc6c.  v0:= temp @kind object;
+  #L19cc6e.  v1:= `@@com.google.android.material.R$styleable.MaterialAlertDialog_backgroundInsetStart` @type ^`int`;
+  #L19cc72.  call temp:= `getResources`(v9) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L19cc78.  v2:= temp @kind object;
+  #L19cc7a.  v3:= `@@com.google.android.material.R$dimen.mtrl_alert_dialog_background_inset_start` @type ^`int`;
+  #L19cc7e.  call temp:= `getDimensionPixelSize`(v2, v3) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L19cc84.  v2:= temp;
+  #L19cc86.  call temp:= `getDimensionPixelSize`(v0, v1, v2) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L19cc8c.  v1:= temp;
+  #L19cc8e.  v2:= `@@com.google.android.material.R$styleable.MaterialAlertDialog_backgroundInsetTop` @type ^`int`;
+  #L19cc92.  call temp:= `getResources`(v9) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L19cc98.  v3:= temp @kind object;
+  #L19cc9a.  v4:= `@@com.google.android.material.R$dimen.mtrl_alert_dialog_background_inset_top` @type ^`int`;
+  #L19cc9e.  call temp:= `getDimensionPixelSize`(v3, v4) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L19cca4.  v3:= temp;
+  #L19cca6.  call temp:= `getDimensionPixelSize`(v0, v2, v3) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L19ccac.  v2:= temp;
+  #L19ccae.  v3:= `@@com.google.android.material.R$styleable.MaterialAlertDialog_backgroundInsetEnd` @type ^`int`;
+  #L19ccb2.  call temp:= `getResources`(v9) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L19ccb8.  v4:= temp @kind object;
+  #L19ccba.  v5:= `@@com.google.android.material.R$dimen.mtrl_alert_dialog_background_inset_end` @type ^`int`;
+  #L19ccbe.  call temp:= `getDimensionPixelSize`(v4, v5) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L19ccc4.  v4:= temp;
+  #L19ccc6.  call temp:= `getDimensionPixelSize`(v0, v3, v4) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L19cccc.  v3:= temp;
+  #L19ccce.  v4:= `@@com.google.android.material.R$styleable.MaterialAlertDialog_backgroundInsetBottom` @type ^`int`;
+  #L19ccd2.  call temp:= `getResources`(v9) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L19ccd8.  v5:= temp @kind object;
+  #L19ccda.  v6:= `@@com.google.android.material.R$dimen.mtrl_alert_dialog_background_inset_bottom` @type ^`int`;
+  #L19ccde.  call temp:= `getDimensionPixelSize`(v5, v6) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L19cce4.  v5:= temp;
+  #L19cce6.  call temp:= `getDimensionPixelSize`(v0, v4, v5) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L19ccec.  v4:= temp;
+  #L19ccee.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L19ccf4.  v5:= v1;
+  #L19ccf6.  v6:= v3;
+  #L19ccf8.  v7:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L19ccfc.  v8:= 17I;
+  #L19cd00.  if v7 < v8 then goto L19cd26;
+  #L19cd04.  call temp:= `getResources`(v9) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L19cd0a.  v7:= temp @kind object;
+  #L19cd0c.  call temp:= `getConfiguration`(v7) @signature `Landroid/content/res/Resources;.getConfiguration:()Landroid/content/res/Configuration;` @kind virtual;
+  #L19cd12.  v7:= temp @kind object;
+  #L19cd14.  call temp:= `getLayoutDirection`(v7) @signature `Landroid/content/res/Configuration;.getLayoutDirection:()I` @kind virtual;
+  #L19cd1a.  v7:= temp;
+  #L19cd1c.  v8:= 1I;
+  #L19cd1e.  if v7 != v8 then goto L19cd26;
+  #L19cd22.  v5:= v3;
+  #L19cd24.  v6:= v1;
+  #L19cd26.  v7:= new `android.graphics.Rect`;
+  #L19cd2a.  call `<init>`(v7, v5, v2, v6, v4) @signature `Landroid/graphics/Rect;.<init>:(IIII)V` @kind direct;
+  #L19cd30.  return v7 @kind object;
+}
+procedure `android.graphics.drawable.InsetDrawable` `insetDrawable`(`android.graphics.drawable.Drawable` v7 @kind object @name `drawable`, `android.graphics.Rect` v8 @kind object @name `backgroundInsets`) @signature `Lcom/google/android/material/dialog/MaterialDialogs;.insetDrawable:(Landroid/graphics/drawable/Drawable;Landroid/graphics/Rect;)Landroid/graphics/drawable/InsetDrawable;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L19cd44.  v6:= new `android.graphics.drawable.InsetDrawable`;
+  #L19cd48.  v2:= v8.`android.graphics.Rect.left` @type ^`int`;
+  #L19cd4c.  v3:= v8.`android.graphics.Rect.top` @type ^`int`;
+  #L19cd50.  v4:= v8.`android.graphics.Rect.right` @type ^`int`;
+  #L19cd54.  v5:= v8.`android.graphics.Rect.bottom` @type ^`int`;
+  #L19cd58.  v0:= v6 @kind object;
+  #L19cd5a.  v1:= v7 @kind object;
+  #L19cd5c.  call `<init>`(v0, v1, v2, v3, v4, v5) @signature `Landroid/graphics/drawable/InsetDrawable;.<init>:(Landroid/graphics/drawable/Drawable;IIII)V` @kind direct;
+  #L19cd62.  return v6 @kind object;
+}

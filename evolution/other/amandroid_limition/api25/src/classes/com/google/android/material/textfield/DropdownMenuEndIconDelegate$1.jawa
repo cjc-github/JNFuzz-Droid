@@ -1,0 +1,36 @@
+record `com.google.android.material.textfield.DropdownMenuEndIconDelegate$1` @kind class @AccessFlag  extends `android.text.TextWatcher` @kind interface {
+  `com.google.android.material.textfield.DropdownMenuEndIconDelegate` `com.google.android.material.textfield.DropdownMenuEndIconDelegate$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate$1` v0 @kind this, `com.google.android.material.textfield.DropdownMenuEndIconDelegate` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$1;.<init>:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b6610.  v0.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$1.this$0` @type ^`com.google.android.material.textfield.DropdownMenuEndIconDelegate` := v1 @kind object;
+  #L1b6614.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b661a.  return @kind void;
+}
+procedure `void` `afterTextChanged`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate$1` v2 @kind this, `android.text.Editable` v3 @kind object @name `s`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$1;.afterTextChanged:(Landroid/text/Editable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b662c.  v0:= v2.`com.google.android.material.textfield.DropdownMenuEndIconDelegate$1.this$0` @type ^`com.google.android.material.textfield.DropdownMenuEndIconDelegate` @kind object;
+  #L1b6630.  v1:= v0.`com.google.android.material.textfield.DropdownMenuEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b6634.  call temp:= `getEditText`(v1) @signature `Lcom/google/android/material/textfield/TextInputLayout;.getEditText:()Landroid/widget/EditText;` @kind virtual;
+  #L1b663a.  v1:= temp @kind object;
+  #L1b663c.  call temp:= `access$000`(v0, v1) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;.access$000:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate;Landroid/widget/EditText;)Landroid/widget/AutoCompleteTextView;` @kind static;
+  #L1b6642.  v0:= temp @kind object;
+  #L1b6644.  v1:= new `com.google.android.material.textfield.DropdownMenuEndIconDelegate$1$1`;
+  #L1b6648.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$1$1;.<init>:(Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$1;Landroid/widget/AutoCompleteTextView;)V` @kind direct;
+  #L1b664e.  call temp:= `post`(v0, v1) @signature `Landroid/widget/AutoCompleteTextView;.post:(Ljava/lang/Runnable;)Z` @kind virtual;
+  #L1b6654.  return @kind void;
+}
+procedure `void` `beforeTextChanged`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate$1` v0 @kind this, `java.lang.CharSequence` v1 @kind object @name `s`, `int` v2 @name `start`, `int` v3 @name `count`, `int` v4 @name `after`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$1;.beforeTextChanged:(Ljava/lang/CharSequence;III)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b6668.  return @kind void;
+}
+procedure `void` `onTextChanged`(`com.google.android.material.textfield.DropdownMenuEndIconDelegate$1` v0 @kind this, `java.lang.CharSequence` v1 @kind object @name `s`, `int` v2 @name `start`, `int` v3 @name `before`, `int` v4 @name `count`) @signature `Lcom/google/android/material/textfield/DropdownMenuEndIconDelegate$1;.onTextChanged:(Ljava/lang/CharSequence;III)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b667c.  return @kind void;
+}

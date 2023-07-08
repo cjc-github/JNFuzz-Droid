@@ -1,0 +1,54 @@
+record `com.google.android.material.transformation.ExpandableTransformationBehavior` @kind class @AccessFlag PUBLIC_ABSTRACT extends `com.google.android.material.transformation.ExpandableBehavior` @kind class {
+  `android.animation.AnimatorSet` `com.google.android.material.transformation.ExpandableTransformationBehavior.currentAnimation` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.transformation.ExpandableTransformationBehavior` v0 @kind this) @signature `Lcom/google/android/material/transformation/ExpandableTransformationBehavior;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1bc714.  call `<init>`(v0) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.<init>:()V` @kind direct;
+  #L1bc71a.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.transformation.ExpandableTransformationBehavior` v0 @kind this, `android.content.Context` v1 @kind object @name `context`, `android.util.AttributeSet` v2 @kind object @name `attrs`) @signature `Lcom/google/android/material/transformation/ExpandableTransformationBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L1bc72c.  call `<init>`(v0, v1, v2) @signature `Lcom/google/android/material/transformation/ExpandableBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1bc732.  return @kind void;
+}
+procedure `android.animation.AnimatorSet` `access$002`(`com.google.android.material.transformation.ExpandableTransformationBehavior` v0 @kind object @name `x0`, `android.animation.AnimatorSet` v1 @kind object @name `x1`) @signature `Lcom/google/android/material/transformation/ExpandableTransformationBehavior;.access$002:(Lcom/google/android/material/transformation/ExpandableTransformationBehavior;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1bc698.  v0.`com.google.android.material.transformation.ExpandableTransformationBehavior.currentAnimation` @type ^`android.animation.AnimatorSet` := v1 @kind object;
+  #L1bc69c.  return v1 @kind object;
+}
+procedure `android.animation.AnimatorSet` `onCreateExpandedStateChangeAnimation`(`android.view.View` v0 @kind object, `android.view.View` v1 @kind object, `boolean` v2 , `boolean` v3 ) @signature `Lcom/google/android/material/transformation/ExpandableTransformationBehavior;.onCreateExpandedStateChangeAnimation:(Landroid/view/View;Landroid/view/View;ZZ)Landroid/animation/AnimatorSet;` @AccessFlag PROTECTED_ABSTRACT {
+
+  # return;
+}
+procedure `boolean` `onExpandedStateChange`(`com.google.android.material.transformation.ExpandableTransformationBehavior` v4 @kind this, `android.view.View` v5 @kind object @name `dependency`, `android.view.View` v6 @kind object @name `child`, `boolean` v7 @name `expanded`, `boolean` v8 @name `animated`) @signature `Lcom/google/android/material/transformation/ExpandableTransformationBehavior;.onExpandedStateChange:(Landroid/view/View;Landroid/view/View;ZZ)Z` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1bc6b0.  v0:= v4.`com.google.android.material.transformation.ExpandableTransformationBehavior.currentAnimation` @type ^`android.animation.AnimatorSet` @kind object;
+  #L1bc6b4.  v1:= 1I;
+  #L1bc6b6.  if v0 == 0 then goto L1bc6be;
+  #L1bc6ba.  v2:= v1;
+  #L1bc6bc.  goto L1bc6c0;
+  #L1bc6be.  v2:= 0I;
+  #L1bc6c0.  if v2 == 0 then goto L1bc6ca;
+  #L1bc6c4.  call `cancel`(v0) @signature `Landroid/animation/AnimatorSet;.cancel:()V` @kind virtual;
+  #L1bc6ca.  
+  #L1bc6cc.  call temp:= `onCreateExpandedStateChangeAnimation`(v4, v5, v6, v7, v2) @signature `Lcom/google/android/material/transformation/ExpandableTransformationBehavior;.onCreateExpandedStateChangeAnimation:(Landroid/view/View;Landroid/view/View;ZZ)Landroid/animation/AnimatorSet;` @kind virtual;
+  #L1bc6d2.  v0:= temp @kind object;
+  #L1bc6d4.  v4.`com.google.android.material.transformation.ExpandableTransformationBehavior.currentAnimation` @type ^`android.animation.AnimatorSet` := v0 @kind object;
+  #L1bc6d8.  v3:= new `com.google.android.material.transformation.ExpandableTransformationBehavior$1`;
+  #L1bc6dc.  call `<init>`(v3, v4) @signature `Lcom/google/android/material/transformation/ExpandableTransformationBehavior$1;.<init>:(Lcom/google/android/material/transformation/ExpandableTransformationBehavior;)V` @kind direct;
+  #L1bc6e2.  call `addListener`(v0, v3) @signature `Landroid/animation/AnimatorSet;.addListener:(Landroid/animation/Animator$AnimatorListener;)V` @kind virtual;
+  #L1bc6e8.  v0:= v4.`com.google.android.material.transformation.ExpandableTransformationBehavior.currentAnimation` @type ^`android.animation.AnimatorSet` @kind object;
+  #L1bc6ec.  call `start`(v0) @signature `Landroid/animation/AnimatorSet;.start:()V` @kind virtual;
+  #L1bc6f2.  if v8 != 0 then goto L1bc700;
+  #L1bc6f6.  v0:= v4.`com.google.android.material.transformation.ExpandableTransformationBehavior.currentAnimation` @type ^`android.animation.AnimatorSet` @kind object;
+  #L1bc6fa.  call `end`(v0) @signature `Landroid/animation/AnimatorSet;.end:()V` @kind virtual;
+  #L1bc700.  return v1;
+}

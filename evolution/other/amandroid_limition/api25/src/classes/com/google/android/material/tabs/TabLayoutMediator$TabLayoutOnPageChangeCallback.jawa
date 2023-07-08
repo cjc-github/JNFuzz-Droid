@@ -1,0 +1,99 @@
+record `com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback` @kind class @AccessFlag  extends `androidx.viewpager2.widget.ViewPager2$OnPageChangeCallback` @kind class {
+  `int` `com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback.previousScrollState` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback.scrollState` @AccessFlag PRIVATE;
+  `java.lang.ref.WeakReference` `com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback.tabLayoutRef` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback` v1 @kind this, `com.google.android.material.tabs.TabLayout` v2 @kind object @name `tabLayout`) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$TabLayoutOnPageChangeCallback;.<init>:(Lcom/google/android/material/tabs/TabLayout;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1b3f44.  call `<init>`(v1) @signature `Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;.<init>:()V` @kind direct;
+  #L1b3f4a.  v0:= new `java.lang.ref.WeakReference`;
+  #L1b3f4e.  call `<init>`(v0, v2) @signature `Ljava/lang/ref/WeakReference;.<init>:(Ljava/lang/Object;)V` @kind direct;
+  #L1b3f54.  v1.`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback.tabLayoutRef` @type ^`java.lang.ref.WeakReference` := v0 @kind object;
+  #L1b3f58.  call `reset`(v1) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$TabLayoutOnPageChangeCallback;.reset:()V` @kind virtual;
+  #L1b3f5e.  return @kind void;
+}
+procedure `void` `onPageScrollStateChanged`(`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback` v1 @kind this, `int` v2 @name `state`) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$TabLayoutOnPageChangeCallback;.onPageScrollStateChanged:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b3f70.  v0:= v1.`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback.scrollState` @type ^`int`;
+  #L1b3f74.  v1.`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback.previousScrollState` @type ^`int` := v0;
+  #L1b3f78.  v1.`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback.scrollState` @type ^`int` := v2;
+  #L1b3f7c.  return @kind void;
+}
+procedure `void` `onPageScrolled`(`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback` v6 @kind this, `int` v7 @name `position`, `float` v8 @name `positionOffset`, `int` v9 @name `positionOffsetPixels`) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$TabLayoutOnPageChangeCallback;.onPageScrolled:(IFI)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L1b3f90.  v0:= v6.`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback.tabLayoutRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L1b3f94.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L1b3f9a.  v0:= temp @kind object;
+  #L1b3f9c.  v0:= (`com.google.android.material.tabs.TabLayout`) v0 @kind object;
+  #L1b3fa0.  if v0 == 0 then goto L1b3fd8;
+  #L1b3fa4.  v1:= v6.`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback.scrollState` @type ^`int`;
+  #L1b3fa8.  v2:= 0I;
+  #L1b3faa.  v3:= 2I;
+  #L1b3fac.  v4:= 1I;
+  #L1b3fae.  if v1 != v3 then goto L1b3fc0;
+  #L1b3fb2.  v5:= v6.`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback.previousScrollState` @type ^`int`;
+  #L1b3fb6.  if v5 != v4 then goto L1b3fbc;
+  #L1b3fba.  goto L1b3fc0;
+  #L1b3fbc.  v5:= v2;
+  #L1b3fbe.  goto L1b3fc2;
+  #L1b3fc0.  v5:= v4;
+  #L1b3fc2.  if v1 != v3 then goto L1b3fce;
+  #L1b3fc6.  v1:= v6.`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback.previousScrollState` @type ^`int`;
+  #L1b3fca.  if v1 == 0 then goto L1b3fd0;
+  #L1b3fce.  v2:= v4;
+  #L1b3fd0.  v1:= v2;
+  #L1b3fd2.  call `setScrollPosition`(v0, v7, v8, v5, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.setScrollPosition:(IFZZ)V` @kind virtual;
+  #L1b3fd8.  return @kind void;
+}
+procedure `void` `onPageSelected`(`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback` v3 @kind this, `int` v4 @name `position`) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$TabLayoutOnPageChangeCallback;.onPageSelected:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b3fec.  v0:= v3.`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback.tabLayoutRef` @type ^`java.lang.ref.WeakReference` @kind object;
+  #L1b3ff0.  call temp:= `get`(v0) @signature `Ljava/lang/ref/WeakReference;.get:()Ljava/lang/Object;` @kind virtual;
+  #L1b3ff6.  v0:= temp @kind object;
+  #L1b3ff8.  v0:= (`com.google.android.material.tabs.TabLayout`) v0 @kind object;
+  #L1b3ffc.  if v0 == 0 then goto L1b4044;
+  #L1b4000.  call temp:= `getSelectedTabPosition`(v0) @signature `Lcom/google/android/material/tabs/TabLayout;.getSelectedTabPosition:()I` @kind virtual;
+  #L1b4006.  v1:= temp;
+  #L1b4008.  if v1 == v4 then goto L1b4044;
+  #L1b400c.  call temp:= `getTabCount`(v0) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabCount:()I` @kind virtual;
+  #L1b4012.  v1:= temp;
+  #L1b4014.  if v4 >= v1 then goto L1b4044;
+  #L1b4018.  v1:= v3.`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback.scrollState` @type ^`int`;
+  #L1b401c.  if v1 == 0 then goto L1b4034;
+  #L1b4020.  v2:= 2I;
+  #L1b4022.  if v1 != v2 then goto L1b4030;
+  #L1b4026.  v1:= v3.`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback.previousScrollState` @type ^`int`;
+  #L1b402a.  if v1 != 0 then goto L1b4030;
+  #L1b402e.  goto L1b4034;
+  #L1b4030.  v1:= 0I;
+  #L1b4032.  goto L1b4036;
+  #L1b4034.  v1:= 1I;
+  #L1b4036.  call temp:= `getTabAt`(v0, v4) @signature `Lcom/google/android/material/tabs/TabLayout;.getTabAt:(I)Lcom/google/android/material/tabs/TabLayout$Tab;` @kind virtual;
+  #L1b403c.  v2:= temp @kind object;
+  #L1b403e.  call `selectTab`(v0, v2, v1) @signature `Lcom/google/android/material/tabs/TabLayout;.selectTab:(Lcom/google/android/material/tabs/TabLayout$Tab;Z)V` @kind virtual;
+  #L1b4044.  return @kind void;
+}
+procedure `void` `reset`(`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$TabLayoutOnPageChangeCallback;.reset:()V` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1b4058.  v0:= 0I;
+  #L1b405a.  v1.`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback.scrollState` @type ^`int` := v0;
+  #L1b405e.  v1.`com.google.android.material.tabs.TabLayoutMediator$TabLayoutOnPageChangeCallback.previousScrollState` @type ^`int` := v0;
+  #L1b4062.  return @kind void;
+}

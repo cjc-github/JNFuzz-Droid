@@ -1,0 +1,41 @@
+record `com.google.android.material.datepicker.MaterialCalendar$8` @kind class @AccessFlag  extends `android.view.View$OnClickListener` @kind interface {
+  `com.google.android.material.datepicker.MaterialCalendar` `com.google.android.material.datepicker.MaterialCalendar$8.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `com.google.android.material.datepicker.MonthsPagerAdapter` `com.google.android.material.datepicker.MaterialCalendar$8.val$monthsPagerAdapter` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.MaterialCalendar$8` v0 @kind this, `com.google.android.material.datepicker.MaterialCalendar` v1 @kind object @name `this$0`, `com.google.android.material.datepicker.MonthsPagerAdapter` v2 @kind object) @signature `Lcom/google/android/material/datepicker/MaterialCalendar$8;.<init>:(Lcom/google/android/material/datepicker/MaterialCalendar;Lcom/google/android/material/datepicker/MonthsPagerAdapter;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L197bb8.  v0.`com.google.android.material.datepicker.MaterialCalendar$8.this$0` @type ^`com.google.android.material.datepicker.MaterialCalendar` := v1 @kind object;
+  #L197bbc.  v0.`com.google.android.material.datepicker.MaterialCalendar$8.val$monthsPagerAdapter` @type ^`com.google.android.material.datepicker.MonthsPagerAdapter` := v2 @kind object;
+  #L197bc0.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L197bc6.  return @kind void;
+}
+procedure `void` `onClick`(`com.google.android.material.datepicker.MaterialCalendar$8` v4 @kind this, `android.view.View` v5 @kind object @name `view`) @signature `Lcom/google/android/material/datepicker/MaterialCalendar$8;.onClick:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L197bd8.  v0:= v4.`com.google.android.material.datepicker.MaterialCalendar$8.this$0` @type ^`com.google.android.material.datepicker.MaterialCalendar` @kind object;
+  #L197bdc.  call temp:= `getLayoutManager`(v0) @signature `Lcom/google/android/material/datepicker/MaterialCalendar;.getLayoutManager:()Landroidx/recyclerview/widget/LinearLayoutManager;` @kind virtual;
+  #L197be2.  v0:= temp @kind object;
+  #L197be4.  call temp:= `findFirstVisibleItemPosition`(v0) @signature `Landroidx/recyclerview/widget/LinearLayoutManager;.findFirstVisibleItemPosition:()I` @kind virtual;
+  #L197bea.  v0:= temp;
+  #L197bec.  v1:= v0 + 1;
+  #L197bf0.  v2:= v4.`com.google.android.material.datepicker.MaterialCalendar$8.this$0` @type ^`com.google.android.material.datepicker.MaterialCalendar` @kind object;
+  #L197bf4.  call temp:= `access$000`(v2) @signature `Lcom/google/android/material/datepicker/MaterialCalendar;.access$000:(Lcom/google/android/material/datepicker/MaterialCalendar;)Landroidx/recyclerview/widget/RecyclerView;` @kind static;
+  #L197bfa.  v2:= temp @kind object;
+  #L197bfc.  call temp:= `getAdapter`(v2) @signature `Landroidx/recyclerview/widget/RecyclerView;.getAdapter:()Landroidx/recyclerview/widget/RecyclerView$Adapter;` @kind virtual;
+  #L197c02.  v2:= temp @kind object;
+  #L197c04.  call temp:= `getItemCount`(v2) @signature `Landroidx/recyclerview/widget/RecyclerView$Adapter;.getItemCount:()I` @kind virtual;
+  #L197c0a.  v2:= temp;
+  #L197c0c.  if v1 >= v2 then goto L197c2a;
+  #L197c10.  v1:= v4.`com.google.android.material.datepicker.MaterialCalendar$8.this$0` @type ^`com.google.android.material.datepicker.MaterialCalendar` @kind object;
+  #L197c14.  v2:= v4.`com.google.android.material.datepicker.MaterialCalendar$8.val$monthsPagerAdapter` @type ^`com.google.android.material.datepicker.MonthsPagerAdapter` @kind object;
+  #L197c18.  v3:= v0 + 1;
+  #L197c1c.  call temp:= `getPageMonth`(v2, v3) @signature `Lcom/google/android/material/datepicker/MonthsPagerAdapter;.getPageMonth:(I)Lcom/google/android/material/datepicker/Month;` @kind virtual;
+  #L197c22.  v2:= temp @kind object;
+  #L197c24.  call `setCurrentMonth`(v1, v2) @signature `Lcom/google/android/material/datepicker/MaterialCalendar;.setCurrentMonth:(Lcom/google/android/material/datepicker/Month;)V` @kind virtual;
+  #L197c2a.  return @kind void;
+}

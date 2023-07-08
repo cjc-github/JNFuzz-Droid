@@ -1,0 +1,35 @@
+record `com.google.android.material.snackbar.BaseTransientBottomBar$4` @kind class @AccessFlag  extends `androidx.core.view.AccessibilityDelegateCompat` @kind class {
+  `com.google.android.material.snackbar.BaseTransientBottomBar` `com.google.android.material.snackbar.BaseTransientBottomBar$4.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.snackbar.BaseTransientBottomBar$4` v0 @kind this, `com.google.android.material.snackbar.BaseTransientBottomBar` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$4;.<init>:(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1af454.  v0.`com.google.android.material.snackbar.BaseTransientBottomBar$4.this$0` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar` := v1 @kind object;
+  #L1af458.  call `<init>`(v0) @signature `Landroidx/core/view/AccessibilityDelegateCompat;.<init>:()V` @kind direct;
+  #L1af45e.  return @kind void;
+}
+procedure `void` `onInitializeAccessibilityNodeInfo`(`com.google.android.material.snackbar.BaseTransientBottomBar$4` v1 @kind this, `android.view.View` v2 @kind object @name `host`, `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v3 @kind object @name `info`) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$4;.onInitializeAccessibilityNodeInfo:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1af470.  call `onInitializeAccessibilityNodeInfo`(v1, v2, v3) @signature `Landroidx/core/view/AccessibilityDelegateCompat;.onInitializeAccessibilityNodeInfo:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V` @kind super;
+  #L1af476.  v0:= 1048576I;
+  #L1af47a.  call `addAction`(v3, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.addAction:(I)V` @kind virtual;
+  #L1af480.  v0:= 1I;
+  #L1af482.  call `setDismissable`(v3, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setDismissable:(Z)V` @kind virtual;
+  #L1af488.  return @kind void;
+}
+procedure `boolean` `performAccessibilityAction`(`com.google.android.material.snackbar.BaseTransientBottomBar$4` v1 @kind this, `android.view.View` v2 @kind object @name `host`, `int` v3 @name `action`, `android.os.Bundle` v4 @kind object @name `args`) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$4;.performAccessibilityAction:(Landroid/view/View;ILandroid/os/Bundle;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1af424.  v0:= 1048576I;
+  #L1af428.  if v3 != v0 then goto L1af43a;
+  #L1af42c.  v0:= v1.`com.google.android.material.snackbar.BaseTransientBottomBar$4.this$0` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar` @kind object;
+  #L1af430.  call `dismiss`(v0) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar;.dismiss:()V` @kind virtual;
+  #L1af436.  v0:= 1I;
+  #L1af438.  return v0;
+  #L1af43a.  call temp:= `performAccessibilityAction`(v1, v2, v3, v4) @signature `Landroidx/core/view/AccessibilityDelegateCompat;.performAccessibilityAction:(Landroid/view/View;ILandroid/os/Bundle;)Z` @kind super;
+  #L1af440.  v0:= temp;
+  #L1af442.  return v0;
+}

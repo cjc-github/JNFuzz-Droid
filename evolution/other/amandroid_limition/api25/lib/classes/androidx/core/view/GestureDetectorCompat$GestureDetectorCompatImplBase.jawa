@@ -1,0 +1,73 @@
+record `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase` @kind class @AccessFlag  extends `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImpl` @kind interface {
+  `boolean` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mAlwaysInBiggerTapRegion` @AccessFlag PRIVATE;
+  `boolean` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mAlwaysInTapRegion` @AccessFlag PRIVATE;
+  `android.view.MotionEvent` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mCurrentDownEvent` @AccessFlag ;
+  `boolean` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mDeferConfirmSingleTap` @AccessFlag ;
+  `android.view.GestureDetector$OnDoubleTapListener` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mDoubleTapListener` @AccessFlag ;
+  `int` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mDoubleTapSlopSquare` @AccessFlag PRIVATE;
+  `float` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mDownFocusX` @AccessFlag PRIVATE;
+  `float` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mDownFocusY` @AccessFlag PRIVATE;
+  `android.os.Handler` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mHandler` @AccessFlag PRIVATE_FINAL;
+  `boolean` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mInLongPress` @AccessFlag PRIVATE;
+  `boolean` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mIsDoubleTapping` @AccessFlag PRIVATE;
+  `boolean` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mIsLongpressEnabled` @AccessFlag PRIVATE;
+  `float` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mLastFocusX` @AccessFlag PRIVATE;
+  `float` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mLastFocusY` @AccessFlag PRIVATE;
+  `android.view.GestureDetector$OnGestureListener` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mListener` @AccessFlag FINAL;
+  `int` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mMaximumFlingVelocity` @AccessFlag PRIVATE;
+  `int` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mMinimumFlingVelocity` @AccessFlag PRIVATE;
+  `android.view.MotionEvent` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mPreviousUpEvent` @AccessFlag PRIVATE;
+  `boolean` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mStillDown` @AccessFlag ;
+  `int` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mTouchSlopSquare` @AccessFlag PRIVATE;
+  `android.view.VelocityTracker` `androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.mVelocityTracker` @AccessFlag PRIVATE;
+}
+global `int` `@@androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.DOUBLE_TAP_TIMEOUT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.LONGPRESS_TIMEOUT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.LONG_PRESS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.SHOW_PRESS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.TAP` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase.TAP_TIMEOUT` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/core/view/GestureDetectorCompat$GestureDetectorCompatImplBase;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.view.GestureDetector$OnGestureListener` v3 @kind object @name `listener`, `android.os.Handler` v4 @kind object @name `handler`) @signature `Landroidx/core/view/GestureDetectorCompat$GestureDetectorCompatImplBase;.<init>:(Landroid/content/Context;Landroid/view/GestureDetector$OnGestureListener;Landroid/os/Handler;)V` @AccessFlag CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `cancel`(`androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase` v2 @kind this) @signature `Landroidx/core/view/GestureDetectorCompat$GestureDetectorCompatImplBase;.cancel:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `cancelTaps`(`androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase` v2 @kind this) @signature `Landroidx/core/view/GestureDetectorCompat$GestureDetectorCompatImplBase;.cancelTaps:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `init`(`androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase` v4 @kind this, `android.content.Context` v5 @kind object @name `context`) @signature `Landroidx/core/view/GestureDetectorCompat$GestureDetectorCompatImplBase;.init:(Landroid/content/Context;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `isConsideredDoubleTap`(`androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase` v6 @kind this, `android.view.MotionEvent` v7 @kind object @name `firstDown`, `android.view.MotionEvent` v8 @kind object @name `firstUp`, `android.view.MotionEvent` v9 @kind object @name `secondDown`) @signature `Landroidx/core/view/GestureDetectorCompat$GestureDetectorCompatImplBase;.isConsideredDoubleTap:(Landroid/view/MotionEvent;Landroid/view/MotionEvent;Landroid/view/MotionEvent;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `dispatchLongPress`(`androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase` v2 @kind this) @signature `Landroidx/core/view/GestureDetectorCompat$GestureDetectorCompatImplBase;.dispatchLongPress:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isLongpressEnabled`(`androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase` v1 @kind this) @signature `Landroidx/core/view/GestureDetectorCompat$GestureDetectorCompatImplBase;.isLongpressEnabled:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onTouchEvent`(`androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase` v23 @kind this, `android.view.MotionEvent` v24 @kind object @name `ev`) @signature `Landroidx/core/view/GestureDetectorCompat$GestureDetectorCompatImplBase;.onTouchEvent:(Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setIsLongpressEnabled`(`androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase` v0 @kind this, `boolean` v1 @name `isLongpressEnabled`) @signature `Landroidx/core/view/GestureDetectorCompat$GestureDetectorCompatImplBase;.setIsLongpressEnabled:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOnDoubleTapListener`(`androidx.core.view.GestureDetectorCompat$GestureDetectorCompatImplBase` v0 @kind this, `android.view.GestureDetector$OnDoubleTapListener` v1 @kind object @name `onDoubleTapListener`) @signature `Landroidx/core/view/GestureDetectorCompat$GestureDetectorCompatImplBase;.setOnDoubleTapListener:(Landroid/view/GestureDetector$OnDoubleTapListener;)V` @AccessFlag PUBLIC {
+
+  # return;
+}

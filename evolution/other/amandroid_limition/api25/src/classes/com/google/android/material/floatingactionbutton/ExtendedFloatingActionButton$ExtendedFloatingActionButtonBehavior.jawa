@@ -1,0 +1,405 @@
+record `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` @kind class @AccessFlag PUBLIC extends `androidx.coordinatorlayout.widget.CoordinatorLayout$Behavior` @kind class {
+  `boolean` `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.autoHideEnabled` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.autoShrinkEnabled` @AccessFlag PRIVATE;
+  `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$OnChangedCallback` `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.internalAutoHideCallback` @AccessFlag PRIVATE;
+  `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$OnChangedCallback` `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.internalAutoShrinkCallback` @AccessFlag PRIVATE;
+  `android.graphics.Rect` `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.tmpRect` @AccessFlag PRIVATE;
+}
+global `boolean` `@@com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.AUTO_HIDE_DEFAULT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `boolean` `@@com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.AUTO_SHRINK_DEFAULT` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v1 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L19e334.  call `<init>`(v1) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;.<init>:()V` @kind direct;
+  #L19e33a.  v0:= 0I;
+  #L19e33c.  v1.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.autoHideEnabled` @type ^`boolean` := v0 @kind boolean;
+  #L19e340.  v0:= 1I;
+  #L19e342.  v1.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.autoShrinkEnabled` @type ^`boolean` := v0 @kind boolean;
+  #L19e346.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v3 @kind this, `android.content.Context` v4 @kind object @name `context`, `android.util.AttributeSet` v5 @kind object @name `attrs`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L19e358.  call `<init>`(v3, v4, v5) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L19e35e.  v0:= `@@com.google.android.material.R$styleable.ExtendedFloatingActionButton_Behavior_Layout` @type ^`int`[] @kind object;
+  #L19e362.  call temp:= `obtainStyledAttributes`(v4, v5, v0) @signature `Landroid/content/Context;.obtainStyledAttributes:(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;` @kind virtual;
+  #L19e368.  v0:= temp @kind object;
+  #L19e36a.  v1:= `@@com.google.android.material.R$styleable.ExtendedFloatingActionButton_Behavior_Layout_behavior_autoHide` @type ^`int`;
+  #L19e36e.  v2:= 0I;
+  #L19e370.  call temp:= `getBoolean`(v0, v1, v2) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L19e376.  v1:= temp;
+  #L19e378.  v3.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.autoHideEnabled` @type ^`boolean` := v1 @kind boolean;
+  #L19e37c.  v1:= `@@com.google.android.material.R$styleable.ExtendedFloatingActionButton_Behavior_Layout_behavior_autoShrink` @type ^`int`;
+  #L19e380.  v2:= 1I;
+  #L19e382.  call temp:= `getBoolean`(v0, v1, v2) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L19e388.  v1:= temp;
+  #L19e38a.  v3.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.autoShrinkEnabled` @type ^`boolean` := v1 @kind boolean;
+  #L19e38e.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L19e394.  return @kind void;
+}
+procedure `boolean` `isBottomSheet`(`android.view.View` v2 @kind object @name `view`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.isBottomSheet:(Landroid/view/View;)Z` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L19e0f4.  call temp:= `getLayoutParams`(v2) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L19e0fa.  v0:= temp @kind object;
+  #L19e0fc.  v1:= instanceof @variable v0 @type ^`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams` @kind boolean;
+  #L19e100.  if v1 == 0 then goto L19e118;
+  #L19e104.  v1:= v0 @kind object;
+  #L19e106.  v1:= (`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams`) v1 @kind object;
+  #L19e10a.  call temp:= `getBehavior`(v1) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;.getBehavior:()Landroidx/coordinatorlayout/widget/CoordinatorLayout$Behavior;` @kind virtual;
+  #L19e110.  v1:= temp @kind object;
+  #L19e112.  v1:= instanceof @variable v1 @type ^`com.google.android.material.bottomsheet.BottomSheetBehavior` @kind boolean;
+  #L19e116.  return v1;
+  #L19e118.  v1:= 0I;
+  #L19e11a.  return v1;
+}
+procedure `void` `offsetIfNeeded`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v7 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v8 @kind object @name `parent`, `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` v9 @kind object @name `fab`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.offsetIfNeeded:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L19e3ec.  call temp:= `access$500`(v9) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.access$500:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)Landroid/graphics/Rect;` @kind static;
+  #L19e3f2.  v0:= temp @kind object;
+  #L19e3f4.  if v0 == 0 then goto L19e4a2;
+  #L19e3f8.  call temp:= `centerX`(v0) @signature `Landroid/graphics/Rect;.centerX:()I` @kind virtual;
+  #L19e3fe.  v1:= temp;
+  #L19e400.  if v1 <= 0 then goto L19e4a2;
+  #L19e404.  call temp:= `centerY`(v0) @signature `Landroid/graphics/Rect;.centerY:()I` @kind virtual;
+  #L19e40a.  v1:= temp;
+  #L19e40c.  if v1 <= 0 then goto L19e4a2;
+  #L19e410.  
+  #L19e412.  call temp:= `getLayoutParams`(v9) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L19e418.  v1:= temp @kind object;
+  #L19e41a.  v1:= (`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams`) v1 @kind object;
+  #L19e41e.  v2:= 0I;
+  #L19e420.  v3:= 0I;
+  #L19e422.  call temp:= `getRight`(v9) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.getRight:()I` @kind virtual;
+  #L19e428.  v4:= temp;
+  #L19e42a.  call temp:= `getWidth`(v8) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getWidth:()I` @kind virtual;
+  #L19e430.  v5:= temp;
+  #L19e432.  v6:= v1.`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams.rightMargin` @type ^`int`;
+  #L19e436.  v5:= v5 - v6 @kind int;
+  #L19e438.  if v4 < v5 then goto L19e442;
+  #L19e43c.  v3:= v0.`android.graphics.Rect.right` @type ^`int`;
+  #L19e440.  goto L19e458;
+  #L19e442.  call temp:= `getLeft`(v9) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.getLeft:()I` @kind virtual;
+  #L19e448.  v4:= temp;
+  #L19e44a.  v5:= v1.`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams.leftMargin` @type ^`int`;
+  #L19e44e.  if v4 > v5 then goto L19e458;
+  #L19e452.  v4:= v0.`android.graphics.Rect.left` @type ^`int`;
+  #L19e456.  v3:= -v4 @kind int;
+  #L19e458.  call temp:= `getBottom`(v9) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.getBottom:()I` @kind virtual;
+  #L19e45e.  v4:= temp;
+  #L19e460.  call temp:= `getHeight`(v8) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getHeight:()I` @kind virtual;
+  #L19e466.  v5:= temp;
+  #L19e468.  v6:= v1.`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams.bottomMargin` @type ^`int`;
+  #L19e46c.  v5:= v5 - v6 @kind int;
+  #L19e46e.  if v4 < v5 then goto L19e478;
+  #L19e472.  v2:= v0.`android.graphics.Rect.bottom` @type ^`int`;
+  #L19e476.  goto L19e48e;
+  #L19e478.  call temp:= `getTop`(v9) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.getTop:()I` @kind virtual;
+  #L19e47e.  v4:= temp;
+  #L19e480.  v5:= v1.`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams.topMargin` @type ^`int`;
+  #L19e484.  if v4 > v5 then goto L19e48e;
+  #L19e488.  v4:= v0.`android.graphics.Rect.top` @type ^`int`;
+  #L19e48c.  v2:= -v4 @kind int;
+  #L19e48e.  if v2 == 0 then goto L19e498;
+  #L19e492.  call `offsetTopAndBottom`(v9, v2) @signature `Landroidx/core/view/ViewCompat;.offsetTopAndBottom:(Landroid/view/View;I)V` @kind static;
+  #L19e498.  if v3 == 0 then goto L19e4a2;
+  #L19e49c.  call `offsetLeftAndRight`(v9, v3) @signature `Landroidx/core/view/ViewCompat;.offsetLeftAndRight:(Landroid/view/View;I)V` @kind static;
+  #L19e4a2.  return @kind void;
+}
+procedure `boolean` `shouldUpdateVisibility`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v4 @kind this, `android.view.View` v5 @kind object @name `dependency`, `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` v6 @kind object @name `child`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.shouldUpdateVisibility:(Landroid/view/View;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L19e228.  
+  #L19e22a.  call temp:= `getLayoutParams`(v6) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L19e230.  v0:= temp @kind object;
+  #L19e232.  v0:= (`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams`) v0 @kind object;
+  #L19e236.  v1:= v4.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.autoHideEnabled` @type ^`boolean` @kind boolean;
+  #L19e23a.  v2:= 0I;
+  #L19e23c.  if v1 != 0 then goto L19e24a;
+  #L19e240.  v1:= v4.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.autoShrinkEnabled` @type ^`boolean` @kind boolean;
+  #L19e244.  if v1 != 0 then goto L19e24a;
+  #L19e248.  return v2;
+  #L19e24a.  call temp:= `getAnchorId`(v0) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;.getAnchorId:()I` @kind virtual;
+  #L19e250.  v1:= temp;
+  #L19e252.  call temp:= `getId`(v5) @signature `Landroid/view/View;.getId:()I` @kind virtual;
+  #L19e258.  v3:= temp;
+  #L19e25a.  if v1 == v3 then goto L19e260;
+  #L19e25e.  return v2;
+  #L19e260.  v1:= 1I;
+  #L19e262.  return v1;
+}
+procedure `boolean` `updateFabVisibilityForAppBarLayout`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v3 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v4 @kind object @name `parent`, `com.google.android.material.appbar.AppBarLayout` v5 @kind object @name `appBarLayout`, `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` v6 @kind object @name `child`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.updateFabVisibilityForAppBarLayout:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L19e274.  call temp:= `shouldUpdateVisibility`(v3, v5, v6) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.shouldUpdateVisibility:(Landroid/view/View;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)Z` @kind direct;
+  #L19e27a.  v0:= temp;
+  #L19e27c.  if v0 != 0 then goto L19e284;
+  #L19e280.  v0:= 0I;
+  #L19e282.  return v0;
+  #L19e284.  v0:= v3.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.tmpRect` @type ^`android.graphics.Rect` @kind object;
+  #L19e288.  if v0 != 0 then goto L19e29a;
+  #L19e28c.  v0:= new `android.graphics.Rect`;
+  #L19e290.  call `<init>`(v0) @signature `Landroid/graphics/Rect;.<init>:()V` @kind direct;
+  #L19e296.  v3.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.tmpRect` @type ^`android.graphics.Rect` := v0 @kind object;
+  #L19e29a.  v0:= v3.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.tmpRect` @type ^`android.graphics.Rect` @kind object;
+  #L19e29e.  call `getDescendantRect`(v4, v5, v0) @signature `Lcom/google/android/material/internal/DescendantOffsetUtils;.getDescendantRect:(Landroid/view/ViewGroup;Landroid/view/View;Landroid/graphics/Rect;)V` @kind static;
+  #L19e2a4.  v1:= v0.`android.graphics.Rect.bottom` @type ^`int`;
+  #L19e2a8.  call temp:= `getMinimumHeightForVisibleOverlappingContent`(v5) @signature `Lcom/google/android/material/appbar/AppBarLayout;.getMinimumHeightForVisibleOverlappingContent:()I` @kind virtual;
+  #L19e2ae.  v2:= temp;
+  #L19e2b0.  if v1 > v2 then goto L19e2bc;
+  #L19e2b4.  call `shrinkOrHide`(v3, v6) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.shrinkOrHide:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)V` @kind virtual;
+  #L19e2ba.  goto L19e2c2;
+  #L19e2bc.  call `extendOrShow`(v3, v6) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.extendOrShow:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)V` @kind virtual;
+  #L19e2c2.  v1:= 1I;
+  #L19e2c4.  return v1;
+}
+procedure `boolean` `updateFabVisibilityForBottomSheet`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v4 @kind this, `android.view.View` v5 @kind object @name `bottomSheet`, `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` v6 @kind object @name `child`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.updateFabVisibilityForBottomSheet:(Landroid/view/View;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L19e2d8.  call temp:= `shouldUpdateVisibility`(v4, v5, v6) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.shouldUpdateVisibility:(Landroid/view/View;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)Z` @kind direct;
+  #L19e2de.  v0:= temp;
+  #L19e2e0.  if v0 != 0 then goto L19e2e8;
+  #L19e2e4.  v0:= 0I;
+  #L19e2e6.  return v0;
+  #L19e2e8.  call temp:= `getLayoutParams`(v6) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L19e2ee.  v0:= temp @kind object;
+  #L19e2f0.  v0:= (`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams`) v0 @kind object;
+  #L19e2f4.  call temp:= `getTop`(v5) @signature `Landroid/view/View;.getTop:()I` @kind virtual;
+  #L19e2fa.  v1:= temp;
+  #L19e2fc.  call temp:= `getHeight`(v6) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.getHeight:()I` @kind virtual;
+  #L19e302.  v2:= temp;
+  #L19e304.  v2:= v2 / 2;
+  #L19e308.  v3:= v0.`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams.topMargin` @type ^`int`;
+  #L19e30c.  v2:= v2 + v3 @kind int;
+  #L19e30e.  if v1 >= v2 then goto L19e31a;
+  #L19e312.  call `shrinkOrHide`(v4, v6) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.shrinkOrHide:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)V` @kind virtual;
+  #L19e318.  goto L19e320;
+  #L19e31a.  call `extendOrShow`(v4, v6) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.extendOrShow:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)V` @kind virtual;
+  #L19e320.  v1:= 1I;
+  #L19e322.  return v1;
+}
+procedure `void` `extendOrShow`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v2 @kind this, `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` v3 @kind object @name `fab`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.extendOrShow:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L19e3a8.  v0:= v2.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.autoShrinkEnabled` @type ^`boolean` @kind boolean;
+  #L19e3ac.  if v0 == 0 then goto L19e3b6;
+  #L19e3b0.  v1:= v2.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.internalAutoShrinkCallback` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$OnChangedCallback` @kind object;
+  #L19e3b4.  goto L19e3ba;
+  #L19e3b6.  v1:= v2.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.internalAutoHideCallback` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$OnChangedCallback` @kind object;
+  #L19e3ba.  if v0 == 0 then goto L19e3c8;
+  #L19e3be.  call temp:= `access$300`(v3) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.access$300:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)Lcom/google/android/material/floatingactionbutton/MotionStrategy;` @kind static;
+  #L19e3c4.  v0:= temp @kind object;
+  #L19e3c6.  goto L19e3d0;
+  #L19e3c8.  call temp:= `access$400`(v3) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.access$400:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)Lcom/google/android/material/floatingactionbutton/MotionStrategy;` @kind static;
+  #L19e3ce.  v0:= temp @kind object;
+  #L19e3d0.  
+  #L19e3d2.  call `access$200`(v3, v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.access$200:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;Lcom/google/android/material/floatingactionbutton/MotionStrategy;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$OnChangedCallback;)V` @kind static;
+  #L19e3d8.  return @kind void;
+}
+procedure `boolean` `getInsetDodgeRect`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v0 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind object, `android.view.View` v2 @kind object, `android.graphics.Rect` v3 @kind object) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.getInsetDodgeRect:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/graphics/Rect;)Z` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19e048.  v2:= (`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton`) v2 @kind object;
+  #L19e04c.  call temp:= `getInsetDodgeRect`(v0, v1, v2, v3) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.getInsetDodgeRect:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;Landroid/graphics/Rect;)Z` @kind virtual;
+  #L19e052.  v1:= temp;
+  #L19e054.  return v1;
+}
+procedure `boolean` `getInsetDodgeRect`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v6 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v7 @kind object @name `parent`, `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` v8 @kind object @name `child`, `android.graphics.Rect` v9 @kind object @name `rect`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.getInsetDodgeRect:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;Landroid/graphics/Rect;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L19e068.  call temp:= `access$500`(v8) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.access$500:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)Landroid/graphics/Rect;` @kind static;
+  #L19e06e.  v0:= temp @kind object;
+  #L19e070.  
+  #L19e072.  call temp:= `getLeft`(v8) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.getLeft:()I` @kind virtual;
+  #L19e078.  v1:= temp;
+  #L19e07a.  v2:= v0.`android.graphics.Rect.left` @type ^`int`;
+  #L19e07e.  v1:= v1 + v2 @kind int;
+  #L19e080.  call temp:= `getTop`(v8) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.getTop:()I` @kind virtual;
+  #L19e086.  v2:= temp;
+  #L19e088.  v3:= v0.`android.graphics.Rect.top` @type ^`int`;
+  #L19e08c.  v2:= v2 + v3 @kind int;
+  #L19e08e.  call temp:= `getRight`(v8) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.getRight:()I` @kind virtual;
+  #L19e094.  v3:= temp;
+  #L19e096.  v4:= v0.`android.graphics.Rect.right` @type ^`int`;
+  #L19e09a.  v3:= v3 - v4 @kind int;
+  #L19e09c.  call temp:= `getBottom`(v8) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.getBottom:()I` @kind virtual;
+  #L19e0a2.  v4:= temp;
+  #L19e0a4.  v5:= v0.`android.graphics.Rect.bottom` @type ^`int`;
+  #L19e0a8.  v4:= v4 - v5 @kind int;
+  #L19e0aa.  call `set`(v9, v1, v2, v3, v4) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L19e0b0.  v1:= 1I;
+  #L19e0b2.  return v1;
+}
+procedure `boolean` `isAutoHideEnabled`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v1 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.isAutoHideEnabled:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19e0c4.  v0:= v1.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.autoHideEnabled` @type ^`boolean` @kind boolean;
+  #L19e0c8.  return v0;
+}
+procedure `boolean` `isAutoShrinkEnabled`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v1 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.isAutoShrinkEnabled:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19e0dc.  v0:= v1.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.autoShrinkEnabled` @type ^`boolean` @kind boolean;
+  #L19e0e0.  return v0;
+}
+procedure `void` `onAttachedToLayoutParams`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v1 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams` v2 @kind object @name `lp`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.onAttachedToLayoutParams:(Landroidx/coordinatorlayout/widget/CoordinatorLayout$LayoutParams;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19e4b4.  v0:= v2.`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams.dodgeInsetEdges` @type ^`int`;
+  #L19e4b8.  if v0 != 0 then goto L19e4c4;
+  #L19e4bc.  v0:= 80I;
+  #L19e4c0.  v2.`androidx.coordinatorlayout.widget.CoordinatorLayout$LayoutParams.dodgeInsetEdges` @type ^`int` := v0;
+  #L19e4c4.  return @kind void;
+}
+procedure `boolean` `onDependentViewChanged`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v0 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind object, `android.view.View` v2 @kind object, `android.view.View` v3 @kind object) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.onDependentViewChanged:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19e12c.  v2:= (`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton`) v2 @kind object;
+  #L19e130.  call temp:= `onDependentViewChanged`(v0, v1, v2, v3) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.onDependentViewChanged:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;Landroid/view/View;)Z` @kind virtual;
+  #L19e136.  v1:= temp;
+  #L19e138.  return v1;
+}
+procedure `boolean` `onDependentViewChanged`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v1 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind object @name `parent`, `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` v3 @kind object @name `child`, `android.view.View` v4 @kind object @name `dependency`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.onDependentViewChanged:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;Landroid/view/View;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19e14c.  v0:= instanceof @variable v4 @type ^`com.google.android.material.appbar.AppBarLayout` @kind boolean;
+  #L19e150.  if v0 == 0 then goto L19e162;
+  #L19e154.  v0:= v4 @kind object;
+  #L19e156.  v0:= (`com.google.android.material.appbar.AppBarLayout`) v0 @kind object;
+  #L19e15a.  call temp:= `updateFabVisibilityForAppBarLayout`(v1, v2, v0, v3) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.updateFabVisibilityForAppBarLayout:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)Z` @kind direct;
+  #L19e160.  goto L19e174;
+  #L19e162.  call temp:= `isBottomSheet`(v4) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.isBottomSheet:(Landroid/view/View;)Z` @kind static;
+  #L19e168.  v0:= temp;
+  #L19e16a.  if v0 == 0 then goto L19e174;
+  #L19e16e.  call temp:= `updateFabVisibilityForBottomSheet`(v1, v4, v3) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.updateFabVisibilityForBottomSheet:(Landroid/view/View;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)Z` @kind direct;
+  #L19e174.  v0:= 0I;
+  #L19e176.  return v0;
+}
+procedure `boolean` `onLayoutChild`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v0 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind object, `android.view.View` v2 @kind object, `int` v3 ) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.onLayoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)Z` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19e188.  v2:= (`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton`) v2 @kind object;
+  #L19e18c.  call temp:= `onLayoutChild`(v0, v1, v2, v3) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.onLayoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;I)Z` @kind virtual;
+  #L19e192.  v1:= temp;
+  #L19e194.  return v1;
+}
+procedure `boolean` `onLayoutChild`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v5 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v6 @kind object @name `parent`, `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` v7 @kind object @name `child`, `int` v8 @name `layoutDirection`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.onLayoutChild:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;I)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L19e1a8.  call temp:= `getDependencies`(v6, v7) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getDependencies:(Landroid/view/View;)Ljava/util/List;` @kind virtual;
+  #L19e1ae.  v0:= temp @kind object;
+  #L19e1b0.  v1:= 0I;
+  #L19e1b2.  call temp:= `size`(v0) @signature `Ljava/util/List;.size:()I` @kind interface;
+  #L19e1b8.  v2:= temp;
+  #L19e1ba.  if v1 >= v2 then goto L19e206;
+  #L19e1be.  call temp:= `get`(v0, v1) @signature `Ljava/util/List;.get:(I)Ljava/lang/Object;` @kind interface;
+  #L19e1c4.  v3:= temp @kind object;
+  #L19e1c6.  v3:= (`android.view.View`) v3 @kind object;
+  #L19e1ca.  v4:= instanceof @variable v3 @type ^`com.google.android.material.appbar.AppBarLayout` @kind boolean;
+  #L19e1ce.  if v4 == 0 then goto L19e1e6;
+  #L19e1d2.  v4:= v3 @kind object;
+  #L19e1d4.  v4:= (`com.google.android.material.appbar.AppBarLayout`) v4 @kind object;
+  #L19e1d8.  call temp:= `updateFabVisibilityForAppBarLayout`(v5, v6, v4, v7) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.updateFabVisibilityForAppBarLayout:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)Z` @kind direct;
+  #L19e1de.  v4:= temp;
+  #L19e1e0.  if v4 == 0 then goto L19e200;
+  #L19e1e4.  goto L19e206;
+  #L19e1e6.  call temp:= `isBottomSheet`(v3) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.isBottomSheet:(Landroid/view/View;)Z` @kind static;
+  #L19e1ec.  v4:= temp;
+  #L19e1ee.  if v4 == 0 then goto L19e200;
+  #L19e1f2.  call temp:= `updateFabVisibilityForBottomSheet`(v5, v3, v7) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.updateFabVisibilityForBottomSheet:(Landroid/view/View;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)Z` @kind direct;
+  #L19e1f8.  v4:= temp;
+  #L19e1fa.  if v4 == 0 then goto L19e200;
+  #L19e1fe.  goto L19e206;
+  #L19e200.  v1:= v1 + 1;
+  #L19e204.  goto L19e1ba;
+  #L19e206.  call `onLayoutChild`(v6, v7, v8) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.onLayoutChild:(Landroid/view/View;I)V` @kind virtual;
+  #L19e20c.  call `offsetIfNeeded`(v5, v6, v7) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.offsetIfNeeded:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)V` @kind direct;
+  #L19e212.  v1:= 1I;
+  #L19e214.  return v1;
+}
+procedure `void` `setAutoHideEnabled`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v0 @kind this, `boolean` v1 @name `autoHide`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.setAutoHideEnabled:(Z)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L19e4d8.  v0.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.autoHideEnabled` @type ^`boolean` := v1 @kind boolean;
+  #L19e4dc.  return @kind void;
+}
+procedure `void` `setAutoShrinkEnabled`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v0 @kind this, `boolean` v1 @name `autoShrink`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.setAutoShrinkEnabled:(Z)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L19e4f0.  v0.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.autoShrinkEnabled` @type ^`boolean` := v1 @kind boolean;
+  #L19e4f4.  return @kind void;
+}
+procedure `void` `setInternalAutoHideCallback`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v0 @kind this, `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$OnChangedCallback` v1 @kind object @name `callback`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.setInternalAutoHideCallback:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$OnChangedCallback;)V` @AccessFlag  {
+    temp;
+
+  #L19e508.  v0.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.internalAutoHideCallback` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$OnChangedCallback` := v1 @kind object;
+  #L19e50c.  return @kind void;
+}
+procedure `void` `setInternalAutoShrinkCallback`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v0 @kind this, `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$OnChangedCallback` v1 @kind object @name `callback`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.setInternalAutoShrinkCallback:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$OnChangedCallback;)V` @AccessFlag  {
+    temp;
+
+  #L19e520.  v0.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.internalAutoShrinkCallback` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$OnChangedCallback` := v1 @kind object;
+  #L19e524.  return @kind void;
+}
+procedure `void` `shrinkOrHide`(`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior` v2 @kind this, `com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton` v3 @kind object @name `fab`) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior;.shrinkOrHide:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L19e538.  v0:= v2.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.autoShrinkEnabled` @type ^`boolean` @kind boolean;
+  #L19e53c.  if v0 == 0 then goto L19e546;
+  #L19e540.  v1:= v2.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.internalAutoShrinkCallback` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$OnChangedCallback` @kind object;
+  #L19e544.  goto L19e54a;
+  #L19e546.  v1:= v2.`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$ExtendedFloatingActionButtonBehavior.internalAutoHideCallback` @type ^`com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton$OnChangedCallback` @kind object;
+  #L19e54a.  if v0 == 0 then goto L19e558;
+  #L19e54e.  call temp:= `access$000`(v3) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.access$000:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)Lcom/google/android/material/floatingactionbutton/MotionStrategy;` @kind static;
+  #L19e554.  v0:= temp @kind object;
+  #L19e556.  goto L19e560;
+  #L19e558.  call temp:= `access$100`(v3) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.access$100:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;)Lcom/google/android/material/floatingactionbutton/MotionStrategy;` @kind static;
+  #L19e55e.  v0:= temp @kind object;
+  #L19e560.  
+  #L19e562.  call `access$200`(v3, v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;.access$200:(Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton;Lcom/google/android/material/floatingactionbutton/MotionStrategy;Lcom/google/android/material/floatingactionbutton/ExtendedFloatingActionButton$OnChangedCallback;)V` @kind static;
+  #L19e568.  return @kind void;
+}

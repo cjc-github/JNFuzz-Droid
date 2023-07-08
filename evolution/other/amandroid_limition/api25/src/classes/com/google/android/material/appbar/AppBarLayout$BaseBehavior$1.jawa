@@ -1,0 +1,32 @@
+record `com.google.android.material.appbar.AppBarLayout$BaseBehavior$1` @kind class @AccessFlag  extends `android.animation.ValueAnimator$AnimatorUpdateListener` @kind interface {
+  `com.google.android.material.appbar.AppBarLayout$BaseBehavior` `com.google.android.material.appbar.AppBarLayout$BaseBehavior$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+  `com.google.android.material.appbar.AppBarLayout` `com.google.android.material.appbar.AppBarLayout$BaseBehavior$1.val$child` @AccessFlag FINAL_SYNTHETIC;
+  `androidx.coordinatorlayout.widget.CoordinatorLayout` `com.google.android.material.appbar.AppBarLayout$BaseBehavior$1.val$coordinatorLayout` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior$1` v0 @kind this, `com.google.android.material.appbar.AppBarLayout$BaseBehavior` v1 @kind object @name `this$0`, `androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind object, `com.google.android.material.appbar.AppBarLayout` v3 @kind object) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$1;.<init>:(Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;Landroidx/coordinatorlayout/widget/CoordinatorLayout;Lcom/google/android/material/appbar/AppBarLayout;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L17d9cc.  v0.`com.google.android.material.appbar.AppBarLayout$BaseBehavior$1.this$0` @type ^`com.google.android.material.appbar.AppBarLayout$BaseBehavior` := v1 @kind object;
+  #L17d9d0.  v0.`com.google.android.material.appbar.AppBarLayout$BaseBehavior$1.val$coordinatorLayout` @type ^`androidx.coordinatorlayout.widget.CoordinatorLayout` := v2 @kind object;
+  #L17d9d4.  v0.`com.google.android.material.appbar.AppBarLayout$BaseBehavior$1.val$child` @type ^`com.google.android.material.appbar.AppBarLayout` := v3 @kind object;
+  #L17d9d8.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L17d9de.  return @kind void;
+}
+procedure `void` `onAnimationUpdate`(`com.google.android.material.appbar.AppBarLayout$BaseBehavior$1` v4 @kind this, `android.animation.ValueAnimator` v5 @kind object @name `animator`) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior$1;.onAnimationUpdate:(Landroid/animation/ValueAnimator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L17d9f0.  v0:= v4.`com.google.android.material.appbar.AppBarLayout$BaseBehavior$1.this$0` @type ^`com.google.android.material.appbar.AppBarLayout$BaseBehavior` @kind object;
+  #L17d9f4.  v1:= v4.`com.google.android.material.appbar.AppBarLayout$BaseBehavior$1.val$coordinatorLayout` @type ^`androidx.coordinatorlayout.widget.CoordinatorLayout` @kind object;
+  #L17d9f8.  v2:= v4.`com.google.android.material.appbar.AppBarLayout$BaseBehavior$1.val$child` @type ^`com.google.android.material.appbar.AppBarLayout` @kind object;
+  #L17d9fc.  call temp:= `getAnimatedValue`(v5) @signature `Landroid/animation/ValueAnimator;.getAnimatedValue:()Ljava/lang/Object;` @kind virtual;
+  #L17da02.  v3:= temp @kind object;
+  #L17da04.  v3:= (`java.lang.Integer`) v3 @kind object;
+  #L17da08.  call temp:= `intValue`(v3) @signature `Ljava/lang/Integer;.intValue:()I` @kind virtual;
+  #L17da0e.  v3:= temp;
+  #L17da10.  call temp:= `setHeaderTopBottomOffset`(v0, v1, v2, v3) @signature `Lcom/google/android/material/appbar/AppBarLayout$BaseBehavior;.setHeaderTopBottomOffset:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)I` @kind virtual;
+  #L17da16.  return @kind void;
+}

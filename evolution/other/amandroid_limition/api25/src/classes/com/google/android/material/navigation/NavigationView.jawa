@@ -1,0 +1,822 @@
+record `com.google.android.material.navigation.NavigationView` @kind class @AccessFlag PUBLIC extends `com.google.android.material.internal.ScrimInsetsFrameLayout` @kind class {
+  `com.google.android.material.navigation.NavigationView$OnNavigationItemSelectedListener` `com.google.android.material.navigation.NavigationView.listener` @AccessFlag ;
+  `int` `com.google.android.material.navigation.NavigationView.maxWidth` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.internal.NavigationMenu` `com.google.android.material.navigation.NavigationView.menu` @AccessFlag PRIVATE_FINAL;
+  `android.view.MenuInflater` `com.google.android.material.navigation.NavigationView.menuInflater` @AccessFlag PRIVATE;
+  `android.view.ViewTreeObserver$OnGlobalLayoutListener` `com.google.android.material.navigation.NavigationView.onGlobalLayoutListener` @AccessFlag PRIVATE;
+  `com.google.android.material.internal.NavigationMenuPresenter` `com.google.android.material.navigation.NavigationView.presenter` @AccessFlag PRIVATE_FINAL;
+  `int`[] `com.google.android.material.navigation.NavigationView.tmpLocation` @AccessFlag PRIVATE_FINAL;
+}
+global `int`[] `@@com.google.android.material.navigation.NavigationView.CHECKED_STATE_SET` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int`[] `@@com.google.android.material.navigation.NavigationView.DISABLED_STATE_SET` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.navigation.NavigationView.PRESENTER_NAVIGATION_VIEW_ID` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/navigation/NavigationView;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1a8018.  v0:= 1I;
+  #L1a801a.  v1:= new `int`[v0];
+  #L1a801e.  v2:= 16842912I;
+  #L1a8024.  v3:= 0I;
+  #L1a8026.  v1[v3]:= v2;
+  #L1a802a.  `@@com.google.android.material.navigation.NavigationView.CHECKED_STATE_SET` @type ^`int`[] := v1 @kind object;
+  #L1a802e.  v0:= new `int`[v0];
+  #L1a8032.  v1:= -16842910I;
+  #L1a8038.  v0[v3]:= v1;
+  #L1a803c.  `@@com.google.android.material.navigation.NavigationView.DISABLED_STATE_SET` @type ^`int`[] := v0 @kind object;
+  #L1a8040.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.navigation.NavigationView` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/navigation/NavigationView;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a8054.  v0:= 0I;
+  #L1a8056.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/navigation/NavigationView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1a805c.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.navigation.NavigationView` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/navigation/NavigationView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a8070.  v0:= `@@com.google.android.material.R$attr.navigationViewStyle` @type ^`int`;
+  #L1a8074.  call `<init>`(v1, v2, v3, v0) @signature `Lcom/google/android/material/navigation/NavigationView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1a807a.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.navigation.NavigationView` v12 @kind this, `android.content.Context` v13 @kind object @name `context`, `android.util.AttributeSet` v14 @kind object @name `attrs`, `int` v15 @name `defStyleAttr`) @signature `Lcom/google/android/material/navigation/NavigationView;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+
+  #L1a808c.  call `<init>`(v12, v13, v14, v15) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1a8092.  v0:= new `com.google.android.material.internal.NavigationMenuPresenter`;
+  #L1a8096.  call `<init>`(v0) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.<init>:()V` @kind direct;
+  #L1a809c.  v12.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` := v0 @kind object;
+  #L1a80a0.  v1:= 2I;
+  #L1a80a2.  v1:= new `int`[v1];
+  #L1a80a6.  v12.`com.google.android.material.navigation.NavigationView.tmpLocation` @type ^`int`[] := v1 @kind object;
+  #L1a80aa.  v1:= new `com.google.android.material.internal.NavigationMenu`;
+  #L1a80ae.  call `<init>`(v1, v13) @signature `Lcom/google/android/material/internal/NavigationMenu;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L1a80b4.  v12.`com.google.android.material.navigation.NavigationView.menu` @type ^`com.google.android.material.internal.NavigationMenu` := v1 @kind object;
+  #L1a80b8.  v4:= `@@com.google.android.material.R$styleable.NavigationView` @type ^`int`[] @kind object;
+  #L1a80bc.  v6:= `@@com.google.android.material.R$style.Widget_Design_NavigationView` @type ^`int`;
+  #L1a80c0.  v8:= 0I;
+  #L1a80c2.  v7:= new `int`[v8];
+  #L1a80c6.  v2:= v13 @kind object;
+  #L1a80c8.  v3:= v14 @kind object;
+  #L1a80ca.  v5:= v15;
+  #L1a80cc.  call temp:= `obtainTintedStyledAttributes`(v2, v3, v4, v5, v6, v7) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainTintedStyledAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroidx/appcompat/widget/TintTypedArray;` @kind static;
+  #L1a80d2.  v2:= temp @kind object;
+  #L1a80d4.  v3:= `@@com.google.android.material.R$styleable.NavigationView_android_background` @type ^`int`;
+  #L1a80d8.  call temp:= `hasValue`(v2, v3) @signature `Landroidx/appcompat/widget/TintTypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1a80de.  v3:= temp;
+  #L1a80e0.  if v3 == 0 then goto L1a80f6;
+  #L1a80e4.  v3:= `@@com.google.android.material.R$styleable.NavigationView_android_background` @type ^`int`;
+  #L1a80e8.  call temp:= `getDrawable`(v2, v3) @signature `Landroidx/appcompat/widget/TintTypedArray;.getDrawable:(I)Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1a80ee.  v3:= temp @kind object;
+  #L1a80f0.  call `setBackground`(v12, v3) @signature `Landroidx/core/view/ViewCompat;.setBackground:(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V` @kind static;
+  #L1a80f6.  call temp:= `getBackground`(v12) @signature `Lcom/google/android/material/navigation/NavigationView;.getBackground:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1a80fc.  v3:= temp @kind object;
+  #L1a80fe.  if v3 == 0 then goto L1a8112;
+  #L1a8102.  call temp:= `getBackground`(v12) @signature `Lcom/google/android/material/navigation/NavigationView;.getBackground:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1a8108.  v3:= temp @kind object;
+  #L1a810a.  v3:= instanceof @variable v3 @type ^`android.graphics.drawable.ColorDrawable` @kind boolean;
+  #L1a810e.  if v3 == 0 then goto L1a8154;
+  #L1a8112.  call temp:= `getBackground`(v12) @signature `Lcom/google/android/material/navigation/NavigationView;.getBackground:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1a8118.  v3:= temp @kind object;
+  #L1a811a.  v4:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L1a811e.  call `<init>`(v4) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:()V` @kind direct;
+  #L1a8124.  v5:= instanceof @variable v3 @type ^`android.graphics.drawable.ColorDrawable` @kind boolean;
+  #L1a8128.  if v5 == 0 then goto L1a8148;
+  #L1a812c.  v5:= v3 @kind object;
+  #L1a812e.  v5:= (`android.graphics.drawable.ColorDrawable`) v5 @kind object;
+  #L1a8132.  call temp:= `getColor`(v5) @signature `Landroid/graphics/drawable/ColorDrawable;.getColor:()I` @kind virtual;
+  #L1a8138.  v5:= temp;
+  #L1a813a.  call temp:= `valueOf`(v5) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1a8140.  v5:= temp @kind object;
+  #L1a8142.  call `setFillColor`(v4, v5) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1a8148.  call `initializeElevationOverlay`(v4, v13) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.initializeElevationOverlay:(Landroid/content/Context;)V` @kind virtual;
+  #L1a814e.  call `setBackground`(v12, v4) @signature `Landroidx/core/view/ViewCompat;.setBackground:(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V` @kind static;
+  #L1a8154.  v3:= `@@com.google.android.material.R$styleable.NavigationView_elevation` @type ^`int`;
+  #L1a8158.  call temp:= `hasValue`(v2, v3) @signature `Landroidx/appcompat/widget/TintTypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1a815e.  v3:= temp;
+  #L1a8160.  if v3 == 0 then goto L1a8178;
+  #L1a8164.  v3:= `@@com.google.android.material.R$styleable.NavigationView_elevation` @type ^`int`;
+  #L1a8168.  call temp:= `getDimensionPixelSize`(v2, v3, v8) @signature `Landroidx/appcompat/widget/TintTypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1a816e.  v3:= temp;
+  #L1a8170.  v3:= (`float`) v3 @kind i2f;
+  #L1a8172.  call `setElevation`(v12, v3) @signature `Lcom/google/android/material/navigation/NavigationView;.setElevation:(F)V` @kind virtual;
+  #L1a8178.  v3:= `@@com.google.android.material.R$styleable.NavigationView_android_fitsSystemWindows` @type ^`int`;
+  #L1a817c.  call temp:= `getBoolean`(v2, v3, v8) @signature `Landroidx/appcompat/widget/TintTypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L1a8182.  v3:= temp;
+  #L1a8184.  call `setFitsSystemWindows`(v12, v3) @signature `Lcom/google/android/material/navigation/NavigationView;.setFitsSystemWindows:(Z)V` @kind virtual;
+  #L1a818a.  v3:= `@@com.google.android.material.R$styleable.NavigationView_android_maxWidth` @type ^`int`;
+  #L1a818e.  call temp:= `getDimensionPixelSize`(v2, v3, v8) @signature `Landroidx/appcompat/widget/TintTypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1a8194.  v3:= temp;
+  #L1a8196.  v12.`com.google.android.material.navigation.NavigationView.maxWidth` @type ^`int` := v3;
+  #L1a819a.  v3:= `@@com.google.android.material.R$styleable.NavigationView_itemIconTint` @type ^`int`;
+  #L1a819e.  call temp:= `hasValue`(v2, v3) @signature `Landroidx/appcompat/widget/TintTypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1a81a4.  v3:= temp;
+  #L1a81a6.  if v3 == 0 then goto L1a81b8;
+  #L1a81aa.  v3:= `@@com.google.android.material.R$styleable.NavigationView_itemIconTint` @type ^`int`;
+  #L1a81ae.  call temp:= `getColorStateList`(v2, v3) @signature `Landroidx/appcompat/widget/TintTypedArray;.getColorStateList:(I)Landroid/content/res/ColorStateList;` @kind virtual;
+  #L1a81b4.  v3:= temp @kind object;
+  #L1a81b6.  goto L1a81c6;
+  #L1a81b8.  v3:= 16842808I;
+  #L1a81be.  call temp:= `createDefaultColorStateList`(v12, v3) @signature `Lcom/google/android/material/navigation/NavigationView;.createDefaultColorStateList:(I)Landroid/content/res/ColorStateList;` @kind direct;
+  #L1a81c4.  v3:= temp @kind object;
+  #L1a81c6.  v4:= 0I;
+  #L1a81c8.  v5:= 0I;
+  #L1a81ca.  v6:= `@@com.google.android.material.R$styleable.NavigationView_itemTextAppearance` @type ^`int`;
+  #L1a81ce.  call temp:= `hasValue`(v2, v6) @signature `Landroidx/appcompat/widget/TintTypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1a81d4.  v6:= temp;
+  #L1a81d6.  if v6 == 0 then goto L1a81e8;
+  #L1a81da.  v6:= `@@com.google.android.material.R$styleable.NavigationView_itemTextAppearance` @type ^`int`;
+  #L1a81de.  call temp:= `getResourceId`(v2, v6, v8) @signature `Landroidx/appcompat/widget/TintTypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1a81e4.  v5:= temp;
+  #L1a81e6.  v4:= 1I;
+  #L1a81e8.  v6:= `@@com.google.android.material.R$styleable.NavigationView_itemIconSize` @type ^`int`;
+  #L1a81ec.  call temp:= `hasValue`(v2, v6) @signature `Landroidx/appcompat/widget/TintTypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1a81f2.  v6:= temp;
+  #L1a81f4.  if v6 == 0 then goto L1a820a;
+  #L1a81f8.  v6:= `@@com.google.android.material.R$styleable.NavigationView_itemIconSize` @type ^`int`;
+  #L1a81fc.  call temp:= `getDimensionPixelSize`(v2, v6, v8) @signature `Landroidx/appcompat/widget/TintTypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1a8202.  v6:= temp;
+  #L1a8204.  call `setItemIconSize`(v12, v6) @signature `Lcom/google/android/material/navigation/NavigationView;.setItemIconSize:(I)V` @kind virtual;
+  #L1a820a.  v6:= 0I;
+  #L1a820c.  v7:= `@@com.google.android.material.R$styleable.NavigationView_itemTextColor` @type ^`int`;
+  #L1a8210.  call temp:= `hasValue`(v2, v7) @signature `Landroidx/appcompat/widget/TintTypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1a8216.  v7:= temp;
+  #L1a8218.  if v7 == 0 then goto L1a8228;
+  #L1a821c.  v7:= `@@com.google.android.material.R$styleable.NavigationView_itemTextColor` @type ^`int`;
+  #L1a8220.  call temp:= `getColorStateList`(v2, v7) @signature `Landroidx/appcompat/widget/TintTypedArray;.getColorStateList:(I)Landroid/content/res/ColorStateList;` @kind virtual;
+  #L1a8226.  v6:= temp @kind object;
+  #L1a8228.  if v4 != 0 then goto L1a823e;
+  #L1a822c.  if v6 != 0 then goto L1a823e;
+  #L1a8230.  v7:= 16842806I;
+  #L1a8236.  call temp:= `createDefaultColorStateList`(v12, v7) @signature `Lcom/google/android/material/navigation/NavigationView;.createDefaultColorStateList:(I)Landroid/content/res/ColorStateList;` @kind direct;
+  #L1a823c.  v6:= temp @kind object;
+  #L1a823e.  v7:= `@@com.google.android.material.R$styleable.NavigationView_itemBackground` @type ^`int`;
+  #L1a8242.  call temp:= `getDrawable`(v2, v7) @signature `Landroidx/appcompat/widget/TintTypedArray;.getDrawable:(I)Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1a8248.  v7:= temp @kind object;
+  #L1a824a.  if v7 != 0 then goto L1a8262;
+  #L1a824e.  call temp:= `hasShapeAppearance`(v12, v2) @signature `Lcom/google/android/material/navigation/NavigationView;.hasShapeAppearance:(Landroidx/appcompat/widget/TintTypedArray;)Z` @kind direct;
+  #L1a8254.  v9:= temp;
+  #L1a8256.  if v9 == 0 then goto L1a8262;
+  #L1a825a.  call temp:= `createDefaultItemBackground`(v12, v2) @signature `Lcom/google/android/material/navigation/NavigationView;.createDefaultItemBackground:(Landroidx/appcompat/widget/TintTypedArray;)Landroid/graphics/drawable/Drawable;` @kind direct;
+  #L1a8260.  v7:= temp @kind object;
+  #L1a8262.  v9:= `@@com.google.android.material.R$styleable.NavigationView_itemHorizontalPadding` @type ^`int`;
+  #L1a8266.  call temp:= `hasValue`(v2, v9) @signature `Landroidx/appcompat/widget/TintTypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1a826c.  v9:= temp;
+  #L1a826e.  if v9 == 0 then goto L1a8284;
+  #L1a8272.  v9:= `@@com.google.android.material.R$styleable.NavigationView_itemHorizontalPadding` @type ^`int`;
+  #L1a8276.  call temp:= `getDimensionPixelSize`(v2, v9, v8) @signature `Landroidx/appcompat/widget/TintTypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1a827c.  v9:= temp;
+  #L1a827e.  call `setItemHorizontalPadding`(v0, v9) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setItemHorizontalPadding:(I)V` @kind virtual;
+  #L1a8284.  v9:= `@@com.google.android.material.R$styleable.NavigationView_itemIconPadding` @type ^`int`;
+  #L1a8288.  call temp:= `getDimensionPixelSize`(v2, v9, v8) @signature `Landroidx/appcompat/widget/TintTypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1a828e.  v9:= temp;
+  #L1a8290.  v10:= `@@com.google.android.material.R$styleable.NavigationView_itemMaxLines` @type ^`int`;
+  #L1a8294.  v11:= 1I;
+  #L1a8296.  call temp:= `getInt`(v2, v10, v11) @signature `Landroidx/appcompat/widget/TintTypedArray;.getInt:(II)I` @kind virtual;
+  #L1a829c.  v10:= temp;
+  #L1a829e.  call `setItemMaxLines`(v12, v10) @signature `Lcom/google/android/material/navigation/NavigationView;.setItemMaxLines:(I)V` @kind virtual;
+  #L1a82a4.  v10:= new `com.google.android.material.navigation.NavigationView$1`;
+  #L1a82a8.  call `<init>`(v10, v12) @signature `Lcom/google/android/material/navigation/NavigationView$1;.<init>:(Lcom/google/android/material/navigation/NavigationView;)V` @kind direct;
+  #L1a82ae.  call `setCallback`(v1, v10) @signature `Lcom/google/android/material/internal/NavigationMenu;.setCallback:(Landroidx/appcompat/view/menu/MenuBuilder$Callback;)V` @kind virtual;
+  #L1a82b4.  call `setId`(v0, v11) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setId:(I)V` @kind virtual;
+  #L1a82ba.  call `initForMenu`(v0, v13, v1) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.initForMenu:(Landroid/content/Context;Landroidx/appcompat/view/menu/MenuBuilder;)V` @kind virtual;
+  #L1a82c0.  call `setItemIconTintList`(v0, v3) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setItemIconTintList:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1a82c6.  call temp:= `getOverScrollMode`(v12) @signature `Lcom/google/android/material/navigation/NavigationView;.getOverScrollMode:()I` @kind virtual;
+  #L1a82cc.  v10:= temp;
+  #L1a82ce.  call `setOverScrollMode`(v0, v10) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setOverScrollMode:(I)V` @kind virtual;
+  #L1a82d4.  if v4 == 0 then goto L1a82de;
+  #L1a82d8.  call `setItemTextAppearance`(v0, v5) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setItemTextAppearance:(I)V` @kind virtual;
+  #L1a82de.  call `setItemTextColor`(v0, v6) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setItemTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1a82e4.  call `setItemBackground`(v0, v7) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setItemBackground:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L1a82ea.  call `setItemIconPadding`(v0, v9) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setItemIconPadding:(I)V` @kind virtual;
+  #L1a82f0.  call `addMenuPresenter`(v1, v0) @signature `Lcom/google/android/material/internal/NavigationMenu;.addMenuPresenter:(Landroidx/appcompat/view/menu/MenuPresenter;)V` @kind virtual;
+  #L1a82f6.  call temp:= `getMenuView`(v0, v12) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.getMenuView:(Landroid/view/ViewGroup;)Landroidx/appcompat/view/menu/MenuView;` @kind virtual;
+  #L1a82fc.  v0:= temp @kind object;
+  #L1a82fe.  v0:= (`android.view.View`) v0 @kind object;
+  #L1a8302.  call `addView`(v12, v0) @signature `Lcom/google/android/material/navigation/NavigationView;.addView:(Landroid/view/View;)V` @kind virtual;
+  #L1a8308.  v0:= `@@com.google.android.material.R$styleable.NavigationView_menu` @type ^`int`;
+  #L1a830c.  call temp:= `hasValue`(v2, v0) @signature `Landroidx/appcompat/widget/TintTypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1a8312.  v0:= temp;
+  #L1a8314.  if v0 == 0 then goto L1a832a;
+  #L1a8318.  v0:= `@@com.google.android.material.R$styleable.NavigationView_menu` @type ^`int`;
+  #L1a831c.  call temp:= `getResourceId`(v2, v0, v8) @signature `Landroidx/appcompat/widget/TintTypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1a8322.  v0:= temp;
+  #L1a8324.  call `inflateMenu`(v12, v0) @signature `Lcom/google/android/material/navigation/NavigationView;.inflateMenu:(I)V` @kind virtual;
+  #L1a832a.  v0:= `@@com.google.android.material.R$styleable.NavigationView_headerLayout` @type ^`int`;
+  #L1a832e.  call temp:= `hasValue`(v2, v0) @signature `Landroidx/appcompat/widget/TintTypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1a8334.  v0:= temp;
+  #L1a8336.  if v0 == 0 then goto L1a834c;
+  #L1a833a.  v0:= `@@com.google.android.material.R$styleable.NavigationView_headerLayout` @type ^`int`;
+  #L1a833e.  call temp:= `getResourceId`(v2, v0, v8) @signature `Landroidx/appcompat/widget/TintTypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1a8344.  v0:= temp;
+  #L1a8346.  call temp:= `inflateHeaderView`(v12, v0) @signature `Lcom/google/android/material/navigation/NavigationView;.inflateHeaderView:(I)Landroid/view/View;` @kind virtual;
+  #L1a834c.  call `recycle`(v2) @signature `Landroidx/appcompat/widget/TintTypedArray;.recycle:()V` @kind virtual;
+  #L1a8352.  call `setupInsetScrimsListener`(v12) @signature `Lcom/google/android/material/navigation/NavigationView;.setupInsetScrimsListener:()V` @kind direct;
+  #L1a8358.  return @kind void;
+}
+procedure `int`[] `access$000`(`com.google.android.material.navigation.NavigationView` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/navigation/NavigationView;.access$000:(Lcom/google/android/material/navigation/NavigationView;)[I` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1a8000.  v0:= v1.`com.google.android.material.navigation.NavigationView.tmpLocation` @type ^`int`[] @kind object;
+  #L1a8004.  return v0 @kind object;
+}
+procedure `com.google.android.material.internal.NavigationMenuPresenter` `access$100`(`com.google.android.material.navigation.NavigationView` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/navigation/NavigationView;.access$100:(Lcom/google/android/material/navigation/NavigationView;)Lcom/google/android/material/internal/NavigationMenuPresenter;` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L1a7f68.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a7f6c.  return v0 @kind object;
+}
+procedure `android.content.res.ColorStateList` `createDefaultColorStateList`(`com.google.android.material.navigation.NavigationView` v12 @kind this, `int` v13 @name `baseColorThemeAttr`) @signature `Lcom/google/android/material/navigation/NavigationView;.createDefaultColorStateList:(I)Landroid/content/res/ColorStateList;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+
+  #L1a7c6c.  v0:= new `android.util.TypedValue`;
+  #L1a7c70.  call `<init>`(v0) @signature `Landroid/util/TypedValue;.<init>:()V` @kind direct;
+  #L1a7c76.  call temp:= `getContext`(v12) @signature `Lcom/google/android/material/navigation/NavigationView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1a7c7c.  v1:= temp @kind object;
+  #L1a7c7e.  call temp:= `getTheme`(v1) @signature `Landroid/content/Context;.getTheme:()Landroid/content/res/Resources$Theme;` @kind virtual;
+  #L1a7c84.  v1:= temp @kind object;
+  #L1a7c86.  v2:= 1I;
+  #L1a7c88.  call temp:= `resolveAttribute`(v1, v13, v0, v2) @signature `Landroid/content/res/Resources$Theme;.resolveAttribute:(ILandroid/util/TypedValue;Z)Z` @kind virtual;
+  #L1a7c8e.  v1:= temp;
+  #L1a7c90.  v3:= 0I;
+  #L1a7c92.  if v1 != 0 then goto L1a7c98;
+  #L1a7c96.  return v3 @kind object;
+  #L1a7c98.  call temp:= `getContext`(v12) @signature `Lcom/google/android/material/navigation/NavigationView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1a7c9e.  v1:= temp @kind object;
+  #L1a7ca0.  v4:= v0.`android.util.TypedValue.resourceId` @type ^`int`;
+  #L1a7ca4.  call temp:= `getColorStateList`(v1, v4) @signature `Landroidx/appcompat/content/res/AppCompatResources;.getColorStateList:(Landroid/content/Context;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1a7caa.  v1:= temp @kind object;
+  #L1a7cac.  call temp:= `getContext`(v12) @signature `Lcom/google/android/material/navigation/NavigationView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1a7cb2.  v4:= temp @kind object;
+  #L1a7cb4.  call temp:= `getTheme`(v4) @signature `Landroid/content/Context;.getTheme:()Landroid/content/res/Resources$Theme;` @kind virtual;
+  #L1a7cba.  v4:= temp @kind object;
+  #L1a7cbc.  v5:= `@@androidx.appcompat.R$attr.colorPrimary` @type ^`int`;
+  #L1a7cc0.  call temp:= `resolveAttribute`(v4, v5, v0, v2) @signature `Landroid/content/res/Resources$Theme;.resolveAttribute:(ILandroid/util/TypedValue;Z)Z` @kind virtual;
+  #L1a7cc6.  v4:= temp;
+  #L1a7cc8.  if v4 != 0 then goto L1a7cce;
+  #L1a7ccc.  return v3 @kind object;
+  #L1a7cce.  v3:= v0.`android.util.TypedValue.data` @type ^`int`;
+  #L1a7cd2.  call temp:= `getDefaultColor`(v1) @signature `Landroid/content/res/ColorStateList;.getDefaultColor:()I` @kind virtual;
+  #L1a7cd8.  v4:= temp;
+  #L1a7cda.  v5:= new `android.content.res.ColorStateList`;
+  #L1a7cde.  v6:= 3I;
+  #L1a7ce0.  v7:= new `int`[][v6];
+  #L1a7ce4.  v8:= `@@com.google.android.material.navigation.NavigationView.DISABLED_STATE_SET` @type ^`int`[] @kind object;
+  #L1a7ce8.  v9:= 0I;
+  #L1a7cea.  v7[v9]:= v8 @kind object;
+  #L1a7cee.  v10:= `@@com.google.android.material.navigation.NavigationView.CHECKED_STATE_SET` @type ^`int`[] @kind object;
+  #L1a7cf2.  v7[v2]:= v10 @kind object;
+  #L1a7cf6.  v10:= `@@com.google.android.material.navigation.NavigationView.EMPTY_STATE_SET` @type ^`int`[] @kind object;
+  #L1a7cfa.  v11:= 2I;
+  #L1a7cfc.  v7[v11]:= v10 @kind object;
+  #L1a7d00.  v6:= new `int`[v6];
+  #L1a7d04.  call temp:= `getColorForState`(v1, v8, v4) @signature `Landroid/content/res/ColorStateList;.getColorForState:([II)I` @kind virtual;
+  #L1a7d0a.  v8:= temp;
+  #L1a7d0c.  v6[v9]:= v8;
+  #L1a7d10.  v6[v2]:= v3;
+  #L1a7d14.  v6[v11]:= v4;
+  #L1a7d18.  call `<init>`(v5, v7, v6) @signature `Landroid/content/res/ColorStateList;.<init>:([[I[I)V` @kind direct;
+  #L1a7d1e.  return v5 @kind object;
+}
+procedure `android.graphics.drawable.Drawable` `createDefaultItemBackground`(`com.google.android.material.navigation.NavigationView` v14 @kind this, `androidx.appcompat.widget.TintTypedArray` v15 @kind object @name `a`) @signature `Lcom/google/android/material/navigation/NavigationView;.createDefaultItemBackground:(Landroidx/appcompat/widget/TintTypedArray;)Landroid/graphics/drawable/Drawable;` @AccessFlag PRIVATE_FINAL {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+    v12;
+    v13;
+
+  #L1a7d70.  v0:= `@@com.google.android.material.R$styleable.NavigationView_itemShapeAppearance` @type ^`int`;
+  #L1a7d74.  v1:= 0I;
+  #L1a7d76.  call temp:= `getResourceId`(v15, v0, v1) @signature `Landroidx/appcompat/widget/TintTypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1a7d7c.  v0:= temp;
+  #L1a7d7e.  v2:= `@@com.google.android.material.R$styleable.NavigationView_itemShapeAppearanceOverlay` @type ^`int`;
+  #L1a7d82.  call temp:= `getResourceId`(v15, v2, v1) @signature `Landroidx/appcompat/widget/TintTypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1a7d88.  v2:= temp;
+  #L1a7d8a.  v3:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L1a7d8e.  call temp:= `getContext`(v14) @signature `Lcom/google/android/material/navigation/NavigationView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1a7d94.  v4:= temp @kind object;
+  #L1a7d96.  call temp:= `builder`(v4, v0, v2) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.builder:(Landroid/content/Context;II)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind static;
+  #L1a7d9c.  v4:= temp @kind object;
+  #L1a7d9e.  call temp:= `build`(v4) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.build:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L1a7da4.  v4:= temp @kind object;
+  #L1a7da6.  call `<init>`(v3, v4) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L1a7dac.  
+  #L1a7dae.  call temp:= `getContext`(v14) @signature `Lcom/google/android/material/navigation/NavigationView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1a7db4.  v4:= temp @kind object;
+  #L1a7db6.  v5:= `@@com.google.android.material.R$styleable.NavigationView_itemShapeFillColor` @type ^`int`;
+  #L1a7dba.  call temp:= `getColorStateList`(v4, v15, v5) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroidx/appcompat/widget/TintTypedArray;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1a7dc0.  v4:= temp @kind object;
+  #L1a7dc2.  call `setFillColor`(v3, v4) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1a7dc8.  v4:= `@@com.google.android.material.R$styleable.NavigationView_itemShapeInsetStart` @type ^`int`;
+  #L1a7dcc.  call temp:= `getDimensionPixelSize`(v15, v4, v1) @signature `Landroidx/appcompat/widget/TintTypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1a7dd2.  v4:= temp;
+  #L1a7dd4.  v5:= `@@com.google.android.material.R$styleable.NavigationView_itemShapeInsetTop` @type ^`int`;
+  #L1a7dd8.  call temp:= `getDimensionPixelSize`(v15, v5, v1) @signature `Landroidx/appcompat/widget/TintTypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1a7dde.  v11:= temp;
+  #L1a7de0.  v5:= `@@com.google.android.material.R$styleable.NavigationView_itemShapeInsetEnd` @type ^`int`;
+  #L1a7de4.  call temp:= `getDimensionPixelSize`(v15, v5, v1) @signature `Landroidx/appcompat/widget/TintTypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1a7dea.  v12:= temp;
+  #L1a7dec.  v5:= `@@com.google.android.material.R$styleable.NavigationView_itemShapeInsetBottom` @type ^`int`;
+  #L1a7df0.  call temp:= `getDimensionPixelSize`(v15, v5, v1) @signature `Landroidx/appcompat/widget/TintTypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1a7df6.  v1:= temp;
+  #L1a7df8.  v13:= new `android.graphics.drawable.InsetDrawable`;
+  #L1a7dfc.  v5:= v13 @kind object;
+  #L1a7dfe.  v6:= v3 @kind object;
+  #L1a7e00.  v7:= v4;
+  #L1a7e02.  v8:= v11;
+  #L1a7e04.  v9:= v12;
+  #L1a7e06.  v10:= v1;
+  #L1a7e08.  call `<init>`(v5, v6, v7, v8, v9, v10) @signature `Landroid/graphics/drawable/InsetDrawable;.<init>:(Landroid/graphics/drawable/Drawable;IIII)V` @kind direct;
+  #L1a7e0e.  return v13 @kind object;
+}
+procedure `android.view.MenuInflater` `getMenuInflater`(`com.google.android.material.navigation.NavigationView` v2 @kind this) @signature `Lcom/google/android/material/navigation/NavigationView;.getMenuInflater:()Landroid/view/MenuInflater;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1a7e98.  v0:= v2.`com.google.android.material.navigation.NavigationView.menuInflater` @type ^`android.view.MenuInflater` @kind object;
+  #L1a7e9c.  if v0 != 0 then goto L1a7eb6;
+  #L1a7ea0.  v0:= new `androidx.appcompat.view.SupportMenuInflater`;
+  #L1a7ea4.  call temp:= `getContext`(v2) @signature `Lcom/google/android/material/navigation/NavigationView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1a7eaa.  v1:= temp @kind object;
+  #L1a7eac.  call `<init>`(v0, v1) @signature `Landroidx/appcompat/view/SupportMenuInflater;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L1a7eb2.  v2.`com.google.android.material.navigation.NavigationView.menuInflater` @type ^`android.view.MenuInflater` := v0 @kind object;
+  #L1a7eb6.  v0:= v2.`com.google.android.material.navigation.NavigationView.menuInflater` @type ^`android.view.MenuInflater` @kind object;
+  #L1a7eba.  return v0 @kind object;
+}
+procedure `boolean` `hasShapeAppearance`(`com.google.android.material.navigation.NavigationView` v1 @kind this, `androidx.appcompat.widget.TintTypedArray` v2 @kind object @name `a`) @signature `Lcom/google/android/material/navigation/NavigationView;.hasShapeAppearance:(Landroidx/appcompat/widget/TintTypedArray;)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1a7f2c.  v0:= `@@com.google.android.material.R$styleable.NavigationView_itemShapeAppearance` @type ^`int`;
+  #L1a7f30.  call temp:= `hasValue`(v2, v0) @signature `Landroidx/appcompat/widget/TintTypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1a7f36.  v0:= temp;
+  #L1a7f38.  if v0 != 0 then goto L1a7f52;
+  #L1a7f3c.  v0:= `@@com.google.android.material.R$styleable.NavigationView_itemShapeAppearanceOverlay` @type ^`int`;
+  #L1a7f40.  call temp:= `hasValue`(v2, v0) @signature `Landroidx/appcompat/widget/TintTypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1a7f46.  v0:= temp;
+  #L1a7f48.  if v0 == 0 then goto L1a7f4e;
+  #L1a7f4c.  goto L1a7f52;
+  #L1a7f4e.  v0:= 0I;
+  #L1a7f50.  goto L1a7f54;
+  #L1a7f52.  v0:= 1I;
+  #L1a7f54.  return v0;
+}
+procedure `void` `setupInsetScrimsListener`(`com.google.android.material.navigation.NavigationView` v2 @kind this) @signature `Lcom/google/android/material/navigation/NavigationView;.setupInsetScrimsListener:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1a8764.  v0:= new `com.google.android.material.navigation.NavigationView$2`;
+  #L1a8768.  call `<init>`(v0, v2) @signature `Lcom/google/android/material/navigation/NavigationView$2;.<init>:(Lcom/google/android/material/navigation/NavigationView;)V` @kind direct;
+  #L1a876e.  v2.`com.google.android.material.navigation.NavigationView.onGlobalLayoutListener` @type ^`android.view.ViewTreeObserver$OnGlobalLayoutListener` := v0 @kind object;
+  #L1a8772.  call temp:= `getViewTreeObserver`(v2) @signature `Lcom/google/android/material/navigation/NavigationView;.getViewTreeObserver:()Landroid/view/ViewTreeObserver;` @kind virtual;
+  #L1a8778.  v0:= temp @kind object;
+  #L1a877a.  v1:= v2.`com.google.android.material.navigation.NavigationView.onGlobalLayoutListener` @type ^`android.view.ViewTreeObserver$OnGlobalLayoutListener` @kind object;
+  #L1a877e.  call `addOnGlobalLayoutListener`(v0, v1) @signature `Landroid/view/ViewTreeObserver;.addOnGlobalLayoutListener:(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V` @kind virtual;
+  #L1a8784.  return @kind void;
+}
+procedure `void` `addHeaderView`(`com.google.android.material.navigation.NavigationView` v1 @kind this, `android.view.View` v2 @kind object @name `view`) @signature `Lcom/google/android/material/navigation/NavigationView;.addHeaderView:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a836c.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a8370.  call `addHeaderView`(v0, v2) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.addHeaderView:(Landroid/view/View;)V` @kind virtual;
+  #L1a8376.  return @kind void;
+}
+procedure `android.view.MenuItem` `getCheckedItem`(`com.google.android.material.navigation.NavigationView` v1 @kind this) @signature `Lcom/google/android/material/navigation/NavigationView;.getCheckedItem:()Landroid/view/MenuItem;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a7ecc.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a7ed0.  call temp:= `getCheckedItem`(v0) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.getCheckedItem:()Landroidx/appcompat/view/menu/MenuItemImpl;` @kind virtual;
+  #L1a7ed6.  v0:= temp @kind object;
+  #L1a7ed8.  return v0 @kind object;
+}
+procedure `int` `getHeaderCount`(`com.google.android.material.navigation.NavigationView` v1 @kind this) @signature `Lcom/google/android/material/navigation/NavigationView;.getHeaderCount:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a7f80.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a7f84.  call temp:= `getHeaderCount`(v0) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.getHeaderCount:()I` @kind virtual;
+  #L1a7f8a.  v0:= temp;
+  #L1a7f8c.  return v0;
+}
+procedure `android.view.View` `getHeaderView`(`com.google.android.material.navigation.NavigationView` v1 @kind this, `int` v2 @name `index`) @signature `Lcom/google/android/material/navigation/NavigationView;.getHeaderView:(I)Landroid/view/View;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a7eec.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a7ef0.  call temp:= `getHeaderView`(v0, v2) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.getHeaderView:(I)Landroid/view/View;` @kind virtual;
+  #L1a7ef6.  v0:= temp @kind object;
+  #L1a7ef8.  return v0 @kind object;
+}
+procedure `android.graphics.drawable.Drawable` `getItemBackground`(`com.google.android.material.navigation.NavigationView` v1 @kind this) @signature `Lcom/google/android/material/navigation/NavigationView;.getItemBackground:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a7e20.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a7e24.  call temp:= `getItemBackground`(v0) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.getItemBackground:()Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1a7e2a.  v0:= temp @kind object;
+  #L1a7e2c.  return v0 @kind object;
+}
+procedure `int` `getItemHorizontalPadding`(`com.google.android.material.navigation.NavigationView` v1 @kind this) @signature `Lcom/google/android/material/navigation/NavigationView;.getItemHorizontalPadding:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a7fa0.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a7fa4.  call temp:= `getItemHorizontalPadding`(v0) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.getItemHorizontalPadding:()I` @kind virtual;
+  #L1a7faa.  v0:= temp;
+  #L1a7fac.  return v0;
+}
+procedure `int` `getItemIconPadding`(`com.google.android.material.navigation.NavigationView` v1 @kind this) @signature `Lcom/google/android/material/navigation/NavigationView;.getItemIconPadding:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a7fc0.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a7fc4.  call temp:= `getItemIconPadding`(v0) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.getItemIconPadding:()I` @kind virtual;
+  #L1a7fca.  v0:= temp;
+  #L1a7fcc.  return v0;
+}
+procedure `android.content.res.ColorStateList` `getItemIconTintList`(`com.google.android.material.navigation.NavigationView` v1 @kind this) @signature `Lcom/google/android/material/navigation/NavigationView;.getItemIconTintList:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a7d30.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a7d34.  call temp:= `getItemTintList`(v0) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.getItemTintList:()Landroid/content/res/ColorStateList;` @kind virtual;
+  #L1a7d3a.  v0:= temp @kind object;
+  #L1a7d3c.  return v0 @kind object;
+}
+procedure `int` `getItemMaxLines`(`com.google.android.material.navigation.NavigationView` v1 @kind this) @signature `Lcom/google/android/material/navigation/NavigationView;.getItemMaxLines:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a7fe0.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a7fe4.  call temp:= `getItemMaxLines`(v0) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.getItemMaxLines:()I` @kind virtual;
+  #L1a7fea.  v0:= temp;
+  #L1a7fec.  return v0;
+}
+procedure `android.content.res.ColorStateList` `getItemTextColor`(`com.google.android.material.navigation.NavigationView` v1 @kind this) @signature `Lcom/google/android/material/navigation/NavigationView;.getItemTextColor:()Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a7d50.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a7d54.  call temp:= `getItemTextColor`(v0) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.getItemTextColor:()Landroid/content/res/ColorStateList;` @kind virtual;
+  #L1a7d5a.  v0:= temp @kind object;
+  #L1a7d5c.  return v0 @kind object;
+}
+procedure `android.view.Menu` `getMenu`(`com.google.android.material.navigation.NavigationView` v1 @kind this) @signature `Lcom/google/android/material/navigation/NavigationView;.getMenu:()Landroid/view/Menu;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a7e80.  v0:= v1.`com.google.android.material.navigation.NavigationView.menu` @type ^`com.google.android.material.internal.NavigationMenu` @kind object;
+  #L1a7e84.  return v0 @kind object;
+}
+procedure `android.view.View` `inflateHeaderView`(`com.google.android.material.navigation.NavigationView` v1 @kind this, `int` v2 @name `res`) @signature `Lcom/google/android/material/navigation/NavigationView;.inflateHeaderView:(I)Landroid/view/View;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a7f0c.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a7f10.  call temp:= `inflateHeaderView`(v0, v2) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.inflateHeaderView:(I)Landroid/view/View;` @kind virtual;
+  #L1a7f16.  v0:= temp @kind object;
+  #L1a7f18.  return v0 @kind object;
+}
+procedure `void` `inflateMenu`(`com.google.android.material.navigation.NavigationView` v2 @kind this, `int` v3 @name `resId`) @signature `Lcom/google/android/material/navigation/NavigationView;.inflateMenu:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a8388.  v0:= v2.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a838c.  v1:= 1I;
+  #L1a838e.  call `setUpdateSuspended`(v0, v1) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setUpdateSuspended:(Z)V` @kind virtual;
+  #L1a8394.  call temp:= `getMenuInflater`(v2) @signature `Lcom/google/android/material/navigation/NavigationView;.getMenuInflater:()Landroid/view/MenuInflater;` @kind direct;
+  #L1a839a.  v0:= temp @kind object;
+  #L1a839c.  v1:= v2.`com.google.android.material.navigation.NavigationView.menu` @type ^`com.google.android.material.internal.NavigationMenu` @kind object;
+  #L1a83a0.  call `inflate`(v0, v3, v1) @signature `Landroid/view/MenuInflater;.inflate:(ILandroid/view/Menu;)V` @kind virtual;
+  #L1a83a6.  v0:= v2.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a83aa.  v1:= 0I;
+  #L1a83ac.  call `setUpdateSuspended`(v0, v1) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setUpdateSuspended:(Z)V` @kind virtual;
+  #L1a83b2.  v0:= v2.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a83b6.  call `updateMenuView`(v0, v1) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.updateMenuView:(Z)V` @kind virtual;
+  #L1a83bc.  return @kind void;
+}
+procedure `void` `onAttachedToWindow`(`com.google.android.material.navigation.NavigationView` v0 @kind this) @signature `Lcom/google/android/material/navigation/NavigationView;.onAttachedToWindow:()V` @AccessFlag PROTECTED {
+    temp;
+
+  #L1a83d0.  call `onAttachedToWindow`(v0) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.onAttachedToWindow:()V` @kind super;
+  #L1a83d6.  call `setParentAbsoluteElevation`(v0) @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.setParentAbsoluteElevation:(Landroid/view/View;)V` @kind static;
+  #L1a83dc.  return @kind void;
+}
+procedure `void` `onDetachedFromWindow`(`com.google.android.material.navigation.NavigationView` v2 @kind this) @signature `Lcom/google/android/material/navigation/NavigationView;.onDetachedFromWindow:()V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L1a83f0.  call `onDetachedFromWindow`(v2) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.onDetachedFromWindow:()V` @kind super;
+  #L1a83f6.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1a83fa.  v1:= 16I;
+  #L1a83fe.  if v0 >= v1 then goto L1a8416;
+  #L1a8402.  call temp:= `getViewTreeObserver`(v2) @signature `Lcom/google/android/material/navigation/NavigationView;.getViewTreeObserver:()Landroid/view/ViewTreeObserver;` @kind virtual;
+  #L1a8408.  v0:= temp @kind object;
+  #L1a840a.  v1:= v2.`com.google.android.material.navigation.NavigationView.onGlobalLayoutListener` @type ^`android.view.ViewTreeObserver$OnGlobalLayoutListener` @kind object;
+  #L1a840e.  call `removeGlobalOnLayoutListener`(v0, v1) @signature `Landroid/view/ViewTreeObserver;.removeGlobalOnLayoutListener:(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V` @kind virtual;
+  #L1a8414.  goto L1a8428;
+  #L1a8416.  call temp:= `getViewTreeObserver`(v2) @signature `Lcom/google/android/material/navigation/NavigationView;.getViewTreeObserver:()Landroid/view/ViewTreeObserver;` @kind virtual;
+  #L1a841c.  v0:= temp @kind object;
+  #L1a841e.  v1:= v2.`com.google.android.material.navigation.NavigationView.onGlobalLayoutListener` @type ^`android.view.ViewTreeObserver$OnGlobalLayoutListener` @kind object;
+  #L1a8422.  call `removeOnGlobalLayoutListener`(v0, v1) @signature `Landroid/view/ViewTreeObserver;.removeOnGlobalLayoutListener:(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V` @kind virtual;
+  #L1a8428.  return @kind void;
+}
+procedure `void` `onInsetsChanged`(`com.google.android.material.navigation.NavigationView` v1 @kind this, `androidx.core.view.WindowInsetsCompat` v2 @kind object @name `insets`) @signature `Lcom/google/android/material/navigation/NavigationView;.onInsetsChanged:(Landroidx/core/view/WindowInsetsCompat;)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L1a843c.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a8440.  call `dispatchApplyWindowInsets`(v0, v2) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.dispatchApplyWindowInsets:(Landroidx/core/view/WindowInsetsCompat;)V` @kind virtual;
+  #L1a8446.  return @kind void;
+}
+procedure `void` `onMeasure`(`com.google.android.material.navigation.NavigationView` v3 @kind this, `int` v4 @name `widthSpec`, `int` v5 @name `heightSpec`) @signature `Lcom/google/android/material/navigation/NavigationView;.onMeasure:(II)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a8458.  call temp:= `getMode`(v4) @signature `Landroid/view/View$MeasureSpec;.getMode:(I)I` @kind static;
+  #L1a845e.  v0:= temp;
+  #L1a8460.  v1:= -2147483648I;
+  #L1a8464.  v2:= 2.0F;
+  #L1a8468.  if v0 == v1 then goto L1a8480;
+  #L1a846c.  if v0 == 0 then goto L1a8472;
+  #L1a8470.  goto L1a84a0;
+  #L1a8472.  v0:= v3.`com.google.android.material.navigation.NavigationView.maxWidth` @type ^`int`;
+  #L1a8476.  call temp:= `makeMeasureSpec`(v0, v2) @signature `Landroid/view/View$MeasureSpec;.makeMeasureSpec:(II)I` @kind static;
+  #L1a847c.  v4:= temp;
+  #L1a847e.  goto L1a84a0;
+  #L1a8480.  
+  #L1a8482.  call temp:= `getSize`(v4) @signature `Landroid/view/View$MeasureSpec;.getSize:(I)I` @kind static;
+  #L1a8488.  v0:= temp;
+  #L1a848a.  v1:= v3.`com.google.android.material.navigation.NavigationView.maxWidth` @type ^`int`;
+  #L1a848e.  call temp:= `min`(v0, v1) @signature `Ljava/lang/Math;.min:(II)I` @kind static;
+  #L1a8494.  v0:= temp;
+  #L1a8496.  call temp:= `makeMeasureSpec`(v0, v2) @signature `Landroid/view/View$MeasureSpec;.makeMeasureSpec:(II)I` @kind static;
+  #L1a849c.  v4:= temp;
+  #L1a849e.  
+  #L1a84a0.  call `onMeasure`(v3, v4, v5) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.onMeasure:(II)V` @kind super;
+  #L1a84a6.  return @kind void;
+}
+procedure `void` `onRestoreInstanceState`(`com.google.android.material.navigation.NavigationView` v3 @kind this, `android.os.Parcelable` v4 @kind object @name `savedState`) @signature `Lcom/google/android/material/navigation/NavigationView;.onRestoreInstanceState:(Landroid/os/Parcelable;)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a84b8.  v0:= instanceof @variable v4 @type ^`com.google.android.material.navigation.NavigationView$SavedState` @kind boolean;
+  #L1a84bc.  if v0 != 0 then goto L1a84c8;
+  #L1a84c0.  call `onRestoreInstanceState`(v3, v4) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.onRestoreInstanceState:(Landroid/os/Parcelable;)V` @kind super;
+  #L1a84c6.  return @kind void;
+  #L1a84c8.  v0:= v4 @kind object;
+  #L1a84ca.  v0:= (`com.google.android.material.navigation.NavigationView$SavedState`) v0 @kind object;
+  #L1a84ce.  call temp:= `getSuperState`(v0) @signature `Lcom/google/android/material/navigation/NavigationView$SavedState;.getSuperState:()Landroid/os/Parcelable;` @kind virtual;
+  #L1a84d4.  v1:= temp @kind object;
+  #L1a84d6.  call `onRestoreInstanceState`(v3, v1) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.onRestoreInstanceState:(Landroid/os/Parcelable;)V` @kind super;
+  #L1a84dc.  v1:= v3.`com.google.android.material.navigation.NavigationView.menu` @type ^`com.google.android.material.internal.NavigationMenu` @kind object;
+  #L1a84e0.  v2:= v0.`com.google.android.material.navigation.NavigationView$SavedState.menuState` @type ^`android.os.Bundle` @kind object;
+  #L1a84e4.  call `restorePresenterStates`(v1, v2) @signature `Lcom/google/android/material/internal/NavigationMenu;.restorePresenterStates:(Landroid/os/Bundle;)V` @kind virtual;
+  #L1a84ea.  return @kind void;
+}
+procedure `android.os.Parcelable` `onSaveInstanceState`(`com.google.android.material.navigation.NavigationView` v4 @kind this) @signature `Lcom/google/android/material/navigation/NavigationView;.onSaveInstanceState:()Landroid/os/Parcelable;` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1a7e40.  call temp:= `onSaveInstanceState`(v4) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.onSaveInstanceState:()Landroid/os/Parcelable;` @kind super;
+  #L1a7e46.  v0:= temp @kind object;
+  #L1a7e48.  v1:= new `com.google.android.material.navigation.NavigationView$SavedState`;
+  #L1a7e4c.  call `<init>`(v1, v0) @signature `Lcom/google/android/material/navigation/NavigationView$SavedState;.<init>:(Landroid/os/Parcelable;)V` @kind direct;
+  #L1a7e52.  v2:= new `android.os.Bundle`;
+  #L1a7e56.  call `<init>`(v2) @signature `Landroid/os/Bundle;.<init>:()V` @kind direct;
+  #L1a7e5c.  v1.`com.google.android.material.navigation.NavigationView$SavedState.menuState` @type ^`android.os.Bundle` := v2 @kind object;
+  #L1a7e60.  v2:= v4.`com.google.android.material.navigation.NavigationView.menu` @type ^`com.google.android.material.internal.NavigationMenu` @kind object;
+  #L1a7e64.  v3:= v1.`com.google.android.material.navigation.NavigationView$SavedState.menuState` @type ^`android.os.Bundle` @kind object;
+  #L1a7e68.  call `savePresenterStates`(v2, v3) @signature `Lcom/google/android/material/internal/NavigationMenu;.savePresenterStates:(Landroid/os/Bundle;)V` @kind virtual;
+  #L1a7e6e.  return v1 @kind object;
+}
+procedure `void` `removeHeaderView`(`com.google.android.material.navigation.NavigationView` v1 @kind this, `android.view.View` v2 @kind object @name `view`) @signature `Lcom/google/android/material/navigation/NavigationView;.removeHeaderView:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a84fc.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a8500.  call `removeHeaderView`(v0, v2) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.removeHeaderView:(Landroid/view/View;)V` @kind virtual;
+  #L1a8506.  return @kind void;
+}
+procedure `void` `setCheckedItem`(`com.google.android.material.navigation.NavigationView` v3 @kind this, `int` v4 @name `id`) @signature `Lcom/google/android/material/navigation/NavigationView;.setCheckedItem:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a8564.  v0:= v3.`com.google.android.material.navigation.NavigationView.menu` @type ^`com.google.android.material.internal.NavigationMenu` @kind object;
+  #L1a8568.  call temp:= `findItem`(v0, v4) @signature `Lcom/google/android/material/internal/NavigationMenu;.findItem:(I)Landroid/view/MenuItem;` @kind virtual;
+  #L1a856e.  v0:= temp @kind object;
+  #L1a8570.  if v0 == 0 then goto L1a8584;
+  #L1a8574.  v1:= v3.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a8578.  v2:= v0 @kind object;
+  #L1a857a.  v2:= (`androidx.appcompat.view.menu.MenuItemImpl`) v2 @kind object;
+  #L1a857e.  call `setCheckedItem`(v1, v2) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setCheckedItem:(Landroidx/appcompat/view/menu/MenuItemImpl;)V` @kind virtual;
+  #L1a8584.  return @kind void;
+}
+procedure `void` `setCheckedItem`(`com.google.android.material.navigation.NavigationView` v3 @kind this, `android.view.MenuItem` v4 @kind object @name `checkedItem`) @signature `Lcom/google/android/material/navigation/NavigationView;.setCheckedItem:(Landroid/view/MenuItem;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a8518.  v0:= v3.`com.google.android.material.navigation.NavigationView.menu` @type ^`com.google.android.material.internal.NavigationMenu` @kind object;
+  #L1a851c.  call temp:= `getItemId`(v4) @signature `Landroid/view/MenuItem;.getItemId:()I` @kind interface;
+  #L1a8522.  v1:= temp;
+  #L1a8524.  call temp:= `findItem`(v0, v1) @signature `Lcom/google/android/material/internal/NavigationMenu;.findItem:(I)Landroid/view/MenuItem;` @kind virtual;
+  #L1a852a.  v0:= temp @kind object;
+  #L1a852c.  if v0 == 0 then goto L1a8542;
+  #L1a8530.  v1:= v3.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a8534.  v2:= v0 @kind object;
+  #L1a8536.  v2:= (`androidx.appcompat.view.menu.MenuItemImpl`) v2 @kind object;
+  #L1a853a.  call `setCheckedItem`(v1, v2) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setCheckedItem:(Landroidx/appcompat/view/menu/MenuItemImpl;)V` @kind virtual;
+  #L1a8540.  return @kind void;
+  #L1a8542.  v1:= new `java.lang.IllegalArgumentException`;
+  #L1a8546.  v2:= "Called setCheckedItem(MenuItem) with an item that is not in the current menu." @kind object;
+  #L1a854a.  call `<init>`(v1, v2) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L1a8550.  throw v1;
+}
+procedure `void` `setElevation`(`com.google.android.material.navigation.NavigationView` v2 @kind this, `float` v3 @name `elevation`) @signature `Lcom/google/android/material/navigation/NavigationView;.setElevation:(F)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a8598.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1a859c.  v1:= 21I;
+  #L1a85a0.  if v0 < v1 then goto L1a85aa;
+  #L1a85a4.  call `setElevation`(v2, v3) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.setElevation:(F)V` @kind super;
+  #L1a85aa.  call `setElevation`(v2, v3) @signature `Lcom/google/android/material/shape/MaterialShapeUtils;.setElevation:(Landroid/view/View;F)V` @kind static;
+  #L1a85b0.  return @kind void;
+}
+procedure `void` `setItemBackground`(`com.google.android.material.navigation.NavigationView` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `itemBackground`) @signature `Lcom/google/android/material/navigation/NavigationView;.setItemBackground:(Landroid/graphics/drawable/Drawable;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a85c4.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a85c8.  call `setItemBackground`(v0, v2) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setItemBackground:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L1a85ce.  return @kind void;
+}
+procedure `void` `setItemBackgroundResource`(`com.google.android.material.navigation.NavigationView` v1 @kind this, `int` v2 @name `resId`) @signature `Lcom/google/android/material/navigation/NavigationView;.setItemBackgroundResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a85e0.  call temp:= `getContext`(v1) @signature `Lcom/google/android/material/navigation/NavigationView;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1a85e6.  v0:= temp @kind object;
+  #L1a85e8.  call temp:= `getDrawable`(v0, v2) @signature `Landroidx/core/content/ContextCompat;.getDrawable:(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;` @kind static;
+  #L1a85ee.  v0:= temp @kind object;
+  #L1a85f0.  call `setItemBackground`(v1, v0) @signature `Lcom/google/android/material/navigation/NavigationView;.setItemBackground:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L1a85f6.  return @kind void;
+}
+procedure `void` `setItemHorizontalPadding`(`com.google.android.material.navigation.NavigationView` v1 @kind this, `int` v2 @name `padding`) @signature `Lcom/google/android/material/navigation/NavigationView;.setItemHorizontalPadding:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a8608.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a860c.  call `setItemHorizontalPadding`(v0, v2) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setItemHorizontalPadding:(I)V` @kind virtual;
+  #L1a8612.  return @kind void;
+}
+procedure `void` `setItemHorizontalPaddingResource`(`com.google.android.material.navigation.NavigationView` v2 @kind this, `int` v3 @name `paddingResource`) @signature `Lcom/google/android/material/navigation/NavigationView;.setItemHorizontalPaddingResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a8624.  v0:= v2.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a8628.  call temp:= `getResources`(v2) @signature `Lcom/google/android/material/navigation/NavigationView;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1a862e.  v1:= temp @kind object;
+  #L1a8630.  call temp:= `getDimensionPixelSize`(v1, v3) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L1a8636.  v1:= temp;
+  #L1a8638.  call `setItemHorizontalPadding`(v0, v1) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setItemHorizontalPadding:(I)V` @kind virtual;
+  #L1a863e.  return @kind void;
+}
+procedure `void` `setItemIconPadding`(`com.google.android.material.navigation.NavigationView` v1 @kind this, `int` v2 @name `padding`) @signature `Lcom/google/android/material/navigation/NavigationView;.setItemIconPadding:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a8650.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a8654.  call `setItemIconPadding`(v0, v2) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setItemIconPadding:(I)V` @kind virtual;
+  #L1a865a.  return @kind void;
+}
+procedure `void` `setItemIconPaddingResource`(`com.google.android.material.navigation.NavigationView` v2 @kind this, `int` v3 @name `paddingResource`) @signature `Lcom/google/android/material/navigation/NavigationView;.setItemIconPaddingResource:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a866c.  v0:= v2.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a8670.  call temp:= `getResources`(v2) @signature `Lcom/google/android/material/navigation/NavigationView;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1a8676.  v1:= temp @kind object;
+  #L1a8678.  call temp:= `getDimensionPixelSize`(v1, v3) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L1a867e.  v1:= temp;
+  #L1a8680.  call `setItemIconPadding`(v0, v1) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setItemIconPadding:(I)V` @kind virtual;
+  #L1a8686.  return @kind void;
+}
+procedure `void` `setItemIconSize`(`com.google.android.material.navigation.NavigationView` v1 @kind this, `int` v2 @name `iconSize`) @signature `Lcom/google/android/material/navigation/NavigationView;.setItemIconSize:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a8698.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a869c.  call `setItemIconSize`(v0, v2) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setItemIconSize:(I)V` @kind virtual;
+  #L1a86a2.  return @kind void;
+}
+procedure `void` `setItemIconTintList`(`com.google.android.material.navigation.NavigationView` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `tint`) @signature `Lcom/google/android/material/navigation/NavigationView;.setItemIconTintList:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a86b4.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a86b8.  call `setItemIconTintList`(v0, v2) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setItemIconTintList:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1a86be.  return @kind void;
+}
+procedure `void` `setItemMaxLines`(`com.google.android.material.navigation.NavigationView` v1 @kind this, `int` v2 @name `itemMaxLines`) @signature `Lcom/google/android/material/navigation/NavigationView;.setItemMaxLines:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a86d0.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a86d4.  call `setItemMaxLines`(v0, v2) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setItemMaxLines:(I)V` @kind virtual;
+  #L1a86da.  return @kind void;
+}
+procedure `void` `setItemTextAppearance`(`com.google.android.material.navigation.NavigationView` v1 @kind this, `int` v2 @name `resId`) @signature `Lcom/google/android/material/navigation/NavigationView;.setItemTextAppearance:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a86ec.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a86f0.  call `setItemTextAppearance`(v0, v2) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setItemTextAppearance:(I)V` @kind virtual;
+  #L1a86f6.  return @kind void;
+}
+procedure `void` `setItemTextColor`(`com.google.android.material.navigation.NavigationView` v1 @kind this, `android.content.res.ColorStateList` v2 @kind object @name `textColor`) @signature `Lcom/google/android/material/navigation/NavigationView;.setItemTextColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a8708.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a870c.  call `setItemTextColor`(v0, v2) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setItemTextColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1a8712.  return @kind void;
+}
+procedure `void` `setNavigationItemSelectedListener`(`com.google.android.material.navigation.NavigationView` v0 @kind this, `com.google.android.material.navigation.NavigationView$OnNavigationItemSelectedListener` v1 @kind object @name `listener`) @signature `Lcom/google/android/material/navigation/NavigationView;.setNavigationItemSelectedListener:(Lcom/google/android/material/navigation/NavigationView$OnNavigationItemSelectedListener;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1a8724.  v0.`com.google.android.material.navigation.NavigationView.listener` @type ^`com.google.android.material.navigation.NavigationView$OnNavigationItemSelectedListener` := v1 @kind object;
+  #L1a8728.  return @kind void;
+}
+procedure `void` `setOverScrollMode`(`com.google.android.material.navigation.NavigationView` v1 @kind this, `int` v2 @name `overScrollMode`) @signature `Lcom/google/android/material/navigation/NavigationView;.setOverScrollMode:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a873c.  call `setOverScrollMode`(v1, v2) @signature `Lcom/google/android/material/internal/ScrimInsetsFrameLayout;.setOverScrollMode:(I)V` @kind super;
+  #L1a8742.  v0:= v1.`com.google.android.material.navigation.NavigationView.presenter` @type ^`com.google.android.material.internal.NavigationMenuPresenter` @kind object;
+  #L1a8746.  if v0 == 0 then goto L1a8750;
+  #L1a874a.  call `setOverScrollMode`(v0, v2) @signature `Lcom/google/android/material/internal/NavigationMenuPresenter;.setOverScrollMode:(I)V` @kind virtual;
+  #L1a8750.  return @kind void;
+}

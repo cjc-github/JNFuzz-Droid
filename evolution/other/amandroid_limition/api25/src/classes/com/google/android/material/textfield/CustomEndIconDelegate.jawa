@@ -1,0 +1,20 @@
+record `com.google.android.material.textfield.CustomEndIconDelegate` @kind class @AccessFlag  extends `com.google.android.material.textfield.EndIconDelegate` @kind class {
+}
+procedure `void` `<init>`(`com.google.android.material.textfield.CustomEndIconDelegate` v0 @kind this, `com.google.android.material.textfield.TextInputLayout` v1 @kind object @name `textInputLayout`) @signature `Lcom/google/android/material/textfield/CustomEndIconDelegate;.<init>:(Lcom/google/android/material/textfield/TextInputLayout;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b62bc.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/textfield/EndIconDelegate;.<init>:(Lcom/google/android/material/textfield/TextInputLayout;)V` @kind direct;
+  #L1b62c2.  return @kind void;
+}
+procedure `void` `initialize`(`com.google.android.material.textfield.CustomEndIconDelegate` v2 @kind this) @signature `Lcom/google/android/material/textfield/CustomEndIconDelegate;.initialize:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L1b62d4.  v0:= v2.`com.google.android.material.textfield.CustomEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b62d8.  v1:= 0I;
+  #L1b62da.  call `setEndIconOnClickListener`(v0, v1) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setEndIconOnClickListener:(Landroid/view/View$OnClickListener;)V` @kind virtual;
+  #L1b62e0.  v0:= v2.`com.google.android.material.textfield.CustomEndIconDelegate.textInputLayout` @type ^`com.google.android.material.textfield.TextInputLayout` @kind object;
+  #L1b62e4.  call `setEndIconOnLongClickListener`(v0, v1) @signature `Lcom/google/android/material/textfield/TextInputLayout;.setEndIconOnLongClickListener:(Landroid/view/View$OnLongClickListener;)V` @kind virtual;
+  #L1b62ea.  return @kind void;
+}

@@ -1,0 +1,254 @@
+record `androidx.core.app.NotificationCompat$WearableExtender` @kind class @AccessFlag PUBLIC_FINAL extends `androidx.core.app.NotificationCompat$Extender` @kind interface {
+  `java.util.ArrayList` `androidx.core.app.NotificationCompat$WearableExtender.mActions` @AccessFlag PRIVATE;
+  `android.graphics.Bitmap` `androidx.core.app.NotificationCompat$WearableExtender.mBackground` @AccessFlag PRIVATE;
+  `java.lang.String` `androidx.core.app.NotificationCompat$WearableExtender.mBridgeTag` @AccessFlag PRIVATE;
+  `int` `androidx.core.app.NotificationCompat$WearableExtender.mContentActionIndex` @AccessFlag PRIVATE;
+  `int` `androidx.core.app.NotificationCompat$WearableExtender.mContentIcon` @AccessFlag PRIVATE;
+  `int` `androidx.core.app.NotificationCompat$WearableExtender.mContentIconGravity` @AccessFlag PRIVATE;
+  `int` `androidx.core.app.NotificationCompat$WearableExtender.mCustomContentHeight` @AccessFlag PRIVATE;
+  `int` `androidx.core.app.NotificationCompat$WearableExtender.mCustomSizePreset` @AccessFlag PRIVATE;
+  `java.lang.String` `androidx.core.app.NotificationCompat$WearableExtender.mDismissalId` @AccessFlag PRIVATE;
+  `android.app.PendingIntent` `androidx.core.app.NotificationCompat$WearableExtender.mDisplayIntent` @AccessFlag PRIVATE;
+  `int` `androidx.core.app.NotificationCompat$WearableExtender.mFlags` @AccessFlag PRIVATE;
+  `int` `androidx.core.app.NotificationCompat$WearableExtender.mGravity` @AccessFlag PRIVATE;
+  `int` `androidx.core.app.NotificationCompat$WearableExtender.mHintScreenTimeout` @AccessFlag PRIVATE;
+  `java.util.ArrayList` `androidx.core.app.NotificationCompat$WearableExtender.mPages` @AccessFlag PRIVATE;
+}
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.DEFAULT_CONTENT_ICON_GRAVITY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.DEFAULT_FLAGS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.DEFAULT_GRAVITY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.app.NotificationCompat$WearableExtender.EXTRA_WEARABLE_EXTENSIONS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.FLAG_BIG_PICTURE_AMBIENT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.FLAG_CONTENT_INTENT_AVAILABLE_OFFLINE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.FLAG_HINT_AVOID_BACKGROUND_CLIPPING` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.FLAG_HINT_CONTENT_INTENT_LAUNCHES_ACTIVITY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.FLAG_HINT_HIDE_ICON` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.FLAG_HINT_SHOW_BACKGROUND_ONLY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.FLAG_START_SCROLL_BOTTOM` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.app.NotificationCompat$WearableExtender.KEY_ACTIONS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.app.NotificationCompat$WearableExtender.KEY_BACKGROUND` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.app.NotificationCompat$WearableExtender.KEY_BRIDGE_TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.app.NotificationCompat$WearableExtender.KEY_CONTENT_ACTION_INDEX` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.app.NotificationCompat$WearableExtender.KEY_CONTENT_ICON` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.app.NotificationCompat$WearableExtender.KEY_CONTENT_ICON_GRAVITY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.app.NotificationCompat$WearableExtender.KEY_CUSTOM_CONTENT_HEIGHT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.app.NotificationCompat$WearableExtender.KEY_CUSTOM_SIZE_PRESET` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.app.NotificationCompat$WearableExtender.KEY_DISMISSAL_ID` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.app.NotificationCompat$WearableExtender.KEY_DISPLAY_INTENT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.app.NotificationCompat$WearableExtender.KEY_FLAGS` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.app.NotificationCompat$WearableExtender.KEY_GRAVITY` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.app.NotificationCompat$WearableExtender.KEY_HINT_SCREEN_TIMEOUT` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.app.NotificationCompat$WearableExtender.KEY_PAGES` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.SCREEN_TIMEOUT_LONG` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.SCREEN_TIMEOUT_SHORT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.SIZE_DEFAULT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.SIZE_FULL_SCREEN` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.SIZE_LARGE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.SIZE_MEDIUM` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.SIZE_SMALL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.SIZE_XSMALL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.core.app.NotificationCompat$WearableExtender.UNSET_ACTION_INDEX` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<init>`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.core.app.NotificationCompat$WearableExtender` v13 @kind this, `android.app.Notification` v14 @kind object @name `notification`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.<init>:(Landroid/app/Notification;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `android.app.Notification$Action` `getActionFromActionCompat`(`androidx.core.app.NotificationCompat$Action` v7 @kind object @name `actionCompat`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getActionFromActionCompat:(Landroidx/core/app/NotificationCompat$Action;)Landroid/app/Notification$Action;` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `setFlag`(`androidx.core.app.NotificationCompat$WearableExtender` v2 @kind this, `int` v3 @name `mask`, `boolean` v4 @name `value`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setFlag:(IZ)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `addAction`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this, `androidx.core.app.NotificationCompat$Action` v2 @kind object @name `action`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.addAction:(Landroidx/core/app/NotificationCompat$Action;)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `addActions`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this, `java.util.List` v2 @kind object) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.addActions:(Ljava/util/List;)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `addPage`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this, `android.app.Notification` v2 @kind object @name `page`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.addPage:(Landroid/app/Notification;)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `addPages`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this, `java.util.List` v2 @kind object) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.addPages:(Ljava/util/List;)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `clearActions`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.clearActions:()Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `clearPages`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.clearPages:()Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `clone`(`androidx.core.app.NotificationCompat$WearableExtender` v3 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.clone:()Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.Object` `clone`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.clone:()Ljava/lang/Object;` @AccessFlag PUBLIC_SYNTHETIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$Builder` `extend`(`androidx.core.app.NotificationCompat$WearableExtender` v8 @kind this, `androidx.core.app.NotificationCompat$Builder` v9 @kind object @name `builder`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.extend:(Landroidx/core/app/NotificationCompat$Builder;)Landroidx/core/app/NotificationCompat$Builder;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.util.List` `getActions`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getActions:()Ljava/util/List;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.graphics.Bitmap` `getBackground`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getBackground:()Landroid/graphics/Bitmap;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.String` `getBridgeTag`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getBridgeTag:()Ljava/lang/String;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getContentAction`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getContentAction:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getContentIcon`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getContentIcon:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getContentIconGravity`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getContentIconGravity:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `getContentIntentAvailableOffline`(`androidx.core.app.NotificationCompat$WearableExtender` v2 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getContentIntentAvailableOffline:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getCustomContentHeight`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getCustomContentHeight:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getCustomSizePreset`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getCustomSizePreset:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.String` `getDismissalId`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getDismissalId:()Ljava/lang/String;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.app.PendingIntent` `getDisplayIntent`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getDisplayIntent:()Landroid/app/PendingIntent;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getGravity`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getGravity:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `getHintAmbientBigPicture`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getHintAmbientBigPicture:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `getHintAvoidBackgroundClipping`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getHintAvoidBackgroundClipping:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `getHintContentIntentLaunchesActivity`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getHintContentIntentLaunchesActivity:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `getHintHideIcon`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getHintHideIcon:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getHintScreenTimeout`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getHintScreenTimeout:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `getHintShowBackgroundOnly`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getHintShowBackgroundOnly:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.util.List` `getPages`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getPages:()Ljava/util/List;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `getStartScrollBottom`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.getStartScrollBottom:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `setBackground`(`androidx.core.app.NotificationCompat$WearableExtender` v0 @kind this, `android.graphics.Bitmap` v1 @kind object @name `background`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setBackground:(Landroid/graphics/Bitmap;)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `setBridgeTag`(`androidx.core.app.NotificationCompat$WearableExtender` v0 @kind this, `java.lang.String` v1 @kind object @name `bridgeTag`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setBridgeTag:(Ljava/lang/String;)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `setContentAction`(`androidx.core.app.NotificationCompat$WearableExtender` v0 @kind this, `int` v1 @name `actionIndex`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setContentAction:(I)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `setContentIcon`(`androidx.core.app.NotificationCompat$WearableExtender` v0 @kind this, `int` v1 @name `icon`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setContentIcon:(I)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `setContentIconGravity`(`androidx.core.app.NotificationCompat$WearableExtender` v0 @kind this, `int` v1 @name `contentIconGravity`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setContentIconGravity:(I)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `setContentIntentAvailableOffline`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this, `boolean` v2 @name `contentIntentAvailableOffline`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setContentIntentAvailableOffline:(Z)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `setCustomContentHeight`(`androidx.core.app.NotificationCompat$WearableExtender` v0 @kind this, `int` v1 @name `height`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setCustomContentHeight:(I)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `setCustomSizePreset`(`androidx.core.app.NotificationCompat$WearableExtender` v0 @kind this, `int` v1 @name `sizePreset`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setCustomSizePreset:(I)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `setDismissalId`(`androidx.core.app.NotificationCompat$WearableExtender` v0 @kind this, `java.lang.String` v1 @kind object @name `dismissalId`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setDismissalId:(Ljava/lang/String;)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `setDisplayIntent`(`androidx.core.app.NotificationCompat$WearableExtender` v0 @kind this, `android.app.PendingIntent` v1 @kind object @name `intent`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setDisplayIntent:(Landroid/app/PendingIntent;)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `setGravity`(`androidx.core.app.NotificationCompat$WearableExtender` v0 @kind this, `int` v1 @name `gravity`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setGravity:(I)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `setHintAmbientBigPicture`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this, `boolean` v2 @name `hintAmbientBigPicture`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setHintAmbientBigPicture:(Z)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `setHintAvoidBackgroundClipping`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this, `boolean` v2 @name `hintAvoidBackgroundClipping`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setHintAvoidBackgroundClipping:(Z)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `setHintContentIntentLaunchesActivity`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this, `boolean` v2 @name `hintContentIntentLaunchesActivity`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setHintContentIntentLaunchesActivity:(Z)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `setHintHideIcon`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this, `boolean` v2 @name `hintHideIcon`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setHintHideIcon:(Z)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `setHintScreenTimeout`(`androidx.core.app.NotificationCompat$WearableExtender` v0 @kind this, `int` v1 @name `timeout`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setHintScreenTimeout:(I)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `setHintShowBackgroundOnly`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this, `boolean` v2 @name `hintShowBackgroundOnly`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setHintShowBackgroundOnly:(Z)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.core.app.NotificationCompat$WearableExtender` `setStartScrollBottom`(`androidx.core.app.NotificationCompat$WearableExtender` v1 @kind this, `boolean` v2 @name `startScrollBottom`) @signature `Landroidx/core/app/NotificationCompat$WearableExtender;.setStartScrollBottom:(Z)Landroidx/core/app/NotificationCompat$WearableExtender;` @AccessFlag PUBLIC {
+
+  # return;
+}

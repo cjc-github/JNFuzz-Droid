@@ -1,0 +1,52 @@
+record `com.google.android.material.canvas.CanvasCompat` @kind class @AccessFlag PUBLIC {
+}
+procedure `void` `<init>`(`com.google.android.material.canvas.CanvasCompat` v0 @kind this) @signature `Lcom/google/android/material/canvas/CanvasCompat;.<init>:()V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+
+  #L18d4d8.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L18d4de.  return @kind void;
+}
+procedure `int` `saveLayerAlpha`(`android.graphics.Canvas` v8 @kind object @name `canvas`, `float` v9 @name `left`, `float` v10 @name `top`, `float` v11 @name `right`, `float` v12 @name `bottom`, `int` v13 @name `alpha`) @signature `Lcom/google/android/material/canvas/CanvasCompat;.saveLayerAlpha:(Landroid/graphics/Canvas;FFFFI)I` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L18d498.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L18d49c.  v1:= 21I;
+  #L18d4a0.  if v0 <= v1 then goto L18d4ae;
+  #L18d4a4.  call temp:= `saveLayerAlpha`(v8, v9, v10, v11, v12, v13) @signature `Landroid/graphics/Canvas;.saveLayerAlpha:(FFFFI)I` @kind virtual;
+  #L18d4aa.  v0:= temp;
+  #L18d4ac.  return v0;
+  #L18d4ae.  v7:= 31I;
+  #L18d4b2.  v1:= v8 @kind object;
+  #L18d4b4.  v2:= v9;
+  #L18d4b6.  v3:= v10;
+  #L18d4b8.  v4:= v11;
+  #L18d4ba.  v5:= v12;
+  #L18d4bc.  v6:= v13;
+  #L18d4be.  call temp:= `saveLayerAlpha`(v1, v2, v3, v4, v5, v6, v7) @signature `Landroid/graphics/Canvas;.saveLayerAlpha:(FFFFII)I` @kind virtual;
+  #L18d4c4.  v0:= temp;
+  #L18d4c6.  return v0;
+}
+procedure `int` `saveLayerAlpha`(`android.graphics.Canvas` v2 @kind object @name `canvas`, `android.graphics.RectF` v3 @kind object @name `bounds`, `int` v4 @name `alpha`) @signature `Lcom/google/android/material/canvas/CanvasCompat;.saveLayerAlpha:(Landroid/graphics/Canvas;Landroid/graphics/RectF;I)I` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L18d464.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L18d468.  v1:= 21I;
+  #L18d46c.  if v0 <= v1 then goto L18d47a;
+  #L18d470.  call temp:= `saveLayerAlpha`(v2, v3, v4) @signature `Landroid/graphics/Canvas;.saveLayerAlpha:(Landroid/graphics/RectF;I)I` @kind virtual;
+  #L18d476.  v0:= temp;
+  #L18d478.  return v0;
+  #L18d47a.  v0:= 31I;
+  #L18d47e.  call temp:= `saveLayerAlpha`(v2, v3, v4, v0) @signature `Landroid/graphics/Canvas;.saveLayerAlpha:(Landroid/graphics/RectF;II)I` @kind virtual;
+  #L18d484.  v0:= temp;
+  #L18d486.  return v0;
+}

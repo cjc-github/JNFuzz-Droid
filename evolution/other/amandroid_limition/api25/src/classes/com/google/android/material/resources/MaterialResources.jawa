@@ -1,0 +1,150 @@
+record `com.google.android.material.resources.MaterialResources` @kind class @AccessFlag PUBLIC {
+}
+procedure `void` `<init>`(`com.google.android.material.resources.MaterialResources` v0 @kind this) @signature `Lcom/google/android/material/resources/MaterialResources;.<init>:()V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+
+  #L1a8e1c.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1a8e22.  return @kind void;
+}
+procedure `android.content.res.ColorStateList` `getColorStateList`(`android.content.Context` v2 @kind object @name `context`, `android.content.res.TypedArray` v3 @kind object @name `attributes`, `int` v4 @name `index`) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a8c40.  call temp:= `hasValue`(v3, v4) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1a8c46.  v0:= temp;
+  #L1a8c48.  if v0 == 0 then goto L1a8c68;
+  #L1a8c4c.  v0:= 0I;
+  #L1a8c4e.  call temp:= `getResourceId`(v3, v4, v0) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1a8c54.  v0:= temp;
+  #L1a8c56.  if v0 == 0 then goto L1a8c68;
+  #L1a8c5a.  call temp:= `getColorStateList`(v2, v0) @signature `Landroidx/appcompat/content/res/AppCompatResources;.getColorStateList:(Landroid/content/Context;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1a8c60.  v1:= temp @kind object;
+  #L1a8c62.  if v1 == 0 then goto L1a8c68;
+  #L1a8c66.  return v1 @kind object;
+  #L1a8c68.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1a8c6c.  v1:= 15I;
+  #L1a8c70.  if v0 > v1 then goto L1a8c8c;
+  #L1a8c74.  v0:= -1I;
+  #L1a8c76.  call temp:= `getColor`(v3, v4, v0) @signature `Landroid/content/res/TypedArray;.getColor:(II)I` @kind virtual;
+  #L1a8c7c.  v1:= temp;
+  #L1a8c7e.  if v1 == v0 then goto L1a8c8c;
+  #L1a8c82.  call temp:= `valueOf`(v1) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1a8c88.  v0:= temp @kind object;
+  #L1a8c8a.  return v0 @kind object;
+  #L1a8c8c.  call temp:= `getColorStateList`(v3, v4) @signature `Landroid/content/res/TypedArray;.getColorStateList:(I)Landroid/content/res/ColorStateList;` @kind virtual;
+  #L1a8c92.  v0:= temp @kind object;
+  #L1a8c94.  return v0 @kind object;
+}
+procedure `android.content.res.ColorStateList` `getColorStateList`(`android.content.Context` v2 @kind object @name `context`, `androidx.appcompat.widget.TintTypedArray` v3 @kind object @name `attributes`, `int` v4 @name `index`) @signature `Lcom/google/android/material/resources/MaterialResources;.getColorStateList:(Landroid/content/Context;Landroidx/appcompat/widget/TintTypedArray;I)Landroid/content/res/ColorStateList;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a8ca8.  call temp:= `hasValue`(v3, v4) @signature `Landroidx/appcompat/widget/TintTypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1a8cae.  v0:= temp;
+  #L1a8cb0.  if v0 == 0 then goto L1a8cd0;
+  #L1a8cb4.  v0:= 0I;
+  #L1a8cb6.  call temp:= `getResourceId`(v3, v4, v0) @signature `Landroidx/appcompat/widget/TintTypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1a8cbc.  v0:= temp;
+  #L1a8cbe.  if v0 == 0 then goto L1a8cd0;
+  #L1a8cc2.  call temp:= `getColorStateList`(v2, v0) @signature `Landroidx/appcompat/content/res/AppCompatResources;.getColorStateList:(Landroid/content/Context;I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1a8cc8.  v1:= temp @kind object;
+  #L1a8cca.  if v1 == 0 then goto L1a8cd0;
+  #L1a8cce.  return v1 @kind object;
+  #L1a8cd0.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1a8cd4.  v1:= 15I;
+  #L1a8cd8.  if v0 > v1 then goto L1a8cf4;
+  #L1a8cdc.  v0:= -1I;
+  #L1a8cde.  call temp:= `getColor`(v3, v4, v0) @signature `Landroidx/appcompat/widget/TintTypedArray;.getColor:(II)I` @kind virtual;
+  #L1a8ce4.  v1:= temp;
+  #L1a8ce6.  if v1 == v0 then goto L1a8cf4;
+  #L1a8cea.  call temp:= `valueOf`(v1) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L1a8cf0.  v0:= temp @kind object;
+  #L1a8cf2.  return v0 @kind object;
+  #L1a8cf4.  call temp:= `getColorStateList`(v3, v4) @signature `Landroidx/appcompat/widget/TintTypedArray;.getColorStateList:(I)Landroid/content/res/ColorStateList;` @kind virtual;
+  #L1a8cfa.  v0:= temp @kind object;
+  #L1a8cfc.  return v0 @kind object;
+}
+procedure `int` `getDimensionPixelSize`(`android.content.Context` v5 @kind object @name `context`, `android.content.res.TypedArray` v6 @kind object @name `attributes`, `int` v7 @name `index`, `int` v8 @name `defaultValue`) @signature `Lcom/google/android/material/resources/MaterialResources;.getDimensionPixelSize:(Landroid/content/Context;Landroid/content/res/TypedArray;II)I` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1a8d90.  v0:= new `android.util.TypedValue`;
+  #L1a8d94.  call `<init>`(v0) @signature `Landroid/util/TypedValue;.<init>:()V` @kind direct;
+  #L1a8d9a.  call temp:= `getValue`(v6, v7, v0) @signature `Landroid/content/res/TypedArray;.getValue:(ILandroid/util/TypedValue;)Z` @kind virtual;
+  #L1a8da0.  v1:= temp;
+  #L1a8da2.  if v1 == 0 then goto L1a8de2;
+  #L1a8da6.  v1:= v0.`android.util.TypedValue.type` @type ^`int`;
+  #L1a8daa.  v2:= 2I;
+  #L1a8dac.  if v1 == v2 then goto L1a8db2;
+  #L1a8db0.  goto L1a8de2;
+  #L1a8db2.  call temp:= `getTheme`(v5) @signature `Landroid/content/Context;.getTheme:()Landroid/content/res/Resources$Theme;` @kind virtual;
+  #L1a8db8.  v1:= temp @kind object;
+  #L1a8dba.  v2:= 1I;
+  #L1a8dbc.  v2:= new `int`[v2];
+  #L1a8dc0.  v3:= v0.`android.util.TypedValue.data` @type ^`int`;
+  #L1a8dc4.  v4:= 0I;
+  #L1a8dc6.  v2[v4]:= v3;
+  #L1a8dca.  call temp:= `obtainStyledAttributes`(v1, v2) @signature `Landroid/content/res/Resources$Theme;.obtainStyledAttributes:([I)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1a8dd0.  v1:= temp @kind object;
+  #L1a8dd2.  call temp:= `getDimensionPixelSize`(v1, v4, v8) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1a8dd8.  v2:= temp;
+  #L1a8dda.  call `recycle`(v1) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1a8de0.  return v2;
+  #L1a8de2.  call temp:= `getDimensionPixelSize`(v6, v7, v8) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1a8de8.  v1:= temp;
+  #L1a8dea.  return v1;
+}
+procedure `android.graphics.drawable.Drawable` `getDrawable`(`android.content.Context` v2 @kind object @name `context`, `android.content.res.TypedArray` v3 @kind object @name `attributes`, `int` v4 @name `index`) @signature `Lcom/google/android/material/resources/MaterialResources;.getDrawable:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a8d10.  call temp:= `hasValue`(v3, v4) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1a8d16.  v0:= temp;
+  #L1a8d18.  if v0 == 0 then goto L1a8d38;
+  #L1a8d1c.  v0:= 0I;
+  #L1a8d1e.  call temp:= `getResourceId`(v3, v4, v0) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1a8d24.  v0:= temp;
+  #L1a8d26.  if v0 == 0 then goto L1a8d38;
+  #L1a8d2a.  call temp:= `getDrawable`(v2, v0) @signature `Landroidx/appcompat/content/res/AppCompatResources;.getDrawable:(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;` @kind static;
+  #L1a8d30.  v1:= temp @kind object;
+  #L1a8d32.  if v1 == 0 then goto L1a8d38;
+  #L1a8d36.  return v1 @kind object;
+  #L1a8d38.  call temp:= `getDrawable`(v3, v4) @signature `Landroid/content/res/TypedArray;.getDrawable:(I)Landroid/graphics/drawable/Drawable;` @kind virtual;
+  #L1a8d3e.  v0:= temp @kind object;
+  #L1a8d40.  return v0 @kind object;
+}
+procedure `int` `getIndexWithValue`(`android.content.res.TypedArray` v1 @kind object @name `attributes`, `int` v2 @name `a`, `int` v3 @name `b`) @signature `Lcom/google/android/material/resources/MaterialResources;.getIndexWithValue:(Landroid/content/res/TypedArray;II)I` @AccessFlag STATIC {
+    temp;
+    v0;
+
+  #L1a8dfc.  call temp:= `hasValue`(v1, v2) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1a8e02.  v0:= temp;
+  #L1a8e04.  if v0 == 0 then goto L1a8e0a;
+  #L1a8e08.  return v2;
+  #L1a8e0a.  return v3;
+}
+procedure `com.google.android.material.resources.TextAppearance` `getTextAppearance`(`android.content.Context` v2 @kind object @name `context`, `android.content.res.TypedArray` v3 @kind object @name `attributes`, `int` v4 @name `index`) @signature `Lcom/google/android/material/resources/MaterialResources;.getTextAppearance:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Lcom/google/android/material/resources/TextAppearance;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a8d54.  call temp:= `hasValue`(v3, v4) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L1a8d5a.  v0:= temp;
+  #L1a8d5c.  if v0 == 0 then goto L1a8d7a;
+  #L1a8d60.  v0:= 0I;
+  #L1a8d62.  call temp:= `getResourceId`(v3, v4, v0) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L1a8d68.  v0:= temp;
+  #L1a8d6a.  if v0 == 0 then goto L1a8d7a;
+  #L1a8d6e.  v1:= new `com.google.android.material.resources.TextAppearance`;
+  #L1a8d72.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/resources/TextAppearance;.<init>:(Landroid/content/Context;I)V` @kind direct;
+  #L1a8d78.  return v1 @kind object;
+  #L1a8d7a.  v0:= 0I;
+  #L1a8d7c.  return v0 @kind object;
+}

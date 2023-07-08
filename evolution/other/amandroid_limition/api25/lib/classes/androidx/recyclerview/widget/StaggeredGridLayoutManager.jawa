@@ -1,0 +1,475 @@
+record `androidx.recyclerview.widget.StaggeredGridLayoutManager` @kind class @AccessFlag PUBLIC extends `androidx.recyclerview.widget.RecyclerView$LayoutManager` @kind class, `androidx.recyclerview.widget.RecyclerView$SmoothScroller$ScrollVectorProvider` @kind interface {
+  `androidx.recyclerview.widget.StaggeredGridLayoutManager$AnchorInfo` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mAnchorInfo` @AccessFlag PRIVATE_FINAL;
+  `java.lang.Runnable` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mCheckForGapsRunnable` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mFullSizeSpec` @AccessFlag PRIVATE;
+  `int` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mGapStrategy` @AccessFlag PRIVATE;
+  `boolean` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mLaidOutInvalidFullSpan` @AccessFlag PRIVATE;
+  `boolean` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mLastLayoutFromEnd` @AccessFlag PRIVATE;
+  `boolean` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mLastLayoutRTL` @AccessFlag PRIVATE;
+  `androidx.recyclerview.widget.LayoutState` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mLayoutState` @AccessFlag PRIVATE_FINAL;
+  `androidx.recyclerview.widget.StaggeredGridLayoutManager$LazySpanLookup` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mLazySpanLookup` @AccessFlag ;
+  `int` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mOrientation` @AccessFlag PRIVATE;
+  `androidx.recyclerview.widget.StaggeredGridLayoutManager$SavedState` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mPendingSavedState` @AccessFlag PRIVATE;
+  `int` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mPendingScrollPosition` @AccessFlag ;
+  `int` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mPendingScrollPositionOffset` @AccessFlag ;
+  `int`[] `androidx.recyclerview.widget.StaggeredGridLayoutManager.mPrefetchDistances` @AccessFlag PRIVATE;
+  `androidx.recyclerview.widget.OrientationHelper` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mPrimaryOrientation` @AccessFlag ;
+  `java.util.BitSet` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mRemainingSpans` @AccessFlag PRIVATE;
+  `boolean` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mReverseLayout` @AccessFlag ;
+  `androidx.recyclerview.widget.OrientationHelper` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mSecondaryOrientation` @AccessFlag ;
+  `boolean` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mShouldReverseLayout` @AccessFlag ;
+  `int` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mSizePerSpan` @AccessFlag PRIVATE;
+  `boolean` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mSmoothScrollbarEnabled` @AccessFlag PRIVATE;
+  `int` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mSpanCount` @AccessFlag PRIVATE;
+  `androidx.recyclerview.widget.StaggeredGridLayoutManager$Span`[] `androidx.recyclerview.widget.StaggeredGridLayoutManager.mSpans` @AccessFlag ;
+  `android.graphics.Rect` `androidx.recyclerview.widget.StaggeredGridLayoutManager.mTmpRect` @AccessFlag PRIVATE_FINAL;
+}
+global `boolean` `@@androidx.recyclerview.widget.StaggeredGridLayoutManager.DEBUG` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.StaggeredGridLayoutManager.GAP_HANDLING_LAZY` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.StaggeredGridLayoutManager.GAP_HANDLING_NONE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.StaggeredGridLayoutManager.HORIZONTAL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.StaggeredGridLayoutManager.INVALID_OFFSET` @AccessFlag STATIC_FINAL;
+global `float` `@@androidx.recyclerview.widget.StaggeredGridLayoutManager.MAX_SCROLL_FACTOR` @AccessFlag PRIVATE_STATIC_FINAL;
+global `java.lang.String` `@@androidx.recyclerview.widget.StaggeredGridLayoutManager.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<init>`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this, `int` v3 @name `spanCount`, `int` v4 @name `orientation`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.<init>:(II)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this, `android.content.Context` v3 @kind object @name `context`, `android.util.AttributeSet` v4 @kind object @name `attrs`, `int` v5 @name `defStyleAttr`, `int` v6 @name `defStyleRes`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;II)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `appendViewToAllSpans`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this, `android.view.View` v3 @kind object @name `view`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.appendViewToAllSpans:(Landroid/view/View;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `applyPendingSavedState`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v3 @kind this, `androidx.recyclerview.widget.StaggeredGridLayoutManager$AnchorInfo` v4 @kind object @name `anchorInfo`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.applyPendingSavedState:(Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `attachViewToSpans`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this, `android.view.View` v3 @kind object @name `view`, `androidx.recyclerview.widget.StaggeredGridLayoutManager$LayoutParams` v4 @kind object @name `lp`, `androidx.recyclerview.widget.LayoutState` v5 @kind object @name `layoutState`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.attachViewToSpans:(Landroid/view/View;Landroidx/recyclerview/widget/StaggeredGridLayoutManager$LayoutParams;Landroidx/recyclerview/widget/LayoutState;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `calculateScrollDirectionForPosition`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v5 @kind this, `int` v6 @name `position`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.calculateScrollDirectionForPosition:(I)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `checkSpanForGap`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v3 @kind this, `androidx.recyclerview.widget.StaggeredGridLayoutManager$Span` v4 @kind object @name `span`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.checkSpanForGap:(Landroidx/recyclerview/widget/StaggeredGridLayoutManager$Span;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `computeScrollExtent`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v7 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v8 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.computeScrollExtent:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `computeScrollOffset`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v8 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v9 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.computeScrollOffset:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `computeScrollRange`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v7 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v8 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.computeScrollRange:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `convertFocusDirectionToLayoutDirection`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v4 @kind this, `int` v5 @name `focusDirection`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.convertFocusDirectionToLayoutDirection:(I)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem` `createFullSpanItemFromEnd`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v4 @kind this, `int` v5 @name `newItemTop`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.createFullSpanItemFromEnd:(I)Landroidx/recyclerview/widget/StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem` `createFullSpanItemFromStart`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v4 @kind this, `int` v5 @name `newItemBottom`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.createFullSpanItemFromStart:(I)Landroidx/recyclerview/widget/StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `createOrientationHelpers`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.createOrientationHelpers:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `fill`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v22 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v23 @kind object @name `recycler`, `androidx.recyclerview.widget.LayoutState` v24 @kind object @name `layoutState`, `androidx.recyclerview.widget.RecyclerView$State` v25 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.fill:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/LayoutState;Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `findFirstReferenceChildPosition`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v4 @kind this, `int` v5 @name `itemCount`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.findFirstReferenceChildPosition:(I)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `findLastReferenceChildPosition`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v3 @kind this, `int` v4 @name `itemCount`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.findLastReferenceChildPosition:(I)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `fixEndGap`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v4 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v5 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v6 @kind object @name `state`, `boolean` v7 @name `canOffsetChildren`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.fixEndGap:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;Z)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `fixStartGap`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v5 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v6 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v7 @kind object @name `state`, `boolean` v8 @name `canOffsetChildren`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.fixStartGap:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;Z)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `getMaxEnd`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v3 @kind this, `int` v4 @name `def`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.getMaxEnd:(I)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `getMaxStart`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v3 @kind this, `int` v4 @name `def`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.getMaxStart:(I)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `getMinEnd`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v3 @kind this, `int` v4 @name `def`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.getMinEnd:(I)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `getMinStart`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v3 @kind this, `int` v4 @name `def`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.getMinStart:(I)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.StaggeredGridLayoutManager$Span` `getNextSpan`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v10 @kind this, `androidx.recyclerview.widget.LayoutState` v11 @kind object @name `layoutState`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.getNextSpan:(Landroidx/recyclerview/widget/LayoutState;)Landroidx/recyclerview/widget/StaggeredGridLayoutManager$Span;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `handleUpdate`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v6 @kind this, `int` v7 @name `positionStart`, `int` v8 @name `itemCountOrToPosition`, `int` v9 @name `cmd`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.handleUpdate:(III)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `measureChildWithDecorationsAndMargin`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v4 @kind this, `android.view.View` v5 @kind object @name `child`, `int` v6 @name `widthSpec`, `int` v7 @name `heightSpec`, `boolean` v8 @name `alreadyMeasured`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.measureChildWithDecorationsAndMargin:(Landroid/view/View;IIZ)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `measureChildWithDecorationsAndMargin`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v6 @kind this, `android.view.View` v7 @kind object @name `child`, `androidx.recyclerview.widget.StaggeredGridLayoutManager$LayoutParams` v8 @kind object @name `lp`, `boolean` v9 @name `alreadyMeasured`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.measureChildWithDecorationsAndMargin:(Landroid/view/View;Landroidx/recyclerview/widget/StaggeredGridLayoutManager$LayoutParams;Z)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `onLayoutChildren`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v9 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v10 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v11 @kind object @name `state`, `boolean` v12 @name `shouldCheckForGaps`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.onLayoutChildren:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;Z)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `preferLastSpan`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v4 @kind this, `int` v5 @name `layoutDir`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.preferLastSpan:(I)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `prependViewToAllSpans`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this, `android.view.View` v3 @kind object @name `view`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.prependViewToAllSpans:(Landroid/view/View;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `recycle`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v3 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v4 @kind object @name `recycler`, `androidx.recyclerview.widget.LayoutState` v5 @kind object @name `layoutState`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.recycle:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/LayoutState;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `recycleFromEnd`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v7 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v8 @kind object @name `recycler`, `int` v9 @name `line`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.recycleFromEnd:(Landroidx/recyclerview/widget/RecyclerView$Recycler;I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `recycleFromStart`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v5 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v6 @kind object @name `recycler`, `int` v7 @name `line`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.recycleFromStart:(Landroidx/recyclerview/widget/RecyclerView$Recycler;I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `repositionToWrapContentIfNecessary`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v11 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.repositionToWrapContentIfNecessary:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `resolveShouldLayoutReverse`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.resolveShouldLayoutReverse:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `setLayoutStateDirection`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v5 @kind this, `int` v6 @name `direction`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.setLayoutStateDirection:(I)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateAllRemainingSpans`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this, `int` v3 @name `layoutDir`, `int` v4 @name `targetLine`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.updateAllRemainingSpans:(II)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `updateAnchorFromChildren`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`, `androidx.recyclerview.widget.StaggeredGridLayoutManager$AnchorInfo` v3 @kind object @name `anchorInfo`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.updateAnchorFromChildren:(Landroidx/recyclerview/widget/RecyclerView$State;Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateLayoutState`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v7 @kind this, `int` v8 @name `anchorPosition`, `androidx.recyclerview.widget.RecyclerView$State` v9 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.updateLayoutState:(ILandroidx/recyclerview/widget/RecyclerView$State;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `updateRemainingSpans`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v5 @kind this, `androidx.recyclerview.widget.StaggeredGridLayoutManager$Span` v6 @kind object @name `span`, `int` v7 @name `layoutDir`, `int` v8 @name `targetLine`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.updateRemainingSpans:(Landroidx/recyclerview/widget/StaggeredGridLayoutManager$Span;II)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `updateSpecWithExtra`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v3 @kind this, `int` v4 @name `spec`, `int` v5 @name `startInset`, `int` v6 @name `endInset`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.updateSpecWithExtra:(III)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `areAllEndsEqual`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v5 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.areAllEndsEqual:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `areAllStartsEqual`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v5 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.areAllStartsEqual:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `assertNotInLayoutOrScroll`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `java.lang.String` v2 @kind object @name `message`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.assertNotInLayoutOrScroll:(Ljava/lang/String;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `canScrollHorizontally`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.canScrollHorizontally:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `canScrollVertically`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.canScrollVertically:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `checkForGaps`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v8 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.checkForGaps:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `checkLayoutParams`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$LayoutParams` v2 @kind object @name `lp`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.checkLayoutParams:(Landroidx/recyclerview/widget/RecyclerView$LayoutParams;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `collectAdjacentPrefetchPositions`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v6 @kind this, `int` v7 @name `dx`, `int` v8 @name `dy`, `androidx.recyclerview.widget.RecyclerView$State` v9 @kind object @name `state`, `androidx.recyclerview.widget.RecyclerView$LayoutManager$LayoutPrefetchRegistry` v10 @kind object @name `layoutPrefetchRegistry`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.collectAdjacentPrefetchPositions:(IILandroidx/recyclerview/widget/RecyclerView$State;Landroidx/recyclerview/widget/RecyclerView$LayoutManager$LayoutPrefetchRegistry;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `computeHorizontalScrollExtent`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.computeHorizontalScrollExtent:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `computeHorizontalScrollOffset`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.computeHorizontalScrollOffset:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `computeHorizontalScrollRange`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.computeHorizontalScrollRange:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.graphics.PointF` `computeScrollVectorForPosition`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v4 @kind this, `int` v5 @name `targetPosition`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.computeScrollVectorForPosition:(I)Landroid/graphics/PointF;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `computeVerticalScrollExtent`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.computeVerticalScrollExtent:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `computeVerticalScrollOffset`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.computeVerticalScrollOffset:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `computeVerticalScrollRange`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.computeVerticalScrollRange:(Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int`[] `findFirstCompletelyVisibleItemPositions`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v3 @kind this, `int`[] v4 @kind object @name `into`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.findFirstCompletelyVisibleItemPositions:([I)[I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View` `findFirstVisibleItemClosestToEnd`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v7 @kind this, `boolean` v8 @name `fullyVisible`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.findFirstVisibleItemClosestToEnd:(Z)Landroid/view/View;` @AccessFlag  {
+
+  # return;
+}
+procedure `android.view.View` `findFirstVisibleItemClosestToStart`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v8 @kind this, `boolean` v9 @name `fullyVisible`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.findFirstVisibleItemClosestToStart:(Z)Landroid/view/View;` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `findFirstVisibleItemPositionInt`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.findFirstVisibleItemPositionInt:()I` @AccessFlag  {
+
+  # return;
+}
+procedure `int`[] `findFirstVisibleItemPositions`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v3 @kind this, `int`[] v4 @kind object @name `into`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.findFirstVisibleItemPositions:([I)[I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int`[] `findLastCompletelyVisibleItemPositions`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v3 @kind this, `int`[] v4 @kind object @name `into`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.findLastCompletelyVisibleItemPositions:([I)[I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int`[] `findLastVisibleItemPositions`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v3 @kind this, `int`[] v4 @kind object @name `into`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.findLastVisibleItemPositions:([I)[I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.RecyclerView$LayoutParams` `generateDefaultLayoutParams`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v3 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.generateDefaultLayoutParams:()Landroidx/recyclerview/widget/RecyclerView$LayoutParams;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.RecyclerView$LayoutParams` `generateLayoutParams`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `android.content.Context` v2 @kind object @name `c`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.generateLayoutParams:(Landroid/content/Context;Landroid/util/AttributeSet;)Landroidx/recyclerview/widget/RecyclerView$LayoutParams;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.RecyclerView$LayoutParams` `generateLayoutParams`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this, `android.view.ViewGroup$LayoutParams` v3 @kind object @name `lp`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.generateLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)Landroidx/recyclerview/widget/RecyclerView$LayoutParams;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getColumnCountForAccessibility`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v3 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v4 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.getColumnCountForAccessibility:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getFirstChildPosition`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.getFirstChildPosition:()I` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `getGapStrategy`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.getGapStrategy:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getLastChildPosition`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.getLastChildPosition:()I` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `getOrientation`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.getOrientation:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `getReverseLayout`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.getReverseLayout:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getRowCountForAccessibility`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v2 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v3 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.getRowCountForAccessibility:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getSpanCount`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.getSpanCount:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View` `hasGapsToFix`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v16 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.hasGapsToFix:()Landroid/view/View;` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `invalidateSpanAssignments`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.invalidateSpanAssignments:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isAutoMeasureEnabled`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.isAutoMeasureEnabled:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isLayoutRTL`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.isLayoutRTL:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `offsetChildrenHorizontal`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this, `int` v3 @name `dx`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.offsetChildrenHorizontal:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `offsetChildrenVertical`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this, `int` v3 @name `dy`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.offsetChildrenVertical:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onDetachedFromWindow`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this, `androidx.recyclerview.widget.RecyclerView` v3 @kind object @name `view`, `androidx.recyclerview.widget.RecyclerView$Recycler` v4 @kind object @name `recycler`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.onDetachedFromWindow:(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$Recycler;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.view.View` `onFocusSearchFailed`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v11 @kind this, `android.view.View` v12 @kind object @name `focused`, `int` v13 @name `direction`, `androidx.recyclerview.widget.RecyclerView$Recycler` v14 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v15 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.onFocusSearchFailed:(Landroid/view/View;ILandroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)Landroid/view/View;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onInitializeAccessibilityEvent`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v4 @kind this, `android.view.accessibility.AccessibilityEvent` v5 @kind object @name `event`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.onInitializeAccessibilityEvent:(Landroid/view/accessibility/AccessibilityEvent;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onInitializeAccessibilityNodeInfoForItem`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v10 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v11 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v12 @kind object @name `state`, `android.view.View` v13 @kind object @name `host`, `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v14 @kind object @name `info`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.onInitializeAccessibilityNodeInfoForItem:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onItemsAdded`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView` v2 @kind object @name `recyclerView`, `int` v3 @name `positionStart`, `int` v4 @name `itemCount`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.onItemsAdded:(Landroidx/recyclerview/widget/RecyclerView;II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onItemsChanged`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView` v2 @kind object @name `recyclerView`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.onItemsChanged:(Landroidx/recyclerview/widget/RecyclerView;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onItemsMoved`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView` v2 @kind object @name `recyclerView`, `int` v3 @name `from`, `int` v4 @name `to`, `int` v5 @name `itemCount`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.onItemsMoved:(Landroidx/recyclerview/widget/RecyclerView;III)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onItemsRemoved`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView` v2 @kind object @name `recyclerView`, `int` v3 @name `positionStart`, `int` v4 @name `itemCount`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.onItemsRemoved:(Landroidx/recyclerview/widget/RecyclerView;II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onItemsUpdated`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView` v2 @kind object @name `recyclerView`, `int` v3 @name `positionStart`, `int` v4 @name `itemCount`, `java.lang.Object` v5 @kind object @name `payload`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.onItemsUpdated:(Landroidx/recyclerview/widget/RecyclerView;IILjava/lang/Object;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onLayoutChildren`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$Recycler` v2 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v3 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.onLayoutChildren:(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onLayoutCompleted`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.onLayoutCompleted:(Landroidx/recyclerview/widget/RecyclerView$State;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onRestoreInstanceState`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `android.os.Parcelable` v2 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.onRestoreInstanceState:(Landroid/os/Parcelable;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.os.Parcelable` `onSaveInstanceState`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v4 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.onSaveInstanceState:()Landroid/os/Parcelable;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onScrollStateChanged`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v0 @kind this, `int` v1 @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.onScrollStateChanged:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `prepareLayoutStateForDelta`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v4 @kind this, `int` v5 @name `delta`, `androidx.recyclerview.widget.RecyclerView$State` v6 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.prepareLayoutStateForDelta:(ILandroidx/recyclerview/widget/RecyclerView$State;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `scrollBy`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v6 @kind this, `int` v7 @name `dt`, `androidx.recyclerview.widget.RecyclerView$Recycler` v8 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v9 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.scrollBy:(ILandroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `scrollHorizontallyBy`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `int` v2 @name `dx`, `androidx.recyclerview.widget.RecyclerView$Recycler` v3 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v4 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.scrollHorizontallyBy:(ILandroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `scrollToPosition`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `int` v2 @name `position`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.scrollToPosition:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `scrollToPositionWithOffset`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `int` v2 @name `position`, `int` v3 @name `offset`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.scrollToPositionWithOffset:(II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `scrollVerticallyBy`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `int` v2 @name `dy`, `androidx.recyclerview.widget.RecyclerView$Recycler` v3 @kind object @name `recycler`, `androidx.recyclerview.widget.RecyclerView$State` v4 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.scrollVerticallyBy:(ILandroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setGapStrategy`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this, `int` v3 @name `gapStrategy`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.setGapStrategy:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setMeasuredDimension`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v6 @kind this, `android.graphics.Rect` v7 @kind object @name `childrenBounds`, `int` v8 @name `wSpec`, `int` v9 @name `hSpec`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.setMeasuredDimension:(Landroid/graphics/Rect;II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOrientation`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this, `int` v3 @name `orientation`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.setOrientation:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setReverseLayout`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `boolean` v2 @name `reverseLayout`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.setReverseLayout:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setSpanCount`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v3 @kind this, `int` v4 @name `spanCount`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.setSpanCount:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `smoothScrollToPosition`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v2 @kind this, `androidx.recyclerview.widget.RecyclerView` v3 @kind object @name `recyclerView`, `androidx.recyclerview.widget.RecyclerView$State` v4 @kind object @name `state`, `int` v5 @name `position`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.smoothScrollToPosition:(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `supportsPredictiveItemAnimations`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.supportsPredictiveItemAnimations:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `updateAnchorFromPendingData`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v7 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v8 @kind object @name `state`, `androidx.recyclerview.widget.StaggeredGridLayoutManager$AnchorInfo` v9 @kind object @name `anchorInfo`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.updateAnchorFromPendingData:(Landroidx/recyclerview/widget/RecyclerView$State;Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;)Z` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `updateAnchorInfoForLayout`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `androidx.recyclerview.widget.RecyclerView$State` v2 @kind object @name `state`, `androidx.recyclerview.widget.StaggeredGridLayoutManager$AnchorInfo` v3 @kind object @name `anchorInfo`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.updateAnchorInfoForLayout:(Landroidx/recyclerview/widget/RecyclerView$State;Landroidx/recyclerview/widget/StaggeredGridLayoutManager$AnchorInfo;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `updateMeasureSpecs`(`androidx.recyclerview.widget.StaggeredGridLayoutManager` v1 @kind this, `int` v2 @name `totalSpace`) @signature `Landroidx/recyclerview/widget/StaggeredGridLayoutManager;.updateMeasureSpecs:(I)V` @AccessFlag  {
+
+  # return;
+}

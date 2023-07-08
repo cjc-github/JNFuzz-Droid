@@ -1,0 +1,29 @@
+XXX@XXX:~/JNFuzz-Droid$ java -jar -Xms8192m -Xmx12288m lib/argus-saf.jar t -a COMPONENT_BASED -d -f -mo DATA_LEAKAGE -o out_test/Data apk_test/api26.apk
+Total apks: 1
+Analyzing #1:file:/home/XXX/JNFuzz-Droid/apk_test/api26.apk
+Decompile error: null
+Decompile error: null
+Collecting information from api26.apk...
+Read AndroidManifest.
+Read ARSC.
+Read Layout files.
+Start reachabilityAnalysis...
+Building Signature Based Call Graph... Total: 0
+CHA done with method size 0.
+ReachabilityAnalysis done.
+Analyzing callbacks...
+Collecting callback methods in layout mappings...
+Collecting callback methods in app source...
+Collecting XML based callback methods...
+Callback collection done.
+Generate environment for 1 components.
+Info collection done.
+Prepare IDFGs for: api26.apk
+ComponentBasedAnalysis: Phase 1:
+--Analyzing api26.apk
+ComponentBasedAnalysis: Phase 2-------1 apk 1 component-------
+--Link inter-component data dependence
+ComponentBasedAnalysis: Phase 3-------1 apk 0 component-------
+Done!
+Debug info write into /home/XXX/JNFuzz-Droid/out_test/Data/api26/.report
+

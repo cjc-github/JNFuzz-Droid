@@ -1,0 +1,60 @@
+record `com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper` @kind class @AccessFlag  extends `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl$InternalTransformationCallback` @kind interface {
+  `com.google.android.material.animation.TransformationCallback` `com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper.listener` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.floatingactionbutton.FloatingActionButton` `com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper` v0 @kind this, `com.google.android.material.floatingactionbutton.FloatingActionButton` v1 @kind object @name `this$0`, `com.google.android.material.animation.TransformationCallback` v2 @kind object) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton$TransformationCallbackWrapper;.<init>:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;Lcom/google/android/material/animation/TransformationCallback;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L19f790.  v0.`com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` := v1 @kind object;
+  #L19f794.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L19f79a.  v0.`com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper.listener` @type ^`com.google.android.material.animation.TransformationCallback` := v2 @kind object;
+  #L19f79e.  return @kind void;
+}
+procedure `boolean` `equals`(`com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper` v2 @kind this, `java.lang.Object` v3 @kind object @name `obj`) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton$TransformationCallbackWrapper;.equals:(Ljava/lang/Object;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19f734.  v0:= instanceof @variable v3 @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper` @kind boolean;
+  #L19f738.  if v0 == 0 then goto L19f75a;
+  #L19f73c.  v0:= v3 @kind object;
+  #L19f73e.  v0:= (`com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper`) v0 @kind object;
+  #L19f742.  v0:= v0.`com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper.listener` @type ^`com.google.android.material.animation.TransformationCallback` @kind object;
+  #L19f746.  v1:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper.listener` @type ^`com.google.android.material.animation.TransformationCallback` @kind object;
+  #L19f74a.  call temp:= `equals`(v0, v1) @signature `Ljava/lang/Object;.equals:(Ljava/lang/Object;)Z` @kind virtual;
+  #L19f750.  v0:= temp;
+  #L19f752.  if v0 == 0 then goto L19f75a;
+  #L19f756.  v0:= 1I;
+  #L19f758.  goto L19f75c;
+  #L19f75a.  v0:= 0I;
+  #L19f75c.  return v0;
+}
+procedure `int` `hashCode`(`com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper` v1 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton$TransformationCallbackWrapper;.hashCode:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19f770.  v0:= v1.`com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper.listener` @type ^`com.google.android.material.animation.TransformationCallback` @kind object;
+  #L19f774.  call temp:= `hashCode`(v0) @signature `Ljava/lang/Object;.hashCode:()I` @kind virtual;
+  #L19f77a.  v0:= temp;
+  #L19f77c.  return v0;
+}
+procedure `void` `onScaleChanged`(`com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper` v2 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton$TransformationCallbackWrapper;.onScaleChanged:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19f7b0.  v0:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper.listener` @type ^`com.google.android.material.animation.TransformationCallback` @kind object;
+  #L19f7b4.  v1:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19f7b8.  call `onScaleChanged`(v0, v1) @signature `Lcom/google/android/material/animation/TransformationCallback;.onScaleChanged:(Landroid/view/View;)V` @kind interface;
+  #L19f7be.  return @kind void;
+}
+procedure `void` `onTranslationChanged`(`com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper` v2 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton$TransformationCallbackWrapper;.onTranslationChanged:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19f7d0.  v0:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper.listener` @type ^`com.google.android.material.animation.TransformationCallback` @kind object;
+  #L19f7d4.  v1:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButton$TransformationCallbackWrapper.this$0` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19f7d8.  call `onTranslationChanged`(v0, v1) @signature `Lcom/google/android/material/animation/TransformationCallback;.onTranslationChanged:(Landroid/view/View;)V` @kind interface;
+  #L19f7de.  return @kind void;
+}

@@ -1,0 +1,70 @@
+record `androidx.loader.content.AsyncTaskLoader` @kind class @AccessFlag PUBLIC_ABSTRACT extends `androidx.loader.content.Loader` @kind class {
+  `androidx.loader.content.AsyncTaskLoader$LoadTask` `androidx.loader.content.AsyncTaskLoader.mCancellingTask` @AccessFlag VOLATILE;
+  `java.util.concurrent.Executor` `androidx.loader.content.AsyncTaskLoader.mExecutor` @AccessFlag PRIVATE_FINAL;
+  `android.os.Handler` `androidx.loader.content.AsyncTaskLoader.mHandler` @AccessFlag ;
+  `long` `androidx.loader.content.AsyncTaskLoader.mLastLoadCompleteTime` @AccessFlag ;
+  `androidx.loader.content.AsyncTaskLoader$LoadTask` `androidx.loader.content.AsyncTaskLoader.mTask` @AccessFlag VOLATILE;
+  `long` `androidx.loader.content.AsyncTaskLoader.mUpdateThrottle` @AccessFlag ;
+}
+global `boolean` `@@androidx.loader.content.AsyncTaskLoader.DEBUG` @AccessFlag STATIC_FINAL;
+global `java.lang.String` `@@androidx.loader.content.AsyncTaskLoader.TAG` @AccessFlag STATIC_FINAL;
+procedure `void` `<init>`(`androidx.loader.content.AsyncTaskLoader` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Landroidx/loader/content/AsyncTaskLoader;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.loader.content.AsyncTaskLoader` v2 @kind this, `android.content.Context` v3 @kind object @name `context`, `java.util.concurrent.Executor` v4 @kind object @name `executor`) @signature `Landroidx/loader/content/AsyncTaskLoader;.<init>:(Landroid/content/Context;Ljava/util/concurrent/Executor;)V` @AccessFlag PRIVATE_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `cancelLoadInBackground`(`androidx.loader.content.AsyncTaskLoader` v0 @kind this) @signature `Landroidx/loader/content/AsyncTaskLoader;.cancelLoadInBackground:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `dispatchOnCancelled`(`androidx.loader.content.AsyncTaskLoader` v2 @kind this, `androidx.loader.content.AsyncTaskLoader$LoadTask` v3 @kind object, `java.lang.Object` v4 @kind object) @signature `Landroidx/loader/content/AsyncTaskLoader;.dispatchOnCancelled:(Landroidx/loader/content/AsyncTaskLoader$LoadTask;Ljava/lang/Object;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `dispatchOnLoadComplete`(`androidx.loader.content.AsyncTaskLoader` v2 @kind this, `androidx.loader.content.AsyncTaskLoader$LoadTask` v3 @kind object, `java.lang.Object` v4 @kind object) @signature `Landroidx/loader/content/AsyncTaskLoader;.dispatchOnLoadComplete:(Landroidx/loader/content/AsyncTaskLoader$LoadTask;Ljava/lang/Object;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `dump`(`androidx.loader.content.AsyncTaskLoader` v4 @kind this, `java.lang.String` v5 @kind object @name `prefix`, `java.io.FileDescriptor` v6 @kind object @name `fd`, `java.io.PrintWriter` v7 @kind object @name `writer`, `java.lang.String`[] v8 @kind object @name `args`) @signature `Landroidx/loader/content/AsyncTaskLoader;.dump:(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `executePendingTask`(`androidx.loader.content.AsyncTaskLoader` v8 @kind this) @signature `Landroidx/loader/content/AsyncTaskLoader;.executePendingTask:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isLoadInBackgroundCanceled`(`androidx.loader.content.AsyncTaskLoader` v1 @kind this) @signature `Landroidx/loader/content/AsyncTaskLoader;.isLoadInBackgroundCanceled:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.Object` `loadInBackground`() @signature `Landroidx/loader/content/AsyncTaskLoader;.loadInBackground:()Ljava/lang/Object;` @AccessFlag PUBLIC_ABSTRACT {
+
+  # return;
+}
+procedure `boolean` `onCancelLoad`(`androidx.loader.content.AsyncTaskLoader` v4 @kind this) @signature `Landroidx/loader/content/AsyncTaskLoader;.onCancelLoad:()Z` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onCanceled`(`androidx.loader.content.AsyncTaskLoader` v0 @kind this, `java.lang.Object` v1 @kind object) @signature `Landroidx/loader/content/AsyncTaskLoader;.onCanceled:(Ljava/lang/Object;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onForceLoad`(`androidx.loader.content.AsyncTaskLoader` v1 @kind this) @signature `Landroidx/loader/content/AsyncTaskLoader;.onForceLoad:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `java.lang.Object` `onLoadInBackground`(`androidx.loader.content.AsyncTaskLoader` v1 @kind this) @signature `Landroidx/loader/content/AsyncTaskLoader;.onLoadInBackground:()Ljava/lang/Object;` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `setUpdateThrottle`(`androidx.loader.content.AsyncTaskLoader` v2 @kind this, `long` v3 @name `delayMS`) @signature `Landroidx/loader/content/AsyncTaskLoader;.setUpdateThrottle:(J)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `waitForLoader`(`androidx.loader.content.AsyncTaskLoader` v1 @kind this) @signature `Landroidx/loader/content/AsyncTaskLoader;.waitForLoader:()V` @AccessFlag PUBLIC {
+
+  # return;
+}

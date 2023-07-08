@@ -1,0 +1,143 @@
+record `com.google.android.material.datepicker.DaysOfWeekAdapter` @kind class @AccessFlag  extends `android.widget.BaseAdapter` @kind class {
+  `java.util.Calendar` `com.google.android.material.datepicker.DaysOfWeekAdapter.calendar` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.datepicker.DaysOfWeekAdapter.daysInWeek` @AccessFlag PRIVATE_FINAL;
+  `int` `com.google.android.material.datepicker.DaysOfWeekAdapter.firstDayOfWeek` @AccessFlag PRIVATE_FINAL;
+}
+global `int` `@@com.google.android.material.datepicker.DaysOfWeekAdapter.CALENDAR_DAY_STYLE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.datepicker.DaysOfWeekAdapter.NARROW_FORMAT` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/datepicker/DaysOfWeekAdapter;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L197514.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L197518.  v1:= 26I;
+  #L19751c.  if v0 < v1 then goto L197524;
+  #L197520.  v0:= 4I;
+  #L197522.  goto L197526;
+  #L197524.  v0:= 1I;
+  #L197526.  `@@com.google.android.material.datepicker.DaysOfWeekAdapter.CALENDAR_DAY_STYLE` @type ^`int` := v0;
+  #L19752a.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.DaysOfWeekAdapter` v2 @kind this) @signature `Lcom/google/android/material/datepicker/DaysOfWeekAdapter;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L19753c.  call `<init>`(v2) @signature `Landroid/widget/BaseAdapter;.<init>:()V` @kind direct;
+  #L197542.  call temp:= `getUtcCalendar`() @signature `Lcom/google/android/material/datepicker/UtcDates;.getUtcCalendar:()Ljava/util/Calendar;` @kind static;
+  #L197548.  v0:= temp @kind object;
+  #L19754a.  v2.`com.google.android.material.datepicker.DaysOfWeekAdapter.calendar` @type ^`java.util.Calendar` := v0 @kind object;
+  #L19754e.  v1:= 7I;
+  #L197550.  call temp:= `getMaximum`(v0, v1) @signature `Ljava/util/Calendar;.getMaximum:(I)I` @kind virtual;
+  #L197556.  v1:= temp;
+  #L197558.  v2.`com.google.android.material.datepicker.DaysOfWeekAdapter.daysInWeek` @type ^`int` := v1;
+  #L19755c.  call temp:= `getFirstDayOfWeek`(v0) @signature `Ljava/util/Calendar;.getFirstDayOfWeek:()I` @kind virtual;
+  #L197562.  v0:= temp;
+  #L197564.  v2.`com.google.android.material.datepicker.DaysOfWeekAdapter.firstDayOfWeek` @type ^`int` := v0;
+  #L197568.  return @kind void;
+}
+procedure `int` `positionToDayOfWeek`(`com.google.android.material.datepicker.DaysOfWeekAdapter` v2 @kind this, `int` v3 @name `position`) @signature `Lcom/google/android/material/datepicker/DaysOfWeekAdapter;.positionToDayOfWeek:(I)I` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L19748c.  v0:= v2.`com.google.android.material.datepicker.DaysOfWeekAdapter.firstDayOfWeek` @type ^`int`;
+  #L197490.  v0:= v0 + v3 @kind int;
+  #L197492.  v1:= v2.`com.google.android.material.datepicker.DaysOfWeekAdapter.daysInWeek` @type ^`int`;
+  #L197496.  if v0 <= v1 then goto L19749c;
+  #L19749a.  v0:= v0 - v1 @kind int;
+  #L19749c.  return v0;
+}
+procedure `int` `getCount`(`com.google.android.material.datepicker.DaysOfWeekAdapter` v1 @kind this) @signature `Lcom/google/android/material/datepicker/DaysOfWeekAdapter;.getCount:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L197474.  v0:= v1.`com.google.android.material.datepicker.DaysOfWeekAdapter.daysInWeek` @type ^`int`;
+  #L197478.  return v0;
+}
+procedure `java.lang.Integer` `getItem`(`com.google.android.material.datepicker.DaysOfWeekAdapter` v1 @kind this, `int` v2 @name `position`) @signature `Lcom/google/android/material/datepicker/DaysOfWeekAdapter;.getItem:(I)Ljava/lang/Integer;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1974b0.  v0:= v1.`com.google.android.material.datepicker.DaysOfWeekAdapter.daysInWeek` @type ^`int`;
+  #L1974b4.  if v2 < v0 then goto L1974bc;
+  #L1974b8.  v0:= 0I;
+  #L1974ba.  return v0 @kind object;
+  #L1974bc.  call temp:= `positionToDayOfWeek`(v1, v2) @signature `Lcom/google/android/material/datepicker/DaysOfWeekAdapter;.positionToDayOfWeek:(I)I` @kind direct;
+  #L1974c2.  v0:= temp;
+  #L1974c4.  call temp:= `valueOf`(v0) @signature `Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer;` @kind static;
+  #L1974ca.  v0:= temp @kind object;
+  #L1974cc.  return v0 @kind object;
+}
+procedure `java.lang.Object` `getItem`(`com.google.android.material.datepicker.DaysOfWeekAdapter` v0 @kind this, `int` v1 ) @signature `Lcom/google/android/material/datepicker/DaysOfWeekAdapter;.getItem:(I)Ljava/lang/Object;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L1974e0.  call temp:= `getItem`(v0, v1) @signature `Lcom/google/android/material/datepicker/DaysOfWeekAdapter;.getItem:(I)Ljava/lang/Integer;` @kind virtual;
+  #L1974e6.  v1:= temp @kind object;
+  #L1974e8.  return v1 @kind object;
+}
+procedure `long` `getItemId`(`com.google.android.material.datepicker.DaysOfWeekAdapter` v2 @kind this, `int` v3 @name `position`) @signature `Lcom/google/android/material/datepicker/DaysOfWeekAdapter;.getItemId:(I)J` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1974fc.  v0:= 0L;
+  #L197500.  return v0 @kind wide;
+}
+procedure `android.view.View` `getView`(`com.google.android.material.datepicker.DaysOfWeekAdapter` v8 @kind this, `int` v9 @name `position`, `android.view.View` v10 @kind object @name `convertView`, `android.view.ViewGroup` v11 @kind object @name `parent`) @signature `Lcom/google/android/material/datepicker/DaysOfWeekAdapter;.getView:(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L1973bc.  v0:= v10 @kind object;
+  #L1973be.  v0:= (`android.widget.TextView`) v0 @kind object;
+  #L1973c2.  v1:= 0I;
+  #L1973c4.  if v10 != 0 then goto L1973ea;
+  #L1973c8.  call temp:= `getContext`(v11) @signature `Landroid/view/ViewGroup;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1973ce.  v2:= temp @kind object;
+  #L1973d0.  call temp:= `from`(v2) @signature `Landroid/view/LayoutInflater;.from:(Landroid/content/Context;)Landroid/view/LayoutInflater;` @kind static;
+  #L1973d6.  v2:= temp @kind object;
+  #L1973d8.  v3:= `@@com.google.android.material.R$layout.mtrl_calendar_day_of_week` @type ^`int`;
+  #L1973dc.  call temp:= `inflate`(v2, v3, v11, v1) @signature `Landroid/view/LayoutInflater;.inflate:(ILandroid/view/ViewGroup;Z)Landroid/view/View;` @kind virtual;
+  #L1973e2.  v3:= temp @kind object;
+  #L1973e4.  v0:= v3 @kind object;
+  #L1973e6.  v0:= (`android.widget.TextView`) v0 @kind object;
+  #L1973ea.  v2:= v8.`com.google.android.material.datepicker.DaysOfWeekAdapter.calendar` @type ^`java.util.Calendar` @kind object;
+  #L1973ee.  call temp:= `positionToDayOfWeek`(v8, v9) @signature `Lcom/google/android/material/datepicker/DaysOfWeekAdapter;.positionToDayOfWeek:(I)I` @kind direct;
+  #L1973f4.  v3:= temp;
+  #L1973f6.  v4:= 7I;
+  #L1973f8.  call `set`(v2, v4, v3) @signature `Ljava/util/Calendar;.set:(II)V` @kind virtual;
+  #L1973fe.  v2:= v8.`com.google.android.material.datepicker.DaysOfWeekAdapter.calendar` @type ^`java.util.Calendar` @kind object;
+  #L197402.  v3:= `@@com.google.android.material.datepicker.DaysOfWeekAdapter.CALENDAR_DAY_STYLE` @type ^`int`;
+  #L197406.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L19740c.  v5:= temp @kind object;
+  #L19740e.  call temp:= `getDisplayName`(v2, v4, v3, v5) @signature `Ljava/util/Calendar;.getDisplayName:(IILjava/util/Locale;)Ljava/lang/String;` @kind virtual;
+  #L197414.  v2:= temp @kind object;
+  #L197416.  call `setText`(v0, v2) @signature `Landroid/widget/TextView;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L19741c.  
+  #L19741e.  call temp:= `getContext`(v11) @signature `Landroid/view/ViewGroup;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L197424.  v2:= temp @kind object;
+  #L197426.  v3:= `@@com.google.android.material.R$string.mtrl_picker_day_of_week_column_header` @type ^`int`;
+  #L19742a.  call temp:= `getString`(v2, v3) @signature `Landroid/content/Context;.getString:(I)Ljava/lang/String;` @kind virtual;
+  #L197430.  v2:= temp @kind object;
+  #L197432.  v3:= 1I;
+  #L197434.  v3:= new `java.lang.Object`[v3];
+  #L197438.  v5:= v8.`com.google.android.material.datepicker.DaysOfWeekAdapter.calendar` @type ^`java.util.Calendar` @kind object;
+  #L19743c.  v6:= 2I;
+  #L19743e.  call temp:= `getDefault`() @signature `Ljava/util/Locale;.getDefault:()Ljava/util/Locale;` @kind static;
+  #L197444.  v7:= temp @kind object;
+  #L197446.  call temp:= `getDisplayName`(v5, v4, v6, v7) @signature `Ljava/util/Calendar;.getDisplayName:(IILjava/util/Locale;)Ljava/lang/String;` @kind virtual;
+  #L19744c.  v4:= temp @kind object;
+  #L19744e.  v3[v1]:= v4 @kind object;
+  #L197452.  call temp:= `format`(v2, v3) @signature `Ljava/lang/String;.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;` @kind static;
+  #L197458.  v1:= temp @kind object;
+  #L19745a.  call `setContentDescription`(v0, v1) @signature `Landroid/widget/TextView;.setContentDescription:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L197460.  return v0 @kind object;
+}

@@ -1,0 +1,84 @@
+record `com.google.android.material.animation.DrawableAlphaProperty` @kind class @AccessFlag PUBLIC extends `android.util.Property` @kind class {
+  `java.util.WeakHashMap` `com.google.android.material.animation.DrawableAlphaProperty.alphaCache` @AccessFlag PRIVATE_FINAL;
+}
+global `android.util.Property` `@@com.google.android.material.animation.DrawableAlphaProperty.DRAWABLE_ALPHA_COMPAT` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/animation/DrawableAlphaProperty;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L17ce38.  v0:= new `com.google.android.material.animation.DrawableAlphaProperty`;
+  #L17ce3c.  call `<init>`(v0) @signature `Lcom/google/android/material/animation/DrawableAlphaProperty;.<init>:()V` @kind direct;
+  #L17ce42.  `@@com.google.android.material.animation.DrawableAlphaProperty.DRAWABLE_ALPHA_COMPAT` @type ^`android.util.Property` := v0 @kind object;
+  #L17ce46.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.animation.DrawableAlphaProperty` v2 @kind this) @signature `Lcom/google/android/material/animation/DrawableAlphaProperty;.<init>:()V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+
+  #L17ce58.  v0:= constclass @type ^`java.lang.Integer` @kind object;
+  #L17ce5c.  v1:= "drawableAlphaCompat" @kind object;
+  #L17ce60.  call `<init>`(v2, v0, v1) @signature `Landroid/util/Property;.<init>:(Ljava/lang/Class;Ljava/lang/String;)V` @kind direct;
+  #L17ce66.  v0:= new `java.util.WeakHashMap`;
+  #L17ce6a.  call `<init>`(v0) @signature `Ljava/util/WeakHashMap;.<init>:()V` @kind direct;
+  #L17ce70.  v2.`com.google.android.material.animation.DrawableAlphaProperty.alphaCache` @type ^`java.util.WeakHashMap` := v0 @kind object;
+  #L17ce74.  return @kind void;
+}
+procedure `java.lang.Integer` `get`(`com.google.android.material.animation.DrawableAlphaProperty` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `object`) @signature `Lcom/google/android/material/animation/DrawableAlphaProperty;.get:(Landroid/graphics/drawable/Drawable;)Ljava/lang/Integer;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L17cdb8.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L17cdbc.  v1:= 19I;
+  #L17cdc0.  if v0 < v1 then goto L17cdd6;
+  #L17cdc4.  call temp:= `getAlpha`(v3) @signature `Landroid/graphics/drawable/Drawable;.getAlpha:()I` @kind virtual;
+  #L17cdca.  v0:= temp;
+  #L17cdcc.  call temp:= `valueOf`(v0) @signature `Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer;` @kind static;
+  #L17cdd2.  v0:= temp @kind object;
+  #L17cdd4.  return v0 @kind object;
+  #L17cdd6.  v0:= v2.`com.google.android.material.animation.DrawableAlphaProperty.alphaCache` @type ^`java.util.WeakHashMap` @kind object;
+  #L17cdda.  call temp:= `containsKey`(v0, v3) @signature `Ljava/util/WeakHashMap;.containsKey:(Ljava/lang/Object;)Z` @kind virtual;
+  #L17cde0.  v0:= temp;
+  #L17cde2.  if v0 == 0 then goto L17cdf8;
+  #L17cde6.  v0:= v2.`com.google.android.material.animation.DrawableAlphaProperty.alphaCache` @type ^`java.util.WeakHashMap` @kind object;
+  #L17cdea.  call temp:= `get`(v0, v3) @signature `Ljava/util/WeakHashMap;.get:(Ljava/lang/Object;)Ljava/lang/Object;` @kind virtual;
+  #L17cdf0.  v0:= temp @kind object;
+  #L17cdf2.  v0:= (`java.lang.Integer`) v0 @kind object;
+  #L17cdf6.  return v0 @kind object;
+  #L17cdf8.  v0:= 255I;
+  #L17cdfc.  call temp:= `valueOf`(v0) @signature `Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer;` @kind static;
+  #L17ce02.  v0:= temp @kind object;
+  #L17ce04.  return v0 @kind object;
+}
+procedure `java.lang.Object` `get`(`com.google.android.material.animation.DrawableAlphaProperty` v0 @kind this, `java.lang.Object` v1 @kind object) @signature `Lcom/google/android/material/animation/DrawableAlphaProperty;.get:(Ljava/lang/Object;)Ljava/lang/Object;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L17ce18.  v1:= (`android.graphics.drawable.Drawable`) v1 @kind object;
+  #L17ce1c.  call temp:= `get`(v0, v1) @signature `Lcom/google/android/material/animation/DrawableAlphaProperty;.get:(Landroid/graphics/drawable/Drawable;)Ljava/lang/Integer;` @kind virtual;
+  #L17ce22.  v1:= temp @kind object;
+  #L17ce24.  return v1 @kind object;
+}
+procedure `void` `set`(`com.google.android.material.animation.DrawableAlphaProperty` v2 @kind this, `android.graphics.drawable.Drawable` v3 @kind object @name `object`, `java.lang.Integer` v4 @kind object @name `value`) @signature `Lcom/google/android/material/animation/DrawableAlphaProperty;.set:(Landroid/graphics/drawable/Drawable;Ljava/lang/Integer;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L17ce88.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L17ce8c.  v1:= 19I;
+  #L17ce90.  if v0 >= v1 then goto L17ce9e;
+  #L17ce94.  v0:= v2.`com.google.android.material.animation.DrawableAlphaProperty.alphaCache` @type ^`java.util.WeakHashMap` @kind object;
+  #L17ce98.  call temp:= `put`(v0, v3, v4) @signature `Ljava/util/WeakHashMap;.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;` @kind virtual;
+  #L17ce9e.  call temp:= `intValue`(v4) @signature `Ljava/lang/Integer;.intValue:()I` @kind virtual;
+  #L17cea4.  v0:= temp;
+  #L17cea6.  call `setAlpha`(v3, v0) @signature `Landroid/graphics/drawable/Drawable;.setAlpha:(I)V` @kind virtual;
+  #L17ceac.  return @kind void;
+}
+procedure `void` `set`(`com.google.android.material.animation.DrawableAlphaProperty` v0 @kind this, `java.lang.Object` v1 @kind object, `java.lang.Object` v2 @kind object) @signature `Lcom/google/android/material/animation/DrawableAlphaProperty;.set:(Ljava/lang/Object;Ljava/lang/Object;)V` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L17cec0.  v1:= (`android.graphics.drawable.Drawable`) v1 @kind object;
+  #L17cec4.  v2:= (`java.lang.Integer`) v2 @kind object;
+  #L17cec8.  call `set`(v0, v1, v2) @signature `Lcom/google/android/material/animation/DrawableAlphaProperty;.set:(Landroid/graphics/drawable/Drawable;Ljava/lang/Integer;)V` @kind virtual;
+  #L17cece.  return @kind void;
+}

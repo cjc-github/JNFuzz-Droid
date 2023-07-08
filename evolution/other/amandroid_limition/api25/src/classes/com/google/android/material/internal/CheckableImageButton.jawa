@@ -1,0 +1,170 @@
+record `com.google.android.material.internal.CheckableImageButton` @kind class @AccessFlag PUBLIC extends `androidx.appcompat.widget.AppCompatImageButton` @kind class, `android.widget.Checkable` @kind interface {
+  `boolean` `com.google.android.material.internal.CheckableImageButton.checkable` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.internal.CheckableImageButton.checked` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.internal.CheckableImageButton.pressable` @AccessFlag PRIVATE;
+}
+global `int`[] `@@com.google.android.material.internal.CheckableImageButton.DRAWABLE_STATE_CHECKED` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/internal/CheckableImageButton;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a2940.  v0:= 1I;
+  #L1a2942.  v0:= new `int`[v0];
+  #L1a2946.  v1:= 0I;
+  #L1a2948.  v2:= 16842912I;
+  #L1a294e.  v0[v1]:= v2;
+  #L1a2952.  `@@com.google.android.material.internal.CheckableImageButton.DRAWABLE_STATE_CHECKED` @type ^`int`[] := v0 @kind object;
+  #L1a2956.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.CheckableImageButton` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/internal/CheckableImageButton;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a2968.  v0:= 0I;
+  #L1a296a.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/internal/CheckableImageButton;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1a2970.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.CheckableImageButton` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/internal/CheckableImageButton;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a2984.  v0:= `@@androidx.appcompat.R$attr.imageButtonStyle` @type ^`int`;
+  #L1a2988.  call `<init>`(v1, v2, v3, v0) @signature `Lcom/google/android/material/internal/CheckableImageButton;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1a298e.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.CheckableImageButton` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`, `int` v4 @name `defStyleAttr`) @signature `Lcom/google/android/material/internal/CheckableImageButton;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1a29a0.  call `<init>`(v1, v2, v3, v4) @signature `Landroidx/appcompat/widget/AppCompatImageButton;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1a29a6.  v0:= 1I;
+  #L1a29a8.  v1.`com.google.android.material.internal.CheckableImageButton.checkable` @type ^`boolean` := v0 @kind boolean;
+  #L1a29ac.  v1.`com.google.android.material.internal.CheckableImageButton.pressable` @type ^`boolean` := v0 @kind boolean;
+  #L1a29b0.  v0:= new `com.google.android.material.internal.CheckableImageButton$1`;
+  #L1a29b4.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/internal/CheckableImageButton$1;.<init>:(Lcom/google/android/material/internal/CheckableImageButton;)V` @kind direct;
+  #L1a29ba.  call `setAccessibilityDelegate`(v1, v0) @signature `Landroidx/core/view/ViewCompat;.setAccessibilityDelegate:(Landroid/view/View;Landroidx/core/view/AccessibilityDelegateCompat;)V` @kind static;
+  #L1a29c0.  return @kind void;
+}
+procedure `boolean` `isCheckable`(`com.google.android.material.internal.CheckableImageButton` v1 @kind this) @signature `Lcom/google/android/material/internal/CheckableImageButton;.isCheckable:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a28bc.  v0:= v1.`com.google.android.material.internal.CheckableImageButton.checkable` @type ^`boolean` @kind boolean;
+  #L1a28c0.  return v0;
+}
+procedure `boolean` `isChecked`(`com.google.android.material.internal.CheckableImageButton` v1 @kind this) @signature `Lcom/google/android/material/internal/CheckableImageButton;.isChecked:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a28d4.  v0:= v1.`com.google.android.material.internal.CheckableImageButton.checked` @type ^`boolean` @kind boolean;
+  #L1a28d8.  return v0;
+}
+procedure `boolean` `isPressable`(`com.google.android.material.internal.CheckableImageButton` v1 @kind this) @signature `Lcom/google/android/material/internal/CheckableImageButton;.isPressable:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a28ec.  v0:= v1.`com.google.android.material.internal.CheckableImageButton.pressable` @type ^`boolean` @kind boolean;
+  #L1a28f0.  return v0;
+}
+procedure `int`[] `onCreateDrawableState`(`com.google.android.material.internal.CheckableImageButton` v2 @kind this, `int` v3 @name `extraSpace`) @signature `Lcom/google/android/material/internal/CheckableImageButton;.onCreateDrawableState:(I)[I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1a2904.  v0:= v2.`com.google.android.material.internal.CheckableImageButton.checked` @type ^`boolean` @kind boolean;
+  #L1a2908.  if v0 == 0 then goto L1a2926;
+  #L1a290c.  v0:= `@@com.google.android.material.internal.CheckableImageButton.DRAWABLE_STATE_CHECKED` @type ^`int`[] @kind object;
+  #L1a2910.  v1:= length @variable v0;
+  #L1a2912.  v1:= v1 + v3 @kind int;
+  #L1a2914.  call temp:= `onCreateDrawableState`(v2, v1) @signature `Landroidx/appcompat/widget/AppCompatImageButton;.onCreateDrawableState:(I)[I` @kind super;
+  #L1a291a.  v1:= temp @kind object;
+  #L1a291c.  call temp:= `mergeDrawableStates`(v1, v0) @signature `Lcom/google/android/material/internal/CheckableImageButton;.mergeDrawableStates:([I[I)[I` @kind static;
+  #L1a2922.  v0:= temp @kind object;
+  #L1a2924.  return v0 @kind object;
+  #L1a2926.  call temp:= `onCreateDrawableState`(v2, v3) @signature `Landroidx/appcompat/widget/AppCompatImageButton;.onCreateDrawableState:(I)[I` @kind super;
+  #L1a292c.  v0:= temp @kind object;
+  #L1a292e.  return v0 @kind object;
+}
+procedure `void` `onRestoreInstanceState`(`com.google.android.material.internal.CheckableImageButton` v2 @kind this, `android.os.Parcelable` v3 @kind object @name `state`) @signature `Lcom/google/android/material/internal/CheckableImageButton;.onRestoreInstanceState:(Landroid/os/Parcelable;)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L1a29d4.  v0:= instanceof @variable v3 @type ^`com.google.android.material.internal.CheckableImageButton$SavedState` @kind boolean;
+  #L1a29d8.  if v0 != 0 then goto L1a29e4;
+  #L1a29dc.  call `onRestoreInstanceState`(v2, v3) @signature `Landroidx/appcompat/widget/AppCompatImageButton;.onRestoreInstanceState:(Landroid/os/Parcelable;)V` @kind super;
+  #L1a29e2.  return @kind void;
+  #L1a29e4.  v0:= v3 @kind object;
+  #L1a29e6.  v0:= (`com.google.android.material.internal.CheckableImageButton$SavedState`) v0 @kind object;
+  #L1a29ea.  call temp:= `getSuperState`(v0) @signature `Lcom/google/android/material/internal/CheckableImageButton$SavedState;.getSuperState:()Landroid/os/Parcelable;` @kind virtual;
+  #L1a29f0.  v1:= temp @kind object;
+  #L1a29f2.  call `onRestoreInstanceState`(v2, v1) @signature `Landroidx/appcompat/widget/AppCompatImageButton;.onRestoreInstanceState:(Landroid/os/Parcelable;)V` @kind super;
+  #L1a29f8.  v1:= v0.`com.google.android.material.internal.CheckableImageButton$SavedState.checked` @type ^`boolean` @kind boolean;
+  #L1a29fc.  call `setChecked`(v2, v1) @signature `Lcom/google/android/material/internal/CheckableImageButton;.setChecked:(Z)V` @kind virtual;
+  #L1a2a02.  return @kind void;
+}
+procedure `android.os.Parcelable` `onSaveInstanceState`(`com.google.android.material.internal.CheckableImageButton` v3 @kind this) @signature `Lcom/google/android/material/internal/CheckableImageButton;.onSaveInstanceState:()Landroid/os/Parcelable;` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a2890.  call temp:= `onSaveInstanceState`(v3) @signature `Landroidx/appcompat/widget/AppCompatImageButton;.onSaveInstanceState:()Landroid/os/Parcelable;` @kind super;
+  #L1a2896.  v0:= temp @kind object;
+  #L1a2898.  v1:= new `com.google.android.material.internal.CheckableImageButton$SavedState`;
+  #L1a289c.  call `<init>`(v1, v0) @signature `Lcom/google/android/material/internal/CheckableImageButton$SavedState;.<init>:(Landroid/os/Parcelable;)V` @kind direct;
+  #L1a28a2.  v2:= v3.`com.google.android.material.internal.CheckableImageButton.checked` @type ^`boolean` @kind boolean;
+  #L1a28a6.  v1.`com.google.android.material.internal.CheckableImageButton$SavedState.checked` @type ^`boolean` := v2 @kind boolean;
+  #L1a28aa.  return v1 @kind object;
+}
+procedure `void` `setCheckable`(`com.google.android.material.internal.CheckableImageButton` v1 @kind this, `boolean` v2 @name `checkable`) @signature `Lcom/google/android/material/internal/CheckableImageButton;.setCheckable:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a2a14.  v0:= v1.`com.google.android.material.internal.CheckableImageButton.checkable` @type ^`boolean` @kind boolean;
+  #L1a2a18.  if v0 == v2 then goto L1a2a28;
+  #L1a2a1c.  v1.`com.google.android.material.internal.CheckableImageButton.checkable` @type ^`boolean` := v2 @kind boolean;
+  #L1a2a20.  v0:= 0I;
+  #L1a2a22.  call `sendAccessibilityEvent`(v1, v0) @signature `Lcom/google/android/material/internal/CheckableImageButton;.sendAccessibilityEvent:(I)V` @kind virtual;
+  #L1a2a28.  return @kind void;
+}
+procedure `void` `setChecked`(`com.google.android.material.internal.CheckableImageButton` v1 @kind this, `boolean` v2 @name `checked`) @signature `Lcom/google/android/material/internal/CheckableImageButton;.setChecked:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a2a3c.  v0:= v1.`com.google.android.material.internal.CheckableImageButton.checkable` @type ^`boolean` @kind boolean;
+  #L1a2a40.  if v0 == 0 then goto L1a2a60;
+  #L1a2a44.  v0:= v1.`com.google.android.material.internal.CheckableImageButton.checked` @type ^`boolean` @kind boolean;
+  #L1a2a48.  if v0 == v2 then goto L1a2a60;
+  #L1a2a4c.  v1.`com.google.android.material.internal.CheckableImageButton.checked` @type ^`boolean` := v2 @kind boolean;
+  #L1a2a50.  call `refreshDrawableState`(v1) @signature `Lcom/google/android/material/internal/CheckableImageButton;.refreshDrawableState:()V` @kind virtual;
+  #L1a2a56.  v0:= 2048I;
+  #L1a2a5a.  call `sendAccessibilityEvent`(v1, v0) @signature `Lcom/google/android/material/internal/CheckableImageButton;.sendAccessibilityEvent:(I)V` @kind virtual;
+  #L1a2a60.  return @kind void;
+}
+procedure `void` `setPressable`(`com.google.android.material.internal.CheckableImageButton` v0 @kind this, `boolean` v1 @name `pressable`) @signature `Lcom/google/android/material/internal/CheckableImageButton;.setPressable:(Z)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1a2a74.  v0.`com.google.android.material.internal.CheckableImageButton.pressable` @type ^`boolean` := v1 @kind boolean;
+  #L1a2a78.  return @kind void;
+}
+procedure `void` `setPressed`(`com.google.android.material.internal.CheckableImageButton` v1 @kind this, `boolean` v2 @name `pressed`) @signature `Lcom/google/android/material/internal/CheckableImageButton;.setPressed:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a2a8c.  v0:= v1.`com.google.android.material.internal.CheckableImageButton.pressable` @type ^`boolean` @kind boolean;
+  #L1a2a90.  if v0 == 0 then goto L1a2a9a;
+  #L1a2a94.  call `setPressed`(v1, v2) @signature `Landroidx/appcompat/widget/AppCompatImageButton;.setPressed:(Z)V` @kind super;
+  #L1a2a9a.  return @kind void;
+}
+procedure `void` `toggle`(`com.google.android.material.internal.CheckableImageButton` v1 @kind this) @signature `Lcom/google/android/material/internal/CheckableImageButton;.toggle:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1a2aac.  v0:= v1.`com.google.android.material.internal.CheckableImageButton.checked` @type ^`boolean` @kind boolean;
+  #L1a2ab0.  v0:= v0 ^~ 1;
+  #L1a2ab4.  call `setChecked`(v1, v0) @signature `Lcom/google/android/material/internal/CheckableImageButton;.setChecked:(Z)V` @kind virtual;
+  #L1a2aba.  return @kind void;
+}

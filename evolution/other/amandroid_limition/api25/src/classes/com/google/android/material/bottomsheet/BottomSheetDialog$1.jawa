@@ -1,0 +1,29 @@
+record `com.google.android.material.bottomsheet.BottomSheetDialog$1` @kind class @AccessFlag  extends `android.view.View$OnClickListener` @kind interface {
+  `com.google.android.material.bottomsheet.BottomSheetDialog` `com.google.android.material.bottomsheet.BottomSheetDialog$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomsheet.BottomSheetDialog$1` v0 @kind this, `com.google.android.material.bottomsheet.BottomSheetDialog` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog$1;.<init>:(Lcom/google/android/material/bottomsheet/BottomSheetDialog;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L18a758.  v0.`com.google.android.material.bottomsheet.BottomSheetDialog$1.this$0` @type ^`com.google.android.material.bottomsheet.BottomSheetDialog` := v1 @kind object;
+  #L18a75c.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L18a762.  return @kind void;
+}
+procedure `void` `onClick`(`com.google.android.material.bottomsheet.BottomSheetDialog$1` v1 @kind this, `android.view.View` v2 @kind object @name `view`) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog$1;.onClick:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18a774.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetDialog$1.this$0` @type ^`com.google.android.material.bottomsheet.BottomSheetDialog` @kind object;
+  #L18a778.  v0:= v0.`com.google.android.material.bottomsheet.BottomSheetDialog.cancelable` @type ^`boolean` @kind boolean;
+  #L18a77c.  if v0 == 0 then goto L18a7aa;
+  #L18a780.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetDialog$1.this$0` @type ^`com.google.android.material.bottomsheet.BottomSheetDialog` @kind object;
+  #L18a784.  call temp:= `isShowing`(v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.isShowing:()Z` @kind virtual;
+  #L18a78a.  v0:= temp;
+  #L18a78c.  if v0 == 0 then goto L18a7aa;
+  #L18a790.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetDialog$1.this$0` @type ^`com.google.android.material.bottomsheet.BottomSheetDialog` @kind object;
+  #L18a794.  call temp:= `shouldWindowCloseOnTouchOutside`(v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.shouldWindowCloseOnTouchOutside:()Z` @kind virtual;
+  #L18a79a.  v0:= temp;
+  #L18a79c.  if v0 == 0 then goto L18a7aa;
+  #L18a7a0.  v0:= v1.`com.google.android.material.bottomsheet.BottomSheetDialog$1.this$0` @type ^`com.google.android.material.bottomsheet.BottomSheetDialog` @kind object;
+  #L18a7a4.  call `cancel`(v0) @signature `Lcom/google/android/material/bottomsheet/BottomSheetDialog;.cancel:()V` @kind virtual;
+  #L18a7aa.  return @kind void;
+}

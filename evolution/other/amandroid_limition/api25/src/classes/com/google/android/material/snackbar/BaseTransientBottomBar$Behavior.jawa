@@ -1,0 +1,46 @@
+record `com.google.android.material.snackbar.BaseTransientBottomBar$Behavior` @kind class @AccessFlag PUBLIC extends `com.google.android.material.behavior.SwipeDismissBehavior` @kind class {
+  `com.google.android.material.snackbar.BaseTransientBottomBar$BehaviorDelegate` `com.google.android.material.snackbar.BaseTransientBottomBar$Behavior.delegate` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.snackbar.BaseTransientBottomBar$Behavior` v1 @kind this) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1af8bc.  call `<init>`(v1) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.<init>:()V` @kind direct;
+  #L1af8c2.  v0:= new `com.google.android.material.snackbar.BaseTransientBottomBar$BehaviorDelegate`;
+  #L1af8c6.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$BehaviorDelegate;.<init>:(Lcom/google/android/material/behavior/SwipeDismissBehavior;)V` @kind direct;
+  #L1af8cc.  v1.`com.google.android.material.snackbar.BaseTransientBottomBar$Behavior.delegate` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar$BehaviorDelegate` := v0 @kind object;
+  #L1af8d0.  return @kind void;
+}
+procedure `void` `access$1000`(`com.google.android.material.snackbar.BaseTransientBottomBar$Behavior` v0 @kind object @name `x0`, `com.google.android.material.snackbar.BaseTransientBottomBar` v1 @kind object @name `x1`) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;.access$1000:(Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L1af8e4.  call `setBaseTransientBottomBar`(v0, v1) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;.setBaseTransientBottomBar:(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V` @kind direct;
+  #L1af8ea.  return @kind void;
+}
+procedure `void` `setBaseTransientBottomBar`(`com.google.android.material.snackbar.BaseTransientBottomBar$Behavior` v1 @kind this, `com.google.android.material.snackbar.BaseTransientBottomBar` v2 @kind object) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;.setBaseTransientBottomBar:(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L1af8fc.  v0:= v1.`com.google.android.material.snackbar.BaseTransientBottomBar$Behavior.delegate` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar$BehaviorDelegate` @kind object;
+  #L1af900.  call `setBaseTransientBottomBar`(v0, v2) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$BehaviorDelegate;.setBaseTransientBottomBar:(Lcom/google/android/material/snackbar/BaseTransientBottomBar;)V` @kind virtual;
+  #L1af906.  return @kind void;
+}
+procedure `boolean` `canSwipeDismissView`(`com.google.android.material.snackbar.BaseTransientBottomBar$Behavior` v1 @kind this, `android.view.View` v2 @kind object @name `child`) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;.canSwipeDismissView:(Landroid/view/View;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1af878.  v0:= v1.`com.google.android.material.snackbar.BaseTransientBottomBar$Behavior.delegate` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar$BehaviorDelegate` @kind object;
+  #L1af87c.  call temp:= `canSwipeDismissView`(v0, v2) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$BehaviorDelegate;.canSwipeDismissView:(Landroid/view/View;)Z` @kind virtual;
+  #L1af882.  v0:= temp;
+  #L1af884.  return v0;
+}
+procedure `boolean` `onInterceptTouchEvent`(`com.google.android.material.snackbar.BaseTransientBottomBar$Behavior` v1 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v2 @kind object @name `parent`, `android.view.View` v3 @kind object @name `child`, `android.view.MotionEvent` v4 @kind object @name `event`) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$Behavior;.onInterceptTouchEvent:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1af898.  v0:= v1.`com.google.android.material.snackbar.BaseTransientBottomBar$Behavior.delegate` @type ^`com.google.android.material.snackbar.BaseTransientBottomBar$BehaviorDelegate` @kind object;
+  #L1af89c.  call `onInterceptTouchEvent`(v0, v2, v3, v4) @signature `Lcom/google/android/material/snackbar/BaseTransientBottomBar$BehaviorDelegate;.onInterceptTouchEvent:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)V` @kind virtual;
+  #L1af8a2.  call temp:= `onInterceptTouchEvent`(v1, v2, v3, v4) @signature `Lcom/google/android/material/behavior/SwipeDismissBehavior;.onInterceptTouchEvent:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z` @kind super;
+  #L1af8a8.  v0:= temp;
+  #L1af8aa.  return v0;
+}

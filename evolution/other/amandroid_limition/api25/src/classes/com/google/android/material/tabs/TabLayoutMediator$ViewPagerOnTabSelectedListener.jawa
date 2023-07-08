@@ -1,0 +1,33 @@
+record `com.google.android.material.tabs.TabLayoutMediator$ViewPagerOnTabSelectedListener` @kind class @AccessFlag  extends `com.google.android.material.tabs.TabLayout$OnTabSelectedListener` @kind interface {
+  `androidx.viewpager2.widget.ViewPager2` `com.google.android.material.tabs.TabLayoutMediator$ViewPagerOnTabSelectedListener.viewPager` @AccessFlag PRIVATE_FINAL;
+}
+procedure `void` `<init>`(`com.google.android.material.tabs.TabLayoutMediator$ViewPagerOnTabSelectedListener` v0 @kind this, `androidx.viewpager2.widget.ViewPager2` v1 @kind object @name `viewPager`) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$ViewPagerOnTabSelectedListener;.<init>:(Landroidx/viewpager2/widget/ViewPager2;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b4074.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b407a.  v0.`com.google.android.material.tabs.TabLayoutMediator$ViewPagerOnTabSelectedListener.viewPager` @type ^`androidx.viewpager2.widget.ViewPager2` := v1 @kind object;
+  #L1b407e.  return @kind void;
+}
+procedure `void` `onTabReselected`(`com.google.android.material.tabs.TabLayoutMediator$ViewPagerOnTabSelectedListener` v0 @kind this, `com.google.android.material.tabs.TabLayout$Tab` v1 @kind object @name `tab`) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$ViewPagerOnTabSelectedListener;.onTabReselected:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b4090.  return @kind void;
+}
+procedure `void` `onTabSelected`(`com.google.android.material.tabs.TabLayoutMediator$ViewPagerOnTabSelectedListener` v3 @kind this, `com.google.android.material.tabs.TabLayout$Tab` v4 @kind object @name `tab`) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$ViewPagerOnTabSelectedListener;.onTabSelected:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b40a4.  v0:= v3.`com.google.android.material.tabs.TabLayoutMediator$ViewPagerOnTabSelectedListener.viewPager` @type ^`androidx.viewpager2.widget.ViewPager2` @kind object;
+  #L1b40a8.  call temp:= `getPosition`(v4) @signature `Lcom/google/android/material/tabs/TabLayout$Tab;.getPosition:()I` @kind virtual;
+  #L1b40ae.  v1:= temp;
+  #L1b40b0.  v2:= 1I;
+  #L1b40b2.  call `setCurrentItem`(v0, v1, v2) @signature `Landroidx/viewpager2/widget/ViewPager2;.setCurrentItem:(IZ)V` @kind virtual;
+  #L1b40b8.  return @kind void;
+}
+procedure `void` `onTabUnselected`(`com.google.android.material.tabs.TabLayoutMediator$ViewPagerOnTabSelectedListener` v0 @kind this, `com.google.android.material.tabs.TabLayout$Tab` v1 @kind object @name `tab`) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$ViewPagerOnTabSelectedListener;.onTabUnselected:(Lcom/google/android/material/tabs/TabLayout$Tab;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L1b40cc.  return @kind void;
+}

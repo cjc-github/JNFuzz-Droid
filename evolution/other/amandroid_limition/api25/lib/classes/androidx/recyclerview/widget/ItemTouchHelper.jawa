@@ -1,0 +1,188 @@
+record `androidx.recyclerview.widget.ItemTouchHelper` @kind class @AccessFlag PUBLIC extends `androidx.recyclerview.widget.RecyclerView$ItemDecoration` @kind class, `androidx.recyclerview.widget.RecyclerView$OnChildAttachStateChangeListener` @kind interface {
+  `int` `androidx.recyclerview.widget.ItemTouchHelper.mActionState` @AccessFlag PRIVATE;
+  `int` `androidx.recyclerview.widget.ItemTouchHelper.mActivePointerId` @AccessFlag ;
+  `androidx.recyclerview.widget.ItemTouchHelper$Callback` `androidx.recyclerview.widget.ItemTouchHelper.mCallback` @AccessFlag ;
+  `androidx.recyclerview.widget.RecyclerView$ChildDrawingOrderCallback` `androidx.recyclerview.widget.ItemTouchHelper.mChildDrawingOrderCallback` @AccessFlag PRIVATE;
+  `java.util.List` `androidx.recyclerview.widget.ItemTouchHelper.mDistances` @AccessFlag PRIVATE;
+  `long` `androidx.recyclerview.widget.ItemTouchHelper.mDragScrollStartTimeInMs` @AccessFlag PRIVATE;
+  `float` `androidx.recyclerview.widget.ItemTouchHelper.mDx` @AccessFlag ;
+  `float` `androidx.recyclerview.widget.ItemTouchHelper.mDy` @AccessFlag ;
+  `androidx.core.view.GestureDetectorCompat` `androidx.recyclerview.widget.ItemTouchHelper.mGestureDetector` @AccessFlag ;
+  `float` `androidx.recyclerview.widget.ItemTouchHelper.mInitialTouchX` @AccessFlag ;
+  `float` `androidx.recyclerview.widget.ItemTouchHelper.mInitialTouchY` @AccessFlag ;
+  `androidx.recyclerview.widget.ItemTouchHelper$ItemTouchHelperGestureListener` `androidx.recyclerview.widget.ItemTouchHelper.mItemTouchHelperGestureListener` @AccessFlag PRIVATE;
+  `float` `androidx.recyclerview.widget.ItemTouchHelper.mMaxSwipeVelocity` @AccessFlag PRIVATE;
+  `androidx.recyclerview.widget.RecyclerView$OnItemTouchListener` `androidx.recyclerview.widget.ItemTouchHelper.mOnItemTouchListener` @AccessFlag PRIVATE_FINAL;
+  `android.view.View` `androidx.recyclerview.widget.ItemTouchHelper.mOverdrawChild` @AccessFlag ;
+  `int` `androidx.recyclerview.widget.ItemTouchHelper.mOverdrawChildPosition` @AccessFlag ;
+  `java.util.List` `androidx.recyclerview.widget.ItemTouchHelper.mPendingCleanup` @AccessFlag FINAL;
+  `java.util.List` `androidx.recyclerview.widget.ItemTouchHelper.mRecoverAnimations` @AccessFlag ;
+  `androidx.recyclerview.widget.RecyclerView` `androidx.recyclerview.widget.ItemTouchHelper.mRecyclerView` @AccessFlag ;
+  `java.lang.Runnable` `androidx.recyclerview.widget.ItemTouchHelper.mScrollRunnable` @AccessFlag FINAL;
+  `androidx.recyclerview.widget.RecyclerView$ViewHolder` `androidx.recyclerview.widget.ItemTouchHelper.mSelected` @AccessFlag ;
+  `int` `androidx.recyclerview.widget.ItemTouchHelper.mSelectedFlags` @AccessFlag ;
+  `float` `androidx.recyclerview.widget.ItemTouchHelper.mSelectedStartX` @AccessFlag PRIVATE;
+  `float` `androidx.recyclerview.widget.ItemTouchHelper.mSelectedStartY` @AccessFlag PRIVATE;
+  `int` `androidx.recyclerview.widget.ItemTouchHelper.mSlop` @AccessFlag PRIVATE;
+  `java.util.List` `androidx.recyclerview.widget.ItemTouchHelper.mSwapTargets` @AccessFlag PRIVATE;
+  `float` `androidx.recyclerview.widget.ItemTouchHelper.mSwipeEscapeVelocity` @AccessFlag PRIVATE;
+  `float`[] `androidx.recyclerview.widget.ItemTouchHelper.mTmpPosition` @AccessFlag PRIVATE_FINAL;
+  `android.graphics.Rect` `androidx.recyclerview.widget.ItemTouchHelper.mTmpRect` @AccessFlag PRIVATE;
+  `android.view.VelocityTracker` `androidx.recyclerview.widget.ItemTouchHelper.mVelocityTracker` @AccessFlag ;
+}
+global `int` `@@androidx.recyclerview.widget.ItemTouchHelper.ACTION_MODE_DRAG_MASK` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.ItemTouchHelper.ACTION_MODE_IDLE_MASK` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.ItemTouchHelper.ACTION_MODE_SWIPE_MASK` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.ItemTouchHelper.ACTION_STATE_DRAG` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.ItemTouchHelper.ACTION_STATE_IDLE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.ItemTouchHelper.ACTION_STATE_SWIPE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.ItemTouchHelper.ACTIVE_POINTER_ID_NONE` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.ItemTouchHelper.ANIMATION_TYPE_DRAG` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.ItemTouchHelper.ANIMATION_TYPE_SWIPE_CANCEL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.ItemTouchHelper.ANIMATION_TYPE_SWIPE_SUCCESS` @AccessFlag PUBLIC_STATIC_FINAL;
+global `boolean` `@@androidx.recyclerview.widget.ItemTouchHelper.DEBUG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.ItemTouchHelper.DIRECTION_FLAG_COUNT` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.ItemTouchHelper.DOWN` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.ItemTouchHelper.END` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.ItemTouchHelper.LEFT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.ItemTouchHelper.PIXELS_PER_SECOND` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.ItemTouchHelper.RIGHT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.ItemTouchHelper.START` @AccessFlag PUBLIC_STATIC_FINAL;
+global `java.lang.String` `@@androidx.recyclerview.widget.ItemTouchHelper.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.recyclerview.widget.ItemTouchHelper.UP` @AccessFlag PUBLIC_STATIC_FINAL;
+procedure `void` `<init>`(`androidx.recyclerview.widget.ItemTouchHelper` v3 @kind this, `androidx.recyclerview.widget.ItemTouchHelper$Callback` v4 @kind object @name `callback`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.<init>:(Landroidx/recyclerview/widget/ItemTouchHelper$Callback;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `addChildDrawingOrderCallback`(`androidx.recyclerview.widget.ItemTouchHelper` v2 @kind this) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.addChildDrawingOrderCallback:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `checkHorizontalSwipe`(`androidx.recyclerview.widget.ItemTouchHelper` v8 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v9 @kind object @name `viewHolder`, `int` v10 @name `flags`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.checkHorizontalSwipe:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `checkVerticalSwipe`(`androidx.recyclerview.widget.ItemTouchHelper` v8 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v9 @kind object @name `viewHolder`, `int` v10 @name `flags`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.checkVerticalSwipe:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `destroyCallbacks`(`androidx.recyclerview.widget.ItemTouchHelper` v6 @kind this) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.destroyCallbacks:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `java.util.List` `findSwapTargets`(`androidx.recyclerview.widget.ItemTouchHelper` v20 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v21 @kind object @name `viewHolder`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.findSwapTargets:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Ljava/util/List;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.RecyclerView$ViewHolder` `findSwipedView`(`androidx.recyclerview.widget.ItemTouchHelper` v9 @kind this, `android.view.MotionEvent` v10 @kind object @name `motionEvent`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.findSwipedView:(Landroid/view/MotionEvent;)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `getSelectedDxDy`(`androidx.recyclerview.widget.ItemTouchHelper` v3 @kind this, `float`[] v4 @kind object @name `outPosition`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.getSelectedDxDy:([F)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `hitTest`(`android.view.View` v1 @kind object @name `child`, `float` v2 @name `x`, `float` v3 @name `y`, `float` v4 @name `left`, `float` v5 @name `top`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.hitTest:(Landroid/view/View;FFFF)Z` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `releaseVelocityTracker`(`androidx.recyclerview.widget.ItemTouchHelper` v1 @kind this) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.releaseVelocityTracker:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `setupCallbacks`(`androidx.recyclerview.widget.ItemTouchHelper` v3 @kind this) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.setupCallbacks:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `startGestureDetection`(`androidx.recyclerview.widget.ItemTouchHelper` v3 @kind this) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.startGestureDetection:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `stopGestureDetection`(`androidx.recyclerview.widget.ItemTouchHelper` v2 @kind this) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.stopGestureDetection:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `swipeIfNecessary`(`androidx.recyclerview.widget.ItemTouchHelper` v7 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v8 @kind object @name `viewHolder`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.swipeIfNecessary:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `attachToRecyclerView`(`androidx.recyclerview.widget.ItemTouchHelper` v2 @kind this, `androidx.recyclerview.widget.RecyclerView` v3 @kind object @name `recyclerView`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.attachToRecyclerView:(Landroidx/recyclerview/widget/RecyclerView;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `checkSelectForSwipe`(`androidx.recyclerview.widget.ItemTouchHelper` v12 @kind this, `int` v13 @name `action`, `android.view.MotionEvent` v14 @kind object @name `motionEvent`, `int` v15 @name `pointerIndex`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.checkSelectForSwipe:(ILandroid/view/MotionEvent;I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `endRecoverAnimation`(`androidx.recyclerview.widget.ItemTouchHelper` v4 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v5 @kind object @name `viewHolder`, `boolean` v6 @name `override`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.endRecoverAnimation:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Z)V` @AccessFlag  {
+
+  # return;
+}
+procedure `androidx.recyclerview.widget.ItemTouchHelper$RecoverAnimation` `findAnimation`(`androidx.recyclerview.widget.ItemTouchHelper` v5 @kind this, `android.view.MotionEvent` v6 @kind object @name `event`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.findAnimation:(Landroid/view/MotionEvent;)Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;` @AccessFlag  {
+
+  # return;
+}
+procedure `android.view.View` `findChildView`(`androidx.recyclerview.widget.ItemTouchHelper` v7 @kind this, `android.view.MotionEvent` v8 @kind object @name `event`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.findChildView:(Landroid/view/MotionEvent;)Landroid/view/View;` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `getItemOffsets`(`androidx.recyclerview.widget.ItemTouchHelper` v0 @kind this, `android.graphics.Rect` v1 @kind object @name `outRect`, `android.view.View` v2 @kind object @name `view`, `androidx.recyclerview.widget.RecyclerView` v3 @kind object @name `parent`, `androidx.recyclerview.widget.RecyclerView$State` v4 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.getItemOffsets:(Landroid/graphics/Rect;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `hasRunningRecoverAnim`(`androidx.recyclerview.widget.ItemTouchHelper` v3 @kind this) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.hasRunningRecoverAnim:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `moveIfNecessary`(`androidx.recyclerview.widget.ItemTouchHelper` v17 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v18 @kind object @name `viewHolder`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.moveIfNecessary:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `obtainVelocityTracker`(`androidx.recyclerview.widget.ItemTouchHelper` v1 @kind this) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.obtainVelocityTracker:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onChildViewAttachedToWindow`(`androidx.recyclerview.widget.ItemTouchHelper` v0 @kind this, `android.view.View` v1 @kind object @name `view`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.onChildViewAttachedToWindow:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onChildViewDetachedFromWindow`(`androidx.recyclerview.widget.ItemTouchHelper` v3 @kind this, `android.view.View` v4 @kind object @name `view`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.onChildViewDetachedFromWindow:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onDraw`(`androidx.recyclerview.widget.ItemTouchHelper` v10 @kind this, `android.graphics.Canvas` v11 @kind object @name `c`, `androidx.recyclerview.widget.RecyclerView` v12 @kind object @name `parent`, `androidx.recyclerview.widget.RecyclerView$State` v13 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.onDraw:(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onDrawOver`(`androidx.recyclerview.widget.ItemTouchHelper` v10 @kind this, `android.graphics.Canvas` v11 @kind object @name `c`, `androidx.recyclerview.widget.RecyclerView` v12 @kind object @name `parent`, `androidx.recyclerview.widget.RecyclerView$State` v13 @kind object @name `state`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.onDrawOver:(Landroid/graphics/Canvas;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `postDispatchSwipe`(`androidx.recyclerview.widget.ItemTouchHelper` v2 @kind this, `androidx.recyclerview.widget.ItemTouchHelper$RecoverAnimation` v3 @kind object @name `anim`, `int` v4 @name `swipeDir`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.postDispatchSwipe:(Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `removeChildDrawingOrderCallbackIfNecessary`(`androidx.recyclerview.widget.ItemTouchHelper` v2 @kind this, `android.view.View` v3 @kind object @name `view`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.removeChildDrawingOrderCallbackIfNecessary:(Landroid/view/View;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `scrollIfNecessary`(`androidx.recyclerview.widget.ItemTouchHelper` v23 @kind this) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.scrollIfNecessary:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `select`(`androidx.recyclerview.widget.ItemTouchHelper` v27 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v28 @kind object @name `selected`, `int` v29 @name `actionState`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.select:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `startDrag`(`androidx.recyclerview.widget.ItemTouchHelper` v3 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v4 @kind object @name `viewHolder`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.startDrag:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `startSwipe`(`androidx.recyclerview.widget.ItemTouchHelper` v3 @kind this, `androidx.recyclerview.widget.RecyclerView$ViewHolder` v4 @kind object @name `viewHolder`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.startSwipe:(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `updateDxDy`(`androidx.recyclerview.widget.ItemTouchHelper` v5 @kind this, `android.view.MotionEvent` v6 @kind object @name `ev`, `int` v7 @name `directionFlags`, `int` v8 @name `pointerIndex`) @signature `Landroidx/recyclerview/widget/ItemTouchHelper;.updateDxDy:(Landroid/view/MotionEvent;II)V` @AccessFlag  {
+
+  # return;
+}

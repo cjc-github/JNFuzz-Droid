@@ -1,0 +1,49 @@
+record `com.google.android.material.button.MaterialButtonToggleGroup$CheckedStateTracker` @kind class @AccessFlag  extends `com.google.android.material.button.MaterialButton$OnCheckedChangeListener` @kind interface {
+  `com.google.android.material.button.MaterialButtonToggleGroup` `com.google.android.material.button.MaterialButtonToggleGroup$CheckedStateTracker.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.button.MaterialButtonToggleGroup$CheckedStateTracker` v0 @kind this, `com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind object) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CheckedStateTracker;.<init>:(Lcom/google/android/material/button/MaterialButtonToggleGroup;)V` @AccessFlag PRIVATE_CONSTRUCTOR {
+    temp;
+
+  #L18b8bc.  v0.`com.google.android.material.button.MaterialButtonToggleGroup$CheckedStateTracker.this$0` @type ^`com.google.android.material.button.MaterialButtonToggleGroup` := v1 @kind object;
+  #L18b8c0.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L18b8c6.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.button.MaterialButtonToggleGroup$CheckedStateTracker` v0 @kind this, `com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind object @name `x0`, `com.google.android.material.button.MaterialButtonToggleGroup$1` v2 @kind object @name `x1`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CheckedStateTracker;.<init>:(Lcom/google/android/material/button/MaterialButtonToggleGroup;Lcom/google/android/material/button/MaterialButtonToggleGroup$1;)V` @AccessFlag SYNTHETIC_CONSTRUCTOR {
+    temp;
+
+  #L18b8d8.  call `<init>`(v0, v1) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CheckedStateTracker;.<init>:(Lcom/google/android/material/button/MaterialButtonToggleGroup;)V` @kind direct;
+  #L18b8de.  return @kind void;
+}
+procedure `void` `onCheckedChanged`(`com.google.android.material.button.MaterialButtonToggleGroup$CheckedStateTracker` v2 @kind this, `com.google.android.material.button.MaterialButton` v3 @kind object @name `button`, `boolean` v4 @name `isChecked`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CheckedStateTracker;.onCheckedChanged:(Lcom/google/android/material/button/MaterialButton;Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L18b8f0.  v0:= v2.`com.google.android.material.button.MaterialButtonToggleGroup$CheckedStateTracker.this$0` @type ^`com.google.android.material.button.MaterialButtonToggleGroup` @kind object;
+  #L18b8f4.  call temp:= `access$200`(v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.access$200:(Lcom/google/android/material/button/MaterialButtonToggleGroup;)Z` @kind static;
+  #L18b8fa.  v0:= temp;
+  #L18b8fc.  if v0 == 0 then goto L18b902;
+  #L18b900.  return @kind void;
+  #L18b902.  v0:= v2.`com.google.android.material.button.MaterialButtonToggleGroup$CheckedStateTracker.this$0` @type ^`com.google.android.material.button.MaterialButtonToggleGroup` @kind object;
+  #L18b906.  call temp:= `access$300`(v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.access$300:(Lcom/google/android/material/button/MaterialButtonToggleGroup;)Z` @kind static;
+  #L18b90c.  v0:= temp;
+  #L18b90e.  if v0 == 0 then goto L18b92c;
+  #L18b912.  v0:= v2.`com.google.android.material.button.MaterialButtonToggleGroup$CheckedStateTracker.this$0` @type ^`com.google.android.material.button.MaterialButtonToggleGroup` @kind object;
+  #L18b916.  if v4 == 0 then goto L18b924;
+  #L18b91a.  call temp:= `getId`(v3) @signature `Lcom/google/android/material/button/MaterialButton;.getId:()I` @kind virtual;
+  #L18b920.  v1:= temp;
+  #L18b922.  goto L18b926;
+  #L18b924.  v1:= -1I;
+  #L18b926.  call temp:= `access$402`(v0, v1) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.access$402:(Lcom/google/android/material/button/MaterialButtonToggleGroup;I)I` @kind static;
+  #L18b92c.  v0:= v2.`com.google.android.material.button.MaterialButtonToggleGroup$CheckedStateTracker.this$0` @type ^`com.google.android.material.button.MaterialButtonToggleGroup` @kind object;
+  #L18b930.  call temp:= `getId`(v3) @signature `Lcom/google/android/material/button/MaterialButton;.getId:()I` @kind virtual;
+  #L18b936.  v1:= temp;
+  #L18b938.  call `access$500`(v0, v1, v4) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.access$500:(Lcom/google/android/material/button/MaterialButtonToggleGroup;IZ)V` @kind static;
+  #L18b93e.  v0:= v2.`com.google.android.material.button.MaterialButtonToggleGroup$CheckedStateTracker.this$0` @type ^`com.google.android.material.button.MaterialButtonToggleGroup` @kind object;
+  #L18b942.  call temp:= `getId`(v3) @signature `Lcom/google/android/material/button/MaterialButton;.getId:()I` @kind virtual;
+  #L18b948.  v1:= temp;
+  #L18b94a.  call `access$600`(v0, v1, v4) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.access$600:(Lcom/google/android/material/button/MaterialButtonToggleGroup;IZ)V` @kind static;
+  #L18b950.  v0:= v2.`com.google.android.material.button.MaterialButtonToggleGroup$CheckedStateTracker.this$0` @type ^`com.google.android.material.button.MaterialButtonToggleGroup` @kind object;
+  #L18b954.  call `invalidate`(v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.invalidate:()V` @kind virtual;
+  #L18b95a.  return @kind void;
+}

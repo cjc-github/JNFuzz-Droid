@@ -1,0 +1,26 @@
+record `com.google.android.material.tabs.TabLayout$1` @kind class @AccessFlag  extends `android.animation.ValueAnimator$AnimatorUpdateListener` @kind interface {
+  `com.google.android.material.tabs.TabLayout` `com.google.android.material.tabs.TabLayout$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.tabs.TabLayout$1` v0 @kind this, `com.google.android.material.tabs.TabLayout` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/tabs/TabLayout$1;.<init>:(Lcom/google/android/material/tabs/TabLayout;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b1fe4.  v0.`com.google.android.material.tabs.TabLayout$1.this$0` @type ^`com.google.android.material.tabs.TabLayout` := v1 @kind object;
+  #L1b1fe8.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b1fee.  return @kind void;
+}
+procedure `void` `onAnimationUpdate`(`com.google.android.material.tabs.TabLayout$1` v3 @kind this, `android.animation.ValueAnimator` v4 @kind object @name `animator`) @signature `Lcom/google/android/material/tabs/TabLayout$1;.onAnimationUpdate:(Landroid/animation/ValueAnimator;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b2000.  v0:= v3.`com.google.android.material.tabs.TabLayout$1.this$0` @type ^`com.google.android.material.tabs.TabLayout` @kind object;
+  #L1b2004.  call temp:= `getAnimatedValue`(v4) @signature `Landroid/animation/ValueAnimator;.getAnimatedValue:()Ljava/lang/Object;` @kind virtual;
+  #L1b200a.  v1:= temp @kind object;
+  #L1b200c.  v1:= (`java.lang.Integer`) v1 @kind object;
+  #L1b2010.  call temp:= `intValue`(v1) @signature `Ljava/lang/Integer;.intValue:()I` @kind virtual;
+  #L1b2016.  v1:= temp;
+  #L1b2018.  v2:= 0I;
+  #L1b201a.  call `scrollTo`(v0, v1, v2) @signature `Lcom/google/android/material/tabs/TabLayout;.scrollTo:(II)V` @kind virtual;
+  #L1b2020.  return @kind void;
+}

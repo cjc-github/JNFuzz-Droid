@@ -1,0 +1,81 @@
+record `androidx.core.app.JobIntentService` @kind class @AccessFlag PUBLIC_ABSTRACT extends `android.app.Service` @kind class {
+  `java.util.ArrayList` `androidx.core.app.JobIntentService.mCompatQueue` @AccessFlag FINAL;
+  `androidx.core.app.JobIntentService$WorkEnqueuer` `androidx.core.app.JobIntentService.mCompatWorkEnqueuer` @AccessFlag ;
+  `androidx.core.app.JobIntentService$CommandProcessor` `androidx.core.app.JobIntentService.mCurProcessor` @AccessFlag ;
+  `boolean` `androidx.core.app.JobIntentService.mDestroyed` @AccessFlag ;
+  `boolean` `androidx.core.app.JobIntentService.mInterruptIfStopped` @AccessFlag ;
+  `androidx.core.app.JobIntentService$CompatJobEngine` `androidx.core.app.JobIntentService.mJobImpl` @AccessFlag ;
+  `boolean` `androidx.core.app.JobIntentService.mStopped` @AccessFlag ;
+}
+global `boolean` `@@androidx.core.app.JobIntentService.DEBUG` @AccessFlag STATIC_FINAL;
+global `java.lang.String` `@@androidx.core.app.JobIntentService.TAG` @AccessFlag STATIC_FINAL;
+global `java.util.HashMap` `@@androidx.core.app.JobIntentService.sClassWorkEnqueuer` @AccessFlag STATIC_FINAL;
+global `java.lang.Object` `@@androidx.core.app.JobIntentService.sLock` @AccessFlag STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/core/app/JobIntentService;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.core.app.JobIntentService` v2 @kind this) @signature `Landroidx/core/app/JobIntentService;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `enqueueWork`(`android.content.Context` v2 @kind object @name `context`, `android.content.ComponentName` v3 @kind object @name `component`, `int` v4 @name `jobId`, `android.content.Intent` v5 @kind object @name `work`) @signature `Landroidx/core/app/JobIntentService;.enqueueWork:(Landroid/content/Context;Landroid/content/ComponentName;ILandroid/content/Intent;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `void` `enqueueWork`(`android.content.Context` v1 @kind object @name `context`, `java.lang.Class` v2 @kind object @name `cls`, `int` v3 @name `jobId`, `android.content.Intent` v4 @kind object @name `work`) @signature `Landroidx/core/app/JobIntentService;.enqueueWork:(Landroid/content/Context;Ljava/lang/Class;ILandroid/content/Intent;)V` @AccessFlag PUBLIC_STATIC {
+
+  # return;
+}
+procedure `androidx.core.app.JobIntentService$WorkEnqueuer` `getWorkEnqueuer`(`android.content.Context` v4 @kind object @name `context`, `android.content.ComponentName` v5 @kind object @name `cn`, `boolean` v6 @name `hasJobId`, `int` v7 @name `jobId`) @signature `Landroidx/core/app/JobIntentService;.getWorkEnqueuer:(Landroid/content/Context;Landroid/content/ComponentName;ZI)Landroidx/core/app/JobIntentService$WorkEnqueuer;` @AccessFlag STATIC {
+
+  # return;
+}
+procedure `androidx.core.app.JobIntentService$GenericWorkItem` `dequeueWork`(`androidx.core.app.JobIntentService` v3 @kind this) @signature `Landroidx/core/app/JobIntentService;.dequeueWork:()Landroidx/core/app/JobIntentService$GenericWorkItem;` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `doStopCurrentWork`(`androidx.core.app.JobIntentService` v2 @kind this) @signature `Landroidx/core/app/JobIntentService;.doStopCurrentWork:()Z` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `ensureProcessorRunningLocked`(`androidx.core.app.JobIntentService` v3 @kind this, `boolean` v4 @name `reportStarted`) @signature `Landroidx/core/app/JobIntentService;.ensureProcessorRunningLocked:(Z)V` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `isStopped`(`androidx.core.app.JobIntentService` v1 @kind this) @signature `Landroidx/core/app/JobIntentService;.isStopped:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `android.os.IBinder` `onBind`(`androidx.core.app.JobIntentService` v1 @kind this, `android.content.Intent` v2 @kind object @name `intent`) @signature `Landroidx/core/app/JobIntentService;.onBind:(Landroid/content/Intent;)Landroid/os/IBinder;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onCreate`(`androidx.core.app.JobIntentService` v3 @kind this) @signature `Landroidx/core/app/JobIntentService;.onCreate:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onDestroy`(`androidx.core.app.JobIntentService` v2 @kind this) @signature `Landroidx/core/app/JobIntentService;.onDestroy:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onHandleWork`(`android.content.Intent` v0 @kind object) @signature `Landroidx/core/app/JobIntentService;.onHandleWork:(Landroid/content/Intent;)V` @AccessFlag PROTECTED_ABSTRACT {
+
+  # return;
+}
+procedure `int` `onStartCommand`(`androidx.core.app.JobIntentService` v4 @kind this, `android.content.Intent` v5 @kind object @name `intent`, `int` v6 @name `flags`, `int` v7 @name `startId`) @signature `Landroidx/core/app/JobIntentService;.onStartCommand:(Landroid/content/Intent;II)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `onStopCurrentWork`(`androidx.core.app.JobIntentService` v1 @kind this) @signature `Landroidx/core/app/JobIntentService;.onStopCurrentWork:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `processorFinished`(`androidx.core.app.JobIntentService` v2 @kind this) @signature `Landroidx/core/app/JobIntentService;.processorFinished:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `setInterruptIfStopped`(`androidx.core.app.JobIntentService` v0 @kind this, `boolean` v1 @name `interruptIfStopped`) @signature `Landroidx/core/app/JobIntentService;.setInterruptIfStopped:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}

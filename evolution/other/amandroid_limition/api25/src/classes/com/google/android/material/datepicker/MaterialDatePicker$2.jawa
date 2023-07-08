@@ -1,0 +1,32 @@
+record `com.google.android.material.datepicker.MaterialDatePicker$2` @kind class @AccessFlag  extends `android.view.View$OnClickListener` @kind interface {
+  `com.google.android.material.datepicker.MaterialDatePicker` `com.google.android.material.datepicker.MaterialDatePicker$2.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.MaterialDatePicker$2` v0 @kind this, `com.google.android.material.datepicker.MaterialDatePicker` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$2;.<init>:(Lcom/google/android/material/datepicker/MaterialDatePicker;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L198bb4.  v0.`com.google.android.material.datepicker.MaterialDatePicker$2.this$0` @type ^`com.google.android.material.datepicker.MaterialDatePicker` := v1 @kind object;
+  #L198bb8.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L198bbe.  return @kind void;
+}
+procedure `void` `onClick`(`com.google.android.material.datepicker.MaterialDatePicker$2` v2 @kind this, `android.view.View` v3 @kind object @name `v`) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker$2;.onClick:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L198bd0.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker$2.this$0` @type ^`com.google.android.material.datepicker.MaterialDatePicker` @kind object;
+  #L198bd4.  call temp:= `access$100`(v0) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.access$100:(Lcom/google/android/material/datepicker/MaterialDatePicker;)Ljava/util/LinkedHashSet;` @kind static;
+  #L198bda.  v0:= temp @kind object;
+  #L198bdc.  call temp:= `iterator`(v0) @signature `Ljava/util/LinkedHashSet;.iterator:()Ljava/util/Iterator;` @kind virtual;
+  #L198be2.  v0:= temp @kind object;
+  #L198be4.  call temp:= `hasNext`(v0) @signature `Ljava/util/Iterator;.hasNext:()Z` @kind interface;
+  #L198bea.  v1:= temp;
+  #L198bec.  if v1 == 0 then goto L198c04;
+  #L198bf0.  call temp:= `next`(v0) @signature `Ljava/util/Iterator;.next:()Ljava/lang/Object;` @kind interface;
+  #L198bf6.  v1:= temp @kind object;
+  #L198bf8.  v1:= (`android.view.View$OnClickListener`) v1 @kind object;
+  #L198bfc.  call `onClick`(v1, v3) @signature `Landroid/view/View$OnClickListener;.onClick:(Landroid/view/View;)V` @kind interface;
+  #L198c02.  goto L198be4;
+  #L198c04.  v0:= v2.`com.google.android.material.datepicker.MaterialDatePicker$2.this$0` @type ^`com.google.android.material.datepicker.MaterialDatePicker` @kind object;
+  #L198c08.  call `dismiss`(v0) @signature `Lcom/google/android/material/datepicker/MaterialDatePicker;.dismiss:()V` @kind virtual;
+  #L198c0e.  return @kind void;
+}

@@ -1,0 +1,34 @@
+record `com.google.android.material.datepicker.MaterialCalendar$5` @kind class @AccessFlag  extends `androidx.core.view.AccessibilityDelegateCompat` @kind class {
+  `com.google.android.material.datepicker.MaterialCalendar` `com.google.android.material.datepicker.MaterialCalendar$5.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.MaterialCalendar$5` v0 @kind this, `com.google.android.material.datepicker.MaterialCalendar` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/datepicker/MaterialCalendar$5;.<init>:(Lcom/google/android/material/datepicker/MaterialCalendar;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L197a3c.  v0.`com.google.android.material.datepicker.MaterialCalendar$5.this$0` @type ^`com.google.android.material.datepicker.MaterialCalendar` := v1 @kind object;
+  #L197a40.  call `<init>`(v0) @signature `Landroidx/core/view/AccessibilityDelegateCompat;.<init>:()V` @kind direct;
+  #L197a46.  return @kind void;
+}
+procedure `void` `onInitializeAccessibilityNodeInfo`(`com.google.android.material.datepicker.MaterialCalendar$5` v2 @kind this, `android.view.View` v3 @kind object @name `view`, `androidx.core.view.accessibility.AccessibilityNodeInfoCompat` v4 @kind object @name `accessibilityNodeInfoCompat`) @signature `Lcom/google/android/material/datepicker/MaterialCalendar$5;.onInitializeAccessibilityNodeInfo:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L197a58.  call `onInitializeAccessibilityNodeInfo`(v2, v3, v4) @signature `Landroidx/core/view/AccessibilityDelegateCompat;.onInitializeAccessibilityNodeInfo:(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V` @kind super;
+  #L197a5e.  v0:= v2.`com.google.android.material.datepicker.MaterialCalendar$5.this$0` @type ^`com.google.android.material.datepicker.MaterialCalendar` @kind object;
+  #L197a62.  call temp:= `access$500`(v0) @signature `Lcom/google/android/material/datepicker/MaterialCalendar;.access$500:(Lcom/google/android/material/datepicker/MaterialCalendar;)Landroid/view/View;` @kind static;
+  #L197a68.  v0:= temp @kind object;
+  #L197a6a.  call temp:= `getVisibility`(v0) @signature `Landroid/view/View;.getVisibility:()I` @kind virtual;
+  #L197a70.  v0:= temp;
+  #L197a72.  if v0 != 0 then goto L197a88;
+  #L197a76.  v0:= v2.`com.google.android.material.datepicker.MaterialCalendar$5.this$0` @type ^`com.google.android.material.datepicker.MaterialCalendar` @kind object;
+  #L197a7a.  v1:= `@@com.google.android.material.R$string.mtrl_picker_toggle_to_year_selection` @type ^`int`;
+  #L197a7e.  call temp:= `getString`(v0, v1) @signature `Lcom/google/android/material/datepicker/MaterialCalendar;.getString:(I)Ljava/lang/String;` @kind virtual;
+  #L197a84.  v0:= temp @kind object;
+  #L197a86.  goto L197a98;
+  #L197a88.  v0:= v2.`com.google.android.material.datepicker.MaterialCalendar$5.this$0` @type ^`com.google.android.material.datepicker.MaterialCalendar` @kind object;
+  #L197a8c.  v1:= `@@com.google.android.material.R$string.mtrl_picker_toggle_to_day_selection` @type ^`int`;
+  #L197a90.  call temp:= `getString`(v0, v1) @signature `Lcom/google/android/material/datepicker/MaterialCalendar;.getString:(I)Ljava/lang/String;` @kind virtual;
+  #L197a96.  v0:= temp @kind object;
+  #L197a98.  call `setHintText`(v4, v0) @signature `Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;.setHintText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L197a9e.  return @kind void;
+}

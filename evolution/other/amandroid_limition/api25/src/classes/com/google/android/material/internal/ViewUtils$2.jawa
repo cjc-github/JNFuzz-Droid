@@ -1,0 +1,26 @@
+record `com.google.android.material.internal.ViewUtils$2` @kind class @AccessFlag FINAL extends `androidx.core.view.OnApplyWindowInsetsListener` @kind interface {
+  `com.google.android.material.internal.ViewUtils$RelativePadding` `com.google.android.material.internal.ViewUtils$2.val$initialPadding` @AccessFlag FINAL_SYNTHETIC;
+  `com.google.android.material.internal.ViewUtils$OnApplyWindowInsetsListener` `com.google.android.material.internal.ViewUtils$2.val$listener` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.internal.ViewUtils$2` v0 @kind this, `com.google.android.material.internal.ViewUtils$OnApplyWindowInsetsListener` v1 @kind object, `com.google.android.material.internal.ViewUtils$RelativePadding` v2 @kind object) @signature `Lcom/google/android/material/internal/ViewUtils$2;.<init>:(Lcom/google/android/material/internal/ViewUtils$OnApplyWindowInsetsListener;Lcom/google/android/material/internal/ViewUtils$RelativePadding;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1a7540.  v0.`com.google.android.material.internal.ViewUtils$2.val$listener` @type ^`com.google.android.material.internal.ViewUtils$OnApplyWindowInsetsListener` := v1 @kind object;
+  #L1a7544.  v0.`com.google.android.material.internal.ViewUtils$2.val$initialPadding` @type ^`com.google.android.material.internal.ViewUtils$RelativePadding` := v2 @kind object;
+  #L1a7548.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1a754e.  return @kind void;
+}
+procedure `androidx.core.view.WindowInsetsCompat` `onApplyWindowInsets`(`com.google.android.material.internal.ViewUtils$2` v3 @kind this, `android.view.View` v4 @kind object @name `view`, `androidx.core.view.WindowInsetsCompat` v5 @kind object @name `insets`) @signature `Lcom/google/android/material/internal/ViewUtils$2;.onApplyWindowInsets:(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1a7514.  v0:= v3.`com.google.android.material.internal.ViewUtils$2.val$listener` @type ^`com.google.android.material.internal.ViewUtils$OnApplyWindowInsetsListener` @kind object;
+  #L1a7518.  v1:= new `com.google.android.material.internal.ViewUtils$RelativePadding`;
+  #L1a751c.  v2:= v3.`com.google.android.material.internal.ViewUtils$2.val$initialPadding` @type ^`com.google.android.material.internal.ViewUtils$RelativePadding` @kind object;
+  #L1a7520.  call `<init>`(v1, v2) @signature `Lcom/google/android/material/internal/ViewUtils$RelativePadding;.<init>:(Lcom/google/android/material/internal/ViewUtils$RelativePadding;)V` @kind direct;
+  #L1a7526.  call temp:= `onApplyWindowInsets`(v0, v4, v5, v1) @signature `Lcom/google/android/material/internal/ViewUtils$OnApplyWindowInsetsListener;.onApplyWindowInsets:(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;Lcom/google/android/material/internal/ViewUtils$RelativePadding;)Landroidx/core/view/WindowInsetsCompat;` @kind interface;
+  #L1a752c.  v0:= temp @kind object;
+  #L1a752e.  return v0 @kind object;
+}

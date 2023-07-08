@@ -1,0 +1,341 @@
+record `com.google.android.material.animation.MotionSpec` @kind class @AccessFlag PUBLIC {
+  `androidx.collection.SimpleArrayMap` `com.google.android.material.animation.MotionSpec.propertyValues` @AccessFlag PRIVATE_FINAL;
+  `androidx.collection.SimpleArrayMap` `com.google.android.material.animation.MotionSpec.timings` @AccessFlag PRIVATE_FINAL;
+}
+global `java.lang.String` `@@com.google.android.material.animation.MotionSpec.TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.animation.MotionSpec` v1 @kind this) @signature `Lcom/google/android/material/animation/MotionSpec;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L17d3f4.  call `<init>`(v1) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L17d3fa.  v0:= new `androidx.collection.SimpleArrayMap`;
+  #L17d3fe.  call `<init>`(v0) @signature `Landroidx/collection/SimpleArrayMap;.<init>:()V` @kind direct;
+  #L17d404.  v1.`com.google.android.material.animation.MotionSpec.timings` @type ^`androidx.collection.SimpleArrayMap` := v0 @kind object;
+  #L17d408.  v0:= new `androidx.collection.SimpleArrayMap`;
+  #L17d40c.  call `<init>`(v0) @signature `Landroidx/collection/SimpleArrayMap;.<init>:()V` @kind direct;
+  #L17d412.  v1.`com.google.android.material.animation.MotionSpec.propertyValues` @type ^`androidx.collection.SimpleArrayMap` := v0 @kind object;
+  #L17d416.  return @kind void;
+}
+procedure `void` `addInfoFromAnimator`(`com.google.android.material.animation.MotionSpec` v3 @kind object @name `spec`, `android.animation.Animator` v4 @kind object @name `animator`) @signature `Lcom/google/android/material/animation/MotionSpec;.addInfoFromAnimator:(Lcom/google/android/material/animation/MotionSpec;Landroid/animation/Animator;)V` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L17d428.  v0:= instanceof @variable v4 @type ^`android.animation.ObjectAnimator` @kind boolean;
+  #L17d42c.  if v0 == 0 then goto L17d466;
+  #L17d430.  v0:= v4 @kind object;
+  #L17d432.  v0:= (`android.animation.ObjectAnimator`) v0 @kind object;
+  #L17d436.  call temp:= `getPropertyName`(v0) @signature `Landroid/animation/ObjectAnimator;.getPropertyName:()Ljava/lang/String;` @kind virtual;
+  #L17d43c.  v1:= temp @kind object;
+  #L17d43e.  call temp:= `getValues`(v0) @signature `Landroid/animation/ObjectAnimator;.getValues:()[Landroid/animation/PropertyValuesHolder;` @kind virtual;
+  #L17d444.  v2:= temp @kind object;
+  #L17d446.  call `setPropertyValues`(v3, v1, v2) @signature `Lcom/google/android/material/animation/MotionSpec;.setPropertyValues:(Ljava/lang/String;[Landroid/animation/PropertyValuesHolder;)V` @kind virtual;
+  #L17d44c.  call temp:= `getPropertyName`(v0) @signature `Landroid/animation/ObjectAnimator;.getPropertyName:()Ljava/lang/String;` @kind virtual;
+  #L17d452.  v1:= temp @kind object;
+  #L17d454.  call temp:= `createFromAnimator`(v0) @signature `Lcom/google/android/material/animation/MotionTiming;.createFromAnimator:(Landroid/animation/ValueAnimator;)Lcom/google/android/material/animation/MotionTiming;` @kind static;
+  #L17d45a.  v2:= temp @kind object;
+  #L17d45c.  call `setTiming`(v3, v1, v2) @signature `Lcom/google/android/material/animation/MotionSpec;.setTiming:(Ljava/lang/String;Lcom/google/android/material/animation/MotionTiming;)V` @kind virtual;
+  #L17d462.  
+  #L17d464.  return @kind void;
+  #L17d466.  v0:= new `java.lang.IllegalArgumentException`;
+  #L17d46a.  v1:= new `java.lang.StringBuilder`;
+  #L17d46e.  call `<init>`(v1) @signature `Ljava/lang/StringBuilder;.<init>:()V` @kind direct;
+  #L17d474.  v2:= "Animator must be an ObjectAnimator: " @kind object;
+  #L17d478.  call temp:= `append`(v1, v2) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d47e.  v1:= temp @kind object;
+  #L17d480.  call temp:= `append`(v1, v4) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d486.  v1:= temp @kind object;
+  #L17d488.  call temp:= `toString`(v1) @signature `Ljava/lang/StringBuilder;.toString:()Ljava/lang/String;` @kind virtual;
+  #L17d48e.  v1:= temp @kind object;
+  #L17d490.  call `<init>`(v0, v1) @signature `Ljava/lang/IllegalArgumentException;.<init>:(Ljava/lang/String;)V` @kind direct;
+  #L17d496.  throw v0;
+}
+procedure `android.animation.PropertyValuesHolder`[] `clonePropertyValuesHolder`(`com.google.android.material.animation.MotionSpec` v3 @kind this, `android.animation.PropertyValuesHolder`[] v4 @kind object @name `values`) @signature `Lcom/google/android/material/animation/MotionSpec;.clonePropertyValuesHolder:([Landroid/animation/PropertyValuesHolder;)[Landroid/animation/PropertyValuesHolder;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L17d090.  v0:= length @variable v4;
+  #L17d092.  v0:= new `android.animation.PropertyValuesHolder`[v0];
+  #L17d096.  v1:= 0I;
+  #L17d098.  v2:= length @variable v4;
+  #L17d09a.  if v1 >= v2 then goto L17d0b4;
+  #L17d09e.  v2:= v4[v1] @kind object;
+  #L17d0a2.  call temp:= `clone`(v2) @signature `Landroid/animation/PropertyValuesHolder;.clone:()Landroid/animation/PropertyValuesHolder;` @kind virtual;
+  #L17d0a8.  v2:= temp @kind object;
+  #L17d0aa.  v0[v1]:= v2 @kind object;
+  #L17d0ae.  v1:= v1 + 1;
+  #L17d0b2.  goto L17d098;
+  #L17d0b4.  return v0 @kind object;
+}
+procedure `com.google.android.material.animation.MotionSpec` `createFromAttribute`(`android.content.Context` v2 @kind object @name `context`, `android.content.res.TypedArray` v3 @kind object @name `attributes`, `int` v4 @name `index`) @signature `Lcom/google/android/material/animation/MotionSpec;.createFromAttribute:(Landroid/content/Context;Landroid/content/res/TypedArray;I)Lcom/google/android/material/animation/MotionSpec;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L17d198.  call temp:= `hasValue`(v3, v4) @signature `Landroid/content/res/TypedArray;.hasValue:(I)Z` @kind virtual;
+  #L17d19e.  v0:= temp;
+  #L17d1a0.  if v0 == 0 then goto L17d1bc;
+  #L17d1a4.  v0:= 0I;
+  #L17d1a6.  call temp:= `getResourceId`(v3, v4, v0) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L17d1ac.  v0:= temp;
+  #L17d1ae.  if v0 == 0 then goto L17d1bc;
+  #L17d1b2.  call temp:= `createFromResource`(v2, v0) @signature `Lcom/google/android/material/animation/MotionSpec;.createFromResource:(Landroid/content/Context;I)Lcom/google/android/material/animation/MotionSpec;` @kind static;
+  #L17d1b8.  v1:= temp @kind object;
+  #L17d1ba.  return v1 @kind object;
+  #L17d1bc.  v0:= 0I;
+  #L17d1be.  return v0 @kind object;
+}
+procedure `com.google.android.material.animation.MotionSpec` `createFromResource`(`android.content.Context` v4 @kind object @name `context`, `int` v5 @name `id`) @signature `Lcom/google/android/material/animation/MotionSpec;.createFromResource:(Landroid/content/Context;I)Lcom/google/android/material/animation/MotionSpec;` @AccessFlag PUBLIC_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L17d1d0.  v0:= 0I;
+  #L17d1d2.  call temp:= `loadAnimator`(v4, v5) @signature `Landroid/animation/AnimatorInflater;.loadAnimator:(Landroid/content/Context;I)Landroid/animation/Animator;` @kind static;
+  #L17d1d8.  v1:= temp @kind object;
+  #L17d1da.  v2:= instanceof @variable v1 @type ^`android.animation.AnimatorSet` @kind boolean;
+  #L17d1de.  if v2 == 0 then goto L17d1fa;
+  #L17d1e2.  v2:= v1 @kind object;
+  #L17d1e4.  v2:= (`android.animation.AnimatorSet`) v2 @kind object;
+  #L17d1e8.  call temp:= `getChildAnimations`(v2) @signature `Landroid/animation/AnimatorSet;.getChildAnimations:()Ljava/util/ArrayList;` @kind virtual;
+  #L17d1ee.  v3:= temp @kind object;
+  #L17d1f0.  call temp:= `createSpecFromAnimators`(v3) @signature `Lcom/google/android/material/animation/MotionSpec;.createSpecFromAnimators:(Ljava/util/List;)Lcom/google/android/material/animation/MotionSpec;` @kind static;
+  #L17d1f6.  v0:= temp @kind object;
+  #L17d1f8.  return v0 @kind object;
+  #L17d1fa.  if v1 == 0 then goto L17d218;
+  #L17d1fe.  v2:= new `java.util.ArrayList`;
+  #L17d202.  call `<init>`(v2) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L17d208.  call temp:= `add`(v2, v1) @signature `Ljava/util/List;.add:(Ljava/lang/Object;)Z` @kind interface;
+  #L17d20e.  call temp:= `createSpecFromAnimators`(v2) @signature `Lcom/google/android/material/animation/MotionSpec;.createSpecFromAnimators:(Ljava/util/List;)Lcom/google/android/material/animation/MotionSpec;` @kind static;
+  #L17d214.  v0:= temp @kind object;
+  #L17d216.  return v0 @kind object;
+  #L17d218.  return v0 @kind object;
+  #L17d21a.  v1:= Exception @type ^`java.lang.Exception` @kind object;
+  #L17d21c.  v2:= new `java.lang.StringBuilder`;
+  #L17d220.  call `<init>`(v2) @signature `Ljava/lang/StringBuilder;.<init>:()V` @kind direct;
+  #L17d226.  v3:= "Can't load animation resource ID #0x" @kind object;
+  #L17d22a.  call temp:= `append`(v2, v3) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d230.  v2:= temp @kind object;
+  #L17d232.  call temp:= `toHexString`(v5) @signature `Ljava/lang/Integer;.toHexString:(I)Ljava/lang/String;` @kind static;
+  #L17d238.  v3:= temp @kind object;
+  #L17d23a.  call temp:= `append`(v2, v3) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d240.  v2:= temp @kind object;
+  #L17d242.  call temp:= `toString`(v2) @signature `Ljava/lang/StringBuilder;.toString:()Ljava/lang/String;` @kind virtual;
+  #L17d248.  v2:= temp @kind object;
+  #L17d24a.  v3:= "MotionSpec" @kind object;
+  #L17d24e.  call temp:= `w`(v3, v2, v1) @signature `Landroid/util/Log;.w:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I` @kind static;
+  #L17d254.  return v0 @kind object;
+  catch `java.lang.Exception` @[L17d1d2..L17d216] goto L17d21a;
+}
+procedure `com.google.android.material.animation.MotionSpec` `createSpecFromAnimators`(`java.util.List` v4 @kind object) @signature `Lcom/google/android/material/animation/MotionSpec;.createSpecFromAnimators:(Ljava/util/List;)Lcom/google/android/material/animation/MotionSpec;` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L17d278.  v0:= new `com.google.android.material.animation.MotionSpec`;
+  #L17d27c.  call `<init>`(v0) @signature `Lcom/google/android/material/animation/MotionSpec;.<init>:()V` @kind direct;
+  #L17d282.  v1:= 0I;
+  #L17d284.  call temp:= `size`(v4) @signature `Ljava/util/List;.size:()I` @kind interface;
+  #L17d28a.  v2:= temp;
+  #L17d28c.  if v1 >= v2 then goto L17d2a8;
+  #L17d290.  call temp:= `get`(v4, v1) @signature `Ljava/util/List;.get:(I)Ljava/lang/Object;` @kind interface;
+  #L17d296.  v3:= temp @kind object;
+  #L17d298.  v3:= (`android.animation.Animator`) v3 @kind object;
+  #L17d29c.  call `addInfoFromAnimator`(v0, v3) @signature `Lcom/google/android/material/animation/MotionSpec;.addInfoFromAnimator:(Lcom/google/android/material/animation/MotionSpec;Landroid/animation/Animator;)V` @kind static;
+  #L17d2a2.  v1:= v1 + 1;
+  #L17d2a6.  goto L17d28c;
+  #L17d2a8.  return v0 @kind object;
+}
+procedure `boolean` `equals`(`com.google.android.material.animation.MotionSpec` v3 @kind this, `java.lang.Object` v4 @kind object @name `o`) @signature `Lcom/google/android/material/animation/MotionSpec;.equals:(Ljava/lang/Object;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L17d10c.  if v3 != v4 then goto L17d114;
+  #L17d110.  v0:= 1I;
+  #L17d112.  return v0;
+  #L17d114.  v0:= instanceof @variable v4 @type ^`com.google.android.material.animation.MotionSpec` @kind boolean;
+  #L17d118.  if v0 != 0 then goto L17d120;
+  #L17d11c.  v0:= 0I;
+  #L17d11e.  return v0;
+  #L17d120.  v0:= v4 @kind object;
+  #L17d122.  v0:= (`com.google.android.material.animation.MotionSpec`) v0 @kind object;
+  #L17d126.  v1:= v3.`com.google.android.material.animation.MotionSpec.timings` @type ^`androidx.collection.SimpleArrayMap` @kind object;
+  #L17d12a.  v2:= v0.`com.google.android.material.animation.MotionSpec.timings` @type ^`androidx.collection.SimpleArrayMap` @kind object;
+  #L17d12e.  call temp:= `equals`(v1, v2) @signature `Landroidx/collection/SimpleArrayMap;.equals:(Ljava/lang/Object;)Z` @kind virtual;
+  #L17d134.  v1:= temp;
+  #L17d136.  return v1;
+}
+procedure `android.animation.ObjectAnimator` `getAnimator`(`com.google.android.material.animation.MotionSpec` v2 @kind this, `java.lang.String` v3 @kind object @name `name`, `java.lang.Object` v4 @kind object, `android.util.Property` v5 @kind object) @signature `Lcom/google/android/material/animation/MotionSpec;.getAnimator:(Ljava/lang/String;Ljava/lang/Object;Landroid/util/Property;)Landroid/animation/ObjectAnimator;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L17d058.  
+  #L17d05a.  call temp:= `getPropertyValues`(v2, v3) @signature `Lcom/google/android/material/animation/MotionSpec;.getPropertyValues:(Ljava/lang/String;)[Landroid/animation/PropertyValuesHolder;` @kind virtual;
+  #L17d060.  v0:= temp @kind object;
+  #L17d062.  call temp:= `ofPropertyValuesHolder`(v4, v0) @signature `Landroid/animation/ObjectAnimator;.ofPropertyValuesHolder:(Ljava/lang/Object;[Landroid/animation/PropertyValuesHolder;)Landroid/animation/ObjectAnimator;` @kind static;
+  #L17d068.  v0:= temp @kind object;
+  #L17d06a.  call `setProperty`(v0, v5) @signature `Landroid/animation/ObjectAnimator;.setProperty:(Landroid/util/Property;)V` @kind virtual;
+  #L17d070.  call temp:= `getTiming`(v2, v3) @signature `Lcom/google/android/material/animation/MotionSpec;.getTiming:(Ljava/lang/String;)Lcom/google/android/material/animation/MotionTiming;` @kind virtual;
+  #L17d076.  v1:= temp @kind object;
+  #L17d078.  call `apply`(v1, v0) @signature `Lcom/google/android/material/animation/MotionTiming;.apply:(Landroid/animation/Animator;)V` @kind virtual;
+  #L17d07e.  return v0 @kind object;
+}
+procedure `android.animation.PropertyValuesHolder`[] `getPropertyValues`(`com.google.android.material.animation.MotionSpec` v1 @kind this, `java.lang.String` v2 @kind object @name `name`) @signature `Lcom/google/android/material/animation/MotionSpec;.getPropertyValues:(Ljava/lang/String;)[Landroid/animation/PropertyValuesHolder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L17d0c8.  call temp:= `hasPropertyValues`(v1, v2) @signature `Lcom/google/android/material/animation/MotionSpec;.hasPropertyValues:(Ljava/lang/String;)Z` @kind virtual;
+  #L17d0ce.  v0:= temp;
+  #L17d0d0.  if v0 == 0 then goto L17d0ee;
+  #L17d0d4.  v0:= v1.`com.google.android.material.animation.MotionSpec.propertyValues` @type ^`androidx.collection.SimpleArrayMap` @kind object;
+  #L17d0d8.  call temp:= `get`(v0, v2) @signature `Landroidx/collection/SimpleArrayMap;.get:(Ljava/lang/Object;)Ljava/lang/Object;` @kind virtual;
+  #L17d0de.  v0:= temp @kind object;
+  #L17d0e0.  v0:= (`android.animation.PropertyValuesHolder`[]) v0 @kind object;
+  #L17d0e4.  call temp:= `clonePropertyValuesHolder`(v1, v0) @signature `Lcom/google/android/material/animation/MotionSpec;.clonePropertyValuesHolder:([Landroid/animation/PropertyValuesHolder;)[Landroid/animation/PropertyValuesHolder;` @kind direct;
+  #L17d0ea.  v0:= temp @kind object;
+  #L17d0ec.  return v0 @kind object;
+  #L17d0ee.  v0:= new `java.lang.IllegalArgumentException`;
+  #L17d0f2.  call `<init>`(v0) @signature `Ljava/lang/IllegalArgumentException;.<init>:()V` @kind direct;
+  #L17d0f8.  throw v0;
+}
+procedure `com.google.android.material.animation.MotionTiming` `getTiming`(`com.google.android.material.animation.MotionSpec` v1 @kind this, `java.lang.String` v2 @kind object @name `name`) @signature `Lcom/google/android/material/animation/MotionSpec;.getTiming:(Ljava/lang/String;)Lcom/google/android/material/animation/MotionTiming;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L17d2bc.  call temp:= `hasTiming`(v1, v2) @signature `Lcom/google/android/material/animation/MotionSpec;.hasTiming:(Ljava/lang/String;)Z` @kind virtual;
+  #L17d2c2.  v0:= temp;
+  #L17d2c4.  if v0 == 0 then goto L17d2da;
+  #L17d2c8.  v0:= v1.`com.google.android.material.animation.MotionSpec.timings` @type ^`androidx.collection.SimpleArrayMap` @kind object;
+  #L17d2cc.  call temp:= `get`(v0, v2) @signature `Landroidx/collection/SimpleArrayMap;.get:(Ljava/lang/Object;)Ljava/lang/Object;` @kind virtual;
+  #L17d2d2.  v0:= temp @kind object;
+  #L17d2d4.  v0:= (`com.google.android.material.animation.MotionTiming`) v0 @kind object;
+  #L17d2d8.  return v0 @kind object;
+  #L17d2da.  v0:= new `java.lang.IllegalArgumentException`;
+  #L17d2de.  call `<init>`(v0) @signature `Ljava/lang/IllegalArgumentException;.<init>:()V` @kind direct;
+  #L17d2e4.  throw v0;
+}
+procedure `long` `getTotalDuration`(`com.google.android.material.animation.MotionSpec` v9 @kind this) @signature `Lcom/google/android/material/animation/MotionSpec;.getTotalDuration:()J` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+
+  #L17d39c.  v0:= 0L;
+  #L17d3a0.  v2:= 0I;
+  #L17d3a2.  v3:= v9.`com.google.android.material.animation.MotionSpec.timings` @type ^`androidx.collection.SimpleArrayMap` @kind object;
+  #L17d3a6.  call temp:= `size`(v3) @signature `Landroidx/collection/SimpleArrayMap;.size:()I` @kind virtual;
+  #L17d3ac.  v3:= temp;
+  #L17d3ae.  if v2 >= v3 then goto L17d3e2;
+  #L17d3b2.  v4:= v9.`com.google.android.material.animation.MotionSpec.timings` @type ^`androidx.collection.SimpleArrayMap` @kind object;
+  #L17d3b6.  call temp:= `valueAt`(v4, v2) @signature `Landroidx/collection/SimpleArrayMap;.valueAt:(I)Ljava/lang/Object;` @kind virtual;
+  #L17d3bc.  v4:= temp @kind object;
+  #L17d3be.  v4:= (`com.google.android.material.animation.MotionTiming`) v4 @kind object;
+  #L17d3c2.  call temp:= `getDelay`(v4) @signature `Lcom/google/android/material/animation/MotionTiming;.getDelay:()J` @kind virtual;
+  #L17d3c8.  v5:= temp @kind wide;
+  #L17d3ca.  call temp:= `getDuration`(v4) @signature `Lcom/google/android/material/animation/MotionTiming;.getDuration:()J` @kind virtual;
+  #L17d3d0.  v7:= temp @kind wide;
+  #L17d3d2.  v5:= v5 + v7 @kind long;
+  #L17d3d4.  call temp:= `max`(v0, v5) @signature `Ljava/lang/Math;.max:(JJ)J` @kind static;
+  #L17d3da.  v0:= temp @kind wide;
+  #L17d3dc.  v2:= v2 + 1;
+  #L17d3e0.  goto L17d3ae;
+  #L17d3e2.  return v0 @kind wide;
+}
+procedure `boolean` `hasPropertyValues`(`com.google.android.material.animation.MotionSpec` v1 @kind this, `java.lang.String` v2 @kind object @name `name`) @signature `Lcom/google/android/material/animation/MotionSpec;.hasPropertyValues:(Ljava/lang/String;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L17d148.  v0:= v1.`com.google.android.material.animation.MotionSpec.propertyValues` @type ^`androidx.collection.SimpleArrayMap` @kind object;
+  #L17d14c.  call temp:= `get`(v0, v2) @signature `Landroidx/collection/SimpleArrayMap;.get:(Ljava/lang/Object;)Ljava/lang/Object;` @kind virtual;
+  #L17d152.  v0:= temp @kind object;
+  #L17d154.  if v0 == 0 then goto L17d15c;
+  #L17d158.  v0:= 1I;
+  #L17d15a.  goto L17d15e;
+  #L17d15c.  v0:= 0I;
+  #L17d15e.  return v0;
+}
+procedure `boolean` `hasTiming`(`com.google.android.material.animation.MotionSpec` v1 @kind this, `java.lang.String` v2 @kind object @name `name`) @signature `Lcom/google/android/material/animation/MotionSpec;.hasTiming:(Ljava/lang/String;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L17d170.  v0:= v1.`com.google.android.material.animation.MotionSpec.timings` @type ^`androidx.collection.SimpleArrayMap` @kind object;
+  #L17d174.  call temp:= `get`(v0, v2) @signature `Landroidx/collection/SimpleArrayMap;.get:(Ljava/lang/Object;)Ljava/lang/Object;` @kind virtual;
+  #L17d17a.  v0:= temp @kind object;
+  #L17d17c.  if v0 == 0 then goto L17d184;
+  #L17d180.  v0:= 1I;
+  #L17d182.  goto L17d186;
+  #L17d184.  v0:= 0I;
+  #L17d186.  return v0;
+}
+procedure `int` `hashCode`(`com.google.android.material.animation.MotionSpec` v1 @kind this) @signature `Lcom/google/android/material/animation/MotionSpec;.hashCode:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L17d2f8.  v0:= v1.`com.google.android.material.animation.MotionSpec.timings` @type ^`androidx.collection.SimpleArrayMap` @kind object;
+  #L17d2fc.  call temp:= `hashCode`(v0) @signature `Landroidx/collection/SimpleArrayMap;.hashCode:()I` @kind virtual;
+  #L17d302.  v0:= temp;
+  #L17d304.  return v0;
+}
+procedure `void` `setPropertyValues`(`com.google.android.material.animation.MotionSpec` v1 @kind this, `java.lang.String` v2 @kind object @name `name`, `android.animation.PropertyValuesHolder`[] v3 @kind object @name `values`) @signature `Lcom/google/android/material/animation/MotionSpec;.setPropertyValues:(Ljava/lang/String;[Landroid/animation/PropertyValuesHolder;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L17d4a8.  v0:= v1.`com.google.android.material.animation.MotionSpec.propertyValues` @type ^`androidx.collection.SimpleArrayMap` @kind object;
+  #L17d4ac.  call temp:= `put`(v0, v2, v3) @signature `Landroidx/collection/SimpleArrayMap;.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;` @kind virtual;
+  #L17d4b2.  return @kind void;
+}
+procedure `void` `setTiming`(`com.google.android.material.animation.MotionSpec` v1 @kind this, `java.lang.String` v2 @kind object @name `name`, `com.google.android.material.animation.MotionTiming` v3 @kind object @name `timing`) @signature `Lcom/google/android/material/animation/MotionSpec;.setTiming:(Ljava/lang/String;Lcom/google/android/material/animation/MotionTiming;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L17d4c4.  v0:= v1.`com.google.android.material.animation.MotionSpec.timings` @type ^`androidx.collection.SimpleArrayMap` @kind object;
+  #L17d4c8.  call temp:= `put`(v0, v2, v3) @signature `Landroidx/collection/SimpleArrayMap;.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;` @kind virtual;
+  #L17d4ce.  return @kind void;
+}
+procedure `java.lang.String` `toString`(`com.google.android.material.animation.MotionSpec` v2 @kind this) @signature `Lcom/google/android/material/animation/MotionSpec;.toString:()Ljava/lang/String;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L17d318.  v0:= new `java.lang.StringBuilder`;
+  #L17d31c.  call `<init>`(v0) @signature `Ljava/lang/StringBuilder;.<init>:()V` @kind direct;
+  #L17d322.  v1:= 10I;
+  #L17d326.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(C)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d32c.  call temp:= `getClass`(v2) @signature `Ljava/lang/Object;.getClass:()Ljava/lang/Class;` @kind virtual;
+  #L17d332.  v1:= temp @kind object;
+  #L17d334.  call temp:= `getName`(v1) @signature `Ljava/lang/Class;.getName:()Ljava/lang/String;` @kind virtual;
+  #L17d33a.  v1:= temp @kind object;
+  #L17d33c.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d342.  v1:= 123I;
+  #L17d346.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(C)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d34c.  call temp:= `identityHashCode`(v2) @signature `Ljava/lang/System;.identityHashCode:(Ljava/lang/Object;)I` @kind static;
+  #L17d352.  v1:= temp;
+  #L17d354.  call temp:= `toHexString`(v1) @signature `Ljava/lang/Integer;.toHexString:(I)Ljava/lang/String;` @kind static;
+  #L17d35a.  v1:= temp @kind object;
+  #L17d35c.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d362.  v1:= " timings: " @kind object;
+  #L17d366.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d36c.  v1:= v2.`com.google.android.material.animation.MotionSpec.timings` @type ^`androidx.collection.SimpleArrayMap` @kind object;
+  #L17d370.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d376.  v1:= "}\n" @kind object;
+  #L17d37a.  call temp:= `append`(v0, v1) @signature `Ljava/lang/StringBuilder;.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;` @kind virtual;
+  #L17d380.  call temp:= `toString`(v0) @signature `Ljava/lang/StringBuilder;.toString:()Ljava/lang/String;` @kind virtual;
+  #L17d386.  v1:= temp @kind object;
+  #L17d388.  return v1 @kind object;
+}

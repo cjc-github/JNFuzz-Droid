@@ -1,0 +1,42 @@
+record `com.google.android.material.chip.Chip$1` @kind class @AccessFlag  extends `com.google.android.material.resources.TextAppearanceFontCallback` @kind class {
+  `com.google.android.material.chip.Chip` `com.google.android.material.chip.Chip$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.chip.Chip$1` v0 @kind this, `com.google.android.material.chip.Chip` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/chip/Chip$1;.<init>:(Lcom/google/android/material/chip/Chip;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L18ee08.  v0.`com.google.android.material.chip.Chip$1.this$0` @type ^`com.google.android.material.chip.Chip` := v1 @kind object;
+  #L18ee0c.  call `<init>`(v0) @signature `Lcom/google/android/material/resources/TextAppearanceFontCallback;.<init>:()V` @kind direct;
+  #L18ee12.  return @kind void;
+}
+procedure `void` `onFontRetrievalFailed`(`com.google.android.material.chip.Chip$1` v0 @kind this, `int` v1 @name `reason`) @signature `Lcom/google/android/material/chip/Chip$1;.onFontRetrievalFailed:(I)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L18ee24.  return @kind void;
+}
+procedure `void` `onFontRetrieved`(`com.google.android.material.chip.Chip$1` v2 @kind this, `android.graphics.Typeface` v3 @kind object @name `typeface`, `boolean` v4 @name `fontResolvedSynchronously`) @signature `Lcom/google/android/material/chip/Chip$1;.onFontRetrieved:(Landroid/graphics/Typeface;Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L18ee38.  v0:= v2.`com.google.android.material.chip.Chip$1.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18ee3c.  call temp:= `access$000`(v0) @signature `Lcom/google/android/material/chip/Chip;.access$000:(Lcom/google/android/material/chip/Chip;)Lcom/google/android/material/chip/ChipDrawable;` @kind static;
+  #L18ee42.  v1:= temp @kind object;
+  #L18ee44.  call temp:= `shouldDrawText`(v1) @signature `Lcom/google/android/material/chip/ChipDrawable;.shouldDrawText:()Z` @kind virtual;
+  #L18ee4a.  v1:= temp;
+  #L18ee4c.  if v1 == 0 then goto L18ee66;
+  #L18ee50.  v1:= v2.`com.google.android.material.chip.Chip$1.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18ee54.  call temp:= `access$000`(v1) @signature `Lcom/google/android/material/chip/Chip;.access$000:(Lcom/google/android/material/chip/Chip;)Lcom/google/android/material/chip/ChipDrawable;` @kind static;
+  #L18ee5a.  v1:= temp @kind object;
+  #L18ee5c.  call temp:= `getText`(v1) @signature `Lcom/google/android/material/chip/ChipDrawable;.getText:()Ljava/lang/CharSequence;` @kind virtual;
+  #L18ee62.  v1:= temp @kind object;
+  #L18ee64.  goto L18ee72;
+  #L18ee66.  v1:= v2.`com.google.android.material.chip.Chip$1.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18ee6a.  call temp:= `getText`(v1) @signature `Lcom/google/android/material/chip/Chip;.getText:()Ljava/lang/CharSequence;` @kind virtual;
+  #L18ee70.  v1:= temp @kind object;
+  #L18ee72.  call `setText`(v0, v1) @signature `Lcom/google/android/material/chip/Chip;.setText:(Ljava/lang/CharSequence;)V` @kind virtual;
+  #L18ee78.  v0:= v2.`com.google.android.material.chip.Chip$1.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18ee7c.  call `requestLayout`(v0) @signature `Lcom/google/android/material/chip/Chip;.requestLayout:()V` @kind virtual;
+  #L18ee82.  v0:= v2.`com.google.android.material.chip.Chip$1.this$0` @type ^`com.google.android.material.chip.Chip` @kind object;
+  #L18ee86.  call `invalidate`(v0) @signature `Lcom/google/android/material/chip/Chip;.invalidate:()V` @kind virtual;
+  #L18ee8c.  return @kind void;
+}

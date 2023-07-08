@@ -1,0 +1,296 @@
+record `com.google.android.material.snackbar.SnackbarContentLayout` @kind class @AccessFlag PUBLIC extends `android.widget.LinearLayout` @kind class, `com.google.android.material.snackbar.ContentViewCallback` @kind interface {
+  `android.widget.Button` `com.google.android.material.snackbar.SnackbarContentLayout.actionView` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.snackbar.SnackbarContentLayout.maxInlineActionWidth` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.snackbar.SnackbarContentLayout.maxWidth` @AccessFlag PRIVATE;
+  `android.widget.TextView` `com.google.android.material.snackbar.SnackbarContentLayout.messageView` @AccessFlag PRIVATE;
+}
+procedure `void` `<init>`(`com.google.android.material.snackbar.SnackbarContentLayout` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1b0bf8.  v0:= 0I;
+  #L1b0bfa.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1b0c00.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.snackbar.SnackbarContentLayout` v3 @kind this, `android.content.Context` v4 @kind object @name `context`, `android.util.AttributeSet` v5 @kind object @name `attrs`) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L1b0c14.  call `<init>`(v3, v4, v5) @signature `Landroid/widget/LinearLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1b0c1a.  v0:= `@@com.google.android.material.R$styleable.SnackbarLayout` @type ^`int`[] @kind object;
+  #L1b0c1e.  call temp:= `obtainStyledAttributes`(v4, v5, v0) @signature `Landroid/content/Context;.obtainStyledAttributes:(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;` @kind virtual;
+  #L1b0c24.  v0:= temp @kind object;
+  #L1b0c26.  v1:= `@@com.google.android.material.R$styleable.SnackbarLayout_android_maxWidth` @type ^`int`;
+  #L1b0c2a.  v2:= -1I;
+  #L1b0c2c.  call temp:= `getDimensionPixelSize`(v0, v1, v2) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1b0c32.  v1:= temp;
+  #L1b0c34.  v3.`com.google.android.material.snackbar.SnackbarContentLayout.maxWidth` @type ^`int` := v1;
+  #L1b0c38.  v1:= `@@com.google.android.material.R$styleable.SnackbarLayout_maxActionInlineWidth` @type ^`int`;
+  #L1b0c3c.  call temp:= `getDimensionPixelSize`(v0, v1, v2) @signature `Landroid/content/res/TypedArray;.getDimensionPixelSize:(II)I` @kind virtual;
+  #L1b0c42.  v1:= temp;
+  #L1b0c44.  v3.`com.google.android.material.snackbar.SnackbarContentLayout.maxInlineActionWidth` @type ^`int` := v1;
+  #L1b0c48.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1b0c4e.  return @kind void;
+}
+procedure `void` `updateTopBottomPadding`(`android.view.View` v2 @kind object @name `view`, `int` v3 @name `topPadding`, `int` v4 @name `bottomPadding`) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.updateTopBottomPadding:(Landroid/view/View;II)V` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b0f04.  call temp:= `isPaddingRelative`(v2) @signature `Landroidx/core/view/ViewCompat;.isPaddingRelative:(Landroid/view/View;)Z` @kind static;
+  #L1b0f0a.  v0:= temp;
+  #L1b0f0c.  if v0 == 0 then goto L1b0f2a;
+  #L1b0f10.  
+  #L1b0f12.  call temp:= `getPaddingStart`(v2) @signature `Landroidx/core/view/ViewCompat;.getPaddingStart:(Landroid/view/View;)I` @kind static;
+  #L1b0f18.  v0:= temp;
+  #L1b0f1a.  call temp:= `getPaddingEnd`(v2) @signature `Landroidx/core/view/ViewCompat;.getPaddingEnd:(Landroid/view/View;)I` @kind static;
+  #L1b0f20.  v1:= temp;
+  #L1b0f22.  call `setPaddingRelative`(v2, v0, v3, v1, v4) @signature `Landroidx/core/view/ViewCompat;.setPaddingRelative:(Landroid/view/View;IIII)V` @kind static;
+  #L1b0f28.  goto L1b0f40;
+  #L1b0f2a.  call temp:= `getPaddingLeft`(v2) @signature `Landroid/view/View;.getPaddingLeft:()I` @kind virtual;
+  #L1b0f30.  v0:= temp;
+  #L1b0f32.  call temp:= `getPaddingRight`(v2) @signature `Landroid/view/View;.getPaddingRight:()I` @kind virtual;
+  #L1b0f38.  v1:= temp;
+  #L1b0f3a.  call `setPadding`(v2, v0, v3, v1, v4) @signature `Landroid/view/View;.setPadding:(IIII)V` @kind virtual;
+  #L1b0f40.  return @kind void;
+}
+procedure `boolean` `updateViewsWithinLayout`(`com.google.android.material.snackbar.SnackbarContentLayout` v2 @kind this, `int` v3 @name `orientation`, `int` v4 @name `messagePadTop`, `int` v5 @name `messagePadBottom`) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.updateViewsWithinLayout:(III)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L1b0ba4.  v0:= 0I;
+  #L1b0ba6.  call temp:= `getOrientation`(v2) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.getOrientation:()I` @kind virtual;
+  #L1b0bac.  v1:= temp;
+  #L1b0bae.  if v3 == v1 then goto L1b0bba;
+  #L1b0bb2.  call `setOrientation`(v2, v3) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.setOrientation:(I)V` @kind virtual;
+  #L1b0bb8.  v0:= 1I;
+  #L1b0bba.  v1:= v2.`com.google.android.material.snackbar.SnackbarContentLayout.messageView` @type ^`android.widget.TextView` @kind object;
+  #L1b0bbe.  call temp:= `getPaddingTop`(v1) @signature `Landroid/widget/TextView;.getPaddingTop:()I` @kind virtual;
+  #L1b0bc4.  v1:= temp;
+  #L1b0bc6.  if v1 != v4 then goto L1b0bda;
+  #L1b0bca.  v1:= v2.`com.google.android.material.snackbar.SnackbarContentLayout.messageView` @type ^`android.widget.TextView` @kind object;
+  #L1b0bce.  call temp:= `getPaddingBottom`(v1) @signature `Landroid/widget/TextView;.getPaddingBottom:()I` @kind virtual;
+  #L1b0bd4.  v1:= temp;
+  #L1b0bd6.  if v1 == v5 then goto L1b0be6;
+  #L1b0bda.  v1:= v2.`com.google.android.material.snackbar.SnackbarContentLayout.messageView` @type ^`android.widget.TextView` @kind object;
+  #L1b0bde.  call `updateTopBottomPadding`(v1, v4, v5) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.updateTopBottomPadding:(Landroid/view/View;II)V` @kind static;
+  #L1b0be4.  v0:= 1I;
+  #L1b0be6.  return v0;
+}
+procedure `void` `animateContentIn`(`com.google.android.material.snackbar.SnackbarContentLayout` v5 @kind this, `int` v6 @name `delay`, `int` v7 @name `duration`) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.animateContentIn:(II)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1b0c60.  v0:= v5.`com.google.android.material.snackbar.SnackbarContentLayout.messageView` @type ^`android.widget.TextView` @kind object;
+  #L1b0c64.  v1:= 0I;
+  #L1b0c66.  call `setAlpha`(v0, v1) @signature `Landroid/widget/TextView;.setAlpha:(F)V` @kind virtual;
+  #L1b0c6c.  v0:= v5.`com.google.android.material.snackbar.SnackbarContentLayout.messageView` @type ^`android.widget.TextView` @kind object;
+  #L1b0c70.  call temp:= `animate`(v0) @signature `Landroid/widget/TextView;.animate:()Landroid/view/ViewPropertyAnimator;` @kind virtual;
+  #L1b0c76.  v0:= temp @kind object;
+  #L1b0c78.  v2:= 1.0F;
+  #L1b0c7c.  call temp:= `alpha`(v0, v2) @signature `Landroid/view/ViewPropertyAnimator;.alpha:(F)Landroid/view/ViewPropertyAnimator;` @kind virtual;
+  #L1b0c82.  v0:= temp @kind object;
+  #L1b0c84.  v3:= (`long`) v7 @kind i2l;
+  #L1b0c86.  call temp:= `setDuration`(v0, v3) @signature `Landroid/view/ViewPropertyAnimator;.setDuration:(J)Landroid/view/ViewPropertyAnimator;` @kind virtual;
+  #L1b0c8c.  v0:= temp @kind object;
+  #L1b0c8e.  v3:= (`long`) v6 @kind i2l;
+  #L1b0c90.  call temp:= `setStartDelay`(v0, v3) @signature `Landroid/view/ViewPropertyAnimator;.setStartDelay:(J)Landroid/view/ViewPropertyAnimator;` @kind virtual;
+  #L1b0c96.  v0:= temp @kind object;
+  #L1b0c98.  call `start`(v0) @signature `Landroid/view/ViewPropertyAnimator;.start:()V` @kind virtual;
+  #L1b0c9e.  v0:= v5.`com.google.android.material.snackbar.SnackbarContentLayout.actionView` @type ^`android.widget.Button` @kind object;
+  #L1b0ca2.  call temp:= `getVisibility`(v0) @signature `Landroid/widget/Button;.getVisibility:()I` @kind virtual;
+  #L1b0ca8.  v0:= temp;
+  #L1b0caa.  if v0 != 0 then goto L1b0ce6;
+  #L1b0cae.  v0:= v5.`com.google.android.material.snackbar.SnackbarContentLayout.actionView` @type ^`android.widget.Button` @kind object;
+  #L1b0cb2.  call `setAlpha`(v0, v1) @signature `Landroid/widget/Button;.setAlpha:(F)V` @kind virtual;
+  #L1b0cb8.  v0:= v5.`com.google.android.material.snackbar.SnackbarContentLayout.actionView` @type ^`android.widget.Button` @kind object;
+  #L1b0cbc.  call temp:= `animate`(v0) @signature `Landroid/widget/Button;.animate:()Landroid/view/ViewPropertyAnimator;` @kind virtual;
+  #L1b0cc2.  v0:= temp @kind object;
+  #L1b0cc4.  call temp:= `alpha`(v0, v2) @signature `Landroid/view/ViewPropertyAnimator;.alpha:(F)Landroid/view/ViewPropertyAnimator;` @kind virtual;
+  #L1b0cca.  v0:= temp @kind object;
+  #L1b0ccc.  v1:= (`long`) v7 @kind i2l;
+  #L1b0cce.  call temp:= `setDuration`(v0, v1) @signature `Landroid/view/ViewPropertyAnimator;.setDuration:(J)Landroid/view/ViewPropertyAnimator;` @kind virtual;
+  #L1b0cd4.  v0:= temp @kind object;
+  #L1b0cd6.  v1:= (`long`) v6 @kind i2l;
+  #L1b0cd8.  call temp:= `setStartDelay`(v0, v1) @signature `Landroid/view/ViewPropertyAnimator;.setStartDelay:(J)Landroid/view/ViewPropertyAnimator;` @kind virtual;
+  #L1b0cde.  v0:= temp @kind object;
+  #L1b0ce0.  call `start`(v0) @signature `Landroid/view/ViewPropertyAnimator;.start:()V` @kind virtual;
+  #L1b0ce6.  return @kind void;
+}
+procedure `void` `animateContentOut`(`com.google.android.material.snackbar.SnackbarContentLayout` v5 @kind this, `int` v6 @name `delay`, `int` v7 @name `duration`) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.animateContentOut:(II)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L1b0cf8.  v0:= v5.`com.google.android.material.snackbar.SnackbarContentLayout.messageView` @type ^`android.widget.TextView` @kind object;
+  #L1b0cfc.  v1:= 1.0F;
+  #L1b0d00.  call `setAlpha`(v0, v1) @signature `Landroid/widget/TextView;.setAlpha:(F)V` @kind virtual;
+  #L1b0d06.  v0:= v5.`com.google.android.material.snackbar.SnackbarContentLayout.messageView` @type ^`android.widget.TextView` @kind object;
+  #L1b0d0a.  call temp:= `animate`(v0) @signature `Landroid/widget/TextView;.animate:()Landroid/view/ViewPropertyAnimator;` @kind virtual;
+  #L1b0d10.  v0:= temp @kind object;
+  #L1b0d12.  v2:= 0I;
+  #L1b0d14.  call temp:= `alpha`(v0, v2) @signature `Landroid/view/ViewPropertyAnimator;.alpha:(F)Landroid/view/ViewPropertyAnimator;` @kind virtual;
+  #L1b0d1a.  v0:= temp @kind object;
+  #L1b0d1c.  v3:= (`long`) v7 @kind i2l;
+  #L1b0d1e.  call temp:= `setDuration`(v0, v3) @signature `Landroid/view/ViewPropertyAnimator;.setDuration:(J)Landroid/view/ViewPropertyAnimator;` @kind virtual;
+  #L1b0d24.  v0:= temp @kind object;
+  #L1b0d26.  v3:= (`long`) v6 @kind i2l;
+  #L1b0d28.  call temp:= `setStartDelay`(v0, v3) @signature `Landroid/view/ViewPropertyAnimator;.setStartDelay:(J)Landroid/view/ViewPropertyAnimator;` @kind virtual;
+  #L1b0d2e.  v0:= temp @kind object;
+  #L1b0d30.  call `start`(v0) @signature `Landroid/view/ViewPropertyAnimator;.start:()V` @kind virtual;
+  #L1b0d36.  v0:= v5.`com.google.android.material.snackbar.SnackbarContentLayout.actionView` @type ^`android.widget.Button` @kind object;
+  #L1b0d3a.  call temp:= `getVisibility`(v0) @signature `Landroid/widget/Button;.getVisibility:()I` @kind virtual;
+  #L1b0d40.  v0:= temp;
+  #L1b0d42.  if v0 != 0 then goto L1b0d7e;
+  #L1b0d46.  v0:= v5.`com.google.android.material.snackbar.SnackbarContentLayout.actionView` @type ^`android.widget.Button` @kind object;
+  #L1b0d4a.  call `setAlpha`(v0, v1) @signature `Landroid/widget/Button;.setAlpha:(F)V` @kind virtual;
+  #L1b0d50.  v0:= v5.`com.google.android.material.snackbar.SnackbarContentLayout.actionView` @type ^`android.widget.Button` @kind object;
+  #L1b0d54.  call temp:= `animate`(v0) @signature `Landroid/widget/Button;.animate:()Landroid/view/ViewPropertyAnimator;` @kind virtual;
+  #L1b0d5a.  v0:= temp @kind object;
+  #L1b0d5c.  call temp:= `alpha`(v0, v2) @signature `Landroid/view/ViewPropertyAnimator;.alpha:(F)Landroid/view/ViewPropertyAnimator;` @kind virtual;
+  #L1b0d62.  v0:= temp @kind object;
+  #L1b0d64.  v1:= (`long`) v7 @kind i2l;
+  #L1b0d66.  call temp:= `setDuration`(v0, v1) @signature `Landroid/view/ViewPropertyAnimator;.setDuration:(J)Landroid/view/ViewPropertyAnimator;` @kind virtual;
+  #L1b0d6c.  v0:= temp @kind object;
+  #L1b0d6e.  v1:= (`long`) v6 @kind i2l;
+  #L1b0d70.  call temp:= `setStartDelay`(v0, v1) @signature `Landroid/view/ViewPropertyAnimator;.setStartDelay:(J)Landroid/view/ViewPropertyAnimator;` @kind virtual;
+  #L1b0d76.  v0:= temp @kind object;
+  #L1b0d78.  call `start`(v0) @signature `Landroid/view/ViewPropertyAnimator;.start:()V` @kind virtual;
+  #L1b0d7e.  return @kind void;
+}
+procedure `android.widget.Button` `getActionView`(`com.google.android.material.snackbar.SnackbarContentLayout` v1 @kind this) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.getActionView:()Landroid/widget/Button;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b0b74.  v0:= v1.`com.google.android.material.snackbar.SnackbarContentLayout.actionView` @type ^`android.widget.Button` @kind object;
+  #L1b0b78.  return v0 @kind object;
+}
+procedure `android.widget.TextView` `getMessageView`(`com.google.android.material.snackbar.SnackbarContentLayout` v1 @kind this) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.getMessageView:()Landroid/widget/TextView;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b0b8c.  v0:= v1.`com.google.android.material.snackbar.SnackbarContentLayout.messageView` @type ^`android.widget.TextView` @kind object;
+  #L1b0b90.  return v0 @kind object;
+}
+procedure `void` `onFinishInflate`(`com.google.android.material.snackbar.SnackbarContentLayout` v1 @kind this) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.onFinishInflate:()V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L1b0d90.  call `onFinishInflate`(v1) @signature `Landroid/widget/LinearLayout;.onFinishInflate:()V` @kind super;
+  #L1b0d96.  v0:= `@@com.google.android.material.R$id.snackbar_text` @type ^`int`;
+  #L1b0d9a.  call temp:= `findViewById`(v1, v0) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L1b0da0.  v0:= temp @kind object;
+  #L1b0da2.  v0:= (`android.widget.TextView`) v0 @kind object;
+  #L1b0da6.  v1.`com.google.android.material.snackbar.SnackbarContentLayout.messageView` @type ^`android.widget.TextView` := v0 @kind object;
+  #L1b0daa.  v0:= `@@com.google.android.material.R$id.snackbar_action` @type ^`int`;
+  #L1b0dae.  call temp:= `findViewById`(v1, v0) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L1b0db4.  v0:= temp @kind object;
+  #L1b0db6.  v0:= (`android.widget.Button`) v0 @kind object;
+  #L1b0dba.  v1.`com.google.android.material.snackbar.SnackbarContentLayout.actionView` @type ^`android.widget.Button` := v0 @kind object;
+  #L1b0dbe.  return @kind void;
+}
+procedure `void` `onMeasure`(`com.google.android.material.snackbar.SnackbarContentLayout` v8 @kind this, `int` v9 @name `widthMeasureSpec`, `int` v10 @name `heightMeasureSpec`) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.onMeasure:(II)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L1b0dd0.  call `onMeasure`(v8, v9, v10) @signature `Landroid/widget/LinearLayout;.onMeasure:(II)V` @kind super;
+  #L1b0dd6.  v0:= v8.`com.google.android.material.snackbar.SnackbarContentLayout.maxWidth` @type ^`int`;
+  #L1b0dda.  if v0 <= 0 then goto L1b0e00;
+  #L1b0dde.  call temp:= `getMeasuredWidth`(v8) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.getMeasuredWidth:()I` @kind virtual;
+  #L1b0de4.  v0:= temp;
+  #L1b0de6.  v1:= v8.`com.google.android.material.snackbar.SnackbarContentLayout.maxWidth` @type ^`int`;
+  #L1b0dea.  if v0 <= v1 then goto L1b0e00;
+  #L1b0dee.  v0:= 2.0F;
+  #L1b0df2.  call temp:= `makeMeasureSpec`(v1, v0) @signature `Landroid/view/View$MeasureSpec;.makeMeasureSpec:(II)I` @kind static;
+  #L1b0df8.  v9:= temp;
+  #L1b0dfa.  call `onMeasure`(v8, v9, v10) @signature `Landroid/widget/LinearLayout;.onMeasure:(II)V` @kind super;
+  #L1b0e00.  
+  #L1b0e02.  call temp:= `getResources`(v8) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1b0e08.  v0:= temp @kind object;
+  #L1b0e0a.  v1:= `@@com.google.android.material.R$dimen.design_snackbar_padding_vertical_2lines` @type ^`int`;
+  #L1b0e0e.  call temp:= `getDimensionPixelSize`(v0, v1) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L1b0e14.  v0:= temp;
+  #L1b0e16.  
+  #L1b0e18.  call temp:= `getResources`(v8) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1b0e1e.  v1:= temp @kind object;
+  #L1b0e20.  v2:= `@@com.google.android.material.R$dimen.design_snackbar_padding_vertical` @type ^`int`;
+  #L1b0e24.  call temp:= `getDimensionPixelSize`(v1, v2) @signature `Landroid/content/res/Resources;.getDimensionPixelSize:(I)I` @kind virtual;
+  #L1b0e2a.  v1:= temp;
+  #L1b0e2c.  v2:= v8.`com.google.android.material.snackbar.SnackbarContentLayout.messageView` @type ^`android.widget.TextView` @kind object;
+  #L1b0e30.  call temp:= `getLayout`(v2) @signature `Landroid/widget/TextView;.getLayout:()Landroid/text/Layout;` @kind virtual;
+  #L1b0e36.  v2:= temp @kind object;
+  #L1b0e38.  call temp:= `getLineCount`(v2) @signature `Landroid/text/Layout;.getLineCount:()I` @kind virtual;
+  #L1b0e3e.  v2:= temp;
+  #L1b0e40.  v3:= 0I;
+  #L1b0e42.  v4:= 1I;
+  #L1b0e44.  if v2 <= v4 then goto L1b0e4c;
+  #L1b0e48.  v2:= v4;
+  #L1b0e4a.  goto L1b0e4e;
+  #L1b0e4c.  v2:= v3;
+  #L1b0e4e.  v5:= 0I;
+  #L1b0e50.  if v2 == 0 then goto L1b0e84;
+  #L1b0e54.  v6:= v8.`com.google.android.material.snackbar.SnackbarContentLayout.maxInlineActionWidth` @type ^`int`;
+  #L1b0e58.  if v6 <= 0 then goto L1b0e84;
+  #L1b0e5c.  v6:= v8.`com.google.android.material.snackbar.SnackbarContentLayout.actionView` @type ^`android.widget.Button` @kind object;
+  #L1b0e60.  call temp:= `getMeasuredWidth`(v6) @signature `Landroid/widget/Button;.getMeasuredWidth:()I` @kind virtual;
+  #L1b0e66.  v6:= temp;
+  #L1b0e68.  v7:= v8.`com.google.android.material.snackbar.SnackbarContentLayout.maxInlineActionWidth` @type ^`int`;
+  #L1b0e6c.  if v6 <= v7 then goto L1b0e84;
+  #L1b0e70.  v3:= v0 - v1 @kind int;
+  #L1b0e74.  call temp:= `updateViewsWithinLayout`(v8, v4, v0, v3) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.updateViewsWithinLayout:(III)Z` @kind direct;
+  #L1b0e7a.  v3:= temp;
+  #L1b0e7c.  if v3 == 0 then goto L1b0e9c;
+  #L1b0e80.  v5:= 1I;
+  #L1b0e82.  goto L1b0e9c;
+  #L1b0e84.  if v2 == 0 then goto L1b0e8c;
+  #L1b0e88.  v4:= v0;
+  #L1b0e8a.  goto L1b0e8e;
+  #L1b0e8c.  v4:= v1;
+  #L1b0e8e.  call temp:= `updateViewsWithinLayout`(v8, v3, v4, v4) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.updateViewsWithinLayout:(III)Z` @kind direct;
+  #L1b0e94.  v3:= temp;
+  #L1b0e96.  if v3 == 0 then goto L1b0e9c;
+  #L1b0e9a.  v5:= 1I;
+  #L1b0e9c.  if v5 == 0 then goto L1b0ea6;
+  #L1b0ea0.  call `onMeasure`(v8, v9, v10) @signature `Landroid/widget/LinearLayout;.onMeasure:(II)V` @kind super;
+  #L1b0ea6.  return @kind void;
+}
+procedure `void` `updateActionTextColorAlphaIfNeeded`(`com.google.android.material.snackbar.SnackbarContentLayout` v4 @kind this, `float` v5 @name `actionTextColorAlpha`) @signature `Lcom/google/android/material/snackbar/SnackbarContentLayout;.updateActionTextColorAlphaIfNeeded:(F)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b0eb8.  v0:= 1.0F;
+  #L1b0ebc.  v0:= fcmpl(v5, v0);
+  #L1b0ec0.  if v0 == 0 then goto L1b0ef0;
+  #L1b0ec4.  v0:= v4.`com.google.android.material.snackbar.SnackbarContentLayout.actionView` @type ^`android.widget.Button` @kind object;
+  #L1b0ec8.  call temp:= `getCurrentTextColor`(v0) @signature `Landroid/widget/Button;.getCurrentTextColor:()I` @kind virtual;
+  #L1b0ece.  v0:= temp;
+  #L1b0ed0.  v1:= `@@com.google.android.material.R$attr.colorSurface` @type ^`int`;
+  #L1b0ed4.  call temp:= `getColor`(v4, v1) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/view/View;I)I` @kind static;
+  #L1b0eda.  v1:= temp;
+  #L1b0edc.  
+  #L1b0ede.  call temp:= `layer`(v1, v0, v5) @signature `Lcom/google/android/material/color/MaterialColors;.layer:(IIF)I` @kind static;
+  #L1b0ee4.  v2:= temp;
+  #L1b0ee6.  v3:= v4.`com.google.android.material.snackbar.SnackbarContentLayout.actionView` @type ^`android.widget.Button` @kind object;
+  #L1b0eea.  call `setTextColor`(v3, v2) @signature `Landroid/widget/Button;.setTextColor:(I)V` @kind virtual;
+  #L1b0ef0.  return @kind void;
+}

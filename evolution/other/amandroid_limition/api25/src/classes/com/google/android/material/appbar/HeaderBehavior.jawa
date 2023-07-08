@@ -1,0 +1,402 @@
+record `com.google.android.material.appbar.HeaderBehavior` @kind class @AccessFlag ABSTRACT extends `com.google.android.material.appbar.ViewOffsetBehavior` @kind class {
+  `int` `com.google.android.material.appbar.HeaderBehavior.activePointerId` @AccessFlag PRIVATE;
+  `java.lang.Runnable` `com.google.android.material.appbar.HeaderBehavior.flingRunnable` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.appbar.HeaderBehavior.isBeingDragged` @AccessFlag PRIVATE;
+  `int` `com.google.android.material.appbar.HeaderBehavior.lastMotionY` @AccessFlag PRIVATE;
+  `android.widget.OverScroller` `com.google.android.material.appbar.HeaderBehavior.scroller` @AccessFlag ;
+  `int` `com.google.android.material.appbar.HeaderBehavior.touchSlop` @AccessFlag PRIVATE;
+  `android.view.VelocityTracker` `com.google.android.material.appbar.HeaderBehavior.velocityTracker` @AccessFlag PRIVATE;
+}
+global `int` `@@com.google.android.material.appbar.HeaderBehavior.INVALID_POINTER` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`com.google.android.material.appbar.HeaderBehavior` v1 @kind this) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L181e2c.  call `<init>`(v1) @signature `Lcom/google/android/material/appbar/ViewOffsetBehavior;.<init>:()V` @kind direct;
+  #L181e32.  v0:= -1I;
+  #L181e34.  v1.`com.google.android.material.appbar.HeaderBehavior.activePointerId` @type ^`int` := v0;
+  #L181e38.  v1.`com.google.android.material.appbar.HeaderBehavior.touchSlop` @type ^`int` := v0;
+  #L181e3c.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.appbar.HeaderBehavior` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L181e50.  call `<init>`(v1, v2, v3) @signature `Lcom/google/android/material/appbar/ViewOffsetBehavior;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L181e56.  v0:= -1I;
+  #L181e58.  v1.`com.google.android.material.appbar.HeaderBehavior.activePointerId` @type ^`int` := v0;
+  #L181e5c.  v1.`com.google.android.material.appbar.HeaderBehavior.touchSlop` @type ^`int` := v0;
+  #L181e60.  return @kind void;
+}
+procedure `void` `ensureVelocityTracker`(`com.google.android.material.appbar.HeaderBehavior` v1 @kind this) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.ensureVelocityTracker:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L181e74.  v0:= v1.`com.google.android.material.appbar.HeaderBehavior.velocityTracker` @type ^`android.view.VelocityTracker` @kind object;
+  #L181e78.  if v0 != 0 then goto L181e88;
+  #L181e7c.  call temp:= `obtain`() @signature `Landroid/view/VelocityTracker;.obtain:()Landroid/view/VelocityTracker;` @kind static;
+  #L181e82.  v0:= temp @kind object;
+  #L181e84.  v1.`com.google.android.material.appbar.HeaderBehavior.velocityTracker` @type ^`android.view.VelocityTracker` := v0 @kind object;
+  #L181e88.  return @kind void;
+}
+procedure `boolean` `canDragView`(`com.google.android.material.appbar.HeaderBehavior` v1 @kind this, `android.view.View` v2 @kind object) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.canDragView:(Landroid/view/View;)Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L1819d0.  v0:= 0I;
+  #L1819d2.  return v0;
+}
+procedure `boolean` `fling`(`com.google.android.material.appbar.HeaderBehavior` v13 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v14 @kind object @name `coordinatorLayout`, `android.view.View` v15 @kind object, `int` v16 @name `minOffset`, `int` v17 @name `maxOffset`, `float` v18 @name `velocityY`) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.fling:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;IIF)Z` @AccessFlag FINAL {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+    v11;
+    v12;
+
+  #L1819e4.  v0:= v13 @kind object;
+  #L1819e6.  v1:= v15 @kind object;
+  #L1819e8.  v2:= v0.`com.google.android.material.appbar.HeaderBehavior.flingRunnable` @type ^`java.lang.Runnable` @kind object;
+  #L1819ec.  if v2 == 0 then goto L1819fc;
+  #L1819f0.  call temp:= `removeCallbacks`(v15, v2) @signature `Landroid/view/View;.removeCallbacks:(Ljava/lang/Runnable;)Z` @kind virtual;
+  #L1819f6.  v2:= 0I;
+  #L1819f8.  v0.`com.google.android.material.appbar.HeaderBehavior.flingRunnable` @type ^`java.lang.Runnable` := v2 @kind object;
+  #L1819fc.  v2:= v0.`com.google.android.material.appbar.HeaderBehavior.scroller` @type ^`android.widget.OverScroller` @kind object;
+  #L181a00.  if v2 != 0 then goto L181a1a;
+  #L181a04.  v2:= new `android.widget.OverScroller`;
+  #L181a08.  call temp:= `getContext`(v15) @signature `Landroid/view/View;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L181a0e.  v3:= temp @kind object;
+  #L181a10.  call `<init>`(v2, v3) @signature `Landroid/widget/OverScroller;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L181a16.  v0.`com.google.android.material.appbar.HeaderBehavior.scroller` @type ^`android.widget.OverScroller` := v2 @kind object;
+  #L181a1a.  v4:= v0.`com.google.android.material.appbar.HeaderBehavior.scroller` @type ^`android.widget.OverScroller` @kind object;
+  #L181a1e.  v5:= 0I;
+  #L181a20.  call temp:= `getTopAndBottomOffset`(v13) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.getTopAndBottomOffset:()I` @kind virtual;
+  #L181a26.  v6:= temp;
+  #L181a28.  v7:= 0I;
+  #L181a2a.  call temp:= `round`(v18) @signature `Ljava/lang/Math;.round:(F)I` @kind static;
+  #L181a30.  v8:= temp;
+  #L181a32.  v9:= 0I;
+  #L181a34.  v10:= 0I;
+  #L181a36.  v11:= v16;
+  #L181a3a.  v12:= v17;
+  #L181a3e.  call `fling`(v4, v5, v6, v7, v8, v9, v10, v11, v12) @signature `Landroid/widget/OverScroller;.fling:(IIIIIIII)V` @kind virtual;
+  #L181a44.  v2:= v0.`com.google.android.material.appbar.HeaderBehavior.scroller` @type ^`android.widget.OverScroller` @kind object;
+  #L181a48.  call temp:= `computeScrollOffset`(v2) @signature `Landroid/widget/OverScroller;.computeScrollOffset:()Z` @kind virtual;
+  #L181a4e.  v2:= temp;
+  #L181a50.  if v2 == 0 then goto L181a6e;
+  #L181a54.  v2:= new `com.google.android.material.appbar.HeaderBehavior$FlingRunnable`;
+  #L181a58.  v3:= v14 @kind object;
+  #L181a5a.  call `<init>`(v2, v13, v14, v15) @signature `Lcom/google/android/material/appbar/HeaderBehavior$FlingRunnable;.<init>:(Lcom/google/android/material/appbar/HeaderBehavior;Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)V` @kind direct;
+  #L181a60.  v0.`com.google.android.material.appbar.HeaderBehavior.flingRunnable` @type ^`java.lang.Runnable` := v2 @kind object;
+  #L181a64.  call `postOnAnimation`(v15, v2) @signature `Landroidx/core/view/ViewCompat;.postOnAnimation:(Landroid/view/View;Ljava/lang/Runnable;)V` @kind static;
+  #L181a6a.  v2:= 1I;
+  #L181a6c.  return v2;
+  #L181a6e.  v3:= v14 @kind object;
+  #L181a70.  call `onFlingFinished`(v13, v14, v15) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.onFlingFinished:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)V` @kind virtual;
+  #L181a76.  v2:= 0I;
+  #L181a78.  return v2;
+}
+procedure `int` `getMaxDragOffset`(`com.google.android.material.appbar.HeaderBehavior` v1 @kind this, `android.view.View` v2 @kind object) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.getMaxDragOffset:(Landroid/view/View;)I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L181d38.  call temp:= `getHeight`(v2) @signature `Landroid/view/View;.getHeight:()I` @kind virtual;
+  #L181d3e.  v0:= temp;
+  #L181d40.  v0:= -v0 @kind int;
+  #L181d42.  return v0;
+}
+procedure `int` `getScrollRangeForDragFling`(`com.google.android.material.appbar.HeaderBehavior` v1 @kind this, `android.view.View` v2 @kind object) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.getScrollRangeForDragFling:(Landroid/view/View;)I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L181d54.  call temp:= `getHeight`(v2) @signature `Landroid/view/View;.getHeight:()I` @kind virtual;
+  #L181d5a.  v0:= temp;
+  #L181d5c.  return v0;
+}
+procedure `int` `getTopBottomOffsetForScrollingSibling`(`com.google.android.material.appbar.HeaderBehavior` v1 @kind this) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.getTopBottomOffsetForScrollingSibling:()I` @AccessFlag  {
+    temp;
+    v0;
+
+  #L181d70.  call temp:= `getTopAndBottomOffset`(v1) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.getTopAndBottomOffset:()I` @kind virtual;
+  #L181d76.  v0:= temp;
+  #L181d78.  return v0;
+}
+procedure `void` `onFlingFinished`(`com.google.android.material.appbar.HeaderBehavior` v0 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v1 @kind object @name `parent`, `android.view.View` v2 @kind object) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.onFlingFinished:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;)V` @AccessFlag  {
+    temp;
+
+  #L181e9c.  return @kind void;
+}
+procedure `boolean` `onInterceptTouchEvent`(`com.google.android.material.appbar.HeaderBehavior` v7 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v8 @kind object @name `parent`, `android.view.View` v9 @kind object, `android.view.MotionEvent` v10 @kind object @name `ev`) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.onInterceptTouchEvent:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L181a8c.  v0:= v7.`com.google.android.material.appbar.HeaderBehavior.touchSlop` @type ^`int`;
+  #L181a90.  if v0 >= 0 then goto L181ab0;
+  #L181a94.  call temp:= `getContext`(v8) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L181a9a.  v0:= temp @kind object;
+  #L181a9c.  call temp:= `get`(v0) @signature `Landroid/view/ViewConfiguration;.get:(Landroid/content/Context;)Landroid/view/ViewConfiguration;` @kind static;
+  #L181aa2.  v0:= temp @kind object;
+  #L181aa4.  call temp:= `getScaledTouchSlop`(v0) @signature `Landroid/view/ViewConfiguration;.getScaledTouchSlop:()I` @kind virtual;
+  #L181aaa.  v0:= temp;
+  #L181aac.  v7.`com.google.android.material.appbar.HeaderBehavior.touchSlop` @type ^`int` := v0;
+  #L181ab0.  call temp:= `getAction`(v10) @signature `Landroid/view/MotionEvent;.getAction:()I` @kind virtual;
+  #L181ab6.  v0:= temp;
+  #L181ab8.  v1:= 2I;
+  #L181aba.  v2:= 1I;
+  #L181abc.  if v0 != v1 then goto L181aca;
+  #L181ac0.  v3:= v7.`com.google.android.material.appbar.HeaderBehavior.isBeingDragged` @type ^`boolean` @kind boolean;
+  #L181ac4.  if v3 == 0 then goto L181aca;
+  #L181ac8.  return v2;
+  #L181aca.  call temp:= `getActionMasked`(v10) @signature `Landroid/view/MotionEvent;.getActionMasked:()I` @kind virtual;
+  #L181ad0.  v3:= temp;
+  #L181ad2.  v4:= 0I;
+  #L181ad4.  if v3 == 0 then goto L181b4c;
+  #L181ad8.  v5:= -1I;
+  #L181ada.  if v3 == v2 then goto L181b2e;
+  #L181ade.  if v3 == v1 then goto L181aea;
+  #L181ae2.  v1:= 3I;
+  #L181ae4.  if v3 == v1 then goto L181b2e;
+  #L181ae8.  goto L181b92;
+  #L181aea.  v1:= v7.`com.google.android.material.appbar.HeaderBehavior.activePointerId` @type ^`int`;
+  #L181aee.  if v1 != v5 then goto L181af4;
+  #L181af2.  goto L181b92;
+  #L181af4.  call temp:= `findPointerIndex`(v10, v1) @signature `Landroid/view/MotionEvent;.findPointerIndex:(I)I` @kind virtual;
+  #L181afa.  v3:= temp;
+  #L181afc.  if v3 != v5 then goto L181b02;
+  #L181b00.  goto L181b92;
+  #L181b02.  call temp:= `getY`(v10, v3) @signature `Landroid/view/MotionEvent;.getY:(I)F` @kind virtual;
+  #L181b08.  v4:= temp;
+  #L181b0a.  v4:= (`int`) v4 @kind f2i;
+  #L181b0c.  v5:= v7.`com.google.android.material.appbar.HeaderBehavior.lastMotionY` @type ^`int`;
+  #L181b10.  v5:= v4 - v5 @kind int;
+  #L181b14.  call temp:= `abs`(v5) @signature `Ljava/lang/Math;.abs:(I)I` @kind static;
+  #L181b1a.  v5:= temp;
+  #L181b1c.  v6:= v7.`com.google.android.material.appbar.HeaderBehavior.touchSlop` @type ^`int`;
+  #L181b20.  if v5 <= v6 then goto L181b92;
+  #L181b24.  v7.`com.google.android.material.appbar.HeaderBehavior.isBeingDragged` @type ^`boolean` := v2 @kind boolean;
+  #L181b28.  v7.`com.google.android.material.appbar.HeaderBehavior.lastMotionY` @type ^`int` := v4;
+  #L181b2c.  goto L181b92;
+  #L181b2e.  v7.`com.google.android.material.appbar.HeaderBehavior.isBeingDragged` @type ^`boolean` := v4 @kind boolean;
+  #L181b32.  v7.`com.google.android.material.appbar.HeaderBehavior.activePointerId` @type ^`int` := v5;
+  #L181b36.  v1:= v7.`com.google.android.material.appbar.HeaderBehavior.velocityTracker` @type ^`android.view.VelocityTracker` @kind object;
+  #L181b3a.  if v1 == 0 then goto L181b92;
+  #L181b3e.  call `recycle`(v1) @signature `Landroid/view/VelocityTracker;.recycle:()V` @kind virtual;
+  #L181b44.  v1:= 0I;
+  #L181b46.  v7.`com.google.android.material.appbar.HeaderBehavior.velocityTracker` @type ^`android.view.VelocityTracker` := v1 @kind object;
+  #L181b4a.  goto L181b92;
+  #L181b4c.  v7.`com.google.android.material.appbar.HeaderBehavior.isBeingDragged` @type ^`boolean` := v4 @kind boolean;
+  #L181b50.  call temp:= `getX`(v10) @signature `Landroid/view/MotionEvent;.getX:()F` @kind virtual;
+  #L181b56.  v1:= temp;
+  #L181b58.  v1:= (`int`) v1 @kind f2i;
+  #L181b5a.  call temp:= `getY`(v10) @signature `Landroid/view/MotionEvent;.getY:()F` @kind virtual;
+  #L181b60.  v2:= temp;
+  #L181b62.  v2:= (`int`) v2 @kind f2i;
+  #L181b64.  call temp:= `canDragView`(v7, v9) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.canDragView:(Landroid/view/View;)Z` @kind virtual;
+  #L181b6a.  v3:= temp;
+  #L181b6c.  if v3 == 0 then goto L181b92;
+  #L181b70.  call temp:= `isPointInChildBounds`(v8, v9, v1, v2) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.isPointInChildBounds:(Landroid/view/View;II)Z` @kind virtual;
+  #L181b76.  v3:= temp;
+  #L181b78.  if v3 == 0 then goto L181b92;
+  #L181b7c.  v7.`com.google.android.material.appbar.HeaderBehavior.lastMotionY` @type ^`int` := v2;
+  #L181b80.  call temp:= `getPointerId`(v10, v4) @signature `Landroid/view/MotionEvent;.getPointerId:(I)I` @kind virtual;
+  #L181b86.  v3:= temp;
+  #L181b88.  v7.`com.google.android.material.appbar.HeaderBehavior.activePointerId` @type ^`int` := v3;
+  #L181b8c.  call `ensureVelocityTracker`(v7) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.ensureVelocityTracker:()V` @kind direct;
+  #L181b92.  v1:= v7.`com.google.android.material.appbar.HeaderBehavior.velocityTracker` @type ^`android.view.VelocityTracker` @kind object;
+  #L181b96.  if v1 == 0 then goto L181ba0;
+  #L181b9a.  call `addMovement`(v1, v10) @signature `Landroid/view/VelocityTracker;.addMovement:(Landroid/view/MotionEvent;)V` @kind virtual;
+  #L181ba0.  v1:= v7.`com.google.android.material.appbar.HeaderBehavior.isBeingDragged` @type ^`boolean` @kind boolean;
+  #L181ba4.  return v1;
+}
+procedure `boolean` `onTouchEvent`(`com.google.android.material.appbar.HeaderBehavior` v11 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v12 @kind object @name `parent`, `android.view.View` v13 @kind object, `android.view.MotionEvent` v14 @kind object @name `ev`) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.onTouchEvent:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+
+  #L181bb8.  v0:= v11.`com.google.android.material.appbar.HeaderBehavior.touchSlop` @type ^`int`;
+  #L181bbc.  if v0 >= 0 then goto L181bdc;
+  #L181bc0.  call temp:= `getContext`(v12) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L181bc6.  v0:= temp @kind object;
+  #L181bc8.  call temp:= `get`(v0) @signature `Landroid/view/ViewConfiguration;.get:(Landroid/content/Context;)Landroid/view/ViewConfiguration;` @kind static;
+  #L181bce.  v0:= temp @kind object;
+  #L181bd0.  call temp:= `getScaledTouchSlop`(v0) @signature `Landroid/view/ViewConfiguration;.getScaledTouchSlop:()I` @kind virtual;
+  #L181bd6.  v0:= temp;
+  #L181bd8.  v11.`com.google.android.material.appbar.HeaderBehavior.touchSlop` @type ^`int` := v0;
+  #L181bdc.  call temp:= `getActionMasked`(v14) @signature `Landroid/view/MotionEvent;.getActionMasked:()I` @kind virtual;
+  #L181be2.  v0:= temp;
+  #L181be4.  v1:= 1I;
+  #L181be6.  v2:= 0I;
+  #L181be8.  if v0 == 0 then goto L181cd4;
+  #L181bec.  v3:= -1I;
+  #L181bee.  if v0 == v1 then goto L181c70;
+  #L181bf2.  v4:= 2I;
+  #L181bf4.  if v0 == v4 then goto L181c02;
+  #L181bf8.  v4:= 3I;
+  #L181bfa.  if v0 == v4 then goto L181cb6;
+  #L181bfe.  goto L181d16;
+  #L181c02.  v0:= v11.`com.google.android.material.appbar.HeaderBehavior.activePointerId` @type ^`int`;
+  #L181c06.  call temp:= `findPointerIndex`(v14, v0) @signature `Landroid/view/MotionEvent;.findPointerIndex:(I)I` @kind virtual;
+  #L181c0c.  v0:= temp;
+  #L181c0e.  if v0 != v3 then goto L181c14;
+  #L181c12.  return v2;
+  #L181c14.  call temp:= `getY`(v14, v0) @signature `Landroid/view/MotionEvent;.getY:(I)F` @kind virtual;
+  #L181c1a.  v2:= temp;
+  #L181c1c.  v2:= (`int`) v2 @kind f2i;
+  #L181c1e.  v3:= v11.`com.google.android.material.appbar.HeaderBehavior.lastMotionY` @type ^`int`;
+  #L181c22.  v3:= v3 - v2 @kind int;
+  #L181c24.  v4:= v11.`com.google.android.material.appbar.HeaderBehavior.isBeingDragged` @type ^`boolean` @kind boolean;
+  #L181c28.  if v4 != 0 then goto L181c4a;
+  #L181c2c.  call temp:= `abs`(v3) @signature `Ljava/lang/Math;.abs:(I)I` @kind static;
+  #L181c32.  v4:= temp;
+  #L181c34.  v5:= v11.`com.google.android.material.appbar.HeaderBehavior.touchSlop` @type ^`int`;
+  #L181c38.  if v4 <= v5 then goto L181c4a;
+  #L181c3c.  v11.`com.google.android.material.appbar.HeaderBehavior.isBeingDragged` @type ^`boolean` := v1 @kind boolean;
+  #L181c40.  if v3 <= 0 then goto L181c48;
+  #L181c44.  v3:= v3 - v5 @kind int;
+  #L181c46.  goto L181c4a;
+  #L181c48.  v3:= v3 + v5 @kind int;
+  #L181c4a.  v4:= v11.`com.google.android.material.appbar.HeaderBehavior.isBeingDragged` @type ^`boolean` @kind boolean;
+  #L181c4e.  if v4 == 0 then goto L181d16;
+  #L181c52.  v11.`com.google.android.material.appbar.HeaderBehavior.lastMotionY` @type ^`int` := v2;
+  #L181c56.  call temp:= `getMaxDragOffset`(v11, v13) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.getMaxDragOffset:(Landroid/view/View;)I` @kind virtual;
+  #L181c5c.  v8:= temp;
+  #L181c5e.  v9:= 0I;
+  #L181c60.  v4:= v11 @kind object;
+  #L181c62.  v5:= v12 @kind object;
+  #L181c64.  v6:= v13 @kind object;
+  #L181c66.  v7:= v3;
+  #L181c68.  call temp:= `scroll`(v4, v5, v6, v7, v8, v9) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.scroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;III)I` @kind virtual;
+  #L181c6e.  goto L181d16;
+  #L181c70.  v0:= v11.`com.google.android.material.appbar.HeaderBehavior.velocityTracker` @type ^`android.view.VelocityTracker` @kind object;
+  #L181c74.  if v0 == 0 then goto L181cb6;
+  #L181c78.  call `addMovement`(v0, v14) @signature `Landroid/view/VelocityTracker;.addMovement:(Landroid/view/MotionEvent;)V` @kind virtual;
+  #L181c7e.  v0:= v11.`com.google.android.material.appbar.HeaderBehavior.velocityTracker` @type ^`android.view.VelocityTracker` @kind object;
+  #L181c82.  v4:= 1000I;
+  #L181c86.  call `computeCurrentVelocity`(v0, v4) @signature `Landroid/view/VelocityTracker;.computeCurrentVelocity:(I)V` @kind virtual;
+  #L181c8c.  v0:= v11.`com.google.android.material.appbar.HeaderBehavior.velocityTracker` @type ^`android.view.VelocityTracker` @kind object;
+  #L181c90.  v4:= v11.`com.google.android.material.appbar.HeaderBehavior.activePointerId` @type ^`int`;
+  #L181c94.  call temp:= `getYVelocity`(v0, v4) @signature `Landroid/view/VelocityTracker;.getYVelocity:(I)F` @kind virtual;
+  #L181c9a.  v0:= temp;
+  #L181c9c.  call temp:= `getScrollRangeForDragFling`(v11, v13) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.getScrollRangeForDragFling:(Landroid/view/View;)I` @kind virtual;
+  #L181ca2.  v4:= temp;
+  #L181ca4.  v8:= -v4 @kind int;
+  #L181ca6.  v9:= 0I;
+  #L181ca8.  v5:= v11 @kind object;
+  #L181caa.  v6:= v12 @kind object;
+  #L181cac.  v7:= v13 @kind object;
+  #L181cae.  v10:= v0;
+  #L181cb0.  call temp:= `fling`(v5, v6, v7, v8, v9, v10) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.fling:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;IIF)Z` @kind virtual;
+  #L181cb6.  v11.`com.google.android.material.appbar.HeaderBehavior.isBeingDragged` @type ^`boolean` := v2 @kind boolean;
+  #L181cba.  v11.`com.google.android.material.appbar.HeaderBehavior.activePointerId` @type ^`int` := v3;
+  #L181cbe.  v0:= v11.`com.google.android.material.appbar.HeaderBehavior.velocityTracker` @type ^`android.view.VelocityTracker` @kind object;
+  #L181cc2.  if v0 == 0 then goto L181d16;
+  #L181cc6.  call `recycle`(v0) @signature `Landroid/view/VelocityTracker;.recycle:()V` @kind virtual;
+  #L181ccc.  v0:= 0I;
+  #L181cce.  v11.`com.google.android.material.appbar.HeaderBehavior.velocityTracker` @type ^`android.view.VelocityTracker` := v0 @kind object;
+  #L181cd2.  goto L181d16;
+  #L181cd4.  call temp:= `getX`(v14) @signature `Landroid/view/MotionEvent;.getX:()F` @kind virtual;
+  #L181cda.  v0:= temp;
+  #L181cdc.  v0:= (`int`) v0 @kind f2i;
+  #L181cde.  call temp:= `getY`(v14) @signature `Landroid/view/MotionEvent;.getY:()F` @kind virtual;
+  #L181ce4.  v3:= temp;
+  #L181ce6.  v3:= (`int`) v3 @kind f2i;
+  #L181ce8.  call temp:= `isPointInChildBounds`(v12, v13, v0, v3) @signature `Landroidx/coordinatorlayout/widget/CoordinatorLayout;.isPointInChildBounds:(Landroid/view/View;II)Z` @kind virtual;
+  #L181cee.  v4:= temp;
+  #L181cf0.  if v4 == 0 then goto L181d26;
+  #L181cf4.  call temp:= `canDragView`(v11, v13) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.canDragView:(Landroid/view/View;)Z` @kind virtual;
+  #L181cfa.  v4:= temp;
+  #L181cfc.  if v4 == 0 then goto L181d26;
+  #L181d00.  v11.`com.google.android.material.appbar.HeaderBehavior.lastMotionY` @type ^`int` := v3;
+  #L181d04.  call temp:= `getPointerId`(v14, v2) @signature `Landroid/view/MotionEvent;.getPointerId:(I)I` @kind virtual;
+  #L181d0a.  v2:= temp;
+  #L181d0c.  v11.`com.google.android.material.appbar.HeaderBehavior.activePointerId` @type ^`int` := v2;
+  #L181d10.  call `ensureVelocityTracker`(v11) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.ensureVelocityTracker:()V` @kind direct;
+  #L181d16.  v0:= v11.`com.google.android.material.appbar.HeaderBehavior.velocityTracker` @type ^`android.view.VelocityTracker` @kind object;
+  #L181d1a.  if v0 == 0 then goto L181d24;
+  #L181d1e.  call `addMovement`(v0, v14) @signature `Landroid/view/VelocityTracker;.addMovement:(Landroid/view/MotionEvent;)V` @kind virtual;
+  #L181d24.  return v1;
+  #L181d26.  return v2;
+}
+procedure `int` `scroll`(`com.google.android.material.appbar.HeaderBehavior` v7 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v8 @kind object @name `coordinatorLayout`, `android.view.View` v9 @kind object, `int` v10 @name `dy`, `int` v11 @name `minOffset`, `int` v12 @name `maxOffset`) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.scroll:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;III)I` @AccessFlag FINAL {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L181d8c.  
+  #L181d8e.  call temp:= `getTopBottomOffsetForScrollingSibling`(v7) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.getTopBottomOffsetForScrollingSibling:()I` @kind virtual;
+  #L181d94.  v0:= temp;
+  #L181d96.  v4:= v0 - v10 @kind int;
+  #L181d9a.  v1:= v7 @kind object;
+  #L181d9c.  v2:= v8 @kind object;
+  #L181d9e.  v3:= v9 @kind object;
+  #L181da0.  v5:= v11;
+  #L181da2.  v6:= v12;
+  #L181da4.  call temp:= `setHeaderTopBottomOffset`(v1, v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.setHeaderTopBottomOffset:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;III)I` @kind virtual;
+  #L181daa.  v0:= temp;
+  #L181dac.  return v0;
+}
+procedure `int` `setHeaderTopBottomOffset`(`com.google.android.material.appbar.HeaderBehavior` v6 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v7 @kind object @name `parent`, `android.view.View` v8 @kind object, `int` v9 @name `newOffset`) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.setHeaderTopBottomOffset:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;I)I` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L181dc0.  v4:= -2147483648I;
+  #L181dc4.  v5:= 2147483647I;
+  #L181dca.  v0:= v6 @kind object;
+  #L181dcc.  v1:= v7 @kind object;
+  #L181dce.  v2:= v8 @kind object;
+  #L181dd0.  v3:= v9;
+  #L181dd2.  call temp:= `setHeaderTopBottomOffset`(v0, v1, v2, v3, v4, v5) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.setHeaderTopBottomOffset:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;III)I` @kind virtual;
+  #L181dd8.  v0:= temp;
+  #L181dda.  return v0;
+}
+procedure `int` `setHeaderTopBottomOffset`(`com.google.android.material.appbar.HeaderBehavior` v2 @kind this, `androidx.coordinatorlayout.widget.CoordinatorLayout` v3 @kind object @name `parent`, `android.view.View` v4 @kind object, `int` v5 @name `newOffset`, `int` v6 @name `minOffset`, `int` v7 @name `maxOffset`) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.setHeaderTopBottomOffset:(Landroidx/coordinatorlayout/widget/CoordinatorLayout;Landroid/view/View;III)I` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L181dec.  call temp:= `getTopAndBottomOffset`(v2) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.getTopAndBottomOffset:()I` @kind virtual;
+  #L181df2.  v0:= temp;
+  #L181df4.  v1:= 0I;
+  #L181df6.  if v6 == 0 then goto L181e18;
+  #L181dfa.  if v0 < v6 then goto L181e18;
+  #L181dfe.  if v0 > v7 then goto L181e18;
+  #L181e02.  call temp:= `clamp`(v5, v6, v7) @signature `Landroidx/core/math/MathUtils;.clamp:(III)I` @kind static;
+  #L181e08.  v5:= temp;
+  #L181e0a.  if v0 == v5 then goto L181e18;
+  #L181e0e.  call temp:= `setTopAndBottomOffset`(v2, v5) @signature `Lcom/google/android/material/appbar/HeaderBehavior;.setTopAndBottomOffset:(I)Z` @kind virtual;
+  #L181e14.  v1:= v0 - v5 @kind int;
+  #L181e18.  return v1;
+}

@@ -1,0 +1,812 @@
+record `com.google.android.material.button.MaterialButtonToggleGroup` @kind class @AccessFlag PUBLIC extends `android.widget.LinearLayout` @kind class {
+  `int` `com.google.android.material.button.MaterialButtonToggleGroup.checkedId` @AccessFlag PRIVATE;
+  `com.google.android.material.button.MaterialButtonToggleGroup$CheckedStateTracker` `com.google.android.material.button.MaterialButtonToggleGroup.checkedStateTracker` @AccessFlag PRIVATE_FINAL;
+  `java.lang.Integer`[] `com.google.android.material.button.MaterialButtonToggleGroup.childOrder` @AccessFlag PRIVATE;
+  `java.util.Comparator` `com.google.android.material.button.MaterialButtonToggleGroup.childOrderComparator` @AccessFlag PRIVATE_FINAL;
+  `java.util.LinkedHashSet` `com.google.android.material.button.MaterialButtonToggleGroup.onButtonCheckedListeners` @AccessFlag PRIVATE_FINAL;
+  `java.util.List` `com.google.android.material.button.MaterialButtonToggleGroup.originalCornerData` @AccessFlag PRIVATE_FINAL;
+  `com.google.android.material.button.MaterialButtonToggleGroup$PressedStateTracker` `com.google.android.material.button.MaterialButtonToggleGroup.pressedStateTracker` @AccessFlag PRIVATE_FINAL;
+  `boolean` `com.google.android.material.button.MaterialButtonToggleGroup.singleSelection` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.button.MaterialButtonToggleGroup.skipCheckedStateTracker` @AccessFlag PRIVATE;
+}
+global `java.lang.String` `@@com.google.android.material.button.MaterialButtonToggleGroup.LOG_TAG` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L18bddc.  v0:= constclass @type ^`com.google.android.material.button.MaterialButtonToggleGroup` @kind object;
+  #L18bde0.  call temp:= `getSimpleName`(v0) @signature `Ljava/lang/Class;.getSimpleName:()Ljava/lang/String;` @kind virtual;
+  #L18bde6.  v0:= temp @kind object;
+  #L18bde8.  `@@com.google.android.material.button.MaterialButtonToggleGroup.LOG_TAG` @type ^`java.lang.String` := v0 @kind object;
+  #L18bdec.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L18be00.  v0:= 0I;
+  #L18be02.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L18be08.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L18be1c.  v0:= `@@com.google.android.material.R$attr.materialButtonToggleGroupStyle` @type ^`int`;
+  #L18be20.  call `<init>`(v1, v2, v3, v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L18be26.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.button.MaterialButtonToggleGroup` v7 @kind this, `android.content.Context` v8 @kind object @name `context`, `android.util.AttributeSet` v9 @kind object @name `attrs`, `int` v10 @name `defStyleAttr`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L18be38.  call `<init>`(v7, v8, v9, v10) @signature `Landroid/widget/LinearLayout;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L18be3e.  v0:= new `java.util.ArrayList`;
+  #L18be42.  call `<init>`(v0) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L18be48.  v7.`com.google.android.material.button.MaterialButtonToggleGroup.originalCornerData` @type ^`java.util.List` := v0 @kind object;
+  #L18be4c.  v0:= new `com.google.android.material.button.MaterialButtonToggleGroup$CheckedStateTracker`;
+  #L18be50.  v1:= 0I;
+  #L18be52.  call `<init>`(v0, v7, v1) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CheckedStateTracker;.<init>:(Lcom/google/android/material/button/MaterialButtonToggleGroup;Lcom/google/android/material/button/MaterialButtonToggleGroup$1;)V` @kind direct;
+  #L18be58.  v7.`com.google.android.material.button.MaterialButtonToggleGroup.checkedStateTracker` @type ^`com.google.android.material.button.MaterialButtonToggleGroup$CheckedStateTracker` := v0 @kind object;
+  #L18be5c.  v0:= new `com.google.android.material.button.MaterialButtonToggleGroup$PressedStateTracker`;
+  #L18be60.  call `<init>`(v0, v7, v1) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$PressedStateTracker;.<init>:(Lcom/google/android/material/button/MaterialButtonToggleGroup;Lcom/google/android/material/button/MaterialButtonToggleGroup$1;)V` @kind direct;
+  #L18be66.  v7.`com.google.android.material.button.MaterialButtonToggleGroup.pressedStateTracker` @type ^`com.google.android.material.button.MaterialButtonToggleGroup$PressedStateTracker` := v0 @kind object;
+  #L18be6a.  v0:= new `java.util.LinkedHashSet`;
+  #L18be6e.  call `<init>`(v0) @signature `Ljava/util/LinkedHashSet;.<init>:()V` @kind direct;
+  #L18be74.  v7.`com.google.android.material.button.MaterialButtonToggleGroup.onButtonCheckedListeners` @type ^`java.util.LinkedHashSet` := v0 @kind object;
+  #L18be78.  v0:= new `com.google.android.material.button.MaterialButtonToggleGroup$1`;
+  #L18be7c.  call `<init>`(v0, v7) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$1;.<init>:(Lcom/google/android/material/button/MaterialButtonToggleGroup;)V` @kind direct;
+  #L18be82.  v7.`com.google.android.material.button.MaterialButtonToggleGroup.childOrderComparator` @type ^`java.util.Comparator` := v0 @kind object;
+  #L18be86.  v0:= 0I;
+  #L18be88.  v7.`com.google.android.material.button.MaterialButtonToggleGroup.skipCheckedStateTracker` @type ^`boolean` := v0 @kind boolean;
+  #L18be8c.  v3:= `@@com.google.android.material.R$styleable.MaterialButtonToggleGroup` @type ^`int`[] @kind object;
+  #L18be90.  v5:= `@@com.google.android.material.R$style.Widget_MaterialComponents_MaterialButtonToggleGroup` @type ^`int`;
+  #L18be94.  v6:= new `int`[v0];
+  #L18be98.  v1:= v8 @kind object;
+  #L18be9a.  v2:= v9 @kind object;
+  #L18be9c.  v4:= v10;
+  #L18be9e.  call temp:= `obtainStyledAttributes`(v1, v2, v3, v4, v5, v6) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainStyledAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;` @kind static;
+  #L18bea4.  v1:= temp @kind object;
+  #L18bea6.  v2:= `@@com.google.android.material.R$styleable.MaterialButtonToggleGroup_singleSelection` @type ^`int`;
+  #L18beaa.  call temp:= `getBoolean`(v1, v2, v0) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L18beb0.  v0:= temp;
+  #L18beb2.  call `setSingleSelection`(v7, v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.setSingleSelection:(Z)V` @kind virtual;
+  #L18beb8.  v0:= `@@com.google.android.material.R$styleable.MaterialButtonToggleGroup_checkedButton` @type ^`int`;
+  #L18bebc.  v2:= -1I;
+  #L18bebe.  call temp:= `getResourceId`(v1, v0, v2) @signature `Landroid/content/res/TypedArray;.getResourceId:(II)I` @kind virtual;
+  #L18bec4.  v0:= temp;
+  #L18bec6.  v7.`com.google.android.material.button.MaterialButtonToggleGroup.checkedId` @type ^`int` := v0;
+  #L18beca.  v0:= 1I;
+  #L18becc.  call `setChildrenDrawingOrderEnabled`(v7, v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.setChildrenDrawingOrderEnabled:(Z)V` @kind virtual;
+  #L18bed2.  call `recycle`(v1) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L18bed8.  return @kind void;
+}
+procedure `boolean` `access$200`(`com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.access$200:(Lcom/google/android/material/button/MaterialButtonToggleGroup;)Z` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L18bb60.  v0:= v1.`com.google.android.material.button.MaterialButtonToggleGroup.skipCheckedStateTracker` @type ^`boolean` @kind boolean;
+  #L18bb64.  return v0;
+}
+procedure `boolean` `access$300`(`com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind object @name `x0`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.access$300:(Lcom/google/android/material/button/MaterialButtonToggleGroup;)Z` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+    v0;
+
+  #L18bb78.  v0:= v1.`com.google.android.material.button.MaterialButtonToggleGroup.singleSelection` @type ^`boolean` @kind boolean;
+  #L18bb7c.  return v0;
+}
+procedure `int` `access$402`(`com.google.android.material.button.MaterialButtonToggleGroup` v0 @kind object @name `x0`, `int` v1 @name `x1`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.access$402:(Lcom/google/android/material/button/MaterialButtonToggleGroup;I)I` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L18bc74.  v0.`com.google.android.material.button.MaterialButtonToggleGroup.checkedId` @type ^`int` := v1;
+  #L18bc78.  return v1;
+}
+procedure `void` `access$500`(`com.google.android.material.button.MaterialButtonToggleGroup` v0 @kind object @name `x0`, `int` v1 @name `x1`, `boolean` v2 @name `x2`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.access$500:(Lcom/google/android/material/button/MaterialButtonToggleGroup;IZ)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L18beec.  call `dispatchOnButtonChecked`(v0, v1, v2) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.dispatchOnButtonChecked:(IZ)V` @kind direct;
+  #L18bef2.  return @kind void;
+}
+procedure `void` `access$600`(`com.google.android.material.button.MaterialButtonToggleGroup` v0 @kind object @name `x0`, `int` v1 @name `x1`, `boolean` v2 @name `x2`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.access$600:(Lcom/google/android/material/button/MaterialButtonToggleGroup;IZ)V` @AccessFlag STATIC_SYNTHETIC {
+    temp;
+
+  #L18bf04.  call `updateCheckedStates`(v0, v1, v2) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.updateCheckedStates:(IZ)V` @kind direct;
+  #L18bf0a.  return @kind void;
+}
+procedure `void` `adjustChildMarginsAndUpdateLayout`(`com.google.android.material.button.MaterialButtonToggleGroup` v8 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.adjustChildMarginsAndUpdateLayout:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L18bfe0.  call temp:= `getFirstVisibleChildIndex`(v8) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getFirstVisibleChildIndex:()I` @kind direct;
+  #L18bfe6.  v0:= temp;
+  #L18bfe8.  v1:= -1I;
+  #L18bfea.  if v0 != v1 then goto L18bff0;
+  #L18bfee.  return @kind void;
+  #L18bff0.  v1:= v0 + 1;
+  #L18bff4.  call temp:= `getChildCount`(v8) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildCount:()I` @kind virtual;
+  #L18bffa.  v2:= temp;
+  #L18bffc.  if v1 >= v2 then goto L18c06a;
+  #L18c000.  call temp:= `getChildButton`(v8, v1) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildButton:(I)Lcom/google/android/material/button/MaterialButton;` @kind direct;
+  #L18c006.  v2:= temp @kind object;
+  #L18c008.  v3:= v1 + -1;
+  #L18c00c.  call temp:= `getChildButton`(v8, v3) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildButton:(I)Lcom/google/android/material/button/MaterialButton;` @kind direct;
+  #L18c012.  v3:= temp @kind object;
+  #L18c014.  
+  #L18c016.  call temp:= `getStrokeWidth`(v2) @signature `Lcom/google/android/material/button/MaterialButton;.getStrokeWidth:()I` @kind virtual;
+  #L18c01c.  v4:= temp;
+  #L18c01e.  call temp:= `getStrokeWidth`(v3) @signature `Lcom/google/android/material/button/MaterialButton;.getStrokeWidth:()I` @kind virtual;
+  #L18c024.  v5:= temp;
+  #L18c026.  call temp:= `min`(v4, v5) @signature `Ljava/lang/Math;.min:(II)I` @kind static;
+  #L18c02c.  v4:= temp;
+  #L18c02e.  call temp:= `buildLayoutParams`(v8, v2) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.buildLayoutParams:(Landroid/view/View;)Landroid/widget/LinearLayout$LayoutParams;` @kind direct;
+  #L18c034.  v5:= temp @kind object;
+  #L18c036.  call temp:= `getOrientation`(v8) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getOrientation:()I` @kind virtual;
+  #L18c03c.  v6:= temp;
+  #L18c03e.  v7:= 0I;
+  #L18c040.  if v6 != 0 then goto L18c054;
+  #L18c044.  call `setMarginEnd`(v5, v7) @signature `Landroidx/core/view/MarginLayoutParamsCompat;.setMarginEnd:(Landroid/view/ViewGroup$MarginLayoutParams;I)V` @kind static;
+  #L18c04a.  v6:= -v4 @kind int;
+  #L18c04c.  call `setMarginStart`(v5, v6) @signature `Landroidx/core/view/MarginLayoutParamsCompat;.setMarginStart:(Landroid/view/ViewGroup$MarginLayoutParams;I)V` @kind static;
+  #L18c052.  goto L18c05e;
+  #L18c054.  v5.`android.widget.LinearLayout$LayoutParams.bottomMargin` @type ^`int` := v7;
+  #L18c058.  v6:= -v4 @kind int;
+  #L18c05a.  v5.`android.widget.LinearLayout$LayoutParams.topMargin` @type ^`int` := v6;
+  #L18c05e.  call `setLayoutParams`(v2, v5) @signature `Lcom/google/android/material/button/MaterialButton;.setLayoutParams:(Landroid/view/ViewGroup$LayoutParams;)V` @kind virtual;
+  #L18c064.  v1:= v1 + 1;
+  #L18c068.  goto L18bff4;
+  #L18c06a.  call `resetChildMargins`(v8, v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.resetChildMargins:(I)V` @kind direct;
+  #L18c070.  return @kind void;
+}
+procedure `android.widget.LinearLayout$LayoutParams` `buildLayoutParams`(`com.google.android.material.button.MaterialButtonToggleGroup` v4 @kind this, `android.view.View` v5 @kind object @name `child`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.buildLayoutParams:(Landroid/view/View;)Landroid/widget/LinearLayout$LayoutParams;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18bb24.  call temp:= `getLayoutParams`(v5) @signature `Landroid/view/View;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L18bb2a.  v0:= temp @kind object;
+  #L18bb2c.  v1:= instanceof @variable v0 @type ^`android.widget.LinearLayout$LayoutParams` @kind boolean;
+  #L18bb30.  if v1 == 0 then goto L18bb3c;
+  #L18bb34.  v1:= v0 @kind object;
+  #L18bb36.  v1:= (`android.widget.LinearLayout$LayoutParams`) v1 @kind object;
+  #L18bb3a.  return v1 @kind object;
+  #L18bb3c.  v1:= new `android.widget.LinearLayout$LayoutParams`;
+  #L18bb40.  v2:= v0.`android.view.ViewGroup$LayoutParams.width` @type ^`int`;
+  #L18bb44.  v3:= v0.`android.view.ViewGroup$LayoutParams.height` @type ^`int`;
+  #L18bb48.  call `<init>`(v1, v2, v3) @signature `Landroid/widget/LinearLayout$LayoutParams;.<init>:(II)V` @kind direct;
+  #L18bb4e.  return v1 @kind object;
+}
+procedure `void` `checkForced`(`com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind this, `int` v2 @name `checkedId`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.checkForced:(I)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L18c0a8.  v0:= 1I;
+  #L18c0aa.  call `setCheckedStateForView`(v1, v2, v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.setCheckedStateForView:(IZ)V` @kind direct;
+  #L18c0b0.  call `updateCheckedStates`(v1, v2, v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.updateCheckedStates:(IZ)V` @kind direct;
+  #L18c0b6.  call `setCheckedId`(v1, v2) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.setCheckedId:(I)V` @kind direct;
+  #L18c0bc.  return @kind void;
+}
+procedure `void` `dispatchOnButtonChecked`(`com.google.android.material.button.MaterialButtonToggleGroup` v2 @kind this, `int` v3 @name `buttonId`, `boolean` v4 @name `checked`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.dispatchOnButtonChecked:(IZ)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L18c164.  v0:= v2.`com.google.android.material.button.MaterialButtonToggleGroup.onButtonCheckedListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L18c168.  call temp:= `iterator`(v0) @signature `Ljava/util/LinkedHashSet;.iterator:()Ljava/util/Iterator;` @kind virtual;
+  #L18c16e.  v0:= temp @kind object;
+  #L18c170.  call temp:= `hasNext`(v0) @signature `Ljava/util/Iterator;.hasNext:()Z` @kind interface;
+  #L18c176.  v1:= temp;
+  #L18c178.  if v1 == 0 then goto L18c190;
+  #L18c17c.  call temp:= `next`(v0) @signature `Ljava/util/Iterator;.next:()Ljava/lang/Object;` @kind interface;
+  #L18c182.  v1:= temp @kind object;
+  #L18c184.  v1:= (`com.google.android.material.button.MaterialButtonToggleGroup$OnButtonCheckedListener`) v1 @kind object;
+  #L18c188.  call `onButtonChecked`(v1, v2, v3, v4) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$OnButtonCheckedListener;.onButtonChecked:(Lcom/google/android/material/button/MaterialButtonToggleGroup;IZ)V` @kind interface;
+  #L18c18e.  goto L18c170;
+  #L18c190.  return @kind void;
+}
+procedure `com.google.android.material.button.MaterialButton` `getChildButton`(`com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind this, `int` v2 @name `index`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildButton:(I)Lcom/google/android/material/button/MaterialButton;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L18bbd8.  call temp:= `getChildAt`(v1, v2) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L18bbde.  v0:= temp @kind object;
+  #L18bbe0.  v0:= (`com.google.android.material.button.MaterialButton`) v0 @kind object;
+  #L18bbe4.  return v0 @kind object;
+}
+procedure `int` `getFirstVisibleChildIndex`(`com.google.android.material.button.MaterialButtonToggleGroup` v3 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getFirstVisibleChildIndex:()I` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18bcf0.  call temp:= `getChildCount`(v3) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildCount:()I` @kind virtual;
+  #L18bcf6.  v0:= temp;
+  #L18bcf8.  v1:= 0I;
+  #L18bcfa.  if v1 >= v0 then goto L18bd12;
+  #L18bcfe.  call temp:= `isChildVisible`(v3, v1) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.isChildVisible:(I)Z` @kind direct;
+  #L18bd04.  v2:= temp;
+  #L18bd06.  if v2 == 0 then goto L18bd0c;
+  #L18bd0a.  return v1;
+  #L18bd0c.  v1:= v1 + 1;
+  #L18bd10.  goto L18bcfa;
+  #L18bd12.  v1:= -1I;
+  #L18bd14.  return v1;
+}
+procedure `int` `getLastVisibleChildIndex`(`com.google.android.material.button.MaterialButtonToggleGroup` v3 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getLastVisibleChildIndex:()I` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18bd28.  call temp:= `getChildCount`(v3) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildCount:()I` @kind virtual;
+  #L18bd2e.  v0:= temp;
+  #L18bd30.  v1:= v0 + -1;
+  #L18bd34.  if v1 < 0 then goto L18bd4c;
+  #L18bd38.  call temp:= `isChildVisible`(v3, v1) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.isChildVisible:(I)Z` @kind direct;
+  #L18bd3e.  v2:= temp;
+  #L18bd40.  if v2 == 0 then goto L18bd46;
+  #L18bd44.  return v1;
+  #L18bd46.  v1:= v1 + -1;
+  #L18bd4a.  goto L18bd34;
+  #L18bd4c.  v1:= -1I;
+  #L18bd4e.  return v1;
+}
+procedure `com.google.android.material.button.MaterialButtonToggleGroup$CornerData` `getNewCornerData`(`com.google.android.material.button.MaterialButtonToggleGroup` v4 @kind this, `int` v5 @name `index`, `int` v6 @name `firstVisibleChildIndex`, `int` v7 @name `lastVisibleChildIndex`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getNewCornerData:(III)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18bbf8.  call temp:= `getChildCount`(v4) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildCount:()I` @kind virtual;
+  #L18bbfe.  v0:= temp;
+  #L18bc00.  v1:= v4.`com.google.android.material.button.MaterialButtonToggleGroup.originalCornerData` @type ^`java.util.List` @kind object;
+  #L18bc04.  call temp:= `get`(v1, v5) @signature `Ljava/util/List;.get:(I)Ljava/lang/Object;` @kind interface;
+  #L18bc0a.  v1:= temp @kind object;
+  #L18bc0c.  v1:= (`com.google.android.material.button.MaterialButtonToggleGroup$CornerData`) v1 @kind object;
+  #L18bc10.  v2:= 1I;
+  #L18bc12.  if v0 != v2 then goto L18bc18;
+  #L18bc16.  return v1 @kind object;
+  #L18bc18.  call temp:= `getOrientation`(v4) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getOrientation:()I` @kind virtual;
+  #L18bc1e.  v3:= temp;
+  #L18bc20.  if v3 != 0 then goto L18bc26;
+  #L18bc24.  goto L18bc28;
+  #L18bc26.  v2:= 0I;
+  #L18bc28.  if v5 != v6 then goto L18bc44;
+  #L18bc2c.  if v2 == 0 then goto L18bc3a;
+  #L18bc30.  call temp:= `start`(v1, v4) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.start:(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;Landroid/view/View;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;` @kind static;
+  #L18bc36.  v3:= temp @kind object;
+  #L18bc38.  goto L18bc42;
+  #L18bc3a.  call temp:= `top`(v1) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.top:(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;` @kind static;
+  #L18bc40.  v3:= temp @kind object;
+  #L18bc42.  return v3 @kind object;
+  #L18bc44.  if v5 != v7 then goto L18bc60;
+  #L18bc48.  if v2 == 0 then goto L18bc56;
+  #L18bc4c.  call temp:= `end`(v1, v4) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.end:(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;Landroid/view/View;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;` @kind static;
+  #L18bc52.  v3:= temp @kind object;
+  #L18bc54.  goto L18bc5e;
+  #L18bc56.  call temp:= `bottom`(v1) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.bottom:(Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;` @kind static;
+  #L18bc5c.  v3:= temp @kind object;
+  #L18bc5e.  return v3 @kind object;
+  #L18bc60.  v3:= 0I;
+  #L18bc62.  return v3 @kind object;
+}
+procedure `boolean` `isChildVisible`(`com.google.android.material.button.MaterialButtonToggleGroup` v3 @kind this, `int` v4 @name `i`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.isChildVisible:(I)Z` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L18bb90.  call temp:= `getChildAt`(v3, v4) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildAt:(I)Landroid/view/View;` @kind virtual;
+  #L18bb96.  v0:= temp @kind object;
+  #L18bb98.  call temp:= `getVisibility`(v0) @signature `Landroid/view/View;.getVisibility:()I` @kind virtual;
+  #L18bb9e.  v1:= temp;
+  #L18bba0.  v2:= 8I;
+  #L18bba4.  if v1 == v2 then goto L18bbac;
+  #L18bba8.  v1:= 1I;
+  #L18bbaa.  goto L18bbae;
+  #L18bbac.  v1:= 0I;
+  #L18bbae.  return v1;
+}
+procedure `void` `resetChildMargins`(`com.google.android.material.button.MaterialButtonToggleGroup` v5 @kind this, `int` v6 @name `childIndex`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.resetChildMargins:(I)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L18c26c.  call temp:= `getChildCount`(v5) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildCount:()I` @kind virtual;
+  #L18c272.  v0:= temp;
+  #L18c274.  if v0 == 0 then goto L18c2c4;
+  #L18c278.  v0:= -1I;
+  #L18c27a.  if v6 != v0 then goto L18c280;
+  #L18c27e.  goto L18c2c4;
+  #L18c280.  call temp:= `getChildButton`(v5, v6) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildButton:(I)Lcom/google/android/material/button/MaterialButton;` @kind direct;
+  #L18c286.  v0:= temp @kind object;
+  #L18c288.  call temp:= `getLayoutParams`(v0) @signature `Lcom/google/android/material/button/MaterialButton;.getLayoutParams:()Landroid/view/ViewGroup$LayoutParams;` @kind virtual;
+  #L18c28e.  v1:= temp @kind object;
+  #L18c290.  v1:= (`android.widget.LinearLayout$LayoutParams`) v1 @kind object;
+  #L18c294.  call temp:= `getOrientation`(v5) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getOrientation:()I` @kind virtual;
+  #L18c29a.  v2:= temp;
+  #L18c29c.  v3:= 1I;
+  #L18c29e.  v4:= 0I;
+  #L18c2a0.  if v2 != v3 then goto L18c2ae;
+  #L18c2a4.  v1.`android.widget.LinearLayout$LayoutParams.topMargin` @type ^`int` := v4;
+  #L18c2a8.  v1.`android.widget.LinearLayout$LayoutParams.bottomMargin` @type ^`int` := v4;
+  #L18c2ac.  return @kind void;
+  #L18c2ae.  call `setMarginEnd`(v1, v4) @signature `Landroidx/core/view/MarginLayoutParamsCompat;.setMarginEnd:(Landroid/view/ViewGroup$MarginLayoutParams;I)V` @kind static;
+  #L18c2b4.  call `setMarginStart`(v1, v4) @signature `Landroidx/core/view/MarginLayoutParamsCompat;.setMarginStart:(Landroid/view/ViewGroup$MarginLayoutParams;I)V` @kind static;
+  #L18c2ba.  v1.`android.widget.LinearLayout$LayoutParams.leftMargin` @type ^`int` := v4;
+  #L18c2be.  v1.`android.widget.LinearLayout$LayoutParams.rightMargin` @type ^`int` := v4;
+  #L18c2c2.  return @kind void;
+  #L18c2c4.  return @kind void;
+}
+procedure `void` `setCheckedId`(`com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind this, `int` v2 @name `checkedId`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.setCheckedId:(I)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+
+  #L18c2d8.  v1.`com.google.android.material.button.MaterialButtonToggleGroup.checkedId` @type ^`int` := v2;
+  #L18c2dc.  v0:= 1I;
+  #L18c2de.  call `dispatchOnButtonChecked`(v1, v2, v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.dispatchOnButtonChecked:(IZ)V` @kind direct;
+  #L18c2e4.  return @kind void;
+}
+procedure `void` `setCheckedStateForView`(`com.google.android.material.button.MaterialButtonToggleGroup` v2 @kind this, `int` v3 @name `viewId`, `boolean` v4 @name `checked`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.setCheckedStateForView:(IZ)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L18c2f8.  call temp:= `findViewById`(v2, v3) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.findViewById:(I)Landroid/view/View;` @kind virtual;
+  #L18c2fe.  v0:= temp @kind object;
+  #L18c300.  v1:= instanceof @variable v0 @type ^`com.google.android.material.button.MaterialButton` @kind boolean;
+  #L18c304.  if v1 == 0 then goto L18c320;
+  #L18c308.  v1:= 1I;
+  #L18c30a.  v2.`com.google.android.material.button.MaterialButtonToggleGroup.skipCheckedStateTracker` @type ^`boolean` := v1 @kind boolean;
+  #L18c30e.  v1:= v0 @kind object;
+  #L18c310.  v1:= (`com.google.android.material.button.MaterialButton`) v1 @kind object;
+  #L18c314.  call `setChecked`(v1, v4) @signature `Lcom/google/android/material/button/MaterialButton;.setChecked:(Z)V` @kind virtual;
+  #L18c31a.  v1:= 0I;
+  #L18c31c.  v2.`com.google.android.material.button.MaterialButtonToggleGroup.skipCheckedStateTracker` @type ^`boolean` := v1 @kind boolean;
+  #L18c320.  return @kind void;
+}
+procedure `void` `setGeneratedIdIfNeeded`(`com.google.android.material.button.MaterialButtonToggleGroup` v2 @kind this, `com.google.android.material.button.MaterialButton` v3 @kind object @name `materialButton`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.setGeneratedIdIfNeeded:(Lcom/google/android/material/button/MaterialButton;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L18c334.  call temp:= `getId`(v3) @signature `Lcom/google/android/material/button/MaterialButton;.getId:()I` @kind virtual;
+  #L18c33a.  v0:= temp;
+  #L18c33c.  v1:= -1I;
+  #L18c33e.  if v0 != v1 then goto L18c350;
+  #L18c342.  call temp:= `generateViewId`() @signature `Landroidx/core/view/ViewCompat;.generateViewId:()I` @kind static;
+  #L18c348.  v0:= temp;
+  #L18c34a.  call `setId`(v3, v0) @signature `Lcom/google/android/material/button/MaterialButton;.setId:(I)V` @kind virtual;
+  #L18c350.  return @kind void;
+}
+procedure `void` `setupButtonChild`(`com.google.android.material.button.MaterialButtonToggleGroup` v2 @kind this, `com.google.android.material.button.MaterialButton` v3 @kind object @name `buttonChild`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.setupButtonChild:(Lcom/google/android/material/button/MaterialButton;)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L18c3b0.  v0:= 1I;
+  #L18c3b2.  call `setMaxLines`(v3, v0) @signature `Lcom/google/android/material/button/MaterialButton;.setMaxLines:(I)V` @kind virtual;
+  #L18c3b8.  v1:= `@@android.text.TextUtils$TruncateAt.END` @type ^`android.text.TextUtils$TruncateAt` @kind object;
+  #L18c3bc.  call `setEllipsize`(v3, v1) @signature `Lcom/google/android/material/button/MaterialButton;.setEllipsize:(Landroid/text/TextUtils$TruncateAt;)V` @kind virtual;
+  #L18c3c2.  call `setCheckable`(v3, v0) @signature `Lcom/google/android/material/button/MaterialButton;.setCheckable:(Z)V` @kind virtual;
+  #L18c3c8.  v1:= v2.`com.google.android.material.button.MaterialButtonToggleGroup.checkedStateTracker` @type ^`com.google.android.material.button.MaterialButtonToggleGroup$CheckedStateTracker` @kind object;
+  #L18c3cc.  call `addOnCheckedChangeListener`(v3, v1) @signature `Lcom/google/android/material/button/MaterialButton;.addOnCheckedChangeListener:(Lcom/google/android/material/button/MaterialButton$OnCheckedChangeListener;)V` @kind virtual;
+  #L18c3d2.  v1:= v2.`com.google.android.material.button.MaterialButtonToggleGroup.pressedStateTracker` @type ^`com.google.android.material.button.MaterialButtonToggleGroup$PressedStateTracker` @kind object;
+  #L18c3d6.  call `setOnPressedChangeListenerInternal`(v3, v1) @signature `Lcom/google/android/material/button/MaterialButton;.setOnPressedChangeListenerInternal:(Lcom/google/android/material/button/MaterialButton$OnPressedChangeListener;)V` @kind virtual;
+  #L18c3dc.  call `setShouldDrawSurfaceColorStroke`(v3, v0) @signature `Lcom/google/android/material/button/MaterialButton;.setShouldDrawSurfaceColorStroke:(Z)V` @kind virtual;
+  #L18c3e2.  return @kind void;
+}
+procedure `void` `updateBuilderWithCornerData`(`com.google.android.material.shape.ShapeAppearanceModel$Builder` v2 @kind object @name `shapeAppearanceModelBuilder`, `com.google.android.material.button.MaterialButtonToggleGroup$CornerData` v3 @kind object @name `cornerData`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.updateBuilderWithCornerData:(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)V` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L18c420.  if v3 != 0 then goto L18c42e;
+  #L18c424.  v0:= 0I;
+  #L18c426.  call temp:= `setAllCornerSizes`(v2, v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setAllCornerSizes:(F)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L18c42c.  return @kind void;
+  #L18c42e.  v0:= v3.`com.google.android.material.button.MaterialButtonToggleGroup$CornerData.topLeft` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L18c432.  call temp:= `setTopLeftCornerSize`(v2, v0) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setTopLeftCornerSize:(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L18c438.  v0:= temp @kind object;
+  #L18c43a.  v1:= v3.`com.google.android.material.button.MaterialButtonToggleGroup$CornerData.bottomLeft` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L18c43e.  call temp:= `setBottomLeftCornerSize`(v0, v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setBottomLeftCornerSize:(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L18c444.  v0:= temp @kind object;
+  #L18c446.  v1:= v3.`com.google.android.material.button.MaterialButtonToggleGroup$CornerData.topRight` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L18c44a.  call temp:= `setTopRightCornerSize`(v0, v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setTopRightCornerSize:(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L18c450.  v0:= temp @kind object;
+  #L18c452.  v1:= v3.`com.google.android.material.button.MaterialButtonToggleGroup$CornerData.bottomRight` @type ^`com.google.android.material.shape.CornerSize` @kind object;
+  #L18c456.  call temp:= `setBottomRightCornerSize`(v0, v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.setBottomRightCornerSize:(Lcom/google/android/material/shape/CornerSize;)Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L18c45c.  return @kind void;
+}
+procedure `void` `updateCheckedStates`(`com.google.android.material.button.MaterialButtonToggleGroup` v4 @kind this, `int` v5 @name `childId`, `boolean` v6 @name `childIsChecked`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.updateCheckedStates:(IZ)V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18c470.  v0:= 0I;
+  #L18c472.  call temp:= `getChildCount`(v4) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildCount:()I` @kind virtual;
+  #L18c478.  v1:= temp;
+  #L18c47a.  if v0 >= v1 then goto L18c4ce;
+  #L18c47e.  call temp:= `getChildButton`(v4, v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildButton:(I)Lcom/google/android/material/button/MaterialButton;` @kind direct;
+  #L18c484.  v1:= temp @kind object;
+  #L18c486.  call temp:= `isChecked`(v1) @signature `Lcom/google/android/material/button/MaterialButton;.isChecked:()Z` @kind virtual;
+  #L18c48c.  v2:= temp;
+  #L18c48e.  if v2 == 0 then goto L18c4c8;
+  #L18c492.  v2:= v4.`com.google.android.material.button.MaterialButtonToggleGroup.singleSelection` @type ^`boolean` @kind boolean;
+  #L18c496.  if v2 == 0 then goto L18c4c8;
+  #L18c49a.  if v6 == 0 then goto L18c4c8;
+  #L18c49e.  call temp:= `getId`(v1) @signature `Lcom/google/android/material/button/MaterialButton;.getId:()I` @kind virtual;
+  #L18c4a4.  v2:= temp;
+  #L18c4a6.  if v2 == v5 then goto L18c4c8;
+  #L18c4aa.  call temp:= `getId`(v1) @signature `Lcom/google/android/material/button/MaterialButton;.getId:()I` @kind virtual;
+  #L18c4b0.  v2:= temp;
+  #L18c4b2.  v3:= 0I;
+  #L18c4b4.  call `setCheckedStateForView`(v4, v2, v3) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.setCheckedStateForView:(IZ)V` @kind direct;
+  #L18c4ba.  call temp:= `getId`(v1) @signature `Lcom/google/android/material/button/MaterialButton;.getId:()I` @kind virtual;
+  #L18c4c0.  v2:= temp;
+  #L18c4c2.  call `dispatchOnButtonChecked`(v4, v2, v3) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.dispatchOnButtonChecked:(IZ)V` @kind direct;
+  #L18c4c8.  v0:= v0 + 1;
+  #L18c4cc.  goto L18c472;
+  #L18c4ce.  return @kind void;
+}
+procedure `void` `updateChildOrder`(`com.google.android.material.button.MaterialButtonToggleGroup` v5 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.updateChildOrder:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L18c4e0.  v0:= new `java.util.TreeMap`;
+  #L18c4e4.  v1:= v5.`com.google.android.material.button.MaterialButtonToggleGroup.childOrderComparator` @type ^`java.util.Comparator` @kind object;
+  #L18c4e8.  call `<init>`(v0, v1) @signature `Ljava/util/TreeMap;.<init>:(Ljava/util/Comparator;)V` @kind direct;
+  #L18c4ee.  call temp:= `getChildCount`(v5) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildCount:()I` @kind virtual;
+  #L18c4f4.  v1:= temp;
+  #L18c4f6.  v2:= 0I;
+  #L18c4f8.  if v2 >= v1 then goto L18c518;
+  #L18c4fc.  call temp:= `getChildButton`(v5, v2) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildButton:(I)Lcom/google/android/material/button/MaterialButton;` @kind direct;
+  #L18c502.  v3:= temp @kind object;
+  #L18c504.  call temp:= `valueOf`(v2) @signature `Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer;` @kind static;
+  #L18c50a.  v4:= temp @kind object;
+  #L18c50c.  call temp:= `put`(v0, v3, v4) @signature `Ljava/util/SortedMap;.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;` @kind interface;
+  #L18c512.  v2:= v2 + 1;
+  #L18c516.  goto L18c4f8;
+  #L18c518.  call temp:= `values`(v0) @signature `Ljava/util/SortedMap;.values:()Ljava/util/Collection;` @kind interface;
+  #L18c51e.  v2:= temp @kind object;
+  #L18c520.  v3:= 0I;
+  #L18c522.  v3:= new `java.lang.Integer`[v3];
+  #L18c526.  call temp:= `toArray`(v2, v3) @signature `Ljava/util/Collection;.toArray:([Ljava/lang/Object;)[Ljava/lang/Object;` @kind interface;
+  #L18c52c.  v2:= temp @kind object;
+  #L18c52e.  v2:= (`java.lang.Integer`[]) v2 @kind object;
+  #L18c532.  v5.`com.google.android.material.button.MaterialButtonToggleGroup.childOrder` @type ^`java.lang.Integer`[] := v2 @kind object;
+  #L18c536.  return @kind void;
+}
+procedure `void` `addOnButtonCheckedListener`(`com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind this, `com.google.android.material.button.MaterialButtonToggleGroup$OnButtonCheckedListener` v2 @kind object @name `listener`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.addOnButtonCheckedListener:(Lcom/google/android/material/button/MaterialButtonToggleGroup$OnButtonCheckedListener;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18bf1c.  v0:= v1.`com.google.android.material.button.MaterialButtonToggleGroup.onButtonCheckedListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L18bf20.  call temp:= `add`(v0, v2) @signature `Ljava/util/LinkedHashSet;.add:(Ljava/lang/Object;)Z` @kind virtual;
+  #L18bf26.  return @kind void;
+}
+procedure `void` `addView`(`com.google.android.material.button.MaterialButtonToggleGroup` v8 @kind this, `android.view.View` v9 @kind object @name `child`, `int` v10 @name `index`, `android.view.ViewGroup$LayoutParams` v11 @kind object @name `params`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.addView:(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L18bf38.  v0:= instanceof @variable v9 @type ^`com.google.android.material.button.MaterialButton` @kind boolean;
+  #L18bf3c.  if v0 != 0 then goto L18bf50;
+  #L18bf40.  v0:= `@@com.google.android.material.button.MaterialButtonToggleGroup.LOG_TAG` @type ^`java.lang.String` @kind object;
+  #L18bf44.  v1:= "Child views must be of type MaterialButton." @kind object;
+  #L18bf48.  call temp:= `e`(v0, v1) @signature `Landroid/util/Log;.e:(Ljava/lang/String;Ljava/lang/String;)I` @kind static;
+  #L18bf4e.  return @kind void;
+  #L18bf50.  call `addView`(v8, v9, v10, v11) @signature `Landroid/widget/LinearLayout;.addView:(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V` @kind super;
+  #L18bf56.  v0:= v9 @kind object;
+  #L18bf58.  v0:= (`com.google.android.material.button.MaterialButton`) v0 @kind object;
+  #L18bf5c.  call `setGeneratedIdIfNeeded`(v8, v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.setGeneratedIdIfNeeded:(Lcom/google/android/material/button/MaterialButton;)V` @kind direct;
+  #L18bf62.  call `setupButtonChild`(v8, v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.setupButtonChild:(Lcom/google/android/material/button/MaterialButton;)V` @kind direct;
+  #L18bf68.  call temp:= `isChecked`(v0) @signature `Lcom/google/android/material/button/MaterialButton;.isChecked:()Z` @kind virtual;
+  #L18bf6e.  v1:= temp;
+  #L18bf70.  if v1 == 0 then goto L18bf92;
+  #L18bf74.  call temp:= `getId`(v0) @signature `Lcom/google/android/material/button/MaterialButton;.getId:()I` @kind virtual;
+  #L18bf7a.  v1:= temp;
+  #L18bf7c.  v2:= 1I;
+  #L18bf7e.  call `updateCheckedStates`(v8, v1, v2) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.updateCheckedStates:(IZ)V` @kind direct;
+  #L18bf84.  call temp:= `getId`(v0) @signature `Lcom/google/android/material/button/MaterialButton;.getId:()I` @kind virtual;
+  #L18bf8a.  v1:= temp;
+  #L18bf8c.  call `setCheckedId`(v8, v1) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.setCheckedId:(I)V` @kind direct;
+  #L18bf92.  call temp:= `getShapeAppearanceModel`(v0) @signature `Lcom/google/android/material/button/MaterialButton;.getShapeAppearanceModel:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L18bf98.  v1:= temp @kind object;
+  #L18bf9a.  v2:= v8.`com.google.android.material.button.MaterialButtonToggleGroup.originalCornerData` @type ^`java.util.List` @kind object;
+  #L18bf9e.  v3:= new `com.google.android.material.button.MaterialButtonToggleGroup$CornerData`;
+  #L18bfa2.  call temp:= `getTopLeftCornerSize`(v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getTopLeftCornerSize:()Lcom/google/android/material/shape/CornerSize;` @kind virtual;
+  #L18bfa8.  v4:= temp @kind object;
+  #L18bfaa.  call temp:= `getBottomLeftCornerSize`(v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getBottomLeftCornerSize:()Lcom/google/android/material/shape/CornerSize;` @kind virtual;
+  #L18bfb0.  v5:= temp @kind object;
+  #L18bfb2.  call temp:= `getTopRightCornerSize`(v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getTopRightCornerSize:()Lcom/google/android/material/shape/CornerSize;` @kind virtual;
+  #L18bfb8.  v6:= temp @kind object;
+  #L18bfba.  call temp:= `getBottomRightCornerSize`(v1) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.getBottomRightCornerSize:()Lcom/google/android/material/shape/CornerSize;` @kind virtual;
+  #L18bfc0.  v7:= temp @kind object;
+  #L18bfc2.  call `<init>`(v3, v4, v5, v6, v7) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;.<init>:(Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;Lcom/google/android/material/shape/CornerSize;)V` @kind direct;
+  #L18bfc8.  call temp:= `add`(v2, v3) @signature `Ljava/util/List;.add:(Ljava/lang/Object;)Z` @kind interface;
+  #L18bfce.  return @kind void;
+}
+procedure `void` `check`(`com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.check:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18c084.  v0:= v1.`com.google.android.material.button.MaterialButtonToggleGroup.checkedId` @type ^`int`;
+  #L18c088.  if v2 != v0 then goto L18c08e;
+  #L18c08c.  return @kind void;
+  #L18c08e.  call `checkForced`(v1, v2) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.checkForced:(I)V` @kind direct;
+  #L18c094.  return @kind void;
+}
+procedure `void` `clearChecked`(`com.google.android.material.button.MaterialButtonToggleGroup` v4 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.clearChecked:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18c0d0.  v0:= 1I;
+  #L18c0d2.  v4.`com.google.android.material.button.MaterialButtonToggleGroup.skipCheckedStateTracker` @type ^`boolean` := v0 @kind boolean;
+  #L18c0d6.  v0:= 0I;
+  #L18c0d8.  call temp:= `getChildCount`(v4) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildCount:()I` @kind virtual;
+  #L18c0de.  v1:= temp;
+  #L18c0e0.  v2:= 0I;
+  #L18c0e2.  if v0 >= v1 then goto L18c108;
+  #L18c0e6.  call temp:= `getChildButton`(v4, v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildButton:(I)Lcom/google/android/material/button/MaterialButton;` @kind direct;
+  #L18c0ec.  v1:= temp @kind object;
+  #L18c0ee.  call `setChecked`(v1, v2) @signature `Lcom/google/android/material/button/MaterialButton;.setChecked:(Z)V` @kind virtual;
+  #L18c0f4.  call temp:= `getId`(v1) @signature `Lcom/google/android/material/button/MaterialButton;.getId:()I` @kind virtual;
+  #L18c0fa.  v3:= temp;
+  #L18c0fc.  call `dispatchOnButtonChecked`(v4, v3, v2) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.dispatchOnButtonChecked:(IZ)V` @kind direct;
+  #L18c102.  v0:= v0 + 1;
+  #L18c106.  goto L18c0d8;
+  #L18c108.  v4.`com.google.android.material.button.MaterialButtonToggleGroup.skipCheckedStateTracker` @type ^`boolean` := v2 @kind boolean;
+  #L18c10c.  v0:= -1I;
+  #L18c10e.  call `setCheckedId`(v4, v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.setCheckedId:(I)V` @kind direct;
+  #L18c114.  return @kind void;
+}
+procedure `void` `clearOnButtonCheckedListeners`(`com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.clearOnButtonCheckedListeners:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18c128.  v0:= v1.`com.google.android.material.button.MaterialButtonToggleGroup.onButtonCheckedListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L18c12c.  call `clear`(v0) @signature `Ljava/util/LinkedHashSet;.clear:()V` @kind virtual;
+  #L18c132.  return @kind void;
+}
+procedure `void` `dispatchDraw`(`com.google.android.material.button.MaterialButtonToggleGroup` v0 @kind this, `android.graphics.Canvas` v1 @kind object @name `canvas`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.dispatchDraw:(Landroid/graphics/Canvas;)V` @AccessFlag PROTECTED {
+    temp;
+
+  #L18c144.  call `updateChildOrder`(v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.updateChildOrder:()V` @kind direct;
+  #L18c14a.  call `dispatchDraw`(v0, v1) @signature `Landroid/widget/LinearLayout;.dispatchDraw:(Landroid/graphics/Canvas;)V` @kind super;
+  #L18c150.  return @kind void;
+}
+procedure `java.lang.CharSequence` `getAccessibilityClassName`(`com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getAccessibilityClassName:()Ljava/lang/CharSequence;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18bd60.  v0:= constclass @type ^`com.google.android.material.button.MaterialButtonToggleGroup` @kind object;
+  #L18bd64.  call temp:= `getName`(v0) @signature `Ljava/lang/Class;.getName:()Ljava/lang/String;` @kind virtual;
+  #L18bd6a.  v0:= temp @kind object;
+  #L18bd6c.  return v0 @kind object;
+}
+procedure `int` `getCheckedButtonId`(`com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getCheckedButtonId:()I` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18bc8c.  v0:= v1.`com.google.android.material.button.MaterialButtonToggleGroup.singleSelection` @type ^`boolean` @kind boolean;
+  #L18bc90.  if v0 == 0 then goto L18bc9a;
+  #L18bc94.  v0:= v1.`com.google.android.material.button.MaterialButtonToggleGroup.checkedId` @type ^`int`;
+  #L18bc98.  goto L18bc9c;
+  #L18bc9a.  v0:= -1I;
+  #L18bc9c.  return v0;
+}
+procedure `java.util.List` `getCheckedButtonIds`(`com.google.android.material.button.MaterialButtonToggleGroup` v4 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getCheckedButtonIds:()Ljava/util/List;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L18bd80.  v0:= new `java.util.ArrayList`;
+  #L18bd84.  call `<init>`(v0) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L18bd8a.  v1:= 0I;
+  #L18bd8c.  call temp:= `getChildCount`(v4) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildCount:()I` @kind virtual;
+  #L18bd92.  v2:= temp;
+  #L18bd94.  if v1 >= v2 then goto L18bdc8;
+  #L18bd98.  call temp:= `getChildButton`(v4, v1) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildButton:(I)Lcom/google/android/material/button/MaterialButton;` @kind direct;
+  #L18bd9e.  v2:= temp @kind object;
+  #L18bda0.  call temp:= `isChecked`(v2) @signature `Lcom/google/android/material/button/MaterialButton;.isChecked:()Z` @kind virtual;
+  #L18bda6.  v3:= temp;
+  #L18bda8.  if v3 == 0 then goto L18bdc2;
+  #L18bdac.  call temp:= `getId`(v2) @signature `Lcom/google/android/material/button/MaterialButton;.getId:()I` @kind virtual;
+  #L18bdb2.  v3:= temp;
+  #L18bdb4.  call temp:= `valueOf`(v3) @signature `Ljava/lang/Integer;.valueOf:(I)Ljava/lang/Integer;` @kind static;
+  #L18bdba.  v3:= temp @kind object;
+  #L18bdbc.  call temp:= `add`(v0, v3) @signature `Ljava/util/ArrayList;.add:(Ljava/lang/Object;)Z` @kind virtual;
+  #L18bdc2.  v1:= v1 + 1;
+  #L18bdc6.  goto L18bd8c;
+  #L18bdc8.  return v0 @kind object;
+}
+procedure `int` `getChildDrawingOrder`(`com.google.android.material.button.MaterialButtonToggleGroup` v2 @kind this, `int` v3 @name `childCount`, `int` v4 @name `i`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildDrawingOrder:(II)I` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L18bcb0.  v0:= v2.`com.google.android.material.button.MaterialButtonToggleGroup.childOrder` @type ^`java.lang.Integer`[] @kind object;
+  #L18bcb4.  if v0 == 0 then goto L18bcce;
+  #L18bcb8.  v1:= length @variable v0;
+  #L18bcba.  if v4 < v1 then goto L18bcc0;
+  #L18bcbe.  goto L18bcce;
+  #L18bcc0.  v0:= v0[v4] @kind object;
+  #L18bcc4.  call temp:= `intValue`(v0) @signature `Ljava/lang/Integer;.intValue:()I` @kind virtual;
+  #L18bcca.  v0:= temp;
+  #L18bccc.  return v0;
+  #L18bcce.  v0:= `@@com.google.android.material.button.MaterialButtonToggleGroup.LOG_TAG` @type ^`java.lang.String` @kind object;
+  #L18bcd2.  v1:= "Child order wasn't updated" @kind object;
+  #L18bcd6.  call temp:= `w`(v0, v1) @signature `Landroid/util/Log;.w:(Ljava/lang/String;Ljava/lang/String;)I` @kind static;
+  #L18bcdc.  return v4;
+}
+procedure `boolean` `isSingleSelection`(`com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.isSingleSelection:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18bbc0.  v0:= v1.`com.google.android.material.button.MaterialButtonToggleGroup.singleSelection` @type ^`boolean` @kind boolean;
+  #L18bbc4.  return v0;
+}
+procedure `void` `onFinishInflate`(`com.google.android.material.button.MaterialButtonToggleGroup` v2 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.onFinishInflate:()V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L18c1a4.  call `onFinishInflate`(v2) @signature `Landroid/widget/LinearLayout;.onFinishInflate:()V` @kind super;
+  #L18c1aa.  v0:= v2.`com.google.android.material.button.MaterialButtonToggleGroup.checkedId` @type ^`int`;
+  #L18c1ae.  v1:= -1I;
+  #L18c1b0.  if v0 == v1 then goto L18c1ba;
+  #L18c1b4.  call `checkForced`(v2, v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.checkForced:(I)V` @kind direct;
+  #L18c1ba.  return @kind void;
+}
+procedure `void` `onMeasure`(`com.google.android.material.button.MaterialButtonToggleGroup` v0 @kind this, `int` v1 @name `widthMeasureSpec`, `int` v2 @name `heightMeasureSpec`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.onMeasure:(II)V` @AccessFlag PROTECTED {
+    temp;
+
+  #L18c1cc.  call `updateChildShapes`(v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.updateChildShapes:()V` @kind virtual;
+  #L18c1d2.  call `adjustChildMarginsAndUpdateLayout`(v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.adjustChildMarginsAndUpdateLayout:()V` @kind direct;
+  #L18c1d8.  call `onMeasure`(v0, v1, v2) @signature `Landroid/widget/LinearLayout;.onMeasure:(II)V` @kind super;
+  #L18c1de.  return @kind void;
+}
+procedure `void` `onViewRemoved`(`com.google.android.material.button.MaterialButtonToggleGroup` v2 @kind this, `android.view.View` v3 @kind object @name `child`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.onViewRemoved:(Landroid/view/View;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L18c1f0.  call `onViewRemoved`(v2, v3) @signature `Landroid/widget/LinearLayout;.onViewRemoved:(Landroid/view/View;)V` @kind super;
+  #L18c1f6.  v0:= instanceof @variable v3 @type ^`com.google.android.material.button.MaterialButton` @kind boolean;
+  #L18c1fa.  if v0 == 0 then goto L18c21c;
+  #L18c1fe.  v0:= v3 @kind object;
+  #L18c200.  v0:= (`com.google.android.material.button.MaterialButton`) v0 @kind object;
+  #L18c204.  v1:= v2.`com.google.android.material.button.MaterialButtonToggleGroup.checkedStateTracker` @type ^`com.google.android.material.button.MaterialButtonToggleGroup$CheckedStateTracker` @kind object;
+  #L18c208.  call `removeOnCheckedChangeListener`(v0, v1) @signature `Lcom/google/android/material/button/MaterialButton;.removeOnCheckedChangeListener:(Lcom/google/android/material/button/MaterialButton$OnCheckedChangeListener;)V` @kind virtual;
+  #L18c20e.  v0:= v3 @kind object;
+  #L18c210.  v0:= (`com.google.android.material.button.MaterialButton`) v0 @kind object;
+  #L18c214.  v1:= 0I;
+  #L18c216.  call `setOnPressedChangeListenerInternal`(v0, v1) @signature `Lcom/google/android/material/button/MaterialButton;.setOnPressedChangeListenerInternal:(Lcom/google/android/material/button/MaterialButton$OnPressedChangeListener;)V` @kind virtual;
+  #L18c21c.  call temp:= `indexOfChild`(v2, v3) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.indexOfChild:(Landroid/view/View;)I` @kind virtual;
+  #L18c222.  v0:= temp;
+  #L18c224.  if v0 < 0 then goto L18c232;
+  #L18c228.  v1:= v2.`com.google.android.material.button.MaterialButtonToggleGroup.originalCornerData` @type ^`java.util.List` @kind object;
+  #L18c22c.  call temp:= `remove`(v1, v0) @signature `Ljava/util/List;.remove:(I)Ljava/lang/Object;` @kind interface;
+  #L18c232.  call `updateChildShapes`(v2) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.updateChildShapes:()V` @kind virtual;
+  #L18c238.  call `adjustChildMarginsAndUpdateLayout`(v2) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.adjustChildMarginsAndUpdateLayout:()V` @kind direct;
+  #L18c23e.  return @kind void;
+}
+procedure `void` `removeOnButtonCheckedListener`(`com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind this, `com.google.android.material.button.MaterialButtonToggleGroup$OnButtonCheckedListener` v2 @kind object @name `listener`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.removeOnButtonCheckedListener:(Lcom/google/android/material/button/MaterialButtonToggleGroup$OnButtonCheckedListener;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18c250.  v0:= v1.`com.google.android.material.button.MaterialButtonToggleGroup.onButtonCheckedListeners` @type ^`java.util.LinkedHashSet` @kind object;
+  #L18c254.  call temp:= `remove`(v0, v2) @signature `Ljava/util/LinkedHashSet;.remove:(Ljava/lang/Object;)Z` @kind virtual;
+  #L18c25a.  return @kind void;
+}
+procedure `void` `setSingleSelection`(`com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind this, `int` v2 @name `id`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.setSingleSelection:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18c388.  call temp:= `getResources`(v1) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L18c38e.  v0:= temp @kind object;
+  #L18c390.  call temp:= `getBoolean`(v0, v2) @signature `Landroid/content/res/Resources;.getBoolean:(I)Z` @kind virtual;
+  #L18c396.  v0:= temp;
+  #L18c398.  call `setSingleSelection`(v1, v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.setSingleSelection:(Z)V` @kind virtual;
+  #L18c39e.  return @kind void;
+}
+procedure `void` `setSingleSelection`(`com.google.android.material.button.MaterialButtonToggleGroup` v1 @kind this, `boolean` v2 @name `singleSelection`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.setSingleSelection:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L18c364.  v0:= v1.`com.google.android.material.button.MaterialButtonToggleGroup.singleSelection` @type ^`boolean` @kind boolean;
+  #L18c368.  if v0 == v2 then goto L18c376;
+  #L18c36c.  v1.`com.google.android.material.button.MaterialButtonToggleGroup.singleSelection` @type ^`boolean` := v2 @kind boolean;
+  #L18c370.  call `clearChecked`(v1) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.clearChecked:()V` @kind virtual;
+  #L18c376.  return @kind void;
+}
+procedure `void` `uncheck`(`com.google.android.material.button.MaterialButtonToggleGroup` v2 @kind this, `int` v3 @name `id`) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.uncheck:(I)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L18c3f4.  v0:= 0I;
+  #L18c3f6.  call `setCheckedStateForView`(v2, v3, v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.setCheckedStateForView:(IZ)V` @kind direct;
+  #L18c3fc.  call `updateCheckedStates`(v2, v3, v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.updateCheckedStates:(IZ)V` @kind direct;
+  #L18c402.  v1:= -1I;
+  #L18c404.  v2.`com.google.android.material.button.MaterialButtonToggleGroup.checkedId` @type ^`int` := v1;
+  #L18c408.  call `dispatchOnButtonChecked`(v2, v3, v0) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.dispatchOnButtonChecked:(IZ)V` @kind direct;
+  #L18c40e.  return @kind void;
+}
+procedure `void` `updateChildShapes`(`com.google.android.material.button.MaterialButtonToggleGroup` v8 @kind this) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.updateChildShapes:()V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L18c548.  call temp:= `getChildCount`(v8) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildCount:()I` @kind virtual;
+  #L18c54e.  v0:= temp;
+  #L18c550.  call temp:= `getFirstVisibleChildIndex`(v8) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getFirstVisibleChildIndex:()I` @kind direct;
+  #L18c556.  v1:= temp;
+  #L18c558.  call temp:= `getLastVisibleChildIndex`(v8) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getLastVisibleChildIndex:()I` @kind direct;
+  #L18c55e.  v2:= temp;
+  #L18c560.  v3:= 0I;
+  #L18c562.  if v3 >= v0 then goto L18c5b4;
+  #L18c566.  call temp:= `getChildButton`(v8, v3) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getChildButton:(I)Lcom/google/android/material/button/MaterialButton;` @kind direct;
+  #L18c56c.  v4:= temp @kind object;
+  #L18c56e.  call temp:= `getVisibility`(v4) @signature `Lcom/google/android/material/button/MaterialButton;.getVisibility:()I` @kind virtual;
+  #L18c574.  v5:= temp;
+  #L18c576.  v6:= 8I;
+  #L18c57a.  if v5 != v6 then goto L18c580;
+  #L18c57e.  goto L18c5ae;
+  #L18c580.  
+  #L18c582.  call temp:= `getShapeAppearanceModel`(v4) @signature `Lcom/google/android/material/button/MaterialButton;.getShapeAppearanceModel:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L18c588.  v5:= temp @kind object;
+  #L18c58a.  call temp:= `toBuilder`(v5) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel;.toBuilder:()Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;` @kind virtual;
+  #L18c590.  v5:= temp @kind object;
+  #L18c592.  call temp:= `getNewCornerData`(v8, v3, v1, v2) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.getNewCornerData:(III)Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;` @kind direct;
+  #L18c598.  v6:= temp @kind object;
+  #L18c59a.  call `updateBuilderWithCornerData`(v5, v6) @signature `Lcom/google/android/material/button/MaterialButtonToggleGroup;.updateBuilderWithCornerData:(Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;Lcom/google/android/material/button/MaterialButtonToggleGroup$CornerData;)V` @kind static;
+  #L18c5a0.  call temp:= `build`(v5) @signature `Lcom/google/android/material/shape/ShapeAppearanceModel$Builder;.build:()Lcom/google/android/material/shape/ShapeAppearanceModel;` @kind virtual;
+  #L18c5a6.  v7:= temp @kind object;
+  #L18c5a8.  call `setShapeAppearanceModel`(v4, v7) @signature `Lcom/google/android/material/button/MaterialButton;.setShapeAppearanceModel:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind virtual;
+  #L18c5ae.  v3:= v3 + 1;
+  #L18c5b2.  goto L18c562;
+  #L18c5b4.  return @kind void;
+}

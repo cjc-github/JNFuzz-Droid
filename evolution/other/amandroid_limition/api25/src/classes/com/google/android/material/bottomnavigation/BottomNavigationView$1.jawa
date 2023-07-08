@@ -1,0 +1,51 @@
+record `com.google.android.material.bottomnavigation.BottomNavigationView$1` @kind class @AccessFlag  extends `androidx.appcompat.view.menu.MenuBuilder$Callback` @kind interface {
+  `com.google.android.material.bottomnavigation.BottomNavigationView` `com.google.android.material.bottomnavigation.BottomNavigationView$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.bottomnavigation.BottomNavigationView$1` v0 @kind this, `com.google.android.material.bottomnavigation.BottomNavigationView` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView$1;.<init>:(Lcom/google/android/material/bottomnavigation/BottomNavigationView;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L187c98.  v0.`com.google.android.material.bottomnavigation.BottomNavigationView$1.this$0` @type ^`com.google.android.material.bottomnavigation.BottomNavigationView` := v1 @kind object;
+  #L187c9c.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L187ca2.  return @kind void;
+}
+procedure `boolean` `onMenuItemSelected`(`com.google.android.material.bottomnavigation.BottomNavigationView$1` v3 @kind this, `androidx.appcompat.view.menu.MenuBuilder` v4 @kind object @name `menu`, `android.view.MenuItem` v5 @kind object @name `item`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView$1;.onMenuItemSelected:(Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L187c1c.  v0:= v3.`com.google.android.material.bottomnavigation.BottomNavigationView$1.this$0` @type ^`com.google.android.material.bottomnavigation.BottomNavigationView` @kind object;
+  #L187c20.  call temp:= `access$000`(v0) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView;.access$000:(Lcom/google/android/material/bottomnavigation/BottomNavigationView;)Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemReselectedListener;` @kind static;
+  #L187c26.  v0:= temp @kind object;
+  #L187c28.  v1:= 1I;
+  #L187c2a.  if v0 == 0 then goto L187c5a;
+  #L187c2e.  call temp:= `getItemId`(v5) @signature `Landroid/view/MenuItem;.getItemId:()I` @kind interface;
+  #L187c34.  v0:= temp;
+  #L187c36.  v2:= v3.`com.google.android.material.bottomnavigation.BottomNavigationView$1.this$0` @type ^`com.google.android.material.bottomnavigation.BottomNavigationView` @kind object;
+  #L187c3a.  call temp:= `getSelectedItemId`(v2) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView;.getSelectedItemId:()I` @kind virtual;
+  #L187c40.  v2:= temp;
+  #L187c42.  if v0 != v2 then goto L187c5a;
+  #L187c46.  v0:= v3.`com.google.android.material.bottomnavigation.BottomNavigationView$1.this$0` @type ^`com.google.android.material.bottomnavigation.BottomNavigationView` @kind object;
+  #L187c4a.  call temp:= `access$000`(v0) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView;.access$000:(Lcom/google/android/material/bottomnavigation/BottomNavigationView;)Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemReselectedListener;` @kind static;
+  #L187c50.  v0:= temp @kind object;
+  #L187c52.  call `onNavigationItemReselected`(v0, v5) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemReselectedListener;.onNavigationItemReselected:(Landroid/view/MenuItem;)V` @kind interface;
+  #L187c58.  return v1;
+  #L187c5a.  v0:= v3.`com.google.android.material.bottomnavigation.BottomNavigationView$1.this$0` @type ^`com.google.android.material.bottomnavigation.BottomNavigationView` @kind object;
+  #L187c5e.  call temp:= `access$100`(v0) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView;.access$100:(Lcom/google/android/material/bottomnavigation/BottomNavigationView;)Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemSelectedListener;` @kind static;
+  #L187c64.  v0:= temp @kind object;
+  #L187c66.  if v0 == 0 then goto L187c84;
+  #L187c6a.  v0:= v3.`com.google.android.material.bottomnavigation.BottomNavigationView$1.this$0` @type ^`com.google.android.material.bottomnavigation.BottomNavigationView` @kind object;
+  #L187c6e.  call temp:= `access$100`(v0) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView;.access$100:(Lcom/google/android/material/bottomnavigation/BottomNavigationView;)Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemSelectedListener;` @kind static;
+  #L187c74.  v0:= temp @kind object;
+  #L187c76.  call temp:= `onNavigationItemSelected`(v0, v5) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView$OnNavigationItemSelectedListener;.onNavigationItemSelected:(Landroid/view/MenuItem;)Z` @kind interface;
+  #L187c7c.  v0:= temp;
+  #L187c7e.  if v0 != 0 then goto L187c84;
+  #L187c82.  goto L187c86;
+  #L187c84.  v1:= 0I;
+  #L187c86.  return v1;
+}
+procedure `void` `onMenuModeChange`(`com.google.android.material.bottomnavigation.BottomNavigationView$1` v0 @kind this, `androidx.appcompat.view.menu.MenuBuilder` v1 @kind object @name `menu`) @signature `Lcom/google/android/material/bottomnavigation/BottomNavigationView$1;.onMenuModeChange:(Landroidx/appcompat/view/menu/MenuBuilder;)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L187cb4.  return @kind void;
+}

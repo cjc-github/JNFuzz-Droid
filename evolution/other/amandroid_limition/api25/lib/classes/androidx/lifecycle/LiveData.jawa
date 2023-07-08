@@ -1,0 +1,81 @@
+record `androidx.lifecycle.LiveData` @kind class @AccessFlag PUBLIC_ABSTRACT {
+  `int` `androidx.lifecycle.LiveData.mActiveCount` @AccessFlag ;
+  `java.lang.Object` `androidx.lifecycle.LiveData.mData` @AccessFlag PRIVATE_VOLATILE;
+  `java.lang.Object` `androidx.lifecycle.LiveData.mDataLock` @AccessFlag FINAL;
+  `boolean` `androidx.lifecycle.LiveData.mDispatchInvalidated` @AccessFlag PRIVATE;
+  `boolean` `androidx.lifecycle.LiveData.mDispatchingValue` @AccessFlag PRIVATE;
+  `androidx.arch.core.internal.SafeIterableMap` `androidx.lifecycle.LiveData.mObservers` @AccessFlag PRIVATE;
+  `java.lang.Object` `androidx.lifecycle.LiveData.mPendingData` @AccessFlag VOLATILE;
+  `java.lang.Runnable` `androidx.lifecycle.LiveData.mPostValueRunnable` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.lifecycle.LiveData.mVersion` @AccessFlag PRIVATE;
+}
+global `java.lang.Object` `@@androidx.lifecycle.LiveData.NOT_SET` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.lifecycle.LiveData.START_VERSION` @AccessFlag STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/lifecycle/LiveData;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.lifecycle.LiveData` v1 @kind this) @signature `Landroidx/lifecycle/LiveData;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `assertMainThread`(`java.lang.String` v3 @kind object @name `methodName`) @signature `Landroidx/lifecycle/LiveData;.assertMainThread:(Ljava/lang/String;)V` @AccessFlag PRIVATE_STATIC {
+
+  # return;
+}
+procedure `void` `considerNotify`(`androidx.lifecycle.LiveData` v2 @kind this, `androidx.lifecycle.LiveData$ObserverWrapper` v3 @kind object) @signature `Landroidx/lifecycle/LiveData;.considerNotify:(Landroidx/lifecycle/LiveData$ObserverWrapper;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `dispatchingValue`(`androidx.lifecycle.LiveData` v3 @kind this, `androidx.lifecycle.LiveData$ObserverWrapper` v4 @kind object) @signature `Landroidx/lifecycle/LiveData;.dispatchingValue:(Landroidx/lifecycle/LiveData$ObserverWrapper;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `java.lang.Object` `getValue`(`androidx.lifecycle.LiveData` v2 @kind this) @signature `Landroidx/lifecycle/LiveData;.getValue:()Ljava/lang/Object;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getVersion`(`androidx.lifecycle.LiveData` v1 @kind this) @signature `Landroidx/lifecycle/LiveData;.getVersion:()I` @AccessFlag  {
+
+  # return;
+}
+procedure `boolean` `hasActiveObservers`(`androidx.lifecycle.LiveData` v1 @kind this) @signature `Landroidx/lifecycle/LiveData;.hasActiveObservers:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `hasObservers`(`androidx.lifecycle.LiveData` v1 @kind this) @signature `Landroidx/lifecycle/LiveData;.hasObservers:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `observe`(`androidx.lifecycle.LiveData` v4 @kind this, `androidx.lifecycle.LifecycleOwner` v5 @kind object @name `owner`, `androidx.lifecycle.Observer` v6 @kind object) @signature `Landroidx/lifecycle/LiveData;.observe:(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Observer;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `observeForever`(`androidx.lifecycle.LiveData` v4 @kind this, `androidx.lifecycle.Observer` v5 @kind object) @signature `Landroidx/lifecycle/LiveData;.observeForever:(Landroidx/lifecycle/Observer;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onActive`(`androidx.lifecycle.LiveData` v0 @kind this) @signature `Landroidx/lifecycle/LiveData;.onActive:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `onInactive`(`androidx.lifecycle.LiveData` v0 @kind this) @signature `Landroidx/lifecycle/LiveData;.onInactive:()V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `postValue`(`androidx.lifecycle.LiveData` v4 @kind this, `java.lang.Object` v5 @kind object) @signature `Landroidx/lifecycle/LiveData;.postValue:(Ljava/lang/Object;)V` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `void` `removeObserver`(`androidx.lifecycle.LiveData` v2 @kind this, `androidx.lifecycle.Observer` v3 @kind object) @signature `Landroidx/lifecycle/LiveData;.removeObserver:(Landroidx/lifecycle/Observer;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `removeObservers`(`androidx.lifecycle.LiveData` v3 @kind this, `androidx.lifecycle.LifecycleOwner` v4 @kind object @name `owner`) @signature `Landroidx/lifecycle/LiveData;.removeObservers:(Landroidx/lifecycle/LifecycleOwner;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setValue`(`androidx.lifecycle.LiveData` v1 @kind this, `java.lang.Object` v2 @kind object) @signature `Landroidx/lifecycle/LiveData;.setValue:(Ljava/lang/Object;)V` @AccessFlag PROTECTED {
+
+  # return;
+}

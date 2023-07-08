@@ -1,0 +1,393 @@
+record `com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop` @kind class @AccessFlag  extends `com.google.android.material.floatingactionbutton.FloatingActionButtonImpl` @kind class {
+}
+procedure `void` `<init>`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop` v0 @kind this, `com.google.android.material.floatingactionbutton.FloatingActionButton` v1 @kind object @name `view`, `com.google.android.material.shadow.ShadowViewDelegate` v2 @kind object @name `shadowViewDelegate`) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.<init>:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;Lcom/google/android/material/shadow/ShadowViewDelegate;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L19fe24.  call `<init>`(v0, v1, v2) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;.<init>:(Lcom/google/android/material/floatingactionbutton/FloatingActionButton;Lcom/google/android/material/shadow/ShadowViewDelegate;)V` @kind direct;
+  #L19fe2a.  return @kind void;
+}
+procedure `android.animation.Animator` `createElevationAnimator`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop` v7 @kind this, `float` v8 @name `elevation`, `float` v9 @name `translationZ`) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.createElevationAnimator:(FF)Landroid/animation/Animator;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L19fc90.  v0:= new `android.animation.AnimatorSet`;
+  #L19fc94.  call `<init>`(v0) @signature `Landroid/animation/AnimatorSet;.<init>:()V` @kind direct;
+  #L19fc9a.  v1:= v7.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19fc9e.  v2:= 1I;
+  #L19fca0.  v3:= new `float`[v2];
+  #L19fca4.  v4:= 0I;
+  #L19fca6.  v3[v4]:= v8;
+  #L19fcaa.  v5:= "elevation" @kind object;
+  #L19fcae.  call temp:= `ofFloat`(v1, v5, v3) @signature `Landroid/animation/ObjectAnimator;.ofFloat:(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;` @kind static;
+  #L19fcb4.  v1:= temp @kind object;
+  #L19fcb6.  v5:= 0L;
+  #L19fcba.  call temp:= `setDuration`(v1, v5) @signature `Landroid/animation/ObjectAnimator;.setDuration:(J)Landroid/animation/ObjectAnimator;` @kind virtual;
+  #L19fcc0.  v1:= temp @kind object;
+  #L19fcc2.  call temp:= `play`(v0, v1) @signature `Landroid/animation/AnimatorSet;.play:(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;` @kind virtual;
+  #L19fcc8.  v1:= temp @kind object;
+  #L19fcca.  v3:= v7.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19fcce.  v5:= `@@android.view.View.TRANSLATION_Z` @type ^`android.util.Property` @kind object;
+  #L19fcd2.  v2:= new `float`[v2];
+  #L19fcd6.  v2[v4]:= v9;
+  #L19fcda.  call temp:= `ofFloat`(v3, v5, v2) @signature `Landroid/animation/ObjectAnimator;.ofFloat:(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;` @kind static;
+  #L19fce0.  v2:= temp @kind object;
+  #L19fce2.  v3:= 100L;
+  #L19fce6.  call temp:= `setDuration`(v2, v3) @signature `Landroid/animation/ObjectAnimator;.setDuration:(J)Landroid/animation/ObjectAnimator;` @kind virtual;
+  #L19fcec.  v2:= temp @kind object;
+  #L19fcee.  call temp:= `with`(v1, v2) @signature `Landroid/animation/AnimatorSet$Builder;.with:(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;` @kind virtual;
+  #L19fcf4.  v1:= `@@com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.ELEVATION_ANIM_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L19fcf8.  call `setInterpolator`(v0, v1) @signature `Landroid/animation/AnimatorSet;.setInterpolator:(Landroid/animation/TimeInterpolator;)V` @kind virtual;
+  #L19fcfe.  return v0 @kind object;
+}
+procedure `com.google.android.material.floatingactionbutton.BorderDrawable` `createBorderDrawable`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop` v6 @kind this, `int` v7 @name `borderWidth`, `android.content.res.ColorStateList` v8 @kind object @name `backgroundTint`) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.createBorderDrawable:(ILandroid/content/res/ColorStateList;)Lcom/google/android/material/floatingactionbutton/BorderDrawable;` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L19fd5c.  v0:= v6.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19fd60.  call temp:= `getContext`(v0) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L19fd66.  v0:= temp @kind object;
+  #L19fd68.  v1:= new `com.google.android.material.floatingactionbutton.BorderDrawable`;
+  #L19fd6c.  v2:= v6.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.shapeAppearance` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L19fd70.  call temp:= `checkNotNull`(v2) @signature `Landroidx/core/util/Preconditions;.checkNotNull:(Ljava/lang/Object;)Ljava/lang/Object;` @kind static;
+  #L19fd76.  v2:= temp @kind object;
+  #L19fd78.  v2:= (`com.google.android.material.shape.ShapeAppearanceModel`) v2 @kind object;
+  #L19fd7c.  call `<init>`(v1, v2) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L19fd82.  v2:= `@@com.google.android.material.R$color.design_fab_stroke_top_outer_color` @type ^`int`;
+  #L19fd86.  call temp:= `getColor`(v0, v2) @signature `Landroidx/core/content/ContextCompat;.getColor:(Landroid/content/Context;I)I` @kind static;
+  #L19fd8c.  v2:= temp;
+  #L19fd8e.  v3:= `@@com.google.android.material.R$color.design_fab_stroke_top_inner_color` @type ^`int`;
+  #L19fd92.  call temp:= `getColor`(v0, v3) @signature `Landroidx/core/content/ContextCompat;.getColor:(Landroid/content/Context;I)I` @kind static;
+  #L19fd98.  v3:= temp;
+  #L19fd9a.  v4:= `@@com.google.android.material.R$color.design_fab_stroke_end_inner_color` @type ^`int`;
+  #L19fd9e.  call temp:= `getColor`(v0, v4) @signature `Landroidx/core/content/ContextCompat;.getColor:(Landroid/content/Context;I)I` @kind static;
+  #L19fda4.  v4:= temp;
+  #L19fda6.  v5:= `@@com.google.android.material.R$color.design_fab_stroke_end_outer_color` @type ^`int`;
+  #L19fdaa.  call temp:= `getColor`(v0, v5) @signature `Landroidx/core/content/ContextCompat;.getColor:(Landroid/content/Context;I)I` @kind static;
+  #L19fdb0.  v5:= temp;
+  #L19fdb2.  call `setGradientColors`(v1, v2, v3, v4, v5) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.setGradientColors:(IIII)V` @kind virtual;
+  #L19fdb8.  v2:= (`float`) v7 @kind i2f;
+  #L19fdba.  call `setBorderWidth`(v1, v2) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.setBorderWidth:(F)V` @kind virtual;
+  #L19fdc0.  call `setBorderTint`(v1, v8) @signature `Lcom/google/android/material/floatingactionbutton/BorderDrawable;.setBorderTint:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L19fdc6.  return v1 @kind object;
+}
+procedure `com.google.android.material.shape.MaterialShapeDrawable` `createShapeDrawable`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop` v2 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.createShapeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L19fdd8.  v0:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.shapeAppearance` @type ^`com.google.android.material.shape.ShapeAppearanceModel` @kind object;
+  #L19fddc.  call temp:= `checkNotNull`(v0) @signature `Landroidx/core/util/Preconditions;.checkNotNull:(Ljava/lang/Object;)Ljava/lang/Object;` @kind static;
+  #L19fde2.  v0:= temp @kind object;
+  #L19fde4.  v0:= (`com.google.android.material.shape.ShapeAppearanceModel`) v0 @kind object;
+  #L19fde8.  v1:= new `com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop$AlwaysStatefulMaterialShapeDrawable`;
+  #L19fdec.  call `<init>`(v1, v0) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop$AlwaysStatefulMaterialShapeDrawable;.<init>:(Lcom/google/android/material/shape/ShapeAppearanceModel;)V` @kind direct;
+  #L19fdf2.  return v1 @kind object;
+}
+procedure `float` `getElevation`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop` v1 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.getElevation:()F` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19fe04.  v0:= v1.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19fe08.  call temp:= `getElevation`(v0) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.getElevation:()F` @kind virtual;
+  #L19fe0e.  v0:= temp;
+  #L19fe10.  return v0;
+}
+procedure `void` `getPadding`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop` v2 @kind this, `android.graphics.Rect` v3 @kind object @name `rect`) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.getPadding:(Landroid/graphics/Rect;)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L19fe3c.  v0:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.shadowViewDelegate` @type ^`com.google.android.material.shadow.ShadowViewDelegate` @kind object;
+  #L19fe40.  call temp:= `isCompatPaddingEnabled`(v0) @signature `Lcom/google/android/material/shadow/ShadowViewDelegate;.isCompatPaddingEnabled:()Z` @kind interface;
+  #L19fe46.  v0:= temp;
+  #L19fe48.  if v0 == 0 then goto L19fe54;
+  #L19fe4c.  call `getPadding`(v2, v3) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;.getPadding:(Landroid/graphics/Rect;)V` @kind super;
+  #L19fe52.  goto L19fe86;
+  #L19fe54.  call temp:= `shouldExpandBoundsForA11y`(v2) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.shouldExpandBoundsForA11y:()Z` @kind virtual;
+  #L19fe5a.  v0:= temp;
+  #L19fe5c.  if v0 != 0 then goto L19fe7e;
+  #L19fe60.  v0:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.minTouchTargetSize` @type ^`int`;
+  #L19fe64.  v1:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19fe68.  call temp:= `getSizeDimension`(v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.getSizeDimension:()I` @kind virtual;
+  #L19fe6e.  v1:= temp;
+  #L19fe70.  v0:= v0 - v1 @kind int;
+  #L19fe72.  v0:= v0 / 2;
+  #L19fe76.  call `set`(v3, v0, v0, v0, v0) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L19fe7c.  goto L19fe86;
+  #L19fe7e.  v0:= 0I;
+  #L19fe80.  call `set`(v3, v0, v0, v0, v0) @signature `Landroid/graphics/Rect;.set:(IIII)V` @kind virtual;
+  #L19fe86.  return @kind void;
+}
+procedure `void` `initializeBackgroundDrawable`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop` v5 @kind this, `android.content.res.ColorStateList` v6 @kind object @name `backgroundTint`, `android.graphics.PorterDuff$Mode` v7 @kind object @name `backgroundTintMode`, `android.content.res.ColorStateList` v8 @kind object @name `rippleColor`, `int` v9 @name `borderWidth`) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.initializeBackgroundDrawable:(Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;Landroid/content/res/ColorStateList;I)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+
+  #L19fe98.  call temp:= `createShapeDrawable`(v5) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.createShapeDrawable:()Lcom/google/android/material/shape/MaterialShapeDrawable;` @kind virtual;
+  #L19fe9e.  v0:= temp @kind object;
+  #L19fea0.  v5.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.shapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` := v0 @kind object;
+  #L19fea4.  v0:= v5.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.shapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L19fea8.  call `setTintList`(v0, v6) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setTintList:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L19feae.  if v7 == 0 then goto L19febc;
+  #L19feb2.  v0:= v5.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.shapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L19feb6.  call `setTintMode`(v0, v7) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setTintMode:(Landroid/graphics/PorterDuff$Mode;)V` @kind virtual;
+  #L19febc.  v0:= v5.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.shapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L19fec0.  v1:= v5.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19fec4.  call temp:= `getContext`(v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L19feca.  v1:= temp @kind object;
+  #L19fecc.  call `initializeElevationOverlay`(v0, v1) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.initializeElevationOverlay:(Landroid/content/Context;)V` @kind virtual;
+  #L19fed2.  v0:= 0I;
+  #L19fed4.  if v9 <= 0 then goto L19ff22;
+  #L19fed8.  call temp:= `createBorderDrawable`(v5, v9, v6) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.createBorderDrawable:(ILandroid/content/res/ColorStateList;)Lcom/google/android/material/floatingactionbutton/BorderDrawable;` @kind virtual;
+  #L19fede.  v1:= temp @kind object;
+  #L19fee0.  v5.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.borderDrawable` @type ^`com.google.android.material.floatingactionbutton.BorderDrawable` := v1 @kind object;
+  #L19fee4.  v1:= new `android.graphics.drawable.LayerDrawable`;
+  #L19fee8.  v2:= 2I;
+  #L19feea.  v2:= new `android.graphics.drawable.Drawable`[v2];
+  #L19feee.  v3:= 0I;
+  #L19fef0.  v4:= v5.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.borderDrawable` @type ^`com.google.android.material.floatingactionbutton.BorderDrawable` @kind object;
+  #L19fef4.  call temp:= `checkNotNull`(v4) @signature `Landroidx/core/util/Preconditions;.checkNotNull:(Ljava/lang/Object;)Ljava/lang/Object;` @kind static;
+  #L19fefa.  v4:= temp @kind object;
+  #L19fefc.  v4:= (`android.graphics.drawable.Drawable`) v4 @kind object;
+  #L19ff00.  v2[v3]:= v4 @kind object;
+  #L19ff04.  v3:= 1I;
+  #L19ff06.  v4:= v5.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.shapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L19ff0a.  call temp:= `checkNotNull`(v4) @signature `Landroidx/core/util/Preconditions;.checkNotNull:(Ljava/lang/Object;)Ljava/lang/Object;` @kind static;
+  #L19ff10.  v4:= temp @kind object;
+  #L19ff12.  v4:= (`android.graphics.drawable.Drawable`) v4 @kind object;
+  #L19ff16.  v2[v3]:= v4 @kind object;
+  #L19ff1a.  call `<init>`(v1, v2) @signature `Landroid/graphics/drawable/LayerDrawable;.<init>:([Landroid/graphics/drawable/Drawable;)V` @kind direct;
+  #L19ff20.  goto L19ff2a;
+  #L19ff22.  v5.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.borderDrawable` @type ^`com.google.android.material.floatingactionbutton.BorderDrawable` := v0 @kind object;
+  #L19ff26.  v1:= v5.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.shapeDrawable` @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind object;
+  #L19ff2a.  v2:= new `android.graphics.drawable.RippleDrawable`;
+  #L19ff2e.  call temp:= `sanitizeRippleDrawableColor`(v8) @signature `Lcom/google/android/material/ripple/RippleUtils;.sanitizeRippleDrawableColor:(Landroid/content/res/ColorStateList;)Landroid/content/res/ColorStateList;` @kind static;
+  #L19ff34.  v3:= temp @kind object;
+  #L19ff36.  call `<init>`(v2, v3, v1, v0) @signature `Landroid/graphics/drawable/RippleDrawable;.<init>:(Landroid/content/res/ColorStateList;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V` @kind direct;
+  #L19ff3c.  v5.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.rippleDrawable` @type ^`android.graphics.drawable.Drawable` := v2 @kind object;
+  #L19ff40.  v0:= v5.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.rippleDrawable` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L19ff44.  v5.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.contentBackground` @type ^`android.graphics.drawable.Drawable` := v0 @kind object;
+  #L19ff48.  return @kind void;
+}
+procedure `void` `jumpDrawableToCurrentState`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop` v0 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.jumpDrawableToCurrentState:()V` @AccessFlag  {
+    temp;
+
+  #L19ff5c.  return @kind void;
+}
+procedure `void` `onCompatShadowChanged`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop` v0 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.onCompatShadowChanged:()V` @AccessFlag  {
+    temp;
+
+  #L19ff70.  call `updatePadding`(v0) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.updatePadding:()V` @kind virtual;
+  #L19ff76.  return @kind void;
+}
+procedure `void` `onDrawableStateChanged`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop` v3 @kind this, `int`[] v4 @kind object @name `state`) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.onDrawableStateChanged:([I)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+
+  #L19ff88.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L19ff8c.  v1:= 21I;
+  #L19ff90.  if v0 != v1 then goto L1a0026;
+  #L19ff94.  v0:= v3.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19ff98.  call temp:= `isEnabled`(v0) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.isEnabled:()Z` @kind virtual;
+  #L19ff9e.  v0:= temp;
+  #L19ffa0.  v1:= 0I;
+  #L19ffa2.  if v0 == 0 then goto L1a0012;
+  #L19ffa6.  v0:= v3.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19ffaa.  v2:= v3.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.elevation` @type ^`float`;
+  #L19ffae.  call `setElevation`(v0, v2) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.setElevation:(F)V` @kind virtual;
+  #L19ffb4.  v0:= v3.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19ffb8.  call temp:= `isPressed`(v0) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.isPressed:()Z` @kind virtual;
+  #L19ffbe.  v0:= temp;
+  #L19ffc0.  if v0 == 0 then goto L19ffd4;
+  #L19ffc4.  v0:= v3.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19ffc8.  v1:= v3.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.pressedTranslationZ` @type ^`float`;
+  #L19ffcc.  call `setTranslationZ`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.setTranslationZ:(F)V` @kind virtual;
+  #L19ffd2.  goto L1a0026;
+  #L19ffd4.  v0:= v3.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19ffd8.  call temp:= `isFocused`(v0) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.isFocused:()Z` @kind virtual;
+  #L19ffde.  v0:= temp;
+  #L19ffe0.  if v0 != 0 then goto L1a0002;
+  #L19ffe4.  v0:= v3.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19ffe8.  call temp:= `isHovered`(v0) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.isHovered:()Z` @kind virtual;
+  #L19ffee.  v0:= temp;
+  #L19fff0.  if v0 == 0 then goto L19fff6;
+  #L19fff4.  goto L1a0002;
+  #L19fff6.  v0:= v3.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L19fffa.  call `setTranslationZ`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.setTranslationZ:(F)V` @kind virtual;
+  #L1a0000.  goto L1a0026;
+  #L1a0002.  v0:= v3.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L1a0006.  v1:= v3.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.hoveredFocusedTranslationZ` @type ^`float`;
+  #L1a000a.  call `setTranslationZ`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.setTranslationZ:(F)V` @kind virtual;
+  #L1a0010.  goto L1a0026;
+  #L1a0012.  v0:= v3.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L1a0016.  call `setElevation`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.setElevation:(F)V` @kind virtual;
+  #L1a001c.  v0:= v3.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L1a0020.  call `setTranslationZ`(v0, v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.setTranslationZ:(F)V` @kind virtual;
+  #L1a0026.  return @kind void;
+}
+procedure `void` `onElevationsChanged`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop` v11 @kind this, `float` v12 @name `elevation`, `float` v13 @name `hoveredFocusedTranslationZ`, `float` v14 @name `pressedTranslationZ`) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.onElevationsChanged:(FFF)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+    v8;
+    v9;
+    v10;
+
+  #L1a0038.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1a003c.  v1:= 21I;
+  #L1a0040.  if v0 != v1 then goto L1a0052;
+  #L1a0044.  v0:= v11.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L1a0048.  call `refreshDrawableState`(v0) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.refreshDrawableState:()V` @kind virtual;
+  #L1a004e.  goto L1a01a2;
+  #L1a0052.  v0:= new `android.animation.StateListAnimator`;
+  #L1a0056.  call `<init>`(v0) @signature `Landroid/animation/StateListAnimator;.<init>:()V` @kind direct;
+  #L1a005c.  v1:= `@@com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.PRESSED_ENABLED_STATE_SET` @type ^`int`[] @kind object;
+  #L1a0060.  call temp:= `createElevationAnimator`(v11, v12, v14) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.createElevationAnimator:(FF)Landroid/animation/Animator;` @kind direct;
+  #L1a0066.  v2:= temp @kind object;
+  #L1a0068.  call `addState`(v0, v1, v2) @signature `Landroid/animation/StateListAnimator;.addState:([ILandroid/animation/Animator;)V` @kind virtual;
+  #L1a006e.  v1:= `@@com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.HOVERED_FOCUSED_ENABLED_STATE_SET` @type ^`int`[] @kind object;
+  #L1a0072.  call temp:= `createElevationAnimator`(v11, v12, v13) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.createElevationAnimator:(FF)Landroid/animation/Animator;` @kind direct;
+  #L1a0078.  v2:= temp @kind object;
+  #L1a007a.  call `addState`(v0, v1, v2) @signature `Landroid/animation/StateListAnimator;.addState:([ILandroid/animation/Animator;)V` @kind virtual;
+  #L1a0080.  v1:= `@@com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.FOCUSED_ENABLED_STATE_SET` @type ^`int`[] @kind object;
+  #L1a0084.  call temp:= `createElevationAnimator`(v11, v12, v13) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.createElevationAnimator:(FF)Landroid/animation/Animator;` @kind direct;
+  #L1a008a.  v2:= temp @kind object;
+  #L1a008c.  call `addState`(v0, v1, v2) @signature `Landroid/animation/StateListAnimator;.addState:([ILandroid/animation/Animator;)V` @kind virtual;
+  #L1a0092.  v1:= `@@com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.HOVERED_ENABLED_STATE_SET` @type ^`int`[] @kind object;
+  #L1a0096.  call temp:= `createElevationAnimator`(v11, v12, v13) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.createElevationAnimator:(FF)Landroid/animation/Animator;` @kind direct;
+  #L1a009c.  v2:= temp @kind object;
+  #L1a009e.  call `addState`(v0, v1, v2) @signature `Landroid/animation/StateListAnimator;.addState:([ILandroid/animation/Animator;)V` @kind virtual;
+  #L1a00a4.  v1:= new `android.animation.AnimatorSet`;
+  #L1a00a8.  call `<init>`(v1) @signature `Landroid/animation/AnimatorSet;.<init>:()V` @kind direct;
+  #L1a00ae.  v2:= new `java.util.ArrayList`;
+  #L1a00b2.  call `<init>`(v2) @signature `Ljava/util/ArrayList;.<init>:()V` @kind direct;
+  #L1a00b8.  v3:= v11.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L1a00bc.  v4:= 1I;
+  #L1a00be.  v5:= new `float`[v4];
+  #L1a00c2.  v6:= 0I;
+  #L1a00c4.  v5[v6]:= v12;
+  #L1a00c8.  v7:= "elevation" @kind object;
+  #L1a00cc.  call temp:= `ofFloat`(v3, v7, v5) @signature `Landroid/animation/ObjectAnimator;.ofFloat:(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;` @kind static;
+  #L1a00d2.  v3:= temp @kind object;
+  #L1a00d4.  v7:= 0L;
+  #L1a00d8.  call temp:= `setDuration`(v3, v7) @signature `Landroid/animation/ObjectAnimator;.setDuration:(J)Landroid/animation/ObjectAnimator;` @kind virtual;
+  #L1a00de.  v3:= temp @kind object;
+  #L1a00e0.  call temp:= `add`(v2, v3) @signature `Ljava/util/List;.add:(Ljava/lang/Object;)Z` @kind interface;
+  #L1a00e6.  v3:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1a00ea.  v5:= 22I;
+  #L1a00ee.  v7:= 100L;
+  #L1a00f2.  if v3 < v5 then goto L1a0134;
+  #L1a00f6.  v3:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L1a00fa.  v5:= 24I;
+  #L1a00fe.  if v3 > v5 then goto L1a0134;
+  #L1a0102.  v3:= v11.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L1a0106.  v5:= `@@android.view.View.TRANSLATION_Z` @type ^`android.util.Property` @kind object;
+  #L1a010a.  v9:= new `float`[v4];
+  #L1a010e.  v10:= v11.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L1a0112.  call temp:= `getTranslationZ`(v10) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.getTranslationZ:()F` @kind virtual;
+  #L1a0118.  v10:= temp;
+  #L1a011a.  v9[v6]:= v10;
+  #L1a011e.  call temp:= `ofFloat`(v3, v5, v9) @signature `Landroid/animation/ObjectAnimator;.ofFloat:(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;` @kind static;
+  #L1a0124.  v3:= temp @kind object;
+  #L1a0126.  call temp:= `setDuration`(v3, v7) @signature `Landroid/animation/ObjectAnimator;.setDuration:(J)Landroid/animation/ObjectAnimator;` @kind virtual;
+  #L1a012c.  v3:= temp @kind object;
+  #L1a012e.  call temp:= `add`(v2, v3) @signature `Ljava/util/List;.add:(Ljava/lang/Object;)Z` @kind interface;
+  #L1a0134.  v3:= v11.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L1a0138.  v5:= `@@android.view.View.TRANSLATION_Z` @type ^`android.util.Property` @kind object;
+  #L1a013c.  v4:= new `float`[v4];
+  #L1a0140.  v9:= 0I;
+  #L1a0142.  v4[v6]:= v9;
+  #L1a0146.  call temp:= `ofFloat`(v3, v5, v4) @signature `Landroid/animation/ObjectAnimator;.ofFloat:(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;` @kind static;
+  #L1a014c.  v3:= temp @kind object;
+  #L1a014e.  call temp:= `setDuration`(v3, v7) @signature `Landroid/animation/ObjectAnimator;.setDuration:(J)Landroid/animation/ObjectAnimator;` @kind virtual;
+  #L1a0154.  v3:= temp @kind object;
+  #L1a0156.  call temp:= `add`(v2, v3) @signature `Ljava/util/List;.add:(Ljava/lang/Object;)Z` @kind interface;
+  #L1a015c.  v3:= new `android.animation.Animator`[v6];
+  #L1a0160.  call temp:= `toArray`(v2, v3) @signature `Ljava/util/List;.toArray:([Ljava/lang/Object;)[Ljava/lang/Object;` @kind interface;
+  #L1a0166.  v3:= temp @kind object;
+  #L1a0168.  v3:= (`android.animation.Animator`[]) v3 @kind object;
+  #L1a016c.  call `playSequentially`(v1, v3) @signature `Landroid/animation/AnimatorSet;.playSequentially:([Landroid/animation/Animator;)V` @kind virtual;
+  #L1a0172.  v3:= `@@com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.ELEVATION_ANIM_INTERPOLATOR` @type ^`android.animation.TimeInterpolator` @kind object;
+  #L1a0176.  call `setInterpolator`(v1, v3) @signature `Landroid/animation/AnimatorSet;.setInterpolator:(Landroid/animation/TimeInterpolator;)V` @kind virtual;
+  #L1a017c.  v3:= `@@com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.ENABLED_STATE_SET` @type ^`int`[] @kind object;
+  #L1a0180.  call `addState`(v0, v3, v1) @signature `Landroid/animation/StateListAnimator;.addState:([ILandroid/animation/Animator;)V` @kind virtual;
+  #L1a0186.  v3:= `@@com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.EMPTY_STATE_SET` @type ^`int`[] @kind object;
+  #L1a018a.  call temp:= `createElevationAnimator`(v11, v9, v9) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.createElevationAnimator:(FF)Landroid/animation/Animator;` @kind direct;
+  #L1a0190.  v4:= temp @kind object;
+  #L1a0192.  call `addState`(v0, v3, v4) @signature `Landroid/animation/StateListAnimator;.addState:([ILandroid/animation/Animator;)V` @kind virtual;
+  #L1a0198.  v3:= v11.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.view` @type ^`com.google.android.material.floatingactionbutton.FloatingActionButton` @kind object;
+  #L1a019c.  call `setStateListAnimator`(v3, v0) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButton;.setStateListAnimator:(Landroid/animation/StateListAnimator;)V` @kind virtual;
+  #L1a01a2.  call temp:= `shouldAddPadding`(v11) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.shouldAddPadding:()Z` @kind virtual;
+  #L1a01a8.  v0:= temp;
+  #L1a01aa.  if v0 == 0 then goto L1a01b4;
+  #L1a01ae.  call `updatePadding`(v11) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.updatePadding:()V` @kind virtual;
+  #L1a01b4.  return @kind void;
+}
+procedure `boolean` `requirePreDrawListener`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop` v1 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.requirePreDrawListener:()Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L19fd10.  v0:= 0I;
+  #L19fd12.  return v0;
+}
+procedure `void` `setRippleColor`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop` v2 @kind this, `android.content.res.ColorStateList` v3 @kind object @name `rippleColor`) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.setRippleColor:(Landroid/content/res/ColorStateList;)V` @AccessFlag  {
+    temp;
+    v0;
+    v1;
+
+  #L1a01c8.  v0:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.rippleDrawable` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a01cc.  v0:= instanceof @variable v0 @type ^`android.graphics.drawable.RippleDrawable` @kind boolean;
+  #L1a01d0.  if v0 == 0 then goto L1a01ec;
+  #L1a01d4.  v0:= v2.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.rippleDrawable` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L1a01d8.  v0:= (`android.graphics.drawable.RippleDrawable`) v0 @kind object;
+  #L1a01dc.  call temp:= `sanitizeRippleDrawableColor`(v3) @signature `Lcom/google/android/material/ripple/RippleUtils;.sanitizeRippleDrawableColor:(Landroid/content/res/ColorStateList;)Landroid/content/res/ColorStateList;` @kind static;
+  #L1a01e2.  v1:= temp @kind object;
+  #L1a01e4.  call `setColor`(v0, v1) @signature `Landroid/graphics/drawable/RippleDrawable;.setColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1a01ea.  goto L1a01f2;
+  #L1a01ec.  call `setRippleColor`(v2, v3) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImpl;.setRippleColor:(Landroid/content/res/ColorStateList;)V` @kind super;
+  #L1a01f2.  return @kind void;
+}
+procedure `boolean` `shouldAddPadding`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop` v1 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.shouldAddPadding:()Z` @AccessFlag  {
+    temp;
+    v0;
+
+  #L19fd24.  v0:= v1.`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop.shadowViewDelegate` @type ^`com.google.android.material.shadow.ShadowViewDelegate` @kind object;
+  #L19fd28.  call temp:= `isCompatPaddingEnabled`(v0) @signature `Lcom/google/android/material/shadow/ShadowViewDelegate;.isCompatPaddingEnabled:()Z` @kind interface;
+  #L19fd2e.  v0:= temp;
+  #L19fd30.  if v0 != 0 then goto L19fd46;
+  #L19fd34.  call temp:= `shouldExpandBoundsForA11y`(v1) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.shouldExpandBoundsForA11y:()Z` @kind virtual;
+  #L19fd3a.  v0:= temp;
+  #L19fd3c.  if v0 != 0 then goto L19fd42;
+  #L19fd40.  goto L19fd46;
+  #L19fd42.  v0:= 0I;
+  #L19fd44.  goto L19fd48;
+  #L19fd46.  v0:= 1I;
+  #L19fd48.  return v0;
+}
+procedure `void` `updateFromViewRotation`(`com.google.android.material.floatingactionbutton.FloatingActionButtonImplLollipop` v0 @kind this) @signature `Lcom/google/android/material/floatingactionbutton/FloatingActionButtonImplLollipop;.updateFromViewRotation:()V` @AccessFlag  {
+    temp;
+
+  #L1a0204.  return @kind void;
+}

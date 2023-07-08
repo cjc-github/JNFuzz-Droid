@@ -1,0 +1,26 @@
+record `com.google.android.material.snackbar.SnackbarManager$1` @kind class @AccessFlag  extends `android.os.Handler$Callback` @kind interface {
+  `com.google.android.material.snackbar.SnackbarManager` `com.google.android.material.snackbar.SnackbarManager$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.snackbar.SnackbarManager$1` v0 @kind this, `com.google.android.material.snackbar.SnackbarManager` v1 @kind object @name `this$0`) @signature `Lcom/google/android/material/snackbar/SnackbarManager$1;.<init>:(Lcom/google/android/material/snackbar/SnackbarManager;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b0f88.  v0.`com.google.android.material.snackbar.SnackbarManager$1.this$0` @type ^`com.google.android.material.snackbar.SnackbarManager` := v1 @kind object;
+  #L1b0f8c.  call `<init>`(v0) @signature `Ljava/lang/Object;.<init>:()V` @kind direct;
+  #L1b0f92.  return @kind void;
+}
+procedure `boolean` `handleMessage`(`com.google.android.material.snackbar.SnackbarManager$1` v2 @kind this, `android.os.Message` v3 @kind object @name `message`) @signature `Lcom/google/android/material/snackbar/SnackbarManager$1;.handleMessage:(Landroid/os/Message;)Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L1b0f54.  v0:= v3.`android.os.Message.what` @type ^`int`;
+  #L1b0f58.  if v0 == 0 then goto L1b0f60;
+  #L1b0f5c.  v0:= 0I;
+  #L1b0f5e.  return v0;
+  #L1b0f60.  v0:= v2.`com.google.android.material.snackbar.SnackbarManager$1.this$0` @type ^`com.google.android.material.snackbar.SnackbarManager` @kind object;
+  #L1b0f64.  v1:= v3.`android.os.Message.obj` @type ^`java.lang.Object` @kind object;
+  #L1b0f68.  v1:= (`com.google.android.material.snackbar.SnackbarManager$SnackbarRecord`) v1 @kind object;
+  #L1b0f6c.  call `handleTimeout`(v0, v1) @signature `Lcom/google/android/material/snackbar/SnackbarManager;.handleTimeout:(Lcom/google/android/material/snackbar/SnackbarManager$SnackbarRecord;)V` @kind virtual;
+  #L1b0f72.  v0:= 1I;
+  #L1b0f74.  return v0;
+}

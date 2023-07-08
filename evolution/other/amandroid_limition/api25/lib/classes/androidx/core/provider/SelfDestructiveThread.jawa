@@ -1,0 +1,44 @@
+record `androidx.core.provider.SelfDestructiveThread` @kind class @AccessFlag PUBLIC {
+  `android.os.Handler$Callback` `androidx.core.provider.SelfDestructiveThread.mCallback` @AccessFlag PRIVATE;
+  `int` `androidx.core.provider.SelfDestructiveThread.mDestructAfterMillisec` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.core.provider.SelfDestructiveThread.mGeneration` @AccessFlag PRIVATE;
+  `android.os.Handler` `androidx.core.provider.SelfDestructiveThread.mHandler` @AccessFlag PRIVATE;
+  `java.lang.Object` `androidx.core.provider.SelfDestructiveThread.mLock` @AccessFlag PRIVATE_FINAL;
+  `int` `androidx.core.provider.SelfDestructiveThread.mPriority` @AccessFlag PRIVATE_FINAL;
+  `android.os.HandlerThread` `androidx.core.provider.SelfDestructiveThread.mThread` @AccessFlag PRIVATE;
+  `java.lang.String` `androidx.core.provider.SelfDestructiveThread.mThreadName` @AccessFlag PRIVATE_FINAL;
+}
+global `int` `@@androidx.core.provider.SelfDestructiveThread.MSG_DESTRUCTION` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.core.provider.SelfDestructiveThread.MSG_INVOKE_RUNNABLE` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<init>`(`androidx.core.provider.SelfDestructiveThread` v1 @kind this, `java.lang.String` v2 @kind object @name `threadName`, `int` v3 @name `priority`, `int` v4 @name `destructAfterMillisec`) @signature `Landroidx/core/provider/SelfDestructiveThread;.<init>:(Ljava/lang/String;II)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `post`(`androidx.core.provider.SelfDestructiveThread` v5 @kind this, `java.lang.Runnable` v6 @kind object @name `runnable`) @signature `Landroidx/core/provider/SelfDestructiveThread;.post:(Ljava/lang/Runnable;)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `int` `getGeneration`(`androidx.core.provider.SelfDestructiveThread` v2 @kind this) @signature `Landroidx/core/provider/SelfDestructiveThread;.getGeneration:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isRunning`(`androidx.core.provider.SelfDestructiveThread` v2 @kind this) @signature `Landroidx/core/provider/SelfDestructiveThread;.isRunning:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `onDestruction`(`androidx.core.provider.SelfDestructiveThread` v3 @kind this) @signature `Landroidx/core/provider/SelfDestructiveThread;.onDestruction:()V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `onInvokeRunnable`(`androidx.core.provider.SelfDestructiveThread` v5 @kind this, `java.lang.Runnable` v6 @kind object @name `runnable`) @signature `Landroidx/core/provider/SelfDestructiveThread;.onInvokeRunnable:(Ljava/lang/Runnable;)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `postAndReply`(`androidx.core.provider.SelfDestructiveThread` v2 @kind this, `java.util.concurrent.Callable` v3 @kind object, `androidx.core.provider.SelfDestructiveThread$ReplyCallback` v4 @kind object) @signature `Landroidx/core/provider/SelfDestructiveThread;.postAndReply:(Ljava/util/concurrent/Callable;Landroidx/core/provider/SelfDestructiveThread$ReplyCallback;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.Object` `postAndWait`(`androidx.core.provider.SelfDestructiveThread` v10 @kind this, `java.util.concurrent.Callable` v11 @kind object, `int` v12 @name `timeoutMillis`) @signature `Landroidx/core/provider/SelfDestructiveThread;.postAndWait:(Ljava/util/concurrent/Callable;I)Ljava/lang/Object;` @AccessFlag PUBLIC {
+
+  # return;
+}

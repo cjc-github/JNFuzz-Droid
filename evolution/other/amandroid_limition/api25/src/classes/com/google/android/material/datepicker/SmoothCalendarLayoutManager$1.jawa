@@ -1,0 +1,21 @@
+record `com.google.android.material.datepicker.SmoothCalendarLayoutManager$1` @kind class @AccessFlag  extends `androidx.recyclerview.widget.LinearSmoothScroller` @kind class {
+  `com.google.android.material.datepicker.SmoothCalendarLayoutManager` `com.google.android.material.datepicker.SmoothCalendarLayoutManager$1.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.datepicker.SmoothCalendarLayoutManager$1` v0 @kind this, `com.google.android.material.datepicker.SmoothCalendarLayoutManager` v1 @kind object @name `this$0`, `android.content.Context` v2 @kind object @name `x0`) @signature `Lcom/google/android/material/datepicker/SmoothCalendarLayoutManager$1;.<init>:(Lcom/google/android/material/datepicker/SmoothCalendarLayoutManager;Landroid/content/Context;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L19b6e8.  v0.`com.google.android.material.datepicker.SmoothCalendarLayoutManager$1.this$0` @type ^`com.google.android.material.datepicker.SmoothCalendarLayoutManager` := v1 @kind object;
+  #L19b6ec.  call `<init>`(v0, v2) @signature `Landroidx/recyclerview/widget/LinearSmoothScroller;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L19b6f2.  return @kind void;
+}
+procedure `float` `calculateSpeedPerPixel`(`com.google.android.material.datepicker.SmoothCalendarLayoutManager$1` v2 @kind this, `android.util.DisplayMetrics` v3 @kind object @name `displayMetrics`) @signature `Lcom/google/android/material/datepicker/SmoothCalendarLayoutManager$1;.calculateSpeedPerPixel:(Landroid/util/DisplayMetrics;)F` @AccessFlag PROTECTED {
+    temp;
+    v0;
+    v1;
+
+  #L19b6c8.  v0:= v3.`android.util.DisplayMetrics.densityDpi` @type ^`int`;
+  #L19b6cc.  v0:= (`float`) v0 @kind i2f;
+  #L19b6ce.  v1:= 100.0F;
+  #L19b6d2.  v1:= v1 / v0 @kind float;
+  #L19b6d4.  return v1;
+}

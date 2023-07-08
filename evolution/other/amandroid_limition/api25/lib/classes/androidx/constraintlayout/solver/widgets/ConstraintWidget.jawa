@@ -1,0 +1,708 @@
+record `androidx.constraintlayout.solver.widgets.ConstraintWidget` @kind class @AccessFlag PUBLIC {
+  `java.util.ArrayList` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mAnchors` @AccessFlag PROTECTED;
+  `androidx.constraintlayout.solver.widgets.ConstraintAnchor` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mBaseline` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mBaselineDistance` @AccessFlag ;
+  `androidx.constraintlayout.solver.widgets.ConstraintWidgetGroup` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mBelongingGroup` @AccessFlag ;
+  `androidx.constraintlayout.solver.widgets.ConstraintAnchor` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mBottom` @AccessFlag ;
+  `boolean` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mBottomHasCentered` @AccessFlag ;
+  `androidx.constraintlayout.solver.widgets.ConstraintAnchor` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mCenter` @AccessFlag ;
+  `androidx.constraintlayout.solver.widgets.ConstraintAnchor` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mCenterX` @AccessFlag ;
+  `androidx.constraintlayout.solver.widgets.ConstraintAnchor` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mCenterY` @AccessFlag ;
+  `float` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mCircleConstraintAngle` @AccessFlag PRIVATE;
+  `java.lang.Object` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mCompanionWidget` @AccessFlag PRIVATE;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mContainerItemSkip` @AccessFlag PRIVATE;
+  `java.lang.String` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mDebugName` @AccessFlag PRIVATE;
+  `float` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mDimensionRatio` @AccessFlag PROTECTED;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mDimensionRatioSide` @AccessFlag PROTECTED;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mDistToBottom` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mDistToLeft` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mDistToRight` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mDistToTop` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mDrawHeight` @AccessFlag PRIVATE;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mDrawWidth` @AccessFlag PRIVATE;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mDrawX` @AccessFlag PRIVATE;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mDrawY` @AccessFlag PRIVATE;
+  `boolean` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mGroupsToSolver` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mHeight` @AccessFlag ;
+  `float` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mHorizontalBiasPercent` @AccessFlag ;
+  `boolean` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mHorizontalChainFixedPosition` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mHorizontalChainStyle` @AccessFlag ;
+  `androidx.constraintlayout.solver.widgets.ConstraintWidget` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mHorizontalNextWidget` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mHorizontalResolution` @AccessFlag PUBLIC;
+  `boolean` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mHorizontalWrapVisited` @AccessFlag ;
+  `boolean` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mIsHeightWrapContent` @AccessFlag ;
+  `boolean` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mIsWidthWrapContent` @AccessFlag ;
+  `androidx.constraintlayout.solver.widgets.ConstraintAnchor` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mLeft` @AccessFlag ;
+  `boolean` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mLeftHasCentered` @AccessFlag ;
+  `androidx.constraintlayout.solver.widgets.ConstraintAnchor`[] `androidx.constraintlayout.solver.widgets.ConstraintWidget.mListAnchors` @AccessFlag PROTECTED;
+  `androidx.constraintlayout.solver.widgets.ConstraintWidget$DimensionBehaviour`[] `androidx.constraintlayout.solver.widgets.ConstraintWidget.mListDimensionBehaviors` @AccessFlag PROTECTED;
+  `androidx.constraintlayout.solver.widgets.ConstraintWidget`[] `androidx.constraintlayout.solver.widgets.ConstraintWidget.mListNextMatchConstraintsWidget` @AccessFlag PROTECTED;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mMatchConstraintDefaultHeight` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mMatchConstraintDefaultWidth` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mMatchConstraintMaxHeight` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mMatchConstraintMaxWidth` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mMatchConstraintMinHeight` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mMatchConstraintMinWidth` @AccessFlag ;
+  `float` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mMatchConstraintPercentHeight` @AccessFlag ;
+  `float` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mMatchConstraintPercentWidth` @AccessFlag ;
+  `int`[] `androidx.constraintlayout.solver.widgets.ConstraintWidget.mMaxDimension` @AccessFlag PRIVATE;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mMinHeight` @AccessFlag PROTECTED;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mMinWidth` @AccessFlag PROTECTED;
+  `androidx.constraintlayout.solver.widgets.ConstraintWidget`[] `androidx.constraintlayout.solver.widgets.ConstraintWidget.mNextChainWidget` @AccessFlag PROTECTED;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mOffsetX` @AccessFlag PROTECTED;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mOffsetY` @AccessFlag PROTECTED;
+  `boolean` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mOptimizerMeasurable` @AccessFlag ;
+  `boolean` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mOptimizerMeasured` @AccessFlag ;
+  `androidx.constraintlayout.solver.widgets.ConstraintWidget` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mParent` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mRelX` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mRelY` @AccessFlag ;
+  `androidx.constraintlayout.solver.widgets.ResolutionDimension` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mResolutionHeight` @AccessFlag ;
+  `androidx.constraintlayout.solver.widgets.ResolutionDimension` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mResolutionWidth` @AccessFlag ;
+  `float` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mResolvedDimensionRatio` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mResolvedDimensionRatioSide` @AccessFlag ;
+  `int`[] `androidx.constraintlayout.solver.widgets.ConstraintWidget.mResolvedMatchConstraintDefault` @AccessFlag ;
+  `androidx.constraintlayout.solver.widgets.ConstraintAnchor` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mRight` @AccessFlag ;
+  `boolean` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mRightHasCentered` @AccessFlag ;
+  `androidx.constraintlayout.solver.widgets.ConstraintAnchor` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mTop` @AccessFlag ;
+  `boolean` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mTopHasCentered` @AccessFlag ;
+  `java.lang.String` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mType` @AccessFlag PRIVATE;
+  `float` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mVerticalBiasPercent` @AccessFlag ;
+  `boolean` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mVerticalChainFixedPosition` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mVerticalChainStyle` @AccessFlag ;
+  `androidx.constraintlayout.solver.widgets.ConstraintWidget` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mVerticalNextWidget` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mVerticalResolution` @AccessFlag PUBLIC;
+  `boolean` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mVerticalWrapVisited` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mVisibility` @AccessFlag PRIVATE;
+  `float`[] `androidx.constraintlayout.solver.widgets.ConstraintWidget.mWeight` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mWidth` @AccessFlag ;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mWrapHeight` @AccessFlag PRIVATE;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mWrapWidth` @AccessFlag PRIVATE;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mX` @AccessFlag PROTECTED;
+  `int` `androidx.constraintlayout.solver.widgets.ConstraintWidget.mY` @AccessFlag PROTECTED;
+}
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.ANCHOR_BASELINE` @AccessFlag PROTECTED_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.ANCHOR_BOTTOM` @AccessFlag PROTECTED_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.ANCHOR_LEFT` @AccessFlag PROTECTED_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.ANCHOR_RIGHT` @AccessFlag PROTECTED_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.ANCHOR_TOP` @AccessFlag PROTECTED_STATIC_FINAL;
+global `boolean` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.AUTOTAG_CENTER` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.CHAIN_PACKED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.CHAIN_SPREAD` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.CHAIN_SPREAD_INSIDE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `float` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.DEFAULT_BIAS` @AccessFlag PUBLIC_STATIC;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.DIMENSION_HORIZONTAL` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.DIMENSION_VERTICAL` @AccessFlag STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.DIRECT` @AccessFlag PROTECTED_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.GONE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.HORIZONTAL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.INVISIBLE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.MATCH_CONSTRAINT_PERCENT` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.MATCH_CONSTRAINT_RATIO` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.MATCH_CONSTRAINT_RATIO_RESOLVED` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.MATCH_CONSTRAINT_SPREAD` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.MATCH_CONSTRAINT_WRAP` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.SOLVER` @AccessFlag PROTECTED_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.UNKNOWN` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.VERTICAL` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.VISIBLE` @AccessFlag PUBLIC_STATIC_FINAL;
+global `int` `@@androidx.constraintlayout.solver.widgets.ConstraintWidget.WRAP` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v10 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `int` v2 @name `width`, `int` v3 @name `height`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.<init>:(II)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `<init>`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v10 @kind this, `int` v11 @name `x`, `int` v12 @name `y`, `int` v13 @name `width`, `int` v14 @name `height`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.<init>:(IIII)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+
+  # return;
+}
+procedure `void` `addAnchors`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.addAnchors:()V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `applyConstraints`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v31 @kind this, `androidx.constraintlayout.solver.LinearSystem` v32 @kind object @name `system`, `boolean` v33 @name `parentWrapContent`, `androidx.constraintlayout.solver.SolverVariable` v34 @kind object @name `parentMin`, `androidx.constraintlayout.solver.SolverVariable` v35 @kind object @name `parentMax`, `androidx.constraintlayout.solver.widgets.ConstraintWidget$DimensionBehaviour` v36 @kind object @name `dimensionBehaviour`, `boolean` v37 @name `wrapContent`, `androidx.constraintlayout.solver.widgets.ConstraintAnchor` v38 @kind object @name `beginAnchor`, `androidx.constraintlayout.solver.widgets.ConstraintAnchor` v39 @kind object @name `endAnchor`, `int` v40 @name `beginPosition`, `int` v41 @name `dimension`, `int` v42 @name `minDimension`, `int` v43 @name `maxDimension`, `float` v44 @name `bias`, `boolean` v45 @name `useRatio`, `boolean` v46 @name `inChain`, `int` v47 @name `matchConstraintDefault`, `int` v48 @name `matchMinDimension`, `int` v49 @name `matchMaxDimension`, `float` v50 @name `matchPercentDimension`, `boolean` v51 @name `applyPosition`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.applyConstraints:(Landroidx/constraintlayout/solver/LinearSystem;ZLandroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/SolverVariable;Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;ZLandroidx/constraintlayout/solver/widgets/ConstraintAnchor;Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;IIIIFZZIIIFZ)V` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `boolean` `isChainHead`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v4 @kind this, `int` v5 @name `orientation`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.isChainHead:(I)Z` @AccessFlag PRIVATE {
+
+  # return;
+}
+procedure `void` `addToSolver`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v52 @kind this, `androidx.constraintlayout.solver.LinearSystem` v53 @kind object @name `system`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.addToSolver:(Landroidx/constraintlayout/solver/LinearSystem;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `allowedInBarrier`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.allowedInBarrier:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `analyze`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `int` v1 @name `optimizationLevel`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.analyze:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `connect`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v6 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintAnchor$Type` v7 @kind object @name `constraintFrom`, `androidx.constraintlayout.solver.widgets.ConstraintWidget` v8 @kind object @name `target`, `androidx.constraintlayout.solver.widgets.ConstraintAnchor$Type` v9 @kind object @name `constraintTo`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.connect:(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;Landroidx/constraintlayout/solver/widgets/ConstraintWidget;Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `connect`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v6 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintAnchor$Type` v7 @kind object @name `constraintFrom`, `androidx.constraintlayout.solver.widgets.ConstraintWidget` v8 @kind object @name `target`, `androidx.constraintlayout.solver.widgets.ConstraintAnchor$Type` v9 @kind object @name `constraintTo`, `int` v10 @name `margin`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.connect:(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;Landroidx/constraintlayout/solver/widgets/ConstraintWidget;Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `connect`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v7 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintAnchor$Type` v8 @kind object @name `constraintFrom`, `androidx.constraintlayout.solver.widgets.ConstraintWidget` v9 @kind object @name `target`, `androidx.constraintlayout.solver.widgets.ConstraintAnchor$Type` v10 @kind object @name `constraintTo`, `int` v11 @name `margin`, `androidx.constraintlayout.solver.widgets.ConstraintAnchor$Strength` v12 @kind object @name `strength`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.connect:(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;Landroidx/constraintlayout/solver/widgets/ConstraintWidget;Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;ILandroidx/constraintlayout/solver/widgets/ConstraintAnchor$Strength;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `connect`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v19 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintAnchor$Type` v20 @kind object @name `constraintFrom`, `androidx.constraintlayout.solver.widgets.ConstraintWidget` v21 @kind object @name `target`, `androidx.constraintlayout.solver.widgets.ConstraintAnchor$Type` v22 @kind object @name `constraintTo`, `int` v23 @name `margin`, `androidx.constraintlayout.solver.widgets.ConstraintAnchor$Strength` v24 @kind object @name `strength`, `int` v25 @name `creator`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.connect:(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;Landroidx/constraintlayout/solver/widgets/ConstraintWidget;Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;ILandroidx/constraintlayout/solver/widgets/ConstraintAnchor$Strength;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `connect`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v6 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintAnchor` v7 @kind object @name `from`, `androidx.constraintlayout.solver.widgets.ConstraintAnchor` v8 @kind object @name `to`, `int` v9 @name `margin`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.connect:(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `connect`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v6 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintAnchor` v7 @kind object @name `from`, `androidx.constraintlayout.solver.widgets.ConstraintAnchor` v8 @kind object @name `to`, `int` v9 @name `margin`, `int` v10 @name `creator`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.connect:(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `connect`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v8 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintAnchor` v9 @kind object @name `from`, `androidx.constraintlayout.solver.widgets.ConstraintAnchor` v10 @kind object @name `to`, `int` v11 @name `margin`, `androidx.constraintlayout.solver.widgets.ConstraintAnchor$Strength` v12 @kind object @name `strength`, `int` v13 @name `creator`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.connect:(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;ILandroidx/constraintlayout/solver/widgets/ConstraintAnchor$Strength;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `connectCircularConstraint`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v6 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintWidget` v7 @kind object @name `target`, `float` v8 @name `angle`, `int` v9 @name `radius`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.connectCircularConstraint:(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;FI)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `connectedTo`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind object @name `source`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.connectedTo:(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `createObjectVariables`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v5 @kind this, `androidx.constraintlayout.solver.LinearSystem` v6 @kind object @name `system`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.createObjectVariables:(Landroidx/constraintlayout/solver/LinearSystem;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `disconnectUnlockedWidget`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v6 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintWidget` v7 @kind object @name `widget`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.disconnectUnlockedWidget:(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `disconnectWidget`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v5 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintWidget` v6 @kind object @name `widget`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.disconnectWidget:(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `forceUpdateDrawPosition`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v5 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.forceUpdateDrawPosition:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.widgets.ConstraintAnchor` `getAnchor`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintAnchor$Type` v3 @kind object @name `anchorType`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getAnchor:(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;)Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.util.ArrayList` `getAnchors`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getAnchors:()Ljava/util/ArrayList;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getBaselineDistance`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getBaselineDistance:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `float` `getBiasPercent`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `int` v2 @name `orientation`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getBiasPercent:(I)F` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getBottom`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getBottom:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.Object` `getCompanionWidget`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getCompanionWidget:()Ljava/lang/Object;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getContainerItemSkip`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getContainerItemSkip:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.String` `getDebugName`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getDebugName:()Ljava/lang/String;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.widgets.ConstraintWidget$DimensionBehaviour` `getDimensionBehaviour`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `int` v2 @name `orientation`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getDimensionBehaviour:(I)Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `float` `getDimensionRatio`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getDimensionRatio:()F` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getDimensionRatioSide`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getDimensionRatioSide:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getDrawBottom`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getDrawBottom:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getDrawHeight`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getDrawHeight:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getDrawRight`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getDrawRight:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getDrawWidth`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getDrawWidth:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getDrawX`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getDrawX:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getDrawY`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getDrawY:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getHeight`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getHeight:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `float` `getHorizontalBiasPercent`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getHorizontalBiasPercent:()F` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.widgets.ConstraintWidget` `getHorizontalChainControlWidget`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v7 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getHorizontalChainControlWidget:()Landroidx/constraintlayout/solver/widgets/ConstraintWidget;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getHorizontalChainStyle`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getHorizontalChainStyle:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.widgets.ConstraintWidget$DimensionBehaviour` `getHorizontalDimensionBehaviour`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getHorizontalDimensionBehaviour:()Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getInternalDrawBottom`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getInternalDrawBottom:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getInternalDrawRight`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getInternalDrawRight:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getInternalDrawX`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getInternalDrawX:()I` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `getInternalDrawY`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getInternalDrawY:()I` @AccessFlag  {
+
+  # return;
+}
+procedure `int` `getLeft`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getLeft:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getLength`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `int` v2 @name `orientation`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getLength:(I)I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getMaxHeight`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getMaxHeight:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getMaxWidth`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getMaxWidth:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getMinHeight`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getMinHeight:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getMinWidth`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getMinWidth:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getOptimizerWrapHeight`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v4 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getOptimizerWrapHeight:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getOptimizerWrapWidth`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v3 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getOptimizerWrapWidth:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.widgets.ConstraintWidget` `getParent`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getParent:()Landroidx/constraintlayout/solver/widgets/ConstraintWidget;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getRelativePositioning`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `int` v2 @name `orientation`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getRelativePositioning:(I)I` @AccessFlag  {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.widgets.ResolutionDimension` `getResolutionHeight`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getResolutionHeight:()Landroidx/constraintlayout/solver/widgets/ResolutionDimension;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.widgets.ResolutionDimension` `getResolutionWidth`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getResolutionWidth:()Landroidx/constraintlayout/solver/widgets/ResolutionDimension;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getRight`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getRight:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.widgets.WidgetContainer` `getRootWidgetContainer`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getRootWidgetContainer:()Landroidx/constraintlayout/solver/widgets/WidgetContainer;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getRootX`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getRootX:()I` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `int` `getRootY`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getRootY:()I` @AccessFlag PROTECTED {
+
+  # return;
+}
+procedure `int` `getTop`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getTop:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.String` `getType`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getType:()Ljava/lang/String;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `float` `getVerticalBiasPercent`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getVerticalBiasPercent:()F` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.widgets.ConstraintWidget` `getVerticalChainControlWidget`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v7 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getVerticalChainControlWidget:()Landroidx/constraintlayout/solver/widgets/ConstraintWidget;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getVerticalChainStyle`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getVerticalChainStyle:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `androidx.constraintlayout.solver.widgets.ConstraintWidget$DimensionBehaviour` `getVerticalDimensionBehaviour`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getVerticalDimensionBehaviour:()Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getVisibility`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getVisibility:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getWidth`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getWidth:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getWrapHeight`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getWrapHeight:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getWrapWidth`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getWrapWidth:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getX`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getX:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `int` `getY`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.getY:()I` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `hasAncestor`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v4 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintWidget` v5 @kind object @name `widget`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.hasAncestor:(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;)Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `hasBaseline`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.hasBaseline:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `immediateConnect`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v9 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintAnchor$Type` v10 @kind object @name `startType`, `androidx.constraintlayout.solver.widgets.ConstraintWidget` v11 @kind object @name `target`, `androidx.constraintlayout.solver.widgets.ConstraintAnchor$Type` v12 @kind object @name `endType`, `int` v13 @name `margin`, `int` v14 @name `goneMargin`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.immediateConnect:(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;Landroidx/constraintlayout/solver/widgets/ConstraintWidget;Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isFullyResolved`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.isFullyResolved:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isHeightWrapContent`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.isHeightWrapContent:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isInHorizontalChain`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.isInHorizontalChain:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isInVerticalChain`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.isInVerticalChain:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isInsideConstraintLayout`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v3 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.isInsideConstraintLayout:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isRoot`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.isRoot:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isRootContainer`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.isRootContainer:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isSpreadHeight`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v3 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.isSpreadHeight:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isSpreadWidth`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v3 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.isSpreadWidth:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `boolean` `isWidthWrapContent`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.isWidthWrapContent:()Z` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `reset`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v6 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.reset:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `resetAllConstraints`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.resetAllConstraints:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `resetAnchor`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v10 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintAnchor` v11 @kind object @name `anchor`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.resetAnchor:(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `resetAnchors`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v4 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.resetAnchors:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `resetAnchors`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v5 @kind this, `int` v6 @name `connectionCreator`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.resetAnchors:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `resetResolutionNodes`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.resetResolutionNodes:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `resetSolverVariables`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `androidx.constraintlayout.solver.Cache` v2 @kind object @name `cache`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.resetSolverVariables:(Landroidx/constraintlayout/solver/Cache;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `resolve`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.resolve:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setBaselineDistance`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `int` v1 @name `baseline`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setBaselineDistance:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setCompanionWidget`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `java.lang.Object` v1 @kind object @name `companion`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setCompanionWidget:(Ljava/lang/Object;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setContainerItemSkip`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `int` v2 @name `skip`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setContainerItemSkip:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDebugName`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `java.lang.String` v1 @kind object @name `name`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setDebugName:(Ljava/lang/String;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDebugSolverName`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v7 @kind this, `androidx.constraintlayout.solver.LinearSystem` v8 @kind object @name `system`, `java.lang.String` v9 @kind object @name `name`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setDebugSolverName:(Landroidx/constraintlayout/solver/LinearSystem;Ljava/lang/String;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDimension`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `int` v2 @name `w`, `int` v3 @name `h`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setDimension:(II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDimensionRatio`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `float` v1 @name `ratio`, `int` v2 @name `dimensionRatioSide`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setDimensionRatio:(FI)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDimensionRatio`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v12 @kind this, `java.lang.String` v13 @kind object @name `ratio`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setDimensionRatio:(Ljava/lang/String;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDrawHeight`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `int` v1 @name `drawHeight`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setDrawHeight:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDrawOrigin`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this, `int` v3 @name `x`, `int` v4 @name `y`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setDrawOrigin:(II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDrawWidth`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `int` v1 @name `drawWidth`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setDrawWidth:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDrawX`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `int` v2 @name `x`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setDrawX:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setDrawY`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `int` v2 @name `y`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setDrawY:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setFrame`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `int` v2 @name `start`, `int` v3 @name `end`, `int` v4 @name `orientation`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setFrame:(III)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setFrame`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v5 @kind this, `int` v6 @name `left`, `int` v7 @name `top`, `int` v8 @name `right`, `int` v9 @name `bottom`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setFrame:(IIII)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setGoneMargin`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintAnchor$Type` v3 @kind object @name `type`, `int` v4 @name `goneMargin`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setGoneMargin:(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHeight`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `int` v2 @name `h`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setHeight:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHeightWrapContent`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `boolean` v1 @name `heightWrapContent`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setHeightWrapContent:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHorizontalBiasPercent`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `float` v1 @name `horizontalBiasPercent`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setHorizontalBiasPercent:(F)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHorizontalChainStyle`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `int` v1 @name `horizontalChainStyle`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setHorizontalChainStyle:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHorizontalDimension`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this, `int` v3 @name `left`, `int` v4 @name `right`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setHorizontalDimension:(II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHorizontalDimensionBehaviour`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintWidget$DimensionBehaviour` v3 @kind object @name `behaviour`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setHorizontalDimensionBehaviour:(Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHorizontalMatchStyle`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `int` v2 @name `horizontalMatchStyle`, `int` v3 @name `min`, `int` v4 @name `max`, `float` v5 @name `percent`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setHorizontalMatchStyle:(IIIF)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setHorizontalWeight`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this, `float` v3 @name `horizontalWeight`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setHorizontalWeight:(F)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setLength`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `int` v2 @name `length`, `int` v3 @name `orientation`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setLength:(II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setMaxHeight`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this, `int` v3 @name `maxHeight`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setMaxHeight:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setMaxWidth`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this, `int` v3 @name `maxWidth`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setMaxWidth:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setMinHeight`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `int` v2 @name `h`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setMinHeight:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setMinWidth`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `int` v2 @name `w`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setMinWidth:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOffset`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `int` v1 @name `x`, `int` v2 @name `y`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setOffset:(II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setOrigin`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `int` v1 @name `x`, `int` v2 @name `y`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setOrigin:(II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setParent`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind object @name `widget`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setParent:(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setRelativePositioning`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `int` v2 @name `offset`, `int` v3 @name `orientation`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setRelativePositioning:(II)V` @AccessFlag  {
+
+  # return;
+}
+procedure `void` `setType`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `java.lang.String` v1 @kind object @name `type`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setType:(Ljava/lang/String;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setVerticalBiasPercent`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `float` v1 @name `verticalBiasPercent`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setVerticalBiasPercent:(F)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setVerticalChainStyle`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `int` v1 @name `verticalChainStyle`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setVerticalChainStyle:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setVerticalDimension`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this, `int` v3 @name `top`, `int` v4 @name `bottom`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setVerticalDimension:(II)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setVerticalDimensionBehaviour`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this, `androidx.constraintlayout.solver.widgets.ConstraintWidget$DimensionBehaviour` v3 @kind object @name `behaviour`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setVerticalDimensionBehaviour:(Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setVerticalMatchStyle`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `int` v2 @name `verticalMatchStyle`, `int` v3 @name `min`, `int` v4 @name `max`, `float` v5 @name `percent`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setVerticalMatchStyle:(IIIF)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setVerticalWeight`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this, `float` v3 @name `verticalWeight`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setVerticalWeight:(F)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setVisibility`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `int` v1 @name `visibility`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setVisibility:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setWidth`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v1 @kind this, `int` v2 @name `w`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setWidth:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setWidthWrapContent`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `boolean` v1 @name `widthWrapContent`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setWidthWrapContent:(Z)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setWrapHeight`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `int` v1 @name `h`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setWrapHeight:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setWrapWidth`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `int` v1 @name `w`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setWrapWidth:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setX`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `int` v1 @name `x`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setX:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setY`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v0 @kind this, `int` v1 @name `y`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setY:(I)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `setupDimensionRatio`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v6 @kind this, `boolean` v7 @name `hparentWrapContent`, `boolean` v8 @name `vparentWrapContent`, `boolean` v9 @name `horizontalDimensionFixed`, `boolean` v10 @name `verticalDimensionFixed`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.setupDimensionRatio:(ZZZZ)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `java.lang.String` `toString`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v5 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.toString:()Ljava/lang/String;` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `updateDrawPosition`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v5 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.updateDrawPosition:()V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `updateFromSolver`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v8 @kind this, `androidx.constraintlayout.solver.LinearSystem` v9 @kind object @name `system`) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.updateFromSolver:(Landroidx/constraintlayout/solver/LinearSystem;)V` @AccessFlag PUBLIC {
+
+  # return;
+}
+procedure `void` `updateResolutionNodes`(`androidx.constraintlayout.solver.widgets.ConstraintWidget` v2 @kind this) @signature `Landroidx/constraintlayout/solver/widgets/ConstraintWidget;.updateResolutionNodes:()V` @AccessFlag PUBLIC {
+
+  # return;
+}

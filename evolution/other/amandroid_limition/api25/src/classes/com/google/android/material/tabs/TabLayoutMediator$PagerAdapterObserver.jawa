@@ -1,0 +1,58 @@
+record `com.google.android.material.tabs.TabLayoutMediator$PagerAdapterObserver` @kind class @AccessFlag  extends `androidx.recyclerview.widget.RecyclerView$AdapterDataObserver` @kind class {
+  `com.google.android.material.tabs.TabLayoutMediator` `com.google.android.material.tabs.TabLayoutMediator$PagerAdapterObserver.this$0` @AccessFlag FINAL_SYNTHETIC;
+}
+procedure `void` `<init>`(`com.google.android.material.tabs.TabLayoutMediator$PagerAdapterObserver` v0 @kind this, `com.google.android.material.tabs.TabLayoutMediator` v1 @kind object) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$PagerAdapterObserver;.<init>:(Lcom/google/android/material/tabs/TabLayoutMediator;)V` @AccessFlag CONSTRUCTOR {
+    temp;
+
+  #L1b3e80.  v0.`com.google.android.material.tabs.TabLayoutMediator$PagerAdapterObserver.this$0` @type ^`com.google.android.material.tabs.TabLayoutMediator` := v1 @kind object;
+  #L1b3e84.  call `<init>`(v0) @signature `Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;.<init>:()V` @kind direct;
+  #L1b3e8a.  return @kind void;
+}
+procedure `void` `onChanged`(`com.google.android.material.tabs.TabLayoutMediator$PagerAdapterObserver` v1 @kind this) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$PagerAdapterObserver;.onChanged:()V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b3e9c.  v0:= v1.`com.google.android.material.tabs.TabLayoutMediator$PagerAdapterObserver.this$0` @type ^`com.google.android.material.tabs.TabLayoutMediator` @kind object;
+  #L1b3ea0.  call `populateTabsFromPagerAdapter`(v0) @signature `Lcom/google/android/material/tabs/TabLayoutMediator;.populateTabsFromPagerAdapter:()V` @kind virtual;
+  #L1b3ea6.  return @kind void;
+}
+procedure `void` `onItemRangeChanged`(`com.google.android.material.tabs.TabLayoutMediator$PagerAdapterObserver` v1 @kind this, `int` v2 @name `positionStart`, `int` v3 @name `itemCount`) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$PagerAdapterObserver;.onItemRangeChanged:(II)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b3eb8.  v0:= v1.`com.google.android.material.tabs.TabLayoutMediator$PagerAdapterObserver.this$0` @type ^`com.google.android.material.tabs.TabLayoutMediator` @kind object;
+  #L1b3ebc.  call `populateTabsFromPagerAdapter`(v0) @signature `Lcom/google/android/material/tabs/TabLayoutMediator;.populateTabsFromPagerAdapter:()V` @kind virtual;
+  #L1b3ec2.  return @kind void;
+}
+procedure `void` `onItemRangeChanged`(`com.google.android.material.tabs.TabLayoutMediator$PagerAdapterObserver` v1 @kind this, `int` v2 @name `positionStart`, `int` v3 @name `itemCount`, `java.lang.Object` v4 @kind object @name `payload`) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$PagerAdapterObserver;.onItemRangeChanged:(IILjava/lang/Object;)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b3ed4.  v0:= v1.`com.google.android.material.tabs.TabLayoutMediator$PagerAdapterObserver.this$0` @type ^`com.google.android.material.tabs.TabLayoutMediator` @kind object;
+  #L1b3ed8.  call `populateTabsFromPagerAdapter`(v0) @signature `Lcom/google/android/material/tabs/TabLayoutMediator;.populateTabsFromPagerAdapter:()V` @kind virtual;
+  #L1b3ede.  return @kind void;
+}
+procedure `void` `onItemRangeInserted`(`com.google.android.material.tabs.TabLayoutMediator$PagerAdapterObserver` v1 @kind this, `int` v2 @name `positionStart`, `int` v3 @name `itemCount`) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$PagerAdapterObserver;.onItemRangeInserted:(II)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b3ef0.  v0:= v1.`com.google.android.material.tabs.TabLayoutMediator$PagerAdapterObserver.this$0` @type ^`com.google.android.material.tabs.TabLayoutMediator` @kind object;
+  #L1b3ef4.  call `populateTabsFromPagerAdapter`(v0) @signature `Lcom/google/android/material/tabs/TabLayoutMediator;.populateTabsFromPagerAdapter:()V` @kind virtual;
+  #L1b3efa.  return @kind void;
+}
+procedure `void` `onItemRangeMoved`(`com.google.android.material.tabs.TabLayoutMediator$PagerAdapterObserver` v1 @kind this, `int` v2 @name `fromPosition`, `int` v3 @name `toPosition`, `int` v4 @name `itemCount`) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$PagerAdapterObserver;.onItemRangeMoved:(III)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b3f0c.  v0:= v1.`com.google.android.material.tabs.TabLayoutMediator$PagerAdapterObserver.this$0` @type ^`com.google.android.material.tabs.TabLayoutMediator` @kind object;
+  #L1b3f10.  call `populateTabsFromPagerAdapter`(v0) @signature `Lcom/google/android/material/tabs/TabLayoutMediator;.populateTabsFromPagerAdapter:()V` @kind virtual;
+  #L1b3f16.  return @kind void;
+}
+procedure `void` `onItemRangeRemoved`(`com.google.android.material.tabs.TabLayoutMediator$PagerAdapterObserver` v1 @kind this, `int` v2 @name `positionStart`, `int` v3 @name `itemCount`) @signature `Lcom/google/android/material/tabs/TabLayoutMediator$PagerAdapterObserver;.onItemRangeRemoved:(II)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b3f28.  v0:= v1.`com.google.android.material.tabs.TabLayoutMediator$PagerAdapterObserver.this$0` @type ^`com.google.android.material.tabs.TabLayoutMediator` @kind object;
+  #L1b3f2c.  call `populateTabsFromPagerAdapter`(v0) @signature `Lcom/google/android/material/tabs/TabLayoutMediator;.populateTabsFromPagerAdapter:()V` @kind virtual;
+  #L1b3f32.  return @kind void;
+}

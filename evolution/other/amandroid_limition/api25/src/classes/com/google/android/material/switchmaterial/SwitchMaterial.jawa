@@ -1,0 +1,251 @@
+record `com.google.android.material.switchmaterial.SwitchMaterial` @kind class @AccessFlag PUBLIC extends `androidx.appcompat.widget.SwitchCompat` @kind class {
+  `com.google.android.material.elevation.ElevationOverlayProvider` `com.google.android.material.switchmaterial.SwitchMaterial.elevationOverlayProvider` @AccessFlag PRIVATE_FINAL;
+  `android.content.res.ColorStateList` `com.google.android.material.switchmaterial.SwitchMaterial.materialThemeColorsThumbTintList` @AccessFlag PRIVATE;
+  `android.content.res.ColorStateList` `com.google.android.material.switchmaterial.SwitchMaterial.materialThemeColorsTrackTintList` @AccessFlag PRIVATE;
+  `boolean` `com.google.android.material.switchmaterial.SwitchMaterial.useMaterialThemeColors` @AccessFlag PRIVATE;
+}
+global `int` `@@com.google.android.material.switchmaterial.SwitchMaterial.DEF_STYLE_RES` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int`[][] `@@com.google.android.material.switchmaterial.SwitchMaterial.ENABLED_CHECKED_STATES` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L1b1d84.  v0:= `@@com.google.android.material.R$style.Widget_MaterialComponents_CompoundButton_Switch` @type ^`int`;
+  #L1b1d88.  `@@com.google.android.material.switchmaterial.SwitchMaterial.DEF_STYLE_RES` @type ^`int` := v0;
+  #L1b1d8c.  v0:= 4I;
+  #L1b1d8e.  v0:= new `int`[][v0];
+  #L1b1d92.  v1:= 2I;
+  #L1b1d94.  v2:= new `int`[v1];
+  #L1b1d98.  goto L1b1dd8;
+  #L1b1d9e.  v3:= 0I;
+  #L1b1da0.  v0[v3]:= v2 @kind object;
+  #L1b1da4.  v2:= new `int`[v1];
+  #L1b1da8.  goto L1b1de8;
+  #L1b1dae.  v3:= 1I;
+  #L1b1db0.  v0[v3]:= v2 @kind object;
+  #L1b1db4.  v2:= new `int`[v1];
+  #L1b1db8.  goto L1b1df8;
+  #L1b1dbe.  v0[v1]:= v2 @kind object;
+  #L1b1dc2.  v1:= new `int`[v1];
+  #L1b1dc6.  goto L1b1e08;
+  #L1b1dcc.  v2:= 3I;
+  #L1b1dce.  v0[v2]:= v1 @kind object;
+  #L1b1dd2.  `@@com.google.android.material.switchmaterial.SwitchMaterial.ENABLED_CHECKED_STATES` @type ^`int`[][] := v0 @kind object;
+  #L1b1dd6.  return @kind void;
+  #L1b1dd8.  v2:= (16842910I, 16842912I) @kind object;
+  #L1b1de7.  goto L1b1d9e;
+  #L1b1de8.  v2:= (16842910I, -16842912I) @kind object;
+  #L1b1df7.  goto L1b1dae;
+  #L1b1df8.  v2:= (-16842910I, 16842912I) @kind object;
+  #L1b1e07.  goto L1b1dbe;
+  #L1b1e08.  v1:= (-16842910I, -16842912I) @kind object;
+  #L1b1e17.  goto L1b1dcc;
+}
+procedure `void` `<init>`(`com.google.android.material.switchmaterial.SwitchMaterial` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1b1e28.  v0:= 0I;
+  #L1b1e2a.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @kind direct;
+  #L1b1e30.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.switchmaterial.SwitchMaterial` v1 @kind this, `android.content.Context` v2 @kind object @name `context`, `android.util.AttributeSet` v3 @kind object @name `attrs`) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L1b1e44.  v0:= `@@com.google.android.material.R$attr.switchStyle` @type ^`int`;
+  #L1b1e48.  call `<init>`(v1, v2, v3, v0) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1b1e4e.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.switchmaterial.SwitchMaterial` v7 @kind this, `android.content.Context` v8 @kind object @name `context`, `android.util.AttributeSet` v9 @kind object @name `attrs`, `int` v10 @name `defStyleAttr`) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L1b1e60.  v4:= `@@com.google.android.material.switchmaterial.SwitchMaterial.DEF_STYLE_RES` @type ^`int`;
+  #L1b1e64.  call temp:= `createThemedContext`(v8, v9, v10, v4) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.createThemedContext:(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/content/Context;` @kind static;
+  #L1b1e6a.  v0:= temp @kind object;
+  #L1b1e6c.  call `<init>`(v7, v0, v9, v10) @signature `Landroidx/appcompat/widget/SwitchCompat;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;I)V` @kind direct;
+  #L1b1e72.  call temp:= `getContext`(v7) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L1b1e78.  v8:= temp @kind object;
+  #L1b1e7a.  v0:= new `com.google.android.material.elevation.ElevationOverlayProvider`;
+  #L1b1e7e.  call `<init>`(v0, v8) @signature `Lcom/google/android/material/elevation/ElevationOverlayProvider;.<init>:(Landroid/content/Context;)V` @kind direct;
+  #L1b1e84.  v7.`com.google.android.material.switchmaterial.SwitchMaterial.elevationOverlayProvider` @type ^`com.google.android.material.elevation.ElevationOverlayProvider` := v0 @kind object;
+  #L1b1e88.  v2:= `@@com.google.android.material.R$styleable.SwitchMaterial` @type ^`int`[] @kind object;
+  #L1b1e8c.  v6:= 0I;
+  #L1b1e8e.  v5:= new `int`[v6];
+  #L1b1e92.  v0:= v8 @kind object;
+  #L1b1e94.  v1:= v9 @kind object;
+  #L1b1e96.  v3:= v10;
+  #L1b1e98.  call temp:= `obtainStyledAttributes`(v0, v1, v2, v3, v4, v5) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.obtainStyledAttributes:(Landroid/content/Context;Landroid/util/AttributeSet;[III[I)Landroid/content/res/TypedArray;` @kind static;
+  #L1b1e9e.  v0:= temp @kind object;
+  #L1b1ea0.  v1:= `@@com.google.android.material.R$styleable.SwitchMaterial_useMaterialThemeColors` @type ^`int`;
+  #L1b1ea4.  call temp:= `getBoolean`(v0, v1, v6) @signature `Landroid/content/res/TypedArray;.getBoolean:(IZ)Z` @kind virtual;
+  #L1b1eaa.  v1:= temp;
+  #L1b1eac.  v7.`com.google.android.material.switchmaterial.SwitchMaterial.useMaterialThemeColors` @type ^`boolean` := v1 @kind boolean;
+  #L1b1eb0.  call `recycle`(v0) @signature `Landroid/content/res/TypedArray;.recycle:()V` @kind virtual;
+  #L1b1eb6.  return @kind void;
+}
+procedure `android.content.res.ColorStateList` `getMaterialThemeColorsThumbTintList`(`com.google.android.material.switchmaterial.SwitchMaterial` v8 @kind this) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.getMaterialThemeColorsThumbTintList:()Landroid/content/res/ColorStateList;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L1b1c0c.  v0:= v8.`com.google.android.material.switchmaterial.SwitchMaterial.materialThemeColorsThumbTintList` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1b1c10.  if v0 != 0 then goto L1b1cb0;
+  #L1b1c14.  v0:= `@@com.google.android.material.R$attr.colorSurface` @type ^`int`;
+  #L1b1c18.  call temp:= `getColor`(v8, v0) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/view/View;I)I` @kind static;
+  #L1b1c1e.  v0:= temp;
+  #L1b1c20.  v1:= `@@com.google.android.material.R$attr.colorControlActivated` @type ^`int`;
+  #L1b1c24.  call temp:= `getColor`(v8, v1) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/view/View;I)I` @kind static;
+  #L1b1c2a.  v1:= temp;
+  #L1b1c2c.  call temp:= `getResources`(v8) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L1b1c32.  v2:= temp @kind object;
+  #L1b1c34.  v3:= `@@com.google.android.material.R$dimen.mtrl_switch_thumb_elevation` @type ^`int`;
+  #L1b1c38.  call temp:= `getDimension`(v2, v3) @signature `Landroid/content/res/Resources;.getDimension:(I)F` @kind virtual;
+  #L1b1c3e.  v2:= temp;
+  #L1b1c40.  v3:= v8.`com.google.android.material.switchmaterial.SwitchMaterial.elevationOverlayProvider` @type ^`com.google.android.material.elevation.ElevationOverlayProvider` @kind object;
+  #L1b1c44.  call temp:= `isThemeElevationOverlayEnabled`(v3) @signature `Lcom/google/android/material/elevation/ElevationOverlayProvider;.isThemeElevationOverlayEnabled:()Z` @kind virtual;
+  #L1b1c4a.  v3:= temp;
+  #L1b1c4c.  if v3 == 0 then goto L1b1c5a;
+  #L1b1c50.  call temp:= `getParentAbsoluteElevation`(v8) @signature `Lcom/google/android/material/internal/ViewUtils;.getParentAbsoluteElevation:(Landroid/view/View;)F` @kind static;
+  #L1b1c56.  v3:= temp;
+  #L1b1c58.  v2:= v2 + v3 @kind float;
+  #L1b1c5a.  v3:= v8.`com.google.android.material.switchmaterial.SwitchMaterial.elevationOverlayProvider` @type ^`com.google.android.material.elevation.ElevationOverlayProvider` @kind object;
+  #L1b1c5e.  call temp:= `compositeOverlayIfNeeded`(v3, v0, v2) @signature `Lcom/google/android/material/elevation/ElevationOverlayProvider;.compositeOverlayIfNeeded:(IF)I` @kind virtual;
+  #L1b1c64.  v3:= temp;
+  #L1b1c66.  v4:= `@@com.google.android.material.switchmaterial.SwitchMaterial.ENABLED_CHECKED_STATES` @type ^`int`[][] @kind object;
+  #L1b1c6a.  v5:= length @variable v4;
+  #L1b1c6c.  v5:= new `int`[v5];
+  #L1b1c70.  v6:= 0I;
+  #L1b1c72.  v7:= 1.0F;
+  #L1b1c76.  call temp:= `layer`(v0, v1, v7) @signature `Lcom/google/android/material/color/MaterialColors;.layer:(IIF)I` @kind static;
+  #L1b1c7c.  v7:= temp;
+  #L1b1c7e.  v5[v6]:= v7;
+  #L1b1c82.  v6:= 1I;
+  #L1b1c84.  v5[v6]:= v3;
+  #L1b1c88.  v6:= 2I;
+  #L1b1c8a.  v7:= 1052938076I;
+  #L1b1c90.  call temp:= `layer`(v0, v1, v7) @signature `Lcom/google/android/material/color/MaterialColors;.layer:(IIF)I` @kind static;
+  #L1b1c96.  v7:= temp;
+  #L1b1c98.  v5[v6]:= v7;
+  #L1b1c9c.  v6:= 3I;
+  #L1b1c9e.  v5[v6]:= v3;
+  #L1b1ca2.  v6:= new `android.content.res.ColorStateList`;
+  #L1b1ca6.  call `<init>`(v6, v4, v5) @signature `Landroid/content/res/ColorStateList;.<init>:([[I[I)V` @kind direct;
+  #L1b1cac.  v8.`com.google.android.material.switchmaterial.SwitchMaterial.materialThemeColorsThumbTintList` @type ^`android.content.res.ColorStateList` := v6 @kind object;
+  #L1b1cb0.  v0:= v8.`com.google.android.material.switchmaterial.SwitchMaterial.materialThemeColorsThumbTintList` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1b1cb4.  return v0 @kind object;
+}
+procedure `android.content.res.ColorStateList` `getMaterialThemeColorsTrackTintList`(`com.google.android.material.switchmaterial.SwitchMaterial` v8 @kind this) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.getMaterialThemeColorsTrackTintList:()Landroid/content/res/ColorStateList;` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+    v7;
+
+  #L1b1cc8.  v0:= v8.`com.google.android.material.switchmaterial.SwitchMaterial.materialThemeColorsTrackTintList` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1b1ccc.  if v0 != 0 then goto L1b1d56;
+  #L1b1cd0.  v0:= `@@com.google.android.material.switchmaterial.SwitchMaterial.ENABLED_CHECKED_STATES` @type ^`int`[][] @kind object;
+  #L1b1cd4.  v1:= length @variable v0;
+  #L1b1cd6.  v1:= new `int`[v1];
+  #L1b1cda.  v2:= `@@com.google.android.material.R$attr.colorSurface` @type ^`int`;
+  #L1b1cde.  call temp:= `getColor`(v8, v2) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/view/View;I)I` @kind static;
+  #L1b1ce4.  v2:= temp;
+  #L1b1ce6.  v3:= `@@com.google.android.material.R$attr.colorControlActivated` @type ^`int`;
+  #L1b1cea.  call temp:= `getColor`(v8, v3) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/view/View;I)I` @kind static;
+  #L1b1cf0.  v3:= temp;
+  #L1b1cf2.  v4:= `@@com.google.android.material.R$attr.colorOnSurface` @type ^`int`;
+  #L1b1cf6.  call temp:= `getColor`(v8, v4) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/view/View;I)I` @kind static;
+  #L1b1cfc.  v4:= temp;
+  #L1b1cfe.  v5:= 0I;
+  #L1b1d00.  v6:= 1057635697I;
+  #L1b1d06.  call temp:= `layer`(v2, v3, v6) @signature `Lcom/google/android/material/color/MaterialColors;.layer:(IIF)I` @kind static;
+  #L1b1d0c.  v6:= temp;
+  #L1b1d0e.  v1[v5]:= v6;
+  #L1b1d12.  v5:= 1I;
+  #L1b1d14.  v6:= 1050924810I;
+  #L1b1d1a.  call temp:= `layer`(v2, v4, v6) @signature `Lcom/google/android/material/color/MaterialColors;.layer:(IIF)I` @kind static;
+  #L1b1d20.  v6:= temp;
+  #L1b1d22.  v1[v5]:= v6;
+  #L1b1d26.  v5:= 2I;
+  #L1b1d28.  v6:= 1039516303I;
+  #L1b1d2e.  call temp:= `layer`(v2, v3, v6) @signature `Lcom/google/android/material/color/MaterialColors;.layer:(IIF)I` @kind static;
+  #L1b1d34.  v7:= temp;
+  #L1b1d36.  v1[v5]:= v7;
+  #L1b1d3a.  v5:= 3I;
+  #L1b1d3c.  call temp:= `layer`(v2, v4, v6) @signature `Lcom/google/android/material/color/MaterialColors;.layer:(IIF)I` @kind static;
+  #L1b1d42.  v6:= temp;
+  #L1b1d44.  v1[v5]:= v6;
+  #L1b1d48.  v5:= new `android.content.res.ColorStateList`;
+  #L1b1d4c.  call `<init>`(v5, v0, v1) @signature `Landroid/content/res/ColorStateList;.<init>:([[I[I)V` @kind direct;
+  #L1b1d52.  v8.`com.google.android.material.switchmaterial.SwitchMaterial.materialThemeColorsTrackTintList` @type ^`android.content.res.ColorStateList` := v5 @kind object;
+  #L1b1d56.  v0:= v8.`com.google.android.material.switchmaterial.SwitchMaterial.materialThemeColorsTrackTintList` @type ^`android.content.res.ColorStateList` @kind object;
+  #L1b1d5a.  return v0 @kind object;
+}
+procedure `boolean` `isUseMaterialThemeColors`(`com.google.android.material.switchmaterial.SwitchMaterial` v1 @kind this) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.isUseMaterialThemeColors:()Z` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b1d6c.  v0:= v1.`com.google.android.material.switchmaterial.SwitchMaterial.useMaterialThemeColors` @type ^`boolean` @kind boolean;
+  #L1b1d70.  return v0;
+}
+procedure `void` `onAttachedToWindow`(`com.google.android.material.switchmaterial.SwitchMaterial` v1 @kind this) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.onAttachedToWindow:()V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L1b1ec8.  call `onAttachedToWindow`(v1) @signature `Landroidx/appcompat/widget/SwitchCompat;.onAttachedToWindow:()V` @kind super;
+  #L1b1ece.  v0:= v1.`com.google.android.material.switchmaterial.SwitchMaterial.useMaterialThemeColors` @type ^`boolean` @kind boolean;
+  #L1b1ed2.  if v0 == 0 then goto L1b1ef0;
+  #L1b1ed6.  call temp:= `getThumbTintList`(v1) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.getThumbTintList:()Landroid/content/res/ColorStateList;` @kind virtual;
+  #L1b1edc.  v0:= temp @kind object;
+  #L1b1ede.  if v0 != 0 then goto L1b1ef0;
+  #L1b1ee2.  call temp:= `getMaterialThemeColorsThumbTintList`(v1) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.getMaterialThemeColorsThumbTintList:()Landroid/content/res/ColorStateList;` @kind direct;
+  #L1b1ee8.  v0:= temp @kind object;
+  #L1b1eea.  call `setThumbTintList`(v1, v0) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.setThumbTintList:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1b1ef0.  v0:= v1.`com.google.android.material.switchmaterial.SwitchMaterial.useMaterialThemeColors` @type ^`boolean` @kind boolean;
+  #L1b1ef4.  if v0 == 0 then goto L1b1f12;
+  #L1b1ef8.  call temp:= `getTrackTintList`(v1) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.getTrackTintList:()Landroid/content/res/ColorStateList;` @kind virtual;
+  #L1b1efe.  v0:= temp @kind object;
+  #L1b1f00.  if v0 != 0 then goto L1b1f12;
+  #L1b1f04.  call temp:= `getMaterialThemeColorsTrackTintList`(v1) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.getMaterialThemeColorsTrackTintList:()Landroid/content/res/ColorStateList;` @kind direct;
+  #L1b1f0a.  v0:= temp @kind object;
+  #L1b1f0c.  call `setTrackTintList`(v1, v0) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.setTrackTintList:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1b1f12.  return @kind void;
+}
+procedure `void` `setUseMaterialThemeColors`(`com.google.android.material.switchmaterial.SwitchMaterial` v1 @kind this, `boolean` v2 @name `useMaterialThemeColors`) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.setUseMaterialThemeColors:(Z)V` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L1b1f24.  v1.`com.google.android.material.switchmaterial.SwitchMaterial.useMaterialThemeColors` @type ^`boolean` := v2 @kind boolean;
+  #L1b1f28.  if v2 == 0 then goto L1b1f4a;
+  #L1b1f2c.  call temp:= `getMaterialThemeColorsThumbTintList`(v1) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.getMaterialThemeColorsThumbTintList:()Landroid/content/res/ColorStateList;` @kind direct;
+  #L1b1f32.  v0:= temp @kind object;
+  #L1b1f34.  call `setThumbTintList`(v1, v0) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.setThumbTintList:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1b1f3a.  call temp:= `getMaterialThemeColorsTrackTintList`(v1) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.getMaterialThemeColorsTrackTintList:()Landroid/content/res/ColorStateList;` @kind direct;
+  #L1b1f40.  v0:= temp @kind object;
+  #L1b1f42.  call `setTrackTintList`(v1, v0) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.setTrackTintList:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1b1f48.  goto L1b1f58;
+  #L1b1f4a.  v0:= 0I;
+  #L1b1f4c.  call `setThumbTintList`(v1, v0) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.setThumbTintList:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1b1f52.  call `setTrackTintList`(v1, v0) @signature `Lcom/google/android/material/switchmaterial/SwitchMaterial;.setTrackTintList:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L1b1f58.  return @kind void;
+}

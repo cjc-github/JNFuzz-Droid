@@ -1,0 +1,813 @@
+record `com.google.android.material.dialog.MaterialAlertDialogBuilder` @kind class @AccessFlag PUBLIC extends `androidx.appcompat.app.AlertDialog$Builder` @kind class {
+  `android.graphics.drawable.Drawable` `com.google.android.material.dialog.MaterialAlertDialogBuilder.background` @AccessFlag PRIVATE;
+  `android.graphics.Rect` `com.google.android.material.dialog.MaterialAlertDialogBuilder.backgroundInsets` @AccessFlag PRIVATE_FINAL;
+}
+global `int` `@@com.google.android.material.dialog.MaterialAlertDialogBuilder.DEF_STYLE_ATTR` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.dialog.MaterialAlertDialogBuilder.DEF_STYLE_RES` @AccessFlag PRIVATE_STATIC_FINAL;
+global `int` `@@com.google.android.material.dialog.MaterialAlertDialogBuilder.MATERIAL_ALERT_DIALOG_THEME_OVERLAY` @AccessFlag PRIVATE_STATIC_FINAL;
+procedure `void` `<clinit>`() @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L19cb1c.  v0:= `@@com.google.android.material.R$attr.alertDialogStyle` @type ^`int`;
+  #L19cb20.  `@@com.google.android.material.dialog.MaterialAlertDialogBuilder.DEF_STYLE_ATTR` @type ^`int` := v0;
+  #L19cb24.  v0:= `@@com.google.android.material.R$style.MaterialAlertDialog_MaterialComponents` @type ^`int`;
+  #L19cb28.  `@@com.google.android.material.dialog.MaterialAlertDialogBuilder.DEF_STYLE_RES` @type ^`int` := v0;
+  #L19cb2c.  v0:= `@@com.google.android.material.R$attr.materialAlertDialogTheme` @type ^`int`;
+  #L19cb30.  `@@com.google.android.material.dialog.MaterialAlertDialogBuilder.MATERIAL_ALERT_DIALOG_THEME_OVERLAY` @type ^`int` := v0;
+  #L19cb34.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.<init>:(Landroid/content/Context;)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L19cb48.  v0:= 0I;
+  #L19cb4a.  call `<init>`(v1, v2, v0) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.<init>:(Landroid/content/Context;I)V` @kind direct;
+  #L19cb50.  return @kind void;
+}
+procedure `void` `<init>`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v7 @kind this, `android.content.Context` v8 @kind object @name `context`, `int` v9 @name `overrideThemeResId`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.<init>:(Landroid/content/Context;I)V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+    v6;
+
+  #L19cb64.  
+  #L19cb66.  call temp:= `createMaterialAlertDialogThemedContext`(v8) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.createMaterialAlertDialogThemedContext:(Landroid/content/Context;)Landroid/content/Context;` @kind static;
+  #L19cb6c.  v0:= temp @kind object;
+  #L19cb6e.  call temp:= `getOverridingThemeResId`(v8, v9) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.getOverridingThemeResId:(Landroid/content/Context;I)I` @kind static;
+  #L19cb74.  v1:= temp;
+  #L19cb76.  call `<init>`(v7, v0, v1) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.<init>:(Landroid/content/Context;I)V` @kind direct;
+  #L19cb7c.  call temp:= `getContext`(v7) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L19cb82.  v8:= temp @kind object;
+  #L19cb84.  call temp:= `getTheme`(v8) @signature `Landroid/content/Context;.getTheme:()Landroid/content/res/Resources$Theme;` @kind virtual;
+  #L19cb8a.  v0:= temp @kind object;
+  #L19cb8c.  v1:= `@@com.google.android.material.dialog.MaterialAlertDialogBuilder.DEF_STYLE_ATTR` @type ^`int`;
+  #L19cb90.  v2:= `@@com.google.android.material.dialog.MaterialAlertDialogBuilder.DEF_STYLE_RES` @type ^`int`;
+  #L19cb94.  call temp:= `getDialogBackgroundInsets`(v8, v1, v2) @signature `Lcom/google/android/material/dialog/MaterialDialogs;.getDialogBackgroundInsets:(Landroid/content/Context;II)Landroid/graphics/Rect;` @kind static;
+  #L19cb9a.  v3:= temp @kind object;
+  #L19cb9c.  v7.`com.google.android.material.dialog.MaterialAlertDialogBuilder.backgroundInsets` @type ^`android.graphics.Rect` := v3 @kind object;
+  #L19cba0.  v3:= `@@com.google.android.material.R$attr.colorSurface` @type ^`int`;
+  #L19cba4.  call temp:= `getClass`(v7) @signature `Ljava/lang/Object;.getClass:()Ljava/lang/Class;` @kind virtual;
+  #L19cbaa.  v4:= temp @kind object;
+  #L19cbac.  call temp:= `getCanonicalName`(v4) @signature `Ljava/lang/Class;.getCanonicalName:()Ljava/lang/String;` @kind virtual;
+  #L19cbb2.  v4:= temp @kind object;
+  #L19cbb4.  call temp:= `getColor`(v8, v3, v4) @signature `Lcom/google/android/material/color/MaterialColors;.getColor:(Landroid/content/Context;ILjava/lang/String;)I` @kind static;
+  #L19cbba.  v3:= temp;
+  #L19cbbc.  v4:= new `com.google.android.material.shape.MaterialShapeDrawable`;
+  #L19cbc0.  v5:= 0I;
+  #L19cbc2.  call `<init>`(v4, v8, v5, v1, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.<init>:(Landroid/content/Context;Landroid/util/AttributeSet;II)V` @kind direct;
+  #L19cbc8.  v1:= v4 @kind object;
+  #L19cbca.  call `initializeElevationOverlay`(v1, v8) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.initializeElevationOverlay:(Landroid/content/Context;)V` @kind virtual;
+  #L19cbd0.  call temp:= `valueOf`(v3) @signature `Landroid/content/res/ColorStateList;.valueOf:(I)Landroid/content/res/ColorStateList;` @kind static;
+  #L19cbd6.  v2:= temp @kind object;
+  #L19cbd8.  call `setFillColor`(v1, v2) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setFillColor:(Landroid/content/res/ColorStateList;)V` @kind virtual;
+  #L19cbde.  v2:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L19cbe2.  v4:= 28I;
+  #L19cbe6.  if v2 < v4 then goto L19cc3e;
+  #L19cbea.  v2:= new `android.util.TypedValue`;
+  #L19cbee.  call `<init>`(v2) @signature `Landroid/util/TypedValue;.<init>:()V` @kind direct;
+  #L19cbf4.  v4:= 16844145I;
+  #L19cbfa.  v5:= 1I;
+  #L19cbfc.  call temp:= `resolveAttribute`(v0, v4, v2, v5) @signature `Landroid/content/res/Resources$Theme;.resolveAttribute:(ILandroid/util/TypedValue;Z)Z` @kind virtual;
+  #L19cc02.  
+  #L19cc04.  call temp:= `getContext`(v7) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L19cc0a.  v4:= temp @kind object;
+  #L19cc0c.  call temp:= `getResources`(v4) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L19cc12.  v4:= temp @kind object;
+  #L19cc14.  call temp:= `getDisplayMetrics`(v4) @signature `Landroid/content/res/Resources;.getDisplayMetrics:()Landroid/util/DisplayMetrics;` @kind virtual;
+  #L19cc1a.  v4:= temp @kind object;
+  #L19cc1c.  call temp:= `getDimension`(v2, v4) @signature `Landroid/util/TypedValue;.getDimension:(Landroid/util/DisplayMetrics;)F` @kind virtual;
+  #L19cc22.  v4:= temp;
+  #L19cc24.  v5:= v2.`android.util.TypedValue.type` @type ^`int`;
+  #L19cc28.  v6:= 5I;
+  #L19cc2a.  if v5 != v6 then goto L19cc3e;
+  #L19cc2e.  v5:= 0I;
+  #L19cc30.  v5:= fcmpl(v4, v5);
+  #L19cc34.  if v5 < 0 then goto L19cc3e;
+  #L19cc38.  call `setCornerSize`(v1, v4) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setCornerSize:(F)V` @kind virtual;
+  #L19cc3e.  v7.`com.google.android.material.dialog.MaterialAlertDialogBuilder.background` @type ^`android.graphics.drawable.Drawable` := v1 @kind object;
+  #L19cc42.  return @kind void;
+}
+procedure `android.content.Context` `createMaterialAlertDialogThemedContext`(`android.content.Context` v4 @kind object @name `context`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.createMaterialAlertDialogThemedContext:(Landroid/content/Context;)Landroid/content/Context;` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+
+  #L19c0d0.  call temp:= `getMaterialAlertDialogThemeOverlay`(v4) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.getMaterialAlertDialogThemeOverlay:(Landroid/content/Context;)I` @kind static;
+  #L19c0d6.  v0:= temp;
+  #L19c0d8.  v1:= `@@com.google.android.material.dialog.MaterialAlertDialogBuilder.DEF_STYLE_ATTR` @type ^`int`;
+  #L19c0dc.  v2:= `@@com.google.android.material.dialog.MaterialAlertDialogBuilder.DEF_STYLE_RES` @type ^`int`;
+  #L19c0e0.  v3:= 0I;
+  #L19c0e2.  call temp:= `createThemedContext`(v4, v3, v1, v2) @signature `Lcom/google/android/material/internal/ThemeEnforcement;.createThemedContext:(Landroid/content/Context;Landroid/util/AttributeSet;II)Landroid/content/Context;` @kind static;
+  #L19c0e8.  v1:= temp @kind object;
+  #L19c0ea.  if v0 != 0 then goto L19c0f0;
+  #L19c0ee.  return v1 @kind object;
+  #L19c0f0.  v2:= new `androidx.appcompat.view.ContextThemeWrapper`;
+  #L19c0f4.  call `<init>`(v2, v1, v0) @signature `Landroidx/appcompat/view/ContextThemeWrapper;.<init>:(Landroid/content/Context;I)V` @kind direct;
+  #L19c0fa.  return v2 @kind object;
+}
+procedure `int` `getMaterialAlertDialogThemeOverlay`(`android.content.Context` v2 @kind object @name `context`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.getMaterialAlertDialogThemeOverlay:(Landroid/content/Context;)I` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+    v1;
+
+  #L19cacc.  v0:= `@@com.google.android.material.dialog.MaterialAlertDialogBuilder.MATERIAL_ALERT_DIALOG_THEME_OVERLAY` @type ^`int`;
+  #L19cad0.  call temp:= `resolve`(v2, v0) @signature `Lcom/google/android/material/resources/MaterialAttributes;.resolve:(Landroid/content/Context;I)Landroid/util/TypedValue;` @kind static;
+  #L19cad6.  v0:= temp @kind object;
+  #L19cad8.  if v0 != 0 then goto L19cae0;
+  #L19cadc.  v1:= 0I;
+  #L19cade.  return v1;
+  #L19cae0.  v1:= v0.`android.util.TypedValue.data` @type ^`int`;
+  #L19cae4.  return v1;
+}
+procedure `int` `getOverridingThemeResId`(`android.content.Context` v1 @kind object @name `context`, `int` v2 @name `overrideThemeResId`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.getOverridingThemeResId:(Landroid/content/Context;I)I` @AccessFlag PRIVATE_STATIC {
+    temp;
+    v0;
+
+  #L19caf8.  if v2 != 0 then goto L19cb06;
+  #L19cafc.  call temp:= `getMaterialAlertDialogThemeOverlay`(v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.getMaterialAlertDialogThemeOverlay:(Landroid/content/Context;)I` @kind static;
+  #L19cb02.  v0:= temp;
+  #L19cb04.  goto L19cb08;
+  #L19cb06.  v0:= v2;
+  #L19cb08.  return v0;
+}
+procedure `androidx.appcompat.app.AlertDialog` `create`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v6 @kind this) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.create:()Landroidx/appcompat/app/AlertDialog;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+    v2;
+    v3;
+    v4;
+    v5;
+
+  #L19c124.  call temp:= `create`(v6) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.create:()Landroidx/appcompat/app/AlertDialog;` @kind super;
+  #L19c12a.  v0:= temp @kind object;
+  #L19c12c.  call temp:= `getWindow`(v0) @signature `Landroidx/appcompat/app/AlertDialog;.getWindow:()Landroid/view/Window;` @kind virtual;
+  #L19c132.  v1:= temp @kind object;
+  #L19c134.  call temp:= `getDecorView`(v1) @signature `Landroid/view/Window;.getDecorView:()Landroid/view/View;` @kind virtual;
+  #L19c13a.  v2:= temp @kind object;
+  #L19c13c.  v3:= v6.`com.google.android.material.dialog.MaterialAlertDialogBuilder.background` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L19c140.  v4:= instanceof @variable v3 @type ^`com.google.android.material.shape.MaterialShapeDrawable` @kind boolean;
+  #L19c144.  if v4 == 0 then goto L19c15a;
+  #L19c148.  v3:= (`com.google.android.material.shape.MaterialShapeDrawable`) v3 @kind object;
+  #L19c14c.  call temp:= `getElevation`(v2) @signature `Landroidx/core/view/ViewCompat;.getElevation:(Landroid/view/View;)F` @kind static;
+  #L19c152.  v4:= temp;
+  #L19c154.  call `setElevation`(v3, v4) @signature `Lcom/google/android/material/shape/MaterialShapeDrawable;.setElevation:(F)V` @kind virtual;
+  #L19c15a.  v3:= v6.`com.google.android.material.dialog.MaterialAlertDialogBuilder.background` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L19c15e.  v4:= v6.`com.google.android.material.dialog.MaterialAlertDialogBuilder.backgroundInsets` @type ^`android.graphics.Rect` @kind object;
+  #L19c162.  call temp:= `insetDrawable`(v3, v4) @signature `Lcom/google/android/material/dialog/MaterialDialogs;.insetDrawable:(Landroid/graphics/drawable/Drawable;Landroid/graphics/Rect;)Landroid/graphics/drawable/InsetDrawable;` @kind static;
+  #L19c168.  v3:= temp @kind object;
+  #L19c16a.  call `setBackgroundDrawable`(v1, v3) @signature `Landroid/view/Window;.setBackgroundDrawable:(Landroid/graphics/drawable/Drawable;)V` @kind virtual;
+  #L19c170.  v4:= new `com.google.android.material.dialog.InsetDialogOnTouchListener`;
+  #L19c174.  v5:= v6.`com.google.android.material.dialog.MaterialAlertDialogBuilder.backgroundInsets` @type ^`android.graphics.Rect` @kind object;
+  #L19c178.  call `<init>`(v4, v0, v5) @signature `Lcom/google/android/material/dialog/InsetDialogOnTouchListener;.<init>:(Landroid/app/Dialog;Landroid/graphics/Rect;)V` @kind direct;
+  #L19c17e.  call `setOnTouchListener`(v2, v4) @signature `Landroid/view/View;.setOnTouchListener:(Landroid/view/View$OnTouchListener;)V` @kind virtual;
+  #L19c184.  return v0 @kind object;
+}
+procedure `android.graphics.drawable.Drawable` `getBackground`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.getBackground:()Landroid/graphics/drawable/Drawable;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c10c.  v0:= v1.`com.google.android.material.dialog.MaterialAlertDialogBuilder.background` @type ^`android.graphics.drawable.Drawable` @kind object;
+  #L19c110.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setAdapter`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `android.widget.ListAdapter` v1 @kind object, `android.content.DialogInterface$OnClickListener` v2 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setAdapter:(Landroid/widget/ListAdapter;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c198.  call temp:= `setAdapter`(v0, v1, v2) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setAdapter:(Landroid/widget/ListAdapter;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c19e.  v1:= temp @kind object;
+  #L19c1a0.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setAdapter`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `android.widget.ListAdapter` v2 @kind object @name `adapter`, `android.content.DialogInterface$OnClickListener` v3 @kind object @name `listener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setAdapter:(Landroid/widget/ListAdapter;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c56c.  call temp:= `setAdapter`(v1, v2, v3) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setAdapter:(Landroid/widget/ListAdapter;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c572.  v0:= temp @kind object;
+  #L19c574.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c578.  return v0 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setBackground`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `android.graphics.drawable.Drawable` v1 @kind object @name `background`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setBackground:(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+
+  #L19c58c.  v0.`com.google.android.material.dialog.MaterialAlertDialogBuilder.background` @type ^`android.graphics.drawable.Drawable` := v1 @kind object;
+  #L19c590.  return v0 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setBackgroundInsetBottom`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `int` v2 @name `backgroundInsetBottom`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setBackgroundInsetBottom:(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c5a4.  v0:= v1.`com.google.android.material.dialog.MaterialAlertDialogBuilder.backgroundInsets` @type ^`android.graphics.Rect` @kind object;
+  #L19c5a8.  v0.`android.graphics.Rect.bottom` @type ^`int` := v2;
+  #L19c5ac.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setBackgroundInsetEnd`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v2 @kind this, `int` v3 @name `backgroundInsetEnd`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setBackgroundInsetEnd:(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19c5c0.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L19c5c4.  v1:= 17I;
+  #L19c5c8.  if v0 < v1 then goto L19c5fc;
+  #L19c5cc.  call temp:= `getContext`(v2) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L19c5d2.  v0:= temp @kind object;
+  #L19c5d4.  call temp:= `getResources`(v0) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L19c5da.  v0:= temp @kind object;
+  #L19c5dc.  call temp:= `getConfiguration`(v0) @signature `Landroid/content/res/Resources;.getConfiguration:()Landroid/content/res/Configuration;` @kind virtual;
+  #L19c5e2.  v0:= temp @kind object;
+  #L19c5e4.  call temp:= `getLayoutDirection`(v0) @signature `Landroid/content/res/Configuration;.getLayoutDirection:()I` @kind virtual;
+  #L19c5ea.  v0:= temp;
+  #L19c5ec.  v1:= 1I;
+  #L19c5ee.  if v0 != v1 then goto L19c5fc;
+  #L19c5f2.  v0:= v2.`com.google.android.material.dialog.MaterialAlertDialogBuilder.backgroundInsets` @type ^`android.graphics.Rect` @kind object;
+  #L19c5f6.  v0.`android.graphics.Rect.left` @type ^`int` := v3;
+  #L19c5fa.  goto L19c604;
+  #L19c5fc.  v0:= v2.`com.google.android.material.dialog.MaterialAlertDialogBuilder.backgroundInsets` @type ^`android.graphics.Rect` @kind object;
+  #L19c600.  v0.`android.graphics.Rect.right` @type ^`int` := v3;
+  #L19c604.  return v2 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setBackgroundInsetStart`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v2 @kind this, `int` v3 @name `backgroundInsetStart`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setBackgroundInsetStart:(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+    v1;
+
+  #L19c618.  v0:= `@@android.os.Build$VERSION.SDK_INT` @type ^`int`;
+  #L19c61c.  v1:= 17I;
+  #L19c620.  if v0 < v1 then goto L19c654;
+  #L19c624.  call temp:= `getContext`(v2) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.getContext:()Landroid/content/Context;` @kind virtual;
+  #L19c62a.  v0:= temp @kind object;
+  #L19c62c.  call temp:= `getResources`(v0) @signature `Landroid/content/Context;.getResources:()Landroid/content/res/Resources;` @kind virtual;
+  #L19c632.  v0:= temp @kind object;
+  #L19c634.  call temp:= `getConfiguration`(v0) @signature `Landroid/content/res/Resources;.getConfiguration:()Landroid/content/res/Configuration;` @kind virtual;
+  #L19c63a.  v0:= temp @kind object;
+  #L19c63c.  call temp:= `getLayoutDirection`(v0) @signature `Landroid/content/res/Configuration;.getLayoutDirection:()I` @kind virtual;
+  #L19c642.  v0:= temp;
+  #L19c644.  v1:= 1I;
+  #L19c646.  if v0 != v1 then goto L19c654;
+  #L19c64a.  v0:= v2.`com.google.android.material.dialog.MaterialAlertDialogBuilder.backgroundInsets` @type ^`android.graphics.Rect` @kind object;
+  #L19c64e.  v0.`android.graphics.Rect.right` @type ^`int` := v3;
+  #L19c652.  goto L19c65c;
+  #L19c654.  v0:= v2.`com.google.android.material.dialog.MaterialAlertDialogBuilder.backgroundInsets` @type ^`android.graphics.Rect` @kind object;
+  #L19c658.  v0.`android.graphics.Rect.left` @type ^`int` := v3;
+  #L19c65c.  return v2 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setBackgroundInsetTop`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `int` v2 @name `backgroundInsetTop`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setBackgroundInsetTop:(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c670.  v0:= v1.`com.google.android.material.dialog.MaterialAlertDialogBuilder.backgroundInsets` @type ^`android.graphics.Rect` @kind object;
+  #L19c674.  v0.`android.graphics.Rect.top` @type ^`int` := v2;
+  #L19c678.  return v1 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setCancelable`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `boolean` v1 ) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setCancelable:(Z)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c1b4.  call temp:= `setCancelable`(v0, v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setCancelable:(Z)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c1ba.  v1:= temp @kind object;
+  #L19c1bc.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setCancelable`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `boolean` v2 @name `cancelable`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setCancelable:(Z)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c68c.  call temp:= `setCancelable`(v1, v2) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setCancelable:(Z)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c692.  v0:= temp @kind object;
+  #L19c694.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c698.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setCursor`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `android.database.Cursor` v1 @kind object, `android.content.DialogInterface$OnClickListener` v2 @kind object, `java.lang.String` v3 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setCursor:(Landroid/database/Cursor;Landroid/content/DialogInterface$OnClickListener;Ljava/lang/String;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c1d0.  call temp:= `setCursor`(v0, v1, v2, v3) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setCursor:(Landroid/database/Cursor;Landroid/content/DialogInterface$OnClickListener;Ljava/lang/String;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c1d6.  v1:= temp @kind object;
+  #L19c1d8.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setCursor`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `android.database.Cursor` v2 @kind object @name `cursor`, `android.content.DialogInterface$OnClickListener` v3 @kind object @name `listener`, `java.lang.String` v4 @kind object @name `labelColumn`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setCursor:(Landroid/database/Cursor;Landroid/content/DialogInterface$OnClickListener;Ljava/lang/String;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c6ac.  call temp:= `setCursor`(v1, v2, v3, v4) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setCursor:(Landroid/database/Cursor;Landroid/content/DialogInterface$OnClickListener;Ljava/lang/String;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c6b2.  v0:= temp @kind object;
+  #L19c6b4.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c6b8.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setCustomTitle`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `android.view.View` v1 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setCustomTitle:(Landroid/view/View;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c1ec.  call temp:= `setCustomTitle`(v0, v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setCustomTitle:(Landroid/view/View;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c1f2.  v1:= temp @kind object;
+  #L19c1f4.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setCustomTitle`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `android.view.View` v2 @kind object @name `customTitleView`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setCustomTitle:(Landroid/view/View;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c6cc.  call temp:= `setCustomTitle`(v1, v2) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setCustomTitle:(Landroid/view/View;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c6d2.  v0:= temp @kind object;
+  #L19c6d4.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c6d8.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setIcon`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `int` v1 ) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setIcon:(I)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c224.  call temp:= `setIcon`(v0, v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setIcon:(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c22a.  v1:= temp @kind object;
+  #L19c22c.  return v1 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setIcon`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `android.graphics.drawable.Drawable` v1 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setIcon:(Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c208.  call temp:= `setIcon`(v0, v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setIcon:(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c20e.  v1:= temp @kind object;
+  #L19c210.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setIcon`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `int` v2 @name `iconId`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setIcon:(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c70c.  call temp:= `setIcon`(v1, v2) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setIcon:(I)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c712.  v0:= temp @kind object;
+  #L19c714.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c718.  return v0 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setIcon`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `icon`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setIcon:(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c6ec.  call temp:= `setIcon`(v1, v2) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setIcon:(Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c6f2.  v0:= temp @kind object;
+  #L19c6f4.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c6f8.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setIconAttribute`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `int` v1 ) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setIconAttribute:(I)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c240.  call temp:= `setIconAttribute`(v0, v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setIconAttribute:(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c246.  v1:= temp @kind object;
+  #L19c248.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setIconAttribute`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `int` v2 @name `attrId`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setIconAttribute:(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c72c.  call temp:= `setIconAttribute`(v1, v2) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setIconAttribute:(I)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c732.  v0:= temp @kind object;
+  #L19c734.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c738.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setItems`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `int` v1 , `android.content.DialogInterface$OnClickListener` v2 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setItems:(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c25c.  call temp:= `setItems`(v0, v1, v2) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setItems:(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c262.  v1:= temp @kind object;
+  #L19c264.  return v1 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setItems`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `java.lang.CharSequence`[] v1 @kind object, `android.content.DialogInterface$OnClickListener` v2 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setItems:([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c278.  call temp:= `setItems`(v0, v1, v2) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setItems:([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c27e.  v1:= temp @kind object;
+  #L19c280.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setItems`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `int` v2 @name `itemsId`, `android.content.DialogInterface$OnClickListener` v3 @kind object @name `listener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setItems:(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c74c.  call temp:= `setItems`(v1, v2, v3) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setItems:(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c752.  v0:= temp @kind object;
+  #L19c754.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c758.  return v0 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setItems`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `java.lang.CharSequence`[] v2 @kind object @name `items`, `android.content.DialogInterface$OnClickListener` v3 @kind object @name `listener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setItems:([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c76c.  call temp:= `setItems`(v1, v2, v3) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setItems:([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c772.  v0:= temp @kind object;
+  #L19c774.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c778.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setMessage`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `int` v1 ) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setMessage:(I)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c294.  call temp:= `setMessage`(v0, v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setMessage:(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c29a.  v1:= temp @kind object;
+  #L19c29c.  return v1 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setMessage`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `java.lang.CharSequence` v1 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setMessage:(Ljava/lang/CharSequence;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c2b0.  call temp:= `setMessage`(v0, v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setMessage:(Ljava/lang/CharSequence;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c2b6.  v1:= temp @kind object;
+  #L19c2b8.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setMessage`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `int` v2 @name `messageId`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setMessage:(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c78c.  call temp:= `setMessage`(v1, v2) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setMessage:(I)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c792.  v0:= temp @kind object;
+  #L19c794.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c798.  return v0 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setMessage`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `message`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setMessage:(Ljava/lang/CharSequence;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c7ac.  call temp:= `setMessage`(v1, v2) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setMessage:(Ljava/lang/CharSequence;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c7b2.  v0:= temp @kind object;
+  #L19c7b4.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c7b8.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setMultiChoiceItems`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `int` v1 , `boolean`[] v2 @kind object, `android.content.DialogInterface$OnMultiChoiceClickListener` v3 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setMultiChoiceItems:(I[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c2e8.  call temp:= `setMultiChoiceItems`(v0, v1, v2, v3) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setMultiChoiceItems:(I[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c2ee.  v1:= temp @kind object;
+  #L19c2f0.  return v1 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setMultiChoiceItems`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `android.database.Cursor` v1 @kind object, `java.lang.String` v2 @kind object, `java.lang.String` v3 @kind object, `android.content.DialogInterface$OnMultiChoiceClickListener` v4 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setMultiChoiceItems:(Landroid/database/Cursor;Ljava/lang/String;Ljava/lang/String;Landroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c2cc.  call temp:= `setMultiChoiceItems`(v0, v1, v2, v3, v4) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setMultiChoiceItems:(Landroid/database/Cursor;Ljava/lang/String;Ljava/lang/String;Landroid/content/DialogInterface$OnMultiChoiceClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c2d2.  v1:= temp @kind object;
+  #L19c2d4.  return v1 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setMultiChoiceItems`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `java.lang.CharSequence`[] v1 @kind object, `boolean`[] v2 @kind object, `android.content.DialogInterface$OnMultiChoiceClickListener` v3 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setMultiChoiceItems:([Ljava/lang/CharSequence;[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c304.  call temp:= `setMultiChoiceItems`(v0, v1, v2, v3) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setMultiChoiceItems:([Ljava/lang/CharSequence;[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c30a.  v1:= temp @kind object;
+  #L19c30c.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setMultiChoiceItems`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `int` v2 @name `itemsId`, `boolean`[] v3 @kind object @name `checkedItems`, `android.content.DialogInterface$OnMultiChoiceClickListener` v4 @kind object @name `listener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setMultiChoiceItems:(I[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c7ec.  call temp:= `setMultiChoiceItems`(v1, v2, v3, v4) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setMultiChoiceItems:(I[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c7f2.  v0:= temp @kind object;
+  #L19c7f4.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c7f8.  return v0 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setMultiChoiceItems`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `android.database.Cursor` v2 @kind object @name `cursor`, `java.lang.String` v3 @kind object @name `isCheckedColumn`, `java.lang.String` v4 @kind object @name `labelColumn`, `android.content.DialogInterface$OnMultiChoiceClickListener` v5 @kind object @name `listener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setMultiChoiceItems:(Landroid/database/Cursor;Ljava/lang/String;Ljava/lang/String;Landroid/content/DialogInterface$OnMultiChoiceClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c7cc.  
+  #L19c7ce.  call temp:= `setMultiChoiceItems`(v1, v2, v3, v4, v5) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setMultiChoiceItems:(Landroid/database/Cursor;Ljava/lang/String;Ljava/lang/String;Landroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c7d4.  v0:= temp @kind object;
+  #L19c7d6.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c7da.  return v0 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setMultiChoiceItems`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `java.lang.CharSequence`[] v2 @kind object @name `items`, `boolean`[] v3 @kind object @name `checkedItems`, `android.content.DialogInterface$OnMultiChoiceClickListener` v4 @kind object @name `listener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setMultiChoiceItems:([Ljava/lang/CharSequence;[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c80c.  call temp:= `setMultiChoiceItems`(v1, v2, v3, v4) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setMultiChoiceItems:([Ljava/lang/CharSequence;[ZLandroid/content/DialogInterface$OnMultiChoiceClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c812.  v0:= temp @kind object;
+  #L19c814.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c818.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setNegativeButton`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `int` v1 , `android.content.DialogInterface$OnClickListener` v2 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setNegativeButton:(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c320.  call temp:= `setNegativeButton`(v0, v1, v2) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setNegativeButton:(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c326.  v1:= temp @kind object;
+  #L19c328.  return v1 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setNegativeButton`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `java.lang.CharSequence` v1 @kind object, `android.content.DialogInterface$OnClickListener` v2 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setNegativeButton:(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c33c.  call temp:= `setNegativeButton`(v0, v1, v2) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setNegativeButton:(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c342.  v1:= temp @kind object;
+  #L19c344.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setNegativeButton`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `int` v2 @name `textId`, `android.content.DialogInterface$OnClickListener` v3 @kind object @name `listener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setNegativeButton:(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c82c.  call temp:= `setNegativeButton`(v1, v2, v3) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setNegativeButton:(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c832.  v0:= temp @kind object;
+  #L19c834.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c838.  return v0 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setNegativeButton`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `text`, `android.content.DialogInterface$OnClickListener` v3 @kind object @name `listener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setNegativeButton:(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c84c.  call temp:= `setNegativeButton`(v1, v2, v3) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setNegativeButton:(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c852.  v0:= temp @kind object;
+  #L19c854.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c858.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setNegativeButtonIcon`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `android.graphics.drawable.Drawable` v1 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setNegativeButtonIcon:(Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c358.  call temp:= `setNegativeButtonIcon`(v0, v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setNegativeButtonIcon:(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c35e.  v1:= temp @kind object;
+  #L19c360.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setNegativeButtonIcon`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `icon`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setNegativeButtonIcon:(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c86c.  call temp:= `setNegativeButtonIcon`(v1, v2) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setNegativeButtonIcon:(Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c872.  v0:= temp @kind object;
+  #L19c874.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c878.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setNeutralButton`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `int` v1 , `android.content.DialogInterface$OnClickListener` v2 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setNeutralButton:(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c374.  call temp:= `setNeutralButton`(v0, v1, v2) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setNeutralButton:(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c37a.  v1:= temp @kind object;
+  #L19c37c.  return v1 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setNeutralButton`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `java.lang.CharSequence` v1 @kind object, `android.content.DialogInterface$OnClickListener` v2 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setNeutralButton:(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c390.  call temp:= `setNeutralButton`(v0, v1, v2) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setNeutralButton:(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c396.  v1:= temp @kind object;
+  #L19c398.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setNeutralButton`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `int` v2 @name `textId`, `android.content.DialogInterface$OnClickListener` v3 @kind object @name `listener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setNeutralButton:(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c88c.  call temp:= `setNeutralButton`(v1, v2, v3) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setNeutralButton:(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c892.  v0:= temp @kind object;
+  #L19c894.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c898.  return v0 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setNeutralButton`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `text`, `android.content.DialogInterface$OnClickListener` v3 @kind object @name `listener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setNeutralButton:(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c8ac.  call temp:= `setNeutralButton`(v1, v2, v3) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setNeutralButton:(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c8b2.  v0:= temp @kind object;
+  #L19c8b4.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c8b8.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setNeutralButtonIcon`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `android.graphics.drawable.Drawable` v1 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setNeutralButtonIcon:(Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c3ac.  call temp:= `setNeutralButtonIcon`(v0, v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setNeutralButtonIcon:(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c3b2.  v1:= temp @kind object;
+  #L19c3b4.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setNeutralButtonIcon`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `icon`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setNeutralButtonIcon:(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c8cc.  call temp:= `setNeutralButtonIcon`(v1, v2) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setNeutralButtonIcon:(Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c8d2.  v0:= temp @kind object;
+  #L19c8d4.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c8d8.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setOnCancelListener`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `android.content.DialogInterface$OnCancelListener` v1 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setOnCancelListener:(Landroid/content/DialogInterface$OnCancelListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c3c8.  call temp:= `setOnCancelListener`(v0, v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setOnCancelListener:(Landroid/content/DialogInterface$OnCancelListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c3ce.  v1:= temp @kind object;
+  #L19c3d0.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setOnCancelListener`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `android.content.DialogInterface$OnCancelListener` v2 @kind object @name `onCancelListener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setOnCancelListener:(Landroid/content/DialogInterface$OnCancelListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c8ec.  call temp:= `setOnCancelListener`(v1, v2) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setOnCancelListener:(Landroid/content/DialogInterface$OnCancelListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c8f2.  v0:= temp @kind object;
+  #L19c8f4.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c8f8.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setOnDismissListener`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `android.content.DialogInterface$OnDismissListener` v1 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setOnDismissListener:(Landroid/content/DialogInterface$OnDismissListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c3e4.  call temp:= `setOnDismissListener`(v0, v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setOnDismissListener:(Landroid/content/DialogInterface$OnDismissListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c3ea.  v1:= temp @kind object;
+  #L19c3ec.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setOnDismissListener`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `android.content.DialogInterface$OnDismissListener` v2 @kind object @name `onDismissListener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setOnDismissListener:(Landroid/content/DialogInterface$OnDismissListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c90c.  call temp:= `setOnDismissListener`(v1, v2) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setOnDismissListener:(Landroid/content/DialogInterface$OnDismissListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c912.  v0:= temp @kind object;
+  #L19c914.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c918.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setOnItemSelectedListener`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `android.widget.AdapterView$OnItemSelectedListener` v1 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setOnItemSelectedListener:(Landroid/widget/AdapterView$OnItemSelectedListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c400.  call temp:= `setOnItemSelectedListener`(v0, v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setOnItemSelectedListener:(Landroid/widget/AdapterView$OnItemSelectedListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c406.  v1:= temp @kind object;
+  #L19c408.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setOnItemSelectedListener`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `android.widget.AdapterView$OnItemSelectedListener` v2 @kind object @name `listener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setOnItemSelectedListener:(Landroid/widget/AdapterView$OnItemSelectedListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c92c.  call temp:= `setOnItemSelectedListener`(v1, v2) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setOnItemSelectedListener:(Landroid/widget/AdapterView$OnItemSelectedListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c932.  v0:= temp @kind object;
+  #L19c934.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c938.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setOnKeyListener`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `android.content.DialogInterface$OnKeyListener` v1 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setOnKeyListener:(Landroid/content/DialogInterface$OnKeyListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c41c.  call temp:= `setOnKeyListener`(v0, v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setOnKeyListener:(Landroid/content/DialogInterface$OnKeyListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c422.  v1:= temp @kind object;
+  #L19c424.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setOnKeyListener`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `android.content.DialogInterface$OnKeyListener` v2 @kind object @name `onKeyListener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setOnKeyListener:(Landroid/content/DialogInterface$OnKeyListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c94c.  call temp:= `setOnKeyListener`(v1, v2) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setOnKeyListener:(Landroid/content/DialogInterface$OnKeyListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c952.  v0:= temp @kind object;
+  #L19c954.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c958.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setPositiveButton`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `int` v1 , `android.content.DialogInterface$OnClickListener` v2 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setPositiveButton:(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c438.  call temp:= `setPositiveButton`(v0, v1, v2) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setPositiveButton:(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c43e.  v1:= temp @kind object;
+  #L19c440.  return v1 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setPositiveButton`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `java.lang.CharSequence` v1 @kind object, `android.content.DialogInterface$OnClickListener` v2 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setPositiveButton:(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c454.  call temp:= `setPositiveButton`(v0, v1, v2) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setPositiveButton:(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c45a.  v1:= temp @kind object;
+  #L19c45c.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setPositiveButton`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `int` v2 @name `textId`, `android.content.DialogInterface$OnClickListener` v3 @kind object @name `listener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setPositiveButton:(ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c96c.  call temp:= `setPositiveButton`(v1, v2, v3) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setPositiveButton:(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c972.  v0:= temp @kind object;
+  #L19c974.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c978.  return v0 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setPositiveButton`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `text`, `android.content.DialogInterface$OnClickListener` v3 @kind object @name `listener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setPositiveButton:(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c98c.  call temp:= `setPositiveButton`(v1, v2, v3) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setPositiveButton:(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c992.  v0:= temp @kind object;
+  #L19c994.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c998.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setPositiveButtonIcon`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `android.graphics.drawable.Drawable` v1 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setPositiveButtonIcon:(Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c470.  call temp:= `setPositiveButtonIcon`(v0, v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setPositiveButtonIcon:(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c476.  v1:= temp @kind object;
+  #L19c478.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setPositiveButtonIcon`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `android.graphics.drawable.Drawable` v2 @kind object @name `icon`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setPositiveButtonIcon:(Landroid/graphics/drawable/Drawable;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c9ac.  call temp:= `setPositiveButtonIcon`(v1, v2) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setPositiveButtonIcon:(Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c9b2.  v0:= temp @kind object;
+  #L19c9b4.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c9b8.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setSingleChoiceItems`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `int` v1 , `int` v2 , `android.content.DialogInterface$OnClickListener` v3 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setSingleChoiceItems:(IILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c4c4.  call temp:= `setSingleChoiceItems`(v0, v1, v2, v3) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setSingleChoiceItems:(IILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c4ca.  v1:= temp @kind object;
+  #L19c4cc.  return v1 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setSingleChoiceItems`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `android.database.Cursor` v1 @kind object, `int` v2 , `java.lang.String` v3 @kind object, `android.content.DialogInterface$OnClickListener` v4 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setSingleChoiceItems:(Landroid/database/Cursor;ILjava/lang/String;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c48c.  call temp:= `setSingleChoiceItems`(v0, v1, v2, v3, v4) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setSingleChoiceItems:(Landroid/database/Cursor;ILjava/lang/String;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c492.  v1:= temp @kind object;
+  #L19c494.  return v1 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setSingleChoiceItems`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `android.widget.ListAdapter` v1 @kind object, `int` v2 , `android.content.DialogInterface$OnClickListener` v3 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setSingleChoiceItems:(Landroid/widget/ListAdapter;ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c4a8.  call temp:= `setSingleChoiceItems`(v0, v1, v2, v3) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setSingleChoiceItems:(Landroid/widget/ListAdapter;ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c4ae.  v1:= temp @kind object;
+  #L19c4b0.  return v1 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setSingleChoiceItems`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `java.lang.CharSequence`[] v1 @kind object, `int` v2 , `android.content.DialogInterface$OnClickListener` v3 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setSingleChoiceItems:([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c4e0.  call temp:= `setSingleChoiceItems`(v0, v1, v2, v3) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setSingleChoiceItems:([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c4e6.  v1:= temp @kind object;
+  #L19c4e8.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setSingleChoiceItems`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `int` v2 @name `itemsId`, `int` v3 @name `checkedItem`, `android.content.DialogInterface$OnClickListener` v4 @kind object @name `listener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setSingleChoiceItems:(IILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19ca0c.  call temp:= `setSingleChoiceItems`(v1, v2, v3, v4) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setSingleChoiceItems:(IILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19ca12.  v0:= temp @kind object;
+  #L19ca14.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19ca18.  return v0 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setSingleChoiceItems`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `android.database.Cursor` v2 @kind object @name `cursor`, `int` v3 @name `checkedItem`, `java.lang.String` v4 @kind object @name `labelColumn`, `android.content.DialogInterface$OnClickListener` v5 @kind object @name `listener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setSingleChoiceItems:(Landroid/database/Cursor;ILjava/lang/String;Landroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c9cc.  
+  #L19c9ce.  call temp:= `setSingleChoiceItems`(v1, v2, v3, v4, v5) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setSingleChoiceItems:(Landroid/database/Cursor;ILjava/lang/String;Landroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c9d4.  v0:= temp @kind object;
+  #L19c9d6.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c9da.  return v0 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setSingleChoiceItems`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `android.widget.ListAdapter` v2 @kind object @name `adapter`, `int` v3 @name `checkedItem`, `android.content.DialogInterface$OnClickListener` v4 @kind object @name `listener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setSingleChoiceItems:(Landroid/widget/ListAdapter;ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19c9ec.  call temp:= `setSingleChoiceItems`(v1, v2, v3, v4) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setSingleChoiceItems:(Landroid/widget/ListAdapter;ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19c9f2.  v0:= temp @kind object;
+  #L19c9f4.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19c9f8.  return v0 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setSingleChoiceItems`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `java.lang.CharSequence`[] v2 @kind object @name `items`, `int` v3 @name `checkedItem`, `android.content.DialogInterface$OnClickListener` v4 @kind object @name `listener`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setSingleChoiceItems:([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19ca2c.  call temp:= `setSingleChoiceItems`(v1, v2, v3, v4) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setSingleChoiceItems:([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19ca32.  v0:= temp @kind object;
+  #L19ca34.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19ca38.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setTitle`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `int` v1 ) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setTitle:(I)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c4fc.  call temp:= `setTitle`(v0, v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setTitle:(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c502.  v1:= temp @kind object;
+  #L19c504.  return v1 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setTitle`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `java.lang.CharSequence` v1 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setTitle:(Ljava/lang/CharSequence;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c518.  call temp:= `setTitle`(v0, v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setTitle:(Ljava/lang/CharSequence;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c51e.  v1:= temp @kind object;
+  #L19c520.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setTitle`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `int` v2 @name `titleId`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setTitle:(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19ca4c.  call temp:= `setTitle`(v1, v2) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setTitle:(I)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19ca52.  v0:= temp @kind object;
+  #L19ca54.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19ca58.  return v0 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setTitle`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `java.lang.CharSequence` v2 @kind object @name `title`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setTitle:(Ljava/lang/CharSequence;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19ca6c.  call temp:= `setTitle`(v1, v2) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setTitle:(Ljava/lang/CharSequence;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19ca72.  v0:= temp @kind object;
+  #L19ca74.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19ca78.  return v0 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setView`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `int` v1 ) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setView:(I)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c550.  call temp:= `setView`(v0, v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setView:(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c556.  v1:= temp @kind object;
+  #L19c558.  return v1 @kind object;
+}
+procedure `androidx.appcompat.app.AlertDialog$Builder` `setView`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v0 @kind this, `android.view.View` v1 @kind object) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setView:(Landroid/view/View;)Landroidx/appcompat/app/AlertDialog$Builder;` @AccessFlag PUBLIC_SYNTHETIC {
+    temp;
+
+  #L19c534.  call temp:= `setView`(v0, v1) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setView:(Landroid/view/View;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @kind virtual;
+  #L19c53a.  v1:= temp @kind object;
+  #L19c53c.  return v1 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setView`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `int` v2 @name `layoutResId`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setView:(I)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19caac.  call temp:= `setView`(v1, v2) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setView:(I)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19cab2.  v0:= temp @kind object;
+  #L19cab4.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19cab8.  return v0 @kind object;
+}
+procedure `com.google.android.material.dialog.MaterialAlertDialogBuilder` `setView`(`com.google.android.material.dialog.MaterialAlertDialogBuilder` v1 @kind this, `android.view.View` v2 @kind object @name `view`) @signature `Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;.setView:(Landroid/view/View;)Lcom/google/android/material/dialog/MaterialAlertDialogBuilder;` @AccessFlag PUBLIC {
+    temp;
+    v0;
+
+  #L19ca8c.  call temp:= `setView`(v1, v2) @signature `Landroidx/appcompat/app/AlertDialog$Builder;.setView:(Landroid/view/View;)Landroidx/appcompat/app/AlertDialog$Builder;` @kind super;
+  #L19ca92.  v0:= temp @kind object;
+  #L19ca94.  v0:= (`com.google.android.material.dialog.MaterialAlertDialogBuilder`) v0 @kind object;
+  #L19ca98.  return v0 @kind object;
+}
