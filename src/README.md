@@ -10,6 +10,7 @@ jdk version: 1.8.0_261
 sudo apt install python3-pip
 pip install psutil
 sudo apt install adb
+sudo apt-get install graphviz libgraphviz-dev
 
 # configuration virtualenv
 pip install virtualenv
