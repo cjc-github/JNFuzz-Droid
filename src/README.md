@@ -17,13 +17,13 @@ pip install virtualenv
 pip install virtualenvwrapper
 ```
 
-sudo ~/.bashrc
+sudo gedit ~/.bashrc
 
 ```
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export VIRTUALENVWRAPPER_VIRTUALENV=~/.local/bin/virtualenv
-source /home/cao/.local/bin/virtualenvwrapper.sh
+source /home/test/.local/bin/virtualenvwrapper.sh
 ```
 
 source ~/.bashrc
@@ -84,8 +84,7 @@ export STANDALONE_TOOLCHAIN_PATH_arm64=~/Android/Sdk/ndk/android-standalone-tool
 First install frida
 
 ```
-pip install frida
-pip install frida-tools
+pip install frida==15.1.22
 ```
 
 
