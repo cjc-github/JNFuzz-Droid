@@ -44,27 +44,30 @@ pygraphviz
 
 
 ### 三、Cross compilation
+First, download the Android NDK. You can visit it via NDK website link or other IDE tools (e.g., AndroidStudio).
 
-For example, First download the Android NDK
+Here, we download the NDK 21.3.652817 via **AndroidStudio**.
 
 ```
 https://developer.android.com/ndk/downloads
-https://dl.google.com/android/repository/android-ndk-r20-linux-x86_64.zip
+https://dl.google.com/android/repository/android-ndk-r21d-linux-x86_64.zip
 ```
 
-Then unzip it and build the standalone-toolchain For x86_64 standalone-toolchain
+Then, unzip it and build the standalone-toolchain For x86_64 standalone-toolchain
 
 ```
-unzip android-ndk-r20-linux-x86_64.zip
-cd android-ndk-r20/
-./build/tools/make_standalone_toolchain.py --arch x86_64 --api 21 --install-dir ../android-standalone-toolchain-x86_64
-```
+unzip android-ndk-r21-linux-x86_64.zip
+cd android-ndk-r21/
 
+./build/tools/make-standalone-toolchain.sh --arch=arm --platform=21 --install-dir=../android-standalone-toolchain-arm
+./build/tools/make-standalone-toolchain.sh --arch=x86 --platform=21 --install-dir=../android-standalone-toolchain-x86
+./build/tools/make-standalone-toolchain.sh --arch=x86_64 --platform=21 --install-dir=../android-standalone-toolchain-x86_64
+./build/tools/make-standalone-toolchain.sh --arch=arm64 --platform=21 --install-dir=../android-standalone-toolchain-arm64
+```
 Last, it will generate the path of standalone-toolchain.
 
 
-
-Finally, our environment as follows:
+Finally, change toolchain environment as follows:
 
 ```
 export NDK_HOME=~/Android/Sdk/ndk/21.1.6352462
