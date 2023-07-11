@@ -24,10 +24,11 @@ options:
 + `-o out_folder` : The path for apk out folder
 + `-a` : perform Amandroid static analysis
 + `-f` : perform FlowDroid static analysis
++ `-arch [armeabi|armeabi-v7a|arm64-v8a|x86|x86_64]` : Specified cpu architecture
 + `-h` : help
 + `-r` : remove some information to save memory 
-+ `-st`: static analysis time
-+ `-t` : fuzzing time
++ `-st time`: static analysis time
++ `-t time` : fuzzing time
 
 
 
