@@ -241,10 +241,10 @@ void getjni_string(char *dest, char *src, int start, int n)
 
 
 int main(int argc, char *argv[]) {
-    targetAppPath = "/data/local/tmp/switch1.apk";
-    targetLibName = "/data/local/tmp/libswitch1.so";
-    std::string className="org/cao/switch1/MainActivity";
-    targetFunctionName="Java_org_cao_switch1_MainActivity_send";
+    targetAppPath = "/data/local/tmp/arm64_v8a.apk";
+    targetLibName = "/data/local/tmp/libarm64_v8a.so";
+    std::string className="org/cao/arm64_v8a/MainActivity";
+    targetFunctionName="Java_org_cao_arm64_1v8a_MainActivity_send";
 
 	std::cout << " [+] Native Harness \n" << std::endl;
 
@@ -454,295 +454,295 @@ int findFunctionPtrSharedLib()
 }
 
 jint JNICALL GetEnv_fake(JavaVM *javaVM_fake, void **env_ret, jint status)
-	{
-		std::cout << " [+] Fake GetEnv called" << std::endl;
+{
+    std::cout << " [+] Fake GetEnv called" << std::endl;
 
-		JNIEnv *env_fake = (JNIEnv *) malloc(sizeof(JNIEnv));
-		JNINativeInterface *env_fake_functions = (JNINativeInterface *) malloc(sizeof(JNINativeInterface));
-		JNINativeInterface *env_functions = (JNINativeInterface *)env->functions;
+    JNIEnv *env_fake = (JNIEnv *) malloc(sizeof(JNIEnv));
+    JNINativeInterface *env_fake_functions = (JNINativeInterface *) malloc(sizeof(JNINativeInterface));
+    JNINativeInterface *env_functions = (JNINativeInterface *)env->functions;
 
-		env_fake_functions->RegisterNatives = RegisterNatives_fake;
+    env_fake_functions->RegisterNatives = RegisterNatives_fake;
 
-		env_fake_functions->FindClass = FindClass_fake;
-		env_fake_functions->GetVersion = GetVersion_fake;
-		env_fake_functions->DefineClass = DefineClass_fake;
-		env_fake_functions->FromReflectedMethod = FromReflectedMethod_fake;
-		env_fake_functions->FromReflectedField = FromReflectedField_fake;
-		env_fake_functions->ToReflectedMethod = ToReflectedMethod_fake;
-		env_fake_functions->GetSuperclass = GetSuperclass_fake;
-		env_fake_functions->IsAssignableFrom = IsAssignableFrom_fake;
-		env_fake_functions->ToReflectedField = ToReflectedField_fake;
-		env_fake_functions->Throw = Throw_fake;
-		env_fake_functions->ThrowNew = ThrowNew_fake;
-		env_fake_functions->ExceptionOccurred = ExceptionOccurred_fake;
-		env_fake_functions->ExceptionDescribe = ExceptionDescribe_fake;
-		env_fake_functions->ExceptionClear = ExceptionClear_fake;
-		env_fake_functions->FatalError = FatalError_fake;
-		env_fake_functions->PushLocalFrame = PushLocalFrame_fake;
-		env_fake_functions->PopLocalFrame = PopLocalFrame_fake;
-		env_fake_functions->NewGlobalRef = NewGlobalRef_fake;
-		env_fake_functions->DeleteGlobalRef = DeleteGlobalRef_fake;
-		env_fake_functions->DeleteLocalRef = DeleteLocalRef_fake;
-		env_fake_functions->IsSameObject = IsSameObject_fake;
-		env_fake_functions->NewLocalRef = NewLocalRef_fake;
-		env_fake_functions->EnsureLocalCapacity = EnsureLocalCapacity_fake;
-		env_fake_functions->AllocObject = AllocObject_fake;
-		env_fake_functions->NewObject = NewObject_fake;
-		env_fake_functions->NewObjectV = NewObjectV_fake;
-		env_fake_functions->NewObjectA = NewObjectA_fake;
-		env_fake_functions->GetObjectClass = GetObjectClass_fake;
-		env_fake_functions->IsInstanceOf = IsInstanceOf_fake;
-		env_fake_functions->GetMethodID = GetMethodID_fake;
-		env_fake_functions->CallObjectMethod = CallObjectMethod_fake;
-		env_fake_functions->CallObjectMethodV = CallObjectMethodV_fake;
-		env_fake_functions->CallObjectMethodA = CallObjectMethodA_fake;
-		env_fake_functions->CallBooleanMethod = CallBooleanMethod_fake;
-		env_fake_functions->CallBooleanMethodV = CallBooleanMethodV_fake;
-		env_fake_functions->CallBooleanMethodA = CallBooleanMethodA_fake;
-		env_fake_functions->CallByteMethod = CallByteMethod_fake;
-		env_fake_functions->CallByteMethodV = CallByteMethodV_fake;
-		env_fake_functions->CallByteMethodA = CallByteMethodA_fake;
-		env_fake_functions->CallCharMethod = CallCharMethod_fake;
-		env_fake_functions->CallCharMethodV = CallCharMethodV_fake;
-		env_fake_functions->CallCharMethodA = CallCharMethodA_fake;
-		env_fake_functions->CallShortMethod = CallShortMethod_fake;
-		env_fake_functions->CallShortMethodV = CallShortMethodV_fake;
-		env_fake_functions->CallShortMethodA = CallShortMethodA_fake;
-		env_fake_functions->CallIntMethod = CallIntMethod_fake;
-		env_fake_functions->CallIntMethodV = CallIntMethodV_fake;
-		env_fake_functions->CallIntMethodA = CallIntMethodA_fake;
-		env_fake_functions->CallLongMethod = CallLongMethod_fake;
-		env_fake_functions->CallLongMethodV = CallLongMethodV_fake;
-		env_fake_functions->CallLongMethodA = CallLongMethodA_fake;
-		env_fake_functions->CallFloatMethod = CallFloatMethod_fake;
-		env_fake_functions->CallFloatMethodV = CallFloatMethodV_fake;
-		env_fake_functions->CallFloatMethodA = CallFloatMethodA_fake;
-		env_fake_functions->CallDoubleMethod = CallDoubleMethod_fake;
-		env_fake_functions->CallDoubleMethodV = CallDoubleMethodV_fake;
-		env_fake_functions->CallDoubleMethodA = CallDoubleMethodA_fake;
-		env_fake_functions->CallVoidMethod = CallVoidMethod_fake;
-		env_fake_functions->CallVoidMethodV = CallVoidMethodV_fake;
-		env_fake_functions->CallVoidMethodA = CallVoidMethodA_fake;
-		env_fake_functions->CallNonvirtualObjectMethod = CallNonvirtualObjectMethod_fake;
-		env_fake_functions->CallNonvirtualObjectMethodV = CallNonvirtualObjectMethodV_fake;
-		env_fake_functions->CallNonvirtualObjectMethodA = CallNonvirtualObjectMethodA_fake;
-		env_fake_functions->CallNonvirtualBooleanMethod = CallNonvirtualBooleanMethod_fake;
-		env_fake_functions->CallNonvirtualBooleanMethodV = CallNonvirtualBooleanMethodV_fake;
-		env_fake_functions->CallNonvirtualBooleanMethodA = CallNonvirtualBooleanMethodA_fake;
-		env_fake_functions->CallNonvirtualByteMethod = CallNonvirtualByteMethod_fake;
-		env_fake_functions->CallNonvirtualByteMethodV = CallNonvirtualByteMethodV_fake;
-		env_fake_functions->CallNonvirtualByteMethodA = CallNonvirtualByteMethodA_fake;
-		env_fake_functions->CallNonvirtualCharMethod = CallNonvirtualCharMethod_fake;
-		env_fake_functions->CallNonvirtualCharMethodV = CallNonvirtualCharMethodV_fake;
-		env_fake_functions->CallNonvirtualCharMethodA = CallNonvirtualCharMethodA_fake;
-		env_fake_functions->CallNonvirtualShortMethod = CallNonvirtualShortMethod_fake;
-		env_fake_functions->CallNonvirtualShortMethodV = CallNonvirtualShortMethodV_fake;
-		env_fake_functions->CallNonvirtualShortMethodA = CallNonvirtualShortMethodA_fake;
-		env_fake_functions->CallNonvirtualIntMethod = CallNonvirtualIntMethod_fake;
-		env_fake_functions->CallNonvirtualIntMethodV = CallNonvirtualIntMethodV_fake;
-		env_fake_functions->CallNonvirtualIntMethodA = CallNonvirtualIntMethodA_fake;
-		env_fake_functions->CallNonvirtualLongMethod = CallNonvirtualLongMethod_fake;
-		env_fake_functions->CallNonvirtualLongMethodV = CallNonvirtualLongMethodV_fake;
-		env_fake_functions->CallNonvirtualLongMethodA = CallNonvirtualLongMethodA_fake;
-		env_fake_functions->CallNonvirtualFloatMethod = CallNonvirtualFloatMethod_fake;
-		env_fake_functions->CallNonvirtualFloatMethodV = CallNonvirtualFloatMethodV_fake;
-		env_fake_functions->CallNonvirtualFloatMethodA = CallNonvirtualFloatMethodA_fake;
-		env_fake_functions->CallNonvirtualDoubleMethod = CallNonvirtualDoubleMethod_fake;
-		env_fake_functions->CallNonvirtualDoubleMethodV = CallNonvirtualDoubleMethodV_fake;
-		env_fake_functions->CallNonvirtualDoubleMethodA = CallNonvirtualDoubleMethodA_fake;
-		env_fake_functions->CallNonvirtualVoidMethod = CallNonvirtualVoidMethod_fake;
-		env_fake_functions->CallNonvirtualVoidMethodV = CallNonvirtualVoidMethodV_fake;
-		env_fake_functions->CallNonvirtualVoidMethodA = CallNonvirtualVoidMethodA_fake;
-		env_fake_functions->GetFieldID = GetFieldID_fake;
-		env_fake_functions->GetObjectField = GetObjectField_fake;
-		env_fake_functions->GetBooleanField = GetBooleanField_fake;
-		env_fake_functions->GetByteField = GetByteField_fake;
-		env_fake_functions->GetCharField = GetCharField_fake;
-		env_fake_functions->GetShortField = GetShortField_fake;
-		env_fake_functions->GetIntField = GetIntField_fake;
-		env_fake_functions->GetLongField = GetLongField_fake;
-		env_fake_functions->GetFloatField = GetFloatField_fake;
-		env_fake_functions->GetDoubleField = GetDoubleField_fake;
-		env_fake_functions->SetObjectField = SetObjectField_fake;
-		env_fake_functions->SetBooleanField = SetBooleanField_fake;
-		env_fake_functions->SetByteField = SetByteField_fake;
-		env_fake_functions->SetCharField = SetCharField_fake;
-		env_fake_functions->SetShortField = SetShortField_fake;
-		env_fake_functions->SetIntField = SetIntField_fake;
-		env_fake_functions->SetLongField = SetLongField_fake;
-		env_fake_functions->SetFloatField = SetFloatField_fake;
-		env_fake_functions->SetDoubleField = SetDoubleField_fake;
-		env_fake_functions->GetStaticMethodID = GetStaticMethodID_fake;
-		env_fake_functions->CallStaticObjectMethod = CallStaticObjectMethod_fake;
-		env_fake_functions->CallStaticObjectMethodV = CallStaticObjectMethodV_fake;
-		env_fake_functions->CallStaticObjectMethodA = CallStaticObjectMethodA_fake;
-		env_fake_functions->CallStaticBooleanMethod = CallStaticBooleanMethod_fake;
-		env_fake_functions->CallStaticBooleanMethodV = CallStaticBooleanMethodV_fake;
-		env_fake_functions->CallStaticBooleanMethodA = CallStaticBooleanMethodA_fake;
-		env_fake_functions->CallStaticByteMethod = CallStaticByteMethod_fake;
-		env_fake_functions->CallStaticByteMethodV = CallStaticByteMethodV_fake;
-		env_fake_functions->CallStaticByteMethodA = CallStaticByteMethodA_fake;
-		env_fake_functions->CallStaticCharMethod = CallStaticCharMethod_fake;
-		env_fake_functions->CallStaticCharMethodV = CallStaticCharMethodV_fake;
-		env_fake_functions->CallStaticCharMethodA = CallStaticCharMethodA_fake;
-		env_fake_functions->CallStaticShortMethod = CallStaticShortMethod_fake;
-		env_fake_functions->CallStaticShortMethodV = CallStaticShortMethodV_fake;
-		env_fake_functions->CallStaticShortMethodA = CallStaticShortMethodA_fake;
-		env_fake_functions->CallStaticIntMethod = CallStaticIntMethod_fake;
-		env_fake_functions->CallStaticIntMethodV = CallStaticIntMethodV_fake;
-		env_fake_functions->CallStaticIntMethodA = CallStaticIntMethodA_fake;
-		env_fake_functions->CallStaticLongMethod = CallStaticLongMethod_fake;
-		env_fake_functions->CallStaticLongMethodV = CallStaticLongMethodV_fake;
-		env_fake_functions->CallStaticLongMethodA = CallStaticLongMethodA_fake;
-		env_fake_functions->CallStaticFloatMethod = CallStaticFloatMethod_fake;
-		env_fake_functions->CallStaticFloatMethodV = CallStaticFloatMethodV_fake;
-		env_fake_functions->CallStaticFloatMethodA = CallStaticFloatMethodA_fake;
-		env_fake_functions->CallStaticDoubleMethod = CallStaticDoubleMethod_fake;
-		env_fake_functions->CallStaticDoubleMethodV = CallStaticDoubleMethodV_fake;
-		env_fake_functions->CallStaticDoubleMethodA = CallStaticDoubleMethodA_fake;
-		env_fake_functions->CallStaticVoidMethod = CallStaticVoidMethod_fake;
-		env_fake_functions->CallStaticVoidMethodV = CallStaticVoidMethodV_fake;
-		env_fake_functions->CallStaticVoidMethodA = CallStaticVoidMethodA_fake;
-		env_fake_functions->GetStaticFieldID = GetStaticFieldID_fake;
-		env_fake_functions->GetStaticObjectField = GetStaticObjectField_fake;
-		env_fake_functions->GetStaticBooleanField = GetStaticBooleanField_fake;
-		env_fake_functions->GetStaticByteField = GetStaticByteField_fake;
-		env_fake_functions->GetStaticCharField = GetStaticCharField_fake;
-		env_fake_functions->GetStaticShortField = GetStaticShortField_fake;
-		env_fake_functions->GetStaticIntField = GetStaticIntField_fake;
-		env_fake_functions->GetStaticLongField = GetStaticLongField_fake;
-		env_fake_functions->GetStaticFloatField = GetStaticFloatField_fake;
-		env_fake_functions->GetStaticDoubleField = GetStaticDoubleField_fake;
-		env_fake_functions->SetStaticObjectField = SetStaticObjectField_fake;
-		env_fake_functions->SetStaticBooleanField = SetStaticBooleanField_fake;
-		env_fake_functions->SetStaticByteField = SetStaticByteField_fake;
-		env_fake_functions->SetStaticCharField = SetStaticCharField_fake;
-		env_fake_functions->SetStaticShortField = SetStaticShortField_fake;
-		env_fake_functions->SetStaticIntField = SetStaticIntField_fake;
-		env_fake_functions->SetStaticLongField = SetStaticLongField_fake;
-		env_fake_functions->SetStaticFloatField = SetStaticFloatField_fake;
-		env_fake_functions->SetStaticDoubleField = SetStaticDoubleField_fake;
-		env_fake_functions->NewString = NewString_fake;
-		env_fake_functions->GetStringLength = GetStringLength_fake;
-		env_fake_functions->GetStringChars = GetStringChars_fake;
-		env_fake_functions->ReleaseStringChars = ReleaseStringChars_fake;
-		env_fake_functions->NewStringUTF = NewStringUTF_fake;
-		env_fake_functions->GetStringUTFLength = GetStringUTFLength_fake;
-		env_fake_functions->GetStringUTFChars = GetStringUTFChars_fake;
-		env_fake_functions->ReleaseStringUTFChars = ReleaseStringUTFChars_fake;
-		env_fake_functions->GetArrayLength = GetArrayLength_fake;
-		env_fake_functions->NewObjectArray = NewObjectArray_fake;
-		env_fake_functions->GetObjectArrayElement = GetObjectArrayElement_fake;
-		env_fake_functions->SetObjectArrayElement = SetObjectArrayElement_fake;
-		env_fake_functions->NewBooleanArray = NewBooleanArray_fake;
-		env_fake_functions->NewByteArray = NewByteArray_fake;
-		env_fake_functions->NewCharArray = NewCharArray_fake;
-		env_fake_functions->NewShortArray = NewShortArray_fake;
-		env_fake_functions->NewIntArray = NewIntArray_fake;
-		env_fake_functions->NewLongArray = NewLongArray_fake;
-		env_fake_functions->NewFloatArray = NewFloatArray_fake;
-		env_fake_functions->NewDoubleArray = NewDoubleArray_fake;
-		env_fake_functions->GetBooleanArrayElements = GetBooleanArrayElements_fake;
-		env_fake_functions->GetByteArrayElements = GetByteArrayElements_fake;
-		env_fake_functions->GetCharArrayElements = GetCharArrayElements_fake;
-		env_fake_functions->GetShortArrayElements = GetShortArrayElements_fake;
-		env_fake_functions->GetIntArrayElements = GetIntArrayElements_fake;
-		env_fake_functions->GetLongArrayElements = GetLongArrayElements_fake;
-		env_fake_functions->GetFloatArrayElements = GetFloatArrayElements_fake;
-		env_fake_functions->GetDoubleArrayElements = GetDoubleArrayElements_fake;
-		env_fake_functions->ReleaseBooleanArrayElements = ReleaseBooleanArrayElements_fake;
-		env_fake_functions->ReleaseByteArrayElements = ReleaseByteArrayElements_fake;
-		env_fake_functions->ReleaseCharArrayElements = ReleaseCharArrayElements_fake;
-		env_fake_functions->ReleaseShortArrayElements = ReleaseShortArrayElements_fake;
-		env_fake_functions->ReleaseIntArrayElements = ReleaseIntArrayElements_fake;
-		env_fake_functions->ReleaseLongArrayElements = ReleaseLongArrayElements_fake;
-		env_fake_functions->ReleaseFloatArrayElements = ReleaseFloatArrayElements_fake;
-		env_fake_functions->ReleaseDoubleArrayElements = ReleaseDoubleArrayElements_fake;
-		env_fake_functions->GetBooleanArrayRegion = GetBooleanArrayRegion_fake;
-		env_fake_functions->GetByteArrayRegion = GetByteArrayRegion_fake;
-		env_fake_functions->GetCharArrayRegion = GetCharArrayRegion_fake;
-		env_fake_functions->GetShortArrayRegion = GetShortArrayRegion_fake;
-		env_fake_functions->GetIntArrayRegion = GetIntArrayRegion_fake;
-		env_fake_functions->GetLongArrayRegion = GetLongArrayRegion_fake;
-		env_fake_functions->GetFloatArrayRegion = GetFloatArrayRegion_fake;
-		env_fake_functions->GetDoubleArrayRegion = GetDoubleArrayRegion_fake;
-		env_fake_functions->SetBooleanArrayRegion = SetBooleanArrayRegion_fake;
-		env_fake_functions->SetByteArrayRegion = SetByteArrayRegion_fake;
-		env_fake_functions->SetCharArrayRegion = SetCharArrayRegion_fake;
-		env_fake_functions->SetShortArrayRegion = SetShortArrayRegion_fake;
-		env_fake_functions->SetIntArrayRegion = SetIntArrayRegion_fake;
-		env_fake_functions->SetLongArrayRegion = SetLongArrayRegion_fake;
-		env_fake_functions->SetFloatArrayRegion = SetFloatArrayRegion_fake;
-		env_fake_functions->SetDoubleArrayRegion = SetDoubleArrayRegion_fake;
-		env_fake_functions->UnregisterNatives = UnregisterNatives_fake;
-		env_fake_functions->MonitorEnter = MonitorEnter_fake;
-		env_fake_functions->MonitorExit = MonitorExit_fake;
-		env_fake_functions->GetJavaVM = GetJavaVM_fake;
-		env_fake_functions->GetStringRegion = GetStringRegion_fake;
-		env_fake_functions->GetStringUTFRegion = GetStringUTFRegion_fake;
-		env_fake_functions->GetPrimitiveArrayCritical = GetPrimitiveArrayCritical_fake;
-		env_fake_functions->ReleasePrimitiveArrayCritical = ReleasePrimitiveArrayCritical_fake;
-		env_fake_functions->GetStringCritical = GetStringCritical_fake;
-		env_fake_functions->ReleaseStringCritical = ReleaseStringCritical_fake;
-		env_fake_functions->NewWeakGlobalRef = NewWeakGlobalRef_fake;
-		env_fake_functions->DeleteWeakGlobalRef = DeleteWeakGlobalRef_fake;
-		env_fake_functions->ExceptionCheck = ExceptionCheck_fake;
-		env_fake_functions->NewDirectByteBuffer = NewDirectByteBuffer_fake;
-		env_fake_functions->GetDirectBufferAddress = GetDirectBufferAddress_fake;
-		env_fake_functions->GetDirectBufferCapacity = GetDirectBufferCapacity_fake;
-		env_fake_functions->GetObjectRefType = GetObjectRefType_fake;
+    env_fake_functions->FindClass = FindClass_fake;
+    env_fake_functions->GetVersion = GetVersion_fake;
+    env_fake_functions->DefineClass = DefineClass_fake;
+    env_fake_functions->FromReflectedMethod = FromReflectedMethod_fake;
+    env_fake_functions->FromReflectedField = FromReflectedField_fake;
+    env_fake_functions->ToReflectedMethod = ToReflectedMethod_fake;
+    env_fake_functions->GetSuperclass = GetSuperclass_fake;
+    env_fake_functions->IsAssignableFrom = IsAssignableFrom_fake;
+    env_fake_functions->ToReflectedField = ToReflectedField_fake;
+    env_fake_functions->Throw = Throw_fake;
+    env_fake_functions->ThrowNew = ThrowNew_fake;
+    env_fake_functions->ExceptionOccurred = ExceptionOccurred_fake;
+    env_fake_functions->ExceptionDescribe = ExceptionDescribe_fake;
+    env_fake_functions->ExceptionClear = ExceptionClear_fake;
+    env_fake_functions->FatalError = FatalError_fake;
+    env_fake_functions->PushLocalFrame = PushLocalFrame_fake;
+    env_fake_functions->PopLocalFrame = PopLocalFrame_fake;
+    env_fake_functions->NewGlobalRef = NewGlobalRef_fake;
+    env_fake_functions->DeleteGlobalRef = DeleteGlobalRef_fake;
+    env_fake_functions->DeleteLocalRef = DeleteLocalRef_fake;
+    env_fake_functions->IsSameObject = IsSameObject_fake;
+    env_fake_functions->NewLocalRef = NewLocalRef_fake;
+    env_fake_functions->EnsureLocalCapacity = EnsureLocalCapacity_fake;
+    env_fake_functions->AllocObject = AllocObject_fake;
+    env_fake_functions->NewObject = NewObject_fake;
+    env_fake_functions->NewObjectV = NewObjectV_fake;
+    env_fake_functions->NewObjectA = NewObjectA_fake;
+    env_fake_functions->GetObjectClass = GetObjectClass_fake;
+    env_fake_functions->IsInstanceOf = IsInstanceOf_fake;
+    env_fake_functions->GetMethodID = GetMethodID_fake;
+    env_fake_functions->CallObjectMethod = CallObjectMethod_fake;
+    env_fake_functions->CallObjectMethodV = CallObjectMethodV_fake;
+    env_fake_functions->CallObjectMethodA = CallObjectMethodA_fake;
+    env_fake_functions->CallBooleanMethod = CallBooleanMethod_fake;
+    env_fake_functions->CallBooleanMethodV = CallBooleanMethodV_fake;
+    env_fake_functions->CallBooleanMethodA = CallBooleanMethodA_fake;
+    env_fake_functions->CallByteMethod = CallByteMethod_fake;
+    env_fake_functions->CallByteMethodV = CallByteMethodV_fake;
+    env_fake_functions->CallByteMethodA = CallByteMethodA_fake;
+    env_fake_functions->CallCharMethod = CallCharMethod_fake;
+    env_fake_functions->CallCharMethodV = CallCharMethodV_fake;
+    env_fake_functions->CallCharMethodA = CallCharMethodA_fake;
+    env_fake_functions->CallShortMethod = CallShortMethod_fake;
+    env_fake_functions->CallShortMethodV = CallShortMethodV_fake;
+    env_fake_functions->CallShortMethodA = CallShortMethodA_fake;
+    env_fake_functions->CallIntMethod = CallIntMethod_fake;
+    env_fake_functions->CallIntMethodV = CallIntMethodV_fake;
+    env_fake_functions->CallIntMethodA = CallIntMethodA_fake;
+    env_fake_functions->CallLongMethod = CallLongMethod_fake;
+    env_fake_functions->CallLongMethodV = CallLongMethodV_fake;
+    env_fake_functions->CallLongMethodA = CallLongMethodA_fake;
+    env_fake_functions->CallFloatMethod = CallFloatMethod_fake;
+    env_fake_functions->CallFloatMethodV = CallFloatMethodV_fake;
+    env_fake_functions->CallFloatMethodA = CallFloatMethodA_fake;
+    env_fake_functions->CallDoubleMethod = CallDoubleMethod_fake;
+    env_fake_functions->CallDoubleMethodV = CallDoubleMethodV_fake;
+    env_fake_functions->CallDoubleMethodA = CallDoubleMethodA_fake;
+    env_fake_functions->CallVoidMethod = CallVoidMethod_fake;
+    env_fake_functions->CallVoidMethodV = CallVoidMethodV_fake;
+    env_fake_functions->CallVoidMethodA = CallVoidMethodA_fake;
+    env_fake_functions->CallNonvirtualObjectMethod = CallNonvirtualObjectMethod_fake;
+    env_fake_functions->CallNonvirtualObjectMethodV = CallNonvirtualObjectMethodV_fake;
+    env_fake_functions->CallNonvirtualObjectMethodA = CallNonvirtualObjectMethodA_fake;
+    env_fake_functions->CallNonvirtualBooleanMethod = CallNonvirtualBooleanMethod_fake;
+    env_fake_functions->CallNonvirtualBooleanMethodV = CallNonvirtualBooleanMethodV_fake;
+    env_fake_functions->CallNonvirtualBooleanMethodA = CallNonvirtualBooleanMethodA_fake;
+    env_fake_functions->CallNonvirtualByteMethod = CallNonvirtualByteMethod_fake;
+    env_fake_functions->CallNonvirtualByteMethodV = CallNonvirtualByteMethodV_fake;
+    env_fake_functions->CallNonvirtualByteMethodA = CallNonvirtualByteMethodA_fake;
+    env_fake_functions->CallNonvirtualCharMethod = CallNonvirtualCharMethod_fake;
+    env_fake_functions->CallNonvirtualCharMethodV = CallNonvirtualCharMethodV_fake;
+    env_fake_functions->CallNonvirtualCharMethodA = CallNonvirtualCharMethodA_fake;
+    env_fake_functions->CallNonvirtualShortMethod = CallNonvirtualShortMethod_fake;
+    env_fake_functions->CallNonvirtualShortMethodV = CallNonvirtualShortMethodV_fake;
+    env_fake_functions->CallNonvirtualShortMethodA = CallNonvirtualShortMethodA_fake;
+    env_fake_functions->CallNonvirtualIntMethod = CallNonvirtualIntMethod_fake;
+    env_fake_functions->CallNonvirtualIntMethodV = CallNonvirtualIntMethodV_fake;
+    env_fake_functions->CallNonvirtualIntMethodA = CallNonvirtualIntMethodA_fake;
+    env_fake_functions->CallNonvirtualLongMethod = CallNonvirtualLongMethod_fake;
+    env_fake_functions->CallNonvirtualLongMethodV = CallNonvirtualLongMethodV_fake;
+    env_fake_functions->CallNonvirtualLongMethodA = CallNonvirtualLongMethodA_fake;
+    env_fake_functions->CallNonvirtualFloatMethod = CallNonvirtualFloatMethod_fake;
+    env_fake_functions->CallNonvirtualFloatMethodV = CallNonvirtualFloatMethodV_fake;
+    env_fake_functions->CallNonvirtualFloatMethodA = CallNonvirtualFloatMethodA_fake;
+    env_fake_functions->CallNonvirtualDoubleMethod = CallNonvirtualDoubleMethod_fake;
+    env_fake_functions->CallNonvirtualDoubleMethodV = CallNonvirtualDoubleMethodV_fake;
+    env_fake_functions->CallNonvirtualDoubleMethodA = CallNonvirtualDoubleMethodA_fake;
+    env_fake_functions->CallNonvirtualVoidMethod = CallNonvirtualVoidMethod_fake;
+    env_fake_functions->CallNonvirtualVoidMethodV = CallNonvirtualVoidMethodV_fake;
+    env_fake_functions->CallNonvirtualVoidMethodA = CallNonvirtualVoidMethodA_fake;
+    env_fake_functions->GetFieldID = GetFieldID_fake;
+    env_fake_functions->GetObjectField = GetObjectField_fake;
+    env_fake_functions->GetBooleanField = GetBooleanField_fake;
+    env_fake_functions->GetByteField = GetByteField_fake;
+    env_fake_functions->GetCharField = GetCharField_fake;
+    env_fake_functions->GetShortField = GetShortField_fake;
+    env_fake_functions->GetIntField = GetIntField_fake;
+    env_fake_functions->GetLongField = GetLongField_fake;
+    env_fake_functions->GetFloatField = GetFloatField_fake;
+    env_fake_functions->GetDoubleField = GetDoubleField_fake;
+    env_fake_functions->SetObjectField = SetObjectField_fake;
+    env_fake_functions->SetBooleanField = SetBooleanField_fake;
+    env_fake_functions->SetByteField = SetByteField_fake;
+    env_fake_functions->SetCharField = SetCharField_fake;
+    env_fake_functions->SetShortField = SetShortField_fake;
+    env_fake_functions->SetIntField = SetIntField_fake;
+    env_fake_functions->SetLongField = SetLongField_fake;
+    env_fake_functions->SetFloatField = SetFloatField_fake;
+    env_fake_functions->SetDoubleField = SetDoubleField_fake;
+    env_fake_functions->GetStaticMethodID = GetStaticMethodID_fake;
+    env_fake_functions->CallStaticObjectMethod = CallStaticObjectMethod_fake;
+    env_fake_functions->CallStaticObjectMethodV = CallStaticObjectMethodV_fake;
+    env_fake_functions->CallStaticObjectMethodA = CallStaticObjectMethodA_fake;
+    env_fake_functions->CallStaticBooleanMethod = CallStaticBooleanMethod_fake;
+    env_fake_functions->CallStaticBooleanMethodV = CallStaticBooleanMethodV_fake;
+    env_fake_functions->CallStaticBooleanMethodA = CallStaticBooleanMethodA_fake;
+    env_fake_functions->CallStaticByteMethod = CallStaticByteMethod_fake;
+    env_fake_functions->CallStaticByteMethodV = CallStaticByteMethodV_fake;
+    env_fake_functions->CallStaticByteMethodA = CallStaticByteMethodA_fake;
+    env_fake_functions->CallStaticCharMethod = CallStaticCharMethod_fake;
+    env_fake_functions->CallStaticCharMethodV = CallStaticCharMethodV_fake;
+    env_fake_functions->CallStaticCharMethodA = CallStaticCharMethodA_fake;
+    env_fake_functions->CallStaticShortMethod = CallStaticShortMethod_fake;
+    env_fake_functions->CallStaticShortMethodV = CallStaticShortMethodV_fake;
+    env_fake_functions->CallStaticShortMethodA = CallStaticShortMethodA_fake;
+    env_fake_functions->CallStaticIntMethod = CallStaticIntMethod_fake;
+    env_fake_functions->CallStaticIntMethodV = CallStaticIntMethodV_fake;
+    env_fake_functions->CallStaticIntMethodA = CallStaticIntMethodA_fake;
+    env_fake_functions->CallStaticLongMethod = CallStaticLongMethod_fake;
+    env_fake_functions->CallStaticLongMethodV = CallStaticLongMethodV_fake;
+    env_fake_functions->CallStaticLongMethodA = CallStaticLongMethodA_fake;
+    env_fake_functions->CallStaticFloatMethod = CallStaticFloatMethod_fake;
+    env_fake_functions->CallStaticFloatMethodV = CallStaticFloatMethodV_fake;
+    env_fake_functions->CallStaticFloatMethodA = CallStaticFloatMethodA_fake;
+    env_fake_functions->CallStaticDoubleMethod = CallStaticDoubleMethod_fake;
+    env_fake_functions->CallStaticDoubleMethodV = CallStaticDoubleMethodV_fake;
+    env_fake_functions->CallStaticDoubleMethodA = CallStaticDoubleMethodA_fake;
+    env_fake_functions->CallStaticVoidMethod = CallStaticVoidMethod_fake;
+    env_fake_functions->CallStaticVoidMethodV = CallStaticVoidMethodV_fake;
+    env_fake_functions->CallStaticVoidMethodA = CallStaticVoidMethodA_fake;
+    env_fake_functions->GetStaticFieldID = GetStaticFieldID_fake;
+    env_fake_functions->GetStaticObjectField = GetStaticObjectField_fake;
+    env_fake_functions->GetStaticBooleanField = GetStaticBooleanField_fake;
+    env_fake_functions->GetStaticByteField = GetStaticByteField_fake;
+    env_fake_functions->GetStaticCharField = GetStaticCharField_fake;
+    env_fake_functions->GetStaticShortField = GetStaticShortField_fake;
+    env_fake_functions->GetStaticIntField = GetStaticIntField_fake;
+    env_fake_functions->GetStaticLongField = GetStaticLongField_fake;
+    env_fake_functions->GetStaticFloatField = GetStaticFloatField_fake;
+    env_fake_functions->GetStaticDoubleField = GetStaticDoubleField_fake;
+    env_fake_functions->SetStaticObjectField = SetStaticObjectField_fake;
+    env_fake_functions->SetStaticBooleanField = SetStaticBooleanField_fake;
+    env_fake_functions->SetStaticByteField = SetStaticByteField_fake;
+    env_fake_functions->SetStaticCharField = SetStaticCharField_fake;
+    env_fake_functions->SetStaticShortField = SetStaticShortField_fake;
+    env_fake_functions->SetStaticIntField = SetStaticIntField_fake;
+    env_fake_functions->SetStaticLongField = SetStaticLongField_fake;
+    env_fake_functions->SetStaticFloatField = SetStaticFloatField_fake;
+    env_fake_functions->SetStaticDoubleField = SetStaticDoubleField_fake;
+    env_fake_functions->NewString = NewString_fake;
+    env_fake_functions->GetStringLength = GetStringLength_fake;
+    env_fake_functions->GetStringChars = GetStringChars_fake;
+    env_fake_functions->ReleaseStringChars = ReleaseStringChars_fake;
+    env_fake_functions->NewStringUTF = NewStringUTF_fake;
+    env_fake_functions->GetStringUTFLength = GetStringUTFLength_fake;
+    env_fake_functions->GetStringUTFChars = GetStringUTFChars_fake;
+    env_fake_functions->ReleaseStringUTFChars = ReleaseStringUTFChars_fake;
+    env_fake_functions->GetArrayLength = GetArrayLength_fake;
+    env_fake_functions->NewObjectArray = NewObjectArray_fake;
+    env_fake_functions->GetObjectArrayElement = GetObjectArrayElement_fake;
+    env_fake_functions->SetObjectArrayElement = SetObjectArrayElement_fake;
+    env_fake_functions->NewBooleanArray = NewBooleanArray_fake;
+    env_fake_functions->NewByteArray = NewByteArray_fake;
+    env_fake_functions->NewCharArray = NewCharArray_fake;
+    env_fake_functions->NewShortArray = NewShortArray_fake;
+    env_fake_functions->NewIntArray = NewIntArray_fake;
+    env_fake_functions->NewLongArray = NewLongArray_fake;
+    env_fake_functions->NewFloatArray = NewFloatArray_fake;
+    env_fake_functions->NewDoubleArray = NewDoubleArray_fake;
+    env_fake_functions->GetBooleanArrayElements = GetBooleanArrayElements_fake;
+    env_fake_functions->GetByteArrayElements = GetByteArrayElements_fake;
+    env_fake_functions->GetCharArrayElements = GetCharArrayElements_fake;
+    env_fake_functions->GetShortArrayElements = GetShortArrayElements_fake;
+    env_fake_functions->GetIntArrayElements = GetIntArrayElements_fake;
+    env_fake_functions->GetLongArrayElements = GetLongArrayElements_fake;
+    env_fake_functions->GetFloatArrayElements = GetFloatArrayElements_fake;
+    env_fake_functions->GetDoubleArrayElements = GetDoubleArrayElements_fake;
+    env_fake_functions->ReleaseBooleanArrayElements = ReleaseBooleanArrayElements_fake;
+    env_fake_functions->ReleaseByteArrayElements = ReleaseByteArrayElements_fake;
+    env_fake_functions->ReleaseCharArrayElements = ReleaseCharArrayElements_fake;
+    env_fake_functions->ReleaseShortArrayElements = ReleaseShortArrayElements_fake;
+    env_fake_functions->ReleaseIntArrayElements = ReleaseIntArrayElements_fake;
+    env_fake_functions->ReleaseLongArrayElements = ReleaseLongArrayElements_fake;
+    env_fake_functions->ReleaseFloatArrayElements = ReleaseFloatArrayElements_fake;
+    env_fake_functions->ReleaseDoubleArrayElements = ReleaseDoubleArrayElements_fake;
+    env_fake_functions->GetBooleanArrayRegion = GetBooleanArrayRegion_fake;
+    env_fake_functions->GetByteArrayRegion = GetByteArrayRegion_fake;
+    env_fake_functions->GetCharArrayRegion = GetCharArrayRegion_fake;
+    env_fake_functions->GetShortArrayRegion = GetShortArrayRegion_fake;
+    env_fake_functions->GetIntArrayRegion = GetIntArrayRegion_fake;
+    env_fake_functions->GetLongArrayRegion = GetLongArrayRegion_fake;
+    env_fake_functions->GetFloatArrayRegion = GetFloatArrayRegion_fake;
+    env_fake_functions->GetDoubleArrayRegion = GetDoubleArrayRegion_fake;
+    env_fake_functions->SetBooleanArrayRegion = SetBooleanArrayRegion_fake;
+    env_fake_functions->SetByteArrayRegion = SetByteArrayRegion_fake;
+    env_fake_functions->SetCharArrayRegion = SetCharArrayRegion_fake;
+    env_fake_functions->SetShortArrayRegion = SetShortArrayRegion_fake;
+    env_fake_functions->SetIntArrayRegion = SetIntArrayRegion_fake;
+    env_fake_functions->SetLongArrayRegion = SetLongArrayRegion_fake;
+    env_fake_functions->SetFloatArrayRegion = SetFloatArrayRegion_fake;
+    env_fake_functions->SetDoubleArrayRegion = SetDoubleArrayRegion_fake;
+    env_fake_functions->UnregisterNatives = UnregisterNatives_fake;
+    env_fake_functions->MonitorEnter = MonitorEnter_fake;
+    env_fake_functions->MonitorExit = MonitorExit_fake;
+    env_fake_functions->GetJavaVM = GetJavaVM_fake;
+    env_fake_functions->GetStringRegion = GetStringRegion_fake;
+    env_fake_functions->GetStringUTFRegion = GetStringUTFRegion_fake;
+    env_fake_functions->GetPrimitiveArrayCritical = GetPrimitiveArrayCritical_fake;
+    env_fake_functions->ReleasePrimitiveArrayCritical = ReleasePrimitiveArrayCritical_fake;
+    env_fake_functions->GetStringCritical = GetStringCritical_fake;
+    env_fake_functions->ReleaseStringCritical = ReleaseStringCritical_fake;
+    env_fake_functions->NewWeakGlobalRef = NewWeakGlobalRef_fake;
+    env_fake_functions->DeleteWeakGlobalRef = DeleteWeakGlobalRef_fake;
+    env_fake_functions->ExceptionCheck = ExceptionCheck_fake;
+    env_fake_functions->NewDirectByteBuffer = NewDirectByteBuffer_fake;
+    env_fake_functions->GetDirectBufferAddress = GetDirectBufferAddress_fake;
+    env_fake_functions->GetDirectBufferCapacity = GetDirectBufferCapacity_fake;
+    env_fake_functions->GetObjectRefType = GetObjectRefType_fake;
 
-		env_fake->functions = env_fake_functions;
+    env_fake->functions = env_fake_functions;
 
-		*env_ret = (void *)env_fake;
-		
-		return JNI_OK;
-	}
+    *env_ret = (void *)env_fake;
+
+    return JNI_OK;
+}
 
 /* Definition of fake functions for JavaVM */
 
 jint JNICALL AttachCurrentThread_fake(JavaVM *vm, JNIEnv **penv, void *args)
-	{
-		return javaVM->AttachCurrentThread(penv, args);
-	}
+{
+    return javaVM->AttachCurrentThread(penv, args);
+}
 
 jint JNICALL DestroyJavaVM_fake(JavaVM *vm) 
-	{
-        return javaVM->DestroyJavaVM();
-    }
+{
+    return javaVM->DestroyJavaVM();
+}
 
 jint JNICALL DetachCurrentThread_fake(JavaVM *vm) 
-	{
-        return javaVM->DetachCurrentThread();
-    }
+{
+    return javaVM->DetachCurrentThread();
+}
 
 jint JNICALL AttachCurrentThreadAsDaemon_fake(JavaVM *vm, JNIEnv **penv, void *args) 
-	{
-        return javaVM->AttachCurrentThreadAsDaemon(penv, args);
-    }
+{
+    return javaVM->AttachCurrentThreadAsDaemon(penv, args);
+}
 
 /* Definition of fake functions for JNIEnv */
 // fake RegisterNatives, to intercept target function pointer
 jint RegisterNatives_fake(JNIEnv *penv, jclass clazz, const JNINativeMethod *methods, jint nMethods)
-	{
-		std::cout << " [+] Fake RegisterNatives called" << std::endl;
+{
+    std::cout << " [+] Fake RegisterNatives called" << std::endl;
 
-		for (int i = 0; i < (int)nMethods; i++) {
-			std::cout << "	Method " << i << std::endl;
-			std::cout << "	├── name(Java): " << methods[i].name << std::endl;
-			std::cout << "	├── signature: " << methods[i].signature << std::endl;
-			std::cout << "	└── pointer(Native): "<< methods[i].fnPtr << std::endl;
-			
-			if (std::string(methods[i].name).compare(targetFunctionName) == 0) {
-				std:: cout << " [+] Find the method pointer "<< methods[i].name <<std::endl;
-				targetFunctionPtr = (function_t *) methods[i].fnPtr;
-				return -1;
-			}
-		}
+    for (int i = 0; i < (int)nMethods; i++) {
+        std::cout << "	Method " << i << std::endl;
+        std::cout << "	├── name(Java): " << methods[i].name << std::endl;
+        std::cout << "	├── signature: " << methods[i].signature << std::endl;
+        std::cout << "	└── pointer(Native): "<< methods[i].fnPtr << std::endl;
 
-		// call original RegisterNatives
-		return env->RegisterNatives(clazz, methods, nMethods);
-	}
+        if (std::string(methods[i].name).compare(targetFunctionName) == 0) {
+            std:: cout << " [+] Find the method pointer "<< methods[i].name <<std::endl;
+            targetFunctionPtr = (function_t *) methods[i].fnPtr;
+            return -1;
+        }
+    }
+
+    // call original RegisterNatives
+    return env->RegisterNatives(clazz, methods, nMethods);
+}
 
 jint JNICALL GetVersion_fake(JNIEnv *penv)
 {

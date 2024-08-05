@@ -1,198 +1,95 @@
 import os
 import xml
+import xml.dom
+import xml.dom.minidom
+
 from utils import utils
 from utils.convertType import create_types
 from utils.exception import HaveException, ToolsException
-from utils.utils import changeAmdtoFlow, changeFlowtoAmd, get_type_index
+from utils.utils import get_type_index, java2dalvik_type, dalvik2java_type
+
+from utils.logging_config import setup_logging
+
+log = setup_logging(name=__name__)
 
 
-def nocomplex(line):
-    str1 = line.split("(")[1].split(">")[0]. \
-        replace("Ljava/lang/String;", "T"). \
-        replace("Ljava/lang/Byte;", "B"). \
-        replace("Ljava/lang/Short;", "S"). \
-        replace("Ljava/lang/Integer;", "I"). \
-        replace("Ljava/lang/Long;", "J"). \
-        replace("Ljava/lang/float;", "F"). \
-        replace("Ljava/lang/Double;", "D"). \
-        replace("Ljava/lang/Boolean;", "B"). \
-        replace("Ljava/lang/Character;", "C")
-    if "/" in str1:
-        return False
-    return True
+def deal_amandroid_taint(data_path, apk_name):
+    log.info("[+] deal the Amandroid taint path.")
+    out_txt = os.path.join(data_path, apk_name, "result", "AppData.txt")
+    if not os.path.exists(out_txt):
+        log.error(f"[!] Amandroid analysis failed the apk {apk_name}.")
+        raise ToolsException(f"[!] Amandroid failed to analyze apk {apk_name}.")
 
-
-def othersink(param):
-    if int(param.split(" ")[-1][:-2]) == 0:
-        return False
-    return True
-
-
-def record_taint(args_appdata):
-    # list = []
-    # with open(args_appdata, "r") as f:
-    #     lines = f.readlines()
-    #     flag = 1
-    #     for line in lines:
-    #         if flag == 0 and line.strip():
-    #             list.append(line)
-    #         if "Discovered taint paths are listed below:" in line:
-    #             flag = 0
-    # f.close()
-    print("    [-] generate the taint.txt")
-    with open(args_appdata, "r") as f:
+    taint_path_set = []
+    with open(out_txt, "r") as f:
         lines = f.readlines()
+        if "Discovered taint paths are listed below:" in str(lines[-1]):
+            raise ToolsException(f"[!] Amandroid not find the apk {apk_name} TaintPath.")
+        if "Taint analysis result:" in str(lines[-1]):
+            raise ToolsException(f"[!] Amandroid not find the apk {apk_name} source and sink.")
+
         for k, v in enumerate(lines):
             if v.startswith("    TaintPath:"):
-                taint_list = lines[k:]
-                break
-    f.close()
-    taint_txt = args_appdata.replace("AppData.txt", "Taint.txt")
-    with open(taint_txt, "w") as f:
-        for i in taint_list:
-            if i.strip():
-                f.write(i)
-    f.close()
-
-
-def deal_Amandroid_taint(data_path, apk_name):
-    print("  [-] deal the amandroid taint path")
-    args_data = os.path.join(data_path, apk_name)
-    if os.path.exists(args_data):
-        args_data_result = os.path.join(args_data, "result")
-        if not os.path.exists(args_data_result):
-            raise ToolsException(" [+] " + apk_name + " \n Amandroid not generate the result folder.")
-        else:
-            args_appdata = os.path.join(args_data_result, "AppData.txt")
-            if not os.path.exists(args_appdata):
-                raise ToolsException(" [+] " + apk_name + " \n Amandroid not generate the AppData.txt.")
-            else:
-                with open(args_appdata, "r") as f:
-                    lines = f.readlines()
-                    last_line = lines[-1]
-                    if "Discovered taint paths are listed below:" in str(last_line):
-                        raise ToolsException(" [+] " + apk_name + " \n Amandroid not find the taintpath.")
-                    elif "Taint analysis result:" in str(last_line):
-                        raise ToolsException(" [+]" + apk_name + " \n Amandroid not find the source and sink.")
-                f.close()
-                record_taint(args_appdata)
-    else:
-        raise ToolsException(" [+] " + apk_name + " \n Amandroid not analysis.")
-
-
-def deal_jucify_taint():
-    return
+                source = lines[k + 1].split("_source: ")[1].split(">")[0]
+                sink = lines[k + 2].split("_sink: ")[1].split(">")[0]
+                taint_path_set.append(source + " ====> " + sink)
+    return taint_path_set
 
 
 def getcon_method(mth):
     return "<" + mth.split("<")[1].split(">")[0] + ">"
 
 
-def getcon_para(paras, taint_paras):
-    if ", " not in paras:
-        if paras[1:-1] == taint_paras:
+# get taint var index for flowdroid
+def get_taint_var_index(parameter_list, taint_var):
+    parameter_list = parameter_list[1:-1]
+    if ", " not in parameter_list:
+        if parameter_list == taint_var:
             return 1
         else:
             return 0
     else:
-        for k, v in enumerate(paras[1:-1].split(", ")):
-            if v == taint_paras:
+        for k, v in enumerate(parameter_list.split(", ")):
+            if v == taint_var:
                 return k + 1
         return 0
-    return 0
 
 
 def deal_flowdroid_taint(flowdroid_folder, app_name):
+    log.info("[+] deal the Flowdroid taint path.")
     leak_file = os.path.join(flowdroid_folder, app_name + "_leak.xml")
     if not os.path.exists(leak_file):
-        print(" [*] Flowdroid analysis failed.")
-        raise HaveException("FlowDroid analysis failed.")
-    else:
-        x = os.path.getsize(leak_file)
-        if x == 12:
-            print(" [*] Flowdroid analysis timeout")
-            raise HaveException("FlowDroid analysis timeout.")
-        else:
-            DOMTree = xml.dom.minidom.parse(leak_file)
-            collection = DOMTree.documentElement
-            Results = collection.getElementsByTagName("Result")
-            if not Results:
-                print(" [*] Results is empty")
-                raise HaveException("FlowDroid can't find the taint path")
-            else:
-                taintlist = []
-                file = os.path.join(flowdroid_folder.rsplit("/", 1)[0], "Data", app_name, "result", "Taint.txt")
-                if not os.path.exists(file):
-                    print(" [*] Amandroid Taint is empty")
-                else:
-                    with open(file, "r") as f:
-                        lines = f.readlines()
-                    f.close()
+        log.error(f"[!] Flowdroid analysis failed the apk {app_name}.")
+        raise ToolsException("[!] Flowdroid analysis failed.")
 
-                    for line in lines:
-                        Asource = line.split("===>")[0].strip()
-                        Asink = line.split("===>")[1].strip()
-                        Apar = line.rsplit(" ", 1)[1].strip()
-                        if "|" in Apar:
-                            par_init = Apar.split("|")
-                            for par_int in par_init:
-                                tmp = [changeAmdtoFlow(Asource), changeAmdtoFlow(Asink), int(par_int)]
-                        else:
-                            tmp = [changeAmdtoFlow(Asource), changeAmdtoFlow(Asink), int(Apar)]
-                        taintlist.append(tmp)
+    x = os.path.getsize(leak_file)
+    if x == 12:
+        log.error("[!] Flowdroid analysis timeout.")
+        raise ToolsException("[!] FlowDroid analysis timeout.")
 
-                scripts = os.path.join(flowdroid_folder.rsplit("/", 1)[0], "scripts")
-                utils.create_floder(scripts)
-                utils.create_floder(os.path.join(scripts, app_name))
-                num = len(os.listdir(os.path.join(scripts, app_name)))
+    dom_tree = xml.dom.minidom.parse(leak_file)
+    collection = dom_tree.documentElement
+    results = collection.getElementsByTagName("Result")
 
-                for result in Results:
-                    Sources = result.childNodes[1].childNodes
-                    Sink = result.childNodes[0]
-                    for Source in Sources:
-                        con_source = Source.getAttribute("Statement")
-                        con_sink = Sink.getAttribute("Statement")
-                        con_taint_par = Sink.childNodes[0].getAttribute("Value")
-                        flag = 0
-                        for tl in taintlist:
-                            if tl[0] == getcon_method(con_source) and tl[1] == getcon_method(con_sink) \
-                                    and tl[2] == getcon_para(con_sink.split(">")[1], con_taint_par):
-                                flag = 1
-                                print(" [*][*][*] The path is common the Amandroid.\n\n\n")
-                        if flag == 0:
-                            x = changeFlowtoAmd(getcon_method(con_source))
-                            y = changeFlowtoAmd(getcon_method(con_sink))
-                            z = getcon_para(con_sink.split(">")[1], con_taint_par)
-                            num = num + 1
+    if not results:
+        log.error("[!] results is empty.")
+        raise ToolsException("[!] FlowDroid can't find the taint path.")
 
-                            files = utils.create_script_file(scripts, app_name, "f" + str(num))
-                            para_list = get_type_index(con_sink)
+    taint_path_set = []
+    for result in results:
+        sources = result.childNodes[1].childNodes
+        sink = result.childNodes[0]
+        for source in sources:
+            source_statement = source.getAttribute("Statement")
+            sink_statement = sink.getAttribute("Statement")
+            taint_par = sink.childNodes[0].getAttribute("Value")
+            index = get_taint_var_index(sink_statement.split(">")[1], taint_par)
 
-                            with open(files, "w") as f:
-                                f.write(x + "\n")
-                                f.write("sequence:{" + y + " " + str(z) + "}\n")
-                                if " staticinvoke " in con_source:
-                                    f.write("method:" + y + " static\n")
-                                else:
-                                    f.write("method:" + y + " nostatic\n")
-                                f.write("{\n")
-                                for i in para_list:
-                                    if i[0] == z:
-                                        f.write(
-                                            "p" + str(i[0]) + ":{is_tainted:true, value:default, type:" + i[1] + "}\n")
-                                    else:
-                                        if i[2].startswith("$"):
-                                            f.write("p" + str(i[0]) + ":{is_tainted:false, value:default, type:" + i[
-                                                1] + "}\n")
-                                        else:
-                                            f.write(
-                                                "p" + str(i[0]) + ":{is_tainted:false, value:" + str(i[2]) + ", type:" +
-                                                i[
-                                                    1] + "}\n")
-                                f.write("}\n")
-                                f.write("dependence{\n")
-                                f.write("}")
-                            f.close()
+            taint_path = java2dalvik_type(getcon_method(source_statement)) + " ====> " + java2dalvik_type(
+                getcon_method(sink_statement)) + " " + str(index)
+
+            taint_path_set.append(taint_path)
+    return taint_path_set
 
 
 def deal_jnfuzz_test(outpath, decompile_path, app_name):
@@ -200,7 +97,7 @@ def deal_jnfuzz_test(outpath, decompile_path, app_name):
     utils.create_floder(scripts)
     utils.create_floder(os.path.join(scripts, app_name))
     if (len(os.listdir(os.path.join(scripts, app_name)))) != 0:
-        print("[+] exec even.")
+        log.warning("[*] has been exec.")
     else:
         num = 0
         methods = utils.get_native_methods(decompile_path, app_name)
@@ -221,5 +118,8 @@ def deal_jnfuzz_test(outpath, decompile_path, app_name):
                 f.write("}\n")
                 f.write("dependence{\n")
                 f.write("}")
-            f.close()
             num = num + 1
+
+
+def deal_jucify_taint():
+    return

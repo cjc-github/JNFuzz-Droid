@@ -1,4 +1,5 @@
-def deal2(dict1, func_re):
+# deal return
+def dalvik_fun_return2java(dict1, func_re):
     data = ""
     j = 0
     for i in range(len(func_re)):
@@ -11,7 +12,8 @@ def deal2(dict1, func_re):
     return data
 
 
-def deal1(dict1, str1):
+# deal the parameters
+def dalvik_fun_parameters2java(dict1, str1):
     stack = []
     tlist = []
     l = -1
@@ -65,7 +67,9 @@ def deal1(dict1, str1):
         list1.append(tnk)
     return list1
 
-def create_types(func):
+
+# Dalvik type to java type
+def create_types(dalvik_function):
     dict1 = {"V": "void",
              "Z": "boolean",
              "B": "byte",
@@ -76,18 +80,18 @@ def create_types(func):
              "F": "float",
              "D": "double",
              "T": "java.lang.String"}
-    func_para = func.split("(")[1].split(")")[0]
-    func_re = func.split(")")[1]
-    func_para = func_para.replace("Ljava/lang/String;", "T")
-    func_re = func_re.replace("Ljava/lang/String;", "T")
-    list = []
-    data1 = deal1(dict1, func_para)
-    data2 = deal2(dict1, func_re)
-    # data2 = deal1(dict1, func_re)
-    list.append(data1)
-    list.append(data2)
-    return list
+    func_parameters = dalvik_function.split("(")[1].split(")")[0]
+    func_return = dalvik_function.split(")")[1]
 
+    func_parameters = func_parameters.replace("Ljava/lang/String;", "T")
+    func_return = func_return.replace("Ljava/lang/String;", "T")
+
+    java_parameters = dalvik_fun_parameters2java(dict1, func_parameters)
+    java_return = dalvik_fun_return2java(dict1, func_return)
+    return [java_parameters, java_return]
+
+
+# deal return value and parameters
 def get_type(ret, pars):
     dict1 = {"void": "V",
              "boolean": "Z",
@@ -132,3 +136,18 @@ def get_type(ret, pars):
             if flag == 0:
                 pars1 += "L" + ret.replace(".", "/") + ";"
     return ret1, pars1
+
+
+# Lorg/arguslab/native_leak/MainActivity;.send:(Ljava/lang/String;)V
+# <org.arguslab.native_leak.MainActivity: void send(java.lang.String)>
+if __name__ == "__main__":
+    function = "Lorg/arguslab/native_leak/MainActivity;.send:(Ljava/lang/String;)V"
+    print(create_types(function))
+    function = "Lorg/arguslab/native_leak/MainActivity;.send:(Ljava/lang/String;Lcom/wiyun/engine/nodes/Director$IDirectorLifecycleListener;)Lcom/wiyun/engine/nodes/Director$IDirectorLifecycleListener;"
+    print(create_types(function))
+    function = "Lorg/arguslab/native_leak/MainActivity;.send:(ZBSCIJFDLjava/lang/String;)V"
+    print(create_types(function))
+    function = "Lorg/arguslab/native_leak/MainActivity;.send:([[Z[Ljava/lang/String;)V"
+    print(create_types(function))
+    function = "Lorg/arguslab/native_leak/MainActivity;.send:([[Z[Lcom/wiyun/engine/nodes/Director;)V"
+    print(create_types(function))

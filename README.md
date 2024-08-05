@@ -9,7 +9,7 @@ Before using JNFuzz-Droid, you must finish the following requirements:
 + Install Amandroid or JN-SAF for static taint analysis
 + JDK 1.8+ and python3.8
 + install jucify for symbolic execution
-+ a real-world devices or  emulator
++ a real-world devices or emulator
 + The Frida tool has been configured on mobile devices and PC.
 
 **Using the tool**

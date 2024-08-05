@@ -9,7 +9,7 @@
         // const getuid = new NativeFunction(Module.getExportByName(null, 'getuid'), 'int', []);
 
 
-        let so_files = "libswitch1.so";
+        let so_files = "libarm64_v8a.so";
 
         let jni_struct_array = [
             "reserved0", "reserved1", "reserved2", "reserved3", "GetVersion", "DefineClass", "FindClass", "FromReflectedMethod", "FromReflectedField", "ToReflectedMethod", "GetSuperclass", "IsAssignableFrom", "ToReflectedField", "Throw", "ThrowNew",
@@ -1779,9 +1779,9 @@
 
         hook_all_jni();
         Java.perform(function () {
-            Interceptor.attach(Module.findExportByName("libswitch1.so", "Java_org_cao_switch1_MainActivity_send"), {
+            Interceptor.attach(Module.findExportByName("libarm64_v8a.so", "Java_org_cao_arm64_1v8a_MainActivity_send"), {
                 onEnter: function (args) {
-                    send(" [+] enter Java_org_cao_switch1_MainActivity_send");
+                    send(" [+] enter Java_org_cao_arm64_1v8a_MainActivity_send");
                     try{
                         send(` Taint: value:${Java.vm.tryGetEnv().getStringUtfChars(args[2],null).readUtf8String()} addr:${args[2]}`);
                     }catch(e) {
@@ -1794,7 +1794,7 @@
                     } catch(e) {
                         send(` funreturn[0] addr:${retval}`);
                     }
-                    send(" [+] leave Java_org_cao_switch1_MainActivity_send \n\n");
+                    send(" [+] leave Java_org_cao_arm64_1v8a_MainActivity_send \n\n");
                 }
             });
         });

@@ -1,12 +1,19 @@
-import os.path
+import os
 import sys
+
 from utils import utils
+from utils.utils import list_all_files
 from utils.exception import ToolsException
-from utils.utils import list_all_files, is_ELFfile
+from utils.file_analysis import if_elf_file
+from utils.extra_apktool import get_so_files, get_native_activity, get_native_methods
+from utils.run_command import rcmd1, rcmd2
+
+from utils.logging_config import setup_logging
+
+log = setup_logging(name=__name__)
 
 
 class Preprocess:
-
     def __init__(self, name, out_path, remove):
         self.apkname = utils.get_apkname(name)
         self.name = name
@@ -17,74 +24,95 @@ class Preprocess:
 
     def apktool(self):
         if not utils.judge_input(self.name):
-            print(" [*] the input_apk is not exist.")
-            exit(0)
+            log.error("[!] the input_apk is not exist.")
+            sys.exit(0)
 
         out = os.path.join(self.Decompile_path, self.apkname)
+        path = "lib/apktool_2.6.1.jar"
+        if not os.path.exists(path):
+            log.error("[!] apktool.jar is not exists.")
+            raise ValueError("[!] apktool.jar is not exists.")
+
         if not os.path.exists(out):
-            cmd = "java -jar lib/apktool_*.jar d -f " + self.name + " -o " + out
-            print(" [+] using the apktool.")
-            os.system(cmd)
+            os.makedirs(out)
+            cmd = "java -jar " + os.path.abspath(path) + " d -f " + os.path.abspath(
+                self.name) + " -o " + os.path.abspath(out)
+            log.info("[+] using the apktool to decompile the apk.")
 
-            decompile_path = os.path.join(self.Decompile_path, self.apkname)
-            xml_path = os.path.join(decompile_path, "AndroidManifest.xml")
+            rcmd2(cmd)
 
+            xml_path = os.path.join(self.Decompile_path, self.apkname, "AndroidManifest.xml")
             if not os.path.exists(xml_path) or os.path.getsize(xml_path) == 0:
                 self.remove()
-                raise ToolsException(" [+] " + self.apkname + " apktool failed.")
+                raise ToolsException(f"[!] {self.apkname} apktool failed.")
         else:
-            print(" [+] Has been processed by apktool.")
+            log.warning("[*] has been processed by apktool.")
 
     # in the futher, we will consider the elf arch and some infomation.
     # currently, as far as we know, no tool that can distinguish armeabi and armeabi-v7a
     def result(self):
+        log.info("[+] extract additional ELF files from the assets folder.")
         deco_path = os.path.join(self.Decompile_path, self.apkname)
-        lib_floder = os.path.join(deco_path, "lib")
-        if not os.path.exists(lib_floder):
-            os.mkdir(lib_floder)
-        if os.path.exists(os.path.join(lib_floder, "arm64-v8a")):
-            res = "/lib/arm64-v8a"
-        else:
-            if os.path.exists(os.path.join(lib_floder, "armeabi-v7a")):
-                res = "/lib/armeabi-v7a"
-            else:
-                if not os.path.exists(os.path.join(lib_floder, "armeabi")):
-                    os.mkdir(os.path.join(lib_floder, "armeabi"))
-                res = "/lib/armeabi"
+        lib_folder = os.path.join(deco_path, "lib")
+        if not os.path.exists(lib_folder):
+            os.mkdir(lib_folder)
 
+        if os.path.exists(os.path.join(lib_folder, "arm64-v8a")):
+            res = "/lib/arm64-v8a"
+        elif os.path.exists(os.path.join(lib_folder, "armeabi-v7a")):
+            res = "/lib/armeabi-v7a"
+        elif os.path.exists(os.path.join(lib_folder, "armeabi")):
+            res = "/lib/armeabi"
+        else:
+            os.mkdir(os.path.join(lib_folder, "armeabi"))
+            res = "/lib/armeabi"
+
+        # cp elf file in assets to armeabi/armeabi-v8a/arm64-v8a library
         if os.path.exists(deco_path):
             assets = os.path.join(deco_path, "assets")
             if os.path.exists(assets):
                 file_lists = list_all_files(assets)
                 for file in file_lists:
                     name = file.split("/")[-1]
-                    if is_ELFfile(file):
-                        os.system("cp " + file + " " + deco_path + res + "/")
+                    # list file in assets folders
+                    if if_elf_file(file):
+                        cmd = "cp " + file + " " + deco_path + res + "/"
+                        rcmd1(cmd)
+
+                        # add suffix .so
                         if not name.endswith(".so"):
                             lst = name.rsplit(".", 1)[0] + ".so"
-                            os.system("cp " + file + " " + deco_path + res + "/" + lst)
+                            cmd = "cp " + file + " " + deco_path + res + "/" + lst
+                            rcmd1(cmd)
+
+                        # add prefix lib
                         if not name.startswith("lib"):
                             cmd = "cp " + file + " " + deco_path + res + "/lib" + name
-                            os.system(cmd)
+                            rcmd1(cmd)
 
+                    # process .zip compressed files
                     if name.endswith(".zip"):
                         try:
                             cmd = "unzip -o -P 123456 -q " + file + " -d " + file[:-4] + "-zip"
-                            os.system(cmd)
+                            rcmd1(cmd)
+
                             zip_files = list_all_files(file[:-4] + "-zip")
                             for zipfile in zip_files:
-                                if is_ELFfile(zipfile):
+                                if if_elf_file(zipfile):
                                     cmd = "cp " + zipfile + " " + deco_path + res
-                                    os.system(cmd)
+                                    rcmd1(cmd)
                         except Exception as e:
-                            print("unzip failed.")
+                            log.error(f"unzip failed. {e}.")
 
-            abi = os.path.join(lib_floder, "armeabi")
+            # if armeabi is empty, then remove this folder
+            abi = os.path.join(lib_folder, "armeabi")
             if os.path.exists(abi) and len(os.listdir(abi)) == 0:
-                os.rmdir(os.path.join(lib_floder, "armeabi"))
-            if len(os.listdir(lib_floder)) == 0:
-                os.rmdir(lib_floder)
-        print(" [+] finish extract additional ELF files from the assets folder.")
+                os.rmdir(os.path.join(lib_folder, "armeabi"))
+
+            if len(os.listdir(lib_folder)) == 0:
+                os.rmdir(lib_folder)
+
+        log.info("[+] finish extract additional ELF files from the assets folder.")
 
     def remove(self):
         ans = [os.path.join(self.Decompile_path, self.apkname), self.name,
@@ -99,11 +127,11 @@ class Preprocess:
     def report(self):
         utils.create_floder(self.Report_path)
         apk_report = os.path.join(self.Report_path, self.apkname + ".txt")
-        print(" [+] analysis the " + self.name)
+        log.info(f"[+] analysis the {self.name}.")
 
-        so_files = utils.get_so_files(self.Decompile_path, self.apkname)
-        native_activities = utils.get_native_activity(self.Decompile_path, self.apkname)
-        native_method = utils.get_native_methods(self.Decompile_path, self.apkname)
+        so_files = get_so_files(self.Decompile_path, self.apkname)
+        native_activities = get_native_activity(self.Decompile_path, self.apkname)
+        native_method = get_native_methods(self.Decompile_path, self.apkname)
 
         if not os.path.exists(apk_report):
             os.mknod(apk_report)
@@ -113,29 +141,27 @@ class Preprocess:
                 f.write("so_files = " + so_files + "\n")
                 f.write("native_activities = " + native_activities + "\n")
                 f.write("native_method = " + native_method + "\n")
-            f.close()
         else:
-            print(" [+] Collect the infomations from apktool.\n")
+            log.warning("[*] collect the information from apktool tool.")
 
         if len(native_method) == 0:
             if self.remove_flag:
                 self.remove()
-            print(" [+] " + self.apkname + " smali code not find the native function.")
-            raise ToolsException(" [+] " + self.name + " samli code not find the native function.")
-            # try:
-            #     # [maye be pure native apk or no native]
-            #     raise ToolsException(" [+] " + self.name + " samli code not find the native function.")
-            # except:
-            #     print(" [!] Subfile execution fialed to throw an exception.")
+            log.info(f"[+] {self.apkname} smali code not find the native function.")
+            raise ToolsException(f"[!] {self.name}'s smali code not find the native function.")
+
+        log.info("[+] decompile the apk and extract elf file.\n")
 
 
 if __name__ == "__main__":
-    # python3 Preprocess.py apk/native1.apk out true/false
+    # python3 Preprocess.py apk/native_leak.apk out true/false
     apk_path = sys.argv[1]
     out_paths = sys.argv[2]
     remove_flag = sys.argv[3]
     if remove_flag == "false":
         remove_flag = False
+    else:
+        remove_flag = True
     pre_deal = Preprocess(apk_path, out_paths, remove_flag)
     pre_deal.apktool()
     pre_deal.result()

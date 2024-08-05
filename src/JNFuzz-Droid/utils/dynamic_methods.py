@@ -34,7 +34,6 @@ def get_dmethods_map(dirs):
                         if infos[5] == "False\n":
                             tmp = [infos[1], infos[2], infos[3], infos[4]]
                             maps[sofile].append(tmp)
-                f.close()
         return maps
     else:
         return None

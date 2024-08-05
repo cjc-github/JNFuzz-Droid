@@ -10,4 +10,5 @@ pgrep frida-server | xargs kill -s 9
 rm -rf test_jni* out
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/data/local/tmp/
 echo " [+] start the frida server"
+chmod 777 ./frida-server
 ./frida-server
