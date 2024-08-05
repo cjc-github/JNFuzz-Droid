@@ -175,7 +175,8 @@ def judge_repeat_so(folder):
     elif len(file_lists) == 2:
         return sorted(file_lists[0]) == sorted(file_lists[1])
     else:
-        return len(set(map(sorted, file_lists))) == 1
+        # return len(set(map(sorted, file_lists))) == 14
+        return sorted(file_lists[0]) == sorted(file_lists[1]) == sorted(file_lists[2])
 
 
 class Fuzz_and_taint_analysis:

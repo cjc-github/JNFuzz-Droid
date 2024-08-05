@@ -44,7 +44,8 @@ def save_unique_fun(taint_fun_set, fun_name):
 
 
 def save_outcome_file(taint_fun_list):
-    out_come = os.path.join("../", "apk_outcome.txt")
+    # out_come = os.path.join("../", "apk_outcome.txt")
+    out_come = os.path.join("apk_outcome.txt")
     with open(out_come, "a") as f:
         f.write(str(taint_fun_list) + "\n")
 
