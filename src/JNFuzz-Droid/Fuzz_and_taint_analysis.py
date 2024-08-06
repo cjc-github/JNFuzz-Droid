@@ -338,7 +338,7 @@ class Fuzz_and_taint_analysis:
             raise ToolsException(f"[!] {self.name}: the specified cpu architecture {self.gcc} does not exist in apk.")
 
     def select_arch(self):
-        if not utils.judge_input(self.name):
+        if not os.path.exists(self.name):
             log.error("[!] the input_apk is not exist.")
             exit(0)
 

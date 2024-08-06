@@ -3,9 +3,9 @@ import xml
 import xml.dom
 import xml.dom.minidom
 
-from utils import utils, convertType
+from utils import utils, java_dalvik_bridge
 from utils.logging_config import setup_logging
-from utils.utils import java2dalvik_type, get_type_index
+from utils.java_dalvik_bridge import java2dalvik_type, get_type_index
 from utils.deal_taint_path import get_taint_var_index, getcon_method
 
 log = setup_logging(name=__name__)
@@ -308,7 +308,7 @@ def deal_param(s, defin, typelist, params):
 def depth_first_search(graph, jni_fun, file, flag):
     mtd_sig = jni_fun.split("@signature")[1].split("`")[1]
     params = jni_fun.split("param:")[1].strip()
-    type_list = convertType.create_types(mtd_sig)
+    type_list = java_dalvik_bridge.create_types(mtd_sig)
     dpd = []
     for s in find_jni(graph, jni_fun):
         stack, data, dep = [s], [s], 0

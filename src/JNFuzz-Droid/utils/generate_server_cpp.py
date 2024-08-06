@@ -1,7 +1,7 @@
 import os
 
-from utils import convertType, utils
-from utils import AddSource
+from utils import java_dalvik_bridge, utils
+from utils import assign_source
 from utils.dynamic_methods import get_dynamic_method_name
 
 from utils.logging_config import setup_logging
@@ -58,7 +58,7 @@ def getClass_Method(java_method, dirs, so_file):
 
 
 def define(method, status_static):
-    jni_params = convertType.create_types(method)
+    jni_params = java_dalvik_bridge.create_types(method)
     if status_static.rstrip() == "static":
         data = "typedef " + switch_jni(jni_params[1]) + " function_t(JNIEnv *, jclass,"
     else:
@@ -262,7 +262,7 @@ def deal_basic_type(out_path, t, num, totalsize, size, apkname):
 def analysis_line(out_path, line, num, size, totalsize, taintpath, apk_name):
     list = []
     if line.split(":{is_tainted:")[1].split(",")[0] == "true":
-        list, num = AddSource.addSource(out_path, line, num, list, taintpath, apk_name)
+        list, num = assign_source.assign_source(out_path, line, num, list, taintpath, apk_name)
     elif not line.split(", ")[1].split(":")[1] == "default":
         if "[][]" in line.split("type:")[1] and "[][][]" not in line.split("type:")[1]:
             log.info("[+] Determines the dimensions of a two-dimensional array.")

@@ -3,9 +3,10 @@ import sys
 
 from utils import utils
 from utils.utils import list_all_files
-from utils.exception import ToolsException
 from utils.file_analysis import if_elf_file
 from utils.extra_apktool import get_so_files, get_native_activity, get_native_methods
+
+from utils.exception import ToolsException
 from utils.run_command import rcmd1, rcmd2
 
 from utils.logging_config import setup_logging
@@ -23,7 +24,7 @@ class Preprocess:
         self.remove_flag = remove
 
     def apktool(self):
-        if not utils.judge_input(self.name):
+        if not os.path.exists(self.name):
             log.error("[!] the input_apk is not exist.")
             sys.exit(0)
 

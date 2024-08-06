@@ -1,7 +1,7 @@
 import os
 
-from utils import convertType, utils
-from utils import AddSource
+from utils import utils, java_dalvik_bridge
+from utils import assign_source
 
 from utils.logging_config import setup_logging
 
@@ -16,7 +16,7 @@ btype_dicts = {'boolean': "[Z", 'byte': "[B", "short": "[S", "char": "[C", "int"
 
 
 def define(method, i, st):
-    list = convertType.create_types(method)
+    list = java_dalvik_bridge.create_types(method)
     if st.rstrip() == "static":
         data = "typedef " + switch_jni(list[1]) + " (*jni" + str(i) + "_t)(JNIEnv *env, jclass class,"
     else:
@@ -254,7 +254,7 @@ def deal_basic_type(out_path, t, num, totalsize, size, apkname):
 def analysis_line(out_path, line, num, size, totalsize, taintpath, apkname):
     list = []
     if line.split(":{is_tainted:")[1].split(",")[0] == "true":
-        list, num = AddSource.addSource_x86(out_path, line, num, list, taintpath, apkname)
+        list, num = assign_source.assign_source_x86(out_path, line, num, list, taintpath, apkname)
     elif not line.split(", ")[1].split(":")[1] == "default":
         if "[][]" in line.split("type:")[1] and "[][][]" not in line.split("type:")[1]:
             print("确定二维数组的维度.")

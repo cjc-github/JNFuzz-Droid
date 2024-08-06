@@ -11,8 +11,7 @@ sources_string = [["getDeviceId:()", "java.lang.String", "358240051111110"],
                   ["getCountry:()", "java.lang.String", "china"],
                   ["getInstalledApplications:(", "java.lang.String", "com.android.camera.CameraActivity"],
                   ["getInstalledPackage:(", "java.lang.String", "com.android.camera.CameraActivity"],
-                  ["queryIntentServices:(", "java.lang.String",
-                   "com.android.camera.CameraActivity"],
+                  ["queryIntentServices:(", "java.lang.String", "com.android.camera.CameraActivity"],
                   ["queryIntentActivities:(", "java.lang.String", "com.android.camera.CameraActivity"],
                   ["queryBroadcastReceivers:(", "java.lang.String", "com.android.camera.CameraActivity"],
                   ["queryContentProviders:(", "java.lang.String", "com.android.camera.CameraActivity"],
@@ -29,7 +28,7 @@ sources_string = [["getDeviceId:()", "java.lang.String", "358240051111110"],
                   ["getBroadcast:(", "java.lang.String", "358240051111110"]]
 
 
-def addSource(out_path, line, num, list, taintpath, apkname):
+def assign_source(out_path, line, num, list, taintpath, apkname):
     types = line.split("type:")[1][:-2]
     for source in sources_string:
         if source[0] in taintpath and types == source[1]:
@@ -218,7 +217,7 @@ def addSource(out_path, line, num, list, taintpath, apkname):
     return list, num
 
 
-def addSource_x86(out_path, line, num, list, taintpath, apkname):
+def assign_source_x86(out_path, line, num, list, taintpath, apkname):
     types = line.split("type:")[1][:-2]
     for source in sources_string:
         if source[0] in taintpath and types == source[1]:

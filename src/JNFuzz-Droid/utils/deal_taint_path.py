@@ -4,9 +4,8 @@ import xml.dom
 import xml.dom.minidom
 
 from utils import utils
-from utils.convertType import create_types
+from utils.java_dalvik_bridge import create_types, java2dalvik_type, dalvik2java_type
 from utils.exception import HaveException, ToolsException
-from utils.utils import get_type_index, java2dalvik_type, dalvik2java_type
 
 from utils.logging_config import setup_logging
 

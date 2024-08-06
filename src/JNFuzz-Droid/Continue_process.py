@@ -43,7 +43,7 @@ class ContinueProcess:
         self.remove_flag = remove
 
     def get_dynamic_methods(self):
-        if not utils.judge_input(self.apkPath):
+        if not os.path.exists(self.apkPath):
             log.error("[!] the input_apk is not exist.")
             exit(0)
 
