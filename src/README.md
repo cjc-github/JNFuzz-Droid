@@ -52,7 +52,7 @@ sudo apt-get install graphviz libgraphviz-dev
 ```bash
 sudo pip install virtualenv
 sudo pip install virtualenvwrapper
-# Verify：Make sure the virtualenv and virtualenvwrapper.sh files are in the $Home/.local/bin directory
+# Verify: Make sure the virtualenv and virtualenvwrapper.sh files are in the $Home/.local/bin directory
 ```
 
 Then, edit your `~/.bashrc` file (or corresponding shell configuration file) and add the following lines to configure the virtual environment:
@@ -190,7 +190,7 @@ In a python script or interactive environment, try importing your installed pack
 python
 >>> import frida
 
-# Error import result：
+# Error import result: 
 Traceback (most recent call last):
 	File "<stdin>", line 1, in <module>
 ModuleNotFoundError: No moudle name 'frida'

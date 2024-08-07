@@ -34,11 +34,11 @@ result:
 
 
 
-**note1:** At present JNFuzz-Droid does not model custom and complex types, However in NativeFlowBench have six apps use of the custom types, it leads to JNFuzz-Droid had 6 false negative.
+**note1: ** At present JNFuzz-Droid does not model custom and complex types, However in NativeFlowBench have six apps use of the custom types, it leads to JNFuzz-Droid had 6 false negative.
 
 
 
-**note2：** JNFuzz-Droid relies on existing static analysis tools for capturing potential data leak path from source api to native method. This means that applications that use native methods may be missed by existing static analysis tools and not be detected or identified by these tools.
+**note2: ** JNFuzz-Droid relies on existing static analysis tools for capturing potential data leak path from source api to native method. This means that applications that use native methods may be missed by existing static analysis tools and not be detected or identified by these tools.
 
 for example, DroidBench3.0 Native category have 5 apps, but static analysis tools only find 3 apps that which potential data leak path form source api to native method. 
 

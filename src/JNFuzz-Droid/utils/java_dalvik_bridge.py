@@ -202,8 +202,28 @@ if __name__ == "__main__":
     # par = "java.lang.String"
     # print(get_type(ret, par))
 
-    sig = "Lorg/arguslab/native_leak/MainActivity;.send:(Ljava/lang/String;)V"
-    java_sig = dalvik2java_type(sig)
-    print(java_sig)
-    sig = java2dalvik_type(java_sig)
-    print(sig)
+    try:
+        res = []
+        with open("dalvik_method.txt", "r") as f:
+            lines = f.readlines()
+            for i in lines:
+                java_sig = dalvik2java_type(i)
+
+                sig = java2dalvik_type(java_sig)
+                res.append(sig)
+
+                if i.strip() != sig:
+                    print("before:", i.strip())
+                    print("after :", java_sig)
+                    print("netxt :", sig, "\n")
+                else:
+                    continue
+
+    except Exception as e:
+        print(f"error{e}")
+
+    # sig = "Lorg/arguslab/native_leak/MainActivity;.send:(Ljava/lang/String;)V"
+    # java_sig = dalvik2java_type(sig)
+    # print(java_sig)
+    # sig = java2dalvik_type(java_sig)
+    # print(sig)
