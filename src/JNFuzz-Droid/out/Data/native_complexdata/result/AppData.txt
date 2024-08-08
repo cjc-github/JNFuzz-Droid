@@ -1,0 +1,35 @@
+Application Name: native_complexdata.apk
+Uses Permissions: android.permission.READ_PHONE_STATE
+
+Component org.arguslab.native_complexdata.MainActivity
+  Component type: activity
+  Exported: true
+  Dynamic Registered: false
+  Required Permission: 
+  IntentFilters:
+    IntentFilter:(Actions:["android.intent.action.MAIN"],Categories:["android.intent.category.LAUNCHER"])
+
+  Inter-component communication (ICC) Result:
+
+
+
+Taint analysis result:
+  Sources found:
+    <Descriptors: api_source: Landroid/telephony/TelephonyManager;.getDeviceId:()Ljava/lang/String;>
+  Sinks found:
+    <Descriptors: api_sink: Lorg/arguslab/native_complexdata/MainActivity;.send2:(Lorg/arguslab/native_complexdata/ComplexData;)V 1>
+    <Descriptors: api_sink: Lorg/arguslab/native_complexdata/MainActivity;.send:(Lorg/arguslab/native_complexdata/ComplexData;)V 1>
+  Discovered taint paths are listed below:
+    TaintPath:
+      Source: <Descriptors: api_source: Landroid/telephony/TelephonyManager;.getDeviceId:()Ljava/lang/String;>
+      Sink: <Descriptors: api_sink: Lorg/arguslab/native_complexdata/MainActivity;.send2:(Lorg/arguslab/native_complexdata/ComplexData;)V 1>
+      Types: maliciousness:information_theft
+      The path consists of the following edges ("->"). The nodes have the context information (p1 to pn means which parameter). The source is at the top :
+        List(#L01d86e.  call temp:= `getDeviceId`(v0) @signature `Landroid/telephony/TelephonyManager;.getDeviceId:()Ljava/lang/String;` @kind virtual;, #L01d896.  call `send2`(v0) @signature `Lorg/arguslab/native_complexdata/MainActivity;.send2:(Lorg/arguslab/native_complexdata/ComplexData;)V` @kind static; param: 1)
+
+    TaintPath:
+      Source: <Descriptors: api_source: Landroid/telephony/TelephonyManager;.getDeviceId:()Ljava/lang/String;>
+      Sink: <Descriptors: api_sink: Lorg/arguslab/native_complexdata/MainActivity;.send:(Lorg/arguslab/native_complexdata/ComplexData;)V 1>
+      Types: maliciousness:information_theft
+      The path consists of the following edges ("->"). The nodes have the context information (p1 to pn means which parameter). The source is at the top :
+        List(#L01d86e.  call temp:= `getDeviceId`(v0) @signature `Landroid/telephony/TelephonyManager;.getDeviceId:()Ljava/lang/String;` @kind virtual;, #L01d890.  call `send`(v0) @signature `Lorg/arguslab/native_complexdata/MainActivity;.send:(Lorg/arguslab/native_complexdata/ComplexData;)V` @kind static; param: 1)

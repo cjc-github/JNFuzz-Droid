@@ -9,7 +9,7 @@
         // const getuid = new NativeFunction(Module.getExportByName(null, 'getuid'), 'int', []);
 
 
-        let so_files = "libleak.so";
+        let so_files = "libdata.so";
 
         let jni_struct_array = [
             "reserved0", "reserved1", "reserved2", "reserved3", "GetVersion", "DefineClass", "FindClass", "FromReflectedMethod", "FromReflectedField", "ToReflectedMethod", "GetSuperclass", "IsAssignableFrom", "ToReflectedField", "Throw", "ThrowNew",
@@ -1779,11 +1779,11 @@
 
         hook_all_jni();
         Java.perform(function () {
-            Interceptor.attach(Module.findExportByName("libleak.so", "Java_org_arguslab_native_1leak_MainActivity_send"), {
+            Interceptor.attach(Module.findExportByName("libdata.so", "Java_org_arguslab_native_1complexdata_MainActivity_send2"), {
                 onEnter: function (args) {
-                    send(" [+] enter Java_org_arguslab_native_1leak_MainActivity_send");
+                    send(" [+] enter Java_org_arguslab_native_1complexdata_MainActivity_send2");
                     try{
-                        send(` Taint: value:${Java.vm.tryGetEnv().getStringUtfChars(args[2],null).readUtf8String()} addr:${args[2]}`);
+                        send(` Taint: value:358240051111110 addr:${args[2]}`);
                     }catch(e) {
                         send(` Taint: addr:${args[2]}`);
                     }
@@ -1794,7 +1794,7 @@
                     } catch(e) {
                         send(` funreturn[0] addr:${retval}`);
                     }
-                    send(" [+] leave Java_org_arguslab_native_1leak_MainActivity_send \n\n");
+                    send(" [+] leave Java_org_arguslab_native_1complexdata_MainActivity_send2 \n\n");
                 }
             });
         });

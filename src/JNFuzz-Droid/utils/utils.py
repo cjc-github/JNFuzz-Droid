@@ -53,14 +53,6 @@ def remove_dir(folder):
             os.remove(folder)
 
 
-# save tmp_lists to taint_txt
-def write_tofile(tmp_lists, taint_txt):
-    with open(taint_txt, "w") as f:
-        for i in tmp_lists:
-            for j in i:
-                f.write(j)
-
-
 # save to reports.txt中
 def save_file(output, line):
     file_name = os.path.join(output, "report.txt")

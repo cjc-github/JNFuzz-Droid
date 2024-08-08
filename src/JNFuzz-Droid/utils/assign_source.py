@@ -214,6 +214,7 @@ def assign_source(out_path, line, num, list, taintpath, apkname):
         list.append("env->DeleteLocalRef(par" + str(num) + ");")
         num = num + 1
         save_file(out_path, " [+]" + apkname + " the complex type is taint")
+        #
     return list, num
 
 

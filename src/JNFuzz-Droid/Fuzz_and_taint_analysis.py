@@ -175,7 +175,7 @@ def judge_repeat_so(folder):
     elif len(file_lists) == 2:
         return sorted(file_lists[0]) == sorted(file_lists[1])
     else:
-        # return len(set(map(sorted, file_lists))) == 14
+        # return len(set(map(sorted, file_lists))) == 1
         return sorted(file_lists[0]) == sorted(file_lists[1]) == sorted(file_lists[2])
 
 
@@ -256,7 +256,7 @@ class Fuzz_and_taint_analysis:
                     except Exception as e:
                         line = file_path + " generate the server.c failed."
                         utils.save_file(self.out_path, line)
-                        log.error("[!] generate the server.c failed.")
+                        log.error(f"[!] generate the server.c failed: {e}.")
 
             cmd = "adb shell 'cd /data/local/tmp;su -c rm -rf lib* test_jni* *.apk out in *.so target-app.apk'"
             rcmd1(cmd)

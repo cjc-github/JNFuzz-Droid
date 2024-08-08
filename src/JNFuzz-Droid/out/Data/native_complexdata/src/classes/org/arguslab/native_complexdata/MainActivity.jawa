@@ -1,0 +1,76 @@
+record `org.arguslab.native_complexdata.MainActivity` @kind class @AccessFlag PUBLIC extends `android.app.Activity` @kind class {
+}
+procedure `void` `<clinit>`() @signature `Lorg/arguslab/native_complexdata/MainActivity;.<clinit>:()V` @AccessFlag STATIC_CONSTRUCTOR {
+    temp;
+    v0;
+
+  #L01d818.  v0:= "data" @kind object;
+  #L01d81c.  call `loadLibrary`(v0) @signature `Ljava/lang/System;.loadLibrary:(Ljava/lang/String;)V` @kind static;
+  #L01d822.  return @kind void;
+}
+procedure `void` `<init>`(`org.arguslab.native_complexdata.MainActivity` v0 @kind this) @signature `Lorg/arguslab/native_complexdata/MainActivity;.<init>:()V` @AccessFlag PUBLIC_CONSTRUCTOR {
+    temp;
+
+  #L01d834.  call `<init>`(v0) @signature `Landroid/app/Activity;.<init>:()V` @kind direct;
+  #L01d83a.  return @kind void;
+}
+procedure `void` `leakImei`(`org.arguslab.native_complexdata.MainActivity` v2 @kind this) @signature `Lorg/arguslab/native_complexdata/MainActivity;.leakImei:()V` @AccessFlag PRIVATE {
+    temp;
+    v0;
+    v1;
+
+  #L01d84c.  v0:= "phone" @kind object;
+  #L01d850.  call temp:= `getSystemService`(v2, v0) @signature `Lorg/arguslab/native_complexdata/MainActivity;.getSystemService:(Ljava/lang/String;)Ljava/lang/Object;` @kind virtual;
+  #L01d856.  v0:= temp @kind object;
+  #L01d858.  v0:= (`android.telephony.TelephonyManager`) v0 @kind object;
+  #L01d85c.  v1:= "android.permission.READ_PHONE_STATE" @kind object;
+  #L01d860.  call temp:= `checkSelfPermission`(v2, v1) @signature `Lorg/arguslab/native_complexdata/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;
+  #L01d866.  v2:= temp;
+  #L01d868.  if v2 == 0 then goto L01d86e;
+  #L01d86c.  return @kind void;
+  #L01d86e.  call temp:= `getDeviceId`(v0) @signature `Landroid/telephony/TelephonyManager;.getDeviceId:()Ljava/lang/String;` @kind virtual;
+  #L01d874.  v2:= temp @kind object;
+  #L01d876.  v0:= new `org.arguslab.native_complexdata.ComplexData`;
+  #L01d87a.  call `<init>`(v0) @signature `Lorg/arguslab/native_complexdata/ComplexData;.<init>:()V` @kind direct;
+  #L01d880.  call `setData`(v0, v2) @signature `Lorg/arguslab/native_complexdata/ComplexData;.setData:(Ljava/lang/String;)V` @kind virtual;
+  #L01d886.  v2:= "nosource" @kind object;
+  #L01d88a.  call `setOther`(v0, v2) @signature `Lorg/arguslab/native_complexdata/ComplexData;.setOther:(Ljava/lang/String;)V` @kind virtual;
+  #L01d890.  call `send`(v0) @signature `Lorg/arguslab/native_complexdata/MainActivity;.send:(Lorg/arguslab/native_complexdata/ComplexData;)V` @kind static;
+  #L01d896.  call `send2`(v0) @signature `Lorg/arguslab/native_complexdata/MainActivity;.send2:(Lorg/arguslab/native_complexdata/ComplexData;)V` @kind static;
+  #L01d89c.  return @kind void;
+}
+procedure `void` `send`(`org.arguslab.native_complexdata.ComplexData` v0 @kind object) @signature `Lorg/arguslab/native_complexdata/MainActivity;.send:(Lorg/arguslab/native_complexdata/ComplexData;)V` @AccessFlag PUBLIC_STATIC_NATIVE {
+
+  # return;
+}
+procedure `void` `send2`(`org.arguslab.native_complexdata.ComplexData` v0 @kind object) @signature `Lorg/arguslab/native_complexdata/MainActivity;.send2:(Lorg/arguslab/native_complexdata/ComplexData;)V` @AccessFlag PUBLIC_STATIC_NATIVE {
+
+  # return;
+}
+procedure `void` `onCreate`(`org.arguslab.native_complexdata.MainActivity` v1 @kind this, `android.os.Bundle` v2 @kind object) @signature `Lorg/arguslab/native_complexdata/MainActivity;.onCreate:(Landroid/os/Bundle;)V` @AccessFlag PROTECTED {
+    temp;
+    v0;
+
+  #L01d8b0.  call `onCreate`(v1, v2) @signature `Landroid/app/Activity;.onCreate:(Landroid/os/Bundle;)V` @kind super;
+  #L01d8b6.  v2:= 2130968576I;
+  #L01d8ba.  call `setContentView`(v1, v2) @signature `Lorg/arguslab/native_complexdata/MainActivity;.setContentView:(I)V` @kind virtual;
+  #L01d8c0.  v2:= "android.permission.READ_PHONE_STATE" @kind object;
+  #L01d8c4.  call temp:= `checkSelfPermission`(v1, v2) @signature `Lorg/arguslab/native_complexdata/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;
+  #L01d8ca.  v2:= temp;
+  #L01d8cc.  if v2 == 0 then goto L01d8e4;
+  #L01d8d0.  v2:= "android.permission.READ_PHONE_STATE" @kind object;
+  #L01d8d4.  temp:= new `java.lang.String`[v2];
+  #L01d8da.  v2:= temp @kind object;
+  #L01d8dc.  v0:= 1I;
+  #L01d8de.  call `requestPermissions`(v1, v2, v0) @signature `Lorg/arguslab/native_complexdata/MainActivity;.requestPermissions:([Ljava/lang/String;I)V` @kind virtual;
+  #L01d8e4.  return @kind void;
+}
+procedure `void` `onRequestPermissionsResult`(`org.arguslab.native_complexdata.MainActivity` v0 @kind this, `int` v1 , `java.lang.String`[] v2 @kind object, `int`[] v3 @kind object) @signature `Lorg/arguslab/native_complexdata/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)V` @AccessFlag PUBLIC {
+    temp;
+
+  #L01d8f8.  v2:= 1I;
+  #L01d8fa.  if v1 == v2 then goto L01d900;
+  #L01d8fe.  return @kind void;
+  #L01d900.  call `leakImei`(v0) @signature `Lorg/arguslab/native_complexdata/MainActivity;.leakImei:()V` @kind direct;
+  #L01d906.  return @kind void;
+}
