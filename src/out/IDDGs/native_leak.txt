@@ -1,0 +1,196 @@
+Total apks: 1
+Analyzing #1:file:/home/test/workspace/JNFuzz-Droid/src/apk/native_leak.apk
+Dedexing... Total: 69
+[--------------------------------------------------]   0.00% 0ms ETA: ?[--------------------------------------------------]   1.45% 3ms ETA: ?[=-------------------------------------------------]   2.90% 21ms ETA: ?[==------------------------------------------------]   4.35% 21ms ETA: ?[==------------------------------------------------]   5.80% 22ms ETA: ?[===-----------------------------------------------]   7.25% 22ms ETA: ?[====----------------------------------------------]   8.70% 23ms ETA: ?[=====---------------------------------------------]  10.14% 23ms ETA: ?[=====---------------------------------------------]  11.59% 24ms ETA: ?[======--------------------------------------------]  13.04% 24ms ETA: ?[=======-------------------------------------------]  14.49% 24ms ETA: ?[=======-------------------------------------------]  15.94% 25ms ETA: ?[========------------------------------------------]  17.39% 25ms ETA: ?[=========-----------------------------------------]  18.84% 26ms ETA: ?[==========----------------------------------------]  20.29% 26ms ETA: ?[==========----------------------------------------]  21.74% 26ms ETA: ?[===========---------------------------------------]  23.19% 26ms ETA: ?[============--------------------------------------]  24.64% 27ms ETA: ?[=============-------------------------------------]  26.09% 27ms ETA: ?[=============-------------------------------------]  27.54% 27ms ETA: ?[==============------------------------------------]  28.99% 27ms ETA: ?[===============-----------------------------------]  30.43% 28ms ETA: ?[===============-----------------------------------]  31.88% 28ms ETA: ?[================----------------------------------]  33.33% 28ms ETA: ?[=================---------------------------------]  34.78% 28ms ETA: ?[==================--------------------------------]  36.23% 29ms ETA: ?[==================--------------------------------]  37.68% 29ms ETA: ?[===================-------------------------------]  39.13% 29ms ETA: ?[====================------------------------------]  40.58% 29ms ETA: ?[=====================-----------------------------]  42.03% 29ms ETA: ?[=====================-----------------------------]  43.48% 30ms ETA: ?[======================----------------------------]  44.93% 30ms ETA: ?[=======================---------------------------]  46.38% 30ms ETA: ?[=======================---------------------------]  47.83% 32ms ETA: ?[========================--------------------------]  49.28% 32ms ETA: ?[=========================-------------------------]  50.72% 32ms ETA: ?[==========================------------------------]  52.17% 33ms ETA: ?[==========================------------------------]  53.62% 33ms ETA: ?[===========================-----------------------]  55.07% 34ms ETA: ?[============================----------------------]  56.52% 34ms ETA: ?[============================----------------------]  57.97% 34ms ETA: ?[=============================---------------------]  59.42% 35ms ETA: ?[==============================--------------------]  60.87% 35ms ETA: ?[===============================-------------------]  62.32% 35ms ETA: ?[===============================-------------------]  63.77% 36ms ETA: ?[================================------------------]  65.22% 36ms ETA: ?[=================================-----------------]  66.67% 36ms ETA: ?[==================================----------------]  68.12% 37ms ETA: ?[==================================----------------]  69.57% 37ms ETA: ?[===================================---------------]  71.01% 37ms ETA: ?[====================================--------------]  72.46% 37ms ETA: ?[====================================--------------]  73.91% 37ms ETA: ?[=====================================-------------]  75.36% 38ms ETA: ?[======================================------------]  76.81% 38ms ETA: ?[=======================================-----------]  78.26% 38ms ETA: ?[=======================================-----------]  79.71% 38ms ETA: ?[========================================----------]  81.16% 38ms ETA: ?[=========================================---------]  82.61% 38ms ETA: ?[==========================================--------]  84.06% 39ms ETA: ?[==========================================--------]  85.51% 39ms ETA: ?[===========================================-------]  86.96% 39ms ETA: ?[============================================------]  88.41% 39ms ETA: ?[============================================------]  89.86% 39ms ETA: ?[=============================================-----]  91.30% 40ms ETA: ?[==============================================----]  92.75% 40ms ETA: ?[===============================================---]  94.20% 40ms ETA: ?[===============================================---]  95.65% 41ms ETA: ?[================================================--]  97.10% 41ms ETA: ?[=================================================-]  98.55% 127ms ETA: 1ms[==================================================] 100.00% 127ms ETA: 0ms[==================================================] 100.00% 128ms ETA: 0ms
+Collecting information from native_leak.apk...
+Read AndroidManifest.
+Read ARSC.
+Read Layout files.
+Start reachabilityAnalysis...
+Building Signature Based Call Graph... Total: 6
+[--------------------------------------------------]   0.00% 0ms Left: 6[========------------------------------------------]  16.67% 0ms Left: 5[================----------------------------------]  33.33% 27ms Left: 4[=========================-------------------------]  50.00% 28ms Left: 3[=================================-----------------]  66.67% 37ms Left: 2[=========================================---------]  83.33% 40ms Left: 1[==================================================] 100.00% 41ms Left: 0[==================================================] 100.00% 42ms Left: 0
+CHA done with method size 5.
+ReachabilityAnalysis done.
+Analyzing callbacks...
+Collecting callback methods in layout mappings...
+Collecting callback methods in app source...
+Collecting XML based callback methods...
+Callback collection done.
+Generate environment for 1 components.
+Info collection done.
+Prepare IDFGs for: native_leak.apk
+--Analyzing component: org.arguslab.native_leak.MainActivity
+ComponentBasedAnalysis: Phase 1:
+--Analyzing native_leak.apk
+----Data Dependence Analysis: org.arguslab.native_leak.MainActivity
+----Building ST for component: ComponentInfo(org.arguslab.native_leak.MainActivity,ACTIVITY,true,true,Set(),Map())
+ComponentBasedAnalysis: Phase 2-------1 apk 1 component-------
+--Link inter-component data dependence
+ComponentBasedAnalysis: Phase 3-------1 apk 1 component-------
+====start IDDGs====
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> #L2.  call `<init>`(r1) @signature `Lorg/arguslab/native_leak/MainActivity;.<init>:()V` @kind direct;p0
+Exit@Lorg/arguslab/native_leak/MainActivity;.<init>:()Vp0 ====> #L2.  call `<init>`(r1) @signature `Lorg/arguslab/native_leak/MainActivity;.<init>:()V` @kind direct;p0
+#L4.  r2:= new `android.app.ContextImpl`; ====> #L5.  r1.`android.view.ContextThemeWrapper.mBase` @type ^`android.content.Context`:= r2 @kind object;
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> #L5.  r1.`android.view.ContextThemeWrapper.mBase` @type ^`android.content.Context`:= r2 @kind object;
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> #L6.  call `setIntent`(r1, r0) @signature `Landroid/app/Activity;.setIntent:(Landroid/content/Intent;)V` @kind virtual;p0
+Entry@Lorg/arguslab/native_leak/MainActivity;.envMain:(Landroid/content/Intent;)Vp1 ====> #L6.  call `setIntent`(r1, r0) @signature `Landroid/app/Activity;.setIntent:(Landroid/content/Intent;)V` @kind virtual;p1
+VirtualBody@(MainActivity.envMain,L6) ====> #L6.  call `setIntent`(r1, r0) @signature `Landroid/app/Activity;.setIntent:(Landroid/content/Intent;)V` @kind virtual;p1
+Entry@Lorg/arguslab/native_leak/MainActivity;.envMain:(Landroid/content/Intent;)V ====> #L6.  call `setIntent`(r1, r0) @signature `Landroid/app/Activity;.setIntent:(Landroid/content/Intent;)V` @kind virtual;p1
+#L6.  call `setIntent`(r1, r0) @signature `Landroid/app/Activity;.setIntent:(Landroid/content/Intent;)V` @kind virtual;p1 ====> VirtualBody@(MainActivity.envMain,L6)
+#L6.  call `setIntent`(r1, r0) @signature `Landroid/app/Activity;.setIntent:(Landroid/content/Intent;)V` @kind virtual;p0 ====> VirtualBody@(MainActivity.envMain,L6)
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> VirtualBody@(MainActivity.envMain,L6)
+Entry@Lorg/arguslab/native_leak/MainActivity;.envMain:(Landroid/content/Intent;)V ====> VirtualBody@(MainActivity.envMain,L6)
+#L7.  r3:= new `android.os.Bundle`; ====> #L8.  call `<init>`(r3) @signature `Landroid/os/Bundle;.<init>:()V` @kind direct;p0
+#L7.  r3:= new `android.os.Bundle`; ====> VirtualBody@(MainActivity.envMain,L8)
+#L8.  call `<init>`(r3) @signature `Landroid/os/Bundle;.<init>:()V` @kind direct;p0 ====> VirtualBody@(MainActivity.envMain,L8)
+VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484) ====> #L9.  call `onCreate`(r1, r3) @signature `Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)V` @kind virtual;p0
+VirtualBody@(MainActivity.envMain,L6) ====> #L9.  call `onCreate`(r1, r3) @signature `Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)V` @kind virtual;p0
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> #L9.  call `onCreate`(r1, r3) @signature `Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)V` @kind virtual;p0
+#L7.  r3:= new `android.os.Bundle`; ====> #L9.  call `onCreate`(r1, r3) @signature `Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)V` @kind virtual;p1
+VirtualBody@(MainActivity.envMain,L8) ====> #L9.  call `onCreate`(r1, r3) @signature `Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)V` @kind virtual;p1
+Exit@Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)Vp0 ====> #L9.  call `onCreate`(r1, r3) @signature `Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)V` @kind virtual;p0
+Exit@Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)Vp1 ====> #L9.  call `onCreate`(r1, r3) @signature `Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)V` @kind virtual;p1
+VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484) ====> #L14.  call `onRequestPermissionsResult`(r1, x, r5, r4) @signature `Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)V` @kind virtual;p0
+VirtualBody@(MainActivity.envMain,L6) ====> #L14.  call `onRequestPermissionsResult`(r1, x, r5, r4) @signature `Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)V` @kind virtual;p0
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> #L14.  call `onRequestPermissionsResult`(r1, x, r5, r4) @signature `Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)V` @kind virtual;p0
+#L13.  r5:= new `java.lang.String`[]; ====> #L14.  call `onRequestPermissionsResult`(r1, x, r5, r4) @signature `Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)V` @kind virtual;p2
+#L12.  r4:= new `int`[]; ====> #L14.  call `onRequestPermissionsResult`(r1, x, r5, r4) @signature `Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)V` @kind virtual;p3
+Exit@Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)Vp0 ====> #L14.  call `onRequestPermissionsResult`(r1, x, r5, r4) @signature `Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)V` @kind virtual;p0
+Exit@Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)Vp1 ====> #L14.  call `onRequestPermissionsResult`(r1, x, r5, r4) @signature `Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)V` @kind virtual;p1
+Exit@Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)Vp2 ====> #L14.  call `onRequestPermissionsResult`(r1, x, r5, r4) @signature `Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)V` @kind virtual;p2
+Exit@Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)Vp3 ====> #L14.  call `onRequestPermissionsResult`(r1, x, r5, r4) @signature `Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)V` @kind virtual;p3
+Entry@Lorg/arguslab/native_leak/MainActivity;.envMain:(Landroid/content/Intent;)Vp1 ====> Exit@Lorg/arguslab/native_leak/MainActivity;.envMain:(Landroid/content/Intent;)Vp1
+VirtualBody@(MainActivity.envMain,L6) ====> Exit@Lorg/arguslab/native_leak/MainActivity;.envMain:(Landroid/content/Intent;)Vp1
+Entry@Lorg/arguslab/native_leak/MainActivity;.<init>:()Vp0 ====> #L01a3d8.  call `<init>`(v0) @signature `Landroid/app/Activity;.<init>:()V` @kind direct;p0
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> #L01a3d8.  call `<init>`(v0) @signature `Landroid/app/Activity;.<init>:()V` @kind direct;p0
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> VirtualBody@(MainActivity.<init>,L01a3d8)(MainActivity.envMain,L2)
+#L01a3d8.  call `<init>`(v0) @signature `Landroid/app/Activity;.<init>:()V` @kind direct;p0 ====> VirtualBody@(MainActivity.<init>,L01a3d8)(MainActivity.envMain,L2)
+VirtualBody@(MainActivity.<init>,L01a3d8)(MainActivity.envMain,L2) ====> Exit@Lorg/arguslab/native_leak/MainActivity;.<init>:()Vp0
+Entry@Lorg/arguslab/native_leak/MainActivity;.<init>:()Vp0 ====> Exit@Lorg/arguslab/native_leak/MainActivity;.<init>:()Vp0
+#L2.  call `<init>`(r1) @signature `Lorg/arguslab/native_leak/MainActivity;.<init>:()V` @kind direct;p0 ====> Entry@Lorg/arguslab/native_leak/MainActivity;.<init>:()Vp0
+Entry@Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)Vp0 ====> #L01a434.  call `onCreate`(v1, v2) @signature `Landroid/app/Activity;.onCreate:(Landroid/os/Bundle;)V` @kind super;p0
+VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484) ====> #L01a434.  call `onCreate`(v1, v2) @signature `Landroid/app/Activity;.onCreate:(Landroid/os/Bundle;)V` @kind super;p0
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> #L01a434.  call `onCreate`(v1, v2) @signature `Landroid/app/Activity;.onCreate:(Landroid/os/Bundle;)V` @kind super;p0
+#L7.  r3:= new `android.os.Bundle`; ====> #L01a434.  call `onCreate`(v1, v2) @signature `Landroid/app/Activity;.onCreate:(Landroid/os/Bundle;)V` @kind super;p1
+Entry@Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)Vp1 ====> #L01a434.  call `onCreate`(v1, v2) @signature `Landroid/app/Activity;.onCreate:(Landroid/os/Bundle;)V` @kind super;p1
+#L7.  r3:= new `android.os.Bundle`; ====> VirtualBody@(MainActivity.onCreate,L01a434)(MainActivity.envMain,L9)
+#L01a434.  call `onCreate`(v1, v2) @signature `Landroid/app/Activity;.onCreate:(Landroid/os/Bundle;)V` @kind super;p1 ====> VirtualBody@(MainActivity.onCreate,L01a434)(MainActivity.envMain,L9)
+VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484) ====> VirtualBody@(MainActivity.onCreate,L01a434)(MainActivity.envMain,L9)
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> VirtualBody@(MainActivity.onCreate,L01a434)(MainActivity.envMain,L9)
+#L01a434.  call `onCreate`(v1, v2) @signature `Landroid/app/Activity;.onCreate:(Landroid/os/Bundle;)V` @kind super;p0 ====> VirtualBody@(MainActivity.onCreate,L01a434)(MainActivity.envMain,L9)
+VirtualBody@(MainActivity.onCreate,L01a434)(MainActivity.envMain,L9) ====> #L01a43e.  call `setContentView`(v1, v2) @signature `Lorg/arguslab/native_leak/MainActivity;.setContentView:(I)V` @kind virtual;p0
+Entry@Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)Vp0 ====> #L01a43e.  call `setContentView`(v1, v2) @signature `Lorg/arguslab/native_leak/MainActivity;.setContentView:(I)V` @kind virtual;p0
+VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484) ====> #L01a43e.  call `setContentView`(v1, v2) @signature `Lorg/arguslab/native_leak/MainActivity;.setContentView:(I)V` @kind virtual;p0
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> #L01a43e.  call `setContentView`(v1, v2) @signature `Lorg/arguslab/native_leak/MainActivity;.setContentView:(I)V` @kind virtual;p0
+#L01a43a.  v2:= 2130968576I; ====> #L01a43e.  call `setContentView`(v1, v2) @signature `Lorg/arguslab/native_leak/MainActivity;.setContentView:(I)V` @kind virtual;p1
+#L01a43e.  call `setContentView`(v1, v2) @signature `Lorg/arguslab/native_leak/MainActivity;.setContentView:(I)V` @kind virtual;p1 ====> VirtualBody@(MainActivity.onCreate,L01a43e)(MainActivity.envMain,L9)
+#L01a43e.  call `setContentView`(v1, v2) @signature `Lorg/arguslab/native_leak/MainActivity;.setContentView:(I)V` @kind virtual;p0 ====> VirtualBody@(MainActivity.onCreate,L01a43e)(MainActivity.envMain,L9)
+VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484) ====> VirtualBody@(MainActivity.onCreate,L01a43e)(MainActivity.envMain,L9)
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> VirtualBody@(MainActivity.onCreate,L01a43e)(MainActivity.envMain,L9)
+VirtualBody@(MainActivity.onCreate,L01a434)(MainActivity.envMain,L9) ====> #L01a448.  call temp:= `checkSelfPermission`(v1, v2) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p0
+Entry@Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)Vp0 ====> #L01a448.  call temp:= `checkSelfPermission`(v1, v2) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p0
+VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484) ====> #L01a448.  call temp:= `checkSelfPermission`(v1, v2) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p0
+VirtualBody@(MainActivity.onCreate,L01a43e)(MainActivity.envMain,L9) ====> #L01a448.  call temp:= `checkSelfPermission`(v1, v2) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p0
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> #L01a448.  call temp:= `checkSelfPermission`(v1, v2) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p0
+#L01a444.  v2:= "android.permission.READ_PHONE_STATE" @kind object; ====> #L01a448.  call temp:= `checkSelfPermission`(v1, v2) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p1
+#L01a444.  v2:= "android.permission.READ_PHONE_STATE" @kind object; ====> VirtualBody@(MainActivity.onCreate,L01a448)(MainActivity.envMain,L9)
+#L01a448.  call temp:= `checkSelfPermission`(v1, v2) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p1 ====> VirtualBody@(MainActivity.onCreate,L01a448)(MainActivity.envMain,L9)
+VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484) ====> VirtualBody@(MainActivity.onCreate,L01a448)(MainActivity.envMain,L9)
+#L01a448.  call temp:= `checkSelfPermission`(v1, v2) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p0 ====> VirtualBody@(MainActivity.onCreate,L01a448)(MainActivity.envMain,L9)
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> VirtualBody@(MainActivity.onCreate,L01a448)(MainActivity.envMain,L9)
+#L01a448.  call temp:= `checkSelfPermission`(v1, v2) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p1 ====> ReturnVar@(MainActivity.onCreate,L01a448)(MainActivity.envMain,L9)
+#L01a448.  call temp:= `checkSelfPermission`(v1, v2) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p0 ====> ReturnVar@(MainActivity.onCreate,L01a448)(MainActivity.envMain,L9)
+ReturnVar@(MainActivity.onCreate,L01a448)(MainActivity.envMain,L9) ====> #L01a44e.  v2:= temp;
+#L01a44e.  v2:= temp; ====> #L01a450.  if v2 == 0 then goto L01a468;
+#L01a458.  temp:= new `java.lang.String`[v2]; ====> #L01a45e.  v2:= temp @kind object;
+VirtualBody@(MainActivity.onCreate,L01a434)(MainActivity.envMain,L9) ====> #L01a462.  call `requestPermissions`(v1, v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.requestPermissions:([Ljava/lang/String;I)V` @kind virtual;p0
+Entry@Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)Vp0 ====> #L01a462.  call `requestPermissions`(v1, v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.requestPermissions:([Ljava/lang/String;I)V` @kind virtual;p0
+VirtualBody@(MainActivity.onCreate,L01a448)(MainActivity.envMain,L9) ====> #L01a462.  call `requestPermissions`(v1, v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.requestPermissions:([Ljava/lang/String;I)V` @kind virtual;p0
+VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484) ====> #L01a462.  call `requestPermissions`(v1, v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.requestPermissions:([Ljava/lang/String;I)V` @kind virtual;p0
+VirtualBody@(MainActivity.onCreate,L01a43e)(MainActivity.envMain,L9) ====> #L01a462.  call `requestPermissions`(v1, v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.requestPermissions:([Ljava/lang/String;I)V` @kind virtual;p0
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> #L01a462.  call `requestPermissions`(v1, v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.requestPermissions:([Ljava/lang/String;I)V` @kind virtual;p0
+#L01a45e.  v2:= temp @kind object; ====> #L01a462.  call `requestPermissions`(v1, v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.requestPermissions:([Ljava/lang/String;I)V` @kind virtual;p1
+#L01a458.  temp:= new `java.lang.String`[v2]; ====> #L01a462.  call `requestPermissions`(v1, v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.requestPermissions:([Ljava/lang/String;I)V` @kind virtual;p1
+#L01a460.  v0:= 1I; ====> #L01a462.  call `requestPermissions`(v1, v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.requestPermissions:([Ljava/lang/String;I)V` @kind virtual;p2
+#L01a462.  call `requestPermissions`(v1, v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.requestPermissions:([Ljava/lang/String;I)V` @kind virtual;p1 ====> VirtualBody@(MainActivity.onCreate,L01a462)(MainActivity.envMain,L9)
+#L01a462.  call `requestPermissions`(v1, v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.requestPermissions:([Ljava/lang/String;I)V` @kind virtual;p0 ====> VirtualBody@(MainActivity.onCreate,L01a462)(MainActivity.envMain,L9)
+#L01a462.  call `requestPermissions`(v1, v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.requestPermissions:([Ljava/lang/String;I)V` @kind virtual;p2 ====> VirtualBody@(MainActivity.onCreate,L01a462)(MainActivity.envMain,L9)
+VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484) ====> VirtualBody@(MainActivity.onCreate,L01a462)(MainActivity.envMain,L9)
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> VirtualBody@(MainActivity.onCreate,L01a462)(MainActivity.envMain,L9)
+#L01a458.  temp:= new `java.lang.String`[v2]; ====> VirtualBody@(MainActivity.onCreate,L01a462)(MainActivity.envMain,L9)
+VirtualBody@(MainActivity.onCreate,L01a462)(MainActivity.envMain,L9) ====> Exit@Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)Vp0
+VirtualBody@(MainActivity.onCreate,L01a434)(MainActivity.envMain,L9) ====> Exit@Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)Vp0
+Entry@Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)Vp0 ====> Exit@Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)Vp0
+VirtualBody@(MainActivity.onCreate,L01a448)(MainActivity.envMain,L9) ====> Exit@Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)Vp0
+VirtualBody@(MainActivity.onCreate,L01a43e)(MainActivity.envMain,L9) ====> Exit@Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)Vp0
+VirtualBody@(MainActivity.onCreate,L01a462)(MainActivity.envMain,L9) ====> Exit@Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)Vp1
+#L01a45e.  v2:= temp @kind object; ====> Exit@Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)Vp1
+#L01a44e.  v2:= temp; ====> Exit@Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)Vp1
+#L9.  call `onCreate`(r1, r3) @signature `Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)V` @kind virtual;p0 ====> Entry@Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)Vp0
+#L9.  call `onCreate`(r1, r3) @signature `Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)V` @kind virtual;p1 ====> Entry@Lorg/arguslab/native_leak/MainActivity;.onCreate:(Landroid/os/Bundle;)Vp1
+#L01a47c.  v2:= 1I; ====> #L01a47e.  if v1 == v2 then goto L01a484;
+Entry@Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)Vp1 ====> #L01a47e.  if v1 == v2 then goto L01a484;
+Entry@Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)Vp0 ====> #L01a484.  call `leakImei`(v0) @signature `Lorg/arguslab/native_leak/MainActivity;.leakImei:()V` @kind direct;p0
+VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484) ====> #L01a484.  call `leakImei`(v0) @signature `Lorg/arguslab/native_leak/MainActivity;.leakImei:()V` @kind direct;p0
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> #L01a484.  call `leakImei`(v0) @signature `Lorg/arguslab/native_leak/MainActivity;.leakImei:()V` @kind direct;p0
+Exit@Lorg/arguslab/native_leak/MainActivity;.leakImei:()Vp0 ====> #L01a484.  call `leakImei`(v0) @signature `Lorg/arguslab/native_leak/MainActivity;.leakImei:()V` @kind direct;p0
+Entry@Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)Vp0 ====> Exit@Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)Vp0
+Entry@Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)Vp1 ====> Exit@Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)Vp1
+#L01a47c.  v2:= 1I; ====> Exit@Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)Vp2
+Entry@Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)Vp3 ====> Exit@Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)Vp3
+#L14.  call `onRequestPermissionsResult`(r1, x, r5, r4) @signature `Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)V` @kind virtual;p0 ====> Entry@Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)Vp0
+#L14.  call `onRequestPermissionsResult`(r1, x, r5, r4) @signature `Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)V` @kind virtual;p1 ====> Entry@Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)Vp1
+#L14.  call `onRequestPermissionsResult`(r1, x, r5, r4) @signature `Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)V` @kind virtual;p2 ====> Entry@Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)Vp2
+#L14.  call `onRequestPermissionsResult`(r1, x, r5, r4) @signature `Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)V` @kind virtual;p3 ====> Entry@Lorg/arguslab/native_leak/MainActivity;.onRequestPermissionsResult:(I[Ljava/lang/String;[I)Vp3
+VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484) ====> #L01a3f4.  call temp:= `getSystemService`(v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.getSystemService:(Ljava/lang/String;)Ljava/lang/Object;` @kind virtual;p0
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> #L01a3f4.  call temp:= `getSystemService`(v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.getSystemService:(Ljava/lang/String;)Ljava/lang/Object;` @kind virtual;p0
+Entry@Lorg/arguslab/native_leak/MainActivity;.leakImei:()Vp0 ====> #L01a3f4.  call temp:= `getSystemService`(v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.getSystemService:(Ljava/lang/String;)Ljava/lang/Object;` @kind virtual;p0
+#L01a3f0.  v0:= "phone" @kind object; ====> #L01a3f4.  call temp:= `getSystemService`(v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.getSystemService:(Ljava/lang/String;)Ljava/lang/Object;` @kind virtual;p1
+#L01a3f0.  v0:= "phone" @kind object; ====> VirtualBody@(MainActivity.leakImei,L01a3f4)(MainActivity.onRequestPermissionsResult,L01a484)
+VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484) ====> VirtualBody@(MainActivity.leakImei,L01a3f4)(MainActivity.onRequestPermissionsResult,L01a484)
+#L01a3f4.  call temp:= `getSystemService`(v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.getSystemService:(Ljava/lang/String;)Ljava/lang/Object;` @kind virtual;p0 ====> VirtualBody@(MainActivity.leakImei,L01a3f4)(MainActivity.onRequestPermissionsResult,L01a484)
+#L01a3f4.  call temp:= `getSystemService`(v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.getSystemService:(Ljava/lang/String;)Ljava/lang/Object;` @kind virtual;p1 ====> VirtualBody@(MainActivity.leakImei,L01a3f4)(MainActivity.onRequestPermissionsResult,L01a484)
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> VirtualBody@(MainActivity.leakImei,L01a3f4)(MainActivity.onRequestPermissionsResult,L01a484)
+#L01a3f4.  call temp:= `getSystemService`(v2, v0) @signature `Lorg/arguslab/native_leak/MainActivity;.getSystemService:(Ljava/lang/String;)Ljava/lang/Object;` @kind virtual;p0 ====> ReturnVar@(MainActivity.leakImei,L01a3f4)(MainActivity.onRequestPermissionsResult,L01a484)
+ReturnVar@(MainActivity.leakImei,L01a3f4)(MainActivity.onRequestPermissionsResult,L01a484) ====> #L01a3fa.  v0:= temp @kind object;
+VirtualBody@(MainActivity.leakImei,L01a3f4)(MainActivity.onRequestPermissionsResult,L01a484) ====> #L01a3fa.  v0:= temp @kind object;
+#L01a3fa.  v0:= temp @kind object; ====> #L01a3fc.  v0:= (`android.telephony.TelephonyManager`) v0 @kind object;
+VirtualBody@(MainActivity.leakImei,L01a3f4)(MainActivity.onRequestPermissionsResult,L01a484) ====> #L01a3fc.  v0:= (`android.telephony.TelephonyManager`) v0 @kind object;
+VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484) ====> #L01a404.  call temp:= `checkSelfPermission`(v2, v1) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p0
+VirtualBody@(MainActivity.leakImei,L01a3f4)(MainActivity.onRequestPermissionsResult,L01a484) ====> #L01a404.  call temp:= `checkSelfPermission`(v2, v1) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p0
+Entry@Lorg/arguslab/native_leak/MainActivity;.leakImei:()Vp0 ====> #L01a404.  call temp:= `checkSelfPermission`(v2, v1) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p0
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> #L01a404.  call temp:= `checkSelfPermission`(v2, v1) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p0
+#L01a400.  v1:= "android.permission.READ_PHONE_STATE" @kind object; ====> #L01a404.  call temp:= `checkSelfPermission`(v2, v1) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p1
+#L01a404.  call temp:= `checkSelfPermission`(v2, v1) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p1 ====> VirtualBody@(MainActivity.leakImei,L01a404)(MainActivity.onRequestPermissionsResult,L01a484)
+VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484) ====> VirtualBody@(MainActivity.leakImei,L01a404)(MainActivity.onRequestPermissionsResult,L01a484)
+#L01a404.  call temp:= `checkSelfPermission`(v2, v1) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p0 ====> VirtualBody@(MainActivity.leakImei,L01a404)(MainActivity.onRequestPermissionsResult,L01a484)
+#L1.  r1:= new `org.arguslab.native_leak.MainActivity`; ====> VirtualBody@(MainActivity.leakImei,L01a404)(MainActivity.onRequestPermissionsResult,L01a484)
+#L01a400.  v1:= "android.permission.READ_PHONE_STATE" @kind object; ====> VirtualBody@(MainActivity.leakImei,L01a404)(MainActivity.onRequestPermissionsResult,L01a484)
+#L01a404.  call temp:= `checkSelfPermission`(v2, v1) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p1 ====> ReturnVar@(MainActivity.leakImei,L01a404)(MainActivity.onRequestPermissionsResult,L01a484)
+#L01a404.  call temp:= `checkSelfPermission`(v2, v1) @signature `Lorg/arguslab/native_leak/MainActivity;.checkSelfPermission:(Ljava/lang/String;)I` @kind virtual;p0 ====> ReturnVar@(MainActivity.leakImei,L01a404)(MainActivity.onRequestPermissionsResult,L01a484)
+ReturnVar@(MainActivity.leakImei,L01a404)(MainActivity.onRequestPermissionsResult,L01a484) ====> #L01a40a.  v2:= temp;
+#L01a40a.  v2:= temp; ====> #L01a40c.  if v2 == 0 then goto L01a412;
+#L01a3fc.  v0:= (`android.telephony.TelephonyManager`) v0 @kind object; ====> #L01a412.  call temp:= `getDeviceId`(v0) @signature `Landroid/telephony/TelephonyManager;.getDeviceId:()Ljava/lang/String;` @kind virtual;p0
+VirtualBody@(MainActivity.leakImei,L01a3f4)(MainActivity.onRequestPermissionsResult,L01a484) ====> #L01a412.  call temp:= `getDeviceId`(v0) @signature `Landroid/telephony/TelephonyManager;.getDeviceId:()Ljava/lang/String;` @kind virtual;p0
+#L01a412.  call temp:= `getDeviceId`(v0) @signature `Landroid/telephony/TelephonyManager;.getDeviceId:()Ljava/lang/String;` @kind virtual;p0 ====> VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484)
+VirtualBody@(MainActivity.leakImei,L01a3f4)(MainActivity.onRequestPermissionsResult,L01a484) ====> VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484)
+#L01a412.  call temp:= `getDeviceId`(v0) @signature `Landroid/telephony/TelephonyManager;.getDeviceId:()Ljava/lang/String;` @kind virtual;p0 ====> ReturnVar@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484)
+ReturnVar@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484) ====> #L01a418.  v2:= temp @kind object;
+VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484) ====> #L01a418.  v2:= temp @kind object;
+#L01a418.  v2:= temp @kind object; ====> #L01a41a.  call `send`(v2) @signature `Lorg/arguslab/native_leak/MainActivity;.send:(Ljava/lang/String;)V` @kind static;p1
+VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484) ====> #L01a41a.  call `send`(v2) @signature `Lorg/arguslab/native_leak/MainActivity;.send:(Ljava/lang/String;)V` @kind static;p1
+#L01a41a.  call `send`(v2) @signature `Lorg/arguslab/native_leak/MainActivity;.send:(Ljava/lang/String;)V` @kind static;p1 ====> VirtualBody@(MainActivity.leakImei,L01a41a)(MainActivity.onRequestPermissionsResult,L01a484)
+VirtualBody@(MainActivity.leakImei,L01a41a)(MainActivity.onRequestPermissionsResult,L01a484) ====> Exit@Lorg/arguslab/native_leak/MainActivity;.leakImei:()Vp0
+#L01a40a.  v2:= temp; ====> Exit@Lorg/arguslab/native_leak/MainActivity;.leakImei:()Vp0
+#L01a418.  v2:= temp @kind object; ====> Exit@Lorg/arguslab/native_leak/MainActivity;.leakImei:()Vp0
+#L01a484.  call `leakImei`(v0) @signature `Lorg/arguslab/native_leak/MainActivity;.leakImei:()V` @kind direct;p0 ====> Entry@Lorg/arguslab/native_leak/MainActivity;.leakImei:()Vp0
+=====end IDDGs====
+AndroidDataDependentTaintAnalysis found 1 path.
+Taint path: maliciousness:information_theft 
+api_source: Landroid/telephony/TelephonyManager;.getDeviceId:()Ljava/lang/String;
+	-> api_sink: Lorg/arguslab/native_leak/MainActivity;.send:(Ljava/lang/String;)V 1
+VirtualBody@(MainActivity.leakImei,L01a412)(MainActivity.onRequestPermissionsResult,L01a484)
+	-> #L01a41a.  call `send`(v2) @signature `Lorg/arguslab/native_leak/MainActivity;.send:(Ljava/lang/String;)V` @kind static;p1
+
+Done!
+Debug info write into /home/test/workspace/JNFuzz-Droid/src/out/Data/native_leak/.report

@@ -1,0 +1,55 @@
+2024-08-11 16:15:48,042 - __main__ - <module> - INFO - [+] ===Welcome to using Android Native Code Analysis.====
+
+2024-08-11 16:15:48,043 - __main__ - <module> - INFO - [+]  Step1/Step4 >>> Frida service start...
+2024-08-11 16:15:48,043 - __main__ - <module> - INFO - [+] Step2/Step4 >>> Prepare deal the apk: apk/native_leak.apk
+2024-08-11 16:15:48,043 - Preprocess - apktool - INFO - [+] using the apktool to decompile the apk.
+2024-08-11 16:15:50,072 - utils.run_command - rcmd2 - INFO - [+] exec 'java -jar /home/test/workspace/JNFuzz-Droid/src/lib/apktool_2.6.1.jar d -f /home/test/workspace/JNFuzz-Droid/src/apk/native_leak.apk -o /home/test/workspace/JNFuzz-Droid/src/out/decompile/native_leak' token 2.03s.
+2024-08-11 16:15:50,072 - Preprocess - result - INFO - [+] extract additional ELF files from the assets folder.
+2024-08-11 16:15:50,072 - Preprocess - result - INFO - [+] finish extract additional ELF files from the assets folder.
+2024-08-11 16:15:50,072 - Preprocess - report - INFO - [+] analysis the apk/native_leak.apk.
+2024-08-11 16:15:50,074 - Preprocess - report - INFO - [+] decompile the apk and extract elf file.
+
+2024-08-11 16:15:50,074 - __main__ - <module> - INFO - [+] Step3/Step4 >>> Continue deal the apk: apk/native_leak.apk
+2024-08-11 16:15:51,724 - utils.run_command - rcmd3 - INFO - [+] exec 'python lib/JuCify/nativediscloser/get_dynamic_methods.py /home/test/workspace/JNFuzz-Droid/src/apk/native_leak.apk --out out/Dmethods' token 1.65s.
+2024-08-11 16:15:51,725 - Continue_process - get_dynamic_methods - INFO - [+] using Angr to get the dynamic methods.
+2024-08-11 16:15:51,725 - Continue_process - get_dynamic_methods - WARNING - [*] the native_leak does not have dynamic library file.
+2024-08-11 16:15:51,725 - Continue_process - taint_amandroid - INFO - [+] using the Amandroid engine to analysis.
+2024-08-11 16:15:51,725 - Continue_process - taint_amandroid - INFO - [+] copy the Amandroid's TaintSourcesAndSinks.txt.
+2024-08-11 16:15:51,725 - Continue_process - taint_amandroid - INFO - cp /home/test/workspace/JNFuzz-Droid/src/lib/amandroid_taint.txt /home/test/workspace/JNFuzz-Droid/src/lib/tmp_amandroid_taint.txt
+2024-08-11 16:15:51,726 - Continue_process - taint_amandroid - INFO - cp /home/test/workspace/JNFuzz-Droid/src/lib/tmp_amandroid_taint.txt /home/test/.amandroid_stash/amandroid/taintAnalysis/sourceAndSinks/TaintSourcesAndSinks.txt
+2024-08-11 16:15:51,727 - Continue_process - taint_amandroid - INFO - [+] paste the amandroid_taint.txt to Amandroid.
+2024-08-11 16:15:51,727 - Continue_process - taint_amandroid - INFO - [+] perform the Amandroid for this apk.Wait a minutes...
+2024-08-11 16:16:16,504 - utils.run_command - rcmd4 - INFO - [+] exec 'java -jar lib/argus-saf.jar t -a COMPONENT_BASED -d -f -mo DATA_LEAKAGE -o out/Data apk/native_leak.apk 2>&1 | tee out/IDDGs/native_leak.txt' token 24.776s.
+2024-08-11 16:16:16,504 - utils.deal_taint_path - deal_amandroid_taint - INFO - [+] deal the Amandroid taint path.
+2024-08-11 16:16:16,504 - utils.generate_script_file - generate_amandroid_script - INFO - [+] Get the taint graph.
+2024-08-11 16:16:16,504 - __main__ - <module> - INFO - [+] Continue finish.
+
+2024-08-11 16:16:16,504 - __main__ - <module> - INFO - [+] Step4/Step4 Launch avd or devices.
+2024-08-11 16:16:16,505 - Fuzz_and_taint_analysis - select_arch - INFO - [+] select the apk cpu architecture.
+2024-08-11 16:16:16,505 - Fuzz_and_taint_analysis - select_arch - INFO - [+] determined the apk cpu architecture.
+2024-08-11 16:16:16,505 - utils.run_command - rcmd1 - INFO - cd lib/lib; build.sh arm64-v8a
+2024-08-11 16:16:16,541 - Fuzz_and_taint_analysis - fuzz_jni - INFO - [+] Start Fuzz ...
+2024-08-11 16:16:16,541 - utils.run_command - rcmd1 - INFO - adb push lib/afl-fuzz/arm64-v8a/libc++_shared.so /data/local/tmp
+2024-08-11 16:16:16,831 - utils.run_command - rcmd1 - INFO - adb push apk/native_leak.apk /data/local/tmp
+2024-08-11 16:16:16,862 - utils.run_command - rcmd1 - INFO - adb push apk/native_leak.apk /data/local/tmp/target-app.apk
+2024-08-11 16:16:16,888 - utils.run_command - rcmd1 - INFO - adb push out/decompile/native_leak/lib/arm64-v8a/* /data/local/tmp
+2024-08-11 16:16:16,917 - Fuzz_and_taint_analysis - fuzz_apk_jni - INFO - [+] running the apk/native_leak.apk script script_1.txt
+2024-08-11 16:16:16,920 - utils.generate_server_cpp - cut_seed - INFO - [+] the number of bytes to be generated: 0.
+2024-08-11 16:16:16,922 - utils.generate_hook_script - generate_hook_script - INFO - [+] generate the agent.js file.
+2024-08-11 16:16:16,924 - Fuzz_and_taint_analysis - generate_cient_and_server - INFO - [+] generate the client and server.
+2024-08-11 16:16:16,924 - utils.run_command - rcmd1 - INFO - adb shell su -c 'cd /data/local/tmp;rm -rf client server'
+2024-08-11 16:16:18,297 - utils.run_command - rcmd1 - INFO - cd lib/examples/;~/Android/Sdk/ndk/android-standalone-toolchain-arm64/bin/aarch64-linux-android-g++ -o client client.c ../lib/spsc.c -I ../lib -lspsc -L ../lib -Wall -O3 -w
+2024-08-11 16:16:18,394 - utils.run_command - rcmd1 - INFO - cp out/outcome/native_leak/server1.cpp ./lib/examples/server.cpp
+2024-08-11 16:16:18,396 - utils.run_command - rcmd1 - INFO - cd lib/examples/;~/Android/Sdk/ndk/android-standalone-toolchain-arm64/bin/aarch64-linux-android-g++ -std=c++17 -o server server.cpp ../lib/spsc.c -I ../lib -lspsc -L ../lib -Wall -O3 -ldl -Wl,--export-dynamic,-rpath=/data/local/tmp -w -lc++_shared
+2024-08-11 16:16:19,032 - utils.run_command - rcmd1 - INFO - adb push lib/examples/client /data/local/tmp
+2024-08-11 16:16:19,074 - utils.run_command - rcmd1 - INFO - adb push lib/examples/server /data/local/tmp
+2024-08-11 16:16:19,192 - Fuzz_and_taint_analysis - generate_fuzzing_seed - INFO - [+] generate the fuzzing seed.
+2024-08-11 16:16:19,193 - utils.run_command - rcmd1 - INFO - adb shell 'cd /data/local/tmp;mkdir in;echo "0000" > in/1'
+2024-08-11 16:16:19,265 - Fuzz_and_taint_analysis - launch_fuzzing - INFO - [+] launch the fuzzing and taint analysis.
+2024-08-11 16:16:44,346 - Fuzz_and_taint_analysis - stop_fuzzing - INFO - [+] stop the fuzzing and taint analysis.
+2024-08-11 16:16:44,346 - utils.run_command - rcmd1 - INFO - adb shell < utils_cmd/remove-exec.txt
+2024-08-11 16:16:46,291 - Fuzz_and_taint_analysis - fuzzing_and_taintanalysis - INFO - [+] kill the afl ,frida pid and ash memory.
+2024-08-11 16:16:46,292 - utils.run_command - rcmd1 - INFO - adb shell 'cd /data/local/tmp;su -c rm -rf lib* test_jni* *.apk out in *.so target-app.apk'
+2024-08-11 16:16:47,798 - Fuzz_and_taint_analysis - fuzz_apk_jni - INFO - [+] Finish the Fuzz.
+2024-08-11 16:16:47,798 - __main__ - <module> - INFO - [+] done.
+2024-08-11 16:16:47,798 - __main__ - <module> - INFO - [+] Finish.
