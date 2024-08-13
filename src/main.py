@@ -74,8 +74,8 @@ if __name__ == '__main__':
 
     try:
         log.info("[+]  Step1/Step4 >>> Frida service start...")
-        # status = False
-        status = True
+        status = False
+        # status = True
         if not status:
             pre_frida(args.arch)
     except Exception as e:

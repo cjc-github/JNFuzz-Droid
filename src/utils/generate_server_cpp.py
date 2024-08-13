@@ -88,11 +88,11 @@ def define(method, status_static):
 
 
 # release the local reference
-def release_localref(list, data, num):
-    list.append(data)
-    list.append(", par" + str(num))
-    list.append("env->DeleteLocalRef(par" + str(num) + ");")
-    return list, num + 1
+def release_localref(data_list, data, num):
+    data_list.append(data)
+    data_list.append(", par" + str(num))
+    data_list.append("env->DeleteLocalRef(par" + str(num) + ");")
+    return data_list, num + 1
 
 
 def switch_jni(para):
@@ -132,7 +132,7 @@ def gen_2demin(x=5, y=10, line="", num=0, totalsize=0):
     if "type:" in types:
         types = types.split("type:")[1]
 
-    list, space = [], " " * 4
+    data_list, space = [], " " * 4
     data = f"jclass par{num} = env->FindClass(\"{btype_dicts[types]}\");\n"
     data += f"{space * 3}jobjectArray par{num + 1} = env->NewObjectArray({x} ,par{num}, NULL);\n"
     data += f"{space * 3}j{types} par{num + 2}[{y}];\n"
@@ -145,10 +145,10 @@ def gen_2demin(x=5, y=10, line="", num=0, totalsize=0):
     data += f"{space * 4}env->SetObjectArrayElement(par{num + 1}, i, par{num + 3});\n"
     data += f"{space * 3}}}"
 
-    list, num = release_localref(list, data, num + 1)
+    data_list, num = release_localref(data_list, data, num + 1)
     num = num + 2
     totalsize = totalsize + x * y * btype_dict[types]
-    return list, num, totalsize
+    return data_list, num, totalsize
 
 
 def deal_basic_type(out_path, t, num, totalsize, size, apkname):
@@ -162,7 +162,7 @@ def deal_basic_type(out_path, t, num, totalsize, size, apkname):
         "Object": "getGlobalContext(env);",
     }
 
-    list = []
+    data_list = []
     if t == "java.lang.String[]":
         space = " " * 4
         data = f"jclass par{num} = env->FindClass(\"java/lang/String\");\n"
@@ -176,15 +176,15 @@ def deal_basic_type(out_path, t, num, totalsize, size, apkname):
         data += f"{space * 4}env->DeleteLocalRef(par{num + 4});\n"
         data += f"{space * 3}}}\n"
 
-        list, num = release_localref(list, data, num + 1)
+        data_list, num = release_localref(data_list, data, num + 1)
         num = num + 3
         totalsize = totalsize + array_length * int(size)
     elif t in btype_dict.keys():
         data = f"j{t} par{num} = getjni_{t}(data, {totalsize});"
 
-        list.append(data)
-        list.append(", par" + str(num))
-        list.append("")
+        data_list.append(data)
+        data_list.append(", par" + str(num))
+        data_list.append("")
         totalsize = totalsize + btype_dict[t]
         num = num + 1
     elif t == "java.lang.String":
@@ -194,14 +194,14 @@ def deal_basic_type(out_path, t, num, totalsize, size, apkname):
         data += f"{space}char *par{num + 1} = par{num};\n"
         data += f"{space}jstring par{num + 2} = env->NewStringUTF(par{num + 1});"
 
-        list, num = release_localref(list, data, num + 2)
+        data_list, num = release_localref(data_list, data, num + 2)
         totalsize = totalsize + int(size)
     elif "[][]" in t:
         log.warning("[*] The dimension of a two-dimensional array is uncertain.")
-        list, num, totalsize = gen_2demin(dimen_one, dimen_two, t, num, totalsize)
+        data_list, num, totalsize = gen_2demin(dimen_one, dimen_two, t, num, totalsize)
     elif t in custom_type_dict:
         data0 = "jobject par" + str(num) + " = " + custom_type_dict.get(t)
-        list, num = release_localref(list, data0, num)
+        data_list, num = release_localref(data_list, data0, num)
     else:
         flag = 0
         for m in btype_dict.keys():
@@ -216,21 +216,21 @@ def deal_basic_type(out_path, t, num, totalsize, size, apkname):
                 space = " " * 12
                 data += f"{space}{switch_jni(m)}Array par{num + 1} = env->New{m.title()}Array({array_length});\n"
                 data += f"{space}env->Set{m.title()}ArrayRegion(par{num + 1}, 0, {array_length}, par{num});\n"
-                list, num = release_localref(list, data, num + 1)
+                data_list, num = release_localref(data_list, data, num + 1)
         if flag == 0:
             utils.save_file(out_path, " [+]" + apkname + " have the complex type.")
-    return list, num, totalsize
+    return data_list, num, totalsize
 
 
 def analysis_line(out_path, line, num, size, totalsize, taintpath, apk_name):
-    list = []
+    data_list = []
     if line.split(":{is_tainted:")[1].split(",")[0] == "true":
-        list, num = assign_source.assign_source(out_path, line, num, list, taintpath, apk_name)
+        data_list, num = assign_source.assign_source(out_path, line, num, data_list, taintpath, apk_name)
     elif not line.split(", ")[1].split(":")[1] == "default":
         if "[][]" in line.split("type:")[1] and "[][][]" not in line.split("type:")[1]:
             log.info("[+] Determines the dimensions of a two-dimensional array.")
             x, y = line.split("[")[1].split("]")[0].split(", ")
-            list, num, totalsize = gen_2demin(int(x), int(y), line, num, totalsize)
+            data_list, num, totalsize = gen_2demin(int(x), int(y), line, num, totalsize)
         elif "[]" in line.split("type:")[1]:
             types = line.split("type:")[1].split("[]")[0]
             para_lists = line.split("value:")[1].split(", type")[0]
@@ -248,28 +248,28 @@ def analysis_line(out_path, line, num, size, totalsize, taintpath, apk_name):
             data += f"{space}{switch_jni(types)}Array par{num + 1} = env->New{types.title()}Array({nums});\n"
             data += f"{space}env->Set{types.title()}ArrayRegion(par{num + 1}, 0, {nums}, par{num});\n"
 
-            list, num = release_localref(list, data, num + 1)
+            data_list, num = release_localref(data_list, data, num + 1)
         elif line.split("type:")[1].rstrip() == "java.lang.String}":
             data = line.split(", ")[1].split(":")[1]
             data0 = f"jstring par{num} = env->NewStringUTF(\"{data}\");"
 
-            list, num = release_localref(list, data0, num)
+            data_list, num = release_localref(data_list, data0, num)
         elif line.split("type:")[1].rstrip() == "boolean}":
             if line.split(", ")[1].split("value:")[1] == "false":
                 data = 0
             else:
                 data = 1
-            list.append(", " + str(data))
+            data_list.append(", " + str(data))
         elif line.split("type:")[1].rstrip() == "char}":
             data = ", \'" + line.split(", ")[1].split("value:")[1] + "\'"
-            list.append(data)
+            data_list.append(data)
         else:
             data = ", " + line.split(", ")[1].split("value:")[1]
-            list.append(data)
+            data_list.append(data)
     else:
         types = line.split(", type:")[1][:-2]
-        list, num, totalsize = deal_basic_type(out_path, types, num, totalsize, size, apk_name)
-    return list, num, totalsize
+        data_list, num, totalsize = deal_basic_type(out_path, types, num, totalsize, size, apk_name)
+    return data_list, num, totalsize
 
 
 def cut_seed(out_path, file_path, java_method, size, apk_name):

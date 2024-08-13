@@ -227,9 +227,9 @@ void getjni_string(char *dest, char *src, int start, int n)
 
 int main(int argc, char** argv)
 {
-    jstring targetLibName = "/data/local/tmp/libarm64_v8a.so";
-    jstring className = "org/cao/arm64_v8a/MainActivity";
-    jstring targetFunctionName = "Java_org_cao_arm64_1v8a_MainActivity_send";
+    jstring targetLibName = "/data/local/tmp/libatoll.so";
+    jstring className = "org/cao/atoll/MainActivity";
+    jstring targetFunctionName = "Java_org_cao_atoll_MainActivity_send";
     printf(" [+] Native Harness\n");
     
     printf(" [+] Loading target: [%s] \n", targetLibName);

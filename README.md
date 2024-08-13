@@ -25,10 +25,11 @@ options:
 + `-a` : perform Amandroid static analysis
 + `-f` : perform FlowDroid static analysis
 + `-arch [armeabi|armeabi-v7a|arm64-v8a|x86|x86_64]` : Specified cpu architecture
-+ `-h` : help
-+ `-r` : remove some information to save memory 
-+ `-st time`: static analysis time
-+ `-t time` : fuzzing time
++ `-h` : display the help
++ `-r` : remove some information to save memory space
++ `-st time`: static analysis time (s)
++ `-t time` : fuzzing time (s)
++ `-d`: display the process execution on another terminal, default no launch other terminal
 
 
 
@@ -59,8 +60,7 @@ out
 ├── Data
 │   └── native_leak
 │       └── result
-│          ├── AppData.txt   # Results of Amandroid analysis
-│          └── Taint.txt     # Taint path analyzed by Amandroid
+│          └── AppData.txt   # Results of Amandroid analysis
 ├── Dmethods
 │   └── native_leak_Dmethods # Symbolic execution is used to save dynamic registration
 ├── IDDGs
@@ -68,15 +68,21 @@ out
 ├── outcome
 │   └── native_leak
 │       └── server1.cpp # server code for fuzzing
+├── decompile
+│   └── native_leak
+│       └── xxxp # using apktool to decompile the native_leak.apk
 ├── report
 │   └── native_leak.txt # Collect the native methods
+├── taint_path
+│   └── native_leak_taintpath.txt # Collect the taintpath
 ├── scripts
 │   └── native_leak
 │       └── script_1.txt # Save RS algorithm to generate JNIScript
 └── static_exec_time.txt # The execution time of static analysis
+└── report.txt # warning.log
 ```
 
-In the same directory as out, there is also the apk_outcome.txt file, which stores the overall taint path.
+In the same directory as out, there is also the `apk_outcome.txt` file, which stores the overall taint path. In addition, the `jnfuzz-droid.log` stores the run logs.
 
 The <b>Taint Path</b> is:
 
