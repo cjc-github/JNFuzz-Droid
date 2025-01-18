@@ -23,17 +23,18 @@ class Preprocess:
         self.Report_path = out_path + "/report"
         self.remove_flag = remove
 
+    # using apktool to decompile the apk
     def apktool(self):
         if not os.path.exists(self.name):
             log.error("[!] the input_apk is not exist.")
             sys.exit(0)
 
-        out = os.path.join(self.Decompile_path, self.apkname)
         path = "lib/apktool_2.6.1.jar"
         if not os.path.exists(path):
             log.error("[!] apktool.jar is not exists.")
             raise ValueError("[!] apktool.jar is not exists.")
 
+        out = os.path.join(self.Decompile_path, self.apkname)
         if not os.path.exists(out):
             os.makedirs(out)
             cmd = "java -jar " + os.path.abspath(path) + " d -f " + os.path.abspath(

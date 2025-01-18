@@ -11,9 +11,11 @@ from utils import utils
 from utils.logging_config import setup_logging
 from utils.exception import ToolsException, HaveException
 
+
 log = setup_logging(name=__name__)
 
 
+# The log file is emptied before each execution
 def empty_log(log_name):
     # if os.path.exists(log_name):
     #     os.remove(log_name)
@@ -23,7 +25,7 @@ def empty_log(log_name):
     with open(log_name, "w"):
         pass
 
-
+# return the apk list
 def deal_apk_folder(apk_path):
     apk_list = []
     if not os.path.exists(apk_path):
@@ -46,27 +48,29 @@ if __name__ == '__main__':
     log.info("[+] ===Welcome to using Android Native Code Analysis.====\n")
     Title = "[+] Welcome to using Android Native Code Analysis."
     parser = argparse.ArgumentParser(description=Title)
-    parser.add_argument("--i", "-i", default="apk", help="input dir.")
-    parser.add_argument("--o", "-o", default="apk_out", help="output dir.")
+    parser.add_argument("--i", "-i", default="apk", help="input dir.") # default: apk
+    parser.add_argument("--o", "-o", default="apk_out", help="output dir.") # default: apk_out
 
     parser.add_argument("-arch", help="Specified cpu architecture.",
-                        choices=['armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'])
+                        choices=['armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64']) # default: None
 
-    parser.add_argument("-a", help='using Amandroid enhance the static analysis.', action="store_true")
-    parser.add_argument("-f", help='using Flowdroid enhance the static analysis.', action="store_true")
+    parser.add_argument("-a", help='using Amandroid enhance the static analysis.', action="store_true") # default: False
+    parser.add_argument("-f", help='using Flowdroid enhance the static analysis.', action="store_true") # default: False
     # parser.add_argument("-j", help='using jucify enhance the static analysis.', action="store_true")
     # parser.add_argument("-u", help='using jnfuzz testing analysis.', action="store_true")
 
-    parser.add_argument("-r", help="remove apk information.", action="store_true")
-    parser.add_argument("-n", help="Fuzz only one time.", action="store_true")
+    parser.add_argument("-r", help="remove apk information.", action="store_true") # default: False
+    
+    parser.add_argument("-n", help="Fuzz only one time.", action="store_true") # default: False
 
-    parser.add_argument("-d", help="display the process execution on another terminal.", action="store_true")
+    parser.add_argument("-d", help="display the process execution on another terminal.", action="store_true") # default: False
 
     # default time is 90 minutes
-    parser.add_argument("-st", default=5400, type=int, help="the max static analysis time (sec).")
+    parser.add_argument("-st", default=5400, type=int, help="the max static analysis time (sec).") # default: 5400s
     # default time is 10 minutes
-    parser.add_argument("-t", default=600, type=int, help="the max fuzzing time (sec).")
-    args = parser.parse_args()
+    parser.add_argument("-t", default=600, type=int, help="the max fuzzing time (sec).") # default: 600s
+    args = parser.parse_args() 
+    
 
     apk_lists = deal_apk_folder(args.i)
     out_folder = args.o

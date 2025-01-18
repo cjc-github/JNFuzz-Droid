@@ -105,12 +105,14 @@ def generate_fuzzing_seed(totalsize):
     rcmd1(cmd)
 
 
-def launch_fuzzing(file_path, fuzz_one, fuzz_time, show_flag):
+def launch_fuzzing(file_path, fuzz_one, fuzz_time, show_flag, taint_analysis):
     log.info("[+] launch the fuzzing and taint analysis.")
     if show_flag:
         cmd1 = 'gnome-terminal -t frida-server -- bash -c "adb shell < utils_cmd/start-frida-server.txt;exec bash"'
 
-        cmd2 = 'gnome-terminal -t Hook -- bash -c "python3 utils/run_hook_script.py ' + file_path + ';exec bash"'
+        if taint_analysis:
+            cmd2 = 'gnome-terminal -t Hook -- bash -c "python3 utils/run_hook_script.py ' + file_path + ';exec bash"'
+            
         if fuzz_one:
             cmd3 = 'gnome-terminal -t client -- bash -c "adb shell < utils_cmd/start-client.txt;exec bash"'
         else:
@@ -118,13 +120,19 @@ def launch_fuzzing(file_path, fuzz_one, fuzz_time, show_flag):
     else:
         cmd1 = "adb shell < utils_cmd/start-frida-server.txt;exec bash"
 
-        cmd2 = "python3 utils/run_hook_script.py " + file_path + ";exec bash"
+        if taint_analysis:
+            cmd2 = "python3 utils/run_hook_script.py " + file_path + ";exec bash"
+
         if fuzz_one:
             cmd3 = "adb shell < utils_cmd/start-client.txt;exec bash"
         else:
             cmd3 = "adb shell < utils_cmd/start-afl.txt;exec bash"
 
-    ans, cmd_list = [], [cmd1, cmd2, cmd3]
+    if taint_analysis:
+        ans, cmd_list = [], [cmd1, cmd2, cmd3]
+    else:
+        ans, cmd_list = [], [cmd1, cmd3]
+        
     for command in cmd_list:
         _ = subprocess.Popen(command, shell=True, preexec_fn=os.setsid)
         time.sleep(5)
@@ -145,10 +153,10 @@ def stop_fuzzing():
     rcmd1(cmd)
 
 
-def fuzzing_and_taintanalysis(file_path, gcc, totalsize, fuzz_one, fuzz_time, show_flag):
+def fuzzing_and_taintanalysis(file_path, gcc, totalsize, fuzz_one, self):
     generate_cient_and_server(file_path, gcc)
     generate_fuzzing_seed(totalsize)
-    launch_fuzzing(file_path, fuzz_one, fuzz_time, show_flag)
+    launch_fuzzing(file_path, fuzz_one, self.fuzz_time, self.show_flag, self.taint_analysis)
     stop_fuzzing()
     log.info("[+] kill the afl ,frida pid and ash memory.")
 
@@ -188,6 +196,13 @@ class Fuzz_and_taint_analysis:
         self.dynamic_methods = out_path + "/Dmethods"
         self.lib_path = os.path.join(self.Decompile_path, self.apkname, "lib")
         self.show_flag = show_flag
+        self.taint_analysis = False
+        
+    # enable taint analysis
+    def is_taint_analysis_enabled(self, opt):
+        if opt:
+            self.taint_analysis = opt
+        
 
     def copy_sofile(self):
         if judge_repeat_so(self.lib_path):
@@ -244,7 +259,7 @@ class Fuzz_and_taint_analysis:
                         totalsize = generate_server_x86(self.out_path, self.apkname, java_method,
                                                         target_native_name, so_file, file_path, self.size)
                     generate_hook_script(target_native_name, so_file, file_path)
-                    fuzzing_and_taintanalysis(file_path, gcc, totalsize, fuzz_one, self.fuzz_time, self.show_flag)
+                    fuzzing_and_taintanalysis(file_path, gcc, totalsize, fuzz_one, self)
                 except Exception as e:
                     line = file_path + " generate the server.c failed."
                     utils.save_file(self.out_path, line)
@@ -304,6 +319,10 @@ class Fuzz_and_taint_analysis:
                 # so_graphs[k].append(v1[3])
         return so_graphs
 
+    """
+    select cpu architecture
+    """
+
     def performance_first(self):
         so_files = []
         for abi in os.listdir(self.lib_path):
@@ -331,6 +350,7 @@ class Fuzz_and_taint_analysis:
             log.error(f"[!] The specified cpu architecture {self.gcc} does not exist in apk.")
             raise ToolsException(f"[!] {self.name}: the specified cpu architecture {self.gcc} does not exist in apk.")
 
+    # select cpu architecture
     def select_arch(self):
         if not os.path.exists(self.name):
             log.error("[!] the input_apk is not exist.")
@@ -367,10 +387,12 @@ if __name__ == "__main__":
     arch = sys.argv[3]
     fuzz_only_one = sys.argv[4]
     fuzz_time = sys.argv[5]
-    if fuzz_only_one == "false":
+    if fuzz_only_one == "false" or fuzz_only_one == "False":
         fuzz_only_one = False
     else:
         fuzz_only_one = True
-    fuzz = Fuzz_and_taint_analysis(apk_path, out_paths, arch, fuzz_only_one, float(fuzz_time))
+    fuzz = Fuzz_and_taint_analysis(apk_path, out_paths, arch, fuzz_only_one, float(fuzz_time), True)
+    # enable the taint analysis, if set the False, will close the taint analysis
+    fuzz.is_taint_analysis_enabled(False)
     fuzz.select_arch()
     fuzz.fuzz_jni()

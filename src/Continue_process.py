@@ -251,7 +251,7 @@ if __name__ == "__main__":
     pre_analysis.get_dynamic_methods()
 
     pre_analysis.taint_amandroid()
-    pre_analysis.taint_flowdroid()
+    # pre_analysis.taint_flowdroid()
     # pre_analysis.taint_jucify()
 
     pre_analysis.save_taint_path()
