@@ -196,7 +196,7 @@ class Fuzz_and_taint_analysis:
         self.dynamic_methods = out_path + "/Dmethods"
         self.lib_path = os.path.join(self.Decompile_path, self.apkname, "lib")
         self.show_flag = show_flag
-        self.taint_analysis = False
+        self.taint_analysis = True
         
     # enable taint analysis
     def is_taint_analysis_enabled(self, opt):
