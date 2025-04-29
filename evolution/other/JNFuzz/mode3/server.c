@@ -47,6 +47,10 @@ int main(int argc, char** argv)
     }
 
     jobject obj0 = (*env)->AllocObject(env, class0);
+    
+    #ifdef __AFL_HAVE_MANUAL_CONTROL
+ 	__AFL_INIT();
+    #endif
 
     printf("Fuzz testing ...\n");
 	jstring par0 = (*env)->NewStringUTF(env,"358240051111110");
